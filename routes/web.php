@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DevisController;
+use App\Http\Controllers\DiagnosticController;
+use App\Http\Controllers\FactureController;
+use App\Http\Controllers\ReparationController;
+use App\Http\Controllers\VoitureController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +24,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('produits/',ProduitController::class);
+Route::resource('clients/',ClientController::class);
+Route::resource('factures/',FactureController::class);
+Route::resource('diagnostics/',DiagnosticController::class);
+Route::resource('devis/',DevisController::class);
+Route::resource('repartions/',ReparationController::class);
+Route::resource('voitures/',VoitureController::class);
