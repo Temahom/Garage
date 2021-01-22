@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
@@ -13,7 +14,10 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        //
+        $produits = Produit::latest()->paginate(4);
+
+        return view('produits.index', compact('produits'))
+            ->with('i', (request()->input('page', 1) - 1) * 4);
     }
 
     /**
@@ -23,7 +27,8 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('produits.create');
     }
 
     /**
@@ -34,7 +39,16 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'libelle' => 'required',
+            'prix' => 'required',
+            'qte' => 'required'
+        ]);
+
+        Produit::create($request->all());
+
+        return redirect()->route('produits.index')
+            ->with('success', 'Produits created successfully.');
     }
 
     /**
@@ -43,9 +57,9 @@ class ProduitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Produit $produit)
     {
-        //
+        return view('produits.show', compact('produit'));
     }
 
     /**
@@ -54,10 +68,12 @@ class ProduitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+   
+        public function edit(Produit $produit)
     {
-        //
+        return view('produits.edit', compact('produit'));
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -66,19 +82,29 @@ class ProduitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Produit $produit)
     {
-        //
-    }
+        $request->validate([
+            'libelle' => 'required',
+            'prix' => 'required',
+            'qte' => 'required'
+        ]);
+        $produit->update($request->all());
 
+        return redirect()->route('projduits.index')
+            ->with('success', 'Produit updated successfully');
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Produit $produit)
     {
-        //
+        $produit->delete();
+
+        return redirect()->route('produits.index')
+            ->with('success', 'Produit deleted successfully');
     }
 }
