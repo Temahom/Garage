@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Réparation</title>
+    <link rel="stylesheet" type="text/css" href="view.css" media="all">
+    <script type="text/javascript" src="view.js"></script>
+    <script type="text/javascript" src="calendar.js"></script>
+</head>
+
+<body id="main_body">
+
+    <img id="top" src="top.png" alt="">
+    <div id="form_container">
+
+        <h1><a>Réparation</a></h1>
+        <form id="reparation" class="appnitro" method="post" action="">
+
+            <h2>Réparation </h2>
+
+            <label class="description" for="element_1">Date d'entrée </label>
+            <span>
+				<label for="element_1_1">Jour</label>
+			<input id="element_1_1" name="element_1_1" class="element text" size="2" maxlength="2" value="" type="text" style="text-align: center;">
+			
+		</span>
+            <span>
+				<label for="element_1_2">Mois</label>
+			<input id="element_1_2" name="element_1_2" class="element text" size="2" maxlength="2" value="" type="text" style="text-align: center;">
+			
+		</span>
+            <span>
+				<label for="element_1_3">Année</label>
+	 		<input id="element_1_3" name="element_1_3" class="element text" size="4" maxlength="4" value="" type="text" style="text-align: center;">
+			
+		</span>
+
+            <span id="calendar_1">
+			<img id="cal_img_1" class="datepicker" src="./calendar.gif" alt="calendrier">	
+		</span>
+            <script type="text/javascript">
+                Calendar.setup({
+                    inputField: "element_1_3",
+                    baseField: "element_1",
+                    displayArea: "calendar_1",
+                    button: "cal_img_1",
+                    ifFormat: "%B %e, %Y",
+                    onSelect: selectEuropeDate
+                });
+            </script>
+
+            <br> <br>
+
+            <label class="description" for="element_2">Date de sortie </label>
+            <span>
+				<label for="element_2_1">Jour</label>
+			<input id="element_2_1" name="element_2_1" class="element text" size="2" maxlength="2" value="" type="text" style="text-align: center;">
+
+		</span>
+            <span>
+				<label for="element_2_2">Mois</label>
+			<input id="element_2_2" name="element_2_2" class="element text" size="2" maxlength="2" value="" type="text" style="text-align: center;">
+			
+		</span>
+            <span>
+				<label for="element_2_3">Année</label>
+	 		<input id="element_2_3" name="element_2_3" class="element text" size="4" maxlength="4" value="" type="text" style="text-align: center;">
+			
+		</span>
+
+            <span id="calendar_2">
+			<img id="cal_img_2" class="datepicker" src="./calendar.gif" alt="Calendrier">	
+		</span>
+            <script type="text/javascript">
+                Calendar.setup({
+                    inputField: "element_2_3",
+                    baseField: "element_2",
+                    displayArea: "calendar_2",
+                    button: "cal_img_2",
+                    ifFormat: "%B %e, %Y",
+                    onSelect: selectEuropeDate
+                });
+            </script> <br> <br>
+
+            <label class="description" for="element_3">Compte Rendu </label>
+            <div>
+                <textarea id="element_3" name="element_3" class="element textarea small"></textarea>
+            </div>
+
+            <br> <br>
+
+            <input type="hidden" name="form_id" value="13245" />
+
+            <input id="saveForm" class="button_text" type="submit" name="submit" value="Enregistrer" />
+        </form>
+    </div>
+    <img id="bottom" src="bottom.png" alt="">
+</body>
+
+</html>

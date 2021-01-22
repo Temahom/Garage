@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reparation;
 use Illuminate\Http\Request;
 
 class ReparationController extends Controller
@@ -13,7 +14,8 @@ class ReparationController extends Controller
      */
     public function index()
     {
-        //
+       $reparation=Reparation::all();
+       return view('reparation.index',compact('reparation'));
     }
 
     /**
@@ -24,6 +26,7 @@ class ReparationController extends Controller
     public function create()
     {
         //
+        return view('reparation.create');
     }
 
     /**
@@ -35,50 +38,80 @@ class ReparationController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'element_1' => 'required',
+            'element_2' => 'required',
+            'element_3' => 'required'
+           
+        ]);
+
+        Reparation::create($request->all());
+
+        return redirect()->route('reparation.index')
+            ->with('success', 'Reparation created successfully.');
     }
+    
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Reparation  $reparation
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Reparation $reparation)
     {
         //
+        return view('reparation.show', compact('reparation'));
     }
+
+   
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Reparation  $reparation
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $reparation=Reparation::find($id);
+
+        return view('reparation.edit', compact('reparation'));
     }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Reparation  $reparation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Reparation $reparation)
     {
-        //
+        $request->validate([
+            'element_1' => 'required',
+            'element_2' => 'required',
+            'element_3' => 'required'
+        ]);
+        $reparation->update($request->all());
+
+        return redirect()->route('reparation.index')
+            ->with('success', 'Reparation updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Reparation  $reparation
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Reparation $reparation)
     {
         //
+        $reparation->delete();
+
+        return redirect()->route('reparation.index')
+            ->with('success', 'Reparation deleted successfully');
     }
 }
