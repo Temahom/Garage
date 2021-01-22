@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Voiture;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class VoitureController extends Controller
      */
     public function index()
     {
-        //
+        $voitures= Voiture::orderBy('created_at','DESC')->paginate(15);
+        return view('voiture.index',compact('voitures'));
     }
 
     /**
@@ -23,7 +25,7 @@ class VoitureController extends Controller
      */
     public function create()
     {
-        //
+      return view('voiture.create');
     }
 
     /**
@@ -34,7 +36,16 @@ class VoitureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data= request()->validate([
+            'matricule'=>'required',
+            'marque'=>'required',
+            'model'=>'required',
+            'annee'=>'required',
+            'carburant'=>'required',
+            'puissance'=>'required'
+          ]);
+          Voiture::create($data);
+          return redirect('/voitures');
     }
 
     /**
@@ -54,9 +65,10 @@ class VoitureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Voiture $voiture)
     {
         //
+        return view('voiture.edit',compact('voiture'));
     }
 
     /**
@@ -66,9 +78,18 @@ class VoitureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Voiture $voiture)
     {
-        //
+        $data= request()->validate([
+            'matricule'=>'required',
+            'marque'=>'required',
+            'model'=>'required',
+            'annee'=>'required',
+            'carburant'=>'required',
+            'puissance'=>'required'
+          ]);
+         $voiture->update($data);
+         return redirect ('/voitures');
     }
 
     /**
@@ -77,8 +98,9 @@ class VoitureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Voiture $voiture)
     {
-        //
+        $voiture->delete();
+        return redirect('/voitures');
     }
 }
