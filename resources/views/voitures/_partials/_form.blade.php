@@ -1,0 +1,60 @@
+<div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Matricule:</strong>
+                    <input type="text" name="matricule" value="{{ isset($voiture) ? $voiture->matricule :''}}" class="form-control" placeholder="Saisir matricule...">
+                </div>
+                @if($errors->has('matricule'))
+                    <p>{{ $errors->first('matricule') }}</p>
+                 @endif
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Marque</strong>
+                    <input type="text" name="marque" value="{{ isset($voiture) ? $voiture->marque :''}}" class="form-control" placeholder="Saisir marque...">
+                </div>
+                @if($errors->has('marque'))
+                    <p>{{ $errors->first('marque') }}</p>
+                @endif
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Model</strong>
+                    <input type="text" name="model" value="{{ isset($voiture) ? $voiture->model :''}}" class="form-control" placeholder="Saisir model...">
+                </div>
+                @if($errors->has('model'))
+                    <p>{{ $errors->first('model') }}</p>
+                @endif
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Annee</strong>
+                    <input type="number" name="annee" value="{{ isset($voiture) ? $voiture->annee :''}}" class="form-control" placeholder="Saisir annee...">
+                </div>
+                @if($errors->has('annee'))
+                    <p>{{ $errors->first('annee') }}</p>
+                @endif
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Carburant</strong>
+                    <input type="text" name="carburant" value="{{ isset($voiture) ? $voiture->carburant :''}}" class="form-control" placeholder="Saisir carburant...">
+                </div>
+                @if($errors->has('carbuant'))
+                    <p>{{ $errors->first('carburant') }}</p>
+                @endif
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Puissance</strong>
+                    <input type="text" name="puissance" value="{{ isset($voiture) ? $voiture->puissance :''}}" class="form-control" placeholder="Saisir puissance...">
+                </div>
+                @if($errors->has('puissance'))
+                    <p>{{ $errors->first('puissance') }}</p>
+                @endif
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <a class="btn btn-primary" href="{{ route('voitures.index') }}">Retour</a>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+ </div>
