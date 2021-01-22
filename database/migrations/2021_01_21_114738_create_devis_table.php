@@ -15,6 +15,7 @@ class CreateDevisTable extends Migration
     {
         Schema::create('devis', function (Blueprint $table) {
             $table->id();
+            $table->float('cout', 11, 2);
             $table->timestamps();
         });
     }
