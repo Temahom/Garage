@@ -25,10 +25,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('produits/',ProduitController::class);
-Route::resource('clients/',ClientController::class);
-Route::resource('factures/',FactureController::class);
-Route::resource('diagnostics/',DiagnosticController::class);
-Route::resource('devis/',DevisController::class);
-Route::resource('reparation',ReparationController::class);
-Route::resource('voitures/',VoitureController::class);
+Route::resource('produits',ProduitController::class);
+Route::resource('clients',ClientController::class);
+Route::resource('factures',FactureController::class);
+Route::resource('diagnostics',DiagnosticController::class);
+Route::resource('devis',DevisController::class);
+Route::resource('reparations',ReparationController::class);
+Route::resource('voitures',VoitureController::class);
+

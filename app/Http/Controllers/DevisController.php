@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Devis;
 
 class DevisController extends Controller
 {
@@ -13,7 +14,10 @@ class DevisController extends Controller
      */
     public function index()
     {
-        //
+        $devis=Devis::all();
+
+        return view('devis.index',['devis'=>$devis]);
+      
     }
 
     /**
@@ -23,7 +27,7 @@ class DevisController extends Controller
      */
     public function create()
     {
-        //
+        return view('devis.create');
     }
 
     /**
@@ -34,7 +38,8 @@ class DevisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Devis::create($request->all());
+        return redirect('/devis')->with('fait','Devis créer avec succés');
     }
 
     /**
@@ -45,7 +50,9 @@ class DevisController extends Controller
      */
     public function show($id)
     {
-        //
+        $devi=Devis::findOrFail($id);
+
+        return view('devis.show',['devi'=>$devi]);
     }
 
     /**
@@ -56,7 +63,9 @@ class DevisController extends Controller
      */
     public function edit($id)
     {
-        //
+        $devi=Devis::findOrFail($id);
+        return view('devis.edit', ['devi'=>$devi]);
+
     }
 
     /**
@@ -68,7 +77,10 @@ class DevisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $devi=Devis::findOrFail($id);
+        $devi->update($request->all());
+        return redirect('/devis')->with('modifier','Devis Modifier avec succées');
+    
     }
 
     /**
@@ -79,6 +91,8 @@ class DevisController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $devi=Devis::findOrFail($id);
+        $devi->delete();
+        return redirect('/devis')->with('Supprimer','Devis Supprimer avec succées');
     }
 }
