@@ -1,5 +1,5 @@
 
-@extends('reparation.layout')
+@extends('reparations.layout')
 
 @section('content')
 
@@ -10,7 +10,7 @@
                 <h2>Tableau de Réparation </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ url('reparation/create') }}" title="Enregistrer une réparation"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-success" href="/reparations/create" title="Enregistrer une réparation"> <i class="fas fa-plus-circle"></i>
                     Ajouter</a>
             </div>
         </div>
@@ -37,13 +37,13 @@
                 <td>{{ $reparation->element_2 }}</td>
                 <td>{{ $reparation->element_3}}</td>
                 <td>
-                    <form action="{{ url('reparation', $reparation->id) }}" method="POST">
+                    <form action="/reparations/{{$reparation->id}}" method="POST">
 
-                        <a href="{{ url('reparation', $reparation->id) }}" title="Voir">
+                        <a href="/reparations/{{$reparation->id}}" title="Voir">
                             <i class="fas fa-eye text-success  fa-lg"></i>Voir
                         </a>
 
-                        <a href="{{ route('reparation.edit', $reparation->id) }}" title="Modifier">
+                        <a href="/reparations/{{$reparation->id}}/edit" title="Modifier">
                             <i class="fas fa-edit  fa-lg"></i>Modifier
 
                         </a>
