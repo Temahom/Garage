@@ -14,10 +14,17 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('nom')->nullable();
+            $table->string('prenom')->nullable();
+            $table->string('genre')->nullable()->default('');
+            $table->string('entreprise')->nullable();
+            $table->string('telephone')->nullable();
             $table->timestamps();
+
         });
     }
+
 
     /**
      * Reverse the migrations.
