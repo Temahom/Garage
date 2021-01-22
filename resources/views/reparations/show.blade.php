@@ -1,4 +1,4 @@
-@extends('reparation.layout')
+@extends('reparations.layout')
 
 
 @section('content')
@@ -8,7 +8,7 @@
                 <h2>  Reparation</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ url('reparation') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
+                <a class="btn btn-primary" href="/reparations" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
         </div>
        
 
-        <a href="{{ route('reparation.edit', $reparation->id) }}" title="Modifier">
+        <a href="/reparations/{{$reparation->id }}/edit" title="Modifier">
                             <i class="fas fa-edit  fa-lg"></i>Modifier
 
                         </a>                        

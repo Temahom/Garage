@@ -15,7 +15,7 @@ class ReparationController extends Controller
     public function index()
     {
        $reparation=Reparation::all();
-       return view('reparation.index',compact('reparation'));
+       return view('reparations.index',compact('reparation'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ReparationController extends Controller
     public function create()
     {
         //
-        return view('reparation.create');
+        return view('reparations.create');
     }
 
     /**
@@ -47,7 +47,7 @@ class ReparationController extends Controller
 
         Reparation::create($request->all());
 
-        return redirect()->route('reparation.index')
+        return redirect('/reparations')
             ->with('success', 'Reparation created successfully.');
     }
     
@@ -61,7 +61,7 @@ class ReparationController extends Controller
     public function show(Reparation $reparation)
     {
         //
-        return view('reparation.show', compact('reparation'));
+        return view('reparations.show', compact('reparation'));
     }
 
    
@@ -76,7 +76,7 @@ class ReparationController extends Controller
     {
         $reparation=Reparation::find($id);
 
-        return view('reparation.edit', compact('reparation'));
+        return view('reparations.edit', compact('reparation'));
     }
 
 
@@ -96,7 +96,7 @@ class ReparationController extends Controller
         ]);
         $reparation->update($request->all());
 
-        return redirect()->route('reparation.index')
+        return redirect('/reparations')
             ->with('success', 'Reparation updated successfully');
     }
 
@@ -111,7 +111,7 @@ class ReparationController extends Controller
         //
         $reparation->delete();
 
-        return redirect()->route('reparation.index')
+        return redirect('/reparations')
             ->with('success', 'Reparation deleted successfully');
     }
 }
