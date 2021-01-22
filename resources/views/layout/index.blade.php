@@ -79,10 +79,10 @@
                                 <div id="submenu-client" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="ecommerce-product.html">Liste Clients</a>
+                                            <a class="nav-link" href="/clients">Liste Clients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="ecommerce-product-single.html">Ajouter Client</a>
+                                            <a class="nav-link" href="/clients/create">Ajouter Client</a>
                                         </li>
                                     </ul>    
                                 </div>

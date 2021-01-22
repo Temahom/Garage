@@ -1,4 +1,4 @@
-@extends('clients.layout')
+@extends('layout.index')
    
 @section('content')
     <div class="row">
