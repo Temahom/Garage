@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Devis extends Model
 {
     use HasFactory;
+    protected $fillable =['cout'];
 }
