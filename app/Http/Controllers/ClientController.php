@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -13,17 +13,19 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::latest()->paginate(5);
+        return view('clients.index',compact('clients'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
+    /**f
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -34,7 +36,18 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     
+        $request->validate([
+        'nom' => 'required',
+        'prenom' => 'required',
+        'telephone' => 'required',
+        ]);
+
+        Client::create($request->all());
+
+        return redirect()->route('clients.index')
+        ->with('success','Client Enrégistré');
+
     }
 
     /**
@@ -43,9 +56,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        //
+        return view('clients.show',compact('client'));
     }
 
     /**
@@ -54,9 +67,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        //
+        return view('clients.edit',compact('client'));
     }
 
     /**
@@ -66,9 +79,18 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Client $client)
     {
-        //
+         $request->validate([
+        'nom' => 'required',
+        'prenom' => 'required',
+        'telephone' => 'required',
+        ]);
+
+         $client->update($request->all());
+
+         return redirect()->route('clients.index')
+        ->with('success','Client Modifié !!');
     }
 
     /**
@@ -77,8 +99,11 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect()->route('clients.index')
+        ->with('success','Client Supprimé !!');
     }
 }
