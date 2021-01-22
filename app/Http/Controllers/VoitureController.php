@@ -15,7 +15,7 @@ class VoitureController extends Controller
     public function index()
     {
         $voitures= Voiture::orderBy('created_at','DESC')->paginate(15);
-        return view('voiture.index',compact('voitures'));
+        return view('voitures.index',compact('voitures'));
     }
 
     /**
@@ -25,7 +25,7 @@ class VoitureController extends Controller
      */
     public function create()
     {
-      return view('voiture.create');
+      return view('voitures.create');
     }
 
     /**
@@ -56,7 +56,8 @@ class VoitureController extends Controller
      */
     public function show($id)
     {
-        //
+        $voiture=Voiture::find($id);
+        return view('voitures.show',compact('voiture'));
     }
 
     /**
@@ -68,7 +69,7 @@ class VoitureController extends Controller
     public function edit(Voiture $voiture)
     {
         //
-        return view('voiture.edit',compact('voiture'));
+        return view('voitures.edit',compact('voiture'));
     }
 
     /**
@@ -93,6 +94,7 @@ class VoitureController extends Controller
     }
 
     /**
+     * 
      * Remove the specified resource from storage.
      *
      * @param  int  $id
