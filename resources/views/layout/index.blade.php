@@ -20,6 +20,17 @@
     <title>Garage</title>
 </head>
 
+<style>
+    .footer{
+
+        background:white;
+        position:fixed;
+        bottom:0;
+        width:100%
+    }
+
+</style>
+
 <body>
     <!-- ============================================================== -->
     <!-- main wrapper -->
