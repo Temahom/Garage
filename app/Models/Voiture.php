@@ -9,4 +9,8 @@ class Voiture extends Model
 {
     protected $guarded=[];
     use HasFactory;
+
+    public function client(){
+        return $this->belongsTo("App\Models\Client");
+      }
 }

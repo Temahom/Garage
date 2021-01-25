@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Voiture;
+use App\Models\Client;
 
 use Illuminate\Http\Request;
 
@@ -15,6 +16,7 @@ class VoitureController extends Controller
     public function index()
     {
         $voitures= Voiture::orderBy('created_at','DESC')->paginate(15);
+        
         return view('voitures.index',compact('voitures'));
     }
 
@@ -25,7 +27,8 @@ class VoitureController extends Controller
      */
     public function create()
     {
-      return view('voitures.create');
+      $clients= Client::all();
+      return view('voitures.create',compact('clients'));
     }
 
     /**
@@ -42,7 +45,8 @@ class VoitureController extends Controller
             'model'=>'required',
             'annee'=>'required',
             'carburant'=>'required',
-            'puissance'=>'required'
+            'puissance'=>'required',
+            'client_id'=>'required'
           ]);
           Voiture::create($data);
           return redirect('/voitures');
@@ -69,7 +73,9 @@ class VoitureController extends Controller
     public function edit(Voiture $voiture)
     {
         //
-        return view('voitures.edit',compact('voiture'));
+        $client_default= $voiture->client()->first();
+        $clients= Client::where('id','!=',$client_default->id)->get();
+        return view('voitures.edit',compact('voiture','clients','client_default'));
     }
 
     /**
@@ -87,7 +93,8 @@ class VoitureController extends Controller
             'model'=>'required',
             'annee'=>'required',
             'carburant'=>'required',
-            'puissance'=>'required'
+            'puissance'=>'required',
+            'client_id'=>'required'
           ]);
          $voiture->update($data);
          return redirect ('/voitures');
