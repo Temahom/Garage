@@ -4,11 +4,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Laravel 8 CRUD </h2>
+                <h2> Les Produits </h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('produits.create') }}" title="Crear un produit"> <i class="fas fa-plus-circle"></i>
-                    </a>
+                  Ajouter Un Produit </a>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
 
     <table class="table table-bordered table-responsive-lg">
         <tr>
-            <th>No</th>
+            <th>N°</th>
             <th>Libellé</th>
             <th>prix</th>
             <th>Quanté</th>
