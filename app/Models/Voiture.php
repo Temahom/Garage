@@ -12,5 +12,10 @@ class Voiture extends Model
 
     public function client(){
         return $this->belongsTo("App\Models\Client");
-      }
+    }
+
+    public function interventions()
+    {
+      return $this->hasMany(Intervention::class);
+    }
 }

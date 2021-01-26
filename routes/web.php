@@ -8,6 +8,7 @@ use App\Http\Controllers\DiagnosticController;
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\ReparationController;
 use App\Http\Controllers\VoitureController;
+use App\Http\Controllers\InterventionController;
 
 
 /*
@@ -32,3 +33,4 @@ Route::resource('diagnostics',DiagnosticController::class);
 Route::resource('devis',DevisController::class);
 Route::resource('reparations',ReparationController::class);
 Route::resource('voitures',VoitureController::class);
+Route::resource('interventions',InterventionController::class);
