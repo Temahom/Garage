@@ -6,7 +6,7 @@
             <div class="pull-left">
                 <h2>Liste Voitures</h2>
             </div>
-            <div class="pull-right">
+            <div class="pull-right py-3">
                 <a class="btn btn-success" href="{{ route('voitures.create') }}">Ajouter Voiture</a>
             </div>
         </div>

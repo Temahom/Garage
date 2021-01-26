@@ -28,7 +28,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Modele:</strong>
-                {{ $voiture->modele }}
+                {{ $voiture->model }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -47,6 +47,12 @@
             <div class="form-group">
                 <strong>Puissance:</strong>
                 {{ $voiture->puissance}}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>proprietaire:</strong>
+                {{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
             </div>
         </div>
         
