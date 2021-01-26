@@ -34,8 +34,8 @@
 				<th>Action</th>
 			</tr>
 		</thead>
-		@foreach ($clients as $client)
 		<tbody>
+		@foreach ($clients as $client)
 			<tr>
 				<td>{{ $client->id }}</td>
 				<td>{{ $client->nom }}</td>
@@ -70,8 +70,8 @@
 
 				</td>
 			</tr>
+		@endforeach
 		</tbody>
-        @endforeach
 	</table>
 	</div>
 	</div>

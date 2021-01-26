@@ -16,7 +16,6 @@ class VoitureController extends Controller
     public function index()
     {
         $voitures= Voiture::orderBy('created_at','DESC')->paginate(15);
-        
         return view('voitures.index',compact('voitures'));
     }
 
@@ -61,7 +60,8 @@ class VoitureController extends Controller
     public function show($id)
     {
         $voiture=Voiture::find($id);
-        return view('voitures.show',compact('voiture'));
+        $interventions = $voiture->interventions;
+        return view('voitures.show',compact('voiture', 'interventions'));
     }
 
     /**
