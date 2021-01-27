@@ -15,8 +15,21 @@
     <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+     <!-- Table CSS -->
+    <link rel="stylesheet" type="text/css" href="../style-table.css">
     <title>Garage</title>
 </head>
+
+<style>
+    .footer{
+
+        background:white;
+        position:fixed;
+        bottom:0;
+        width:100%
+    }
+
+</style>
 
 <body>
     <!-- ============================================================== -->
@@ -93,10 +106,10 @@
                                 <div id="submenu-voiture" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="ecommerce-product.html">Liste voitures</a>
+                                            <a class="nav-link" href="/voitures">Liste voitures</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="ecommerce-product-single.html">Ajouter voiture</a>
+                                            <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
                                         </li>
                                     </ul>    
                                 </div>

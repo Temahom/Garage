@@ -31,11 +31,11 @@ setlocale(LC_TIME, "fr_FR", "French");
                     <td>{{strftime("%A %d %B %Y", strtotime($devi->created_at))}}</td>
                     <td>{{number_format($devi->cout,0, ",", " " )}} <sup>F CFA</sup></td>
                     <td style="display: flex; justify-content:space-between;"> 
-                        <a  href="/devis/{{$devi->id}}" class="btn btn-info m-2">voir</a>
-                        <a  href="/devis/{{$devi->id}}/edit" class="btn btn-primary m-2">modifier</a>
+                        <a  href="/devis/{{$devi->id}}" class="btn btn-info m-2"><i class="fas fa-eye mr-2"></i></a>
+                        <a  href="/devis/{{$devi->id}}/edit" class="btn btn-primary m-2"><i class="fas fa-edit mr-2"></i></a>
                  <div class="m-2" >
                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$devi->id}}">
-                            Supprimer
+                        <i class="fas fa-trash-alt mr-2"></i>
                          </button>
                     
                         <div class="modal" id="exampleModal{{$devi->id}}">

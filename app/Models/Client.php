@@ -9,4 +9,8 @@ class Client extends Model
 {
     use HasFactory;
     protected $fillable = ['nom','prenom','genre','entreprise','telephone'];
+    public function voitures()
+    {
+       return $this->hasMany('App\Models\Voiture');
+    }
 }

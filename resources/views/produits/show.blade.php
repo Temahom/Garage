@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Détails du Produit {{ $produit->libelle }}</h2>
+                <h2> Les Détails du Produit {{ $produit->libelle }}</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('produits.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour </a>

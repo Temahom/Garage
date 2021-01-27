@@ -53,8 +53,23 @@
                     <p>{{ $errors->first('puissance') }}</p>
                 @endif
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <a class="btn btn-primary" href="{{ route('voitures.index') }}">Retour</a>
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Proprietaire</strong>
+                    <select name="client_id" class="custom-select form-control">
+                       <option value="{{ isset($client_default) ? $client_default->id:''}}">{{ isset ($client_default) ? $client_default->prenom.' '.$client_default->nom:''}}</option>
+                      @foreach( $clients as $client ) 
+                       <option value="{{$client->id}}">{{$client->prenom.' '.$client->nom}}</option>
+                      @endforeach 
+                    </select>
+                </div>
+                @if($errors->has('client_id'))
+                    <p>{{ $errors->first('client_id') }}</p>
+                @endif
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <a class="btn btn-primary" href="{{ route('voitures.index') }}">Retour</a>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+
  </div>

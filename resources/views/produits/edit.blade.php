@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Editer Le Produit</h2>
+                <h2>Modifier Le Produit</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('produits.index') }}" title="Go back"> <i class="fas fa-backward "></i>Retour </a>

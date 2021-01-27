@@ -21,6 +21,7 @@ class CreateVoituresTable extends Migration
             $table->integer('annee');
             $table->string('carburant');
             $table->string('puissance');
+            $table->unsignedBigInteger('client_id');
             $table->timestamps();
         });
     }

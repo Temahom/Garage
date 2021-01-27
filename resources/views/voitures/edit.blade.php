@@ -24,7 +24,7 @@
         @csrf
         @method('PATCH')
 
-        @include('voitures._partials._form');
+        @include('voitures._partials._form')
 
     </form>
     

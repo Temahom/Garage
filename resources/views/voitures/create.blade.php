@@ -9,8 +9,8 @@
     </div>
 
     <form action="{{ route('voitures.store') }}" method="POST">
-        {{ csrf_field() }}
-        @include('voitures._partials._form');
+    {{ csrf_field() }}
+        @include('voitures._partials._form')
         
     </form>
         

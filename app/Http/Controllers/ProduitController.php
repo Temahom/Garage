@@ -91,7 +91,7 @@ class ProduitController extends Controller
         ]);
         $produit->update($request->all());
 
-        return redirect()->route('projduits.index')
+        return redirect()->route('produits.index')
             ->with('success', 'Produit mis à jour avec succès');
     }
     /**
