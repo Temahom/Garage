@@ -14,10 +14,10 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        $produits = Produit::latest()->paginate(4);
+        $produits = Produit::latest()->paginate(15);
 
         return view('produits.index', compact('produits'))
-            ->with('i', (request()->input('page', 1) - 1) * 4);
+            ->with('i', (request()->input('page', 1) - 1) * 15);
     }
 
     /**
@@ -48,7 +48,7 @@ class ProduitController extends Controller
         Produit::create($request->all());
 
         return redirect()->route('produits.index')
-            ->with('success', 'Produits created successfully.');
+            ->with('success', 'Produit créé avec succès.');
     }
 
     /**
@@ -91,8 +91,8 @@ class ProduitController extends Controller
         ]);
         $produit->update($request->all());
 
-        return redirect()->route('projduits.index')
-            ->with('success', 'Produit updated successfully');
+        return redirect()->route('produits.index')
+            ->with('success', 'Produit mis à jour avec succès');
     }
     /**
      * Remove the specified resource from storage.
@@ -105,6 +105,7 @@ class ProduitController extends Controller
         $produit->delete();
 
         return redirect()->route('produits.index')
-            ->with('success', 'Produit deleted successfully');
+            ->with('success', 'Produit supprimé avec succès');
     }
 }
+
