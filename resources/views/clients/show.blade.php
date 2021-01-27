@@ -39,6 +39,26 @@
                {{ $client->telephone }}
             </div>
          </div>
+         <div class="col-xs-12 col-sm-12 col-md-12">
+           <table class="table table-striped table-hover col-md-12">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Matricule</th>
+                        <th>Marque</th>
+                        <th>Model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($voitures as $voiture)
+                    <tr>
+                         <td>{{$voiture->matricule}}</td>
+                         <td>{{$voiture->marque}}</td>
+                         <td>{{$voiture->model}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>    
+         </div>
           <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('clients.index') }}"> Retour</a>
             </div>
