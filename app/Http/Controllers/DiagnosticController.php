@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Diagnostic;
+use App\Models\Voiture;
+use App\Models\Intervention;
 
 class DiagnosticController extends Controller
 {
@@ -25,9 +27,9 @@ class DiagnosticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Voiture $voiture, Intervention $intervention)
     {
-        return view('diagnostics.create');
+        return view('diagnostics.create', compact('voiture', 'intervention'));
     }
 
     /**
@@ -36,17 +38,19 @@ class DiagnosticController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
         $request->validate([
             'date' => 'required',
             'description' => 'required',
         ]);
-
-        Diagnostic::create($request->all());
-
-        return redirect()->route('diagnostics.index')
-            ->with('success', 'diagnostic ajouté avec succés.');
+        $diagnostic = new Diagnostic();
+        $diagnostic->date = $request->input('date');
+        $diagnostic->description = $request->input('description');
+        $diagnostic->save();
+        $intervention->diagnostic_id = $diagnostic->id;
+        $intervention->update();
+        return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] );
     }
 
     /**
@@ -66,10 +70,9 @@ class DiagnosticController extends Controller
      * @param  \App\Models\Diagnostic  $diagnostic
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic)
     {
-        $diagnostic = Diagnostic::find($id);
-        return view('diagnostics.edit', compact('diagnostic'));
+        return view('diagnostics.edit', compact('voiture', 'intervention', 'diagnostic'));
     }
     /**
      * Update the specified resource in storage.
@@ -78,16 +81,15 @@ class DiagnosticController extends Controller
      * @param  \App\Models\Diagnostic  $diagnostic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic)
     {
         $request->validate([
             'date' => 'required',
             'description' => 'required',
         ]);
-        $diagnostic= Diagnostic::find($id);
         $diagnostic->update($request->all());
 
-        return redirect()->route('diagnostics.index')
+        return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] )
             ->with('success', 'Diagnostic ajouté avec succés');
     }
     /**

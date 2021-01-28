@@ -22,7 +22,7 @@ class CreateInterventionsTable extends Migration
             $table->unsignedBigInteger('facture_id')->nullable();
             $table->string('type');
             $table->date('debut');
-            $table->date('fin');
+            $table->date('fin')->nullable();
             $table->timestamps();
         });
     }
