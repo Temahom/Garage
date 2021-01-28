@@ -56,7 +56,7 @@
                     <ul class="navbar-nav ml-auto navbar-right-top">
                         <li class="nav-item">
                             <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Search..">
+                                <input class="form-control" type="text" placeholder="Recherche..">
                             </div>
                         </li>
                         @auth
@@ -70,8 +70,6 @@
                                 </div>
                                 <form action="{{route ('logout')}}" method="post">
                                     @csrf
-                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Mon Compte</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Parametres</a>
                                 <button class="dropdown-item" type="submit"><i class="fas fa-power-off mr-2"></i>Deconnexion</button>
                             </form>
                             </div>

@@ -14,7 +14,7 @@ class DevisController extends Controller
      */
     public function index()
     {
-        $devis=Devis::all();
+        $devis=Devis::paginate(2);
 
         return view('devis.index',['devis'=>$devis]);
       

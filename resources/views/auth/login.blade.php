@@ -56,7 +56,7 @@
                 <div class="card-footer-item card-footer-item-bordered">
                     <a href="{{route('register')}}" class="footer-link">Créer un Compte</a></div>
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="" class="footer-link">Mot de oublié ?</a>
+                    <a href="{{route('password.request')}}" class="footer-link">Mot de oublié ?</a>
                 </div>
             </div>
         </div>

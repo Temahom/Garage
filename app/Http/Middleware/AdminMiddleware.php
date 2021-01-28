@@ -19,7 +19,7 @@ class AdminMiddleware
         if(Auth::check() && Auth::user()->role_id == 1){
             return $next($request);
         }else{
-            return redirect()->route('login');
+            return redirect()->route('login')->with('manager','L\'accés ne vous est pas autorisé !');
         }
     }
 }

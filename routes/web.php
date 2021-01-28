@@ -36,15 +36,18 @@ Route::middleware(['auth','admin' ])->group(function () {
     
     
     });
-    
+
+
+    Route::middleware(['auth','manager'])->group(function () {
+        Route::resource('factures',FactureController::class);
+        Route::resource('diagnostics',DiagnosticController::class);
+        Route::resource('devis',DevisController::class);
+    });
     
  
-Route::middleware(['auth','user' ])->group(function () {
+Route::middleware(['auth','user'])->group(function () {
     Route::resource('produits',ProduitController::class);
     Route::resource('clients',ClientController::class);
-    Route::resource('factures',FactureController::class);
-    Route::resource('diagnostics',DiagnosticController::class);
-    Route::resource('devis',DevisController::class);
     //Route::resource('voitures',VoitureController::class);
     Route::resource('interventions',InterventionController::class);
 });

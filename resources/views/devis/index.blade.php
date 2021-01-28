@@ -64,6 +64,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                 @endforeach
                 
             </tbody>
+           
             {{-- <tfoot>
                 <tr>
                     <th>Name</th>
@@ -75,7 +76,11 @@ setlocale(LC_TIME, "fr_FR", "French");
                 </tr>
             </tfoot> --}}
         </table>
-       
+      
+        
+    </div>
+    <div class="mt-2" style="justify-content: center; display:flex;">
+        {{$devis->links()}}
     </div>
 </div>
 @endsection

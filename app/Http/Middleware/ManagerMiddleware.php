@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
-class UserMiddleware
+class ManagerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,15 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->role_id == 2){
+        if(Auth::check() && Auth::user()->role_id == 3){
             return $next($request);
         }else{
-            return redirect()->route('login')->with('RAf','L\'accés ne vous est pas autorisé !');
+            return redirect()->route('login')->with('manager','L\'accés ne vous est pas autorisé !');
         }
+        return $next($request);
+
     }
+
+        
+    
 }
- 

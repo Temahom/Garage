@@ -28,6 +28,9 @@ class RedirectIfAuthenticated
             }elseif (Auth::guard($guard)->check() && Auth::user()->role_id == 2) {
                 return redirect(RouteServiceProvider::HOME);
                 return $next($request);
+            }elseif (Auth::guard($guard)->check() && Auth::user()->role_id == 3) {
+                return redirect(RouteServiceProvider::MANAGER);
+                return $next($request);
             }
         }
         return $next($request);

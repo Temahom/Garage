@@ -78,12 +78,6 @@
                 <div class="form-group pt-2">
                     <button class="btn btn-block btn-primary" type="submit">Enregister </button>
                 </div>
-                <div class="form-group">
-                    <label class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
-                    </label>
-                </div>
-                
             </div>
             <div class="card-footer bg-white">
                 <p>Déjà inscrit ? <a href="{{route('login')}}" class="text-secondary">Se connecter.</a></p>
