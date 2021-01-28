@@ -47,7 +47,7 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-body">
-									<h5>Voulez vous supprimer: <strong>{{ $diagnostic->nom }} {{ $diagnostic->prenom }}</strong>  ?</h5>
+									<h5>Voulez vous vraiment supprimer <strong>la {{ $diagnostic->date }} et la {{ $diagnostic->description }} de la diagnostique</strong>  ?</h5>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -57,8 +57,8 @@
 										<button type="submit" class="btn btn-danger">Supprimer</button>
 									</form>
 							</div>
-							</div>
 						</div>
+					</div>
                 </td>
             </tr>
             @endforeach
