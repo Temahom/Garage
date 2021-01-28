@@ -64,7 +64,7 @@
 				<h2>Toutes les interventions</h2>
 			</div>
 			<div class="pull-right">
-				<a class="btn btn-success" href="{{route('clients.create')}}">Ajouter une intervention</a>
+				<a class="btn btn-success" href="{{route('voitures.interventions.create',['voiture' => $voiture->id])}}">Ajouter une intervention</a>
 			</div>
 		</div>
 	</div>
@@ -97,8 +97,8 @@
 				<td>{{ $intervention->fin }}</td>
                 <td style="text-transform: capitalize;">{{ $intervention->type }}</td>
                 <td>
-					<a class="btn btn-success" href="{{route('interventions.show',$intervention->id)}}"><i class="fas fa-eye mr-2"></i></a>
-					<a class="btn btn-primary" href="{{ route('interventions.edit',$intervention->id)}}"><i class="fas fa-edit mr-2"></i></a>
+					<a class="btn btn-success" href="{{route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-eye mr-2"></i></a>
+					<a class="btn btn-primary" href="{{route('voitures.interventions.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-edit mr-2"></i></a>
 					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
 						<i class="fas fa-trash mr-2"></i>
 					</button>
@@ -111,7 +111,7 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-									<form action="{{route('interventions.destroy',$intervention->id)}}" method="POST">
+									<form action="{{route('voitures.interventions.destroy',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}" method="POST">
 										@csrf
 										@method('DELETE')
 										<button type="submit" class="btn btn-danger">Supprimer</button>
