@@ -48,7 +48,7 @@ class ReparationController extends Controller
         Reparation::create($request->all());
 
         return redirect('/reparations')
-            ->with('success', 'Reparation created successfully.');
+            ->with('success', 'Ajout Réussi');
     }
     
 
@@ -97,7 +97,7 @@ class ReparationController extends Controller
         $reparation->update($request->all());
 
         return redirect('/reparations')
-            ->with('success', 'Reparation updated successfully');
+            ->with('success', 'Modification Réussie');
     }
 
     /**
@@ -112,6 +112,6 @@ class ReparationController extends Controller
         $reparation->delete();
 
         return redirect('/reparations')
-            ->with('success', 'Reparation deleted successfully');
+            ->with('success', 'Suppression Réussie');
     }
 }
