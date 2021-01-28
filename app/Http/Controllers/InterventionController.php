@@ -34,17 +34,18 @@ class InterventionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Voiture $voiture)
     {
         $intervention = new Intervention();
-        $intervention->voiture_id = '1';
+        $intervention->voiture_id = $voiture->id;
         $intervention->diagnostic_id = 1;
         $intervention->devis_id = 1;
         $intervention->reparation_id = 1;
+        $intervention->facture_id = 1;
         $intervention->type = $request->input('type');
         $intervention->debut = $request->input('debut');
         $intervention->fin = $request->input('fin');
-        $intervention->create();
+        $intervention->save();
     }
 
     /**
