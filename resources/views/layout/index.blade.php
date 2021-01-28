@@ -2,6 +2,9 @@
 <html lang="en">
  @php
     use Illuminate\Support\Facades\Auth;
+    use App\Models\Role;
+   $role=Role::find(Auth::user()->role_id);
+                            
  @endphp
 <head>
     <!-- Required meta tags -->
@@ -62,7 +65,8 @@
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name"> {{Auth::user()->name?Auth::user()->name:null}}</h5>
-                                    <span class="status"></span><span class="ml-2">Disponible</span>
+                                   
+                                    <span class="status"></span><span class="ml-2">{{$role->role}}</span>
                                 </div>
                                 <form action="{{route ('logout')}}" method="post">
                                     @csrf

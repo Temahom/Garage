@@ -34,7 +34,7 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="/"><img class="logo-img" src="/assets/images/logo.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
+            <div class="card-header text-center"><a href="/"><img style="height: 100px;width: auto;" class="logo-img" src="/assets/images/logo.png" alt="logo"></a><span class="splash-description">veiilez entrer vos informations.</span></div>
             <div class="card-body">
                 <form method="POST" action="{{ route('login')}}">
                     @csrf
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
+                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Se souvenir de moi</span>
                         </label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Se Connecter</button>

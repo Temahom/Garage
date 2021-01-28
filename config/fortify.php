@@ -60,8 +60,9 @@ return [
     | and the user is authenticated. You are free to change this value.
     |
     */
-
+    'admin' => RouteServiceProvider::ADMIN,
     'home' => RouteServiceProvider::HOME,
+    
 
     /*
     |--------------------------------------------------------------------------
