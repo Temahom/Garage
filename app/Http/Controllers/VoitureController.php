@@ -38,6 +38,8 @@ class VoitureController extends Controller
      */
     public function store(Request $request)
     {
+       // dd($request);
+
         $data= request()->validate([
             'matricule'=>'required',
             'marque'=>'required',

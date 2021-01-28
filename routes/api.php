@@ -18,21 +18,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('listes/{marques}',function($marques){
-    return Liste::where('marques', '=', $marques)->groupby('lemodel')->get();
-
+    return Liste::select('lemodel')->where('marques','=',$marques)->orderBy('lemodel')->distinct()->get();  
 });
 
 Route::get('listes/model/{lemodel}',function($lemodel){
-    return Liste::where('lemodel', '=', $lemodel)->get();
-
+    return Liste::select('lannee')->where('lemodel','=',$lemodel)->orderBy('lannee')->distinct()->get();
 });
 
 Route::get('listes/annee/{lannee}',function($lannee){
-    return Liste::where('lannee', '=', $lannee)->get();
-
+    return Liste::select('lecarburant')->where('lannee','=',$lannee)->orderBy('lecarburant')->distinct()->get();
 });
 
 Route::get('listes/carburant/{lecarburant}',function($lecarburant){
-    return Liste::where('lecarburant', '=', $lecarburant)->get();
-
+    return Liste::select('lapuissance')->where('lecarburant','=',$lecarburant)->orderBy('lapuissance')->distinct()->get();
 });
