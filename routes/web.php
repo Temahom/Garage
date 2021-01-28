@@ -33,4 +33,4 @@ Route::resource('diagnostics',DiagnosticController::class);
 Route::resource('devis',DevisController::class);
 Route::resource('reparations',ReparationController::class);
 Route::resource('voitures',VoitureController::class);
-Route::resource('interventions',InterventionController::class);
+Route::resource('voitures.interventions',InterventionController::class);
