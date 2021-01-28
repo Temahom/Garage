@@ -10,6 +10,8 @@ use App\Http\Controllers\ReparationController;
 use App\Http\Controllers\VoitureController;
 use App\Http\Controllers\InterventionController;
 
+use Illuminate\Support\Facades\App;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,13 @@ Route::resource('devis',DevisController::class);
 Route::resource('reparations',ReparationController::class);
 Route::resource('voitures',VoitureController::class);
 Route::resource('voitures.interventions',InterventionController::class);
+
+Route::get('/greeting/{locale}', function ($locale) {
+    if (! in_array($locale, ['en', 'es', 'fr'])) {
+        abort(400);
+    }
+
+    App::setLocale($locale);
+
+    //
+});
