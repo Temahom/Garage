@@ -16,10 +16,10 @@ class CreateInterventionsTable extends Migration
         Schema::create('interventions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('voiture_id');
-            $table->unsignedBigInteger('diagnostic_id');
-            $table->unsignedBigInteger('devis_id');
-            $table->unsignedBigInteger('reparation_id');
-            $table->unsignedBigInteger('facture_id');
+            $table->unsignedBigInteger('diagnostic_id')->nullable();
+            $table->unsignedBigInteger('devis_id')->nullable();
+            $table->unsignedBigInteger('reparation_id')->nullable();
+            $table->unsignedBigInteger('facture_id')->nullable();
             $table->string('type');
             $table->date('debut');
             $table->date('fin');
