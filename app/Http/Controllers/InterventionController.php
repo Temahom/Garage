@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Intervention;
+use App\Models\Voiture;
 use Illuminate\Http\Request;
 
 class InterventionController extends Controller
@@ -22,9 +23,9 @@ class InterventionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Voiture $voiture)
     {
-        //
+        return view('interventions.create', compact('voiture'));
     }
 
     /**
@@ -33,9 +34,19 @@ class InterventionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Voiture $voiture)
     {
-        //
+        $intervention = new Intervention();
+        $intervention->voiture_id = $voiture->id;
+        $intervention->diagnostic_id = 1;
+        $intervention->devis_id = 1;
+        $intervention->reparation_id = 1;
+        $intervention->facture_id = 1;
+        $intervention->type = $request->input('type');
+        $intervention->debut = $request->input('debut');
+        $intervention->fin = $request->input('fin');
+        $intervention->save();
+        return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
     }
 
     /**
@@ -44,7 +55,7 @@ class InterventionController extends Controller
      * @param  \App\Models\Intervention  $intervention
      * @return \Illuminate\Http\Response
      */
-    public function show(Intervention $intervention)
+    public function show(Voiture $voiture, Intervention $intervention)
     {
 
         return view('interventions.show', compact('intervention'));
