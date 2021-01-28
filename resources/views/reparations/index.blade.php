@@ -39,22 +39,25 @@
                 <td>
                     <form action="/reparations/{{$reparation->id}}" method="POST">
 
-                        <a href="/reparations/{{$reparation->id}}" title="Voir">
-                            <i class="fas fa-eye text-success  fa-lg"></i>Voir
+                        <a href="/reparations/{{$reparation->id}}" title="" >
+                            <i class="fas fa-eye text-success  fa-lg"></i>
                         </a>
 
-                        <a href="/reparations/{{$reparation->id}}/edit" title="Modifier">
-                            <i class="fas fa-edit  fa-lg"></i>Modifier
+                        <a href="/reparations/{{$reparation->id}}/edit" title="">
+                            <i class="fas fa-edit  fa-lg"></i>
 
                         </a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" title="Supprimer" style="border: none; background-color:transparent;">
-                            <i class="fas fa-trash fa-lg text-danger"></i>Supprimer
+                        <button type="submit" title="" style="border: none; background-color:transparent;">
+                            <i class="fas fa-trash fa-lg text-danger"></i>
 
                         </button>
+                        
+
+                        
                     </form>
                 </td>
             </tr>
