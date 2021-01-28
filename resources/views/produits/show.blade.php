@@ -21,7 +21,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Prix:</strong>
-                {{ $produit->prix }}
+                {{ $produit->prix }} <sup>F CFA</sup>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

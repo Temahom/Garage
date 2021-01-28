@@ -7,7 +7,7 @@
                 <h2>Ajouter Un Nouveau Produit</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('produits.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
+                <a class="btn btn-primary" href="{{ route('produits.index') }}" title="Go back"><span style="font-size:15px;">&#129060;</span> Retour</a>
             </div>
         </div>
     </div>

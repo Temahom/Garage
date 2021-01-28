@@ -16,7 +16,7 @@ class CreateProduitsTable extends Migration
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
             $table->string('libelle');
-            $table->integer('prix');
+            $table->UnsignedInteger('prix');
             $table->float('qte');
             $table->timestamps();
         });

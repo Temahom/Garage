@@ -12,13 +12,40 @@ class ProduitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+ 
+   /*    public function index()
     {
         $produits = Produit::latest()->paginate(15);
 
         return view('produits.index', compact('produits'))
             ->with('i', (request()->input('page', 1) - 1) * 15);
     }
+
+    public function search()
+    {
+        $search_text = $_GET['query'];
+        $produits = Produit::where('libelle','LIKE', '%'.$search_text.'%')->get();
+           
+        return view('produits.index', compact('produits'))
+            ->with('i', (request()->input('page', 1) - 1) * 15);  
+    }
+       */
+       public function index(Request $request)  //Request $request
+      {         
+         $produits = Produit::where([
+            [function ($query) use ($request){
+                if (($term = $request->term)) {
+                    $query->orWhere('libelle', 'LIKE' , '%' . $term . '%')->get();
+                }
+               }] 
+            ])
+                ->orderBy("id","asc")
+                ->paginate(15);
+  
+        return view('produits.index', compact('produits'))
+            ->with('i', (request()->input('page', 1) - 1) * 15); 
+             
+        }      
 
     /**
      * Show the form for creating a new resource.
