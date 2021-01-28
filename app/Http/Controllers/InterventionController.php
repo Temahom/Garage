@@ -46,6 +46,7 @@ class InterventionController extends Controller
         $intervention->debut = $request->input('debut');
         $intervention->fin = $request->input('fin');
         $intervention->save();
+        return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
     }
 
     /**
