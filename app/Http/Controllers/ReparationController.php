@@ -39,14 +39,10 @@ class ReparationController extends Controller
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
         $request->validate([
-            'element_1' => 'required',
-            'element_2' => 'required',
             'element_3' => 'required'
            
         ]);
         $reparation = new Reparation();
-        $reparation->element_1 = $request->input('element_1');
-        $reparation->element_2 = $request->input('element_2');
         $reparation->element_3 = $request->input('element_3');
         $reparation->save();
 
@@ -93,9 +89,7 @@ class ReparationController extends Controller
      */
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Reparation $reparation)
     {
-        $request->validate([
-            'element_1' => 'required',
-            'element_2' => 'required',
+        $request->validate([  
             'element_3' => 'required'
         ]);
         $reparation->update($request->all());

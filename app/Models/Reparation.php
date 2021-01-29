@@ -14,8 +14,6 @@ class Reparation extends Model
 
 
     protected $fillable = [
-        'element_1',
-        'element_2',
         'element_3'   
     ];
 
