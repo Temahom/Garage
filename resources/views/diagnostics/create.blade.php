@@ -8,6 +8,17 @@
             </div>
         </div>
     </div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Attention</strong>Veuillez vérifier vos saisies<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li> {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>   
+    @endif
+
 
     <form action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
         {{ csrf_field() }}
