@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Devis extends Model
+class Devi extends Model
 {
     use HasFactory;
-    protected $fillable =['cout'];
+    protected $fillable =['cout ', 'produit '];
 }

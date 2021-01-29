@@ -21,7 +21,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Marque de la voiture :</strong>
                     <select name="marque" id="marques" class="custom-select form-control @error('marque') is-invalid @enderror">
-						<option value=""></option>
+						<option value="">Marque</option>
 							@foreach ($listes as $liste)
 								<option value="{{$liste->marques}}">{{$liste->marques}}</option>
 							@endforeach
@@ -37,7 +37,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Modele de la voiture :</strong>
                     <select name="model" id="lemodel" class="custom-select form-control @error('model') is-invalid @enderror">
-						
+                      <option value="">Model</option>
 					</select>
                     <div class="invalid-feedback">
                                 @if($errors->has('model'))
@@ -49,7 +49,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Année de la voiture :</strong>
                     <select name="annee" id="lannee" class="custom-select form-control @error('annee') is-invalid @enderror">
-						
+                      <option value="">Année</option>
 					</select>	
                     <div class="invalid-feedback">
                                 @if($errors->has('annee'))
@@ -61,7 +61,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Type de carburant de la voiture :</strong>
                     <select name="carburant" id="lecarburant" class="custom-select form-control @error('carburant') is-invalid @enderror">
-						
+                      <option value="">Carburant</option>
 					</select>	
                     <div class="invalid-feedback">
                                 @if($errors->has('carburant'))
@@ -73,7 +73,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Puissance de la voiture :</strong>
                     <select name="puissance" id="lapuissance" class="custom-select form-control @error('puissance') is-invalid @enderror">
-						
+                      <option value="">Puissance</option>
 					</select>
                     <div class="invalid-feedback">
                                 @if($errors->has('puissance'))
@@ -111,7 +111,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
  <script>
 $(document).ready(function() {
 	$('select[name=marque]').change(function () {
-		var model='<option value=""></option>'
+		var model='<option value="">choisissez le model</option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/"+ $('select[name=marque]').val(),
@@ -132,7 +132,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('select[name=model]').change(function () {
-		var annee='<option value=""></option>'
+		var annee='<option value="">Choisissez son année</option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/model/"+ $('select[name=model]').val(),
@@ -153,7 +153,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('select[name=annee]').change(function () {
-		var carburant='<option value=""></option>'
+		var carburant='<option value="">Choisissez le carburant</option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/annee/"+ $('select[name=annee]').val(),
@@ -174,7 +174,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('select[name=carburant]').change(function () {
-		var puissance='<option value=""></option>'
+		var puissance='<option value="">Choisissez la puissance</option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/carburant/"+ $('select[name=carburant]').val(),

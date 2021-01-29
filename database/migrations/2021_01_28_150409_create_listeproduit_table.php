@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReparationsTable extends Migration
+class CreateListeproduitTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateReparationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reparations', function (Blueprint $table) {
+        Schema::create('listeproduit', function (Blueprint $table) {
             $table->id();
-            $table->longText('element_3');
+            $table->longText('categorie');
+            $table->longText('produit');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateReparationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reparations');
+        Schema::dropIfExists('listeproduit');
     }
 }
