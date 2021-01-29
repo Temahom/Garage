@@ -24,11 +24,11 @@
     @endif
     <form action="{{ route('produits.store') }}" method="POST" >
         @csrf
-
+        <input type="hidden" name="voiture_id" value="{{ $voiture->id }}">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Libellé:</strong>
+                    <strong>Libellé:</strong>{{ $voiture->id }}
                     <input type="text" name="libelle" class="form-control" placeholder="Entrer le Nom du Produit">
                 </div>
             </div>

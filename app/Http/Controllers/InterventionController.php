@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Intervention;
 use App\Models\Voiture;
 use App\Models\Diagnostic;
+use App\Models\Reparation;
+use App\Models\Devi;
 use Illuminate\Http\Request;
 
 class InterventionController extends Controller
@@ -60,6 +62,16 @@ class InterventionController extends Controller
         {
             $diagnostic = Diagnostic::find($intervention->diagnostic_id);
             $data['diagnostic'] = $diagnostic;
+        }
+        if($intervention->reparation_id)
+        {
+            $reparation = Reparation::find($intervention->reparation_id);
+            $data['reparation'] = $reparation;
+        }
+        if($intervention->devis_id)
+        {
+            $devi = Devi::find($intervention->devis_id);
+            $data['devi'] = $devi;
         }
         return view('interventions.show', $data);
     }

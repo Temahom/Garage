@@ -23,13 +23,23 @@
     <div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
         <div class="col-md-6 p-3">
             <p><h2>Devis</h2></p>
-            <a class="btn btn-success" href="{{ route('produits.index') }}" title="Go back">Ajouter</a>
+            @if ( $intervention->devis_id )
+                <p>{{ $devis->cout }}</p>
+                <a class="btn btn-success" href="{{ route('voitures.interventions.devis.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'devi' => $intervention->devis_id]) }}" title="Go back">Modifier</a>
+            @else
+                <a class="btn btn-success" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>
+            @endif
         </div>
     </div>
     <div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
         <div class="col-md-6 p-3">
             <p><h2>Maintenance/Réparation</h2></p>
-            <a class="btn btn-success" href="{{ route('produits.index') }}" title="Go back">Ajouter</a>
+            @if ( $intervention->reparation_id )
+                <p>{{ $reparation->element_3 }}</p>
+                <a class="btn btn-success" href="{{ route('voitures.interventions.reparations.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'reparation' => $intervention->reparation_id]) }}" title="Go back">Modifier</a>
+            @else
+                <a class="btn btn-success" href="{{ route('voitures.interventions.reparations.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>
+            @endif
         </div>
     </div>
     <div class="row">
