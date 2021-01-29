@@ -53,11 +53,12 @@ setlocale(LC_TIME, "fr_FR", "French");
 </div>
 @endif
 
-<table class="table table-bordered table-responsive table-hover">
+<table class="table table-bordered  table-hover">
     <thead class="thead">
         <tr>
             <th scope="col">N°</th>
-            <th scope="col">Libelle</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">Nom Produit</th>
             <th scope="col">Prix</th>
             <th scope="col">Quantité</th>
             <th scope="col">Date d'Ajout</th>
@@ -65,13 +66,15 @@ setlocale(LC_TIME, "fr_FR", "French");
         </tr>
     </thead>
     <tbody>
+
         @foreach ($produits as $produit)
         <tr>
             <td scope="row">{{ ++$i }}</td>
-            <td>{{ $produit->libelle }}</td>
+            <td>{{ $produit->categorie }}</td>
+            <td>{{ $produit->produit }}</td>
             <td>{{number_format($produit->prix ,0, ",", " " )}}  <sup>F CFA</sup></td>
             <td>{{ $produit->qte }}</td>
-            <td>{{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td>
+            <td style="text-transform:capitalize;">{{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td>
             <td>
 
                 <a href="{{ route('produits.show', $produit->id) }}" title="show">
@@ -101,7 +104,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                     <div class="modal-body">
                         @csrf
                         @method('DELETE')
-                        <h5 class="text-center">Etes-vous sûr que vous voulez supprimer : {{ $produit->libelle }} ?</h5>
+                        <h5 class="text-center">Etes-vous sûr que vous voulez supprimer le Produit :{{ $produit->produit }} ? </h5>
                     </div>
                     <div class="modal-footer">
                         <button type="button"  title="reset" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

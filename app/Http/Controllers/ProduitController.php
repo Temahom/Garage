@@ -35,7 +35,7 @@ class ProduitController extends Controller
          $produits = Produit::where([
             [function ($query) use ($request){
                 if (($term = $request->term)) {
-                    $query->orWhere('libelle', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('produit', 'LIKE' , '%' . $term . '%')->get();
                 }
                }] 
             ])
@@ -67,7 +67,8 @@ class ProduitController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'libelle' => 'required',
+            'categorie' => 'required',
+            'produit' => 'required',
             'prix' => 'required',
             'qte' => 'required'
         ]);
@@ -112,7 +113,8 @@ class ProduitController extends Controller
     public function update(Request $request,Produit $produit)
     {
         $request->validate([
-            'libelle' => 'required',
+            'categorie' => 'required',
+            'produit' => 'required',
             'prix' => 'required',
             'qte' => 'required'
         ]);
