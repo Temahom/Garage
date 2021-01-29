@@ -16,7 +16,7 @@ class DiagnosticController extends Controller
      */
     public function index()
     {
-        $diagnostics = Diagnostic::all();
+        $diagnostics = Diagnostic::latest()->paginate(2);
         //dd($diagnostics);
 
         return view('diagnostics.index',compact('diagnostics'));

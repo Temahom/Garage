@@ -66,5 +66,6 @@
     </table>
 
 
+    {{ $diagnostics->links() }}
 
 @endsection
