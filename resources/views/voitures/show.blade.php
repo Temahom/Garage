@@ -10,51 +10,38 @@
                 <a class="btn btn-primary" href="{{ route('voitures.index') }}">Retour</a>
             </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Matricule:</strong>
-                {{ $voiture->matricule }}
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 row ">
+			<div class="form-group col-xs-6 col-sm-6 col-md-6" >
+				<strong>Proprietaire</strong>
+				<input type="" name="" onFocus="this.blur()" value="{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}" class="custom-select form-control">			
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Marque:</strong>
-                {{ $voiture->marque }}
+		   	<div class="form-group col-xs-3 col-sm-3 col-md-3" >
+			   <strong>Matricule</strong>
+			   <input type="" name="" onFocus="this.blur()" value="{{ $voiture->matricule }}" class="custom-select form-control">      
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Modele:</strong>
-                {{ $voiture->model }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Annee:</strong>
-                {{ $voiture->annee }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Carburant:</strong>
-                {{ $voiture->carburant }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Puissance:</strong>
-                {{ $voiture->puissance}}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>proprietaire:</strong>
-                {{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
-            </div>
-        </div>
+			<div class="form-group col-xs-3 col-sm-3 col-md-3" >
+				<strong>Marque de la voiture</strong>
+				<input type="" name="" onFocus="this.blur()" value="{{ $voiture->marque }}" class="custom-select form-control">      
+			</div>
+            <div class="form-group col-xs-3 col-sm-3 col-md-63" >
+				<strong>Model</strong>
+				<input type="" name="" onFocus="this.blur()" value="{{ $voiture->model }}" class="custom-select form-control">      
+			</div>
+			<div class="form-group col-xs-3 col-sm-3 col-md-63" >
+				<strong>Année</strong>
+				<input type="" name="" onFocus="this.blur()" value="{{ $voiture->annee }}" class="custom-select form-control">      
+			</div>
+			<div class="form-group col-xs-3 col-sm-3 col-md-63" >
+				<strong>Carburant</strong>
+				<input type="" name="" onFocus="this.blur()" value="{{ $voiture->carburant }}" class="custom-select form-control">      
+			</div>
+			<div class="form-group col-xs-3 col-sm-3 col-md-63" >
+				<strong>Puissance</strong>
+				<input type="" name="" onFocus="this.blur()" value="{{ $voiture->puissance }}" class="custom-select form-control">      
+			</div></div>
         
     </div>
 

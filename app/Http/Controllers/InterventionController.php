@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Intervention;
 use App\Models\Voiture;
+use App\Models\Diagnostic;
+use App\Models\Reparation;
+use App\Models\Devi;
 use Illuminate\Http\Request;
 
 class InterventionController extends Controller
@@ -38,10 +41,6 @@ class InterventionController extends Controller
     {
         $intervention = new Intervention();
         $intervention->voiture_id = $voiture->id;
-        $intervention->diagnostic_id = 1;
-        $intervention->devis_id = 1;
-        $intervention->reparation_id = 1;
-        $intervention->facture_id = 1;
         $intervention->type = $request->input('type');
         $intervention->debut = $request->input('debut');
         $intervention->fin = $request->input('fin');
@@ -57,8 +56,24 @@ class InterventionController extends Controller
      */
     public function show(Voiture $voiture, Intervention $intervention)
     {
-
-        return view('interventions.show', compact('intervention'));
+        $data['voiture'] = $voiture;
+        $data['intervention'] = $intervention;
+        if($intervention->diagnostic_id)
+        {
+            $diagnostic = Diagnostic::find($intervention->diagnostic_id);
+            $data['diagnostic'] = $diagnostic;
+        }
+        if($intervention->reparation_id)
+        {
+            $reparation = Reparation::find($intervention->reparation_id);
+            $data['reparation'] = $reparation;
+        }
+        if($intervention->devis_id)
+        {
+            $devi = Devi::find($intervention->devis_id);
+            $data['devi'] = $devi;
+        }
+        return view('interventions.show', $data);
     }
 
     /**

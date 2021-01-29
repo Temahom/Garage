@@ -30,7 +30,6 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
     @endif
     <form action="{{ route('produits.store') }}" method="POST" >
         @csrf
-
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -40,7 +39,8 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
 							@foreach ($listes as $liste)
 								<option value="{{$liste->categorie}}">{{$liste->categorie}}</option>
 							@endforeach
-					</select>		
+					</select>		 
+
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

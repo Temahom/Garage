@@ -18,7 +18,7 @@
                 @endif
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <a class="btn btn-primary" href="{{ route('diagnostics.index') }}">Retour</a>
+                <a class="btn btn-primary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
                 <button type="submit" class="btn btn-primary">Enregistrer</button>
             </div>
         </div>
