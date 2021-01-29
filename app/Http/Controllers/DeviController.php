@@ -43,7 +43,7 @@ class DeviController extends Controller
         $devi = new Devi();
         $devi->cout = $request->input('cout');
         $devi->save();
-        $intervention->devi_id = $devi->id;
+        $intervention->devis_id = $devi->id;
         $intervention->update();
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('fait','Devis créer avec succés');
     }
@@ -69,7 +69,7 @@ class DeviController extends Controller
      */
     public function edit(Voiture $voiture, Intervention $intervention, Devi $devi)
     {
-        return view('devis.edit', ['devi'=>$devi]);
+        return view('devis.edit', compact('voiture', 'intervention', 'devi'));
     }
 
     /**
@@ -79,11 +79,10 @@ class DeviController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Voiture $voiture, Intervention $intervention, Devi $devi)
     {
-        $devi=Devi::findOrFail($id);
         $devi->update($request->all());
-        return redirect('/devis')->with('modifier','Devis Modifier avec succées');
+        return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('modifier','Devis Modifier avec succées');
     
     }
 

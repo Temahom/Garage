@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="card-body">
-    <form action="/devis/{{$devi->id}}" method="POST">
+    <form action="{{ route('voitures.interventions.devis.update',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'devi' => $devi->id]) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
