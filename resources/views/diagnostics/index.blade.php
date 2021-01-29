@@ -65,7 +65,4 @@
         </tbody>
     </table>
 
-
-    {{ $diagnostics->links() }}
-
 @endsection

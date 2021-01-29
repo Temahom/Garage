@@ -22,7 +22,7 @@
 
     <form action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
         {{ csrf_field() }}
-        @include('diagnostics.partials._form');
+        @include('diagnostics.partials._form')
     </form>
         
 @endsection
