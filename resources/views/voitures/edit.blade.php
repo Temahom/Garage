@@ -8,18 +8,6 @@
             </div>
         </div>
     </div>
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>warning</strong>Veuillez vérifier vos saisies<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li> {{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>   
-    @endif
-
     <form action="{{ route('voitures.update', $voiture->id) }}" method="POST">
         @csrf
         @method('PATCH')

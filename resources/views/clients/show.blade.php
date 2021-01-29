@@ -28,6 +28,9 @@
             </div>
     </div> </div>
          <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="pull-right py-3">
+				<a class="btn btn-success" href="{{route('clients.voitures.create',['client'=>$client->id])}}">Ajouter Voiture</a>
+			</div>
             <table class="table table-bordered">
                 <tr>
                     <th>Matricule</th>

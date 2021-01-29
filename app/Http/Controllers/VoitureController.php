@@ -24,10 +24,10 @@ class VoitureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Client $client, Voiture $voiture)
     {
       $clients= Client::all();
-      return view('voitures.create',compact('clients'));
+      return view('voitures.create',compact('clients','client', 'voiture'));
     }
 
     /**
