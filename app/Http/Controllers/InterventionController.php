@@ -6,7 +6,7 @@ use App\Models\Intervention;
 use App\Models\Voiture;
 use App\Models\Diagnostic;
 use App\Models\Reparation;
-use App\Models\Devis;
+use App\Models\Devi;
 use Illuminate\Http\Request;
 
 class InterventionController extends Controller
@@ -70,8 +70,8 @@ class InterventionController extends Controller
         }
         if($intervention->devis_id)
         {
-            $devis = Devis::find($intervention->devis_id);
-            $data['devis'] = $devis;
+            $devi = Devi::find($intervention->devis_id);
+            $data['devi'] = $devi;
         }
         return view('interventions.show', $data);
     }
