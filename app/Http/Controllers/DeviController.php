@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Devis;
+use App\Models\Devi;
 use App\Models\Voiture;
 use App\Models\Intervention;
 
-class DevisController extends Controller
+class DeviController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class DevisController extends Controller
      */
     public function index()
     {
-        $devis=Devis::all();
+        $devi=Devi::all();
 
-        return view('devis.index',['devis'=>$devis]);
+        return view('devis.index',['devi'=>$devi]);
       
     }
 
@@ -40,10 +40,10 @@ class DevisController extends Controller
      */
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
-        $devis = new Devis();
-        $devis->cout = $request->input('cout');
-        $devis->save();
-        $intervention->devis_id = $devis->id;
+        $devi = new Devi();
+        $devi->cout = $request->input('cout');
+        $devi->save();
+        $intervention->devi_id = $devi->id;
         $intervention->update();
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('fait','Devis créer avec succés');
     }
@@ -56,7 +56,7 @@ class DevisController extends Controller
      */
     public function show($id)
     {
-        $devi=Devis::findOrFail($id);
+        $devi=Devi::findOrFail($id);
 
         return view('devis.show',['devi'=>$devi]);
     }
@@ -67,11 +67,9 @@ class DevisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Voiture $voiture, Intervention $intervention, Devi $devi)
     {
-        $devi=Devis::findOrFail($id);
         return view('devis.edit', ['devi'=>$devi]);
-
     }
 
     /**
@@ -83,7 +81,7 @@ class DevisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $devi=Devis::findOrFail($id);
+        $devi=Devi::findOrFail($id);
         $devi->update($request->all());
         return redirect('/devis')->with('modifier','Devis Modifier avec succées');
     
@@ -97,7 +95,7 @@ class DevisController extends Controller
      */
     public function destroy($id)
     {
-        $devi=Devis::findOrFail($id);
+        $devi=Devi::findOrFail($id);
         $devi->delete();
         return redirect('/devis')->with('Supprimer','Devis Supprimer avec succées');
     }
