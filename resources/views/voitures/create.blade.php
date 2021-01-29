@@ -9,7 +9,7 @@
     </div>
 
     <form action="{{ route('voitures.store') }}" method="POST">
-    {{ csrf_field() }}
+      @csrf
         @include('voitures._partials._form')
         
     </form>

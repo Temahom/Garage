@@ -37,9 +37,9 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                    <strong>Genre:</strong>
+                    <strong>Sexe:</strong>
                     <select class="form-control" name="genre" id="genre">
-                      <option value="" disabled selected hidden>Choisissez le Genre...</option>
+                      <option value="" disabled selected hidden>Choisissez le sexe...</option>
                       <option value="homme">Homme</option>
                       <option value="femme">Femme</option>
                     </select>

@@ -20,7 +20,7 @@
         </div>   
     @endif
 
-    <form action="{{ route('diagnostics.update', $diagnostic->id) }}" method="POST">
+    <form action="{{ route('voitures.interventions.diagnostics.update',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'diagnostic' => $diagnostic->id]) }}" method="POST">
         @csrf
         @method('PUT')
 

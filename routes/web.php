@@ -31,18 +31,9 @@ Route::get('/', function () {
 Route::resource('produits',ProduitController::class);
 Route::resource('clients',ClientController::class);
 Route::resource('factures',FactureController::class);
-Route::resource('diagnostics',DiagnosticController::class);
 Route::resource('devis',DevisController::class);
 Route::resource('reparations',ReparationController::class);
 Route::resource('voitures',VoitureController::class);
+
 Route::resource('voitures.interventions',InterventionController::class);
-
-Route::get('/greeting/{locale}', function ($locale) {
-    if (! in_array($locale, ['en', 'es', 'fr'])) {
-        abort(400);
-    }
-
-    App::setLocale($locale);
-
-    //
-});
+Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
