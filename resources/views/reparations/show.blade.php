@@ -16,18 +16,6 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Date d'entrée:</strong>
-                {{ $reparation->element_1 }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Date de sortie:</strong>
-                {{ $reparation->element_2 }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
                 <strong>Compte Rendu:</strong>
                 {{ $reparation->element_3 }}
             </div>

@@ -15,8 +15,6 @@ class CreateReparationsTable extends Migration
     {
         Schema::create('reparations', function (Blueprint $table) {
             $table->id();
-            $table->date('element_1');
-            $table->date('element_2');
             $table->longText('element_3');
             $table->timestamps();
         });
