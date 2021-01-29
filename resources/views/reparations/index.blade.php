@@ -25,16 +25,12 @@
     <table class="table table-bordered table-responsive-lg">
         <tr>
             <th>No</th>
-            <th>Date d'entrée</th>
-            <th>Date de sortie</th>
             <th>Compte Rendu</th>
             <th width="270px">Action</th>
         </tr>
         @foreach ($reparation as $reparation)
             <tr>
                 <td>{{ $reparation->id }}</td>
-                <td>{{ $reparation->element_1 }}</td>
-                <td>{{ $reparation->element_2 }}</td>
                 <td>{{ $reparation->element_3}}</td>
                 <td>
                     <form action="/reparations/{{$reparation->id}}" method="POST">
