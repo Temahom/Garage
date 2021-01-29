@@ -7,7 +7,7 @@
                 <h2>Modifier le réparation</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="/reparations" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
+                <a class="btn btn-primary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="/reparations/{{$reparation->id}}" method="POST">
+    <form action="{{ route('voitures.interventions.reparations.update',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'reparation' => $reparation->id]) }}" method="POST">
         @csrf
         @method('PUT')
 

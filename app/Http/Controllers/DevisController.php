@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Devis;
+use App\Models\Voiture;
+use App\Models\Intervention;
 
 class DevisController extends Controller
 {
@@ -25,9 +27,9 @@ class DevisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Voiture $voiture, Intervention $intervention)
     {
-        return view('devis.create');
+        return view('devis.create', compact('voiture', 'intervention'));
     }
 
     /**
@@ -36,10 +38,14 @@ class DevisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
-        Devis::create($request->all());
-        return redirect('/devis')->with('fait','Devis créer avec succés');
+        $devis = new Devis();
+        $devis->cout = $request->input('cout');
+        $devis->save();
+        $intervention->devis_id = $devis->id;
+        $intervention->update();
+        return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('fait','Devis créer avec succés');
     }
 
     /**
