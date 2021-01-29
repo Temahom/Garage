@@ -110,7 +110,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
  <script>
 $(document).ready(function() {
 	$('select[name=marque]').change(function () {
-		var model='<option value="">M-O-D-E-L-E</option>'
+		var model='<option value=""></option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/"+ $('select[name=marque]').val(),
@@ -131,7 +131,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('select[name=model]').change(function () {
-		var annee='<option value="">A-N-N-E-E</option>'
+		var annee='<option value=""></option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/model/"+ $('select[name=model]').val(),
@@ -152,7 +152,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('select[name=annee]').change(function () {
-		var carburant='<option value="">C-A-R-B-U-R-A-N-T</option>'
+		var carburant='<option value=""></option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/annee/"+ $('select[name=annee]').val(),
@@ -173,7 +173,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('select[name=carburant]').change(function () {
-		var puissance='<option value="">P-U-I-S-S-A-N-C-E</option>'
+		var puissance='<option value=""></option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/carburant/"+ $('select[name=carburant]').val(),
