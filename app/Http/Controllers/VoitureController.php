@@ -26,6 +26,7 @@ class VoitureController extends Controller
      */
     public function create(Client $client, Voiture $voiture)
     {
+        // dd($client);
       $clients= Client::all();
       return view('voitures.create',compact('clients','client', 'voiture'));
     }
@@ -49,8 +50,8 @@ class VoitureController extends Controller
             'puissance'=>'required',
             'client_id'=>'required'
           ]);
-          Voiture::create($data);
-          return redirect('/voitures');
+           Voiture::create($data);
+           return redirect('voitures/show');
     }
 
     /**
@@ -75,9 +76,8 @@ class VoitureController extends Controller
     public function edit(Voiture $voiture)
     {
         //
-        $client_default= $voiture->client()->first();
-        $clients= Client::where('id','!=',$client_default->id)->get();
-        return view('voitures.edit',compact('voiture','clients','client_default'));
+        $clients = Client::all();
+        return view('voitures.edit',compact('voiture','clients'));
     }
 
     /**
@@ -90,7 +90,7 @@ class VoitureController extends Controller
     public function update(Request $request, Voiture $voiture)
     {
         $data= request()->validate([
-            'matricule'=>'required',
+            'matricule'=>'required|distinct',
             'marque'=>'required',
             'model'=>'required',
             'annee'=>'required',
