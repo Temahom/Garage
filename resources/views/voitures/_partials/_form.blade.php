@@ -85,20 +85,21 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Proprietaire</strong>
                     <select name="client_id" class="custom-select form-control">
-                       <option value="{{ isset($client_default) ? $client_default->id:''}}">{{ isset ($client_default) ? $client_default->prenom.' '.$client_default->nom:''}}</option>
-                      @foreach( $clients as $client ) 
-                       <option value="{{$client->id}}">{{$client->prenom.' '.$client->nom}}</option>
-                      @endforeach 
+                    @if(!empty($client))
+                        <option value="{{$client->id}}">{{$client->prenom.' '.$client->nom}}</option>
+                    @else
+                        <option value="{{ isset($client_default) ? $client_default->id:''}}">{{ isset ($client_default) ? $client_default->prenom.' '.$client_default->nom:''}}</option>
+                        @foreach( $clients as $client ) 
+                        <option value="{{$client->id}}">{{$client->prenom.' '.$client->nom}}</option>
+                        @endforeach 
+                      @endif
                     </select>
                     <div class="invalid-feedback">
                                 @if($errors->has('client_id'))
                                 {{ $errors->first('client_id') }}
                                 @endif
                     </div>
-                </div>
-                @if($errors->has('client_id'))
-                    <p>{{ $errors->first('client_id') }}</p>
-                @endif
+                </div> 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <a class="btn btn-primary" href="{{ route('voitures.index') }}">Retour</a>

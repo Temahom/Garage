@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Liste;
+use App\Models\listeproduit;
+use App\Models\Produit;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -32,3 +34,7 @@ Route::get('listes/annee/{lannee}',function($lannee){
 Route::get('listes/carburant/{lecarburant}',function($lecarburant){
     return Liste::select('lapuissance')->where('lecarburant','=',$lecarburant)->orderBy('lapuissance')->distinct()->get();
 });
+
+Route::get('listesp/{categorie}',function($categorie){
+    return listeproduit::select('produit')->where('categorie','=',$categorie)->orderBy('categorie')->distinct()->get();  
+});  

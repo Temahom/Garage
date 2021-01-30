@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Devi extends Model
+class listeproduit extends Model
 {
     use HasFactory;
-    protected $fillable =['cout ', 'produit '];
 }
