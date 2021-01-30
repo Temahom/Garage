@@ -8,7 +8,6 @@ class Diagnostic extends Model
 {
     
     protected $fillable = [
-        'date',
         'description',
     ];
 }

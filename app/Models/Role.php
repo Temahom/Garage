@@ -5,15 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Produit extends Model
+class Role extends Model
 {
     use HasFactory;
-
-    protected $guarded=[];
-<<<<<<< HEAD
-    
-};
-=======
-
+    public function user (){
+        return $this->belongsTo(User::class);
+    }
 }
->>>>>>> e34acf933791ec43a57f4c90e82b4176e525b98e

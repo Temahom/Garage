@@ -13,7 +13,14 @@ class listeproduitController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD:app/Http/Controllers/DevisController.php
+        $devis=Devis::paginate(2);
+
+        return view('devis.index',['devis'=>$devis]);
+      
+=======
         //
+>>>>>>> 33db5a957d6b9eb1c6a269a1bf90dfa136852666:app/Http/Controllers/listeproduitController.php
     }
 
     /**
