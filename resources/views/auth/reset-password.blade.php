@@ -15,6 +15,8 @@
     html,
     body {
         height: 100%;
+       
+
     }
 
     body {
@@ -25,6 +27,22 @@
         padding-top: 40px;
         padding-bottom: 40px;
     }
+    .card{
+        /*-bottom:10px solid #2CA6A4;*/
+      
+
+        }
+        .blur{
+            position: absolute;
+            background-attachment: fixed;
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+        }
+        .blur img{
+           
+            height: 100vh;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -32,6 +50,9 @@
     <!-- ============================================================== -->
     <!-- forgot password  -->
     <!-- ============================================================== -->
+    <div class="blur">
+        <img src="/assets/images/bg_saka.jpg" >
+    </div>
     <div class="splash-container">
         <div class="card">
             <div class="card-header text-center"><img class="logo-img" src="../assets/images/logo.png" alt="logo"><span class="splash-description">Veillez remplir le formulaire.</span></div>

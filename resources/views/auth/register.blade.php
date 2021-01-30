@@ -15,6 +15,8 @@
     html,
     body {
         height: 100%;
+       
+
     }
 
     body {
@@ -25,6 +27,22 @@
         padding-top: 40px;
         padding-bottom: 40px;
     }
+    .card{
+        /*-bottom:10px solid #2CA6A4;*/
+      
+
+        }
+        .blur{
+            position: absolute;
+            background-attachment: fixed;
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+        }
+        .blur img{
+           
+            height: 100vh;
+            width: 100%;
+        }
     </style>
 </head>
 <!-- ============================================================== -->
@@ -35,6 +53,9 @@
     <!-- ============================================================== -->
     <!-- signup form  -->
     <!-- ============================================================== -->
+    <div class="blur">
+        <img src="/assets/images/bg_saka.jpg" >
+    </div>
     <form class="splash-container" action="{{route('register')}}" method="POST">
         @csrf
         <div class="card">

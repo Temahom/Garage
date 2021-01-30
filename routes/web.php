@@ -10,6 +10,8 @@ use App\Http\Controllers\ReparationController;
 use App\Http\Controllers\VoitureController;
 use App\Http\Controllers\InterventionController;
 
+use Illuminate\Support\Facades\App;
+
 
 /*
 |--------------------------------------------------------------------------

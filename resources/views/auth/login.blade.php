@@ -15,6 +15,8 @@
     html,
     body {
         height: 100%;
+       
+
     }
 
     body {
@@ -25,6 +27,22 @@
         padding-top: 40px;
         padding-bottom: 40px;
     }
+    .card{
+        /*-bottom:10px solid #2CA6A4;*/
+      
+
+        }
+        .blur{
+            position: absolute;
+            background-attachment: fixed;
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+        }
+        .blur img{
+           
+            height: 100vh;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -32,9 +50,14 @@
     <!-- ============================================================== -->
     <!-- login page  -->
     <!-- ============================================================== -->
-    <div class="splash-container">
+    
+    <div class="blur">
+        <img src="/assets/images/bg_saka.jpg" >
+    </div>
+        <div class="splash-container">
+        
         <div class="card ">
-            <div class="card-header text-center"><a href="/"><img style="height: 100px;width: auto;" class="logo-img" src="/assets/images/logo.png" alt="logo"></a><span class="splash-description">veiilez entrer vos informations.</span></div>
+            <div class="card-header text-center"><a href="/"><img style="height: 100px;width: auto;" class="logo-img" src="/assets/images/logo.png" alt="logo"></a><span class="splash-description" style="color: #808183">Veillez entrer vos informations.</span></div>
             <div class="card-body">
                 <form method="POST" action="{{ route('login')}}">
                     @csrf
@@ -52,14 +75,15 @@
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Se Connecter</button>
                 </form>
             </div>
-            <div class="card-footer bg-white p-0  ">
+         <!--     <div class="card-footer bg-white p-0  ">
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="{{route('register')}}" class="footer-link">Créer un Compte</a></div>
+    <a href="{{route('register')}}" class="footer-link">Créer un Compte</a>
+                </div>
                 <div class="card-footer-item card-footer-item-bordered">
                     <a href="{{route('password.request')}}" class="footer-link">Mot de oublié ?</a>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
   
     <!-- ============================================================== -->
