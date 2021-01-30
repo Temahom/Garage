@@ -29,31 +29,28 @@ Route::get('/', function () {
 })->middleware('auth');
    
 Route::middleware(['auth','admin' ])->group(function () {
-    Route::resource('reparations',ReparationController::class);
+
+    Route::resource('produits',ProduitController::class);
+    Route::resource('clients',ClientController::class);
     Route::resource('voitures',VoitureController::class);
+    Route::resource('clients.voitures', VoitureController::class);
+    Route::resource('factures',FactureController::class);
+    
+    Route::resource('voitures.interventions',InterventionController::class);
+    Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
+    Route::resource('voitures.interventions.reparations',ReparationController::class);
+    Route::resource('voitures.interventions.devis',DeviController::class);
+
     Route::get('/admin', function () {
         return view('admin.home');
     });
         
-    
-    
-    });
+});
 
 
-    Route::middleware(['auth','manager'])->group(function () {
-        Route::resource('factures',FactureController::class);
-        Route::resource('diagnostics',DiagnosticController::class);
-        Route::resource('devis',DevisController::class);
-    });
+Route::middleware(['auth','manager'])->group(function () {
+});
     
  
 Route::middleware(['auth','user'])->group(function () {
-    Route::resource('produits',ProduitController::class);
-    Route::resource('clients',ClientController::class);
-    //Route::resource('voitures',VoitureController::class);
-    //Route::resource('interventions',InterventionController::class);
-            
-    Route::resource('voitures.interventions',InterventionController::class);
-    Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
-
 });
