@@ -22,26 +22,15 @@
             </ul>
         </div>
     @endif
-    <form action="/reparations" method="POST" >
+    <form action="{{ route('voitures.interventions.reparations.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST" >
         @csrf
-
+        <input type="hidden" name="intervention_id" value="{{ $intervention->id }}">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Date d'entrée:</strong>
-                    <input type="date" name="element_1" class="form-control" placeholder="date">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Date de sortie:</strong>
-                    <input type="date" name="element_2" class="form-control" placeholder="date">
-                </div>
-            </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Compte Rendu:</strong>
-                    <input type="LongText" name="element_3" class="form-control" placeholder="text">
+                    <textarea type="LongText" name="element_3" class="form-control" placeholder="|"></textarea>
                 </div>
             </div>
             

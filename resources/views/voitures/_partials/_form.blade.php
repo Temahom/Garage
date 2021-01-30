@@ -10,59 +10,96 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
             <div class="col-xs-12 col-sm-12 col-md-12 row">
                 <div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Matricule:</strong>
-                    <input type="text" name="matricule" value="{{ isset($voiture) ? $voiture->matricule :''}}" class="custom-select form-control" placeholder="Saisir matricule...">
+                    <input type="text" name="matricule" value="{{ isset($voiture) ? $voiture->matricule :''}}" class="custom-select form-control @error('matricule') is-invalid @enderror" placeholder="Saisir matricule...">
+                    <div class="invalid-feedback">
+                        @if($errors->has('matricule'))
+                          {{ $errors->first('matricule') }}
+                        @endif
+                    </div>
                 </div>
 
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Marque de la voiture :</strong>
-                    <select name="marque" id="marques" class="custom-select form-control">
-						<option value="">marque</option>
+                    <select name="marque" id="marques" class="custom-select form-control @error('marque') is-invalid @enderror">
+						<option value="">Marque</option>
 							@foreach ($listes as $liste)
 								<option value="{{$liste->marques}}">{{$liste->marques}}</option>
 							@endforeach
-					</select>			
+                            
+					</select>	
+                    <div class="invalid-feedback">
+                                @if($errors->has('marque'))
+                                {{ $errors->first('marque') }}
+                                @endif
+                    </div>		
                 </div> 
 
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Modele de la voiture :</strong>
-                    <select name="model" id="lemodel" class="custom-select form-control">
-                      <option value="">model</option>
-					</select>			
+                    <select name="model" id="lemodel" class="custom-select form-control @error('model') is-invalid @enderror">
+                      <option value="">Model</option>
+					</select>
+                    <div class="invalid-feedback">
+                                @if($errors->has('model'))
+                                {{ $errors->first('model') }}
+                                @endif
+                    </div>			
                 </div>
 		
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Année de la voiture :</strong>
-                    <select name="annee" id="lannee" class="custom-select form-control">
-                      <option value="">année</option>
-					</select>			
+                    <select name="annee" id="lannee" class="custom-select form-control @error('annee') is-invalid @enderror">
+                      <option value="">Année</option>
+					</select>	
+                    <div class="invalid-feedback">
+                                @if($errors->has('annee'))
+                                {{ $errors->first('annee') }}
+                                @endif
+                    </div>		
                 </div>
 		
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Type de carburant de la voiture :</strong>
-                    <select name="carburant" id="lecarburant" class="custom-select form-control">
-                    <option value="">carburant</option>
-					</select>			
+                    <select name="carburant" id="lecarburant" class="custom-select form-control @error('carburant') is-invalid @enderror">
+                      <option value="">Carburant</option>
+					</select>	
+                    <div class="invalid-feedback">
+                                @if($errors->has('carburant'))
+                                {{ $errors->first('carburant') }}
+                                @endif
+                    </div>		
                 </div>
 		
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Puissance de la voiture :</strong>
-                    <select name="puissance" id="lapuissance" class="custom-select form-control">
-                      <option value="">puissance</option>
-					</select>			
+                    <select name="puissance" id="lapuissance" class="custom-select form-control @error('puissance') is-invalid @enderror">
+                      <option value="">Puissance</option>
+					</select>
+                    <div class="invalid-feedback">
+                                @if($errors->has('puissance'))
+                                {{ $errors->first('puissance') }}
+                                @endif
+                    </div>			
 				</div>
 				
 				<div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Proprietaire</strong>
-                    <select name="client_id" class="custom-select form-control">
-                       <option value="{{ isset($client_default) ? $client_default->id:''}}">{{ isset ($client_default) ? $client_default->prenom.' '.$client_default->nom:''}}</option>
-                      @foreach( $clients as $client ) 
-                       <option value="{{$client->id}}">{{$client->prenom.' '.$client->nom}}</option>
-                      @endforeach 
+                    <select name="client_id" class="custom-select form-control  @error('client_id') is-invalid @enderror">
+                          
+                        @if(!empty($client->id))
+                             <option value="{{$client->id}}">{{$client->prenom.' '.$client->nom}}</option>
+                         @else   
+                            @foreach( $clients as $client ) 
+                             <option value="{{$client->id}}" {{$voiture->client_id == $client->id ? 'selected':'' }}>{{$client->prenom.' '.$client->nom}}</option>
+                            @endforeach 
+                        @endif
                     </select>
-                </div>
-                @if($errors->has('client_id'))
-                    <p>{{ $errors->first('client_id') }}</p>
-                @endif
+                    <div class="invalid-feedback">
+                                @if($errors->has('client_id'))
+                                 Le champs client est obligatoire.
+                                @endif
+                    </div>
+                </div> 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <a class="btn btn-primary" href="{{ route('voitures.index') }}">Retour</a>
@@ -74,7 +111,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
  <script>
 $(document).ready(function() {
 	$('select[name=marque]').change(function () {
-		var model='<option value=""></option>'
+		var model='<option value="">choisissez le model</option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/"+ $('select[name=marque]').val(),
@@ -95,7 +132,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('select[name=model]').change(function () {
-		var annee='<option value=""></option>'
+		var annee='<option value="">Choisissez son année</option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/model/"+ $('select[name=model]').val(),
@@ -116,7 +153,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('select[name=annee]').change(function () {
-		var carburant='<option value=""></option>'
+		var carburant='<option value="">Choisissez le carburant</option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/annee/"+ $('select[name=annee]').val(),
@@ -137,7 +174,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('select[name=carburant]').change(function () {
-		var puissance='<option value=""></option>'
+		var puissance='<option value="">Choisissez la puissance</option>'
     $.ajax({
           type: "GET",
           url: "http://127.0.0.1:8000/api/listes/carburant/"+ $('select[name=carburant]').val(),

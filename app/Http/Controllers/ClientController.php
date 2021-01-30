@@ -42,10 +42,10 @@ class ClientController extends Controller
         'prenom' => 'required',
         'telephone' => 'required',
         ]);
-
-        Client::create($request->all());
-
-        return redirect()->route('clients.index')
+           
+        $client = Client::create($request->all());
+        $voiture =  $client->voitures()->get();
+        return redirect()->route('clients.show', ['client' => $client])
         ->with('success','Client Enrégistré');
 
     }

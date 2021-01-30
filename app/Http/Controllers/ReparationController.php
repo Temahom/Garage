@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reparation;
+use App\Models\Voiture;
+use App\Models\Intervention;
 use Illuminate\Http\Request;
 
 class ReparationController extends Controller
@@ -23,10 +25,9 @@ class ReparationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Voiture $voiture, Intervention $intervention)
     {
-        //
-        return view('reparations.create');
+        return view('reparations.create', compact('voiture', 'intervention'));
     }
 
     /**
@@ -35,19 +36,20 @@ class ReparationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
-        //
         $request->validate([
-            'element_1' => 'required',
-            'element_2' => 'required',
             'element_3' => 'required'
            
         ]);
+        $reparation = new Reparation();
+        $reparation->element_3 = $request->input('element_3');
+        $reparation->save();
 
-        Reparation::create($request->all());
+        $intervention->reparation_id = $reparation->id;
+        $intervention->update();
 
-        return redirect('/reparations')
+        return redirect( route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) )
             ->with('success', 'Ajout Réussi');
     }
     
@@ -72,11 +74,9 @@ class ReparationController extends Controller
      * @param  \App\Models\Reparation  $reparation
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Voiture $voiture, Intervention $intervention, Reparation $reparation)
     {
-        $reparation=Reparation::find($id);
-
-        return view('reparations.edit', compact('reparation'));
+        return view('reparations.edit', compact('voiture', 'intervention', 'reparation'));
     }
 
 
@@ -87,16 +87,14 @@ class ReparationController extends Controller
      * @param  \App\Models\Reparation  $reparation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reparation $reparation)
+    public function update(Request $request, Voiture $voiture, Intervention $intervention, Reparation $reparation)
     {
-        $request->validate([
-            'element_1' => 'required',
-            'element_2' => 'required',
+        $request->validate([  
             'element_3' => 'required'
         ]);
         $reparation->update($request->all());
 
-        return redirect('/reparations')
+        return redirect( route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) )
             ->with('success', 'Modification Réussie');
     }
 

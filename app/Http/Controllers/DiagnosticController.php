@@ -41,11 +41,9 @@ class DiagnosticController extends Controller
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
         $request->validate([
-            'date' => 'required',
             'description' => 'required',
         ]);
         $diagnostic = new Diagnostic();
-        $diagnostic->date = $request->input('date');
         $diagnostic->description = $request->input('description');
         $diagnostic->save();
         $intervention->diagnostic_id = $diagnostic->id;
@@ -84,7 +82,6 @@ class DiagnosticController extends Controller
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic)
     {
         $request->validate([
-            'date' => 'required',
             'description' => 'required',
         ]);
         $diagnostic->update($request->all());

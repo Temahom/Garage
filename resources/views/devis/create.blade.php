@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="card-body">
-    <form action="/devis" method="POST">
+    <form action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="cout" class="col-form-label">Coût de Réparation</label>

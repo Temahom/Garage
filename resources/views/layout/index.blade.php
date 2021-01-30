@@ -148,7 +148,7 @@
                     <div class="ecommerce-widget">
 
                         <div class="row">
-                            <div style="width: 100%; padding-left: 30px">
+                            <div style="width: 100%; padding-left: 30px" >
                                 @yield('content')
                             </div>
                             <div class="footer">
