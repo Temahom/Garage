@@ -50,8 +50,8 @@ class VoitureController extends Controller
             'puissance'=>'required',
             'client_id'=>'required'
           ]);
-           Voiture::create($data);
-           return redirect('voitures/show');
+           $voiture = Voiture::create($data);
+           return redirect()->route('voitures.show', ['voiture' => $voiture]);
     }
 
     /**
