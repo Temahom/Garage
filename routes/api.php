@@ -24,7 +24,7 @@ Route::get('listes/{marques}',function($marques){
 });
 
 Route::get('listes/model/{lemodel}',function($lemodel){
-    return Liste::select('lannee')->where('lemodel','=',$lemodel)->orderBy('lannee')->distinct()->get();
+    return Liste::select('lannee')->where('lemodel','=',$lemodel)->orderBy('lannee','desc')->distinct()->get();
 });
 
 Route::get('listes/annee/{lannee}',function($lannee){
@@ -32,7 +32,7 @@ Route::get('listes/annee/{lannee}',function($lannee){
 });
 
 Route::get('listes/carburant/{lecarburant}',function($lecarburant){
-    return Liste::select('lapuissance')->where('lecarburant','=',$lecarburant)->orderBy('lapuissance')->distinct()->get();
+    return Liste::select('lapuissance')->where('lecarburant','=',$lecarburant)->orderBy('lapuissance','asc')->distinct()->get();
 });
 
 Route::get('listesp/{categorie}',function($categorie){

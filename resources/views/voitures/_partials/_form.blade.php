@@ -10,7 +10,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
             <div class="col-xs-12 col-sm-12 col-md-12 row">
                 <div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Matricule:</strong>
-                    <input type="text" name="matricule" value="{{ isset($voiture) ? $voiture->matricule :''}}" class="custom-select form-control @error('matricule') is-invalid @enderror" placeholder="Saisir matricule...">
+                    <input type="text" name="matricule" value="{{ isset($voiture) ? $voiture->matricule :''}}" autocomplete="off" class="custom-select form-control @error('matricule') is-invalid @enderror" placeholder="Saisir matricule...">
                     <div class="invalid-feedback">
                         @if($errors->has('matricule'))
                           {{ $errors->first('matricule') }}
@@ -62,6 +62,8 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
                     <strong>Type de carburant de la voiture :</strong>
                     <select name="carburant" id="lecarburant" class="custom-select form-control @error('carburant') is-invalid @enderror">
                       <option value="">Carburant</option>
+                      <option value="Essence">Essence</option>
+                      <option value="Gazoil">Gazoil</option>
 					</select>	
                     <div class="invalid-feedback">
                                 @if($errors->has('carburant'))
@@ -151,7 +153,7 @@ $(document).ready(function() {
 
 });
 
-$(document).ready(function() {
+/*$(document).ready(function() {
 	$('select[name=annee]').change(function () {
 		var carburant='<option value="">Choisissez le carburant</option>'
     $.ajax({
@@ -170,7 +172,7 @@ $(document).ready(function() {
 
 	});
 
-});
+});*/
 
 $(document).ready(function() {
 	$('select[name=carburant]').change(function () {
