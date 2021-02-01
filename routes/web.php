@@ -12,7 +12,7 @@ use App\Http\Controllers\InterventionController;
 
 use Illuminate\Support\Facades\App;
 
-
+     
 /*
 |--------------------------------------------------------------------------
 | Web Routes
