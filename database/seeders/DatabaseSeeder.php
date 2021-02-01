@@ -15,22 +15,22 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         \App\Models\User::create([
-            "name"=>"Moustapha",
-            "email"=>"moustapha@gmail.com",
+            "name"=>"Mediapex",
+            "email"=>"azizmohamet@gmail.com",
             "role_id"=>(1),
             "password"=>bcrypt(12345678)
         ]);
 
         \App\Models\User::create([
-            "name"=>"Mohamet",
-            "email"=>"mohamet@gmail.com",
+            "name"=>"Moussa",
+            "email"=>"medounehild@gmail.com",
             "role_id"=>(2),
             "password"=>bcrypt(12345678)
         ]);
 
         \App\Models\User::create([
-            "name"=>"Medoune",
-            "email"=>"medoune@gmail.com",
+            "name"=>"Ndeye",
+            "email"=>"amarymoustapha@gmail.com",
             "role_id"=>(3),
             "password"=>bcrypt(12345678)
         ]);
