@@ -11,9 +11,9 @@ class Produit extends Model
 
     protected $guarded=[];
 <<<<<<< HEAD
-    
-};
-=======
 
 }
->>>>>>> e34acf933791ec43a57f4c90e82b4176e525b98e
+=======
+    
+};
+>>>>>>> debf2e9c84b8e708ffa612f923747c99978397a8

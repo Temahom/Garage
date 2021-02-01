@@ -34,7 +34,6 @@
         width:100%
     }
     .nav-item .nav-link:hover{
-       background-color;
        color: black;
     }
   
@@ -105,7 +104,7 @@
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="fa fa-fw fa-user-circle"></i>Clients<span class="badge badge-success">6</span></a>
-                                <div id="submenu-client" class="collapse submenu" style="">
+                                <div id="submenu-client" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients">Liste Clients</a>
@@ -119,7 +118,7 @@
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success">6</span></a>
-                                <div id="submenu-voiture" class="collapse submenu" style="">
+                                <div id="submenu-voiture" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures">Liste voitures</a>

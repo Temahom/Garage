@@ -54,3 +54,4 @@ Route::middleware(['auth','manager'])->group(function () {
  
 Route::middleware(['auth','user'])->group(function () {
 });
+
