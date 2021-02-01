@@ -33,11 +33,6 @@
         bottom:0;
         width:100%
     }
-    .nav-item .nav-link:hover{
-       background-color;
-       color: black;
-    }
-  
 
 </style>
 
