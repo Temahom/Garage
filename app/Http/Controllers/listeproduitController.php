@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+Use App\Models\Devi;
 
 class listeproduitController extends Controller
 {
@@ -13,7 +14,7 @@ class listeproduitController extends Controller
      */
     public function index()
     {
-        $devis=Devis::paginate(2);
+        $devis=Devi::paginate(2);
 
         return view('devis.index',['devis'=>$devis]);
       
