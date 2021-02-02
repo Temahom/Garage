@@ -37,7 +37,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <div class="form-group">
                     <strong>Categorie :</strong>
                     <select name="categorie" id="categorie" class="custom-select form-control">
-						<option value=""></option>
+						<option value="{{ $produit->categorie }}">{{ $produit->categorie }}</option>
 							@foreach ($listes as $liste)
 								<option value="{{$liste->categorie}}">{{$liste->categorie}}</option>
 							@endforeach
@@ -48,7 +48,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <div class="form-group">
                 <strong>Nom du produit :</strong>
                 <select name="produit" id="leproduit" class="custom-select form-control">
-                    <option value=""></option>
+                    <option value="{{ $produit->produit }}">{{ $produit->produit }}</option>
                 </select>	
                 </div>		
             </div>
