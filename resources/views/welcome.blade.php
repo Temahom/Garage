@@ -51,7 +51,7 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
         <div class="card">
             <div class="card-body">
                     <h1 class="text-center mt-3  ">{{Date('d')}}</h1>
-                    <h5 class="text-center" style="text-transform: capitalize;">{{strftime("%A %d %B %Y", strtotime( $date->format('d/m/Y H:m:s')))}}</h5>
+                    <h5 class="text-center" style="text-transform: capitalize;">{{strftime("%A %d %B %Y", strtotime( $date->format('d/m/Y h:i:s A')))}}</h5>
                 </div> 
                
           

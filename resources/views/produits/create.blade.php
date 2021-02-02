@@ -34,7 +34,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Categorie :</strong>
-                    <select name="categorie" id="categorie" class="custom-select form-control">
+                    <select name="categorie" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
 						<option value=""></option>
 							@foreach ($listes as $liste)
 								<option value="{{$liste->categorie}}">{{$liste->categorie}}</option>
@@ -46,7 +46,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                 <strong>Nom du produit :</strong>
-                <select name="produit" id="leproduit" class="custom-select form-control">
+                <select name="produit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
                     
                 </select>	
                 </div>		
@@ -60,17 +60,17 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Prix :</strong>
-                    <input type="number" name="prix" class="form-control" placeholder="Entrer le Prix">
+                    <input type="number" name="prix" class="form-control @error('prix') is-invalid @enderror"  placeholder="Entrer le Prix">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Quantité :</strong>
-                    <input type="number" name="qte" class="form-control" placeholder="Entrer la Quantite">
+                    <input type="number" name="qte" class="form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Commander</button>
+                <button type="submit" class="btn btn-success">Commander</button>
             </div>
         </div>
 

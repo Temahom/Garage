@@ -3,30 +3,40 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Voir Client</h2>
+                <h2 style="color: #2EC551">Informations</h2>
             </div>
         </div>
     </div>
-   
-    <div class="row">
-         <div class="col-xs-12 col-sm-12 col-md-12 row ">
-            <div class="form-group col-xs-3 col-sm-3 col-md-3" >
-                <strong>Nom</strong>
-                <input type="" name="" onFocus="this.blur()" value=" {{ $client->nom }}" class="custom-select form-control">     
-            </div>
-            <div class="form-group col-xs-3 col-sm-3 col-md-3">
-                <strong>Prénoms</strong>
-                <input type="" name="" onFocus="this.blur()" value="{{ $client->prenom }}" class="custom-select form-control">
-            </div>
-            <div class="form-group col-xs-3 col-sm-3 col-md-3">
-                <strong>Entreprise</strong>
-                <input type="" name="" onFocus="this.blur()" value="{{ $client->entreprise }}" class="custom-select form-control">               
-            </div>
-            <div class="form-group col-xs-3 col-sm-3 col-md-3">
-                <strong>Téléphone</strong>
-                <input type="" name="" onFocus="this.blur()" value="{{ $client->telephone }}" class="custom-select form-control">              
-            </div>
-    </div> </div>
+
+    <table>
+        <tr>
+            <td>
+                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Nom:</label>
+            </td>
+            <td>
+                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $client->nom}} {{ $client->prenom}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Entreprise:</label>
+            </td>
+            <td>
+                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $client->entreprise}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Téléphone:</label>
+            </td>
+            <td>
+                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $client->telephone}}</label>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+
+     </div>
          <div class="col-xs-12 col-sm-12 col-md-12">
            <div class="pull-right py-3">
 				<a class="btn btn-success" href="{{route('clients.voitures.create',['client'=>$client->id])}}">Ajouter Voiture</a>

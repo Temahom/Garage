@@ -2695,34 +2695,6 @@ clip-path: polygon(10% 25%, 10% 0, 35% 0%, 65% 0%, 90% 0, 90% 25%, 90% 50%, 91% 
 
 /*--- btn secondary --*/
 
-.btn-secondary {
-    color: #fff;
-    background-color: #ff407b;
-    border-color: #ff407b;
-}
-
-.btn-secondary:hover {
-    color: #fff;
-    background-color: #f0346e;
-    border-color: #f0346e;
-}
-
-.btn-secondary.focus,
-.btn-secondary:focus {
-    color: #fff;
-    background-color: #f0346e;
-    border-color: #f0346e;
-    box-shadow: 0 0 0 1px rgb(222, 17, 80);
-}
-
-.btn-secondary:not(:disabled):not(.disabled).active,
-.btn-secondary:not(:disabled):not(.disabled):active,
-.show>.btn-secondary.dropdown-toggle {
-    color: #fff;
-    background-color: #f0346e;
-    border-color: #f0346e;
-}
-
 
 /*--- btn success --*/
 
