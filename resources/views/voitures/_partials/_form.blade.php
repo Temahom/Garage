@@ -118,9 +118,9 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
     </div>
   </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-    <a class="btn btn-primary" href="{{ route('voitures.index') }}">Retour</a>
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
+    <a class="btn btn-secondary" href="{{ route('voitures.index') }}">Retour</a>
+    <button type="submit" class="btn btn-success">Enregistrer</button>
   </div>
 
 </div>

@@ -30,9 +30,9 @@
                     <input type="date" name="fin" value="" class="form-control" placeholder="Date de fin...">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <a class="btn btn-primary" href="{{ route('voitures.show',['voiture' => $voiture->id]) }}">Retour</a>
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                    <a class="btn btn-secondary" href="{{ route('voitures.show',['voiture' => $voiture->id]) }}">Retour</a>
+                    <button type="submit" class="btn btn-success">Enregistrer</button>
             </div>
 
         </div>

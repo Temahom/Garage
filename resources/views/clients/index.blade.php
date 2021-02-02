@@ -7,7 +7,7 @@
 				<h2>Tous les Clients</h2>
 			</div>
 			<div class="pull-right">
-				<a class="btn btn-success" href="{{route('clients.create')}}">Enregistrer un Client</a>
+				<a class="btn btn-primary" href="{{route('clients.create')}}">Enregistrer un Client</a>
 			</div>
 		</div>
 	</div>
