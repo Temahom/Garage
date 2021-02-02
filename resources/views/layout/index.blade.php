@@ -3,8 +3,9 @@
  @php
     use Illuminate\Support\Facades\Auth;
     use App\Models\Role;
-   $role=Role::find(Auth::user()->role_id);
-                            
+    if (Auth::user() != null){
+        $role=Role::find(Auth::user()->role_id);
+    }                  
  @endphp
 <head>
     <!-- Required meta tags -->
