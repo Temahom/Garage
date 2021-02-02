@@ -31,7 +31,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Prénoms :</strong>
+                <strong>Prénoms:</strong>
                 <input type="text" name="prenom" class="form-control" placeholder="Prenoms" autocomplete="off">
             </div>
         </div>

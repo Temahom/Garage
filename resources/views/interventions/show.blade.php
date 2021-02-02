@@ -25,6 +25,7 @@
             <p><h2>Devis</h2></p>
             @if ( $intervention->devis_id )
                 <p>{{ $devi->cout }}</p>
+                
                 <a class="btn btn-success" href="{{ route('voitures.interventions.devis.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'devi' => $intervention->devis_id]) }}" title="Go back">Modifier</a>
             @else
                 <a class="btn btn-success" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>

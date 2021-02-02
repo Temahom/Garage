@@ -58,32 +58,24 @@
         
         <div class="card ">
             <div class="card-header text-center"><a href="/"><img style="height: 100px;width: auto;" class="logo-img" src="/assets/images/logo.png" alt="logo"></a><span class="splash-description" style="color: #808183">Veillez entrer vos informations.</span></div>
-            <div class="card-body">
-                <form method="POST" action="{{ route('login')}}">
-                    @csrf
-                    <div class="form-group">
-                        <input class="form-control form-control-lg" name="email" id="username" type="text" placeholder="Nom utilisateur" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control form-control-lg" name="password" id="password" type="password" placeholder="Mot de Passe">
-                    </div>
-                    <div class="form-group">
-                        <label class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Se souvenir de moi</span>
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Se Connecter</button>
-                </form>
-            </div>
-         <!--     <div class="card-footer bg-white p-0  ">
-                <div class="card-footer-item card-footer-item-bordered">
-    <a href="{{route('register')}}" class="footer-link">Créer un Compte</a>
-                </div>
-                <div class="card-footer-item card-footer-item-bordered">
-                    <a href="{{route('password.request')}}" class="footer-link">Mot de oublié ?</a>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login')}}">
+                        @csrf
+                        <div class="form-group">
+                            <input class="form-control form-control-lg" name="email" id="username" type="text" placeholder="Nom utilisateur" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control form-control-lg" name="password" id="password" type="password" placeholder="Mot de Passe">
+                        </div>
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Se souvenir de moi</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Se Connecter</button>
+                    </form>
                 </div>
             </div>
-        </div>-->
     </div>
   
     <!-- ============================================================== -->

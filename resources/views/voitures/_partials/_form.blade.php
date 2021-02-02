@@ -89,7 +89,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
                     <select name="client_id" class="custom-select form-control  @error('client_id') is-invalid @enderror">
                           
                         @if(!empty($client->id))
-                             <option value="{{$client->id}}">{{$client->prenom.' '.$client->nom}}</option>
+                             <option value="{{$client->id}}" >{{$client->prenom.' '.$client->nom}}</option>
                          @else   
                             @foreach( $clients as $client ) 
                              <option value="{{$client->id}}" {{$voiture->client_id == $client->id ? 'selected':'' }}>{{$client->prenom.' '.$client->nom}}</option>

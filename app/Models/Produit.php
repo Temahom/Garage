@@ -10,5 +10,5 @@ class Produit extends Model
     use HasFactory;
 
     protected $guarded=[];
-    
-};
+
+}
