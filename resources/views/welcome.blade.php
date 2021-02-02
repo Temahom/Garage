@@ -111,8 +111,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
     </div>
 </div>
 <div class="row">
-    <span class="history">
-        <h4 >Lorem ipsum dolor</h4>
+    <span class="history" style="width: 20%">
+        <h4>Historiques</h4>
     </span>
 
     
@@ -132,20 +132,6 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum necessitatibus nemo assumenda vel quasi officia quas doloremque possimus suscipit ab cum itaque laudantium totam, reprehenderit neque error. Facere, corporis error?
             </div>
           </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Lorem ipsum dolor 
-            </button>
-          </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor repudiandae aperiam in blanditiis odio iusto odit voluptates ratione! Eos pariatur aspernatur ad aliquid iusto quam assumenda ipsum repudiandae numquam sunt.
-        </div>
         </div>
       </div>
 </div>
