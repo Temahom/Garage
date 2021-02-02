@@ -11,26 +11,26 @@
     <table>
         <tr>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Nom:</label>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Nom:</label>
             </td>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $client->nom}} {{ $client->prenom}}</label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Entreprise:</label>
-            </td>
-            <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $client->entreprise}}</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->nom}} {{ $client->prenom}}</label>
             </td>
         </tr>
         <tr>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Téléphone:</label>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Entreprise:</label>
             </td>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $client->telephone}}</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->entreprise}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Téléphone:</label>
+            </td>
+            <td>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->telephone}}</label>
             </td>
         </tr>
     </table>
