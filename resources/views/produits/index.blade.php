@@ -61,7 +61,7 @@ setlocale(LC_TIME, "fr_FR", "French");
             <th scope="col">Nom Produit</th>
             <th scope="col">Prix</th>
             <th scope="col">Quantité</th>
-            <th scope="col">Date d'Ajout</th>
+      <!--  <th scope="col">Date d'Ajout</th>    -->
             <th scope="col">Action</th>
         </tr>
     </thead>
@@ -74,7 +74,7 @@ setlocale(LC_TIME, "fr_FR", "French");
             <td>{{ $produit->produit }}</td>
             <td>{{number_format($produit->prix ,0, ",", " " )}}  <sup>F CFA</sup></td>
             <td>{{ $produit->qte }}</td>
-            <td style="text-transform:capitalize;">{{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td>
+        <!--<td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
             <td>
 
                 <a href="{{ route('produits.show', $produit->id) }}" title="show">

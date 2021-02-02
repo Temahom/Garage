@@ -76,6 +76,7 @@ class VoitureController extends Controller
     public function edit(Voiture $voiture)
     {
         //
+        $this->authorize('raf');
         $clients = Client::all();
         return view('voitures.edit',compact('voiture','clients'));
     }

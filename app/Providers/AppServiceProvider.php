@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Providers;
+use App\Models\User;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Gate;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -16,7 +18,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Gate::define('admin',function(User $user){
+        return $user->isAdmin();
+        });
+        Gate::define('raf', function(User $user){
+        return $user->isRaf();
+        });
     }
 
     /**
