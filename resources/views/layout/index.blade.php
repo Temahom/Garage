@@ -27,6 +27,9 @@
 </head>
 
 <style>
+    .dashboard-main-wrapper{
+        background-color: white;
+    }
     .footer{
 
         background:white;
@@ -34,10 +37,6 @@
         bottom:0;
         width:100%
     }
-    .nav-item .nav-link:hover{
-       color: black;
-    }
-  
 
 </style>
 
@@ -91,6 +90,7 @@
         <!-- left sidebar -->
         <!-- ============================================================== -->
         <div class="nav-left-sidebar sidebar-dark">
+            <br>
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">Clients</a>

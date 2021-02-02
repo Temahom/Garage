@@ -36,5 +36,5 @@ Route::get('listes/carburant/{lecarburant}',function($lecarburant){
 });
 
 Route::get('listesp/{categorie}',function($categorie){
-    return listeproduit::select('produit')->where('categorie','=',$categorie)->orderBy('categorie')->distinct()->get();  
+    return listeproduit::select('produit')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();  
 });  
