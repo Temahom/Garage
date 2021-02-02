@@ -12,7 +12,14 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
         border: 2px solid #1891ea;
         border-radius: 50% !important;
         justify-content: center;
+        align-self: center;
+        align-items: center;
+        align-content: center;
       
+    }
+    .time{
+        align-self: center;
+        margin-top:30% !important;
     }
     .clw{
         color: white !important;
@@ -50,8 +57,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
     <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
         <div class="card">
             <div class="card-body">
-                    <h1 class="text-center mt-3  ">{{Date('d')}}</h1>
-                    <h5 class="text-center" style="text-transform: capitalize;">{{strftime("%A %d %B %Y", strtotime( $date->format('d/m/Y h:i:s A')))}}</h5>
+                    <h3 class="text-center mt-3 time"><span id="heurre"></span>H: <span id="minute"></span>mn: <span id="seconde"></span>s</h3>
+                    <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
                 </div> 
                
           
@@ -149,6 +156,32 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
         </div>
       </div>
 </div>
+<script>
+ 
+    var date = new Date();
+    var options = {weekday: "long", year: "numeric", month: "long", day: "2-digit"};
+    var ladate=document.getElementById("ladate");
+
+        ladate.innerText=date.toLocaleDateString("fr-FR", options);
+        var heurre=document.getElementById("heurre");
+        var minute=document.getElementById("minute");
+        var seconde=document.getElementById("seconde");
+
+            // declarations des variables pour la recupertaion de l'heurre d'aujourd'huit
+          
+           
+          setInterval(
+            function(){
+                
+                var date1 = new Date();
+                heurre.innerText=date1.getHours();
+                minute.innerText=date1.getMinutes();
+                seconde.innerText=date1.getSeconds();
+              
+                //alert(date.getSeconds)
+            },1000);
+
+    </script>
 @endsection
         
      
