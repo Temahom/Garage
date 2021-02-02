@@ -11,7 +11,7 @@
 
 <style>
 	a:hover{
-		color: #21AE41;
+		color: #2142ae;
 	}
 </style>
 
