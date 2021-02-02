@@ -9,50 +9,46 @@
         </div>
 	</div>
 
+<style>
+	a:hover{
+		color: #21AE41;
+	}
+</style>
+
 	<table>
         <tr>
             <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Proprietaire:</label>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Proprietaire:</label>
             </td>
             <td>
-                <a href="{{ route('clients.show', ['client' => $voiture->client_id] ) }}"><label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</label></a>
+                <a style="font-size: 20px;" href="{{ route('clients.show', ['client' => $voiture->client_id] ) }}">&nbsp&nbsp&nbsp{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</a>
             </td>
         </tr>
         <tr>
             <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Matricule:</label>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Matricule:</label>
             </td>
             <td>
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->matricule }}</label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Marque:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->marque }}</label>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Model:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->model }}</label>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Année:</label>
+			</td>
+			
+			<td>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Année:</label>
             </td>
             <td>
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->annee }}</label>
-            </td>
-		</tr>
-		<tr>
+			</td>
+			
+        </tr>
+        <tr>
             <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Carburant:</label>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Marque:</label>
+            </td>
+            <td>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->marque }}</label>
+			</td>
+			<td>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Carburant:</label>
             </td>
             <td>
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->carburant }}</label>
@@ -60,12 +56,18 @@
 		</tr>
 		<tr>
             <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Puissance:</label>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Model:</label>
+            </td>
+            <td>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->model }}</label>
+			</td>
+			<td>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Puissance:</label>
             </td>
             <td>
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->puissance }}</label>
             </td>
-        </tr>
+		</tr>
 	</table>
 	<br><br>
 	
