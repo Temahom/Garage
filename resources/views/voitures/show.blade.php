@@ -12,58 +12,58 @@
 	<table>
         <tr>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Proprietaire:</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Proprietaire:</label>
             </td>
             <td>
-                <a href="{{ route('clients.show', ['client' => $voiture->client_id] ) }}"><label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</label></a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Matricule:</label>
-            </td>
-            <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $voiture->matricule }}</label>
+                <a href="{{ route('clients.show', ['client' => $voiture->client_id] ) }}"><label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</label></a>
             </td>
         </tr>
         <tr>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Marque:</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Matricule:</label>
             </td>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $voiture->marque }}</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->matricule }}</label>
             </td>
-		</tr>
-		<tr>
+        </tr>
+        <tr>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Model:</label>
-            </td>
-            <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $voiture->model }}</label>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Année:</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Marque:</label>
             </td>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $voiture->annee }}</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->marque }}</label>
             </td>
 		</tr>
 		<tr>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Carburant:</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Model:</label>
             </td>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $voiture->carburant }}</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->model }}</label>
             </td>
 		</tr>
 		<tr>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Puissance:</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Année:</label>
             </td>
             <td>
-                <label style="font-size: 30px;">&nbsp&nbsp&nbsp{{ $voiture->puissance }}</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->annee }}</label>
+            </td>
+		</tr>
+		<tr>
+            <td>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Carburant:</label>
+            </td>
+            <td>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->carburant }}</label>
+            </td>
+		</tr>
+		<tr>
+            <td>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Puissance:</label>
+            </td>
+            <td>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->puissance }}</label>
             </td>
         </tr>
 	</table>
@@ -75,7 +75,7 @@
 				<h2>Toutes les interventions</h2>
 			</div>
 			<div class="pull-right">
-				<a class="btn btn-success" href="{{route('voitures.interventions.create',['voiture' => $voiture->id])}}">Ajouter une intervention</a>
+				<a class="btn btn-primary" href="{{route('voitures.interventions.create',['voiture' => $voiture->id])}}">Ajouter une intervention</a>
 			</div>
 		</div>
 	</div>
@@ -141,7 +141,7 @@
 	<br>
 
 	<div class="pull-right">
-		<a class="btn btn-primary" href="{{ route('voitures.index') }}">Retour</a>
+		<a class="btn btn-secondary" href="{{ route('voitures.index') }}">Retour</a>
 	</div>
     
 @endsection
