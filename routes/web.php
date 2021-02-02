@@ -12,7 +12,7 @@ use App\Http\Controllers\InterventionController;
 
 use Illuminate\Support\Facades\App;
 
-
+     
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,3 +54,4 @@ Route::middleware(['auth','manager'])->group(function () {
  
 Route::middleware(['auth','user'])->group(function () {
 });
+
