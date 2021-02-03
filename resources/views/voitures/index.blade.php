@@ -26,7 +26,8 @@
         @endif
     <div class="row">
     <div class="col-lg-12 margin-tb">
-    <table class="table table-bordered">
+        <table class="table table-striped table-hover col-md-12">
+            <thead class="thead-dark">
         <tr>
             <th>Matricule</th>
             <th>Marque</th>
@@ -36,6 +37,7 @@
             <th>Puissance</th>
             <th width='275px'>Action</th>
         </tr>
+            </thead>
         @foreach ($voitures as $voiture)
         <tr>
             <td>{{ $voiture->matricule}}</td>
@@ -45,16 +47,30 @@
             <td>{{ $voiture->carburant}}</td>
             <td>{{ $voiture->puissance}}</td>
             <td>
-            <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">   
+            {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
                     <a class="btn btn-info" href="{{ route('voitures.show',$voiture->id) }}"><i class="fas fa-eye mr-2"></i></a>    
-                @can('raf')
-                <a class="btn btn-primary" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit mr-2"></i></a>
-                @endcan
-                      
-                    @csrf
-                    @method('DELETE')      
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i></button>
-                </form>
+                
+                    <a class="btn btn-primary" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit mr-2"></i></a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
+                        <i class="fas fa-trash mr-2"></i>
+                    </button> 
+                    <div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-body">
+									<h5>Voulez vous vraiment supprimer <strong>la {{ $voiture->marque }} de {{ $voiture->matricule }} de liste des voitures</strong>  ?</h5>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+									<form action="{{route('voitures.destroy',$voiture->id)}}" method="POST">
+										@csrf
+										@method('DELETE')
+										<button type="submit" class="btn btn-danger">Supprimer</button>
+									</form>
+							</div>
+						</div>
+					</div>
+                
             </td>
         </tr>
             

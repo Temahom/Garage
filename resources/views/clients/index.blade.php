@@ -49,24 +49,25 @@
 						<i class="fas fa-trash"></i>
 					</button>
 
-					<div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-body">
-									<h5>Voulez vous supprimer: <strong>{{ $client->nom }} {{ $client->prenom }}</strong>  ?</h5>
+							<div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-body">
+											<h5>Voulez vous supprimer: <strong>{{ $client->nom }} {{ $client->prenom }}</strong>  ?</h5>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+											<form action="{{route('clients.destroy',$client->id)}}" method="POST">
+												@csrf
+												@method('DELETE')
+												<button type="submit" class="btn btn-danger">Supprimer</button>
+											</form>
+									</div>
+									</div>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-									<form action="{{route('clients.destroy',$client->id)}}" method="POST">
-										@csrf
-										@method('DELETE')
-										<button type="submit" class="btn btn-danger">Supprimer</button>
-									</form>
 							</div>
-							</div>
-						</div>
-					</div>
 
+<<<<<<< HEAD
 				</td>
 			</tr>
 		
@@ -74,6 +75,14 @@
 		</tbody>
 	</table>
 	</div>
+=======
+						</td>
+					</tr>
+				@endforeach
+				</tbody>
+			</table>
+		</div>
+>>>>>>> 72036ab730028a23932a590b2031beee4e42b746
 	</div>
 	<div class="row">
 		<div class="col-md-12 mt-3 d-flex justify-content-center">
