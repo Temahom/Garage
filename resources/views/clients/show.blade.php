@@ -14,7 +14,7 @@
                 <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Nom:</label>
             </td>
             <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->nom}} {{ $client->prenom}}</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp {{ $client->prenom}}  {{ $client->nom}}</label>
             </td>
         </tr>
         <tr>
