@@ -36,7 +36,7 @@
 		<tbody>
 		@foreach ($clients as $client)
 		
-			<tr onclick="showClient({{ $client->id }})" style="cursor: pointer;">>
+			<tr onclick="showClient({{ $client->id }})" style="cursor: pointer;">
 				<td>{{ $client->nom }}</td>
 				<td>{{ $client->prenom }}</td>
 				<td style="text-transform: capitalize;">{{ $client->genre }}</td>
