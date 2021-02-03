@@ -46,11 +46,7 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
                 <strong>Entreprise :</strong>
-<<<<<<< HEAD
                 <input type="text" name="entreprise" class="form-control" placeholder="Entreprise" autocomplete="off">
-=======
-                <input type="text" name="entreprise" class="form-control" placeholder="Entreprise" >
->>>>>>> 8327ddc5ea9733db82774860cfd192164a595222
             </div>
             
             <div class="form-group">
