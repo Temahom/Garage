@@ -5,7 +5,7 @@ use App\Models\Voiture;
 use App\Models\Client;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Gate;
 class VoitureController extends Controller
 {
     /**
@@ -15,7 +15,8 @@ class VoitureController extends Controller
      */
     public function index()
     {
-        $voitures= Voiture::orderBy('created_at','DESC')->paginate(15);
+
+        $voitures= Voiture::orderBy('created_at','DESC')->paginate(3);
         return view('voitures.index',compact('voitures'));
     }
 

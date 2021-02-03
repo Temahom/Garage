@@ -76,7 +76,11 @@
     </table>
     </div>
     </div>
-
+    <div class="row">
+		<div class="col-md-12 mt-3 d-flex justify-content-center">
+			{!! $voitures->links() !!}
+		</div>
+	</div>
 
 
 @endsection

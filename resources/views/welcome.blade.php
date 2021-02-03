@@ -57,7 +57,7 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
     <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
         <div class="card">
             <div class="card-body">
-                    <h3 class="text-center mt-3 time"><span id="heurre"></span>H: <span id="minute"></span>mn: <span id="seconde"></span>s</h3>
+                    <h3 class="text-center mt-3 time"><span id="heurre"></span>h: <span id="minute"></span>mn: <span id="seconde"></span>s</h3>
                     <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
                 </div> 
                
@@ -70,8 +70,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
             <div class="card-body " >
                 <div class="metric-value d-inline-block">
                     <p>
-                    <span class="clw" style="font-weight: bold; font-size:40px;">120</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;">Total Lorem,</span>
+                    <span class="clw compteur"  style="font-weight: bold; font-size:30px;">{{\App\Models\Client::count()}}</span>
+                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Client::count()>1?"Clients":"Client"}}</span>
                 </p>
             </div>
                 
@@ -87,8 +87,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
             <div class="card-body " >
                 <div class="metric-value d-inline-block">
                     <p>
-                    <span class="clw" style="font-weight: bold; font-size:40px;">120</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;">Total Lorem, </span>
+                    <span class="clw compteur1" style="font-weight: bold; font-size:30px;" >{{\App\Models\Voiture::count()}}</span>
+                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Voiture::count()>1?"Voitures":"Voiture"}}</span>
                 </p>
             </div>
                 
@@ -104,8 +104,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
             <div class="card-body " >
                 <div class="metric-value d-inline-block">
                     <p>
-                    <span class="clw" style="font-weight: bold; font-size:40px;">120</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;">Total Lorem, </span>
+                    <span class="clw compteur2" style="font-weight: bold; font-size:30px;">{{\App\Models\Intervention::count()}}</span>
+                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Intervention::count()>1?"Interventions":"Intervention"}}</span>
                 </p>
             </div>
                 
@@ -142,6 +142,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
         </div>
       </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script>
  
     var date = new Date();
@@ -167,7 +169,38 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
                 //alert(date.getSeconds)
             },1000);
 
-    </script>
+
+    $({ Counter: 0 }).animate({
+      Counter: $('.compteur').text()
+    }, {
+      duration: 1000,
+      easing: 'swing',
+      step: function() {
+        $('.compteur').text(Math.ceil(this.Counter));
+      }
+});
+
+$({ Counter: 0 }).animate({
+      Counter: $('.compteur1').text()
+    }, {
+      duration: 1000,
+      easing: 'swing',
+      step: function() {
+        $('.compteur1').text(Math.ceil(this.Counter));
+      }
+});
+$({ Counter: 0 }).animate({
+      Counter: $('.compteur2').text()
+    }, {
+      duration: 1000,
+      easing: 'swing',
+      step: function() {
+        $('.compteur2').text(Math.ceil(this.Counter));
+      }
+    });             
+
+
+</script>
 @endsection
         
      
