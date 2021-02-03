@@ -25,7 +25,6 @@
 	<table class="table table-striped table-hover col-md-12">
 		<thead class="thead-dark">
 			<tr>
-				<th>Id</th>
 				<th>Nom</th>
 				<th>Prénoms</th>
 				<th>Genre</th>
@@ -36,18 +35,18 @@
 		</thead>
 		<tbody>
 		@foreach ($clients as $client)
-			<tr>
-				<td>{{ $client->id }}</td>
+		
+			<tr onclick="showClient({{ $client->id }})" style="cursor: pointer;">>
 				<td>{{ $client->nom }}</td>
 				<td>{{ $client->prenom }}</td>
 				<td style="text-transform: capitalize;">{{ $client->genre }}</td>
 				<td>{{ $client->entreprise }}</td>
 				<td>{{ $client->telephone }}</td>
 				<td>
-					<a class="btn btn-success" href="{{route('clients.show',$client->id)}}"><i class="fas fa-eye mr-2"></i></a>
-					<a class="btn btn-primary" href="{{ route('clients.edit',$client->id)}}"><i class="fas fa-edit mr-2"></i></a>
-					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
-						<i class="fas fa-trash mr-2"></i>
+					<a class="btn btn-success p-0 pr-2 pl-2" href="{{route('clients.show',$client->id)}}"><i class="fas fa-eye"></i></a>
+					<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('clients.edit',$client->id)}}"><i class="fas fa-edit"></i></a>
+					<button type="button" class="btn btn-danger p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
+						<i class="fas fa-trash"></i>
 					</button>
 
 					<div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -70,6 +69,7 @@
 
 				</td>
 			</tr>
+		
 		@endforeach
 		</tbody>
 	</table>
@@ -80,7 +80,18 @@
 			{!! $clients->links() !!}
 		</div>
 	</div>
-    
+	
+	
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+	<script>
+		function showClient(id)
+		{
+			window.location = 'clients/' + id ;
+		}
+	</script>
       
 @endsection
    
