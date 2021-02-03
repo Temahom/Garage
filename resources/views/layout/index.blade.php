@@ -31,6 +31,9 @@
         bottom:0;
         width:100%
     }
+    .capitalize{
+      text-transform: capitalize;
+    }
 
 </style>
 

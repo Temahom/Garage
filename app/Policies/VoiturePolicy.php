@@ -41,7 +41,7 @@ class VoiturePolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id,[2]);
+        return in_array($user->role_id,[2,3]);
     }
 
     /**

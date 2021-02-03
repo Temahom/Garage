@@ -34,6 +34,7 @@
             <th>Annee</th>
             <th>Carburant</th>
             <th>Puissance</th>
+            <th>Enregistré par</th>
             <th width='275px'>Action</th>
         </tr>
         @foreach ($voitures as $voiture)
@@ -44,6 +45,8 @@
             <td>{{ $voiture->annee}}</td>
             <td>{{ $voiture->carburant}}</td>
             <td>{{ $voiture->puissance}}</td>
+            <td> <div> {{$voiture->user()->first()->name}} <span class="badge badge-secondary capitalize">{{ $voiture->user()->first()->role()->first()->role}}</span></div> 
+                
             <td>
             {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
                     <a class="btn btn-info" href="{{ route('voitures.show',$voiture->id) }}"><i class="fas fa-eye mr-2"></i></a>    
