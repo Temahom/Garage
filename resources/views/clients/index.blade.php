@@ -75,8 +75,12 @@
 			</table>
 		</div>
 	</div>
-  
-    {!! $clients->links() !!}
+	<div class="row">
+		<div class="col-md-12 mt-3 d-flex justify-content-center">
+			{!! $clients->links() !!}
+		</div>
+	</div>
+    
       
 @endsection
    

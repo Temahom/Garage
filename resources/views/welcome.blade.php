@@ -70,8 +70,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
             <div class="card-body " >
                 <div class="metric-value d-inline-block">
                     <p>
-                    <span class="clw compteur"  style="font-weight: bold; font-size:40px;">{{\App\Models\Client::count()}}</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:30px;">{{\App\Models\Client::count()>1?"Clients":"Client"}}</span>
+                    <span class="clw compteur"  style="font-weight: bold; font-size:30px;">{{\App\Models\Client::count()}}</span>
+                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Client::count()>1?"Clients":"Client"}}</span>
                 </p>
             </div>
                 
@@ -87,8 +87,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
             <div class="card-body " >
                 <div class="metric-value d-inline-block">
                     <p>
-                    <span class="clw compteur1" style="font-weight: bold; font-size:40px;" >{{\App\Models\Voiture::count()}}</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:30px;">{{\App\Models\Voiture::count()>1?"Voitures":"Voiture"}}</span>
+                    <span class="clw compteur1" style="font-weight: bold; font-size:30px;" >{{\App\Models\Voiture::count()}}</span>
+                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Voiture::count()>1?"Voitures":"Voiture"}}</span>
                 </p>
             </div>
                 
@@ -104,8 +104,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
             <div class="card-body " >
                 <div class="metric-value d-inline-block">
                     <p>
-                    <span class="clw compteur2" style="font-weight: bold; font-size:40px;">{{\App\Models\Intervention::count()}}</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:30px;">{{\App\Models\Intervention::count()>1?"Interventions":"Intervention"}}</span>
+                    <span class="clw compteur2" style="font-weight: bold; font-size:30px;">{{\App\Models\Intervention::count()}}</span>
+                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Intervention::count()>1?"Interventions":"Intervention"}}</span>
                 </p>
             </div>
                 
@@ -171,33 +171,36 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
 
 
     $({ Counter: 0 }).animate({
-  Counter: $('.compteur').text()
-}, {
-  duration: 1000,
-  easing: 'swing',
-  step: function() {
-    $('.compteur').text(Math.ceil(this.Counter));
-  }
+      Counter: $('.compteur').text()
+    }, {
+      duration: 1000,
+      easing: 'swing',
+      step: function() {
+        $('.compteur').text(Math.ceil(this.Counter));
+      }
 });
 
 $({ Counter: 0 }).animate({
-  Counter: $('.compteur1').text()
-}, {
-  duration: 1000,
-  easing: 'swing',
-  step: function() {
-    $('.compteur1').text(Math.ceil(this.Counter));
-  }
+      Counter: $('.compteur1').text()
+    }, {
+      duration: 1000,
+      easing: 'swing',
+      step: function() {
+        $('.compteur1').text(Math.ceil(this.Counter));
+      }
 });
 $({ Counter: 0 }).animate({
-  Counter: $('.compteur2').text()
-}, {
-  duration: 1000,
-  easing: 'swing',
-  step: function() {
-    $('.compteur2').text(Math.ceil(this.Counter));
-  }
-});              </script>
+      Counter: $('.compteur2').text()
+    }, {
+      duration: 1000,
+      easing: 'swing',
+      step: function() {
+        $('.compteur2').text(Math.ceil(this.Counter));
+      }
+    });             
+
+
+</script>
 @endsection
         
      
