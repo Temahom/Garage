@@ -14,7 +14,7 @@
                 <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Nom:</label>
             </td>
             <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->nom}} {{ $client->prenom}}</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp {{ $client->prenom}}  {{ $client->nom}}</label>
             </td>
         </tr>
         <tr>
@@ -73,9 +73,12 @@
                 @endforeach
             </table>
          </div>
-          <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('clients.index') }}"> Retour</a>
+
+        <div class="row">
+            <div class="col-md-12 ml-3 mt-3">
+                <a class="btn btn-secondary" href="{{ route('clients.index') }}"> Retour</a>
             </div>
+         </div>
            
     </div>
 @endsection

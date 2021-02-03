@@ -28,14 +28,14 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
    
-Route::middleware(['auth','admin' ])->group(function () {
+Route::middleware('auth')->group(function () {
 
     Route::resource('produits',ProduitController::class);
     Route::resource('clients',ClientController::class);
-    Route::resource('voitures',VoitureController::class);
+    
     Route::resource('clients.voitures', VoitureController::class);
     Route::resource('factures',FactureController::class);
-    
+    Route::resource('voitures',VoitureController::class);
     Route::resource('voitures.interventions',InterventionController::class);
     Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
     Route::resource('voitures.interventions.reparations',ReparationController::class);
@@ -49,9 +49,11 @@ Route::middleware(['auth','admin' ])->group(function () {
 
 
 Route::middleware(['auth','manager'])->group(function () {
+
 });
     
  
 Route::middleware(['auth','user'])->group(function () {
+    
 });
 

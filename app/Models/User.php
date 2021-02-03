@@ -45,11 +45,11 @@ class User extends Authenticatable
     }
     public function isAdmin()
     {
-        return strtolower(@$this->roles) === 'admin'? true : false;
+        return strtolower(@$this->role) === 'admin'? true : false;
     }
     public function isRaf()
     {
-        return strtolower(@$this->roles) === 'raf'? true : false;
+        return strtolower(@$this->role) === 'raf'? true : false;
 
     }
 }

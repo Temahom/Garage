@@ -11,7 +11,7 @@
 
 <style>
 	a:hover{
-		color: #21AE41;
+		color: #2142ae;
 	}
 </style>
 
@@ -21,7 +21,7 @@
                 <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Proprietaire:</label>
             </td>
             <td>
-                <a style="font-size: 20px;" href="{{ route('clients.show', ['client' => $voiture->client_id] ) }}">&nbsp&nbsp&nbsp{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</a>
+                <a style="font-size: 20px;color:#81A3D4;" href="{{ route('clients.show', ['client' => $voiture->client_id] ) }}">&nbsp&nbsp&nbsp{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</a>
             </td>
         </tr>
         <tr>
@@ -33,7 +33,7 @@
 			</td>
 			
 			<td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Année:</label>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Année:</label>
             </td>
             <td>
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->annee }}</label>
@@ -48,7 +48,7 @@
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->marque }}</label>
 			</td>
 			<td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Carburant:</label>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Carburant:</label>
             </td>
             <td>
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->carburant }}</label>
@@ -62,7 +62,7 @@
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->model }}</label>
 			</td>
 			<td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Puissance:</label>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Puissance:</label>
             </td>
             <td>
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->puissance }}</label>
@@ -143,7 +143,7 @@
 	<br>
 
 	<div class="pull-right">
-		<a class="btn btn-secondary" href="{{ route('voitures.index') }}">Retour</a>
+		<a class="btn btn-secondary" href="{{ route('clients.show', ['client' => $voiture->client_id]) }}">Retour</a>
 	</div>
     
 @endsection
