@@ -67,7 +67,7 @@ class VoitureController extends Controller
     public function show($id)
     {
         $voiture=Voiture::find($id);
-        $interventions = $voiture->interventions;
+        $interventions = $voiture->interventions()->paginate(3);
         return view('voitures.show',compact('voiture', 'interventions'));
     }
 

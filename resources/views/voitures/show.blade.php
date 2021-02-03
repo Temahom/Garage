@@ -1,5 +1,4 @@
 @extends('layout.index')
-
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -72,6 +71,7 @@
 	<br><br>
 	
     <div class="row">
+	
 		<div class="col-lg-12 margin-tb">
 			<div class="pull-left">
 				<h2>Toutes les interventions</h2>
@@ -141,6 +141,13 @@
 		</div>
 	</div>
 	<br>
+</div>
+</div>
+<div class="row">
+	<div class="col-md-12 mt-3 d-flex justify-content-center">
+		{!! $interventions->render() !!}
+	</div>
+</div>
 
 	<div class="pull-right">
 		<a class="btn btn-secondary" href="{{ route('clients.show', ['client' => $voiture->client_id]) }}">Retour</a>

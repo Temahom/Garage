@@ -49,7 +49,9 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="/">SAKA</a>
+                <a class="navbar-brand" href="/">
+                    <img style="height: 50px;width: auto;" class="logo-img" src="/assets/images/logo.png" alt="logo">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -148,8 +150,8 @@
                             <div style="width: 100%; padding-left: 30px" >
                                 @yield('content')
                             </div>
-                            <div class="footer">
-                                <div class="container-fluid">
+                            <div class="footer" style="text-align: center;">
+                                <div class="container-fluid" style="text-align: center;margin-left:15%;">
                                     <div class="row">
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                             Copyright ©  {{Date('Y')}} SAKA.
