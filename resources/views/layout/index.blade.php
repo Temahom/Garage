@@ -1,12 +1,6 @@
 <!doctype html>
 <html lang="en">
- @php
-    use Illuminate\Support\Facades\Auth;
-    use App\Models\Role;
-    if (Auth::user() != null){
-        $role=Role::find(Auth::user()->role_id);
-    }                  
- @endphp
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -70,7 +64,7 @@
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name"> {{Auth::user()->name?Auth::user()->name:null}}</h5>
                                    
-                                    <span class="status"></span><span class="ml-2">{{$role->role}}</span>
+                                    <span class="status"></span><span class="ml-2">{{Auth::user()->role->role}}</span>
                                 </div>
                                 <form action="{{route ('logout')}}" method="post">
                                     @csrf
