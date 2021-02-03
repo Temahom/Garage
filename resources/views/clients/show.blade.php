@@ -73,9 +73,12 @@
                 @endforeach
             </table>
          </div>
-          <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('clients.index') }}"> Retour</a>
+
+        <div class="row">
+            <div class="col-md-12 ml-3 mt-3">
+                <a class="btn btn-secondary" href="{{ route('clients.index') }}"> Retour</a>
             </div>
+         </div>
            
     </div>
 @endsection

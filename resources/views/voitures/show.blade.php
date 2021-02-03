@@ -143,7 +143,7 @@
 	<br>
 
 	<div class="pull-right">
-		<a class="btn btn-secondary" href="{{ route('voitures.index') }}">Retour</a>
+		<a class="btn btn-secondary" href="{{ route('clients.show', ['client' => $voiture->client_id]) }}">Retour</a>
 	</div>
     
 @endsection
