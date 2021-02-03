@@ -58,7 +58,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        $voitures = $client->voitures()->get();
+        $voitures = $client->voitures()->paginate(3);
         return view('clients.show',compact('client','voitures'));
     }
 
