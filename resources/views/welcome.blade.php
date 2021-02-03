@@ -104,8 +104,8 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
             <div class="card-body " >
                 <div class="metric-value d-inline-block">
                     <p>
-                    <span class="clw " style="font-weight: bold; font-size:40px;">120</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;">Total Lorem, </span>
+                    <span class="clw compteur2" style="font-weight: bold; font-size:40px;">{{\App\Models\Intervention::count()}}</span>
+                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:30px;">{{\App\Models\Intervention::count()>1?"Interventions":"Intervention"}}</span>
                 </p>
             </div>
                 
@@ -189,7 +189,15 @@ $({ Counter: 0 }).animate({
     $('.compteur1').text(Math.ceil(this.Counter));
   }
 });
-               </script>
+$({ Counter: 0 }).animate({
+  Counter: $('.compteur2').text()
+}, {
+  duration: 1000,
+  easing: 'swing',
+  step: function() {
+    $('.compteur2').text(Math.ceil(this.Counter));
+  }
+});              </script>
 @endsection
         
      
