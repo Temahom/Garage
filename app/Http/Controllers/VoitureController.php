@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Voiture;
 use App\Models\Client;
+use Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -42,7 +43,7 @@ class VoitureController extends Controller
     public function store(Request $request)
     {
        // dd($request);
-
+        $user = Auth::id();
         $data= request()->validate([
             'matricule'=>'required',
             'marque'=>'required',
@@ -50,8 +51,9 @@ class VoitureController extends Controller
             'annee'=>'required',
             'carburant'=>'required',
             'puissance'=>'required',
-            'client_id'=>'required'
+            'client_id'=>'required',
           ]);
+          $data = array_merge($data, ['user_id'=>$user]);
            $voiture = Voiture::create($data);
            return redirect()->route('voitures.show', ['voiture' => $voiture]);
     }
