@@ -67,7 +67,6 @@
 								</div>
 							</div>
 
-<<<<<<< HEAD
 				</td>
 			</tr>
 		
@@ -75,14 +74,6 @@
 		</tbody>
 	</table>
 	</div>
-=======
-						</td>
-					</tr>
-				@endforeach
-				</tbody>
-			</table>
-		</div>
->>>>>>> 72036ab730028a23932a590b2031beee4e42b746
 	</div>
 	<div class="row">
 		<div class="col-md-12 mt-3 d-flex justify-content-center">
