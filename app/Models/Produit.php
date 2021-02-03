@@ -11,6 +11,4 @@ class Produit extends Model
 
     protected $guarded=[];
 
-    
-};
-
+}

@@ -2695,34 +2695,6 @@ clip-path: polygon(10% 25%, 10% 0, 35% 0%, 65% 0%, 90% 0, 90% 25%, 90% 50%, 91% 
 
 /*--- btn secondary --*/
 
-.btn-secondary {
-    color: #fff;
-    background-color: #ff407b;
-    border-color: #ff407b;
-}
-
-.btn-secondary:hover {
-    color: #fff;
-    background-color: #f0346e;
-    border-color: #f0346e;
-}
-
-.btn-secondary.focus,
-.btn-secondary:focus {
-    color: #fff;
-    background-color: #f0346e;
-    border-color: #f0346e;
-    box-shadow: 0 0 0 1px rgb(222, 17, 80);
-}
-
-.btn-secondary:not(:disabled):not(.disabled).active,
-.btn-secondary:not(:disabled):not(.disabled):active,
-.show>.btn-secondary.dropdown-toggle {
-    color: #fff;
-    background-color: #f0346e;
-    border-color: #f0346e;
-}
-
 
 /*--- btn success --*/
 
@@ -2788,64 +2760,6 @@ clip-path: polygon(10% 25%, 10% 0, 35% 0%, 65% 0%, 90% 0, 90% 25%, 90% 50%, 91% 
 
 /*--- btn warning --*/
 
-.btn-warning {
-    color: #2e2f39;
-    background-color: #ffc108;
-    border-color: #ffc108;
-}
-
-.btn-warning:hover {
-    color: #2e2f39;
-    background-color: #f3b600;
-    border-color: #f3b600;
-}
-
-.btn-warning.focus,
-.btn-warning:focus {
-    color: #2e2f39;
-    background-color: #f3b600;
-    border-color: #f3b600;
-    box-shadow: 0 0 0 1px rgb(238, 182, 0);
-}
-
-.btn-warning:not(:disabled):not(.disabled).active,
-.btn-warning:not(:disabled):not(.disabled):active,
-.show>.btn-warning.dropdown-toggle {
-    color: #2e2f39;
-    background-color: #f3b600;
-    border-color: #f3b600;
-}
-
-
-/*--- btn info --*/
-
-.btn-info {
-    color: #fff;
-    background-color: #25d5f2;
-    border-color: #25d5f2;
-}
-
-.btn-info:hover {
-    color: #fff;
-    background-color: #17c0dc;
-    border-color: #17c0dc;
-}
-
-.btn-info.focus,
-.btn-info:focus {
-    color: #fff;
-    background-color: #17c0dc;
-    border-color: #17c0dc;
-    box-shadow: 0 0 0 1px rgb(238, 184, 22);
-}
-
-.btn-info:not(:disabled):not(.disabled).active,
-.btn-info:not(:disabled):not(.disabled):active,
-.show>.btn-info.dropdown-toggle {
-    color: #fff;
-    background-color: #17c0dc;
-    border-color: #17c0dc;
-}
 
 
 /*--- btn light --*/

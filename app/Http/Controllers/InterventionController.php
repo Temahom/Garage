@@ -82,9 +82,9 @@ class InterventionController extends Controller
      * @param  \App\Models\Intervention  $intervention
      * @return \Illuminate\Http\Response
      */
-    public function edit(Intervention $intervention)
+    public function edit(Voiture $voiture)
     {
-        //
+        return view('interventions.edit', compact('voiture'));
     }
 
     /**
@@ -94,9 +94,24 @@ class InterventionController extends Controller
      * @param  \App\Models\Intervention  $intervention
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Intervention $intervention)
+   /* public function update(Request $request, Intervention $intervention)
     {
         //
+    }    */
+
+    
+    public function update(Request $request, Voiture $voiture)
+     {  
+    
+        $intervention = new Intervention();
+        $intervention->voiture_id = $voiture->id;
+        $intervention->type = $request->input('type');
+        $intervention->debut = $request->input('debut');
+        $intervention->fin = $request->input('fin');
+          $intervention->update(); 
+        //  $intervention->save();
+       // $intervention->update($request->all());
+        return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
     }
 
     /**
