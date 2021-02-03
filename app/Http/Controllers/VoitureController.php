@@ -26,7 +26,8 @@ class VoitureController extends Controller
      */
     public function create(Client $client, Voiture $voiture)
     {
-        // dd($client);
+        
+      $this->authorize('create', Voiture::class);
       $clients= Client::all();
       return view('voitures.create',compact('clients','client', 'voiture'));
     }
@@ -76,7 +77,7 @@ class VoitureController extends Controller
     public function edit(Voiture $voiture)
     {
         //
-        $this->authorize('raf');
+        
         $clients = Client::all();
         return view('voitures.edit',compact('voiture','clients'));
     }
