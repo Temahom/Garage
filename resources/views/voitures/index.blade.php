@@ -26,7 +26,8 @@
         @endif
     <div class="row">
     <div class="col-lg-12 margin-tb">
-    <table class="table table-bordered">
+        <table class="table table-striped table-hover col-md-12">
+            <thead class="thead-dark">
         <tr>
             <th>Matricule</th>
             <th>Marque</th>
@@ -36,6 +37,7 @@
             <th>Puissance</th>
             <th width='275px'>Action</th>
         </tr>
+            </thead>
         @foreach ($voitures as $voiture)
         <tr>
             <td>{{ $voiture->matricule}}</td>
