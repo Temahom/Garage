@@ -33,6 +33,14 @@
                 <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->telephone}}</label>
             </td>
         </tr>
+        <tr>
+            <td>
+                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Email:</label>
+            </td>
+            <td>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->email}}</label>
+            </td>
+        </tr>
     </table>
     <br><br>
 

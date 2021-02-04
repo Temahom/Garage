@@ -20,6 +20,7 @@ class CreateClientsTable extends Migration
             $table->string('genre')->nullable()->default('');
             $table->string('entreprise')->nullable();
             $table->string('telephone')->nullable();
+            $table->string('email');
             $table->timestamps();
 
         });

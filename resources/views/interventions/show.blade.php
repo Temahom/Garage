@@ -24,7 +24,7 @@
         <div class="col-md-6 p-3">
             <p><h2>Devis</h2></p>
             @if ( $intervention->devis_id )
-                <p>{{ $devi->cout }}</p>
+                <p>{{number_format($devi->cout,0, ",", " " )}} <sup>F CFA</sup></p>
                 <a class="btn btn-warning" href="{{ route('voitures.interventions.devis.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'devi' => $intervention->devis_id]) }}" title="Go back">Modifier</a>
             @else
                 <a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>

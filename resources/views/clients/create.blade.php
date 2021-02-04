@@ -53,6 +53,10 @@
                 <strong>Téléphone :</strong>
                 <input type="tel" name="telephone" class="form-control" placeholder="Exemple : 7XXXXXXXX" pattern="7[8,7,6,5,0][0-9]{3}[0-9]{2}[0-9]{2}" autocomplete="off">
             </div>
+            <div class="form-group">
+                <strong>Email :</strong>
+                <input type="email" name="email" class="form-control" placeholder="Email">
+            </div>
         </div>
        
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4 pull-right">
