@@ -28,7 +28,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Compte Rendu:</strong>
-                    <textarea type="LongText" name="element_3" value="{{$reparation->element_3}}" class="form-control"></textarea>
+                    <textarea type="LongText" name="element_3" class="form-control">{{$reparation->element_3}}</textarea>
                 </div>
             </div>
             
