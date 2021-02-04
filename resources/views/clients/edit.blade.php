@@ -63,6 +63,10 @@
                     <strong>Téléphone:</strong>
                     <input type="text" name="telephone" value="{{ $client->telephone }}" class="form-control" placeholder="telephone" >
                 </div>
+                <div class="form-group">
+                    <strong>Email:</strong>
+                    <input type="email" name="email" value="{{ $client->email }}" class="form-control" placeholder="Email" >
+                </div>
             </div>
 
             
