@@ -27,7 +27,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Compte Rendu:</strong>
-                    <textarea type="LongText" name="element_3" class="form-control" placeholder="|"></textarea>
+                    <textarea type="LongText" name="element_3" class="form-control" placeholder="" autofocus></textarea>
                 </div>
             </div>
             

@@ -24,7 +24,7 @@
         @csrf
         @method('PUT')
 
-        @include('diagnostics.partials._form');
+        @include('diagnostics.partials._form')
 
     </form>
     
