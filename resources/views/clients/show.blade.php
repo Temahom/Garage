@@ -14,7 +14,7 @@
                 <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Nom:</label>
             </td>
             <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->nom}} {{ $client->prenom}}</label>
+                <label style="font-size: 20px;">&nbsp&nbsp&nbsp {{ $client->prenom}}  {{ $client->nom}}</label>
             </td>
         </tr>
         <tr>
@@ -36,36 +36,36 @@
     </table>
     <br><br>
 
-     </div>
-         <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
            <div class="pull-right py-3">
-				<a class="btn btn-success" href="{{route('clients.voitures.create',['client'=>$client->id])}}">Ajouter Voiture</a>
+				<a class="btn btn-secondary" href="{{route('clients.voitures.create',['client'=>$client->id])}}">Nouvelle Voiture</a>
 			</div>
-            <table class="table table-bordered">
-                <tr>
-                    <th>Matricule</th>
-                    <th>Marque</th>
-                    <th>Model</th>
-                    <th>Annee</th>
-                    <th>Carburant</th>
-                    <th>Puissance</th>
-                    <th width='275px'>Action</th>
-                </tr>
+            <table class="table table-striped table-hover">
+                <thead class="" style="background-color: #4656E9;">
+                    <tr>
+                        <th style="color: white;">Matricule</th>
+                        <th style="color: white;">Marque</th>
+                        <th style="color: white;">Model</th>
+                        <th style="color: white;">Annee</th>
+                        <th style="color: white;">Carburant</th>
+                        <th style="color: white;">Puissance</th>
+                        <th style="color: white;">Action</th>
+                    </tr>
+                </thead>
                 @foreach ($voitures as $voiture)
                 <tr>
-                    <td>{{ $voiture->matricule}}</td>
-                    <td>{{ $voiture->marque}}</td>
-                    <td>{{ $voiture->model}}</td>
-                    <td>{{ $voiture->annee}}</td>
-                    <td>{{ $voiture->carburant}}</td>
-                    <td>{{ $voiture->puissance}}</td>
+                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer;">{{ $voiture->matricule}}</td>
+                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->marque}}</td>
+                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->model}}</td>
+                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->annee}}</td>
+                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->carburant}}</td>
+                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->puissance}}</td>
                     <td>
                     <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">   
-                            <a class="btn btn-info" href="{{ route('voitures.show',$voiture->id) }}"><i class="fas fa-eye mr-2"></i></a>    
-                            <a class="btn btn-primary" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit mr-2"></i></a>   
+                            <a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>   
                             @csrf
                             @method('DELETE')      
-                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i></button>
+                            <button type="submit" class="btn btn-danger p-0 pr-2 pl-2"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -73,9 +73,25 @@
                 @endforeach
             </table>
          </div>
-          <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('clients.index') }}"> Retour</a>
+         <div class="row">
+            <div class="col-md-12 mt-3 d-flex justify-content-center">
+                {!! $voitures->render() !!}
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 ml-3 mt-3">
+                <a class="btn btn-secondary" href="{{ route('clients.index') }}"> Retour</a>
+            </div>
+         </div>
            
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+	<script>
+		function showVoiture(id)
+		{
+			window.location = '/voitures/' + id ;
+		}
+	</script>
 @endsection

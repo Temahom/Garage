@@ -43,13 +43,8 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class);
     }
-    public function isAdmin()
+    public function voitures()
     {
-        return strtolower(@$this->roles) === 'admin'? true : false;
-    }
-    public function isRaf()
-    {
-        return strtolower(@$this->roles) === 'raf'? true : false;
-
+        return $this->hasMany(Voiture::class);
     }
 }

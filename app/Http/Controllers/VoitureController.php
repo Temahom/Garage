@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Voiture;
 use App\Models\Client;
+use Auth;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Gate;
 class VoitureController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class VoitureController extends Controller
      */
     public function index()
     {
-        $voitures= Voiture::orderBy('created_at','DESC')->paginate(15);
+
+        $voitures= Voiture::orderBy('created_at','DESC')->paginate(3);
         return view('voitures.index',compact('voitures'));
     }
 
@@ -26,7 +28,8 @@ class VoitureController extends Controller
      */
     public function create(Client $client, Voiture $voiture)
     {
-        // dd($client);
+        
+      $this->authorize('create', Voiture::class);
       $clients= Client::all();
       return view('voitures.create',compact('clients','client', 'voiture'));
     }
@@ -40,7 +43,7 @@ class VoitureController extends Controller
     public function store(Request $request)
     {
        // dd($request);
-
+        $user = Auth::id();
         $data= request()->validate([
             'matricule'=>'required',
             'marque'=>'required',
@@ -48,8 +51,9 @@ class VoitureController extends Controller
             'annee'=>'required',
             'carburant'=>'required',
             'puissance'=>'required',
-            'client_id'=>'required'
+            'client_id'=>'required',
           ]);
+          $data = array_merge($data, ['user_id'=>$user]);
            $voiture = Voiture::create($data);
            return redirect()->route('voitures.show', ['voiture' => $voiture]);
     }
@@ -63,7 +67,7 @@ class VoitureController extends Controller
     public function show($id)
     {
         $voiture=Voiture::find($id);
-        $interventions = $voiture->interventions;
+        $interventions = $voiture->interventions()->paginate(3);
         return view('voitures.show',compact('voiture', 'interventions'));
     }
 
@@ -76,7 +80,7 @@ class VoitureController extends Controller
     public function edit(Voiture $voiture)
     {
         //
-        $this->authorize('raf');
+        
         $clients = Client::all();
         return view('voitures.edit',compact('voiture','clients'));
     }
