@@ -6,9 +6,6 @@
             <div class="pull-left">
                 <h2>Modifier le réparation</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
-            </div>
         </div>
     </div>
 
@@ -31,12 +28,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Compte Rendu:</strong>
-                    <textarea type="LongText" name="element_3" value="{{$reparation->element_3}}" class="form-control" placeholder="|"></textarea>
+                    <textarea type="LongText" name="element_3" class="form-control">{{$reparation->element_3}}</textarea>
                 </div>
             </div>
             
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Editer</button>
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
+                <button type="submit" class="btn btn-success">Enregistrer</button>
             </div>
         </div>
 

@@ -117,6 +117,6 @@ class VoitureController extends Controller
     public function destroy(Voiture $voiture)
     {
         $voiture->delete();
-        return redirect('/voitures');
+        return redirect('clients/'. $voiture->client_id);
     }
 }
