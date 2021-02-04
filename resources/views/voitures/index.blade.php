@@ -47,7 +47,7 @@
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->annee}}</td>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->carburant}}</td>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->puissance}}</td>
-            <td> <div> {{$voiture->user()->first()->name}} <span class="badge badge-secondary capitalize">{{ $voiture->user()->first()->role()->first()->role}}</span></div> 
+            <td> <div> {{$voiture->user()->first()->name}} <span class="badge badge-secondary capitalize">{{(Auth::user()->id==$voiture->user_id)? 'Vous' :$voiture->user()->first()->role()->first()->role}}</span></div> 
                 
             <td>
             {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
