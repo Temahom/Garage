@@ -18,7 +18,6 @@ class CreateCommandesTable extends Migration
             $table->string('catProduit');
             $table->string('nomProduit');
             $table->string('qteProduit');
-            $table->string('coutRep');
             $table->timestamps();
         });
     }
