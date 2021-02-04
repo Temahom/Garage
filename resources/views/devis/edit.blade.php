@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-12">
                 <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-                <button type="submit" class="btn btn-success">Modifier</button>
+                <button type="submit" class="btn btn-success">Enregistrer</button>
             </div>
         </div>
     </form>

@@ -7,6 +7,6 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-                <button type="submit" class="btn btn-success">Ajouter une diagnostic</button>
+                <button type="submit" class="btn btn-success">Enregistrer</button>
             </div>
 </div>
