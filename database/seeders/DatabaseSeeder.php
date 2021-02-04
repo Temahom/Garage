@@ -37,15 +37,15 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Role::create([
             'id'=>(1),
-            'role'=>'admin'
+            'role'=>'Admin'
         ]);
         \App\Models\Role::create([
             'id'=>(2),
-            'role'=>'raf'
+            'role'=>'Raf'
         ]);
         \App\Models\Role::create([
             'id'=>(3),
-            'role'=>'manager'
+            'role'=>'Manager'
         ]);
     }
 }
