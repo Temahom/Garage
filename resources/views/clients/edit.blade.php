@@ -68,7 +68,7 @@
             
             <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
                 <a class="btn btn-secondary" href="{{ route('clients.index') }}"> Retour</a>
-            <button type="submit" class="btn btn-success">Modifier</button>
+            <button type="submit" class="btn btn-success">Enregistrer</button>
             </div>
 
         </div>
