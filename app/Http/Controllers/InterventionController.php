@@ -100,18 +100,26 @@ class InterventionController extends Controller
     }    */
 
     
-    public function update(Request $request, Voiture $voiture)
+    public function update(Request $request, Intervention $intervention)
      {  
-    
         $intervention = new Intervention();
         $intervention->voiture_id = $voiture->id;
         $intervention->type = $request->input('type');
         $intervention->debut = $request->input('debut');
         $intervention->fin = $request->input('fin');
-          $intervention->update(); 
+          $intervention->update($request->all());
+      return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
+    
+      /*   $request->validate([
+            'type' => 'required',
+            'debut' => 'required',
+            'fin' => 'required'
+        ]);
+        $intervention->update($request->all());
+
         //  $intervention->save();
        // $intervention->update($request->all());
-        return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
+        return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);*/
     }
 
     /**
