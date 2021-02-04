@@ -77,7 +77,7 @@
 				<h2>Toutes les interventions</h2>
 			</div>
 			<div class="pull-right">
-				<a class="btn btn-primary" href="{{route('voitures.interventions.create',['voiture' => $voiture->id])}}">Ajouter une intervention</a>
+				<a class="btn btn-secondary" href="{{route('voitures.interventions.create',['voiture' => $voiture->id])}}">Nouvelle intervention</a>
 			</div>
 		</div>
 	</div>
@@ -90,29 +90,26 @@
 	@endif
     <!--liste voiture--->
 	<div class="row">
-		<div class="col-md-12 margin-tb">
+		<div class="col-md-12 col-lg-11 margin-tb">
 			<table class="table table-striped table-hover col-md-12">
-				<thead class="thead-dark">
+				<thead class="" style="background-color: #4656E9;">
 					<tr>
-						<th>Id</th>
-						<th>Début</th>
-						<th>Fin</th>
-						<th>Type</th>
-						<th>Action</th>
+						<th style="color: white;">Début</th>
+						<th style="color: white;">Fin</th>
+						<th style="color: white;">Type</th>
+						<th style="color: white;">Action</th>
 					</tr>
 				</thead>
 				<tbody>
 				@foreach ($interventions as $intervention)
 					<tr>
-						<td>{{ $intervention->id }}</td>
-						<td>{{ $intervention->debut }}</td>
-						<td>{{ $intervention->fin }}</td>
-						<td style="text-transform: capitalize;">{{ $intervention->type }}</td>
+						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->debut }}</td>
+						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->fin }}</td>
+						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->type }}</td>
 						<td>
-							<a class="btn btn-success" href="{{route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-eye mr-2"></i></a>
-							<a class="btn btn-primary" href="{{route('voitures.interventions.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-edit mr-2"></i></a>
-							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
-								<i class="fas fa-trash mr-2"></i>
+							<a class="btn btn-primary  p-0 pr-2 pl-2" href="{{route('voitures.interventions.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-edit"></i></a>
+							<button type="button" class="btn btn-danger  p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
+								<i class="fas fa-trash"></i>
 							</button>
 
 							<div class="modal fade" id="exampleModal{{ $intervention->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -152,5 +149,13 @@
 	<div class="pull-right">
 		<a class="btn btn-secondary" href="{{ route('clients.show', ['client' => $voiture->client_id]) }}">Retour</a>
 	</div>
-    
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+	<script>
+		function showIntervention(voiture_id, intervention_id)
+		{
+			window.location = voiture_id + '/interventions/' + intervention_id ;
+		}
+	</script>
+      
 @endsection

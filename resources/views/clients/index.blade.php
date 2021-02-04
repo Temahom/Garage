@@ -7,7 +7,7 @@
 				<h2>Tous les Clients</h2>
 			</div>
 			<div class="pull-right">
-				<a class="btn btn-secondary" href="{{route('clients.create')}}">Enregistrer un Client</a>
+				<a class="btn btn-secondary" href="{{route('clients.create')}}">Nouveau Client</a>
 			</div>
 		</div>
 	</div>
@@ -22,7 +22,7 @@
 
 	<div class="row">
 	<div class="col-md-12 col-lg-11">
-	<table class="table table-striped table-hover ">
+	<table class="table table-striped table-hover">
 		<thead class="" style="background-color: #4656E9;">
 			<tr>
 				<th style="color: white;">Nom</th>
