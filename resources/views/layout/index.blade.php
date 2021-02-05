@@ -129,6 +129,19 @@
                                     </ul>    
                                 </div>
                             </li>  
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="fas fa-user-plus"></i>Acteurs<span class="badge badge-success">6</span></a>
+                                <div id="submenu-acteur" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/actors">Liste Acteurs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/actors/create">Ajouter Acteur</a>
+                                        </li>
+                                    </ul>    
+                                </div>
+                            </li>
 
                         </ul>
                     </div>

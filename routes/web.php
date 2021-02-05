@@ -10,6 +10,7 @@ use App\Http\Controllers\ReparationController;
 use App\Http\Controllers\VoitureController;
 use App\Http\Controllers\InterventionController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\ActorController;
 
 use Illuminate\Support\Facades\App;
 
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures.interventions.reparations',ReparationController::class);
     Route::resource('voitures.interventions.devis',DeviController::class);
     Route::resource('commandes', CommandeController::class);
+    Route::resource('actors', ActorController::class);
 
     Route::get('/admin', function () {
         return view('admin.home');
