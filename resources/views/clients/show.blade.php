@@ -1,48 +1,31 @@
 @extends('layout.index')
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2 style="color: #2EC551">Informations</h2>
+    <div class="row ml-1">
+        <div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+            <div class="row">
+
+                <div class="col-md-2 col-sm-3 text-center pt-3">
+                    @if ($client->genre == "homme")
+                        <img style="height: 50px;width: auto;" class="" src="/assets/images/masculin.png" alt="logo">
+                    @else
+                        <img style="height: 50px;width: auto;" class="" src="/assets/images/feminin.png" alt="logo">
+                    @endif
+                </div>
+
+                <div class="col-md-9 col-sm-10">
+                    <div style="font-size: 20px; color: #2EC551">{{ $client->prenom}}  {{ $client->nom}}</div>
+                    <div style="font-size: 14px;"><i class="fas fa-home"></i> {{ $client->entreprise}}</div>
+                    <div style="font-size: 14px;"><i class="fas fa-phone"></i> {{ $client->telephone}}</div>
+                    <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $client->email}}</div>
+                </div>
+
             </div>
         </div>
     </div>
+    
+  
+                
 
-    <table>
-        <tr>
-            <td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Nom:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp {{ $client->prenom}}  {{ $client->nom}}</label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Entreprise:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->entreprise}}</label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Téléphone:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->telephone}}</label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Email:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $client->email}}</label>
-            </td>
-        </tr>
-    </table>
-    <br><br>
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
            <div class="pull-right py-3">

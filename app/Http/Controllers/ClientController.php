@@ -41,7 +41,6 @@ class ClientController extends Controller
         'nom' => 'required',
         'prenom' => 'required',
         'telephone' => 'required',
-        'email' => 'required',
         ]);
            
         $client = Client::create($request->all());
@@ -87,7 +86,6 @@ class ClientController extends Controller
         'nom' => 'required',
         'prenom' => 'required',
         'telephone' => 'required',
-        'email' => 'required',
         ]);
 
          $client->update($request->all());
