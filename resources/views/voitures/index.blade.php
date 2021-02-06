@@ -8,7 +8,7 @@
             </div>
             <div class="pull-right py-3">
                 @can('create', App\Models\Voiture::class)
-                 <a class="btn btn-success" href="{{ route('voitures.create') }}">Ajouter Voiture</a>
+                 <a class="btn btn-secondary" href="{{ route('voitures.create') }}"><i class="fas fa-plus"></i> Ajouter Voiture</a>
                 @endcan
             </div>
         </div>

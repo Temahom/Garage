@@ -7,10 +7,10 @@
                 <h2>Modifier la commande</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('commandes.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
+                <a class="btn btn-primary" href="{{ route('commandes.index') }}" title="Aller au panier">Aller au panier</a>
             </div>
         </div>
-    </div>
+    </div><br>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -28,19 +28,19 @@
         @method('PUT')
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Catégorie :</strong>
                     <input type="text" name="catProduit" value="{{ $commande->catProduit }}" class="form-control">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Nom du produit :</strong>
                     <input type="text" name="nomProduit" value="{{ $commande->nomProduit }}" class="form-control">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Quantité Voulue :</strong>
                     <input type="number" name="qteProduit" value="{{ $commande->qteProduit }}" class="form-control">
