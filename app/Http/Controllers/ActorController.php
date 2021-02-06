@@ -41,7 +41,6 @@ class ActorController extends Controller
         $data= request()->validate([
             'name'=>'required',
             'email'=>'required',
-            
             'role_id'=>'required',
           ]);
           $password=['password'=>bcrypt(12345678)];
@@ -58,7 +57,8 @@ class ActorController extends Controller
      */
     public function show($id)
     {
-        //
+        $user= User::find($id);
+        return view('actors.show',compact('user'));
     }
 
     /**
@@ -69,7 +69,9 @@ class ActorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $roles= Role::all();
+        $user= User::find($id);
+        return view('actors.edit', compact('user', 'roles'));
     }
 
     /**
@@ -81,7 +83,16 @@ class ActorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $actor= User::find($id);
+        $data= request()->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'role_id'=>'required',
+          ]);
+          $password=['password'=>bcrypt(12345678)];
+          $data = array_merge($data, $password);
+         $actor->update($data);
+         return redirect ('/actors');
     }
 
     /**
