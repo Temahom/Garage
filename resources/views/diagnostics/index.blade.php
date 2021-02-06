@@ -1,68 +1,75 @@
 @extends('layout.index')
-
+  
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Mes diagnostics</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('diagnostics.create') }}">Enregistrer un nouveau diagnostic</a>
-            </div>
-        </div>
-    </div>
-    <style>
-        
-    </style>
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div> 
-    
-        @endif
-    
-    <table class="table table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th>No</th>
-                <th>Date</th>
-                <th>Description</th>
-                <th width='275px'>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($diagnostics as $diagnostic)
-            <tr>
-                <td>{{ $diagnostic->id }}</td>
-                <td>{{ $diagnostic->date }}</td>
-                <td>{{ $diagnostic->description }}</td>
-                <td style="display: flex">
-                    <a class="btn btn-info mr-1" href="{{ route('diagnostics.show',$diagnostic->id) }}"><i class="fas fa-eye"></i></a>    
-                    <a class="btn btn-primary  mr-1" href="{{ route('diagnostics.edit',$diagnostic->id) }}"><i class="fas fa-edit "></i></a>   
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $diagnostic->id }}">
-						<i class="fas fa-trash mr-2"></i>
+
+<div class="row">
+	<div class="col-lg-12 margin-tb">
+		<div class="pull-left">
+			<h2>Tous les Diagnostics</h2>
+		</div>
+		<div class="pull-right">
+			<a class="btn btn-secondary" href="{{route('diagnostics.create')}}">Nouveau Diagnostic</a>
+		</div>
+	</div>
+</div>
+<br>
+<br>
+
+@if($message = Session::get('success'))
+		<div class="alert alert-success">
+			<p>{{$message}}</p>
+		</div>
+	@endif
+
+	<div class="row">
+	<div class="col-md-12 col-lg-11">
+	<table class="table table-striped table-hover">
+		<thead class="" style="background-color: #4656E9;">
+			<tr>
+				<th style="color: white;">Localisation de la panne</th>
+				<th style="color: white;">Appréciation</th>
+				<th style="color: white;">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+		@foreach ($diagnostics as $diagnostic)
+		
+			<tr>
+				<td onclick="showDiagnosti({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $diagnostic->title }}</td>
+				<td onclick="showDiagnosti({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $diagnostic->description }}</td>
+				<td>
+
+					<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('diagnostics.edit',$diagnostic->id)}}"><i class="fas fa-edit"></i></a>
+					<button type="button" class="btn btn-danger p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $diagnostic->id }}">
+						<i class="fas fa-trash"></i>
 					</button>
 
-					<div class="modal fade" id="exampleModal{{ $diagnostic->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-body">
-									<h5>Voulez vous vraiment supprimer <strong>la {{ $diagnostic->date }} et la {{ $diagnostic->description }} de la diagnostique</strong>  ?</h5>
+							<div class="modal fade" id="exampleModal{{ $diagnostic->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-body">
+											<h5>Voulez vous supprimer: <strong>{{ $diagnostic->title }} {{ $diagnostic->description }}</strong>  ?</h5>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+											<form action="{{route('diagnostics.destroy',$diagnostic->id)}}" method="POST">
+												@csrf
+												@method('DELETE')
+												<button type="submit" class="btn btn-danger">Supprimer</button>
+											</form>
+									</div>
+									</div>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-									<form action="{{route('diagnostics.destroy',$diagnostic->id)}}" method="POST">
-										@csrf
-										@method('DELETE')
-										<button type="submit" class="btn btn-danger">Supprimer</button>
-									</form>
 							</div>
-						</div>
-					</div>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
 
+				</td>
+			</tr>
+		
+		@endforeach
+		</tbody>
+	</table>
+	</div>
+	</div>
+	
+	</div>
 @endsection
