@@ -12,11 +12,15 @@
                     @endif
                 </div>
 
-                <div class="col-md-9 col-sm-10">
-                    <div style="font-size: 20px; color: #2EC551">{{ $client->prenom}}  {{ $client->nom}}</div>
+                <div class="col-md-10 col-sm-10">
+                    <div style="font-size: 20px; color: #2EC551"><a href="{{route('clients.show',['client'=>$client->id])}}" style="color: #2EC551">{{ $client->prenom}}  {{ $client->nom}}</a></div>
                     <div style="font-size: 14px;"><i class="fas fa-home"></i> {{ $client->entreprise}}</div>
                     <div style="font-size: 14px;"><i class="fas fa-phone"></i> {{ $client->telephone}}</div>
                     <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $client->email}}</div>
+                    <div class="text-right" style="font-size: 12px;">
+                        <a class="text-primary mr-1" href="{{ route('clients.edit',$client->id)}}">Modifier</a> 
+                        <a class="text-danger">Suppriler</a>
+                    </div>
                 </div>
 
             </div>
