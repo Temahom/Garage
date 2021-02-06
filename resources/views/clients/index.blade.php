@@ -25,7 +25,6 @@
 	<table class="table table-striped table-hover">
 		<thead class="" style="background-color: #4656E9;">
 			<tr>
-				<th style="color: white;">Nom</th>
 				<th style="color: white;">Prénoms</th>
 				<th style="color: white;">Genre</th>
 				<th style="color: white;">Entreprise</th>
@@ -38,8 +37,7 @@
 		@foreach ($clients as $client)
 		
 			<tr>
-				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->nom }}</td>
-				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->prenom }}</td>
+				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;"><i class="fas fa-user"></i> {{ $client->prenom }} {{ $client->nom }}</td>
 				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->genre }}</td>
 				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->entreprise }}</td>
 				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->telephone }}</td>

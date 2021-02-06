@@ -49,7 +49,7 @@
                 </thead>
                 @foreach ($voitures as $voiture)
                 <tr>
-                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer;">{{ $voiture->matricule}}</td>
+                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer;"><i class="fas fa-car"></i> {{ $voiture->matricule}}</td>
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->marque}}</td>
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->model}}</td>
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->annee}}</td>
