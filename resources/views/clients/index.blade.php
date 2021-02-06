@@ -7,7 +7,7 @@
 				<h2>Tous les Clients</h2>
 			</div>
 			<div class="pull-right">
-				<a class="btn btn-secondary" href="{{route('clients.create')}}">Nouveau Client</a>
+				<a class="btn btn-secondary" href="{{route('clients.create')}}"><i class="fas fa-user-plus"></i> Nouveau Client</a>
 			</div>
 		</div>
 	</div>

@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
-                    <a class="btn btn-secondary" href="{{ route('voitures.show',['voiture' => $voiture->id]) }}">Retour</a>
+                    <a class="btn btn-secondary" href="{{ route('voitures.show',['voiture' => $voiture->id]) }}"><i class="fas fa-angle-left"></i> Retour</a>
                     <button type="submit" class="btn btn-success">Enregistrer</button>
             </div>
 
