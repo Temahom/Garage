@@ -33,6 +33,12 @@ class DiagnostiController extends Controller
         return back()->with('Bien', 'Diagnostic ajouter avec succés');
     }
 
+    public function show(Diagnosti $diagnostic)
+    {
+        $diagnostic = $diagnostic;
+        return view('diagnostics.show',compact('diagnostic'));
+    }
+
     public function edit(Diagnosti $diagnostic)
     {
         return view('diagnostics.edit', compact('diagnostic'));
