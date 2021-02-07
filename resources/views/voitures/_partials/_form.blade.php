@@ -133,7 +133,7 @@ $(document).ready(function() {
 		var model='<option value="">choisissez le model</option>'
     $.ajax({
           type: "GET",
-          url: "http://127.0.0.1:8000/api/listes/"+ $('select[name=marque]').val(),
+          url: "/api/listes/"+ $('select[name=marque]').val(),
           dataType: 'json',
           success: function(data) {
 			var models= data;
@@ -154,7 +154,7 @@ $(document).ready(function() {
 		var annee='<option value="">Choisissez son année</option>'
     $.ajax({
           type: "GET",
-          url: "http://127.0.0.1:8000/api/listes/model/"+ $('select[name=model]').val(),
+          url: "/api/listes/model/"+ $('select[name=model]').val(),
           dataType: 'json',
           success: function(data) {
 			var annees= data;
@@ -175,7 +175,7 @@ $(document).ready(function() {
 		var carburant='<option value="">Choisissez le carburant</option>'
     $.ajax({
           type: "GET",
-          url: "http://127.0.0.1:8000/api/listes/annee/"+ $('select[name=annee]').val(),
+          url: "/api/listes/annee/"+ $('select[name=annee]').val(),
           dataType: 'json',
           success: function(data) {
 			var carburants= data;
@@ -196,7 +196,7 @@ $(document).ready(function() {
 		var puissance='<option value="">Choisissez la puissance</option>'
     $.ajax({
           type: "GET",
-          url: "http://127.0.0.1:8000/api/listes/carburant/"+ $('select[name=carburant]').val(),
+          url: "/api/listes/carburant/"+ $('select[name=carburant]').val(),
           dataType: 'json',
           success: function(data) {
 			var puissances= data;
