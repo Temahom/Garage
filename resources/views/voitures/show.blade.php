@@ -1,83 +1,77 @@
 @extends('layout.index')
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2 style="color: #2EC551">Voiture</h2>
-            </div>
-        </div>
+
+
+
+
+<div class="row ml-1">
+	<div class="col-md-7 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+		<div class="row">
+
+			<div class="col-md-2 col-sm-3 text-center pt-4">
+				<img style="height: 50px;width: auto;" class="" src="/assets/images/car.png" alt="logo">
+			</div>
+
+			<div class="col-md-10 col-sm-10">
+
+				<div style="font-size: 20px">
+					<a href="{{route('voitures.show',['voiture'=>$voiture->id])}}" style="color: #2EC551">
+						{{ $voiture->matricule }}
+					</a>
+					<span style="font-size: 12px;">
+						( De<a href="{{route('clients.show',['client'=>$voiture->client_id])}}" style="color: #2EC551">
+							<i class="fas fa-user"></i>
+							{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
+						</a>)
+					</span>
+					
+				</div>
+
+				<div style="font-size: 14px;"> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>
+				<div style="font-size: 14px;"> {{ $voiture->carburant}}</div>
+				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux</div>
+				<div class="text-right" style="font-size: 12px;">
+					<a class="text-primary mr-1" href="{{ route('voitures.edit',$voiture->id)}}">Modifier</a> 
+					<button type="button" class="text-danger" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
+						Supprimer
+					</button>
+					<div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-body">
+									<h5>Voulez vous supprimer: <strong>{{ $voiture->matricule }}</strong>  ?</h5>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+									<form action="{{route('voitures.destroy',$voiture->id)}}" method="POST">
+										@csrf
+										@method('DELETE')
+										<button type="submit" class="btn btn-danger">Supprimer</button>
+									</form>
+							</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+			</div>
+
+		</div>
 	</div>
+</div>
 
-<style>
-	a:hover{
-		color: #2142ae;
-	}
-</style>
 
-	<table>
-        <tr>
-            <td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Proprietaire:</label>
-            </td>
-            <td>
-                <a style="font-size: 20px;color:#81A3D4;" href="{{ route('clients.show', ['client' => $voiture->client_id] ) }}">&nbsp&nbsp&nbsp{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Matricule:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->matricule }}</label>
-			</td>
-			
-			<td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Année:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->annee }}</label>
-			</td>
-			
-        </tr>
-        <tr>
-            <td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Marque:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->marque }}</label>
-			</td>
-			<td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Carburant:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->carburant }}</label>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Model:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->model }}</label>
-			</td>
-			<td>
-                <label style="font-size: 20px; font-weight:bold;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Puissance:</label>
-            </td>
-            <td>
-                <label style="font-size: 20px;">&nbsp&nbsp&nbsp{{ $voiture->puissance }}</label>
-            </td>
-		</tr>
-	</table>
-	<br><br>
 	
     <div class="row">
 	
-		<div class="col-lg-12 margin-tb">
+		<div class="col-lg-12 mt-4">
 			<div class="pull-left">
 				<h2>Toutes les interventions</h2>
 			</div>
 			<div class="pull-right">
-				<a class="btn btn-secondary" href="{{route('voitures.interventions.create',['voiture' => $voiture->id])}}">Nouvelle intervention</a>
+				<a class="btn btn-secondary" href="{{route('voitures.interventions.create',['voiture' => $voiture->id])}}">
+					<i class="fas fa-plus"></i> Nouvelle intervention
+				</a>
 			</div>
 		</div>
 	</div>
@@ -94,18 +88,18 @@
 			<table class="table table-striped table-hover col-md-12">
 				<thead class="" style="background-color: #4656E9;">
 					<tr>
+						<th style="color: white;">Type</th>
 						<th style="color: white;">Début</th>
 						<th style="color: white;">Fin</th>
-						<th style="color: white;">Type</th>
 						<th style="color: white;">Action</th>
 					</tr>
 				</thead>
 				<tbody>
 				@foreach ($interventions as $intervention)
 					<tr>
+						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;"><i class="fas fa-cog"></i> {{ $intervention->type }}</td>
 						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->debut }}</td>
 						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->fin }}</td>
-						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->type }}</td>
 						<td>
 							<a class="btn btn-primary  p-0 pr-2 pl-2" href="{{route('voitures.interventions.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-edit"></i></a>
 							<button type="button" class="btn btn-danger  p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
@@ -145,10 +139,11 @@
 		{!! $interventions->render() !!}
 	</div>
 </div>
-
-	<div class="pull-right">
-		<a class="btn btn-secondary" href="{{ route('clients.show', ['client' => $voiture->client_id]) }}">Retour</a>
+<div class="row">
+	<div class="col-md-12 mt-3 ml-3">
+		<a class="btn btn-secondary" href="{{ route('clients.show', ['client' => $voiture->client_id]) }}"><i class="fas fa-angle-left"></i> Retour</a>
 	</div>
+</div>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 	<script>
