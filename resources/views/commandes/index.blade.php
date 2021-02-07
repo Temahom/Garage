@@ -7,7 +7,7 @@
                 <h2>Commande </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('commandes.create') }}" title="Create a project"> <i class="fas fa-plus-circle"> Ajouter une nouvelle commande</i>
+                <a class="btn btn-success" href="{{ route('commandes.create') }}" title="Create a project"> <i class="fas fa-plus-circle"> Ajouter un produit</i>
                     </a>
             </div>
         </div>
@@ -35,10 +35,6 @@
                 <td>{{ $commande->qteProduit }}</td>
                 <td>
                     <form action="{{ route('commandes.destroy', $commande->id) }}" method="POST">
-
-                        <a href="{{ route('commandes.show', $commande->id) }}" title="show">
-                            <i class="fas fa-eye text-success  fa-lg"></i>Afficher
-                        </a>
                         <a href="{{ route('commandes.edit', $commande->id) }}">
                             <i class="fas fa-edit  fa-lg"></i>Modifier
                         </a>

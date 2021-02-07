@@ -2,7 +2,8 @@
 @php
 setlocale(LC_TIME, "fr_FR", "French");
 $date = new DateTime('now', new DateTimeZone('UTC'));
-
+use Carbon\Carbon;
+  $clients=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
 @endphp
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
@@ -111,9 +112,7 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
                 
     
             </div>
-            <p style="margin:10px">Lorem ipsum dolor  iste exercitationem aperiam 
-                consequuntur aspernatur distinctio similique recusandae. Non quasi saepe dolore ullam perferendis
-                 nulla ab consequatur nobis?</p>
+            <p style="margin:10px"></p>
         </div>
     </div>
 </div>
@@ -124,23 +123,38 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
 
     
 </div>
-<div class="row mt-3">
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                &RightAngleBracket;     Lorem ipsum dolor 
-              </button>
-            </h2>
-        </div>
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum necessitatibus nemo assumenda vel quasi officia quas doloremque possimus suscipit ab cum itaque laudantium totam, reprehenderit neque error. Facere, corporis error?
+<div class="row">
+<div class="col-xl-9 col-lg-12 col-md-10 col-sm-12 col-12 mt-5">
+    <div class="card">
+        <h5 class="card-header">Nombre de Clients par Trimestre</h5>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="bg-light">
+                        <tr class="border-0">
+                            <th class="border-0">#</th>
+                            <th class="border-0">Clients</th>
+                            <th class="border-0">Chiffre d'affaire</th>
+                            <th class="border-0">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>{{$clients}} </td>
+                            <td>5 000 000 </td>
+                            <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="9"><a href="#" class="btn btn-outline-light float-right">Voir Detailles</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>

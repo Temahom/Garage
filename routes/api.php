@@ -18,10 +18,7 @@ use App\Models\Produit;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
-Route::get('clients',function(){
-    return \App\Models\Client::select('prenom')->where('created_at','like' ,'%2021-02-03%')->count();
-});  
+}); 
 
 Route::get('listes/{marques}',function($marques){
     return Liste::select('lemodel')->where('marques','=',$marques)->orderBy('lemodel')->distinct()->get();  

@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('commandes.index') }}" title="Go back"> <i class="fas fa-backward "> </i> Retour </a>
+                <a class="btn btn-primary" href="{{ route('commandes.index') }}" title="Aller au panier"> Aller au panier</a>
             </div>
         </div>
     </div><br>

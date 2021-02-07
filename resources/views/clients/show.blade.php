@@ -12,11 +12,37 @@
                     @endif
                 </div>
 
-                <div class="col-md-9 col-sm-10">
-                    <div style="font-size: 20px; color: #2EC551">{{ $client->prenom}}  {{ $client->nom}}</div>
+                <div class="col-md-10 col-sm-10">
+                    <div style="font-size: 20px; color: #2EC551"><a href="{{route('clients.show',['client'=>$client->id])}}" style="color: #2EC551">{{ $client->prenom}}  {{ $client->nom}}</a></div>
                     <div style="font-size: 14px;"><i class="fas fa-home"></i> {{ $client->entreprise}}</div>
                     <div style="font-size: 14px;"><i class="fas fa-phone"></i> {{ $client->telephone}}</div>
                     <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $client->email}}</div>
+                    <div class="text-right" style="font-size: 12px;">
+                        <a class="text-primary mr-1" href="{{ route('clients.edit',$client->id)}}">Modifier</a> 
+                        <button type="button" class="text-danger" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
+                            Supprimer
+                        </button>
+    
+                                <div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <h5>Voulez vous supprimer: <strong>{{ $client->nom }} {{ $client->prenom }}</strong>  ?</h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                <form action="{{route('clients.destroy',$client->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                    </div>
                 </div>
 
             </div>
@@ -29,7 +55,7 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
            <div class="pull-right py-3">
-				<a class="btn btn-secondary" href="{{route('clients.voitures.create',['client'=>$client->id])}}">Nouvelle Voiture</a>
+				<a class="btn btn-secondary" href="{{route('clients.voitures.create',['client'=>$client->id])}}"><i class="fas fa-plus"></i> Nouvelle Voiture</a>
 			</div>
             <table class="table table-striped table-hover">
                 <thead class="" style="background-color: #4656E9;">
@@ -45,7 +71,7 @@
                 </thead>
                 @foreach ($voitures as $voiture)
                 <tr>
-                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer;">{{ $voiture->matricule}}</td>
+                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer;"><i class="fas fa-car"></i> {{ $voiture->matricule}}</td>
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->marque}}</td>
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->model}}</td>
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->annee}}</td>
@@ -71,7 +97,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 ml-3 mt-3">
-                <a class="btn btn-secondary" href="{{ route('clients.index') }}"> Retour</a>
+                <a class="btn btn-secondary" href="{{ route('clients.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
             </div>
          </div>
            

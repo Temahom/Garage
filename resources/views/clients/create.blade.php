@@ -60,7 +60,7 @@
         </div>
        
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4 pull-right">
-            <a class="btn btn-secondary" href="{{ route('clients.index') }}">Retour</a>
+            <a class="btn btn-secondary" href="{{ route('clients.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
             <button type="submit" class="btn btn-success">Enregistrer</button>
         </div>
     </div>
