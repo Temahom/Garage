@@ -14,9 +14,9 @@
             <p><h2>Diagnostic</h2></p>
             @if ( $intervention->diagnostic_id )
                 <p>{{ $diagnostic->description }}</p>
-                <a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'diagnostic' => $intervention->diagnostic_id]) }}" title="Go back">Modifier</a>
+                <a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'diagnostic' => $intervention->diagnostic_id]) }}" title="Modifier">Modifier</a>
             @else
-                <a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>
+                <a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
             @endif
         </div>
     </div>
@@ -25,9 +25,9 @@
             <p><h2>Devis</h2></p>
             @if ( $intervention->devis_id )
                 <p>{{number_format($devi->cout,0, ",", " " )}} <sup>F CFA</sup></p>
-                <a class="btn btn-warning" href="{{ route('voitures.interventions.devis.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'devi' => $intervention->devis_id]) }}" title="Go back">Modifier</a>
+                <a class="btn btn-warning" href="{{ route('voitures.interventions.devis.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'devi' => $intervention->devis_id]) }}" title="Modifier">Modifier</a>
             @else
-                <a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>
+                <a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
             @endif
         </div>
     </div>

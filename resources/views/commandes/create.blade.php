@@ -57,22 +57,33 @@
             <div class="col-xs-3 col-sm-3 col-md-3 text-center">
                 <div class="form-group">
                     <strong>Panier</strong>
-                    <button type="submit" class="custom-select form-control btn btn-primary">Ajouter</button>
+                    <button type="submit"  id="btn"class="custom-select form-control btn btn-primary">Ajouter un produit</button>
                 </div>
             </div>
         </div>
 
     </form>
 
+    <table class="table table-bordered table-responsive-lg">
+        <tr>
+            <th>Code</th>
+            <th>Catégorie du Produit</th>
+            <th>Nom du Produit</th>
+            <th>Quantité Voulue</th>
+        </tr>
+        <tbody id="tableau">
+            
+        </tbody>
+    </table>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script>
-   
+    <script>   
         $(document).ready(function() {
             $('select[name=catProduit]').change(function () {
                 var produit='<option value="">Nos Produits dispo</option>'
             $.ajax({
                 type: "GET",
-                url: "http://127.0.0.1:8000/api/listesp/"+ $('select[name=catProduit]').val(),
+                url: "/api/listesp/"+ $('select[name=catProduit]').val(),
                 dataType: 'json',
                 success: function(data) {
                     var produits= data;
@@ -84,8 +95,33 @@
                 }
                 });
             });
-        });
-        
-   
+            var tcom ="";
+            $('#btn').click(function (e) {
+                e.preventDefault()
+                var cate=$('select[name=catProduit]');
+                var nomp=$('select[name=nomProduit]');
+                var qte=$('input[name=qteProduit]');
+                
+                $.ajax({
+                type: "POST",
+                url: "/api/commandes",
+                dataType: 'json',
+                data:{"catProduit":cate.val(),"nomProduit":nomp.val(),"qteProduit":qte.val()},
+                success: function(data) {
+                    tcom+=`<tr>
+                            <td>${data.id}</td>
+                            <td>${data.catProduit}</td>
+                            <td>${data.nomProduit}</td>
+                            <td>${data.qteProduit}</td>
+                          </tr>`;   
+            $('#tableau').html(tcom);
+            $('select[name=catProduit]').val("");
+            $('select[name=nomProduit]').val("");
+            $('input[name=qteProduit]').val("");
+                }
+                    });            
+                });    
+        }); 
    </script>
+  
 @endsection
