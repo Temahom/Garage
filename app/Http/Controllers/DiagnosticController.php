@@ -11,9 +11,9 @@ class DiagnosticController extends Controller
 {
     public function index() 
     {
-        $diagnostics = Diagnostic::all();
+        $diagnostic = Diagnostic::all();
 
-        return view('diagnostics.index',compact('diagnostics'));
+        return view('diagnostics.index',compact('diagnostic'));
     }
 
     public function create(Voiture $voiture, Intervention $intervention)
@@ -23,21 +23,18 @@ class DiagnosticController extends Controller
 
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
-            $request->validate([
-                'plusdechamps.*.title' => 'required',
-                'plusdechamps.*.description' => 'required'
-            ]);
-            $diagnostic = new Diagnostic();
-            $diagnostic->title = $request->input('plusdechamps.*.title');
-            $diagnostic->description = $request->input('plusdechamps.*.description');
-            $diagnostic->save();
-            
-            
-            return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] );
-     
-            foreach ($request->plusdechamps as $key => $value) {
-                Diagnostic::create($value);
+        $request->validate([
+            'plusdechamps.*.title' => 'required',
+            'plusdechamps.*.description' => 'required'
+        ]);
+        $diagnostic = new Diagnostic();
+        $tab = $request->input('plusdechamps');
+
+    
+        foreach ($tab as $key => $value) {
+            Diagnostic::create($value);
         }
+        return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] );
     }
 
     public function show(Diagnostic $diagnostic)
@@ -53,8 +50,8 @@ class DiagnosticController extends Controller
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic)
     {
          $request->validate([
-        'title' => 'required',
-        'description' => 'required',
+        'plusdechamps.*.title' => 'required',
+        'plusdechamps.*.description' => 'required',
         ]);
 
          $diagnostic->update($request->all());

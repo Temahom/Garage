@@ -11,4 +11,8 @@ class Diagnostic extends Model
     protected $fillable = [
         'title','description'
     ];
+    public function intervention()
+    {
+        return $this->hasMany(Intervention::class);
+    }
 }

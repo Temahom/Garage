@@ -32,11 +32,11 @@
 			</tr>
 		</thead>
 		<tbody>
-		@foreach ($diagnostics as $diagnostic)
+		@foreach ($diagnostic as $diagnostic)
 		
 			<tr>
-				<td onclick="showDiagnosti({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $diagnostic->title }}</td>
-				<td onclick="showDiagnosti({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $diagnostic->description }}</td>
+				<td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $diagnostic->title }}</td>
+				<td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $diagnostic->description }}</td>
 				<td>
 
 					<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('diagnostics.edit',$diagnostic->id)}}"><i class="fas fa-edit"></i></a>
