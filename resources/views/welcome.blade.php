@@ -140,7 +140,7 @@ use Carbon\Carbon;
                 <table class="table">
                     <thead class="bg-light">
                         <tr class="border-0">
-                            <th class="border-0">Vieillissment du client</th>
+                            <th class="border-0">Vieillissement du client</th>
                             <th class="border-0">Clients</th>
                             <th class="border-0">Chiffre d'affaire</th>
                             <th class="border-0">Status</th>
@@ -167,7 +167,7 @@ use Carbon\Carbon;
                         </tr>
                         
                         <tr>
-                            <td colspan="9"><span class="float-right"><strong>Totale : {{number_format($total,0, ",", " " )}}<sup>F CFA</sup></strong></span></td>
+                            <td style="font-size: 15px; font-weight: bold;" colspan="9"><span class="float-right"><strong>Totale : {{number_format($total,0, ",", " " )}}<sup> F CFA</sup></strong></span></td>
                         </tr>
                     </tbody>
                 </table>
