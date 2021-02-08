@@ -14,7 +14,7 @@ class CommandeController extends Controller
     public function index()
     {
         
-        $commandes= Commande::paginate(2);
+        $commandes= Commande::paginate(10);
         return view('commandes.index', compact('commandes'));
     }
 
@@ -45,7 +45,7 @@ class CommandeController extends Controller
         Commande::create($request->all());
 
         return redirect()->route('commandes.create')
-            ->with('success', 'Project created successfully.');
+            ->with('success', 'Produit ajouté avec succès');
     }
 
     /**
@@ -86,7 +86,7 @@ class CommandeController extends Controller
         $commande->update($request->all());
 
         return redirect()->route('commandes.index')
-            ->with('success', 'Project updated successfully');
+            ->with('success', 'Produit modifié avec succès');
     }
     /**
      * Remove the specified resource from storage.
@@ -99,6 +99,6 @@ class CommandeController extends Controller
         $commande->delete();
 
         return redirect()->route('commandes.index')
-            ->with('success', 'Project deleted successfully');
+            ->with('success', 'Produit supprimé avec succès');
     }
 }
