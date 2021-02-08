@@ -6,6 +6,12 @@ use Carbon\Carbon;
   $clients=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
   $chiffres=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('cout');
  
+  $client30=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->count();
+  $chiffre30=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->sum('cout');
+ 
+  $client60=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->count();
+  $chiffre60=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->sum('cout');
+ $total=$chiffres+$chiffre30+$chiffre60;
 @endphp
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
@@ -126,7 +132,7 @@ use Carbon\Carbon;
     
 </div>
 <div class="row">
-<div class="col-xl-9 col-lg-12 col-md-10 col-sm-12 col-12 mt-5">
+<div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-6 mt-5">
     <div class="card">
         <h5 class="card-header">Nombre de Clients par Mois</h5>
         <div class="card-body p-0">
@@ -134,7 +140,7 @@ use Carbon\Carbon;
                 <table class="table">
                     <thead class="bg-light">
                         <tr class="border-0">
-                            <th class="border-0">#</th>
+                            <th class="border-0">Vieillissment du client</th>
                             <th class="border-0">Clients</th>
                             <th class="border-0">Chiffre d'affaire</th>
                             <th class="border-0">Status</th>
@@ -142,14 +148,26 @@ use Carbon\Carbon;
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
+                            <td>Il y'a 0 à 30 jours</td>
                             <td>{{$clients}} </td>
                             <td>{{number_format($chiffres,0, ",", " " )}} <sup>F CFA</sup></td>
                             <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
                         </tr>
+                        <tr>
+                            <td>Il y'a 31 à 60 jours</td>
+                            <td>{{$client30}} </td>
+                            <td>{{number_format($chiffre30,0, ",", " " )}} <sup>F CFA</sup></td>
+                            <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
+                        </tr>
+                        <tr>
+                            <td>Il y'a 61 à 90 jours</td>
+                            <td>{{$client60}} </td>
+                            <td>{{number_format($chiffre60,0, ",", " " )}} <sup>F CFA</sup></td>
+                            <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
+                        </tr>
                         
                         <tr>
-                            <td colspan="9"><a href="#" class="btn btn-outline-light float-right">Voir Detailles</a></td>
+                            <td colspan="9"><span class="float-right"><strong>Totale : {{number_format($total,0, ",", " " )}}<sup>F CFA</sup></strong></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -157,6 +175,8 @@ use Carbon\Carbon;
         </div>
     </div>
 </div>
+ {{-- fin tableau de Vieillissment du clients --}}
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
