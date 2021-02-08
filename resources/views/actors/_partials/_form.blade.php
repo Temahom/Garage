@@ -31,7 +31,7 @@
 
   <div class="form-group">
     <strong>Prenom | Nom:</strong>
-    <input type="text" name="name" value="{{ isset($actor) ? $actor->name:''}}" autocomplete="off" class="custom-select form-control @error('name') is-invalid @enderror" placeholder="Saisir Prenom | Nom...">
+    <input type="text" name="name" value="{{ isset($user) ? $user->name:''}}" autocomplete="off" class="custom-select form-control @error('name') is-invalid @enderror" placeholder="Saisir Prenom | Nom...">
     <div class="invalid-feedback">
         @if($errors->has('name'))
           {{ $errors->first('name') }}
@@ -41,7 +41,7 @@
 
   <div class="form-group">
     <strong>Adresse Email:</strong>
-    <input type="text" name="email" value="{{ isset($actor) ? $actor->email:''}}" autocomplete="off" class="custom-select form-control @error('email') is-invalid @enderror" placeholder="Saisir Email...">
+    <input type="text" name="email" value="{{ isset($user) ? $user->email:''}}" autocomplete="off" class="custom-select form-control @error('email') is-invalid @enderror" placeholder="Saisir Email...">
     <div class="invalid-feedback">
         @if($errors->has('email'))
           {{ $errors->first('email') }}

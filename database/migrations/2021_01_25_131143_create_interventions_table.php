@@ -20,6 +20,7 @@ class CreateInterventionsTable extends Migration
             $table->unsignedBigInteger('devis_id')->nullable();
             $table->unsignedBigInteger('reparation_id')->nullable();
             $table->unsignedBigInteger('facture_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('type');
             $table->date('debut');
             $table->date('fin')->nullable();

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Commande;
 
-class CommandesController extends Controller
+class CommandesApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class CommandesController extends Controller
      */
     public function index()
     {
-        //
+        return  Commande::all();
     }
 
     /**
@@ -23,7 +24,7 @@ class CommandesController extends Controller
      */
     public function create()
     {
-        return view('commandes.create', compact('commandes'));
+        //
     }
 
     /**
@@ -34,7 +35,7 @@ class CommandesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       return Commande::create($request->all());
     }
 
     /**
