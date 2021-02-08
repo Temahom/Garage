@@ -4,6 +4,8 @@ setlocale(LC_TIME, "fr_FR", "French");
 $date = new DateTime('now', new DateTimeZone('UTC'));
 use Carbon\Carbon;
   $clients=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
+  $chiffres=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('cout');
+ 
 @endphp
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
@@ -126,7 +128,7 @@ use Carbon\Carbon;
 <div class="row">
 <div class="col-xl-9 col-lg-12 col-md-10 col-sm-12 col-12 mt-5">
     <div class="card">
-        <h5 class="card-header">Nombre de Clients par Trimestre</h5>
+        <h5 class="card-header">Nombre de Clients par Mois</h5>
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table">
@@ -142,7 +144,7 @@ use Carbon\Carbon;
                         <tr>
                             <td>1</td>
                             <td>{{$clients}} </td>
-                            <td>5 000 000 </td>
+                            <td>{{number_format($chiffres,0, ",", " " )}} <sup>F CFA</sup></td>
                             <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
                         </tr>
                         
