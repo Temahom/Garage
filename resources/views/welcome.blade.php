@@ -171,9 +171,7 @@ use Carbon\Carbon;
                         </tr>
                     </tbody>
                 </table>
-                <label > Radio</label>
                
-                <button>cbb</button>
             </div>
         </div>
     </div>
