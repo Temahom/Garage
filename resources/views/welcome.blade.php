@@ -149,19 +149,19 @@ use Carbon\Carbon;
                     <tbody>
                         <tr>
                             <td>Il y'a 0 à 30 jours</td>
-                            <td>{{$clients}} </td>
+                            <td>{{$clients}} {{$clients>1?"clients":"client"}} </td>
                             <td>{{number_format($chiffres,0, ",", " " )}} <sup>F CFA</sup></td>
                             <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
                         </tr>
                         <tr>
                             <td>Il y'a 31 à 60 jours</td>
-                            <td>{{$client30}} </td>
+                            <td>{{$client30}} {{$client30>1?"clients":"client"}} </td>
                             <td>{{number_format($chiffre30,0, ",", " " )}} <sup>F CFA</sup></td>
                             <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
                         </tr>
                         <tr>
                             <td>Il y'a 61 à 90 jours</td>
-                            <td>{{$client60}} </td>
+                            <td>{{$client60}}  {{$client60>1?"clients":"client"}} </td>
                             <td>{{number_format($chiffre60,0, ",", " " )}} <sup>F CFA</sup></td>
                             <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
                         </tr>
