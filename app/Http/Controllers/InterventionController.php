@@ -8,6 +8,7 @@ use App\Models\Diagnostic;
 use App\Models\Reparation;
 use App\Models\Devi;
 use Illuminate\Http\Request;
+use Auth;
 
 class InterventionController extends Controller
 {
@@ -39,11 +40,13 @@ class InterventionController extends Controller
      */
     public function store(Request $request, Voiture $voiture)
     {
+        $user = Auth::id();
         $intervention = new Intervention();
         $intervention->voiture_id = $voiture->id;
         $intervention->type = $request->input('type');
         $intervention->debut = $request->input('debut');
         $intervention->fin = $request->input('fin');
+        $intervention->user_id = $user;
         $intervention->save();
         return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
     }

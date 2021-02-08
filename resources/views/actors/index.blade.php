@@ -35,9 +35,9 @@
             </thead>
         @foreach ($actors as $actor)
         <tr>
-            <td>{{ $actor->name}}</td>
-            <td>{{ $actor->email}}</td>
-            <td>{{ $actor->role()->first()->role}}</td>
+            <td onclick="showActor({{ $actor->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $actor->name}}</td>
+            <td onclick="showActor({{ $actor->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $actor->email}}</td>
+            <td onclick="showActor({{ $actor->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $actor->role()->first()->role}}</td>
             <td>
                     <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('actors.edit',$actor->id) }}"><i class="fas fa-edit"></i></a>
                     <button type="button" class="btn btn-danger  p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $actor->id }}">
@@ -76,9 +76,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
 <script>
-    function showVoiture(id)
+    function showActor(id)
     {
-        window.location = 'voitures/' + id ;
+        window.location = 'actors/' + id ;
     }
 </script>
 

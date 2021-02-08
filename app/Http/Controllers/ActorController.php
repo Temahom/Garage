@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Role;
-
+use Auth;
 use Illuminate\Http\Request;
 
 class ActorController extends Controller
@@ -58,7 +58,8 @@ class ActorController extends Controller
     public function show($id)
     {
         $user= User::find($id);
-        return view('actors.show',compact('user'));
+        $interventions = $user->interventions()->paginate(3);
+        return view('actors.show',compact('user','interventions'));
     }
 
     /**

@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Voiture::class);
     }
+    public function interventions()
+    {
+        return $this->hasMany(Intervention::class);
+    }
 }
