@@ -20,7 +20,7 @@
         </div>
     @endif
   
-    <form action="{{ route('diagnostics.update',$diagnostic->id) }}" method="POST">
+    <form action="{{ route('voitures.interventions.diagnostics.update',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'diagnostic' => $diagnostic->id]) }}" method="POST">
         @csrf
         @method('PUT')
    
@@ -39,7 +39,7 @@
                 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
-                <a class="btn btn-secondary" href="{{ route('diagnostics.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
+                <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}"><i class="fas fa-angle-left"></i> Retour</a>
             <button type="submit" class="btn btn-success">Enregistrer</button>
             </div>
 
