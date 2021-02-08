@@ -15,7 +15,11 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Description:</strong>
+                <strong>Localisation de la panne:</strong>
+                {{ $diagnostic->title }}
+            </div>
+            <div class="form-group">
+                <strong>Appréciation:</strong>
                 {{ $diagnostic->description }}
             </div>
         </div>
