@@ -23,48 +23,23 @@
     
         @endif
     <div class="row">
-    <div class="col-lg-11 col-md-12">
-        <table class="table table-striped table-hover col-md-12">
-            <thead class="" style="background-color: #4656E9;">
-        <tr>
-            <th style="color: white;">Prenom | Nom</th>
-            <th style="color: white;">Aresse Email</th>
-            <th style="color: white;">Role</th>
-            <th style="color: white;">Action</th>
-        </tr>
-            </thead>
+       
         @foreach ($actors as $actor)
-        <tr>
-            <td onclick="showActor({{ $actor->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $actor->name}}</td>
-            <td onclick="showActor({{ $actor->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $actor->email}}</td>
-            <td onclick="showActor({{ $actor->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $actor->role()->first()->role}}</td>
-            <td>
-                    <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('actors.edit',$actor->id) }}"><i class="fas fa-edit"></i></a>
-                    <button type="button" class="btn btn-danger  p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $actor->id }}">
-                        <i class="fas fa-trash"></i>
-                    </button> 
-                    <div class="modal fade" id="exampleModal{{ $actor->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <h5>Voulez vous vraiment supprimer <strong>la {{ $actor->marque }} de {{ $actor->matricule }} de liste des actors</strong>  ?</h5>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                    <form action="{{route('actors.destroy',$actor->id)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                                    </form>
-                            </div>
-                        </div>
-                    </div>
-                
-            </td>
-        </tr>    
+        <div class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center;">
+            <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $actor->name}}" alt="Card image cap">
+            <div class="card-body" style="justify-content: center; text-align: center;">
+              <h5 class="card-title">{{ $actor->name}}</h5>
+              <p class="card-text"><a style="text-decoration: none;" href="mailto:{{ $actor->email}}">{{ $actor->email}} </a><br> <span class="{{$actor->role()->first()->role=='Admin'? 'badge badge-success':'badge badge-primary'}}">{{ $actor->role()->first()->role}}</span> </p>
+              <a href="{{ route('actors.edit',$actor->id) }}" class="btn btn-primary btn-blok"><i class="fas fa-edit"></i></a>
+              <a href="{{ route('actors.destroy',$actor->id) }}" class="btn btn-danger btn-blok"><i class="fas fa-trash"></i></a>
+            </div>
+          </div>
+          
+        
+                   
         @endforeach  
-    </table>
-</div>
+  
+
 </div>
 <div class="row">
     <div class="col-md-12 mt-3 d-flex justify-content-center">
