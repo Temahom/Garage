@@ -51,12 +51,13 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 </select>	
                 </div>		
             </div>
-         <!--   <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                <strong>Nom du produit :</strong>
-                <input type="text" name="libelle" class="form-control" placeholder="Entrer le nom du produit">	
+                <strong>Le Prix1:</strong>
+                <input name="prix1" id="leprix" class="form-control" placeholder="le prix">
+                </select>	
                 </div>		
-            </div>  -->
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Prix :</strong>
@@ -100,5 +101,29 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         
    
    </script>
+
+<script>
+   
+    $(document).ready(function() {
+        $('select[name=produit]').change(function () {
+            var produit='<option value="">Le prix du Produit</option>'
+        $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:8000/api/listesp/"+ $('select[name=produit]').val(),
+            dataType: 'json',
+            success: function(data) {
+                var prix1s= data;
+                prix1s.map(p=>{
+                prix1+='<option value="'+ p.prix1+'">'+p.prix1+'</option>'
+                
+                })
+                $('#leprix').html(prix1)
+            }
+            });
+        });
+    });
+
+</script>
+
 
 @endsection

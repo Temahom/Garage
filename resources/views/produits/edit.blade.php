@@ -55,8 +55,9 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Prix:</strong>
-                    <input type="number" name="prix" value="{{ $produit->prix }}" class="form-control" placeholder="Entrer le prix">
-                </div>
+                    <select name="prix1" id="leprix" value="{{ $produit->prix1 }}" class="form-control" placeholder="Entrer le prix">
+                    </select>
+               </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
