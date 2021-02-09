@@ -59,7 +59,7 @@ setlocale(LC_TIME, "fr_FR", "French");
             <th scope="col">N°</th>
             <th scope="col">Catégorie</th>
             <th scope="col">Nom Produit</th>
-            <th scope="col">Prix</th>
+            <th scope="col">Le Prix Unitaire</th>
             <th scope="col">Quantité</th>
       <!--  <th scope="col">Date d'Ajout</th>    -->
             <th scope="col">Action</th>
@@ -72,7 +72,8 @@ setlocale(LC_TIME, "fr_FR", "French");
             <td scope="row">{{ ++$i }}</td>
             <td>{{ $produit->categorie }}</td>
             <td>{{ $produit->produit }}</td>
-            <td>{{number_format($produit->prix ,0, ",", " " )}}  <sup>F CFA</sup></td>
+            <td>{{ $produit->prix1 }}</td>
+     <!--   <td>{{number_format($produit->prix ,0, ",", " " )}}  <sup>F CFA</sup></td>      -->
             <td>{{ $produit->qte }}</td>
         <!--<td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
             <td>

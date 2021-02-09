@@ -41,4 +41,9 @@ Route::get('listesp/{categorie}',function($categorie){
     return listeproduit::select('produit')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();  
 });  
 
+Route::get('listespu/{produit}',function($produit){
+    return listeproduit::select('prix1')->where('produit','=',$produit)->get();  
+});  
+
+
 
