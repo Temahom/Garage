@@ -51,18 +51,14 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 </select>	
                 </div>		
             </div>
-         <!--   <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                <strong>Nom du produit :</strong>
-                <input type="text" name="libelle" class="form-control" placeholder="Entrer le nom du produit">	
+                <strong>Le Prix Unitaire :</strong>
+                <select name="prix1" id="leprix" class="custom-select form-control @error('prix1') is-invalid @enderror">
+                </select>	
                 </div>		
-            </div>  -->
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Prix :</strong>
-                    <input type="number" name="prix" class="form-control @error('prix') is-invalid @enderror"  placeholder="Entrer le Prix">
-                </div>
             </div>
+        
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Quantité :</strong>
@@ -100,5 +96,29 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         
    
    </script>
+
+<script>
+   
+    $(document).ready(function() {
+        $('select[name=produit]').change(function () {
+           var prix1='<option value="">Le prix du Produit </option>'
+        $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:8000/api/listespu/"+ $('select[name=produit]').val(),
+            dataType: 'json',
+            success: function(data) {
+                var prix1s= data;
+                prix1s.map(pu=>{
+                 prix1+='<option value="'+ pu.prix1+'">'+pu.prix1+'</option>'
+
+                })
+                $('#leprix').html(prix1)
+            }
+            });
+        });
+    });
+
+</script>
+
 
 @endsection

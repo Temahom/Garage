@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Liste;
 use App\Models\listeproduit;
 use App\Models\Produit;
+use App\Http\Controllers\CommandesApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,7 +20,7 @@ use App\Models\Produit;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 }); 
-
+Route::resource('commandes', CommandesApiController::class);
 Route::get('listes/{marques}',function($marques){
     return Liste::select('lemodel')->where('marques','=',$marques)->orderBy('lemodel')->distinct()->get();  
 });
@@ -39,3 +40,10 @@ Route::get('listes/carburant/{lecarburant}',function($lecarburant){
 Route::get('listesp/{categorie}',function($categorie){
     return listeproduit::select('produit')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();  
 });  
+
+Route::get('listespu/{produit}',function($produit){
+    return listeproduit::select('prix1')->where('produit','=',$produit)->get();  
+});  
+
+
+

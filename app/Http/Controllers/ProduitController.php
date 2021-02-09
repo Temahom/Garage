@@ -69,7 +69,7 @@ class ProduitController extends Controller
         $request->validate([
             'categorie' => 'required',
             'produit' => 'required',
-            'prix' => 'required',
+            'prix1' => 'required',
             'qte' => 'required'
         ]);
 
@@ -115,7 +115,7 @@ class ProduitController extends Controller
         $request->validate([
             'categorie' => 'required',
             'produit' => 'required',
-            'prix' => 'required',
+            'prix1' => 'required',
             'qte' => 'required'
         ]);
         $produit->update($request->all());
