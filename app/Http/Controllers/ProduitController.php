@@ -70,7 +70,6 @@ class ProduitController extends Controller
             'categorie' => 'required',
             'produit' => 'required',
             'prix1' => 'required',
-            'prix' => 'required',
             'qte' => 'required'
         ]);
 
@@ -117,7 +116,6 @@ class ProduitController extends Controller
             'categorie' => 'required',
             'produit' => 'required',
             'prix1' => 'required',
-            'prix' => 'required',
             'qte' => 'required'
         ]);
         $produit->update($request->all());

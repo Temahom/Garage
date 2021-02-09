@@ -53,17 +53,12 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             </div>
           <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                <strong>Le Prix1:</strong>
-                <input name="prix1" id="leprix" class="form-control" placeholder="le prix">
+                <strong>Le Prix Unitaire :</strong>
+                <select name="prix1" id="leprix" class="custom-select form-control @error('prix1') is-invalid @enderror">
                 </select>	
                 </div>		
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Prix :</strong>
-                    <input type="number" name="prix" class="form-control @error('prix') is-invalid @enderror"  placeholder="Entrer le Prix">
-                </div>
-            </div>
+        
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Quantité :</strong>
@@ -106,16 +101,16 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
    
     $(document).ready(function() {
         $('select[name=produit]').change(function () {
-            var produit='<option value="">Le prix du Produit</option>'
+           var prix1='<option value="">Le prix du Produit </option>'
         $.ajax({
             type: "GET",
-            url: "http://127.0.0.1:8000/api/listesp/"+ $('select[name=produit]').val(),
+            url: "http://127.0.0.1:8000/api/listespu/"+ $('select[name=produit]').val(),
             dataType: 'json',
             success: function(data) {
                 var prix1s= data;
-                prix1s.map(p=>{
-                prix1+='<option value="'+ p.prix1+'">'+p.prix1+'</option>'
-                
+                prix1s.map(pu=>{
+                 prix1+='<option value="'+ pu.prix1+'">'+pu.prix1+'</option>'
+
                 })
                 $('#leprix').html(prix1)
             }
