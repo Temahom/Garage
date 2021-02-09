@@ -7,6 +7,7 @@ use App\Models\Voiture;
 use App\Models\Diagnostic;
 use App\Models\Reparation;
 use App\Models\Devi;
+use App\Models\Commande;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -38,7 +39,7 @@ class InterventionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Voiture $voiture)
+    public function store(Request $request, Voiture $voiture, Commande $commande)
     {
         $user = Auth::id();
         $intervention = new Intervention();
@@ -57,7 +58,7 @@ class InterventionController extends Controller
      * @param  \App\Models\Intervention  $intervention
      * @return \Illuminate\Http\Response
      */
-    public function show(Voiture $voiture, Intervention $intervention)
+    public function show(Voiture $voiture, Intervention $intervention, Commande $commande)
     {
         $data['voiture'] = $voiture;
         $data['intervention'] = $intervention;
