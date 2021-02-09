@@ -2,7 +2,7 @@
 <div class="row">
 
 <div class="col-xs-12 col-sm-12 col-md-12 row">
-
+  
 <div class="col-xs-6 col-sm-6 col-md-6">
   
   <div class="form-group">
@@ -48,6 +48,18 @@
         @endif
       </div>
   </div>
+  <div class="form-group">
+    <div class="input-group is-invalid">
+      <div class="custom-file">
+        <input type="file"  name="image" class="custom-file-input  @error('image') is-invalide @enderror" onchange="previewFile(this)">
+        <label class="custom-file-label" for="validatedInputGroupCustomFile">Importer Photo...</label>
+        <img id="previewImg" src="" alt="Image Profil" style="max-width:130px; margin-top:20px">
+      </div>
+    </div>
+    @error('image')
+    <div class="invalid-feedback">{{$errors->first('image')}}</div>
+    @enderror
+  </div>
 
   
 </div>
@@ -59,5 +71,3 @@
 </div>
 
 </div>
-
-
