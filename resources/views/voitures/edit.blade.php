@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    <form action="{{ route('voitures.update', $voiture->id) }}" method="POST">
+    <form action="{{ route('voitures.update', $voiture->id) }}" method="POST" >
         @csrf
         @method('PATCH')
 

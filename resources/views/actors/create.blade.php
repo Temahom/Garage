@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <form action="{{ route('actors.store') }}" method="POST">
+    <form action="{{ route('actors.store') }}" method="POST" enctype="multipart/form-data">
       @csrf
         @include('actors._partials._form')
         
