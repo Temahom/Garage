@@ -38,12 +38,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('factures',FactureController::class);
     Route::resource('voitures',VoitureController::class);
     Route::resource('voitures.interventions',InterventionController::class);
-    Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
     Route::resource('voitures.interventions.reparations',ReparationController::class);
     Route::resource('voitures.interventions.devis',DeviController::class);
     Route::resource('commandes', CommandeController::class);
     Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
     Route::resource('actors', ActorController::class);
+    Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
+
+
 
     Route::get('/admin', function () {
         return view('admin.home');
@@ -60,4 +62,5 @@ Route::middleware(['auth','manager'])->group(function () {
 Route::middleware(['auth','user'])->group(function () {
     
 });
+
 
