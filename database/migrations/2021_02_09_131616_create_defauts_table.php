@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDefautsTable extends Migration
+class CreateErreurdiagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,10 @@ class CreateDefautsTable extends Migration
     {
         Schema::create('defauts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('diagnostic_id');
-            $table->string('code');
-            $table->string('titre');
-            $table->string('description');
+            $table->longText('code');
+            $table->longText('categorie');
+            $table->longText('localisation');
+            $table->longText('description');
             $table->timestamps();
         });
     }
