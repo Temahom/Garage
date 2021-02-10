@@ -36,12 +36,18 @@ use Carbon\Carbon;
         color: white !important;
     }
     #block-1 .card{
-        background-color: #cc00cc !important;
+        background-color: #a0b92f !important;
         color: white !important;
     
     }
     #block-2 .card{
-        background-color: #e0103d !important;
+        background-color: #a85e7b !important;
+        color: white !important;
+    
+    }
+
+    #block-3 .card{
+        background-color: #3a6297 !important;
         color: white !important;
     
     }
@@ -76,51 +82,49 @@ use Carbon\Carbon;
            
         </div>
     </div>
-    <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1">
+    <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center">
         <div class="card">
             <div class="card-body " >
                 <div class="metric-value d-inline-block">
                     <p>
-                    <span class="clw compteur"  style="font-weight: bold; font-size:30px;">{{\App\Models\Client::count()}}</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Client::count()>1?"Clients":"Client"}}</span>
-                </p>
+                        <span class="clw compteur"  style="font-weight: bold; font-size:30px;">{{\App\Models\Client::count()}}</span>
+                        <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Client::count()>1?"Clients":"Client"}}</span>
+                    </p>
+                </div>
             </div>
-                
-    
-            </div>
-            <div id="sparkline-revenue"></div>
+            <div class="col-md-12 col-sm-12 text-center pt-6">
+				<img style="height: 50px;width: auto;" class="" src="/assets/images/user1.png" alt="logo">
+			</div><br>
         </div>
     </div>
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2" style="text-align: center">
         <div class="card">
             <div class="card-body " >
-                <div class="metric-value d-inline-block">
+                <div class="metric-value d-inline-block" >
                     <p>
-                    <span class="clw compteur1" style="font-weight: bold; font-size:30px;" >{{\App\Models\Voiture::count()}}</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Voiture::count()>1?"Voitures":"Voiture"}}</span>
-                </p>
+                        <span class="clw compteur1" style="font-weight: bold; font-size:30px;" >{{\App\Models\Voiture::count()}}</span>
+                        <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Voiture::count()>1?"Voitures":"Voiture"}}</span>
+                    </p>
+                </div>    
             </div>
-                
-    
-            </div>
-            <p style="margin:10px">Lorem ipsum dolor  iste exercitationem aperiam 
-                consequuntur aspernatur distinctio similique recusandae. Non quasi saepe dolore ullam perferendis
-                 nulla ab consequatur nobis?</p>
+            <div class="col-md-12 col-sm-12 text-center pt-6">
+				<img style="height: 50px;width: auto;" class="" src="/assets/images/car12.png" alt="logo">
+			</div><br>
         </div>
     </div>
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3" style="text-align: center">
         <div class="card">
             <div class="card-body " >
                 <div class="metric-value d-inline-block">
                     <p>
-                    <span class="clw compteur2" style="font-weight: bold; font-size:30px;">{{\App\Models\Intervention::count()}}</span>
-                    <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Intervention::count()>1?"Interventions":"Intervention"}}</span>
-                </p>
+                        <span class="clw compteur2" style="font-weight: bold; font-size:30px;">{{\App\Models\Intervention::count()}}</span>
+                        <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Intervention::count()>1?"Interventions":"Intervention"}}</span>
+                    </p>
+                </div>
             </div>
-                
-    
-            </div>
-            <p style="margin:10px"></p>
+            <div class="col-md-12 col-sm-12 text-center pt-6">
+				<img style="height: 50px;width: auto;" class="" src="/assets/images/out1.png" alt="logo">
+			</div><br>
         </div>
     </div>
 </div>
