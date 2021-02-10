@@ -142,6 +142,19 @@
                                     </ul>    
                                 </div>
                             </li>
+                           <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="fa fa-fw fa-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
+                                <div id="submenu-produit" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/produits">Liste Produits</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/produits/create">Ajouter Produit</a>
+                                        </li>
+                                    </ul>    
+                                </div>
+                            </li> 
 
                         </ul>
                     </div>
