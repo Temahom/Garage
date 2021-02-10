@@ -54,8 +54,9 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Prix:</strong>
-                    <select name="prix1" id="leprix" value="{{ $produit->prix1 }}" class="form-control" placeholder="Entrer le prix">
+                    <strong>Prix Unitaire :</strong>
+                    <select name="prix1" id="leprix" class="form-control" >     
+                    <option value="{{ $produit->prix1 }}">{{ $produit->prix1 }}</option>
                     </select>
                </div>
             </div>
@@ -97,6 +98,30 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
 });
    
    </script>
+
+   
+<script>
+   
+    $(document).ready(function() {
+        $('select[name=produit]').change(function () {
+           var prix1='<option value="">Le prix du Produit </option>'
+        $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:8000/api/listespu/"+ $('select[name=produit]').val(),
+            dataType: 'json',
+            success: function(data) {
+                var prix1s= data;
+                prix1s.map(pu=>{
+                 prix1+='<option value="'+ pu.prix1+'">'+pu.prix1+'</option>'
+
+                })
+                $('#leprix').html(prix1)
+            }
+            });
+        });
+    });
+
+</script>
 
 
 @endsection

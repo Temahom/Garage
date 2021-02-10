@@ -30,7 +30,7 @@
 <div class="col-xs-6 col-sm-6 col-md-6">
 
   <div class="form-group">
-    <strong>Prenom | Nom:</strong>
+    <strong>Prenom | Nom</strong>
     <input type="text" name="name" value="{{ isset($user) ? $user->name:''}}" autocomplete="off" class="custom-select form-control @error('name') is-invalid @enderror" placeholder="Saisir Prenom | Nom...">
     <div class="invalid-feedback">
         @if($errors->has('name'))
@@ -40,7 +40,7 @@
   </div>
 
   <div class="form-group">
-    <strong>Adresse Email:</strong>
+    <strong>Adresse Email</strong>
     <input type="text" name="email" value="{{ isset($user) ? $user->email:''}}" autocomplete="off" class="custom-select form-control @error('email') is-invalid @enderror" placeholder="Saisir Email...">
     <div class="invalid-feedback">
         @if($errors->has('email'))
@@ -48,18 +48,16 @@
         @endif
       </div>
   </div>
+  
   <div class="form-group">
-    <div class="input-group is-invalid">
-      <div class="custom-file">
-        <input type="file"  name="image" class="custom-file-input  @error('image') is-invalide @enderror" onchange="previewFile(this)">
-        <label class="custom-file-label" for="validatedInputGroupCustomFile">Importer Photo...</label>
-        <img id="previewImg" src="" alt="Image Profil" style="max-width:130px; margin-top:20px">
-      </div>
+    <strong>Photo Profil</strong>
+    <div class="input-group mb-3 is-invalid">
+      <input type="file" class="form-control  @error('image') is-invalide @enderror" name="image" value="1">
     </div>
-    @error('image')
-    <div class="invalid-feedback">{{$errors->first('image')}}</div>
-    @enderror
-  </div>
+      @error('image')
+      <div class="invalid-feedback">{{$errors->first('image')}}</div>
+      @enderror
+  </div>    
 
   
 </div>

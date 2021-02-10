@@ -12,23 +12,9 @@ setlocale(LC_TIME, "fr_FR", "French");
                 <a class="btn btn-success" href="{{ route('produits.create') }}" title="Crear un produit"> <i class="fas fa-plus-circle"></i>
                   Ajouter Un Produit </a>
             </div>
-        </div>
-    </div>
- 
-<div>  
-</div>
-  
-<!--    <div class="d-flex">
-        <div class="mx-auto">
-    <form class="form-inline my-2 my-lg-0" action="/produits/index" methode="GET">
-    <input class="form-control mr-sm-2" name="query"  type="search" placeholder="Rechercher Produit">
-    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">REchercher</button>
-    </form>
-    </div>
-    </div>  -->
-    
-  <div class="d-flex">
-    <div class="mx-auto">
+     
+    <div class="d-flex">
+     <div class="mx-auto">
         <form action="{{ route('produits.index') }}" method="GET" role="search">
 
             <div class="d-flex">
@@ -47,12 +33,19 @@ setlocale(LC_TIME, "fr_FR", "French");
     </div>
 </div>  
 
+</div>
+</div>
+
+
 @if ($message = Session::get('success'))
 <div class="alert alert-success">
     <p>{{ $message }}</p>
 </div>
 @endif
 
+
+<div class="row">
+  <div >
 <table class="table table-bordered  table-hover">
     <thead class="thead">
         <tr>
@@ -70,17 +63,39 @@ setlocale(LC_TIME, "fr_FR", "French");
         @foreach ($produits as $produit)
         <tr>
             <td scope="row">{{ ++$i }}</td>
-            <td>{{ $produit->categorie }}</td>
+            <td onclick="showProduit({{ $produit->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
             <td>{{ $produit->produit }}</td>
-            <td>{{ $produit->prix1 }}</td>
-     <!--   <td>{{number_format($produit->prix ,0, ",", " " )}}  <sup>F CFA</sup></td>      -->
+            <td>{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
             <td>{{ $produit->qte }}</td>
         <!--<td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
             <td>
 
-                <a href="{{ route('produits.show', $produit->id) }}" title="show">
-                    <i class="fas fa-eye text-success  fa-lg"></i>
-                </a>
+           <!--    <a href="{{ route('produits.show', $produit->id) }}" title="show">  
+                    <i class="fas fa-eye text-success  fa-lg"></i>    -->
+            
+               <button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
+                <i class="fas fa-eye text-success  fa-lg"></i>
+            </button>
+
+                    <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body ">
+                                    <div style="font-size: 20px; ">Produit : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #2EC551">{{ $produit->produit}} </a></div>
+                                    <div style="font-size: 14px; ">Catégorie  : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #750439">{{ $produit->categorie}} </a></div>
+                                    <div style="font-size: 14px;" >Prix Unitaire  : <a href="" class="badge badge-success"> {{ $produit->prix1}} <sup>F CFA</sup> </a> </div>
+                                    <div style="font-size: 14px;">Quantité Produit  : <a href="" style="color: #17028a">{{ $produit->qte}} </a> </div>                    
+                                </div>
+                                <div class="modal-footer">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
 
                 <a href="{{ route('produits.edit', $produit->id) }}">
                     <i class="fas fa-edit  fa-lg"></i>
@@ -117,17 +132,20 @@ setlocale(LC_TIME, "fr_FR", "French");
             </div>
         </div>
     </div>
- </div>
+   </div>
 
     </td>
         </tr>
         @endforeach
     </tbody>
 
-</table>
+  </table>
+ </div>
+</div>
+
+
 
 {!! $produits->links() !!}
-
 
 
 <script>
@@ -158,5 +176,13 @@ setlocale(LC_TIME, "fr_FR", "French");
     }); 
 
 </script>
+<script>
+    function showProduit(id)
+    {
+        window.location = 'produits/' + id ;
+    }
+</script>
+
+
 
 @endsection
