@@ -15,7 +15,7 @@ class ActorController extends Controller
      */
     public function index()
     {
-        $actors = User::orderBy('created_at','DESC')->paginate(3);
+        $actors = User::orderBy('created_at','DESC')->paginate(10);
         return view('actors.index', compact('actors'));
     }
 
