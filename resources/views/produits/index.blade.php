@@ -74,9 +74,9 @@ setlocale(LC_TIME, "fr_FR", "French");
         <tr>
             <td scope="row">{{ ++$i }}</td>
             <td onclick="showProduit({{ $produit->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
-            <td onclick="showProduit({{ $produit->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
-            <td onclick="showProduit({{ $produit->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-            <td onclick="showProduit({{ $produit->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $produit->qte }}</td>
+            <td>{{ $produit->produit }}</td>
+            <td>{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
+            <td>{{ $produit->qte }}</td>
         <!--<td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
             <td>
 
