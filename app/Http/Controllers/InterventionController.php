@@ -7,6 +7,7 @@ use App\Models\Voiture;
 use App\Models\Diagnostic;
 use App\Models\Reparation;
 use App\Models\Devi;
+use App\Models\Commande;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -38,7 +39,7 @@ class InterventionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Voiture $voiture)
+    public function store(Request $request, Voiture $voiture, Commande $commande)
     {
         $user = Auth::id();
         $intervention = new Intervention();
@@ -57,7 +58,7 @@ class InterventionController extends Controller
      * @param  \App\Models\Intervention  $intervention
      * @return \Illuminate\Http\Response
      */
-    public function show(Voiture $voiture, Intervention $intervention)
+    public function show(Voiture $voiture, Intervention $intervention, Commande $commande)
     {
         $data['voiture'] = $voiture;
         $data['intervention'] = $intervention;
@@ -85,9 +86,9 @@ class InterventionController extends Controller
      * @param  \App\Models\Intervention  $intervention
      * @return \Illuminate\Http\Response
      */
-    public function edit(Voiture $voiture)
+    public function edit(Voiture $voiture, Intervention $intervention)
     {
-        return view('interventions.edit', compact('voiture'));
+        return view('interventions.edit', compact('voiture','intervention'));
     }
 
     /**
@@ -99,20 +100,21 @@ class InterventionController extends Controller
      */
    /* public function update(Request $request, Intervention $intervention)
     {
-        //
+        //   
     }    */
 
     
-    public function update(Request $request, Intervention $intervention)
+  /*  public function update(Request $request, Voiture $voiture)
      {  
         $intervention = new Intervention();
         $intervention->voiture_id = $voiture->id;
         $intervention->type = $request->input('type');
         $intervention->debut = $request->input('debut');
         $intervention->fin = $request->input('fin');
-          $intervention->update($request->all());
-      return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
-    
+         dd($intervention);
+          $intervention->update($request->all()); 
+          return redirect('/voitures/'.$voiture->id);
+     }  */
       /*   $request->validate([
             'type' => 'required',
             'debut' => 'required',
@@ -122,9 +124,20 @@ class InterventionController extends Controller
 
         //  $intervention->save();
        // $intervention->update($request->all());
-        return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);*/
-    }
+        return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
+    } */
 
+    public function update(Request $request, Voiture $voiture)
+    {  
+        $intervention = new Intervention();
+        $intervention->voiture_id = $voiture->id;
+        $intervention->type = $request->input('type');
+        $intervention->debut = $request->input('debut');
+        $intervention->fin = $request->input('fin');
+        // dd($intervention);
+          $intervention->update(); 
+          return redirect('/voitures/'.$voiture->id);
+    }  
     /**
      * Remove the specified resource from storage.
      *

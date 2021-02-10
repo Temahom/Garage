@@ -68,7 +68,7 @@ INSERT INTO `listeproduits` (`id`, `categorie`, `produit`, `created_at`, `update
 (24, 'Filtration', 'Filtre a carburant', NULL, NULL),
 (25, 'Filtration', 'Filtre a air', NULL, NULL),
 (26, 'Filtration', 'Filtre hydraulique  direction', NULL, NULL),
-(27, 'Filtration', 'Couvercle   boitier du filtre d\'huile', NULL, NULL),
+(27, 'Filtration', 'Couvercle   boitier du filtre d huile', NULL, NULL),
 (28, 'Demarrage _ Charge', 'Batterie voiture', NULL, NULL),
 (29, 'Demarrage _ Charge', 'Alternateur neuf', NULL, NULL),
 (30, 'Demarrage _ Charge', 'Demarreur echange standard', NULL, NULL),

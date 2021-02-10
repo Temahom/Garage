@@ -15,7 +15,6 @@ class DiagnosticController extends Controller
 
         return view('diagnostics.index',compact('diagnostic'));
     }
-
     public function create(Voiture $voiture, Intervention $intervention)
     {
         return view('diagnostics.create', compact('voiture', 'intervention'));

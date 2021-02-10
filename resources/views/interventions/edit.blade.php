@@ -21,7 +21,7 @@
     @endif
     
     
-    <form action="{{route('voitures.interventions.store',['voiture' => $voiture->id] )}}" method="POST">
+    <form action="{{route('voitures.interventions.update',['voiture' => $voiture->id , 'intervention' => $intervention->id] )}}" method="POST">
         @csrf
         @method('PUT')
 

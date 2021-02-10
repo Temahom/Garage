@@ -2,7 +2,7 @@
 <div class="row">
 
 <div class="col-xs-12 col-sm-12 col-md-12 row">
-
+  
 <div class="col-xs-6 col-sm-6 col-md-6">
   
   <div class="form-group">
@@ -30,7 +30,7 @@
 <div class="col-xs-6 col-sm-6 col-md-6">
 
   <div class="form-group">
-    <strong>Prenom | Nom:</strong>
+    <strong>Prenom | Nom</strong>
     <input type="text" name="name" value="{{ isset($user) ? $user->name:''}}" autocomplete="off" class="custom-select form-control @error('name') is-invalid @enderror" placeholder="Saisir Prenom | Nom...">
     <div class="invalid-feedback">
         @if($errors->has('name'))
@@ -40,7 +40,7 @@
   </div>
 
   <div class="form-group">
-    <strong>Adresse Email:</strong>
+    <strong>Adresse Email</strong>
     <input type="text" name="email" value="{{ isset($user) ? $user->email:''}}" autocomplete="off" class="custom-select form-control @error('email') is-invalid @enderror" placeholder="Saisir Email...">
     <div class="invalid-feedback">
         @if($errors->has('email'))
@@ -48,6 +48,16 @@
         @endif
       </div>
   </div>
+  
+  <div class="form-group">
+    <strong>Photo Profil</strong>
+    <div class="input-group mb-3 is-invalid">
+      <input type="file" class="form-control  @error('image') is-invalide @enderror" name="image" value="1">
+    </div>
+      @error('image')
+      <div class="invalid-feedback">{{$errors->first('image')}}</div>
+      @enderror
+  </div>    
 
   
 </div>
@@ -59,5 +69,3 @@
 </div>
 
 </div>
-
-

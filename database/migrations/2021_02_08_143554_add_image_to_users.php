@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateListeproduitsTable extends Migration
+class AddImageToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateListeproduitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('listeproduits', function (Blueprint $table) {
-            $table->id();
-            $table->longText('categorie');
-            $table->longText('produit');
-            $table->Integer('prix1');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('image')->nullable();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateListeproduitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('listeproduits');
+        Schema::table('users', function (Blueprint $table) {
+            Schema::dropIfExists('users');
+        });
     }
 }

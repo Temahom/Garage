@@ -42,11 +42,24 @@ class ActorController extends Controller
             'name'=>'required',
             'email'=>'required',
             'role_id'=>'required',
+            'image' => 'sometimes|required|max:5000',
           ]);
-          $password=['password'=>bcrypt(12345678)];
-          $data = array_merge($data, $password);
-           $actor = User::create($data);
-           return redirect()->route('actors.show', ['actor' => $actor]);
+          $password=bcrypt(12345678);
+          $name =  $request->input('name');
+          $email = $request->input('email');
+          $role_id = $request->input('role_id');
+          $image = $request->file('image');
+          $imageName = time().'.'.$image->extension();
+          $image->move(public_path('images'),$imageName);
+
+          $user = new User();
+          $user->name = $name;
+          $user->email = $email;
+          $user->role_id = $role_id;
+          $user->password = $password;
+          $user->image = $imageName;
+          $user->save();
+          return redirect()->route('actors.show', ['actor' => $user]);
     }
 
     /**
@@ -84,16 +97,29 @@ class ActorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $actor= User::find($id);
+        
         $data= request()->validate([
             'name'=>'required',
             'email'=>'required',
             'role_id'=>'required',
+            'image' => 'sometimes|required|max:5000'
           ]);
-          $password=['password'=>bcrypt(12345678)];
-          $data = array_merge($data, $password);
-         $actor->update($data);
-         return redirect ('/actors');
+          $password=bcrypt(12345678);
+          $name =  $request->input('name');
+          $email = $request->input('email');
+          $role_id = $request->input('role_id');
+          $image = $request->file('image');
+          $imageName = time().'.'.$image->extension();
+          $image->move(public_path('images'),$imageName);
+
+          $user= User::find($id);
+          $user->name = $name;
+          $user->email = $email;
+          $user->role_id = $role_id;
+          $user->password = $password;
+          $user->image = $imageName;
+          $user->save();
+          return back();
     }
 
     /**
@@ -106,4 +132,5 @@ class ActorController extends Controller
     {
         //
     }
+    
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateListeproduitsTable extends Migration
+class CreateErreurdiagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateListeproduitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('listeproduits', function (Blueprint $table) {
+        Schema::create('erreurdiags', function (Blueprint $table) {
             $table->id();
+            $table->longText('code');
             $table->longText('categorie');
-            $table->longText('produit');
-            $table->Integer('prix1');
+            $table->longText('localisation');
+            $table->longText('description');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateListeproduitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('listeproduits');
+        Schema::dropIfExists('erreurdiags');
     }
 }

@@ -15,7 +15,7 @@ class CreateVoituresTable extends Migration
     {
         Schema::create('voitures', function (Blueprint $table) {
             $table->id();
-            $table->string('matricule');
+            $table->string('matricule')->unique();
             $table->string('marque');
             $table->string('model');
             $table->integer('annee');

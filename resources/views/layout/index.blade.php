@@ -62,6 +62,30 @@
                                 <input class="form-control" type="text" placeholder="Recherche..">
                             </div>
                         </li>
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notifications <span class="badge badge-danger">20</span></div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">{{Auth::user()->name}}</span>Vous a attribuer une taches.
+                                                        <div class="notification-date">Il y'a 2 min </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                           
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">Voir toutes les notifiacations</a></div>
+                                </li>
+                            </ul>
+                        </li>
                         @auth
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://ui-avatars.com/api/?background=0D8ABC&color=fff&name={{Auth::user()?Auth::user()->email:null}}" alt="" class="user-avatar-md rounded-circle"></a>
@@ -142,6 +166,19 @@
                                     </ul>    
                                 </div>
                             </li>
+                           <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="fa fa-fw fa-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
+                                <div id="submenu-produit" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/produits">Liste Produits</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/produits/create">Ajouter Produit</a>
+                                        </li>
+                                    </ul>    
+                                </div>
+                            </li> 
 
                         </ul>
                     </div>
