@@ -34,20 +34,23 @@ use Carbon\Carbon;
         color: white !important;
     }
     #block-1 .card{
-        background-color: #a0b92f !important;
+        background-image: linear-gradient( to top,#1f575a, #068c94);
         color: white !important;
-    
+        box-shadow: 2px 5px 5px 1px #d3d0d0;
+        height: 200px;
     }
     #block-2 .card{
-        background-color: #a85e7b !important;
+        background-image: linear-gradient( to top,#a85e7b, #df5a8f);
         color: white !important;
-    
+        box-shadow: 2px 5px 5px 1px #d3d0d0;
+        height: 200px;
     }
 
     #block-3 .card{
-        background-color: #3a6297 !important;
+        background-image: linear-gradient( to top,#3a6297, #3977c8);
         color: white !important;
-    
+        box-shadow: 2px 5px 5px 1px #d3d0d0;
+        height: 200px;
     }
      .history{
         background-color: #1891ea;
@@ -63,6 +66,11 @@ use Carbon\Carbon;
         color: white;
         text-align: center;
         padding: 10px;
+    }
+
+    .card-header{
+        background-color: #2f7272;
+        color: white;
     }
     
     
@@ -83,7 +91,7 @@ use Carbon\Carbon;
     </div>
     <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center">
         <div class="card">
-            <div class="card-body " >
+            <div class="card-body " ><br>
                 <div class="metric-value d-inline-block">
                     <p>
                         <span class="clw compteur"  style="font-weight: bold; font-size:30px;">{{\App\Models\Client::count()}}</span>
@@ -98,7 +106,7 @@ use Carbon\Carbon;
     </div>
     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2" style="text-align: center">
         <div class="card">
-            <div class="card-body " >
+            <div class="card-body " ><br>
                 <div class="metric-value d-inline-block" >
                     <p>
                         <span class="clw compteur1" style="font-weight: bold; font-size:30px;" >{{\App\Models\Voiture::count()}}</span>
@@ -113,7 +121,7 @@ use Carbon\Carbon;
     </div>
     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3" style="text-align: center">
         <div class="card">
-            <div class="card-body " >
+            <div class="card-body " ><br>
                 <div class="metric-value d-inline-block">
                     <p>
                         <span class="clw compteur2" style="font-weight: bold; font-size:30px;">{{\App\Models\Intervention::count()}}</span>
@@ -128,7 +136,7 @@ use Carbon\Carbon;
     </div>
 </div>
 <div class="row">
-    <span class="history" style="width: 20%">
+    <span class="history" style="width: 15%">
         <h4>Historiques</h4>
     </span>
 
@@ -137,7 +145,7 @@ use Carbon\Carbon;
 <div class="row">
 <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-6 mt-5">
     <div class="card">
-        <h5 class="card-header">Nombre de Clients par Mois</h5>
+        <h5 class="card-header" style="text-align: center">Tableau récaptulatif mensuel des Clients</h5>
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table">

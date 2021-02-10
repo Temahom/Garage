@@ -24,7 +24,7 @@
 							{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
 						</a>)
 					</span>
-					
+
 				</div>
 
 				<div style="font-size: 14px;"> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>

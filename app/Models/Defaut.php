@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Erreurdiag extends Model
 {
-    protected $table = 'erreurdiags';
+    protected $table = 'defauts';
     use HasFactory;
 
     protected $fillable = [
