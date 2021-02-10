@@ -1,23 +1,20 @@
 @extends('layout.index')
 @section('content')
-    <div class="row ml-1">
-        <div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-            <div class="row">
-
-                <div class="col-md-2 col-sm-3 text-center pt-3">
-                    @if ($user->role()->first()->role == "admin")
-                        <img style="height: 50px;width: auto;" class="" src="/assets/images/feminin.png" alt="logo">
-                    @else
-                        <img style="height: 50px;width: auto;" class="" src="/assets/images/masculin.png" alt="logo">
-                    @endif
-                </div>
-
-                <div class="col-md-9 col-sm-10">
-                    <div style="font-size: 20px; color: #2EC551">{{ $user->name}}</div>
-                    <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $user->email}}</div>
-                    <div style="font-size: 14px;"><i class="fas fa-users-cog"></i> {{ $user->role()->first()->role}}</div>
-                    {{-- <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $client->email}}</div> --}}
-                </div>
+    <div class="row ml-1" style="justify-content:center;">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+                    <div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">
+                        @if(isset($user->image))
+                          <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$user->image)}}" alt="Card image cap">
+                        @else
+                          <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $user->name}}" alt="Card image cap">
+                        @endif
+                          <div class="card-body" style="justify-content: center; text-align: center;">
+                            <h5 class="card-title">{{ $user->name}}</h5>
+                            <p class="card-text"><a style="text-decoration: none;" href="mailto:{{ $user->email}}">{{ $user->email}} </a><br> <span class="{{$user->role()->first()->role=='Admin'? 'badge badge-success':'badge badge-primary'}}">{{ $user->role()->first()->role}}</span> </p>
+                            <a href="{{ route('actors.edit',$user->id) }}" class="btn btn-primary btn-blok"><i class="fas fa-edit"></i></a>
+                            <a href="{{ route('actors.show',$user->id) }}" class="btn btn-danger btn-blok"><i class="fas fa-trash"></i></a>
+                          </div>
+                      </div>
 
             </div>
         </div>    
