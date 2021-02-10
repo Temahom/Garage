@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDiagnosticsTable extends Migration
+class CreateDefautsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateDiagnosticsTable extends Migration
      */
     public function up()
     {
-        Schema::create('diagnostics', function (Blueprint $table) {
+        Schema::create('defauts', function (Blueprint $table) {
             $table->id();
-            $table->string('constat');
+            $table->unsignedBigInteger('diagnostic_id');
+            $table->string('code');
+            $table->string('titre');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateDiagnosticsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diagnostics');
+        Schema::dropIfExists('defauts');
     }
 }
