@@ -29,6 +29,11 @@ use Illuminate\Support\Facades\App;
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
+
+Route::get('Pdf.pdf', function () {
+    $pdf = PDF::loadView('Pdf.pdf',["name"=>4568]);    
+    return $pdf->stream('Devis.pdf');
+});
    
 Route::middleware('auth')->group(function () {
 
@@ -62,5 +67,7 @@ Route::middleware(['auth','manager'])->group(function () {
 Route::middleware(['auth','user'])->group(function () {
     
 });
+
+
 
 
