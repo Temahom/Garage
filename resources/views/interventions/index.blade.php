@@ -67,7 +67,7 @@
           .tabs [id^="tab"]:checked + label {
             top: 0;
             padding-top: 17px;
-            background: #5A6268;
+            background: #101010;
             color:#ffffff;
           }
           .tabs [id^="tab"]:checked ~ [id^="tab-content"] {
@@ -119,13 +119,12 @@
                         aria-labelledby="diagnostics" 
                         aria-hidden="false">
                         <table class="table table-striped table-hover col-md-12">
-                          <thead class="" style="background-color: #F3B600;">
+                          <thead class="" style="background-color: #0E0C28;">
                           <tr>
                               <th style="color: white;">#</th>
-                              <th style="color: white;">Titre</th>
+                              <th style="color: white;">Constat</th>
                               <th style="color: white;">Date Edition</th>
                               <th style="color: white;">Voiture</th>
-                              <th style="color: white;">Client</th>
                           </tr>
                               </thead>
                           @foreach ($interventions as $intervention)
@@ -134,10 +133,7 @@
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              
                           </tr>
-                          
                           @endforeach
                       </table>
                   </div>
@@ -162,18 +158,19 @@
                               <th style="color: white;">#</th>
                               <th style="color: white;">Date Edition</th>
                               <th style="color: white;">Date Expiration</th>
-                              <th style="color: white;">Couts</th>
+                              <th style="color: white;">Cout</th>
                               <th style="color: white;">Client</th>
+                              <th style="color: white;">Etat</th>
                           </tr>
                               </thead>
-                          @foreach ($interventions as $intervention)
+                          @foreach ($devis as $key=>$devi)
                           <tr>
+                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
+                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
+                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              
                           </tr>
                           
                           @endforeach
@@ -194,7 +191,7 @@
                         aria-labelledby="reparations" 
                         aria-hidden="true">
                         <table class="table table-striped table-hover col-md-12">
-                          <thead class="" style="background-color: #F3B600;">
+                          <thead class="" style="background-color: #0E0C28;">
                           <tr>
                               <th style="color: white;">#</th>
                               <th style="color: white;">Entree Garage</th>
