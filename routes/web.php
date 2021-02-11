@@ -31,9 +31,13 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::get('Pdf', function () {
-    $commandes= \App\Models\Commande::all();
-    $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
-    return $pdf->stream('Devis.pdf');
+   
+  //  $commandes= \App\Models\Commande::all();
+    $html='<h1>HTETSOM</h1>';
+    $pdf=PDF::loadHTML($html);
+      return $pdf->stream();
+    //$pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
+    //return $pdf->stream('Devis.pdf');
 });
    
 Route::middleware('auth')->group(function () {
