@@ -4,14 +4,27 @@
 	<div class="row">
 		<div class="col-lg-12 margin-tb">
 			<div class="pull-left">
-				<h2>Tous les Clients</h2>
+				<br><h2>Listes des Clients</h2><br>
 			</div>
-			<div class="pull-right">
-				<a class="btn btn-secondary" href="{{route('clients.create')}}"><i class="fas fa-user-plus"></i> Nouveau Client</a>
+			<div class="col-xs-12 col-sm-12 col-md-12 row">
+                <div class="col-xs-9 col-sm-9 col-md-9">     
+                    <div class="form-group">
+						<a class="btn btn-secondary" href="{{route('clients.create')}}"><i class="fas fa-user-plus"></i> Nouveau Client</a>
+					</div>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3">     
+					<div class="form-group">
+						<form action="{{ route('clients.index') }}" method="GET" role="search">
+							<div class="d-flex">
+								<input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term">
+								<button class="btn btn-info t" type="submit" title="recherche un produit">
+									<span class="fas fa-search"></span>
+								</button>
+							</div>
+						</form><br>
+					</div>
+				</div>  
 			</div>
-		</div>
-	</div>
-	<br>
 
 	@if($message = Session::get('success'))
 		<div class="alert alert-success">
@@ -20,19 +33,7 @@
 	@endif
 
 	<div class="row">
-		<div class="d-flex" style="width: 100%">
-			<div class="mx-auto">
-				<form action="{{ route('clients.index') }}" method="GET" role="search">
-					<div class="d-flex">
-						<input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term">
-						<button class="btn btn-info t" type="submit" title="recherche un produit">
-							<span class="fas fa-search"></span>
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	<div class="col-md-12 col-lg-11"><br>
+	<div class="col-xs-12 col-sm-12 col-md-12 row"><br>
 	<table class="table table-striped table-hover">
 		<thead class="" style="background-color: #4656E9;">
 			<tr>
