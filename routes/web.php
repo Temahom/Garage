@@ -30,8 +30,9 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
-Route::get('Pdf.pdf', function () {
-    $pdf = PDF::loadView('Pdf.pdf',["name"=>4568]);    
+Route::get('Pdf', function () {
+    $commandes= \App\Models\Commande::all();
+    $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
     return $pdf->stream('Devis.pdf');
 });
    

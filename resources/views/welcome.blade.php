@@ -23,6 +23,7 @@ use Carbon\Carbon;
         align-self: center;
         align-items: center;
         align-content: center;
+        height: 200px;
      
       
     }
@@ -80,9 +81,8 @@ use Carbon\Carbon;
     <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
         <div class="card">
             <div class="card-body">
-                    <div id="clock">
-  
-                    </div>
+                    <div id="clock"></div>
+                    <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
                 </div> 
                
           
@@ -200,24 +200,7 @@ use Carbon\Carbon;
     var ladate=document.getElementById("ladate");
 
         ladate.innerText=date.toLocaleDateString("fr-FR", options);
-        var heurre=document.getElementById("heurre");
-        var minute=document.getElementById("minute");
-        var seconde=document.getElementById("seconde");
-
-            // declarations des variables pour la recupertaion de l'heurre d'aujourd'huit
-          
-           
-          setInterval(
-            function(){
-                
-                var date1 = new Date();
-                heurre.innerText=date1.getHours();
-                minute.innerText=date1.getMinutes();
-                seconde.innerText=date1.getSeconds();
-              
-                //alert(date.getSeconds)
-            },1000);
-
+       
 
     $({ Counter: 0 }).animate({
       Counter: $('.compteur').text()
