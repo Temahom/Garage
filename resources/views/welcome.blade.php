@@ -15,17 +15,16 @@ use Carbon\Carbon;
 @endphp
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+<link rel="stylesheet" href="/assets/libs/css/clock.css">
 <style>
     #cercle .card {
-        width: 200px;
-        height: 200px;
-        border: 2px solid #1891ea;
-        border-radius: 50% !important;
+      
         justify-content: center;
         align-self: center;
         align-items: center;
         align-content: center;
-        box-shadow: 2px 5px 5px 1px #888888;
+        height: 200px;
+     
       
     }
     .time{
@@ -82,7 +81,7 @@ use Carbon\Carbon;
     <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
         <div class="card">
             <div class="card-body">
-                    <h3 class="text-center mt-3 time"><span id="heurre"></span>h: <span id="minute"></span>mn: <span id="seconde"></span>s</h3>
+                    <div id="clock"></div>
                     <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
                 </div> 
                
@@ -193,7 +192,7 @@ use Carbon\Carbon;
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
-
+<script src="assets/libs/js/clock.js"></script>
 <script>
  
     var date = new Date();
@@ -201,24 +200,7 @@ use Carbon\Carbon;
     var ladate=document.getElementById("ladate");
 
         ladate.innerText=date.toLocaleDateString("fr-FR", options);
-        var heurre=document.getElementById("heurre");
-        var minute=document.getElementById("minute");
-        var seconde=document.getElementById("seconde");
-
-            // declarations des variables pour la recupertaion de l'heurre d'aujourd'huit
-          
-           
-          setInterval(
-            function(){
-                
-                var date1 = new Date();
-                heurre.innerText=date1.getHours();
-                minute.innerText=date1.getMinutes();
-                seconde.innerText=date1.getSeconds();
-              
-                //alert(date.getSeconds)
-            },1000);
-
+       
 
     $({ Counter: 0 }).animate({
       Counter: $('.compteur').text()
@@ -247,10 +229,10 @@ $({ Counter: 0 }).animate({
       step: function() {
         $('.compteur2').text(Math.ceil(this.Counter));
       }
-    });             
 
-    
-    
+
+    });      
+
 </script>
 @endsection
         
