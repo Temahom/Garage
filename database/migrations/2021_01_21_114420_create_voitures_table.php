@@ -19,6 +19,8 @@ class CreateVoituresTable extends Migration
             $table->string('marque');
             $table->string('model');
             $table->integer('annee');
+            $table->string('transmission');
+            $table->string('kilometrage');
             $table->string('carburant');
             $table->string('puissance');
             $table->unsignedBigInteger('client_id');

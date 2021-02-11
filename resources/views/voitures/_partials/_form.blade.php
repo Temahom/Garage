@@ -33,9 +33,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 row">
-
     <div class="col-xs-6 col-sm-6 col-md-6">
-
       <div class="form-group">
         <strong>Matricule:</strong>
         <input type="text" name="matricule" value="{{ isset($voiture) ? $voiture->matricule :''}}" autocomplete="off" class="custom-select form-control @error('matricule') is-invalid @enderror" placeholder="Saisir matricule...">
@@ -101,7 +99,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
           {{ $errors->first('annee') }}
           @endif
         </div>		
-      </div>
+      </div> 
 
       <div class="form-group">
         <strong>Puissance de la voiture :</strong>
@@ -113,8 +111,32 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
           {{ $errors->first('puissance') }}
           @endif
         </div>			
+      </div></div>
+      <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="form-group">
+        <strong>Transmission de la voiture:</strong>
+        <select name="transmission" id="latransmission" class="custom-select form-control @error('transmission') is-invalid @enderror">
+          <option value=""></option>
+          <option value="Manuel">Manuel</option>
+          <option value="Automatique">Automatique</option>
+          <option value="lesdeux">Les 2</option>
+        </select>
+        <div class="invalid-feedback">
+          @if($errors->has('transmission'))
+          {{ $errors->first('transmission') }}
+          @endif
+        </div>			
+      </div>   </div>
+      <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="form-group">
+        <strong>Kilométrage de la voiture:</strong>
+        <input name="kilometrage" id="lekilometrage" class="custom-select form-control @error('transmission') is-invalid @enderror" autocomplete="off">
+        <div class="invalid-feedback">
+          @if($errors->has('kilometrage'))
+          {{ $errors->first('kilometrage') }}
+          @endif
+        </div>			
       </div>
-
     </div>
   </div>
 
@@ -148,6 +170,8 @@ $(document).ready(function() {
 	});
 
 });
+
+
 
 $(document).ready(function() {
 	$('select[name=model]').change(function () {

@@ -27,9 +27,11 @@
 
 				</div>
 
-				<div style="font-size: 14px;"> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>
-				<div style="font-size: 14px;"> {{ $voiture->carburant}}</div>
-				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux</div>
+				<div style="font-size: 14px;"> <i class="fa fa-home" aria-hidden="true"></i> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>
+				<div style="font-size: 14px;"> <i class="fa fa-tint" aria-hidden="true"></i>{{ $voiture->carburant}}</div>
+				<div style="font-size: 14px;"> <i class="fa fa-arrows" aria-hidden="true"></i> {{ $voiture->transmission}}</div>
+				<div style="font-size: 14px;"> <i class="fa fa-battery-three-quarters" aria-hidden="true"></i>{{ $voiture->kilometrage}}</div>
+				<div style="font-size: 14px;"> <i class="fa fa-bolt" aria-hidden="true"></i> {{ $voiture->puissance}} cheveaux</div>
 				<div class="text-right" style="font-size: 12px;">
 					<a class="text-primary mr-1" href="{{ route('voitures.edit',$voiture->id)}}">Modifier</a> 
 					<button type="button" class="text-danger" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">

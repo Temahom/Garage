@@ -4,6 +4,13 @@
 
 <div class="row ml-1">
 	<div class="col-md-7 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+		<div class="row" style="text-align: center">
+			<div class="col-lg-12 margin-tb">
+				<div class="pull-left">
+					<h2>Diagnostique</h2>
+				</div>
+			</div>
+		</div>
 		<div class="row">
 
 			<div class="col-md-2 col-sm-3 text-center pt-4">

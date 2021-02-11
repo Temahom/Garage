@@ -51,6 +51,8 @@ class VoitureController extends Controller
             'annee'=>'required',
             'carburant'=>'required',
             'puissance'=>'required',
+            'transmission'=>'required',
+            'kilometrage'=>'required',
             'client_id'=>'required',
           ]);
           $data = array_merge($data, ['user_id'=>$user]);
@@ -101,6 +103,8 @@ class VoitureController extends Controller
             'annee'=>'required',
             'carburant'=>'required',
             'puissance'=>'required',
+            'transmission'=>'required',
+            'kilometrage'=>'required',
             'client_id'=>'required'
           ]);
          $voiture->update($data);

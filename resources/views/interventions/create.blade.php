@@ -1,28 +1,34 @@
 @extends('layout.index')
 @section('content')
-<div class="row ml-1">
-	<div class="col-md-7 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-		<div class="row">
 
+
+
+<div class="row ml-1">
+	<div class="col-md-7 py-1" style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+
+		<div class="row" style="text-align: center">
+			<div class="col-lg-12 margin-tb">
+				<div class="pull-left">
+					<h2>Intervention</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-md-2 col-sm-3 text-center pt-4">
 				<img style="height: 50px;width: auto;" class="" src="/assets/images/car.png" alt="logo">
 			</div>
-
 			<div class="col-md-10 col-sm-10">
-
 				<div style="font-size: 20px">
 					<a href="{{route('voitures.show',['voiture'=>$voiture->id])}}" style="color: #2EC551">
 						{{ $voiture->matricule }}
 					</a>
 					<span style="font-size: 12px;">
 						( De<a href="{{route('clients.show',['client'=>$voiture->client_id])}}" style="color: #2EC551">
-							<i class="fas fa-user"></i>
-							{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
-						</a>)
-					</span>
-					
+								<i class="fas fa-user"></i>
+								{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
+							</a>)
+					</span>				
 				</div>
-
 				<div style="font-size: 14px;"> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>
 				<div style="font-size: 14px;"> {{ $voiture->carburant}}</div>
 				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux</div>
@@ -44,7 +50,7 @@
 										@method('DELETE')
 										<button type="submit" class="btn btn-danger">Supprimer</button>
 									</form>
-							</div>
+								</div>
 							</div>
 						</div>
 					</div>	
@@ -55,14 +61,8 @@
 		</div>
 	</div>
 </div>
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Intervention</h2>
-            </div>
-        </div>
-    </div>
-
+    
+<br>
     <form action="{{route('voitures.interventions.store',['voiture' => $voiture->id])}}" method="POST">
         @csrf
         <div class="row">
