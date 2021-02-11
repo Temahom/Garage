@@ -76,8 +76,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>  
-                        
+                            </div>                        
                         </li>
                         <li class="nav-item dropdown notification">
                             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
@@ -155,9 +154,9 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li>  <br>
+                            </li>
 
-                            <li class="nav-item ">
+                            <li class="nav-item " style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success">6</span></a>
                                 <div id="submenu-voiture" class="collapse submenu">
                                     <ul class="nav flex-column">
@@ -169,8 +168,8 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li>  <br>
-                            <li class="nav-item ">
+                            </li>
+                            <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="fas fa-users"></i>Acteurs<span class="badge badge-success">6</span></a>
                                 <div id="submenu-acteur" class="collapse submenu">
                                     <ul class="nav flex-column">
@@ -182,8 +181,8 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li><br>
-                           <li class="nav-item ">
+                            </li>
+                           <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="fa fa-fw fa-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
                                 <div id="submenu-produit" class="collapse submenu">
                                     <ul class="nav flex-column">
@@ -195,7 +194,7 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li> <br>
+                            </li>
 
                         </ul>
                     </div>

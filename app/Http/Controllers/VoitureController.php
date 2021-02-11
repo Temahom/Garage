@@ -16,8 +16,7 @@ class VoitureController extends Controller
      */
     public function index(Request $request)
     {
-
-       
+  
         $voitures = Voiture::where([
             [function ($query) use ($request){
                 if (($term = $request->term)) {

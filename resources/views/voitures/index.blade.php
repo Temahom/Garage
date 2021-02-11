@@ -11,6 +11,16 @@
                  <a class="btn btn-secondary" href="{{ route('voitures.create') }}"><i class="fas fa-plus"></i> Ajouter Voiture</a>
                 @endcan
             </div>
+            <form action="{{ route('voitures.index') }}" method="GET" role="search">
+                <div class="d-flex">
+                    <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term">
+                    <button class="btn btn-info t" type="submit" title="recherche un produit">
+                        <span class="fas fa-search"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+            
         </div>
     </div>
     <style>
