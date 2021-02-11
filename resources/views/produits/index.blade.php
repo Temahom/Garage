@@ -3,7 +3,7 @@
 setlocale(LC_TIME, "fr_FR", "French");
 @endphp
 @section('content')
-<div class="row">
+<div class="row" >
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2> Les Produits </h2>
@@ -13,16 +13,16 @@ setlocale(LC_TIME, "fr_FR", "French");
                   Ajouter Un Produit </a>
             </div>
      
-    <div class="d-flex">
+    <div class="d-flex" style="width: 100%">
      <div class="mx-auto">
         <form action="{{ route('produits.index') }}" method="GET" role="search">
 
             <div class="d-flex">
 
-                <button class="btn btn-info t" type="submit" title="recherche produits">
+                <button class="btn btn-info t" type="submit" title="recherche un produit">
                     <span class="fas fa-search"></span>
                 </button>
-                <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher produits" id="term">
+                <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher un produit" id="term">
                 <a href="{{ route('produits.index') }}" class="">
                     <button class="btn btn-danger" type="button" title="Actualiser page">
                         <span class="fas fa-sync-alt"></span>
@@ -34,7 +34,7 @@ setlocale(LC_TIME, "fr_FR", "French");
 </div>  
 
 </div>
-</div>
+</div><br><br>
 
 
 @if ($message = Session::get('success'))
@@ -44,26 +44,24 @@ setlocale(LC_TIME, "fr_FR", "French");
 @endif
 
 
-<div class="row">
-  <div >
-<table class="table table-bordered  table-hover">
-    <thead class="thead">
+
+<table class="table table-bordered table-responsive-lg">
+
         <tr>
-            <th scope="col">N°</th>
-            <th scope="col">Catégorie</th>
-            <th scope="col">Nom Produit</th>
-            <th scope="col">Le Prix Unitaire</th>
-            <th scope="col">Quantité</th>
+            <th>N°</th>
+            <th>Catégorie</th>
+            <th>Nom Produit</th>
+            <th>Le Prix Unitaire</th>
+            <th>Quantité</th>
       <!--  <th scope="col">Date d'Ajout</th>    -->
-            <th scope="col">Action</th>
+            <th width="280px" text-align="center">Action</th>
         </tr>
-    </thead>
     <tbody>
 
         @foreach ($produits as $produit)
         <tr>
-            <td scope="row">{{ ++$i }}</td>
-            <td onclick="showProduit({{ $produit->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
+            <td>{{ ++$i }}</td>
+            <td onclick="showProduit({{ $produit->id }})">{{ $produit->categorie }}</td>
             <td>{{ $produit->produit }}</td>
             <td>{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
             <td>{{ $produit->qte }}</td>
