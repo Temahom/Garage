@@ -19,6 +19,7 @@ class CreateDefautsTable extends Migration
             $table->longText('categorie');
             $table->longText('localisation');
             $table->longText('description');
+            $table->integer('etat');
             $table->timestamps();
         });
     }

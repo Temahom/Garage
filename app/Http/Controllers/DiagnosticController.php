@@ -40,16 +40,13 @@ class DiagnosticController extends Controller
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
         $request->validate([
-            'plusdechamps.*.title' => 'required',
-            'plusdechamps.*.description' => 'required'
+            'constat' => 'required',
         ]);
         $diagnostic = new Diagnostic();
-        $tab = $request->input('plusdechamps');
-
-    
-        foreach ($tab as $key => $value) {
-            Diagnostic::create($value);
-        }
+        $diagnostic->constat = $request->input('constat');
+        $diagnostic->save();
+        $intervention->diagnostic_id = $diagnostic->id;
+        $intervention->update();
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] );
     }
     /**
@@ -82,8 +79,7 @@ class DiagnosticController extends Controller
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic)
     {
          $request->validate([
-        'plusdechamps.*.title' => 'required',
-        'plusdechamps.*.description' => 'required',
+        'constat' => 'required',
         ]);
 
          $diagnostic->update($request->all());

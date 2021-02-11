@@ -5,20 +5,11 @@
 
         
 <div class="row ml-1">
-    <div class="col-md-7 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-        <div class="row" style="text-align: center">
-			<div class="col-lg-12 margin-tb">
-				<div class="pull-left">
-					<h2>Diagnostique</h2>
-				</div>
-			</div>
-		</div>
+    <div class="col-md-7 pt-3"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
         <div class="row">
-
             <div class="col-md-2 col-sm-3 text-center pt-4">
                 <img style="height: 50px;width: auto;" class="" src="/assets/images/car.png" alt="logo">
             </div>
-
             <div class="col-md-10 col-sm-10">
 
                 <div style="font-size: 20px">
@@ -31,7 +22,6 @@
                             {{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
                         </a>)
                     </span>
-                    
                 </div>
 
                 <div style="font-size: 14px;"> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>
@@ -68,10 +58,10 @@
 </div> 
         
 
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
+    <div class="row pt-5">
+        <div class="col-lg-12">
             <div class="pull-left">
-                <h2>Ajouter un Nouveau diagnostic</h2>
+                <h2>DIAGNOSTIC</h2>
             </div>
         </div>
     </div>  
@@ -79,101 +69,117 @@
 
     <form action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
         {{ csrf_field() }}
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-6">
+                    
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8">
+                    <div class="row p-3" style="border: 1px solid #D2D2E4">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat</strong>
-                                <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"> {{ isset($diagnostic) ? $diagnostic->constat :''}}</textarea>
+                                <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic">
+                                </textarea>
                             </div>
                         </div>
                     </div>
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if (Session::has('success'))
-                        <div class="alert alert-success text-center">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                            <p>{{ Session::get('success') }}</p>
-                        </div>
-                    @endif
-                    <br>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-6" id="dynamicAddRemove">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                             <strong>Inspections</strong>
-                            <div class="row" style="border: 1px solid #D2D2E4">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12" id="dynamicAddRemove">
+                           
 
-                                <div class="input-group form-group col-xs-12 col-sm-12 col-md-12">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup">Titre</span></div>
-                                    <input type="text" class="form-control" aria-label="plusdechamps[0][title]" aria-describedby="inputGroup" name="plusdechamps[0][title]">
+                            <div class="row p-3" style="border: 1px solid #D2D2E4">
+                                <div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-2">
+                                            <select name="code" id="marques" class="custom-select form-control">
+                                            <option value="code">Code</option>
+                                            </select>	
+                                        </div> 
+                                        <div class="col-xs-12 col-sm-12 col-md-10">
+                                            <input type="text" class="form-control" name="plusdechamps[0][localisation]" placeholder="Localisation">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="input-group form-group col-xs-12 col-sm-12 col-md-12">
-                                    <div class="input-group-prepend"><span class="input-group-text">Localisation de la panne</span></div>
-                                    <textarea class="form-control"name="localisation" aria-label="localisation">{{ isset($diagnostic) ? $diagnostic->localisation :''}}</textarea>
+                                <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                                    <textarea class="form-control"name="plusdechamps[0][description]" placeholder="Description"></textarea>
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12">  
-                                    <div class="input-group-prepend"><span class="input-group-text">Appréciation</span>
-                                        <label style="margin-top: 4px" class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" name="plusdechamps[0][description]" value="trés urgent" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
-                                        </label>
-                                        <label style="margin-top: 4px" class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" name="plusdechamps[0][description]" value="pas urgent" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
-                                        </label>
-                                        <label style="margin-top: 4px" class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" name="plusdechamps[0][description]" value="peut urgent" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
-                                        </label>
-                                    </div>
+                                    <label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="plusdechamps[0][etat]" value="0" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
+                                    </label>
+                                    <label class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="plusdechamps[0][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
+                                    </label>
+                                    <label class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="plusdechamps[0][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
+                                    </label>
                                 </div> 
-                                <div>
-                                    <button type="button" name="add" id="add-btn" class="btn btn-success">Ajouter un diagnostic</button>
-                                </div>
                             </div>
+
+
                         </div>
                     </div>
-                    
-                     <br>
-                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 py-2" style="border: 1px solid #D2D2E4">
+                            <button type="button" name="add" id="add-btn" class="btn btn-light" style="border-radius:30px/15px">Ajouter une nouvelle inspection</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <button type="submit" class="btn btn-success">Enregistrer</button>
     </form>
            
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
-<script >
+<script  type="text/javascript">
     var i = 0;
+
+var divDefaut;
+divDefaut =  '<div class="row p-3" id="newdefaut" style="border: 1px solid #D2D2E4">'+
+    '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
+        '<div class="row">'+
+            '<div class="col-xs-12 col-sm-12 col-md-2">'+
+                '<select name="plusdechamps['+i+'][code]" id="marques" class="custom-select form-control">'+
+                '<option value="code">Code</option>'+
+                '</select>'+
+            '</div>'+
+            '<div class="col-xs-12 col-sm-12 col-md-10">'+
+                '<input type="text" class="form-control" name="plusdechamps['+i+'][localisation]" placeholder="Localisation">'+
+            '</div>'+
+        '</div>'+
+    '</div>'+
+    '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
+        '<textarea class="form-control"name="plusdechamps['+i+'][description]" placeholder="Description"></textarea>'+
+    '</div>'+
+    '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
+        '<label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">'+
+            '<input type="radio" name="plusdechamps['+i+'][etat]" value="0" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>'+
+        '</label>'+
+        '<label class="custom-control custom-radio custom-control-inline">'+
+            '<input type="radio" name="plusdechamps['+i+'][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>'+
+        '</label>'+
+        '<label class="custom-control custom-radio custom-control-inline">'+
+            '<input type="radio" name="plusdechamps['+i+'][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>'+
+        '</label>'+
+    '</div>'+
+    '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
+        '<button type="button" class="btn btn-danger" id="remove-button" style="border-radius:30px/15px">Supprimer</button>'+
+    '</div>'+
+    '</div>';
+
+
     $("#add-btn").click(function(){
-    ++i;
-    dynamicAddRemove = '<div class="row" style="border: 1px solid #D2D2E4">'+
-                '<div class="input-group form-group col-xs-12 col-sm-12 col-md-12">'+
-                    '<div class="input-group-prepend"><span class="input-group-text" id="inputGroup">Titre</span></div>'+
-                    '<input type="text" class="form-control" aria-label="plusdechamps[0][title]" aria-describedby="inputGroup" name="plusdechamps[0][title]">'+
-                '</div>'+
-                '<div class="input-group form-group col-xs-12 col-sm-12 col-md-12">'+
-                    '<div class="input-group-prepend"><span class="input-group-text">Localisation de la panne</span></div>'+
-                    '<textarea class="form-control"name="localisation" aria-label="localisation">{{ isset($diagnostic) ? $diagnostic->localisation :''}}</textarea>'+
-                '</div>'+
-                '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+  
-                    '<div class="input-group-prepend"><span class="input-group-text">Appréciation</span>'+
-                        '<label style="margin-top: 4px" class="custom-control custom-radio custom-control-inline">'+
-                            '<input type="radio" name="plusdechamps[0][description]" value="trés urgent" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>'+
-                        '</label>'+
-                        '<label style="margin-top: 4px" class="custom-control custom-radio custom-control-inline">'+
-                            '<input type="radio" name="plusdechamps[0][description]" value="pas urgent" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>'+
-                        '</label>'+
-                        '<label style="margin-top: 4px" class="custom-control custom-radio custom-control-inline">'+
-                            '<input type="radio" name="plusdechamps[0][description]" value="peut urgent" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>'+
-                        '</label>'+
-                    '</div>'+
-                '</div>'+;
-    $("#dynamicAddRemove").append(dynamicAddRemove);
+        ++i;
+        $("#dynamicAddRemove").append(divDefaut);
     });
-    $(document).on('click', '.remove-<div class="form-group col-xs-12 col-sm-12 col-md-12"> ', function(){  
-    $(this).parents('<div class="form-group col-xs-12 col-sm-12 col-md-12"> ').remove();
-    });  
+    $(document).on('click', '#remove-button', function(){  
+            $(this).parents('#newdefaut').remove();
+            });
 </script>
 @endsection

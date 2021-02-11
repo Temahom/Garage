@@ -14,5 +14,6 @@ class Erreurdiag extends Model
         'code',
         'categorie',
         'localisation',
-        'description'];
+        'description',
+        'etat'];
 }
