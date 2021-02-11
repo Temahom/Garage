@@ -36,24 +36,24 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
-        RateLimiter::for('login', function (Request $request) {
+        RateLimiter::for("login", function (Request $request) {
             return Limit::perMinute(5)->by($request->email.$request->ip());
         });
 
-        RateLimiter::for('two-factor', function (Request $request) {
-            return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        RateLimiter::for("two-factor", function (Request $request) {
+            return Limit::perMinute(5)->by($request->session()->get("login.id"));
         });
 
          
         
         Fortify::loginView(function(){
-            return view('auth.login');
+            return view("auth.login");
         } );
-        //Fortify::registerView(fn () => view('auth.register'));
+        //Fortify::registerView(fn () => view("auth.register"));
 
         
         Fortify::authenticateUsing(function (Request $request) {
-            $user = User::where('email', $request->email)->first();
+            $user = User::where("email", $request->email)->first();
     
             if ($user &&
                 Hash::check($request->password, $user->password)) {
@@ -61,11 +61,11 @@ class FortifyServiceProvider extends ServiceProvider
             }
         });
         /* Fortify::requestPasswordResetLinkView(function () {
-            return view('auth.forgot-password');
+            return view("auth.forgot-password");
         });-->
         
         Fortify::resetPasswordView(function ($request) {
-            return view('auth.reset-password', ['request' => $request]);
+            return view("auth.reset-password", ["request" => $request]);
         }); */
     
     

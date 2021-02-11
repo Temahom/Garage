@@ -31,7 +31,9 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::get('Pdf', function () {
-    $commandes= \App\Models\Commande::all();
+   
+   $commandes= \App\Models\Commande::all();
+   
     $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
     return $pdf->stream('Devis.pdf');
 });
@@ -50,6 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
     Route::resource('actors', ActorController::class);
     Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
+    
+    Route::get('/interventions-list', [InterventionController::class, 'index']);
 
 
 

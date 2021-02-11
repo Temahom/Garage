@@ -7,7 +7,7 @@
 <div class="row ml-1">
 	<div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
 		<div class="pull-left" style="text-align: center">
-			<h2>Liste des interventions sur :</h2>
+			<h2>Liste des interventions sur</h2>
 		</div>
 		<div class="row">
 

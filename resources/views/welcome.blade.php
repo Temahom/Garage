@@ -89,8 +89,8 @@ use Carbon\Carbon;
            
         </div>
     </div>
-    <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center">
-        <div class="card">
+    <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center; cursor: pointer;">
+        <div class="card" onclick="show('clients')">
             <div class="card-body " ><br>
                 <div class="metric-value d-inline-block">
                     <p>
@@ -104,8 +104,8 @@ use Carbon\Carbon;
 			</div><br>
         </div>
     </div>
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2" style="text-align: center">
-        <div class="card">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2" style="text-align: center; cursor: pointer;">
+        <div class="card" onclick="show('voitures')">
             <div class="card-body " ><br>
                 <div class="metric-value d-inline-block" >
                     <p>
@@ -119,8 +119,8 @@ use Carbon\Carbon;
 			</div><br>
         </div>
     </div>
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3" style="text-align: center">
-        <div class="card">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3" style="text-align: center; cursor: pointer;">
+        <div class="card" onclick="show('interventions-list')">
             <div class="card-body " ><br>
                 <div class="metric-value d-inline-block">
                     <p>
@@ -139,8 +139,6 @@ use Carbon\Carbon;
     <span class="history" style="width: 15%">
         <h4>Historiques</h4>
     </span>
-
-    
 </div>
 <div class="row">
 <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-6 mt-5">
@@ -193,6 +191,14 @@ use Carbon\Carbon;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 <script src="assets/libs/js/clock.js"></script>
+<script>
+    function show(page)
+    {
+        window.location= page;
+    }
+</script>
+
+
 <script>
  
     var date = new Date();

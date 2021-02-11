@@ -38,7 +38,7 @@
     .nav-divider{
         color: rgb(0, 0, 0) !important;
         text-align: center;
-        background-color: aliceblue !important;
+        background-color: rgb(255, 255, 255) !important;
         border-radius: 15px !important;
     }
     
@@ -65,9 +65,18 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
                         <li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Recherche..">
-                            </div>
+                            <div class="d-flex" style="width: 100%">
+                                <div class="mx-auto">
+                                    <form action="{{ route('produits.index') }}" method="GET" role="search">
+                                        <div class="d-flex">
+                                            <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term">
+                                            <button class="btn btn-info t" type="submit" title="recherche un produit">
+                                                <span class="fas fa-search"></span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>                        
                         </li>
                         <li class="nav-item dropdown notification">
                             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
@@ -145,9 +154,9 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li>  <br>
+                            </li>
 
-                            <li class="nav-item ">
+                            <li class="nav-item " style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success">6</span></a>
                                 <div id="submenu-voiture" class="collapse submenu">
                                     <ul class="nav flex-column">
@@ -159,8 +168,8 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li>  <br>
-                            <li class="nav-item ">
+                            </li>
+                            <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="fas fa-users"></i>Acteurs<span class="badge badge-success">6</span></a>
                                 <div id="submenu-acteur" class="collapse submenu">
                                     <ul class="nav flex-column">
@@ -172,8 +181,8 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li><br>
-                           <li class="nav-item ">
+                            </li>
+                           <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="fa fa-fw fa-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
                                 <div id="submenu-produit" class="collapse submenu">
                                     <ul class="nav flex-column">
@@ -185,7 +194,7 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li> <br>
+                            </li>
 
                         </ul>
                     </div>
