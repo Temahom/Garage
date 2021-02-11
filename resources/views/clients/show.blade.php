@@ -54,6 +54,21 @@
 
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+
+            <div class="d-flex" style="width: 100%">
+                <div class="mx-auto">
+                    <form action="{{ route('produits.index') }}" method="GET" role="search">
+                        <div class="d-flex">
+                            <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term">
+                            <button class="btn btn-info t" type="submit" title="recherche un produit">
+                                <span class="fas fa-search"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>  
+
+
            <div class="pull-right py-3">
 				<a class="btn btn-secondary" href="{{route('clients.voitures.create',['client'=>$client->id])}}"><i class="fas fa-plus"></i> Nouvelle Voiture</a>
 			</div>

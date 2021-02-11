@@ -14,24 +14,22 @@ setlocale(LC_TIME, "fr_FR", "French");
             </div>
      
     <div class="d-flex" style="width: 100%">
-     <div class="mx-auto">
-        <form action="{{ route('produits.index') }}" method="GET" role="search">
-
-            <div class="d-flex">
-
-                <button class="btn btn-info t" type="submit" title="recherche un produit">
-                    <span class="fas fa-search"></span>
-                </button>
-                <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher un produit" id="term">
-                <a href="{{ route('produits.index') }}" class="">
-                    <button class="btn btn-danger" type="button" title="Actualiser page">
-                        <span class="fas fa-sync-alt"></span>
+        <div class="mx-auto">
+            <form action="{{ route('produits.index') }}" method="GET" role="search">
+                <div class="d-flex">
+                    <button class="btn btn-info t" type="submit" title="recherche un produit">
+                        <span class="fas fa-search"></span>
                     </button>
-                </a>
-            </div>
-        </form>
-    </div>
-</div>  
+                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher un produit" id="term">
+                        <a href="{{ route('produits.index') }}" class="">
+                            <button class="btn btn-danger" type="button" title="Actualiser page">
+                                <span class="fas fa-sync-alt"></span>
+                            </button>
+                        </a>
+                </div>
+            </form>
+        </div>
+    </div>  
 
 </div>
 </div><br><br>

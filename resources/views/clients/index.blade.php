@@ -21,7 +21,19 @@
 	@endif
 
 	<div class="row">
-	<div class="col-md-12 col-lg-11">
+		<div class="d-flex" style="width: 100%">
+			<div class="mx-auto">
+				<form action="{{ route('clients.index') }}" method="GET" role="search">
+					<div class="d-flex">
+						<input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term">
+						<button class="btn btn-info t" type="submit" title="recherche un produit">
+							<span class="fas fa-search"></span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	<div class="col-md-12 col-lg-11"><br>
 	<table class="table table-striped table-hover">
 		<thead class="" style="background-color: #4656E9;">
 			<tr>

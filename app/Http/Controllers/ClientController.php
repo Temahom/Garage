@@ -11,11 +11,26 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Client::latest()->paginate(5);
-        return view('clients.index',compact('clients'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+       
+        $clients = Client::where([
+            [function ($query) use ($request){
+                if (($term = $request->term)) {
+                    $query->orWhere('nom', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('prenom', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('genre', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('entreprise', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('email', 'LIKE' , '%' . $term . '%')->get();
+                }
+               }] 
+            ])
+                ->orderBy("id","asc")
+                ->paginate(15);
+  
+        return view('clients.index', compact('clients'))
+            ->with('i', (request()->input('page', 1) - 1) * 15); 
+             
     }
 
     /**f
