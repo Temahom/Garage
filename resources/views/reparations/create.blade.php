@@ -4,6 +4,13 @@
 
 <div class="row ml-1">
 	<div class="col-md-7 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+		<div class="row" style="text-align: center">
+			<div class="col-lg-12 margin-tb">
+				<div class="pull-left">
+					<h2>Maintenance / Réparation</h2>
+				</div>
+			</div>
+		</div>
 		<div class="row">
 
 			<div class="col-md-2 col-sm-3 text-center pt-4">
@@ -58,13 +65,7 @@
 	</div>
 </div>
 
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Nouvelle Réparation</h2>
-        </div>
-    </div>
-</div>
+<br><br>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -76,6 +77,13 @@
         </ul>
     </div>
 @endif
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <h2>Ajout</h2>
+        </div>
+    </div>
+</div>
 <form action="{{ route('voitures.interventions.reparations.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST" >
     @csrf
     <input type="hidden" name="intervention_id" value="{{ $intervention->id }}">
