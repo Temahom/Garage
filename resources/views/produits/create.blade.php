@@ -16,7 +16,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <a class="btn btn-primary" href="{{ route('produits.index') }}" title="Go back"><span style="font-size:15px;">&#129060;</span> Retour</a>
             </div>
         </div>
-    </div>
+    </div><br><br>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -26,12 +26,12 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
-        </div>
+        </div><br><br>
     @endif
-    <form action="{{ route('produits.store') }}" method="POST" >
+    <form action="{{ route('produits.store') }}" method="POST">
         @csrf
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row"><br>
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Categorie :</strong>
                     <select name="categorie" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
@@ -43,7 +43,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
 
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                 <strong>Nom du produit :</strong>
                 <select name="produit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
@@ -51,7 +51,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 </select>	
                 </div>		
             </div>
-          <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                 <strong>Le Prix Unitaire :</strong>
                 <select name="prix1" id="leprix" class="custom-select form-control @error('prix1') is-invalid @enderror">
@@ -59,7 +59,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 </div>		
             </div>
         
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Quantité :</strong>
                     <input type="number" name="qte" class="form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite">

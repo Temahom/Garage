@@ -33,9 +33,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 row">
-
     <div class="col-xs-6 col-sm-6 col-md-6">
-
       <div class="form-group">
         <strong>Matricule:</strong>
         <input type="text" name="matricule" value="{{ isset($voiture) ? $voiture->matricule :''}}" autocomplete="off" class="custom-select form-control @error('matricule') is-invalid @enderror" placeholder="Saisir matricule...">
@@ -43,9 +41,8 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
             @if($errors->has('matricule'))
               {{ $errors->first('matricule') }}
             @endif
-          </div>
+        </div>
       </div>
-
       <div class="form-group">
         <strong>Marque de la voiture :</strong>
         <select name="marque" id="marques" class="custom-select form-control @error('marque') is-invalid @enderror">
@@ -54,17 +51,16 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
             <option value="{{$liste->marques}}">{{$liste->marques}}</option>
           @endforeach       
         </select>	
-        <div class="invalid-feedback">
-          @if($errors->has('marque'))
-          {{ $errors->first('marque') }}
-          @endif
-        </div>		
+          <div class="invalid-feedback">
+            @if($errors->has('marque'))
+            {{ $errors->first('marque') }}
+            @endif
+          </div>		
       </div> 
-
       <div class="form-group">
         <strong>Modele de la voiture :</strong>
         <select name="model" id="lemodel" class="custom-select form-control @error('model') is-invalid @enderror">
-          <option value="">Model</option>
+          <option value="">Modèle</option>
         </select>
         <div class="invalid-feedback">
           @if($errors->has('model'))
@@ -72,11 +68,33 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
           @endif
         </div>			
       </div>
-      
-    </div>
-
-    <div class="col-xs-6 col-sm-6 col-md-6">
-
+      <div class="form-group">
+        <strong>Transmission de la voiture:</strong>
+        <select name="transmission" id="latransmission" class="custom-select form-control @error('transmission') is-invalid @enderror">
+          <option value="">Transmission</option>
+          <option value="Manuel">Manuel</option>
+          <option value="Automatique">Automatique</option>
+          <option value="lesdeux">Les 2</option>
+        </select>
+        <div class="invalid-feedback">
+          @if($errors->has('transmission'))
+          {{ $errors->first('transmission') }}
+          @endif
+        </div>			
+      </div>
+      </div> 
+      <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="form-group">
+        <strong>Année de la voiture :</strong>
+        <select name="annee" id="lannee" class="custom-select form-control @error('annee') is-invalid @enderror">
+          <option value="">Année</option>
+        </select>	
+        <div class="invalid-feedback">
+          @if($errors->has('annee'))
+          {{ $errors->first('annee') }}
+          @endif
+        </div>		
+      </div> 
       <div class="form-group">
         <strong>Type de carburant de la voiture :</strong>
         <select name="carburant" id="lecarburant" class="custom-select form-control @error('carburant') is-invalid @enderror">
@@ -89,20 +107,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
           {{ $errors->first('carburant') }}
           @endif
         </div>		
-      </div>
-
-      <div class="form-group">
-        <strong>Année de la voiture :</strong>
-        <select name="annee" id="lannee" class="custom-select form-control @error('annee') is-invalid @enderror">
-          <option value="">Année</option>
-        </select>	
-        <div class="invalid-feedback">
-          @if($errors->has('annee'))
-          {{ $errors->first('annee') }}
-          @endif
-        </div>		
-      </div>
-
+      </div> 
       <div class="form-group">
         <strong>Puissance de la voiture :</strong>
         <select name="puissance" id="lapuissance" class="custom-select form-control @error('puissance') is-invalid @enderror">
@@ -114,9 +119,18 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
           @endif
         </div>			
       </div>
-
-    </div>
+      
+      <div class="form-group">
+        <strong>Kilométrage de la voiture en km:</strong>
+        <input name="kilometrage" id="lekilometrage" class="custom-select form-control @error('transmission') is-invalid @enderror" autocomplete="off" placeholder="Nombre de km parcouru">
+        <div class="invalid-feedback">
+          @if($errors->has('kilometrage'))
+          {{ $errors->first('kilometrage') }}
+          @endif
+        </div>			
+      </div></div> 
   </div>
+</div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
     <a class="btn btn-secondary" href="{{ route('voitures.index') }}"><i class="fas fa-angle-left"></i>  Retour</a>
@@ -148,6 +162,8 @@ $(document).ready(function() {
 	});
 
 });
+
+
 
 $(document).ready(function() {
 	$('select[name=model]').change(function () {

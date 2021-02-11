@@ -14,11 +14,30 @@ class VoitureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $voitures= Voiture::orderBy('created_at','DESC')->paginate(3);
-        return view('voitures.index',compact('voitures'));
+       
+        $voitures = Voiture::where([
+            [function ($query) use ($request){
+                if (($term = $request->term)) {
+                    $query->orWhere('matricule', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('marque', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('model', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('annee', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('transmission', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('kilometrage', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('carburant', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('puissance', 'LIKE' , '%' . $term . '%')->get();
+                }
+               }] 
+            ])
+                ->orderBy("id","asc")
+                ->paginate(15);
+  
+        return view('voitures.index', compact('voitures'))
+            ->with('i', (request()->input('page', 1) - 1) * 15); 
+             
     }
 
     /**
@@ -51,6 +70,8 @@ class VoitureController extends Controller
             'annee'=>'required',
             'carburant'=>'required',
             'puissance'=>'required',
+            'transmission'=>'required',
+            'kilometrage'=>'required',
             'client_id'=>'required',
           ]);
           $data = array_merge($data, ['user_id'=>$user]);
@@ -101,6 +122,8 @@ class VoitureController extends Controller
             'annee'=>'required',
             'carburant'=>'required',
             'puissance'=>'required',
+            'transmission'=>'required',
+            'kilometrage'=>'required',
             'client_id'=>'required'
           ]);
          $voiture->update($data);
