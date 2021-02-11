@@ -16,4 +16,16 @@ class Intervention extends Model
     {
         return $this->belongsTo(Diagnostic::class);
     }
+    public function devi()
+    {
+        return $this->belongsTo(Devi::class);
+    }
+    public function reparation()
+    {
+        return $this->belongsTo(Reparation::class);
+    }
+    public function facture()
+    {
+        return $this->belongsTo(Facture::class);
+    }
 }
