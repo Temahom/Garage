@@ -9,7 +9,7 @@ class Diagnostic extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title','description'
+        'constat'
     ];
     public function intervention()
     {
