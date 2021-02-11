@@ -1,18 +1,11 @@
 @extends('layout.index')
 
-@section('titre')
-<h1>Modifier un Devis</h1>
-@endsection
 @section('content')
 
 <div class="row ml-1">
-	<div class="col-md-7 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-		<div class="row" style="text-align: center">
-			<div class="col-lg-12 margin-tb">
-				<div class="pull-left">
-					<h2>Devis</h2>
-				</div>
-			</div>
+	<div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+		<div class="pull-left" style="text-align: center">
+			<h2> Modification Devis </h2>
 		</div>
 		<div class="row">
 
@@ -32,12 +25,12 @@
 							{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
 						</a>)
 					</span>
-					
+
 				</div>
 
-				<div style="font-size: 14px;"> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>
-				<div style="font-size: 14px;"> {{ $voiture->carburant}}</div>
-				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux</div>
+				<div style="font-size: 14px;"> {{ $voiture->marque}} - {{ $voiture->model}} - {{ $voiture->annee}}</div>
+				<div style="font-size: 14px;"> {{ $voiture->transmission}} - {{ $voiture->carburant}}</div>			
+				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux - {{ $voiture->kilometrage}} km</div>		
 				<div class="text-right" style="font-size: 12px;">
 					<a class="text-primary mr-1" href="{{ route('voitures.edit',$voiture->id)}}">Modifier</a> 
 					<button type="button" class="text-danger" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">

@@ -129,8 +129,8 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider">
-                                Menu
+                            <li class="nav-divider" style="font-size: 25px">
+                               Menu
                             </li><br>
 
                             <li class="nav-item ">
