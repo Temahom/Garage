@@ -174,7 +174,7 @@
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">
                               <form action="" method="POST">
                                 @csrf
-                                @method('PATCH')
+                                @method('Patch')
                                 @if ($devi->devi()->first()->etat == 1)
                                   <span class="badge-dot badge-primary mr-1"></span>En Cours</td>
                                 @elseif($devi->devi()->first()->etat == 2)
@@ -286,8 +286,8 @@
 			window.location = 'voitures/' + id ;
 		}
     
-   setInterval(function(){  location.reload();
-    window.location = 'devis-etat'; }, 3000);
+  //  setInterval(function(){  location.reload();
+  //   window.location = 'devis-etat'; }, 3000);
 	</script>
 
 @endsection
