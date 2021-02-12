@@ -29,6 +29,14 @@ use Illuminate\Support\Facades\App;
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
+
+Route::get('Pdf', function () {
+   
+   $commandes= \App\Models\Commande::all();
+   
+    $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
+    return $pdf->stream('Devis.pdf');
+});
    
 Route::middleware('auth')->group(function () {
 
@@ -44,6 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
     Route::resource('actors', ActorController::class);
     Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
+    
+    Route::get('/interventions-list', [InterventionController::class, 'index']);
 
 
 
@@ -62,5 +72,7 @@ Route::middleware(['auth','manager'])->group(function () {
 Route::middleware(['auth','user'])->group(function () {
     
 });
+
+
 
 

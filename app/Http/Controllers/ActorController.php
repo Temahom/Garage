@@ -15,7 +15,7 @@ class ActorController extends Controller
      */
     public function index()
     {
-        $actors = User::orderBy('created_at','DESC')->paginate(3);
+        $actors = User::orderBy('created_at','DESC')->paginate(10);
         return view('actors.index', compact('actors'));
     }
 
@@ -49,8 +49,12 @@ class ActorController extends Controller
           $email = $request->input('email');
           $role_id = $request->input('role_id');
           $image = $request->file('image');
+          if(!empty($image))
+         { 
           $imageName = time().'.'.$image->extension();
           $image->move(public_path('images'),$imageName);
+         }
+         else $imageName =null;
 
           $user = new User();
           $user->name = $name;
@@ -102,15 +106,19 @@ class ActorController extends Controller
             'name'=>'required',
             'email'=>'required',
             'role_id'=>'required',
-            'image' => 'sometimes|required|max:5000'
+            'image' => 'max:5000',
           ]);
           $password=bcrypt(12345678);
           $name =  $request->input('name');
           $email = $request->input('email');
           $role_id = $request->input('role_id');
           $image = $request->file('image');
+          if(!empty($image))
+         { 
           $imageName = time().'.'.$image->extension();
           $image->move(public_path('images'),$imageName);
+         }
+         else $imageName =null;
 
           $user= User::find($id);
           $user->name = $name;

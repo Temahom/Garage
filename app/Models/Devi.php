@@ -9,4 +9,8 @@ class Devi extends Model
 {
     use HasFactory;
     protected $fillable =['cout ', 'produit '];
+    public function intervention()
+    {
+        return $this->hasMany(Intervention::class);
+    }
 }

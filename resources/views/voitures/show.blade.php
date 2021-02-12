@@ -5,7 +5,10 @@
 
 
 <div class="row ml-1">
-	<div class="col-md-7 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+	<div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+		<div class="pull-left" style="text-align: center">
+			<h2>Liste des interventions sur</h2>
+		</div>
 		<div class="row">
 
 			<div class="col-md-2 col-sm-3 text-center pt-4">
@@ -27,9 +30,9 @@
 
 				</div>
 
-				<div style="font-size: 14px;"> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>
-				<div style="font-size: 14px;"> {{ $voiture->carburant}}</div>
-				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux</div>
+				<div style="font-size: 14px;"> {{ $voiture->marque}} - {{ $voiture->model}} - {{ $voiture->annee}}</div>
+				<div style="font-size: 14px;"> {{ $voiture->transmission}} - {{ $voiture->carburant}}</div>			
+				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux - {{ $voiture->kilometrage}} km</div>		
 				<div class="text-right" style="font-size: 12px;">
 					<a class="text-primary mr-1" href="{{ route('voitures.edit',$voiture->id)}}">Modifier</a> 
 					<button type="button" class="text-danger" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
@@ -65,9 +68,7 @@
     <div class="row">
 	
 		<div class="col-lg-12 mt-4">
-			<div class="pull-left">
-				<h2>Toutes les interventions</h2>
-			</div>
+			
 			<div class="pull-right">
 				<a class="btn btn-secondary" href="{{route('voitures.interventions.create',['voiture' => $voiture->id])}}">
 					<i class="fas fa-plus"></i> Nouvelle intervention
@@ -84,8 +85,9 @@
 	@endif
     <!--liste voiture--->
 	<div class="row">
-		<div class="col-md-12 col-lg-11 margin-tb">
-			<table class="table table-striped table-hover col-md-12">
+		<div class="col-xs-12 col-sm-12 col-md-12 row"><br>
+          
+            <table class="table table-striped table-hover col-md-12">
 				<thead class="" style="background-color: #4656E9;">
 					<tr>
 						<th style="color: white;">Type</th>

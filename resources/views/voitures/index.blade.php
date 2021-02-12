@@ -1,16 +1,35 @@
 @extends('layout.index')
 
 @section('content')
+
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Liste Voitures</h2>
+                <br><h2>Liste des Voitures</h2><br>
             </div>
-            <div class="pull-right py-3">
-                @can('create', App\Models\Voiture::class)
-                 <a class="btn btn-secondary" href="{{ route('voitures.create') }}"><i class="fas fa-plus"></i> Ajouter Voiture</a>
-                @endcan
-            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 row">
+                <div class="col-xs-9 col-sm-9 col-md-9">     
+                     <div class="form-group">
+                         @can('create', App\Models\Voiture::class)
+                         <a class="btn btn-secondary" href="{{ route('voitures.create') }}"><i class="fas fa-plus"></i> Ajouter Voiture</a>
+                        @endcan
+                     </div>
+                 </div>   
+                 <div class="col-xs-3 col-sm-3 col-md-3">     
+                     <div class="form-group">
+                         <form action="{{ route('voitures.index') }}" method="GET" role="search">
+                             <div class="d-flex">
+                                 <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term">
+                                 <button class="btn btn-info t" type="submit" title="recherche un produit">
+                                     <span class="fas fa-search"></span>
+                                 </button>
+                             </div>
+                         </form><br>
+                     </div>
+                 </div>   
+             </div>    
+             
         </div>
     </div>
     <style>
@@ -25,7 +44,8 @@
     
         @endif
     <div class="row">
-    <div class="col-lg-11 col-md-12">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 row"><br>
         <table class="table table-striped table-hover col-md-12">
             <thead class="" style="background-color: #4656E9;">
         <tr>
