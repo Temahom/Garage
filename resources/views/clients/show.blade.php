@@ -52,27 +52,21 @@
   
                 
 
+<div class="row">
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-
-            <div class="d-flex" style="width: 100%">
-                <div class="mx-auto">
-                    <form action="{{ route('produits.index') }}" method="GET" role="search">
-                        <div class="d-flex">
-                            <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term">
-                            <button class="btn btn-info t" type="submit" title="recherche un produit">
-                                <span class="fas fa-search"></span>
-                            </button>
-                        </div>
-                    </form>
+    <div class="col-lg-12 margin-tb">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">
+            <div class="col-xs-9 col-sm-9 col-md-9">     
+                <div class="pull-right py-3">
+                    <a class="btn btn-secondary" href="{{route('clients.voitures.create',['client'=>$client->id])}}"><i class="fas fa-plus"></i> Nouvelle Voiture</a>
                 </div>
-            </div>  
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">     
+        </div></div>
 
-
-           <div class="pull-right py-3">
-				<a class="btn btn-secondary" href="{{route('clients.voitures.create',['client'=>$client->id])}}"><i class="fas fa-plus"></i> Nouvelle Voiture</a>
-			</div>
-            <table class="table table-striped table-hover">
+        <div class="col-xs-12 col-sm-12 col-md-12 row"><br>
+          
+            <table class="table table-striped table-hover col-md-12">
                 <thead class="" style="background-color: #4656E9;">
                     <tr>
                         <th style="color: white;">Matricule</th>
