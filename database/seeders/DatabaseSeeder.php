@@ -4666,7 +4666,7 @@ class DatabaseSeeder extends Seeder
 \App\Models\Liste::create(["marques"=>"Volvo","lemodel"=>"XC","lannee"=>"XC","lecarburant"=>"Super Essence","lapuissance"=>197]);
 
 /**
- * Les seeder pour le php 
+ * Les seeder pour le php des prdoduits
  */
 
 
