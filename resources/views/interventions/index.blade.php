@@ -118,8 +118,9 @@
                         role="tabpanel" 
                         aria-labelledby="diagnostics" 
                         aria-hidden="false">
-                        <table class="table table-striped table-hover col-md-12">
-                          <thead class="" style="background-color: #0E0C28;">
+                        <div class="col-xs-12 col-sm-12 col-md-12 row"><br>
+          
+                          <table class="table table-striped table-hover col-md-12">
                           <tr>
                               <th style="color: white;">#</th>
                               <th style="color: white;">Constat</th>
