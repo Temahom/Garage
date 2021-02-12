@@ -69,6 +69,10 @@
             <label for="cout" class="col-form-label">Coût de Réparation</label>
             <input id="cout" type="number" name="cout" value="{{$devi->cout}}" required class="form-control" placeholder="Coût de réparation">
         </div>
+		<div class="form-group">
+            <label for="date_expiration" class="col-form-label">Date Expiration</label>
+            <input id="date_expiration" type="date" name="date_expiration" value="{{$devi->date_expiration}}" required class="form-control" placeholder="date expiration">
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>

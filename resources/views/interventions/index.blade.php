@@ -112,7 +112,7 @@
                           role="tab" 
                           aria-selected="true" 
                           aria-controls="panel1" 
-                          tabindex="0">Diagnostics <span class="badge badge-warning">{{count($diagnostics)}}</span></label>
+                          tabindex="0">Diagnostics <sup><span class="badge badge-warning">{{count($diagnostics)}}</span></sup></label>
                   <div id="tab-content1" 
                         class="tab-content" 
                         role="tabpanel" 
@@ -145,7 +145,7 @@
                           role="tab" 
                           aria-selected="false" 
                           aria-controls="panel2" 
-                          tabindex="0">Devis <span class="badge badge-primary">{{count($devis)}}</span></label>
+                          tabindex="0">Devis <sup><span class="badge badge-primary">{{count($devis)}}</span></sup></label>
                   <div id="tab-content2" 
                         class="tab-content"
                         role="tabpanel" 
@@ -158,7 +158,7 @@
                               <th style="color: white;">#</th>
                               <th style="color: white;">Date Edition</th>
                               <th style="color: white;">Date Expiration</th>
-                              <th style="color: white;">Cout</th>
+                              <th style="color: white;">Coût</th>
                               <th style="color: white;">Client</th>
                               <th style="color: white;">Etat</th>
                           </tr>
@@ -167,10 +167,21 @@
                           <tr>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">
+                              <form action="" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                @if ($devi->devi()->first()->etat == 1)
+                                  <span class="badge-dot badge-primary mr-1"></span>En Cours</td>
+                                @elseif($devi->devi()->first()->etat == 2)
+                                  <span class="badge-dot badge-success mr-1"></span>Validé</td>
+                                @else 
+                                  <span class="badge-dot badge-danger mr-1"></span>Expiré</td>   
+                                @endif
+                            </form>
                           </tr>
                           
                           @endforeach
@@ -184,7 +195,7 @@
                           role="tab" 
                           aria-selected="false" 
                           aria-controls="panel3" 
-                          tabindex="0">Reparations <span class="badge badge-warning">{{count($reparations)}}</span></label>
+                          tabindex="0">Reparations <sup><span class="badge badge-warning">{{count($reparations)}}</span></sup></label>
                   <div id="tab-content3" 
                         class="tab-content"
                         role="tabpanel" 
@@ -220,7 +231,7 @@
                           role="tab" 
                           aria-selected="false" 
                           aria-controls="panel4" 
-                          tabindex="0">Factures <span class="badge badge-primary">{{count($factures)}}</span></label>
+                          tabindex="0">Factures <sup><span class="badge badge-primary">{{count($factures)}}</span></sup></label>
                   <div id="tab-content4" 
                         class="tab-content"
                         role="tabpanel" 
@@ -273,6 +284,9 @@
 		{
 			window.location = 'voitures/' + id ;
 		}
+    
+   setInterval(function(){  location.reload();
+    window.location = 'devis-etat'; }, 3000);
 	</script>
 
 @endsection
