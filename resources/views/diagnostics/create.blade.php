@@ -95,9 +95,17 @@
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-2">
-                                            <select name="code" id="marques" class="custom-select form-control">
-                                            <option value="code">Code</option>
+                                            <select name="code" id="codes" class="custom-select form-control" @error('code') is-invalid @enderror">
+                                            <option value="">Code</option>
+                                            {{-- @foreach ($codes as $code)
+                                                <option value="{{$defaut->codes}}">{{$defaut->codes}}</option>
+                                            @endforeach --}}
                                             </select>	
+                                            <div class="invalid-feedback">
+                                                @if($errors->has('code'))
+                                                {{ $errors->first('code') }}
+                                                @endif
+                                            </div>
                                         </div> 
                                         <div class="col-xs-12 col-sm-12 col-md-10">
                                             <input type="text" class="form-control" name="plusdechamps[0][localisation]" placeholder="Localisation">
