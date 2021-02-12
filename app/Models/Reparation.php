@@ -16,5 +16,8 @@ class Reparation extends Model
     protected $fillable = [
         'element_3'   
     ];
-
+    public function intervention()
+    {
+        return $this->hasMany(Intervention::class);
+    }
 }

@@ -38,9 +38,34 @@
     .nav-divider{
         color: rgb(0, 0, 0) !important;
         text-align: center;
-        background-color: aliceblue !important;
+        background-color: rgb(255, 255, 255) !important;
         border-radius: 15px !important;
     }
+    .marquee-rtl {
+        max-width: 100% ;                      /* largeur de la fenêtre */
+        margin: 1em auto 2em;
+        overflow: hidden;                     /* masque tout ce qui dépasse */
+        padding-right: 5px;
+    }
+    .marquee-rtl > :first-child {
+        display: inline-block;                /* modèle de boîte en ligne */
+        padding-right: 2em;                   /* un peu d'espace pour la transition */
+        padding-left: 100%;                   /* placement à droite du conteneur */
+        white-space: nowrap;                  /* pas de passage à la ligne */
+        animation: defilement-rtl 15s infinite linear;
+        animation-name: defilement-rtl;       /* référence à la règle @keyframes mise en oeuvre */
+        animation-delay: 3s;                 /* valeur à ajuster suivant la longueur du message */
+        animation-iteration-count: infinite;  /* boucle continue */
+        animation-timing-function: linear;    /* pas vraiment utile ici */
+    }
+    @keyframes defilement-rtl {
+        0%  {
+                transform: translate3d(0,0,0);      /* position initiale à droite */
+            }
+        100% {
+            transform: translate3d(-100%,0,0);  /* position finale à gauche */
+  }
+}
     
 </style>
 
@@ -65,9 +90,10 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
                         <li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Recherche..">
-                            </div>
+                            <div class="marquee-rtl">
+                                <!-- le contenu défilant -->
+                                <div>Le message que l'on veut voir défilé horizontalement...</div>
+                            </div>                 
                         </li>
                         <li class="nav-item dropdown notification">
                             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
@@ -129,8 +155,8 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider">
-                                Menu
+                            <li class="nav-divider" style="font-size: 25px">
+                               Menu
                             </li><br>
 
                             <li class="nav-item ">
@@ -145,9 +171,9 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li>  <br>
+                            </li>
 
-                            <li class="nav-item ">
+                            <li class="nav-item " style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success">6</span></a>
                                 <div id="submenu-voiture" class="collapse submenu">
                                     <ul class="nav flex-column">
@@ -159,8 +185,8 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li>  <br>
-                            <li class="nav-item ">
+                            </li>
+                            <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="fas fa-users"></i>Acteurs<span class="badge badge-success">6</span></a>
                                 <div id="submenu-acteur" class="collapse submenu">
                                     <ul class="nav flex-column">
@@ -172,8 +198,8 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li><br>
-                           <li class="nav-item ">
+                            </li>
+                           <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="fa fa-fw fa-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
                                 <div id="submenu-produit" class="collapse submenu">
                                     <ul class="nav flex-column">
@@ -185,7 +211,7 @@
                                         </li>
                                     </ul>    
                                 </div>
-                            </li> <br>
+                            </li>
 
                         </ul>
                     </div>
