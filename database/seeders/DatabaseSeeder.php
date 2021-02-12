@@ -4673,7 +4673,6 @@ class DatabaseSeeder extends Seeder
  * Seeder pour les produits
 */
 
-
 \App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"Huile moteur","prix1"=>1000]);
 \App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"Pompe a eau + kit de courroie de distribution","prix1"=>3000]);
 \App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"kit de distribution","prix1"=>2000]);
@@ -4750,6 +4749,6 @@ class DatabaseSeeder extends Seeder
 \App\Models\listeproduit::create(["categorie"=>"Carosserie _ Peinture","produit"=>"Aile","prix1"=>3000]);
 \App\Models\listeproduit::create(["categorie"=>"Carosserie _ Peinture","produit"=>"Support  pare-chocs","prix1"=>14000]);
 \App\Models\listeproduit::create(["categorie"=>"Outillage","produit"=>"Outilage divers & coffrets","prix1"=>10000]);
-   
+    
 }
 }
