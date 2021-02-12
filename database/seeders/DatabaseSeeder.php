@@ -4664,5 +4664,88 @@ class DatabaseSeeder extends Seeder
 \App\Models\Liste::create(["marques"=>"Volvo","lemodel"=>"XC90","lannee"=>"XC90","lecarburant"=>"Super Essence","lapuissance"=>250]);
 \App\Models\Liste::create(["marques"=>"Volvo","lemodel"=>"XC90","lannee"=>"XC90","lecarburant"=>"Super Essence","lapuissance"=>316]);
 \App\Models\Liste::create(["marques"=>"Volvo","lemodel"=>"XC","lannee"=>"XC","lecarburant"=>"Super Essence","lapuissance"=>197]);
-    }
+
+/**
+ * Les seeder pour le php 
+ */
+
+
+\App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"Huile moteur","prix1"=>1000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"Pompe a eau + kit de courroie de distribution","prix1"=>3000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"kit de distribution","prix1"=>2000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"Bougie de prechauffage","prix1"=>10000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"Injecteur","prix1"=>155000]);
+\App\Models\listeproduit::create(["categorie"=>"Visibilite","produit"=>"Phare","prix1"=>50000]);
+\App\Models\listeproduit::create(["categorie"=>"Visibilite","produit"=>"Ampoule de phare","prix1"=>50000]);
+\App\Models\listeproduit::create(["categorie"=>"Visibilite","produit"=>"Feu antibrouillard","prix1"=>80000]);
+\App\Models\listeproduit::create(["categorie"=>"Visibilite","produit"=>"Feu arriere","prix1"=>80000]);
+\App\Models\listeproduit::create(["categorie"=>"Visibilite","produit"=>"Retroviseur exterieur","prix1"=>20000]);
+\App\Models\listeproduit::create(["categorie"=>"Direction _ Suspension _ Train","produit"=>"Jeu de 2 amortisseurs avant","prix1"=>50000]);
+\App\Models\listeproduit::create(["categorie"=>"Direction _ Suspension _ Train","produit"=>"jeu de 2 amortisseurs arriere","prix1"=>50000]);
+\App\Models\listeproduit::create(["categorie"=>"Direction _ Suspension _ Train","produit"=>"Rotule de direction","prix1"=>15000]);
+\App\Models\listeproduit::create(["categorie"=>"Direction _ Suspension _ Train","produit"=>"Biellette de direction","prix1"=>20000]);
+\App\Models\listeproduit::create(["categorie"=>"Direction _ Suspension _ Train","produit"=>"Jeu de coussinets  stabilisateur","prix1"=>20000]);
+\App\Models\listeproduit::create(["categorie"=>"Direction _ Suspension _ Train","produit"=>"Roulement de roue","prix1"=>75000]);
+\App\Models\listeproduit::create(["categorie"=>"Direction _ Suspension _ Train","produit"=>"Triangle ou bras de suspension","prix1"=>10000]);
+\App\Models\listeproduit::create(["categorie"=>"Freinage","produit"=>"Plaquettes de frein avant","prix1"=>10000]);
+\App\Models\listeproduit::create(["categorie"=>"Freinage","produit"=>"Plaquettes de frein arriere","prix1"=>15000]);
+\App\Models\listeproduit::create(["categorie"=>"Freinage","produit"=>"Jeu de 2 disques de frein avant","prix1"=>20000]);
+\App\Models\listeproduit::create(["categorie"=>"Freinage","produit"=>"Jeu de 2 disques de frein arriere","prix1"=>30000]);
+\App\Models\listeproduit::create(["categorie"=>"Freinage","produit"=>"Jeu de 4 m?choires de frein","prix1"=>100000]);
+\App\Models\listeproduit::create(["categorie"=>"Freinage","produit"=>"Etrier de frein neuf","prix1"=>12000]);
+\App\Models\listeproduit::create(["categorie"=>"Filtration","produit"=>"Filtre a huile ","prix1"=>13000]);
+\App\Models\listeproduit::create(["categorie"=>"Filtration","produit"=>"Filtre a carburant","prix1"=>14000]);
+\App\Models\listeproduit::create(["categorie"=>"Filtration","produit"=>"Filtre a air","prix1"=>15000]);
+\App\Models\listeproduit::create(["categorie"=>"Filtration","produit"=>"Filtre hydraulique  direction","prix1"=>16000]);
+\App\Models\listeproduit::create(["categorie"=>"Filtration","produit"=>"Couvercle   boitier du filtre d'huile","prix1"=>70000]);
+\App\Models\listeproduit::create(["categorie"=>"Demarrage _ Charge","produit"=>"Batterie voiture","prix1"=>10000]);
+\App\Models\listeproduit::create(["categorie"=>"Demarrage _ Charge","produit"=>"Alternateur neuf","prix1"=>90000]);
+\App\Models\listeproduit::create(["categorie"=>"Demarrage _ Charge","produit"=>"Demarreur echange standard","prix1"=>80000]);
+\App\Models\listeproduit::create(["categorie"=>"Demarrage _ Charge","produit"=>"Demarreur neuf","prix1"=>70000]);
+\App\Models\listeproduit::create(["categorie"=>"Demarrage _ Charge","produit"=>"Poulie roue libre  alternateur","prix1"=>60000]);
+\App\Models\listeproduit::create(["categorie"=>"Embrayage _ Boite de vitesse","produit"=>"Kit d'embrayage","prix1"=>50000]);
+\App\Models\listeproduit::create(["categorie"=>"Embrayage _ Boite de vitesse","produit"=>"Kit d'embrayage avec volant moteur","prix1"=>40000]);
+\App\Models\listeproduit::create(["categorie"=>"Embrayage _ Boite de vitesse","produit"=>"Volant moteur","prix1"=>30000]);
+\App\Models\listeproduit::create(["categorie"=>"Embrayage _ Boite de vitesse","produit"=>"Emetteur  embrayage","prix1"=>20000]);
+\App\Models\listeproduit::create(["categorie"=>"Embrayage _ Boite de vitesse","produit"=>"Recepteur  embrayage","prix1"=>10000]);
+\App\Models\listeproduit::create(["categorie"=>"Embrayage _ Boite de vitesse","produit"=>"Butee hydraulique","prix1"=>15000]);
+\App\Models\listeproduit::create(["categorie"=>"Echappement","produit"=>"Vanne EGR","prix1"=>35000]);
+\App\Models\listeproduit::create(["categorie"=>"Echappement","produit"=>"Echappement","prix1"=>30000]);
+\App\Models\listeproduit::create(["categorie"=>"Echappement","produit"=>"Silencieux arriere","prix1"=>40000]);
+\App\Models\listeproduit::create(["categorie"=>"Echappement","produit"=>"Catalyseur","prix1"=>5000]);
+\App\Models\listeproduit::create(["categorie"=>"Echappement","produit"=>"Filtre a particules   a suie  FAP","prix1"=>6000]);
+\App\Models\listeproduit::create(["categorie"=>"Echappement","produit"=>"Sonde Lambda","prix1"=>7000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces thermique _ Climatisationn","produit"=>"Thermostat d'eau","prix1"=>25000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces thermique _ Climatisationn","produit"=>"Radiateur du moteur","prix1"=>100000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces thermique _ Climatisationn","produit"=>"Compresseur  climatisation","prix1"=>90000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces thermique _ Climatisationn","produit"=>"Liquides refroidissement","prix1"=>80000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces thermique _ Climatisationn","produit"=>"Condenseur  Climatisation","prix1"=>45000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces thermique _ Climatisationn","produit"=>"Resistance  pulseur d'air habitacle","prix1"=>36000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces thermique _ Climatisationn","produit"=>"Sonde de temperature  liquide de refroidissement","prix1"=>55000]);
+\App\Models\listeproduit::create(["categorie"=>"Accessoires _ Equipements","produit"=>"Pare-soleil","prix1"=>44000]);
+\App\Models\listeproduit::create(["categorie"=>"Accessoires _ Equipements","produit"=>"Jeu de tapis de sol","prix1"=>10000]);
+\App\Models\listeproduit::create(["categorie"=>"Accessoires _ Equipements","produit"=>"Capteur  parctronic","prix1"=>50000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces habitacle","produit"=>"Verin de hayon  de coffre","prix1"=>110000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces habitacle","produit"=>"Verin de capot-moteur","prix1"=>50000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces habitacle","produit"=>"Mecanisme de leve-vitre","prix1"=>90000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces habitacle","produit"=>"Commutateur de colonne de direction","prix1"=>20000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces habitacle","produit"=>"Interrupteur","prix1"=>10000]);
+\App\Models\listeproduit::create(["categorie"=>"Pieces habitacle","produit"=>"Bouchon  reservoir de carburant","prix1"=>45000]);
+\App\Models\listeproduit::create(["categorie"=>"Pneus _ Equipements roue","produit"=>"Capteur de roue  systeme de contr?le de pression des pneus","prix1"=>60000]);
+\App\Models\listeproduit::create(["categorie"=>"Pneus _ Equipements roue","produit"=>"Enjoliveur  roues","prix1"=>40000]);
+\App\Models\listeproduit::create(["categorie"=>"Pneus _ Equipements roue","produit"=>"Boulon de roue","prix1"=>10000]);
+\App\Models\listeproduit::create(["categorie"=>"Entretien _ Nettoyage","produit"=>"Additif au carburant","prix1"=>20000]);
+\App\Models\listeproduit::create(["categorie"=>"Entretien _ Nettoyage","produit"=>"Nettoyant pour freins   embrayayge","prix1"=>5000]);
+\App\Models\listeproduit::create(["categorie"=>"Entretien _ Nettoyage","produit"=>"Nettoyant pour moteurs","prix1"=>6000]);
+\App\Models\listeproduit::create(["categorie"=>"Attelage _ Portage","produit"=>"Produit pour enlever le goudron","prix1"=>100000]);
+\App\Models\listeproduit::create(["categorie"=>"Attelage _ Portage","produit"=>"Dispositif d'attelage","prix1"=>80000]);
+\App\Models\listeproduit::create(["categorie"=>"Carosserie _ Peinture","produit"=>"Faisceau d'attelage","prix1"=>5000]);
+\App\Models\listeproduit::create(["categorie"=>"Carosserie _ Peinture","produit"=>"Pare-chocs ","prix1"=>6000]);
+\App\Models\listeproduit::create(["categorie"=>"Carosserie _ Peinture","produit"=>"Grille de radiateur","prix1"=>5000]);
+\App\Models\listeproduit::create(["categorie"=>"Carosserie _ Peinture","produit"=>"Capot-moteur","prix1"=>2000]);
+\App\Models\listeproduit::create(["categorie"=>"Carosserie _ Peinture","produit"=>"Aile","prix1"=>3000]);
+\App\Models\listeproduit::create(["categorie"=>"Carosserie _ Peinture","produit"=>"Support  pare-chocs","prix1"=>14000]);
+\App\Models\listeproduit::create(["categorie"=>"Outillage","produit"=>"Outilage divers & coffrets","prix1"=>10000]);
+
+}
 }
