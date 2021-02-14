@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Diagnostic;
 use Illuminate\Http\Request;
 use App\Models\Voiture;
+use App\Models\Listedefaut;
 use App\Models\Intervention;
 
 class DiagnosticController extends Controller
@@ -17,7 +18,6 @@ class DiagnosticController extends Controller
     public function index() 
     {
         $diagnostic = Diagnostic::all();
-
         return view('diagnostics.index',compact('diagnostic'));
     }
     /**
@@ -28,7 +28,8 @@ class DiagnosticController extends Controller
 
     public function create(Voiture $voiture, Intervention $intervention)
     {
-        return view('diagnostics.create', compact('voiture', 'intervention'));
+        $listedefauts = Listedefaut::all();
+        return view('diagnostics.create', compact('voiture', 'intervention','listedefauts'));
     }
 
     /**

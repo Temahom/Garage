@@ -50,9 +50,7 @@
                         </div>
                     </div>	
                 </div>
-
             </div>
-
         </div>
     </div>
 </div> 
@@ -89,23 +87,31 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12" id="dynamicAddRemove">
-                           
+                           <style>
+                               #remove-button:hover{
+                                   background-color: red;
+                                   color: white;
+                                   box-shadow: none;
+                               }
+                               #remove-button:focus{
+                                   box-shadow: none;
+                               }
+                           </style>
 
-                            <div class="row p-3" style="border: 1px solid #D2D2E4">
+                            <div class="row p-3" style="border: 1px solid #D2D2E4" id="newdefaut">
+                                <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0" style="position: relative; top: -16px; right: -16px;">
+                                    <span class="numero">#1</span>
+                                    <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>
+                                </div>
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-2">
-                                            <select name="code" id="codes" class="custom-select form-control" @error('code') is-invalid @enderror">
-                                            <option value="">Code</option>
-                                            {{-- @foreach ($codes as $code)
-                                                <option value="{{$defaut->codes}}">{{$defaut->codes}}</option>
-                                            @endforeach --}}
-                                            </select>	
-                                            <div class="invalid-feedback">
-                                                @if($errors->has('code'))
-                                                {{ $errors->first('code') }}
-                                                @endif
-                                            </div>
+                                            <select name="code" id="codes" class="custom-select form-control">
+                                                <option value="">Code</option>
+                                                @foreach ($listedefauts as $listedefaut)
+                                                    <option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>
+                                                @endforeach
+                                            </select>
                                         </div> 
                                         <div class="col-xs-12 col-sm-12 col-md-10">
                                             <input type="text" class="form-control" name="plusdechamps[0][localisation]" placeholder="Localisation">
@@ -133,7 +139,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 py-2" style="border: 1px solid #D2D2E4">
-                            <button type="button" name="add" id="add-btn" class="btn btn-light" style="border-radius:30px/15px">Ajouter une nouvelle inspection</button>
+                            <button type="button" name="add" id="add-btn" class="btn btn-light" style="border-radius:15px">Ajouter une nouvelle inspection</button>
                         </div>
                     </div>
 
@@ -150,11 +156,18 @@
 
 var divDefaut;
 divDefaut =  '<div class="row p-3" id="newdefaut" style="border: 1px solid #D2D2E4">'+
+    '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0" style="position: relative; top: -16px; right: -16px;">'+
+        '<span class="numero"></span>'+
+        '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>'+
+    '</div>'+
     '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
         '<div class="row">'+
             '<div class="col-xs-12 col-sm-12 col-md-2">'+
                 '<select name="plusdechamps['+i+'][code]" id="marques" class="custom-select form-control">'+
                 '<option value="code">Code</option>'+
+                '@foreach ($listedefauts as $listedefaut)'+
+                    '<option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>'+
+                '@endforeach'+
                 '</select>'+
             '</div>'+
             '<div class="col-xs-12 col-sm-12 col-md-10">'+
@@ -176,18 +189,30 @@ divDefaut =  '<div class="row p-3" id="newdefaut" style="border: 1px solid #D2D2
             '<input type="radio" name="plusdechamps['+i+'][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>'+
         '</label>'+
     '</div>'+
-    '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
-        '<button type="button" class="btn btn-danger" id="remove-button" style="border-radius:30px/15px">Supprimer</button>'+
-    '</div>'+
     '</div>';
 
 
     $("#add-btn").click(function(){
         ++i;
         $("#dynamicAddRemove").append(divDefaut);
+        numeroter();
     });
+
     $(document).on('click', '#remove-button', function(){  
-            $(this).parents('#newdefaut').remove();
-            });
+        $(this).parents('#newdefaut').remove();
+        numeroter();
+    });
+
+    function numeroter() {
+        var num = 1;
+        $('#dynamicAddRemove > div').each( function(){
+            $(this).children('.divSup').children('.numero').text('#' + num);
+            num++;
+        });
+    }
+
+    function remplir(data) {
+        alert(data);
+    }
 </script>
 @endsection
