@@ -17,16 +17,6 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         </div>
     </div>
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> Il y a eu des problèmes avec votre entrée.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 
     <form action="{{ route('produits.update', $produit->id) }}" method="POST">
         @csrf
@@ -36,34 +26,54 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Categorie :</strong>
-                    <select name="categorie" id="categorie" class="custom-select form-control">
+                    <select name="categorie" id="categorie" class="custom-select form-control  @error('categorie') is-invalid @enderror">
 						<option value="{{ $produit->categorie }}">{{ $produit->categorie }}</option>
 							@foreach ($listes as $liste)
-								<option value="{{$liste->categorie}}">{{$liste->categorie}}</option>
+								<option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
 							@endforeach
-					</select>		
+					</select>
+                    <div class="invalid-feedback">
+                        @if($errors->has('categorie'))
+                        {{ $errors->first('categorie') }}
+                        @endif
+                    </div>		
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                 <strong>Nom du produit :</strong>
-                <select name="produit" id="leproduit" class="custom-select form-control">
-                    <option value="{{ $produit->produit }}">{{ $produit->produit }}</option>
-                </select>	
+                <select name="produit" id="leproduit" class="custom-select form-control  @error('produit') is-invalid @enderror">
+                    <option value="{{ $produit->produit }}" {{ old('produit') == ($produit->produit) ? 'selected' : '' }}>{{ $produit->produit }}</option>
+                </select>
+                <div class="invalid-feedback">
+                    @if($errors->has('produit'))
+                    {{ $errors->first('produit') }}
+                    @endif
+                </div>
                 </div>		
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Prix Unitaire :</strong>
-                    <select name="prix1" id="leprix" class="form-control" >     
-                    <option value="{{ $produit->prix1 }}">{{ $produit->prix1 }}</option>
+                    <select name="prix1" id="leprix" class="form-control @error('prix1') is-invalid @enderror" >     
+                    <option value="{{ $produit->prix1 }}" {{ old('prix1') == ($produit->prix1) ? 'selected' : '' }}>{{ $produit->prix1 }}</option>
                     </select>
+                    <div class="invalid-feedback">
+                        @if($errors->has('prix1'))
+                        {{ $errors->first('prix1') }}
+                        @endif
+                    </div>
                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Quantité:</strong>
-                    <input type="number" name="qte" value="{{ $produit->qte }}" class="form-control" placeholder="Entrer la quantite">
+                    <input type="number" name="qte" value="{{ $produit->qte }}" class="form-control @error('qte') is-invalid @enderror" placeholder="Entrer la quantite" value="{{ old('qte') }}">
+                    <div class="invalid-feedback">
+                        @if($errors->has('qte'))
+                        {{ $errors->first('qte') }}
+                        @endif
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

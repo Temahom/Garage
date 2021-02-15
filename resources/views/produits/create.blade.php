@@ -18,16 +18,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         </div>
     </div><br><br>
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> Il y a eu des problèmes avec votre entrée.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div><br><br>
-    @endif
+    
     <form action="{{ route('produits.store') }}" method="POST">
         @csrf
         <div class="row"><br>
@@ -37,9 +28,14 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     <select name="categorie" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
 						<option value=""></option>
 							@foreach ($listes as $liste)
-								<option value="{{$liste->categorie}}">{{$liste->categorie}}</option>
+								<option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
 							@endforeach
-					</select>		 
+					</select>
+                    <div class="invalid-feedback">
+                        @if($errors->has('categorie'))
+                        {{ $errors->first('categorie') }}
+                        @endif
+                    </div>	 
 
                 </div>
             </div>
@@ -48,21 +44,36 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <strong>Nom du produit :</strong>
                 <select name="produit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
                     
-                </select>	
+                </select>
+                <div class="invalid-feedback">
+                    @if($errors->has('produit'))
+                    {{ $errors->first('produit') }}
+                    @endif
+                </div>	
                 </div>		
             </div>
           <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                 <strong>Le Prix Unitaire :</strong>
                 <select name="prix1" id="leprix" class="custom-select form-control @error('prix1') is-invalid @enderror">
-                </select>	
+                </select>
+                <div class="invalid-feedback">
+                    @if($errors->has('prix1'))
+                    {{ $errors->first('prix1') }}
+                    @endif
+                </div>	
                 </div>		
             </div>
         
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Quantité :</strong>
-                    <input type="number" name="qte" class="form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite">
+                    <input type="number" name="qte" class="form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite" value="{{ old('qte') }}">
+                    <div class="invalid-feedback">
+                        @if($errors->has('qte'))
+                        {{ $errors->first('qte') }}
+                        @endif
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

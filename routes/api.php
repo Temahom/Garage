@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Liste;
 use App\Models\listeproduit;
 use App\Models\Produit;
+use App\Http\Controllers\DeviController;
 use App\Http\Controllers\CommandesApiController;
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,8 @@ Route::get('listesp/{categorie}',function($categorie){
 Route::get('listespu/{produit}',function($produit){
     return listeproduit::select('prix1')->where('produit','=',$produit)->get();  
 });  
+
+Route::get('/devis-list',[DeviController::class, 'etat']);
 
 
 

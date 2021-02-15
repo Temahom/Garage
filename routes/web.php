@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
     
     Route::get('/interventions-list', [InterventionController::class, 'index']);
-    Route::put('/devis-etat', [DeviController::class, 'etat']);
+    Route::get('/devis-etat', [DeviController::class, 'etat']);
 
 
 

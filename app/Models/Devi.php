@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Devi extends Model
 {
     use HasFactory;
-    protected $fillable =['cout ', 'produit '];
+    protected $fillable =['cout ', 'produit ','date_expiaration','etat'];
     public function intervention()
     {
         return $this->hasMany(Intervention::class);
