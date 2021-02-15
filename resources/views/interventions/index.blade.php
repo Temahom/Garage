@@ -12,7 +12,7 @@
         svg{
             display: none;
         }
-         @import url("https://fonts.googleapis.com/css?family=Lato");
+         /* @import url("https://fonts.googleapis.com/css?family=Lato"); */
         
 
           .tabs {
@@ -112,7 +112,7 @@
                           role="tab" 
                           aria-selected="true" 
                           aria-controls="panel1" 
-                          tabindex="0">Diagnostics <sup><span class="badge badge-warning">{{count($diagnostics)}}</span></sup></label>
+                          tabindex="0">Diagnostics <sup><span class="badge badge-warning">{{App\Models\Diagnostic::count()}}</span></sup></label>
                   <div id="tab-content1" 
                         class="tab-content" 
                         role="tabpanel" 
@@ -136,6 +136,9 @@
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                           </tr>
                           @endforeach
+                            <div class="col-md-12 mt-3 d-flex justify-content-center">
+                              {!! $diagnostics->links() !!}
+                            </div>
                       </table>
                   </div>
                 </li>
@@ -146,7 +149,7 @@
                           role="tab" 
                           aria-selected="false" 
                           aria-controls="panel2" 
-                          tabindex="0">Devis <sup><span class="badge badge-primary">{{count($devis)}}</span></sup></label>
+                          tabindex="0">Devis <sup><span class="badge badge-primary">{{App\Models\Devi::count()}}</span></sup></label>
                   <div id="tab-content2" 
                         class="tab-content"
                         role="tabpanel" 
@@ -172,7 +175,7 @@
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">
-                              <form action="" method="POST">
+                              <form action="/devis-etat" method="POST">
                                 @csrf
                                 @method('Patch')
                                 @if ($devi->devi()->first()->etat == 1)
@@ -186,6 +189,9 @@
                           </tr>
                           
                           @endforeach
+                            <div class="col-md-12 mt-3 d-flex justify-content-center">
+                              {!! $devis->links() !!}
+                            </div>
                       </table>
 
                   </div>
@@ -196,7 +202,7 @@
                           role="tab" 
                           aria-selected="false" 
                           aria-controls="panel3" 
-                          tabindex="0">Reparations <sup><span class="badge badge-warning">{{count($reparations)}}</span></sup></label>
+                          tabindex="0">Reparations <sup><span class="badge badge-warning">{{App\Models\Reparation::count()}}</span></sup></label>
                   <div id="tab-content3" 
                         class="tab-content"
                         role="tabpanel" 
@@ -223,6 +229,9 @@
                           </tr>
                           
                           @endforeach
+                            <div class="col-md-12 mt-3 d-flex justify-content-center">
+                              {!! $reparations->links() !!}
+                            </div>
                       </table>
                   </div>
                 </li>
@@ -232,7 +241,7 @@
                           role="tab" 
                           aria-selected="false" 
                           aria-controls="panel4" 
-                          tabindex="0">Factures <sup><span class="badge badge-primary">{{count($factures)}}</span></sup></label>
+                          tabindex="0">Factures <sup><span class="badge badge-primary">{{App\Models\Facture::count()}}</span></sup></label>
                   <div id="tab-content4" 
                         class="tab-content"
                         role="tabpanel" 
@@ -260,6 +269,9 @@
                           
                           @endforeach
                       </table>
+                      {{-- <div class="col-md-12 mt-3 d-flex justify-content-center">
+                        {!! $interventions->links() !!}
+                      </div> --}}
                   </div>
                 </li>
             </ul>
@@ -271,11 +283,11 @@
      
     
 
-    <div class="row">
+  {{-- <div class="row">
 		<div class="col-md-12 mt-3 d-flex justify-content-center">
 			{!! $interventions->links() !!}
 		</div>
-	</div>
+	</div> --}}
 
     
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
@@ -286,8 +298,21 @@
 			window.location = 'voitures/' + id ;
 		}
     
-  //  setInterval(function(){  location.reload();
-  //   window.location = 'devis-etat'; }, 3000);
+  setInterval(function(){
+  $.ajax({
+    method:'get',
+    url:'/api/devis-list',
+    success:function(data){
+    
+    }
+  })
+  }, 3000);  
+
+
+
+ 
+
+ 
 	</script>
 
 @endsection
