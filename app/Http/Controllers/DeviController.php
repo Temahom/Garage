@@ -43,10 +43,7 @@ class DeviController extends Controller
         $devi = new Devi();
         $devi->cout = $request->input('cout');
         $devi->date_expiration = $request->input('date_expiration');
-
-        if($request->input('date_expiration') > now())
         $devi->etat= 1;
-        else $devi->etat= 3;
         $devi->save();
         $intervention->devis_id = $devi->id;
         $intervention->update();
@@ -107,9 +104,19 @@ class DeviController extends Controller
     //mis a jour du statut d'un devis suivant un etat actif vers une expiration
     public function etat(Request $request, Devi $devi)
     {
-        if($request->input('date_expiration') > now() && $devi->etat != 2)
-        $devi->etat= 1;
-        else $devi->etat= 3;
-        $devi->update();
+        $data = Devi::where('date_expiration','<',now())->get();
+        //dd($data);
+      
+           foreach($data as $devi)
+           {
+               if($devi->etat !=2 && $devi->etat!=3){
+                $devi->etat = 3;
+                $devi->update();
+                return $devi;
+                }
+           }    
+      
+        
+        // return back();
     }
 }

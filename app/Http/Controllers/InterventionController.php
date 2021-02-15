@@ -20,11 +20,11 @@ class InterventionController extends Controller
      */
     public function index()
     {
-        $interventions = Intervention::orderBy('created_at','DESC')->paginate(3);
-        $diagnostics = Intervention::where('diagnostic_id','!=',null)->paginate(3);
-        $devis = Intervention::where('devis_id','!=',null)->paginate(3);
-        $reparations = Intervention::where('reparation_id','!=',null)->paginate(3);
-        $factures = Intervention::where('facture_id','!=',null)->paginate(3);
+        $interventions = Intervention::orderBy('created_at','DESC')->paginate(15);
+        $diagnostics = Intervention::where('diagnostic_id','!=',null)->paginate(15);
+        $devis = Intervention::where('devis_id','!=',null)->paginate(15);
+        $reparations = Intervention::where('reparation_id','!=',null)->paginate(15);
+        $factures = Intervention::where('facture_id','!=',null)->paginate(15);
         return view('interventions.index', compact('interventions','diagnostics','devis','reparations','factures'));
     }
 
