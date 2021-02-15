@@ -26,12 +26,12 @@
 
             <div class="form-group">
                 <strong>Prénoms:</strong>
-                <input type="text" name="prenom" class="form-control  @error('prenom') is-invalid @enderror" placeholder="Prenoms" autocomplete="off" value="{{ old('prenom') }}">
+                <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" placeholder="Prenoms" autocomplete="off" value="{{ old('prenom') }}">
                 <div class="invalid-feedback">
                     @if($errors->has('prenom'))
                     {{ $errors->first('prenom') }}
                     @endif
-                  </div>
+                </div>
             </div>
             
             <div class="form-group">

@@ -53,3 +53,9 @@ Route::get('erreurByCode/{code}',function($code){
 
 
 
+Route::get('produit/{categorie}',function($categorie){
+    return Produit::select('produit','id')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();  
+});  
+
+
+

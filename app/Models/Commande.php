@@ -13,8 +13,13 @@ class Commande extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'catProduit',
-        'nomProduit',
+        'produit_id',
+        'devi_id',
         'qteProduit',
     ];
+    public function produits()
+    {
+        return $this->hasMany(Produit::class);
+    }
 }
+

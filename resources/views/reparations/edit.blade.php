@@ -61,16 +61,6 @@
 </div>
 
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 <br><br>
 <div class="row">
 	<div class="col-xs-8 col-sm-8 col-md-8">
@@ -85,7 +75,12 @@
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<div class="form-group">
 							<strong>Compte Rendu:</strong>
-							<textarea type="LongText" name="element_3" class="form-control">{{$reparation->element_3}}</textarea>
+							<textarea type="LongText" name="element_3" class="form-control @error('element_3') is-invalid @enderror">{{$reparation->element_3}}</textarea>
+							<div class="invalid-feedback">
+								@if($errors->has('element_3'))
+								  Le champs est obligatoire.
+								@endif
+							</div>
 						</div>
 					</div>					
 					<div class="col-xs-12 col-sm-12 col-md-12 mt-3">
