@@ -9,16 +9,6 @@
     </div>
 </div>
    
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Attention!</strong> Veuillez remplir les champs vides !!!<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
    
 <form action="{{ route('clients.store') }}" method="POST">
     @csrf
@@ -26,36 +16,51 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
                 <strong>Nom :</strong>
-                <input type="text" name="nom" class="form-control" placeholder="Nom" autocomplete="off">
+                <input type="text" name="nom" class="form-control  @error('nom') is-invalid @enderror" placeholder="Nom" autocomplete="off" value="{{ old('nom') }}">
+                <div class="invalid-feedback">
+                    @if($errors->has('nom'))
+                    {{ $errors->first('nom') }}
+                    @endif
+                  </div>
             </div>
 
             <div class="form-group">
                 <strong>Prénoms:</strong>
-                <input type="text" name="prenom" class="form-control" placeholder="Prenoms" autocomplete="off">
+                <input type="text" name="prenom" class="form-control  @error('prenom') is-invalid @enderror" placeholder="Prenoms" autocomplete="off" value="{{ old('prenom') }}">
+                <div class="invalid-feedback">
+                    @if($errors->has('prenom'))
+                    {{ $errors->first('prenom') }}
+                    @endif
+                  </div>
             </div>
             
             <div class="form-group">
                     <strong>Sexe :</strong>
                     <select class="form-control" name="genre" id="genre" autocomplete="off">
                       <option value="" disabled selected hidden>Choisissez le sexe...</option>
-                      <option value="homme">Homme</option>
-                      <option value="femme">Femme</option>
+                      <option value="homme" {{ old('genre') == 'homme' ? 'selected' : '' }}>Homme</option>
+                      <option value="femme" {{ old('genre') == 'femme' ? 'selected' : '' }}>Femme</option>
                     </select>
             </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
                 <strong>Entreprise :</strong>
-                <input type="text" name="entreprise" class="form-control" placeholder="Entreprise" autocomplete="off">
+                <input type="text" name="entreprise" class="form-control" placeholder="Entreprise" autocomplete="off"  value="{{ old('entreprise') }}">
             </div>
             
             <div class="form-group">
                 <strong>Téléphone :</strong>
-                <input type="tel" name="telephone" class="form-control" placeholder="Exemple : 7XXXXXXXX" pattern="7[8,7,6,5,0][0-9]{3}[0-9]{2}[0-9]{2}" autocomplete="off">
+                <input type="tel" name="telephone" class="form-control @error('telephone') is-invalid @enderror" placeholder="Exemple : 7XXXXXXXX" pattern="7[8,7,6,5,0][0-9]{3}[0-9]{2}[0-9]{2}" autocomplete="off"  value="{{ old('telephone') }}">
+                <div class="invalid-feedback">
+                    @if($errors->has('telephone'))
+                    {{ $errors->first('telephone') }}
+                    @endif
+                  </div>
             </div>
             <div class="form-group">
                 <strong>Email :</strong>
-                <input type="email" name="email" class="form-control" placeholder="Email">
+                <input type="email" name="email" class="form-control" placeholder="Email"  value="{{ old('email') }}">
             </div>
         </div>
        

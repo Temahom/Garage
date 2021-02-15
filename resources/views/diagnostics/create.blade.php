@@ -5,20 +5,11 @@
 
         
 <div class="row ml-1">
-    <div class="col-md-7 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-        <div class="row" style="text-align: center">
-			<div class="col-lg-12 margin-tb">
-				<div class="pull-left">
-					<h2>Diagnostique</h2>
-				</div>
-			</div>
-		</div>
+    <div class="col-md-7 pt-3"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
         <div class="row">
-
             <div class="col-md-2 col-sm-3 text-center pt-4">
                 <img style="height: 50px;width: auto;" class="" src="/assets/images/car.png" alt="logo">
             </div>
-
             <div class="col-md-10 col-sm-10">
 
                 <div style="font-size: 20px">
@@ -31,7 +22,6 @@
                             {{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
                         </a>)
                     </span>
-                    
                 </div>
 
                 <div style="font-size: 14px;"> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>
@@ -60,79 +50,169 @@
                         </div>
                     </div>	
                 </div>
-
             </div>
-
         </div>
     </div>
 </div> 
         
-        
-<div class="container">
-            <div class="card-body">
-                <form action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
-                @csrf
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if (Session::has('success'))
-                        <div class="alert alert-success text-center">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                            <p>{{ Session::get('success') }}</p>
-                        </div>
-                    @endif
-                    <table class="table table-bordered" id="dynamicAddRemove">  
-                        <thead class="" style="background-color: #4656E9;">
-                            <tr>
-                                <th style="color: white;">Titre</th>
-                                <th style="color: white;">Description</th>
-                                <th style="color: white;">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>  
-                                <td>
-                                    <input type="text" name="plusdechamps[0][title]" placeholder="Entrer title" class="form-control" />
-                                </td>
-                                <td>
-                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][description]" value="trés urgent" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
-                                    </label>
-                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][description]" value="pas urgent" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
-                                    </label>
-                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][description]" value="peut urgent" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
-                                    </label>
-                                </td>  
-                                <td>
-                                    <button type="button" name="add" id="add-btn" class="btn btn-success">Ajouter un diagnostic</button>
-                                </td>  
-                            </tr>  
-                        </tbody>
-                    </table> 
-                    <button type="submit" class="btn btn-success">Enregistrer</button>
-                </form>
+
+    <div class="row pt-5">
+        <div class="col-lg-12">
+            <div class="pull-left">
+                <h2>DIAGNOSTIC</h2>
             </div>
         </div>
-</div>
+    </div>  
+
+
+    <form action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
+        {{ csrf_field() }}
+                    
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8">
+                    <div class="row p-3" style="border: 1px solid #D2D2E4">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Constat</strong>
+                                <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <strong>Inspections</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12" id="dynamicAddRemove">
+                           <style>
+                               #remove-button:hover{
+                                   background-color: red;
+                                   color: white;
+                                   box-shadow: none;
+                               }
+                               #remove-button:focus{
+                                   box-shadow: none;
+                               }
+                           </style>
+
+                            <div class="row p-3" style="border: 1px solid #D2D2E4" id="newdefaut">
+                                <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0" style="position: relative; top: -16px; right: -16px;">
+                                    <span class="numero">#1</span>
+                                    <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-2">
+                                            <select name="code" id="codes" class="custom-select form-control">
+                                                <option value="">Choisir code</option>
+                                                @foreach ($listedefauts as $listedefaut)
+                                                    <option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div> 
+                                        <div class="col-xs-12 col-sm-12 col-md-10">
+                                            <input type="text" class="form-control" name="plusdechamps[0][localisation]" placeholder="Localisation">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                                    <textarea class="form-control"name="plusdechamps[0][description]" placeholder="Description"></textarea>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-12 col-md-12">  
+                                    <label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="plusdechamps[0][etat]" value="0" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
+                                    </label>
+                                    <label class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="plusdechamps[0][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
+                                    </label>
+                                    <label class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" name="plusdechamps[0][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
+                                    </label>
+                                </div> 
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 py-2" style="border: 1px solid #D2D2E4">
+                            <button type="button" name="add" id="add-btn" class="btn btn-light" style="border-radius:15px">Ajouter une nouvelle inspection</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+    </form>
+           
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
-<script >
+<script  type="text/javascript">
     var i = 0;
+
+var divDefaut;
+divDefaut =  '<div class="row p-3" id="newdefaut" style="border: 1px solid #D2D2E4">'+
+    '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0" style="position: relative; top: -16px; right: -16px;">'+
+        '<span class="numero"></span>'+
+        '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>'+
+    '</div>'+
+    '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
+        '<div class="row">'+
+            '<div class="col-xs-12 col-sm-12 col-md-2">'+
+                '<select name="plusdechamps['+i+'][code]" id="marques" class="custom-select form-control">'+
+                '<option value="code">Code</option>'+
+                '@foreach ($listedefauts as $listedefaut)'+
+                    '<option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>'+
+                '@endforeach'+
+                '</select>'+
+            '</div>'+
+            '<div class="col-xs-12 col-sm-12 col-md-10">'+
+                '<input type="text" class="form-control" name="plusdechamps['+i+'][localisation]" placeholder="Localisation">'+
+            '</div>'+
+        '</div>'+
+    '</div>'+
+    '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
+        '<textarea class="form-control"name="plusdechamps['+i+'][description]" placeholder="Description"></textarea>'+
+    '</div>'+
+    '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
+        '<label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">'+
+            '<input type="radio" name="plusdechamps['+i+'][etat]" value="0" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>'+
+        '</label>'+
+        '<label class="custom-control custom-radio custom-control-inline">'+
+            '<input type="radio" name="plusdechamps['+i+'][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>'+
+        '</label>'+
+        '<label class="custom-control custom-radio custom-control-inline">'+
+            '<input type="radio" name="plusdechamps['+i+'][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>'+
+        '</label>'+
+    '</div>'+
+    '</div>';
+
+
     $("#add-btn").click(function(){
-    ++i;
-    $("#dynamicAddRemove").append('<tr><td><input type="text" name="plusdechamps['+i+'][title]" placeholder="Enter title" class="form-control" /></td><td> <label class="custom-control custom-radio custom-control-inline"><input type="radio" name="plusdechamps['+i+'][description]" value="trés urgent" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span></label> <label class="custom-control custom-radio custom-control-inline"><input type="radio" name="plusdechamps['+i+'][description]" value="pas urgent" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span></label> <label class="custom-control custom-radio custom-control-inline"><input type="radio" name="plusdechamps['+i+'][description]" value="peut attendre" class="custom-control-input" ><span class="custom-control-label">Peut attendre</span></label></td><td><button type="button" class="btn btn-danger remove-tr">Supprimer</button></td></tr>');
+        ++i;
+        $("#dynamicAddRemove").append(divDefaut);
+        numeroter();
     });
-    $(document).on('click', '.remove-tr', function(){  
-    $(this).parents('tr').remove();
-    });  
+
+    $(document).on('click', '#remove-button', function(){  
+        $(this).parents('#newdefaut').remove();
+        numeroter();
+    });
+
+    function numeroter() {
+        var num = 1;
+        $('#dynamicAddRemove > div').each( function(){
+            $(this).children('.divSup').children('.numero').text('#' + num);
+            num++;
+        });
+    }
+
+    function remplir(data) {
+        alert(data);
+    }
 </script>
 @endsection

@@ -20,9 +20,9 @@ class CreateVoituresTable extends Migration
             $table->string('model');
             $table->integer('annee');
             $table->string('transmission');
-            $table->string('kilometrage');
+            $table->integer('kilometrage');
             $table->string('carburant');
-            $table->string('puissance');
+            $table->integer('puissance');
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
         });
