@@ -1,7 +1,7 @@
 @extends('layout.index')
 
 @section('content')
-<div class="row ml-1">
+<div class="row">
 	<div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
 
 		<div class="row">
@@ -55,17 +55,18 @@
 			</div>
 
 		</div>
-		<div class="row">
-			<div class="col-md-6 p-3">
-				<p><h2>Debut</h2>{{ $intervention->debut }}</p>
-			</div>
-			<div class="col-md-3 p-3">
-				<p><h2>Fin</h2>{{ $intervention->fin }}</p>
-			</div>
-		</div>
+
 	</div>
 </div>
 
+		<div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
+			<div class="col-md-6 p-3">
+					<h2>Debut</h2>{{ $intervention->debut }}
+			</div>
+			<div class="col-md-3 p-3">
+				<h2>Fin</h2>{{ $intervention->fin }}
+			</div>
+		</div>
 
 <div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
     <div class="col-md-6 p-3">
