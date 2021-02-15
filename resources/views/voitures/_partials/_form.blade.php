@@ -96,7 +96,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
         </div>		
       </div> 
       <div class="form-group">
-        <strong>Type de carburant</strong>
+        <strong>Carburant</strong>
         <select name="carburant" id="lecarburant" class="custom-select form-control @error('carburant') is-invalid @enderror">
           <option value="">Carburant</option>
           <option value="Essence">Essence</option>
