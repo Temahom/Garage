@@ -7,12 +7,12 @@
   
   <div class="form-group">
     <strong>Role</strong>
-    <select name="role_id" class="custom-select form-control  @error('role_id') is-invalid @enderror">
+    <select name="role_id" class="custom-select form-control @error('role_id') is-invalid @enderror">
       @if(!empty($role->id))
         <option value="{{$role->id}}" >{{$role->role}}</option>
       @else   
       @foreach( $roles as $role ) 
-        <option value="{{$role->id}}" {{$user->role_id == $role->id ? 'selected':'' }}>{{$role->role}}</option>
+        <option value="{{$role->id}}"  {{$user->role_id == $role->id ? 'selected':'' }}>{{$role->role}}</option>
       @endforeach 
         @endif
     </select>
@@ -31,7 +31,7 @@
 
   <div class="form-group">
     <strong>Prenom | Nom</strong>
-    <input type="text" name="name" value="{{ isset($user) ? $user->name:''}}" autocomplete="off" class="custom-select form-control @error('name') is-invalid @enderror" placeholder="Saisir Prenom | Nom...">
+    <input type="text" name="name" value="{{ isset($user) ? $user->name:''}} {{ old('name') }}" autocomplete="off" class="custom-select form-control @error('name') is-invalid @enderror" placeholder="Saisir Prenom | Nom..." >
     <div class="invalid-feedback">
         @if($errors->has('name'))
           {{ $errors->first('name') }}
@@ -41,7 +41,7 @@
 
   <div class="form-group">
     <strong>Adresse Email</strong>
-    <input type="text" name="email" value="{{ isset($user) ? $user->email:''}}" autocomplete="off" class="custom-select form-control @error('email') is-invalid @enderror" placeholder="Saisir Email...">
+    <input type="text" name="email" value="{{ isset($user) ? $user->email:''}} {{ old('email') }}" autocomplete="off" class="custom-select form-control @error('email') is-invalid @enderror" placeholder="Saisir Email...">
     <div class="invalid-feedback">
         @if($errors->has('email'))
           {{ $errors->first('email') }}
