@@ -48,7 +48,7 @@
             <div class="form-group">
                 <strong>Téléphone :</strong>
                 <input type="tel" name="telephone" class="form-control" placeholder="Exemple : 7XXXXXXXX" pattern="7[8,7,6,5,0][0-9]{3}[0-9]{2}[0-9]{2}" autocomplete="off"  value="{{ old('telephone') }}">
-                @error('nom')
+                @error('telephone')
                 <div style="color: red;">{{ $message }}</div>
                 @enderror
             </div>
