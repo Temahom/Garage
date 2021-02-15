@@ -9,16 +9,6 @@
         </div>
     </div>
    
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Attention!</strong> Please check input field code<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
   
     <form action="{{ route('clients.update',$client->id) }}" method="POST">
         @csrf
@@ -29,11 +19,17 @@
                 <div class="form-group">
                     <strong>Nom:</strong>
                     <input type="text" name="nom" class="form-control" value="{{ $client->nom }}" placeholder="Nom">
+                    @error('nom')
+                        <div style="color: red;">{{ $message }}</div>
+                    @enderror
                 </div>
                 
                 <div class="form-group">
                     <strong>Prénoms:</strong>
                     <input type="text" name="prenom" class="form-control" value="{{ $client->prenom }}" placeholder="Prenoms" >
+                    @error('prenom')
+                        <div style="color: red;">{{ $message }}</div>
+                    @enderror
                 </div>
                 
                 <div class="form-group">
@@ -62,6 +58,9 @@
                 <div class="form-group">
                     <strong>Téléphone:</strong>
                     <input type="text" name="telephone" value="{{ $client->telephone }}" class="form-control" placeholder="telephone" >
+                    @error('nom')
+                        <div style="color: red;">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <strong>Email:</strong>
