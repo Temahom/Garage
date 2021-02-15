@@ -16,18 +16,22 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
                 <strong>Nom :</strong>
-                <input type="text" name="nom" class="form-control" placeholder="Nom" autocomplete="off" value="{{ old('nom') }}">
-                @error('nom')
-                <div style="color: red;">{{ $message }}</div>
-                @enderror
+                <input type="text" name="nom" class="form-control  @error('nom') is-invalid @enderror" placeholder="Nom" autocomplete="off" value="{{ old('nom') }}">
+                <div class="invalid-feedback">
+                    @if($errors->has('nom'))
+                    {{ $errors->first('nom') }}
+                    @endif
+                  </div>
             </div>
 
             <div class="form-group">
                 <strong>Prénoms:</strong>
-                <input type="text" name="prenom" class="form-control" placeholder="Prenoms" autocomplete="off" value="{{ old('prenom') }}">
-                @error('prenom')
-                <div style="color: red;">{{ $message }}</div>
-                @enderror
+                <input type="text" name="prenom" class="form-control  @error('prenom') is-invalid @enderror" placeholder="Prenoms" autocomplete="off" value="{{ old('prenom') }}">
+                <div class="invalid-feedback">
+                    @if($errors->has('prenom'))
+                    {{ $errors->first('prenom') }}
+                    @endif
+                  </div>
             </div>
             
             <div class="form-group">
@@ -47,10 +51,12 @@
             
             <div class="form-group">
                 <strong>Téléphone :</strong>
-                <input type="tel" name="telephone" class="form-control" placeholder="Exemple : 7XXXXXXXX" pattern="7[8,7,6,5,0][0-9]{3}[0-9]{2}[0-9]{2}" autocomplete="off"  value="{{ old('telephone') }}">
-                @error('telephone')
-                <div style="color: red;">{{ $message }}</div>
-                @enderror
+                <input type="tel" name="telephone" class="form-control @error('telephone') is-invalid @enderror" placeholder="Exemple : 7XXXXXXXX" pattern="7[8,7,6,5,0][0-9]{3}[0-9]{2}[0-9]{2}" autocomplete="off"  value="{{ old('telephone') }}">
+                <div class="invalid-feedback">
+                    @if($errors->has('telephone'))
+                    {{ $errors->first('telephone') }}
+                    @endif
+                  </div>
             </div>
             <div class="form-group">
                 <strong>Email :</strong>

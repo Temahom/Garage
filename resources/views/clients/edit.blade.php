@@ -18,18 +18,22 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Nom:</strong>
-                    <input type="text" name="nom" class="form-control" value="{{ $client->nom }}" placeholder="Nom">
-                    @error('nom')
-                        <div style="color: red;">{{ $message }}</div>
-                    @enderror
+                    <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ $client->nom }}" placeholder="Nom">
+                    <div class="invalid-feedback">
+                        @if($errors->has('nom'))
+                        {{ $errors->first('nom') }}
+                        @endif
+                    </div>
                 </div>
                 
                 <div class="form-group">
                     <strong>Prénoms:</strong>
-                    <input type="text" name="prenom" class="form-control" value="{{ $client->prenom }}" placeholder="Prenoms" >
-                    @error('prenom')
-                        <div style="color: red;">{{ $message }}</div>
-                    @enderror
+                    <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" value="{{ $client->prenom }}" placeholder="Prenoms" >
+                    <div class="invalid-feedback">
+                        @if($errors->has('prenom'))
+                        {{ $errors->first('prenom') }}
+                        @endif
+                    </div
                 </div>
                 
                 <div class="form-group">
@@ -57,10 +61,12 @@
 
                 <div class="form-group">
                     <strong>Téléphone:</strong>
-                    <input type="text" name="telephone" value="{{ $client->telephone }}" class="form-control" placeholder="telephone" >
-                    @error('nom')
-                        <div style="color: red;">{{ $message }}</div>
-                    @enderror
+                    <input type="text" name="telephone" value="{{ $client->telephone }}" class="form-control @error('telephone') is-invalid @enderror" placeholder="telephone" >
+                    <div class="invalid-feedback">
+                        @if($errors->has('telephone'))
+                        {{ $errors->first('telephone') }}
+                        @endif
+                    </div>
                 </div>
                 <div class="form-group">
                     <strong>Email:</strong>
