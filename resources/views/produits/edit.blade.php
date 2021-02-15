@@ -17,16 +17,6 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         </div>
     </div>
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> Il y a eu des problèmes avec votre entrée.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 
     <form action="{{ route('produits.update', $produit->id) }}" method="POST">
         @csrf
