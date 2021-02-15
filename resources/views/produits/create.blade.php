@@ -28,7 +28,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     <select name="categorie" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
 						<option value=""></option>
 							@foreach ($listes as $liste)
-								<option value="{{$liste->categorie}}">{{$liste->categorie}}</option>
+								<option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
 							@endforeach
 					</select>
                     <div class="invalid-feedback">
@@ -68,7 +68,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Quantité :</strong>
-                    <input type="number" name="qte" class="form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite">
+                    <input type="number" name="qte" class="form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite" value="{{ old('qte') }}">
                     <div class="invalid-feedback">
                         @if($errors->has('qte'))
                         {{ $errors->first('qte') }}
