@@ -1,9 +1,5 @@
 @extends('layout.index')
-@php
-	use App\Models\listeproduit;
-    $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct()->get();
-							
-@endphp
+
 
 @section('content')
     <div class="row">
@@ -33,8 +29,8 @@
                     <strong>Categorie :</strong>
                     <select name="catProduit" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
 						<option value=""></option>
-							@foreach ($listes as $liste)
-								<option value="{{$liste->categorie}}">{{$liste->categorie}}</option>
+							@foreach ($produits as $produit)
+								<option value="{{$produit->categorie}}">{{$produit->categorie}}</option>
 							@endforeach
 					</select>		 
 
@@ -43,7 +39,7 @@
             <div class="col-xs-3 col-sm-3 col-md-3">
                 <div class="form-group">
                 <strong>Nom du produit :</strong>
-                <select name="nomProduit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
+                <select name="produit_id" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
                     
                 </select>	
                 </div>		
@@ -83,12 +79,13 @@
                 var produit='<option value="">Nos Produits dispo</option>'
             $.ajax({
                 type: "GET",
-                url: "/api/listesp/"+ $('select[name=catProduit]').val(),
+                url: "/api/produit/"+ $('select[name=catProduit]').val(),
                 dataType: 'json',
                 success: function(data) {
                     var produits= data;
+                    console.log(data);
                     produits.map(p=>{
-                    produit+='<option value="'+ p.produit+'">'+p.produit+'</option>'
+                    produit+='<option value="'+ p.id+'">'+p.produit+'</option>'
                     
                     })
                     $('#leproduit').html(produit)
@@ -98,25 +95,23 @@
             var tcom ="";
             $('#btn').click(function (e) {
                 e.preventDefault()
-                var cate=$('select[name=catProduit]');
-                var nomp=$('select[name=nomProduit]');
+                var produit=$('select[name=produit_id]');
+               // var nomp=$('select[name=nomProduit]');
                 var qte=$('input[name=qteProduit]');
                 
                 $.ajax({
                 type: "POST",
                 url: "/api/commandes",
                 dataType: 'json',
-                data:{"catProduit":cate.val(),"nomProduit":nomp.val(),"qteProduit":qte.val()},
+                data:{"produit_id":produit.val(),"qteProduit":qte.val()},
                 success: function(data) {
                     tcom+=`<tr>
                             <td>${data.id}</td>
-                            <td>${data.catProduit}</td>
-                            <td>${data.nomProduit}</td>
+                            <td>${data.produit_id}</td>
                             <td>${data.qteProduit}</td>
                           </tr>`;   
             $('#tableau').html(tcom);
-            $('select[name=catProduit]').val("");
-            $('select[name=nomProduit]').val("");
+            $('select[name=produit_id]').val("");
             $('input[name=qteProduit]').val("");
                 }
                     });            

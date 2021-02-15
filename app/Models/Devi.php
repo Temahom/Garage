@@ -13,4 +13,8 @@ class Devi extends Model
     {
         return $this->hasMany(Intervention::class);
     }
+    public function produits()
+    {
+     return $this->belongsToMany(Produit::class,'commandes', 'produit_id','devi_id');
+    }
 }

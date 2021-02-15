@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commande;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class CommandeController extends Controller
@@ -14,7 +15,8 @@ class CommandeController extends Controller
     public function index()
     {
         
-        $commandes= Commande::paginate(10);
+        $commandes= Commande::with('produits')->get();
+        //dd($commandes->produits;
         return view('commandes.index', compact('commandes'));
     }
 
@@ -25,7 +27,8 @@ class CommandeController extends Controller
      */
     public function create(Commande $commandes)
     {
-        return view('commandes.create', compact('commandes'));
+        $produits=Produit::all();
+        return view('commandes.create', compact('commandes', 'produits'));
     }
 
     /**
@@ -37,8 +40,7 @@ class CommandeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'catProduit' => 'required',
-            'nomProduit' => 'required',
+            'id_produit' => 'required',
             'qteProduit' => 'required',
         ]);
 

@@ -15,9 +15,9 @@ class CreateCommandesTable extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->string('catProduit');
-            $table->string('nomProduit');
-            $table->string('qteProduit');
+            $table->foreignId('devi_id'); 
+            $table->foreignId('produit_id'); 
+            $table->integer('qteProduit');
             $table->timestamps();
         });
     }
