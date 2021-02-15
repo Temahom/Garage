@@ -9,16 +9,6 @@
     </div>
 </div>
    
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Attention!</strong> Veuillez remplir les champs vides !!!<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
    
 <form action="{{ route('clients.store') }}" method="POST">
     @csrf
@@ -27,11 +17,17 @@
             <div class="form-group">
                 <strong>Nom :</strong>
                 <input type="text" name="nom" class="form-control" placeholder="Nom" autocomplete="off" value="{{ old('nom') }}">
+                @error('nom')
+                <div style="color: red;">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-group">
                 <strong>Prénoms:</strong>
                 <input type="text" name="prenom" class="form-control" placeholder="Prenoms" autocomplete="off" value="{{ old('prenom') }}">
+                @error('prenom')
+                <div style="color: red;">{{ $message }}</div>
+                @enderror
             </div>
             
             <div class="form-group">
@@ -52,6 +48,9 @@
             <div class="form-group">
                 <strong>Téléphone :</strong>
                 <input type="tel" name="telephone" class="form-control" placeholder="Exemple : 7XXXXXXXX" pattern="7[8,7,6,5,0][0-9]{3}[0-9]{2}[0-9]{2}" autocomplete="off"  value="{{ old('telephone') }}">
+                @error('nom')
+                <div style="color: red;">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group">
                 <strong>Email :</strong>
