@@ -107,7 +107,7 @@
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-2">
                                             <select name="code" id="codes" class="custom-select form-control">
-                                                <option value="">Code</option>
+                                                <option value="">Choisir code</option>
                                                 @foreach ($listedefauts as $listedefaut)
                                                     <option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>
                                                 @endforeach
