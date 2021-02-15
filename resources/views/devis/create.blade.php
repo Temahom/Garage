@@ -78,25 +78,132 @@
 	<div class="col-xs-8 col-sm-8 col-md-8">
 		<h2>Devis</h2>
 	</div>
-	<div class="col-xs-8 col-sm-8 col-md-8 row">
-		<div class="form-group col-xs-8 col-sm-8 col-md-8">
-            <form action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
-                @csrf
-                <div class="form-group">
-                    <label for="cout" class="col-form-label">Coût de Réparation</label>
-                    <input id="cout" type="number" name="cout" required class="form-control" placeholder="Coût de réparation">
-                </div>
-                <div class="form-group">
-                    <label for="expiration_expiration" class="col-form-label">Date Expiration</label>
-                    <input id="expiration" type="date" name="date_expiration" required class="form-control" placeholder="Date expiration...">
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-3 p-0">
-                    <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-                    <button type="submit" class="btn btn-success">Enregistrer</button>
-                </div>
-            </form>
+    <div class="col-xs-12 col-sm-12 col-md-12 row">
+          
+            <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                <form action="{{ route('commandes.store') }}" method="POST" >
+                    @csrf            
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3">
+                            <div class="form-group">
+                                <strong>Categorie :</strong>
+                                <select name="catProduit" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
+                                    <option value=""></option>
+                                        @foreach ($listes as $liste)
+                                            <option value="{{$liste->categorie}}">{{$liste->categorie}}</option>
+                                        @endforeach
+                                </select>		            
+                            </div>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3">
+                            <div class="form-group">
+                            <strong>Nom du produit :</strong>
+                            <select name="nomProduit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
+                                
+                            </select>	
+                            </div>		
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3">
+                            <div class="form-group">
+                                <strong>Quantité Voulue:</strong>
+                                <input type="number" name="qteProduit" class="custom-select form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 text-center">
+                            <div class="form-group">
+                                <strong>Panier</strong>
+                                <button type="submit"  id="btn"class="custom-select form-control btn btn-primary">Ajouter un produit</button>
+                            </div>
+                        </div>
+                    </div>       
+                </form>
+            </div>  
+            <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                
+                <table class="table table-bordered table-responsive-lg">
+                    <tr style="background-color: rgb(172, 187, 187)">
+                        <th>Catégorie du Produit</th>
+                        <th>Nom du Produit</th>
+                        <th>Quantité Voulue</th>
+                        <th>Prix à payer</th>
+                    </tr>
+                       <tbody id="tableau">  
+    
+                      </tbody>
+                </table>
+            </div>      
         </div>
     </div>
 </div>
+<div class="form-group col-xs-12 col-sm-12 col-md-12">
+    <div class="form-group col-xs-12 col-sm-12 col-md-12">
+        <form action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-6 col-md-6">
+                    <label for="cout" class="col-form-label">Coût de Réparation</label>
+                    <input id="cout" type="number" name="cout" required class="form-control" placeholder="Coût de réparation">
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-6">
+                    <label for="expiration_expiration" class="col-form-label">Date Expiration</label>
+                    <input id="expiration" type="date" name="date_expiration" required class="form-control" placeholder="Date expiration...">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
+                <button type="submit" class="btn btn-success">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script>   
+        $(document).ready(function() {
+            $('select[name=catProduit]').change(function () {
+                var produit='<option value="">Nos Produits dispo</option>'
+            $.ajax({
+                type: "GET",
+                url: "/api/listesp/"+ $('select[name=catProduit]').val(),
+                dataType: 'json',
+                success: function(data) {
+                    var produits= data;
+                    produits.map(p=>{
+                    produit+='<option value="'+ p.produit+'">'+p.produit+'</option>'
+                    
+                    })
+                    $('#leproduit').html(produit)
+                }
+                });
+            });
+            var tcom ="";
+            $('#btn').click(function (e) {
+                e.preventDefault()
+                var cate=$('select[name=catProduit]');
+                var nomp=$('select[name=nomProduit]');
+                var qte=$('input[name=qteProduit]');
+                
+                $.ajax({
+                type: "POST",
+                url: "/api/commandes",
+                dataType: 'json',
+                data:{"catProduit":cate.val(),"nomProduit":nomp.val(),"qteProduit":qte.val()},
+                success: function(data) {
+                    tcom+=`
+                        <tr>
+                            <td>${data.catProduit}</td>
+                            <td>${data.nomProduit}</td>
+                            <td>${data.qteProduit}</td>
+                            <td>${100*data.qteProduit}</td>
+                        </tr>`;   
+            $('#tableau').html(tcom);
+            $('select[name=catProduit]').val("");
+            $('select[name=nomProduit]').val("");
+            $('input[name=qteProduit]').val("");
+                }
+                    });            
+                });    
+        }); 
+   </script>
 
 @endsection
