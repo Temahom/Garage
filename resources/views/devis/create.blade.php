@@ -20,9 +20,7 @@
     @endif
     <div class="row ml-1">
         <div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-            <div class="pull-left" style="text-align: center">
-                <h2>Maintenance / Réparation  </h2>
-            </div>
+         
             <div class="row">
     
                 <div class="col-md-2 col-sm-3 text-center pt-4">
@@ -75,24 +73,30 @@
 
         </div>
     </div>
-</div> 
-
-<div class="card-body">
-    <form action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
-        @csrf
-        <div class="form-group">
-            <label for="cout" class="col-form-label">Coût de Réparation</label>
-            <input id="cout" type="number" name="cout" required class="form-control" placeholder="Coût de réparation">
+</div> <br>
+<div class="row">
+	<div class="col-xs-8 col-sm-8 col-md-8">
+		<h2>Devis</h2>
+	</div>
+	<div class="col-xs-8 col-sm-8 col-md-8 row">
+		<div class="form-group col-xs-8 col-sm-8 col-md-8">
+            <form action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="cout" class="col-form-label">Coût de Réparation</label>
+                    <input id="cout" type="number" name="cout" required class="form-control" placeholder="Coût de réparation">
+                </div>
+                <div class="form-group">
+                    <label for="expiration_expiration" class="col-form-label">Date Expiration</label>
+                    <input id="expiration" type="date" name="date_expiration" required class="form-control" placeholder="Date expiration...">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-3 p-0">
+                    <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
+                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="expiration_expiration" class="col-form-label">Date Expiration</label>
-            <input id="expiration" type="date" name="date_expiration" required class="form-control" placeholder="Date expiration...">
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-3 p-0">
-            <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-            <button type="submit" class="btn btn-success">Enregistrer</button>
-        </div>
-    </form>
+    </div>
 </div>
 
 @endsection

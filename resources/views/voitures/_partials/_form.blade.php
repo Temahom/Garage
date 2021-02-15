@@ -122,7 +122,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       
       <div class="form-group">
         <strong>Kilométrage</strong>
-        <input tname="kilometrage" id="lekilometrage" class="custom-select form-control @error('transmission') is-invalid @enderror" autocomplete="off" placeholder="Kilometrage">
+        <input type="number" name="kilometrage" id="lekilometrage" class="custom-select form-control @error('transmission') is-invalid @enderror" autocomplete="off" placeholder="Kilometrage">
         <div class="invalid-feedback">
           @if($errors->has('kilometrage'))
           {{ $errors->first('kilometrage') }}

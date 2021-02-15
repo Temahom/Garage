@@ -4,9 +4,7 @@
 
 <div class="row ml-1">
 	<div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-		<div class="pull-left" style="text-align: center">
-			<h2> Modification Devis </h2>
-		</div>
+		
 		<div class="row">
 
 			<div class="col-md-2 col-sm-3 text-center pt-4">
@@ -59,26 +57,34 @@
 
 		</div>
 	</div>
-</div>
+</div><br>
 
-<div class="card-body">
-    <form action="{{ route('voitures.interventions.devis.update',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'devi' => $devi->id]) }}" method="POST">
-        @csrf
-        @method('PUT')
-        <div class="form-group">
-            <label for="cout" class="col-form-label">Coût de Réparation</label>
-            <input id="cout" type="number" name="cout" value="{{$devi->cout}}" required class="form-control" placeholder="Coût de réparation">
-        </div>
-		<div class="form-group">
-            <label for="date_expiration" class="col-form-label">Date Expiration</label>
-            <input id="date_expiration" type="date" name="date_expiration" value="{{$devi->date_expiration}}" required class="form-control" placeholder="date expiration">
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-                <button type="submit" class="btn btn-success">Enregistrer</button>
-            </div>
-        </div>
-    </form>
+<div class="row">
+
+	<div class="col-xs-8 col-sm-8 col-md-8">
+		<h2>Devis (Modification)</h2>
+	</div>
+	<div class="col-xs-8 col-sm-8 col-md-8 row">
+		<div class="form-group col-xs-8 col-sm-8 col-md-8">
+			<form action="{{ route('voitures.interventions.devis.update',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'devi' => $devi->id]) }}" method="POST">
+				@csrf
+				@method('PUT')
+				<div class="form-group">
+					<label for="cout" class="col-form-label">Coût de Réparation</label>
+					<input id="cout" type="number" name="cout" value="{{$devi->cout}}" required class="form-control" placeholder="Coût de réparation">
+				</div>
+				<div class="form-group">
+					<label for="date_expiration" class="col-form-label">Date Expiration</label>
+					<input id="date_expiration" type="date" name="date_expiration" value="{{$devi->date_expiration}}" required class="form-control" placeholder="date expiration">
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
+						<button type="submit" class="btn btn-success">Enregistrer</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 @endsection

@@ -4,9 +4,7 @@
 
 <div class="row ml-1">
 	<div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-		<div class="pull-left" style="text-align: center">
-			<h2>Maintenance / Réparation </h2>
-		</div>
+		
 		<div class="row">
 
 			<div class="col-md-2 col-sm-3 text-center pt-4">
@@ -74,29 +72,28 @@
     </div>
 @endif
 <div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Ajout</h2>
-        </div>
-    </div>
+	<div class="col-xs-8 col-sm-8 col-md-8">
+		<h2>Maintenance / Réparation</h2>
+	</div>
+	<div class="col-xs-8 col-sm-8 col-md-8 row">
+		<div class="form-group col-xs-8 col-sm-8 col-md-8">
+			<form action="{{ route('voitures.interventions.reparations.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST" >
+				@csrf
+				<input type="hidden" name="intervention_id" value="{{ $intervention->id }}">
+				<div class="row">					
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="form-group">
+							<strong>Compte Rendu:</strong>
+							<textarea type="LongText" name="element_3" class="form-control" placeholder="" autofocus></textarea>
+						</div>
+					</div>					
+					<div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+						<a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
+						<button type="submit" class="btn btn-success">Enregistrer</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
-<form action="{{ route('voitures.interventions.reparations.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST" >
-    @csrf
-    <input type="hidden" name="intervention_id" value="{{ $intervention->id }}">
-    <div class="row">
-        
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Compte Rendu:</strong>
-                <textarea type="LongText" name="element_3" class="form-control" placeholder="" autofocus></textarea>
-            </div>
-        </div>
-        
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
-            <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-            <button type="submit" class="btn btn-success">Enregistrer</button>
-        </div>
-    </div>
-
-</form>
 @endsection
