@@ -19,7 +19,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
             <option value="{{$client->id}}">{{$client->prenom.' '.$client->nom}}</option>
           @else   
           @foreach( $clients as $client ) 
-            <option value="{{$client->id}}" {{$voiture->client_id == $client->id ? 'selected':'' }}>{{$client->prenom.' '.$client->nom}}</option>
+            <option value="{{$client->id}}" {{ old('client_id') == ($client->id) ? 'selected' : '' }} {{$voiture->client_id == $client->id ? 'selected':'' }}>{{$client->prenom.' '.$client->nom}}</option>
           @endforeach 
             @endif
         </select>
@@ -48,7 +48,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
         <select name="marque" id="marques" class="custom-select form-control @error('marque') is-invalid @enderror">
           <option value="">Marque</option>
           @foreach ($listes as $liste)
-            <option value="{{$liste->marques}}">{{$liste->marques}}</option>
+            <option value="{{$liste->marques}}" {{ old('marque') == ($liste->marques) ? 'selected' : '' }}>{{$liste->marques}}</option>
           @endforeach       
         </select>	
           <div class="invalid-feedback">
@@ -72,9 +72,9 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
         <strong>Transmission</strong>
         <select name="transmission" id="latransmission" class="custom-select form-control @error('transmission') is-invalid @enderror">
           <option value="">Transmission</option>
-          <option value="Manuel">Manuel</option>
-          <option value="Automatique">Automatique</option>
-          <option value="semi-automatique">Semi-Automatique</option>
+          <option value="Manuel" {{ old('transmission') == 'Manuel' ? 'selected' : '' }}>Manuel</option>
+          <option value="Automatique" {{ old('transmission') == 'Automatique' ? 'selected' : '' }}>Automatique</option>
+          <option value="semi-automatique" {{ old('transmission') == 'semi-automatique' ? 'selected' : '' }}>Semi-Automatique</option>
         </select>
         <div class="invalid-feedback">
           @if($errors->has('transmission'))
@@ -99,8 +99,8 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
         <strong>Carburant</strong>
         <select name="carburant" id="lecarburant" class="custom-select form-control @error('carburant') is-invalid @enderror">
           <option value="">Carburant</option>
-          <option value="Essence">Essence</option>
-          <option value="Gazoil">Gazoil</option>
+          <option value="Essence" {{ old('carburant') == 'Essence' ? 'selected' : '' }}>Essence</option>
+          <option value="Gazoil" {{ old('carburant') == 'Gazoil' ? 'selected' : '' }}>Gazoil</option>
         </select>	
         <div class="invalid-feedback">
           @if($errors->has('carburant'))

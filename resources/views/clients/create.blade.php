@@ -34,8 +34,8 @@
                     <strong>Sexe :</strong>
                     <select class="form-control" name="genre" id="genre" autocomplete="off">
                       <option value="" disabled selected hidden>Choisissez le sexe...</option>
-                      <option value="homme"  {{ old('genre') == 'homme' ? 'selected' : '' }}>Homme</option>
-                      <option value="femme"  {{ old('genre') == 'femme' ? 'selected' : '' }}>Femme</option>
+                      <option value="homme" {{ old('genre') == 'homme' ? 'selected' : '' }}>Homme</option>
+                      <option value="femme" {{ old('genre') == 'femme' ? 'selected' : '' }}>Femme</option>
                     </select>
             </div>
         </div>
