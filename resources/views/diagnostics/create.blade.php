@@ -75,7 +75,12 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat</strong>
-                                <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"></textarea>
+                                <textarea class="form-control @error('constat') is-invalid @enderror" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"></textarea>
+                                <div class="invalid-feedback">
+                                    @if($errors->has('constat'))
+                                    {{ $errors->first('constat') }}
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -109,7 +114,7 @@
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-2">
-                                            <select name="code" id="codes" class="custom-select form-control">
+                                            <select name="plusdechamps[0][code]" id="codes" class="custom-select form-control">
                                                 <option value="">Choisir code</option>
                                                 @foreach ($listedefauts as $listedefaut)
                                                     <option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>

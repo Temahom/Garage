@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Erreurdiag extends Model
+class Defaut extends Model
 {
-    protected $table = 'defauts';
     use HasFactory;
-    protected $guard = [];
+    protected $guarded=[];
 }
