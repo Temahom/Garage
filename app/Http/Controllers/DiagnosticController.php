@@ -77,9 +77,11 @@ class DiagnosticController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic)
+    public function edit(Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic, Defaut $defaut, Listedefaut $listedefaut)
     {
-        return view('diagnostics.edit', compact('voiture', 'intervention', 'diagnostic'));
+        $defauts = Defaut::all();
+        $listedefauts = Defaut::all();
+        return view('diagnostics.edit', compact('voiture', 'intervention', 'diagnostic','defauts','listedefauts'));
     }
     /**
      * Update the specified resource in storage.
