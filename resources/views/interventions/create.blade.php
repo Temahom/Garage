@@ -67,7 +67,7 @@
                 <div class="form-group col-xs-8 col-sm-8 col-md-8">
                     <strong>Type intervention:</strong>
                     <select name="type" class="form-control @error('type') is-invalid @enderror">
-						<option value="">Saisir type intervention...</option>
+						<option value="">Choisir le type intervention...</option>
                         <option value="Entretien" {{ old('type') == 'Entretien' ? 'selected' : '' }}>Entretien</option>
                         <option value="Reparation" {{ old('type') == 'Reparation' ? 'selected' : '' }}>Réparation</option>
                     </select>
