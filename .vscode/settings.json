@@ -1,5 +1,7 @@
 {
     "terminal.integrated.commandsToSkipShell": [
+
         "cmder"
     ]
+    
 }
