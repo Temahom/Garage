@@ -65,7 +65,7 @@
     </div>  
 
 
-    <form action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
+    <form action="{{ route('voitures.interventions.diagnostics.update',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'diagnostic' => $diagnostic->id]) }}" method="POST">
         {{ csrf_field() }}
                     
 
@@ -75,7 +75,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat</strong>
-                                <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"></textarea>
+                                <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"  value="{{ old('constat') }}">{{$diagnostic->constat}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -109,30 +109,30 @@
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-2">
-                                            <select name="code" id="codes" class="custom-select form-control">
-                                                <option value="">Choisir code</option>
-                                                @foreach ($listedefauts as $listedefaut)
-                                                    <option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>
+                                            <select name="plusdechamps[0][code]" id="codes" class="custom-select form-control">
+                                                <option value="{{ $diagnostic->code }}">{{ $diagnostic->code }}</option>
+                                                @foreach ($defauts as $defaut)
+                                                    <option value="{{$defaut->code}}" {{ old('code') == ($defaut->code) ? 'selected' : '' }}>{{$defaut->code}}</option>
                                                 @endforeach
                                             </select>
                                         </div> 
                                         <div class="divLocalisation col-xs-12 col-sm-12 col-md-10">
-                                            <input type="text" class="form-control localisation" name="plusdechamps[0][localisation]" placeholder="Localisation">
+                                            <input value="{{ $diagnostic->localisation }} {{ old('localisation') }}" type="text" class="form-control localisation" name="plusdechamps[0][localisation]" placeholder="Localisation">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="divDescripyion form-group col-xs-12 col-sm-12 col-md-12">
-                                    <textarea class="form-control description" name="plusdechamps[0][description]" placeholder="Description"></textarea>
+                                    <textarea class="form-control description" name="plusdechamps[0][description]" placeholder="Description" value="{{ old('description') }}">{{ $diagnostic->description }}</textarea>
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12">  
                                     <label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="0" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="{{$diagnostic->etat}} {{ old('description') }}" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
                                     </label>
                                     <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="{{$diagnostic->etat}} {{ old('description') }}" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
                                     </label>
                                     <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="{{$diagnostic->etat}} {{ old('description') }}" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
                                     </label>
                                 </div> 
                             </div>
@@ -175,7 +175,7 @@ divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid 
                 '<select name="plusdechamps['+i+'][code]" id="marques" class="custom-select form-control">'+
                 '<option value="code">Code</option>'+
                 '@foreach ($listedefauts as $listedefaut)'+
-                    '<option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>'+
+                    '<option value="{{$listedefaut->code}}" {{ old('code') == ($defaut->code) ? 'selected' : '' }}>{{$listedefaut->code}}</option>'+
                 '@endforeach'+
                 '</select>'+
             '</div>'+
