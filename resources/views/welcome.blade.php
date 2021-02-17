@@ -135,11 +135,7 @@ use Carbon\Carbon;
         </div>
     </div>
 </div>
-<div class="row">
-    <span class="history" style="width: 15%">
-        <h4>Historiques</h4>
-    </span>
-</div>
+
 <div class="row">
 <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-6 mt-5">
     <div class="card">

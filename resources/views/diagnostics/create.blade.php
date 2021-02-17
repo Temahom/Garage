@@ -75,12 +75,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat</strong>
-                                <textarea class="form-control @error('constat') is-invalid @enderror" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"></textarea>
-                                <div class="invalid-feedback">
-                                    @if($errors->has('constat'))
-                                    {{ $errors->first('constat') }}
-                                    @endif
-                                </div>
+                                <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"></textarea>
                             </div>
                         </div>
                     </div>
@@ -120,9 +115,10 @@
                                                     <option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>
                                                 @endforeach
                                             </select>
+                                            
                                         </div> 
                                         <div class="divLocalisation col-xs-12 col-sm-12 col-md-10">
-                                            <input type="text" class="form-control localisation" name="plusdechamps[0][localisation]" placeholder="Localisation">
+                                            <input type="text" class="form-control localisation" placeholder="Localisation">
                                         </div>
                                     </div>
                                 </div>
@@ -131,13 +127,13 @@
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12">  
                                     <label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="0" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
                                     </label>
                                     <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
                                     </label>
                                     <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="3" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
                                     </label>
                                 </div> 
                             </div>
@@ -166,10 +162,11 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
 <script  type="text/javascript">
-    var i = 0;
-
+var i = 1;
 var divDefaut;
-divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid #D2D2E4">'+
+
+function getDiv(i) {
+    divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid #D2D2E4">'+
     '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
         '<span class="numero"></span>'+
         '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>'+
@@ -194,22 +191,25 @@ divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid 
     '</div>'+
     '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
         '<label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">'+
-            '<input type="radio" name="plusdechamps['+i+'][etat]" value="0" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>'+
+            '<input type="radio" name="plusdechamps['+i+'][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>'+
         '</label>'+
         '<label class="custom-control custom-radio custom-control-inline">'+
-            '<input type="radio" name="plusdechamps['+i+'][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>'+
+            '<input type="radio" name="plusdechamps['+i+'][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>'+
         '</label>'+
         '<label class="custom-control custom-radio custom-control-inline">'+
-            '<input type="radio" name="plusdechamps['+i+'][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>'+
+            '<input type="radio" name="plusdechamps['+i+'][etat]" value="3" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>'+
         '</label>'+
     '</div>'+
     '</div>';
+    return divDefaut;
+}
 
 
     $("#add-btn").click(function(){
-        ++i;
-        $("#dynamicAddRemove").append(divDefaut);
+        div = getDiv(i);
+        $("#dynamicAddRemove").append(div);
         numeroter();
+        i++;
     });
 
     $(document).on('click', '#remove-button', function(){  
