@@ -70,8 +70,8 @@
                     
 
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-10" >
-                    <div class="row p-3" style="border: 1px solid #D2D2E4">
+                <div class="col-xs-12 col-sm-12 col-md-11" >
+                    <div class="row p-3" style="border: 1px solid #D2D2E4; box-shadow: 0px 0px 3px #999; background-color: #fefefe;">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat</strong>
@@ -87,6 +87,12 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12" id="dynamicAddRemove">
                            <style>
+                               #newdefaut
+                               {
+                                    border: 1px solid #D2D2E4;
+                                    box-shadow: 0px 0px 3px #999;
+                                    background-color: #fefefe;
+                               }
                                #remove-button{
                                    color: #888;
                                }
@@ -101,7 +107,7 @@
                            </style>
 
                             <!-- INSPECTION -->
-                            <div class="row p-3 mb-2" style="border: 1px solid #D2D2E4" id="newdefaut">
+                            <div class="row p-3 mb-2" id="newdefaut">
                                 <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">
                                     <span class="numero">#1</span>
                                     <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
@@ -141,7 +147,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 p-4" style="border: 1px solid #D2D2E4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 p-4" style="border: 1px solid #D2D2E4; box-shadow: 0px 0px 3px #999; background-color: #fefefe;">
                             <button type="button" name="add" id="add-btn" class="btn btn-light" style="border-radius:15px">Ajouter une nouvelle inspection</button>
                         </div>
                     </div>
@@ -228,9 +234,8 @@ divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid 
             url: '/api/erreurByCode/' + code,
             dataType: 'json',
             success: function(data) {
-                parent.children('.divDescripyion').children('textarea').val(data[0].description);
                 parent.children('div').children('div').children('.divLocalisation').children('input').val(data[0].localisation);
-            }
+                parent.children('.divDescripyion').children('textarea').val(data[0].description);}
         });
     });
 </script>
