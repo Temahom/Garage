@@ -15,6 +15,6 @@ class Devi extends Model
     }
     public function produits()
     {
-     return $this->belongsToMany(Produit::class,'commandes', 'produit_id','devi_id');
+     return $this->belongsToMany(Produit::class,'devi_produit','devi_id', 'produit_id');
     }
 }

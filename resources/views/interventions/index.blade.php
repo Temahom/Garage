@@ -121,19 +121,22 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 row"><br>
           
                           <table class="table table-striped table-hover col-md-12">
+                            <thead class="" style="background-color: #0E0C28;"> 
                           <tr>
                               <th style="color: white;">#</th>
                               <th style="color: white;">Constat</th>
                               <th style="color: white;">Date Edition</th>
-                              <th style="color: white;">Voiture</th>
+                              <th style="color: white;">Voiture </th>
+                              <th style="color: white;">Proprietaire </th>
                           </tr>
                               </thead>
-                          @foreach ($interventions as $intervention)
+                          @foreach ($diagnostics as $key=>$diagnostic)
                           <tr>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                              <td onclick="showVoiture({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
+                              <td onclick="showVoiture({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->diagnostic()->first()->constat}}</td>
+                              <td onclick="showVoiture({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($diagnostic->diagnostic()->first()->created_at, 'd m Y | H:i:s')}}</td>
+                              <td onclick="showVoiture({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->voiture()->first()->marque.' '.$diagnostic->voiture()->first()->model}}</td>
+                              <td onclick="showVoiture({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->voiture()->first()->client()->first()->prenom.' '.$diagnostic->voiture()->first()->client()->first()->nom}}</td>
                           </tr>
                           @endforeach
                             <div class="col-md-12 mt-3 d-flex justify-content-center">
@@ -169,12 +172,12 @@
                               </thead>
                           @foreach ($devis as $key=>$devi)
                           <tr>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
-                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;">
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">
                               <form action="/devis-etat" method="POST">
                                 @csrf
                                 @method('Patch')

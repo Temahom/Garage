@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Voiture;
 use App\Models\Listedefaut;
 use App\Models\Intervention;
+use App\Models\Defaut;
 
 class DiagnosticController extends Controller
 {
@@ -40,14 +41,24 @@ class DiagnosticController extends Controller
      */
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
+       
+
         $request->validate([
             'constat' => 'required',
         ]);
-        $diagnostic = new Diagnostic();
-        $diagnostic->constat = $request->input('constat');
-        $diagnostic->save();
+
+         $diagnostic = new Diagnostic();
+         $diagnostic->constat = $request->input('constat');
+         $diagnostic->save();
+        
+        foreach ($request->plusdechamps as $key => $value) {
+            Defaut::create($value);
+        }
+
         $intervention->diagnostic_id = $diagnostic->id;
         $intervention->update();
+
+        
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] );
     }
     /**
@@ -66,9 +77,11 @@ class DiagnosticController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic)
+    public function edit(Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic, Defaut $defaut, Listedefaut $listedefaut)
     {
-        return view('diagnostics.edit', compact('voiture', 'intervention', 'diagnostic'));
+        $defauts = Defaut::all();
+        $listedefauts = Defaut::all();
+        return view('diagnostics.edit', compact('voiture', 'intervention', 'diagnostic','defauts','listedefauts'));
     }
     /**
      * Update the specified resource in storage.
