@@ -1,5 +1,7 @@
 @extends('layout.index')
-
+@php
+    $devis=App\Models\Devi::all();
+@endphp
 
 @section('content')
     <div class="row">
@@ -50,6 +52,12 @@
                     <input type="number" name="qteProduit" class="custom-select form-control">
                 </div>
             </div>
+            <select name="devis_id" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
+                <option value=""></option>
+                    @foreach ($devis as $devi)
+                        <option value="{{$devi->id}}">{{$devi->id}}</option>
+                    @endforeach
+            </select>	
             <div class="col-xs-3 col-sm-3 col-md-3 text-center">
                 <div class="form-group">
                     <strong>Panier</strong>
@@ -62,10 +70,11 @@
 
     <table class="table table-bordered table-responsive-lg">
         <tr>
-            <th>Code</th>
-            <th>Catégorie du Produit</th>
-            <th>Nom du Produit</th>
-            <th>Quantité Voulue</th>
+            <th>Catégorie</th>
+            <th>Libellé</th>
+            <th>Prix Unitaire</th>
+            <th>Quantité</th>
+            <th>Prix total</th>
         </tr>
         <tbody id="tableau">
             
@@ -83,7 +92,6 @@
                 dataType: 'json',
                 success: function(data) {
                     var produits= data;
-                    console.log(data);
                     produits.map(p=>{
                     produit+='<option value="'+ p.id+'">'+p.produit+'</option>'
                     
@@ -96,18 +104,21 @@
             $('#btn').click(function (e) {
                 e.preventDefault()
                 var produit=$('select[name=produit_id]');
-               // var nomp=$('select[name=nomProduit]');
+               var devis=$('select[name=devis_id]');
                 var qte=$('input[name=qteProduit]');
                 
                 $.ajax({
                 type: "POST",
-                url: "/api/commandes",
+                url: "/api/commandes/",
                 dataType: 'json',
-                data:{"produit_id":produit.val(),"qteProduit":qte.val()},
+                data:{"produit_id":produit.val(),"qteProduit":qte.val(),"devi_id":devis.val()},
                 success: function(data) {
+                    console.log(data);
                     tcom+=`<tr>
                             <td>${data.id}</td>
                             <td>${data.produit_id}</td>
+                            <td>${data.devi_id}</td>
+                            <td>${data.qteProduit}</td>
                             <td>${data.qteProduit}</td>
                           </tr>`;   
             $('#tableau').html(tcom);
