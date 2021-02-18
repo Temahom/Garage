@@ -41,20 +41,16 @@ class DiagnosticController extends Controller
      */
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
-       
-
-        $request->validate([
-            'constat' => 'required',
-        ]);
-
-         $diagnostic = new Diagnostic();
-         $diagnostic->constat = $request->input('constat');
-         $diagnostic->save();
+        $diagnostic = new Diagnostic();
+                 
         
         foreach ($request->plusdechamps as $key => $value) {
+            $value['intervention_id'] = $intervention->id;
             Defaut::create($value);
         }
 
+        $diagnostic->constat = $request->input('constat');
+        $diagnostic->save();
         $intervention->diagnostic_id = $diagnostic->id;
         $intervention->update();
 
@@ -80,7 +76,7 @@ class DiagnosticController extends Controller
     public function edit(Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic, Defaut $defaut, Listedefaut $listedefaut)
     {
         $defauts = Defaut::all();
-        $listedefauts = Defaut::all();
+        $listedefauts = Listedefaut::all();
         return view('diagnostics.edit', compact('voiture', 'intervention', 'diagnostic','defauts','listedefauts'));
     }
     /**

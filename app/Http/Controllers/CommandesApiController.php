@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Commande;
+use App\Models\Produit;
+
 
 class CommandesApiController extends Controller
 {
@@ -14,6 +16,9 @@ class CommandesApiController extends Controller
      */
     public function index()
     {
+        // $produits=Produit::find(1);
+        // dd($produits->devis);
+        // return $produits->pivot;
         return  Commande::all();
     }
 
@@ -35,7 +40,10 @@ class CommandesApiController extends Controller
      */
     public function store(Request $request)
     {
-       return Commande::create($request->all());
+        $produits=Produit::find($request->produit_id);
+      
+       $data= ['produits'=>$produits,'commande'=>$request->all()];
+       return $data;
     }
 
     /**

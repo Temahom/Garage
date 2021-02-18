@@ -31,7 +31,7 @@
             <tr>
                 <td>{{ $commande->id }}</td>
                 <td>{{ $commande->catProduit }}</td>
-                <td>{{ $commande->nomProduit}}</td>
+                <td>{{ $commande->produit}}</td>
                 <td>{{ $commande->qteProduit }}</td>
                 <td>
                     <form action="{{ route('commandes.destroy', $commande->id) }}" method="POST">
@@ -49,6 +49,5 @@
         @endforeach
     </table>
 
-    {!! $commandes->links() !!}
 
 @endsection
