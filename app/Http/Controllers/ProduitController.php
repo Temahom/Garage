@@ -57,7 +57,17 @@ class ProduitController extends Controller
         
         return view('produits.create');
     }
-
+     
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function creer()
+    {
+        
+        return view('produits.creer');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -136,5 +146,18 @@ class ProduitController extends Controller
         return redirect()->route('produits.index')
             ->with('success', 'Produit supprimé avec succès');
     }
+    
+    //////////////
+   
+    
+  /*  public function commanderproduit()
+    {
+        $produits = Produit::latest()->paginate(15); 
+        return view('produits.commanderproduit', compact('produit'));
+            ->with('i', (request()->input('page', 1) - 1) * 15);
+  
+    } */
+
 }
+
 
