@@ -8,10 +8,19 @@ setlocale(LC_TIME, "fr_FR", "French");
             <div class="pull-left">
                 <h2> Les Produits </h2>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 row">
+                <div class="form-group col-xs-6 col-sm-6 col-md-6">
+
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('produits.create') }}" title="Crear un produit"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-success" href="{{ route('produits.create') }}" title="Creer un produit"> <i class="fas fa-plus-circle"></i>
                   Ajouter Un Produit </a>
-            </div>
+            </div> <br>
+      
+            <div class="pull-left">
+                <a class="btn btn-outline-success"  href="/produits.creer" title="Creer un produit non existant "> <i class="fas fa-plus-circle"></i>
+                  Créer nouveau Produit </a>
+            </div>     
+        </div></div>
      
     <div class="d-flex" style="width: 100%">
         <div class="mx-auto">
@@ -60,7 +69,7 @@ setlocale(LC_TIME, "fr_FR", "French");
         <tr>
             <td>{{ ++$i }}</td>
             <td onclick="showProduit({{ $produit->id }})">{{ $produit->categorie }}</td>
-            <td>{{ $produit->produit }}</td>
+            <td onclick="commanderProduit({{ $produit->id }})">{{ $produit->produit }}</td>
             <td>{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
             <td>{{ $produit->qte }}</td>
         <!--<td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
@@ -140,6 +149,51 @@ setlocale(LC_TIME, "fr_FR", "French");
 </div>
 
 
+<div> <br></div>
+
+
+<div class="row">
+       
+    @foreach ($produits as $produit) 
+     <div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">    
+      @if(isset($produit->image))
+        <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$produit->categorie)}}" alt="Card image cap">
+      @else
+        <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $produit->produit}}" alt="Card image cap">
+      @endif
+        <div class="card-body" style="justify-content: center; text-align: center;">
+          <h5 class="card-title">{{ $produit->categorie}}</h5>
+          <p class="card-text"><a style="text-decoration: none; color: #fc0505;">{{ $produit->produit}} </a><br> <span class="{{$produit->prix1 }}">Prix Unitaire: {{$produit->prix1 }}<br> Stock : {{ $produit->qte}}</span> </p>
+          <td>
+          <button type="button" class="btn btn-succes p-2 pr-2 pl-3" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
+            <i class="fas fa-eye text-success  fa-lg"></i>
+        </button>
+            <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body ">
+                                <div style="font-size: 20px; ">Produit : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #2EC551">{{ $produit->produit}} </a></div>
+                                <div style="font-size: 14px; ">Catégorie  : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #750439">{{ $produit->categorie}} </a></div>
+                                <div style="font-size: 14px;" >Prix Unitaire  : <a href="" class="badge badge-success"> {{ $produit->prix1}} <sup>F CFA</sup> </a> </div>
+                                <div style="font-size: 14px;">Quantité Produit  : <a href="" style="color: #17028a">{{ $produit->qte}} </a> </div>                    
+                            </div>
+                            <div class="modal-footer">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+             </td>
+        </div>
+    </div>
+                  
+    @endforeach  
+</div>
+
 
 {!! $produits->links() !!}
 
@@ -179,6 +233,12 @@ setlocale(LC_TIME, "fr_FR", "French");
     }
 </script>
 
+<script>
+    function commanderProduit(id)
+    {
+        window.location = 'produits/' + id ;
+    }
+</script>
 
 
 @endsection
