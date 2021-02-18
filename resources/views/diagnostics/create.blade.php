@@ -65,7 +65,7 @@
     </div>  
 
 
-    <form action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
+    <form id="formDiag" action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
         {{ csrf_field() }}
                     
 
@@ -75,7 +75,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat:</strong>
-                                <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"></textarea>
+                                <textarea id="constat" class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"></textarea>
                             </div>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
             <div class="row">
                 <div class="col-md-12 pl-0 py-4">
                     <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                    <a class="btn btn-success" style="color: white" onclick="envoyerFormDiag()">Enregistrer</a>
                 </div>
             </div>
         
@@ -168,47 +168,47 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
 <script  type="text/javascript">
-var i = 1;
-var divDefaut;
+    var i = 1;
+    var divDefaut;
 
-function getDiv(i) {
-    divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid #D2D2E4">'+
-    '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
-        '<span class="numero"></span>'+
-        '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>'+
-    '</div>'+
-    '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
-        '<div class="row">'+
-            '<div class="col-xs-12 col-sm-12 col-md-2">'+
-                '<select name="plusdechamps['+i+'][code]" id="marques" class="custom-select form-control">'+
-                '<option value="code">Code</option>'+
-                '@foreach ($listedefauts as $listedefaut)'+
-                    '<option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>'+
-                '@endforeach'+
-                '</select>'+
-            '</div>'+
-            '<div class="divLocalisation col-xs-12 col-sm-12 col-md-10">'+
-                '<input type="text" class="form-control" name="plusdechamps['+i+'][localisation]" placeholder="Localisation">'+
+    function getDiv(i) {
+        divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid #D2D2E4">'+
+        '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
+            '<span class="numero"></span>'+
+            '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>'+
+        '</div>'+
+        '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
+            '<div class="row">'+
+                '<div class="col-xs-12 col-sm-12 col-md-2">'+
+                    '<select name="plusdechamps['+i+'][code]" id="marques" class="custom-select form-control">'+
+                    '<option value="code">Code</option>'+
+                    '@foreach ($listedefauts as $listedefaut)'+
+                        '<option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>'+
+                    '@endforeach'+
+                    '</select>'+
+                '</div>'+
+                '<div class="divLocalisation col-xs-12 col-sm-12 col-md-10">'+
+                    '<input type="text" class="form-control" name="plusdechamps['+i+'][localisation]" placeholder="Localisation">'+
+                '</div>'+
             '</div>'+
         '</div>'+
-    '</div>'+
-    '<div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">'+
-        '<textarea class="form-control"name="plusdechamps['+i+'][description]" placeholder="Description"></textarea>'+
-    '</div>'+
-    '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
-        '<label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">'+
-            '<input type="radio" name="plusdechamps['+i+'][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>'+
-        '</label>'+
-        '<label class="custom-control custom-radio custom-control-inline">'+
-            '<input type="radio" name="plusdechamps['+i+'][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>'+
-        '</label>'+
-        '<label class="custom-control custom-radio custom-control-inline">'+
-            '<input type="radio" name="plusdechamps['+i+'][etat]" value="3" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>'+
-        '</label>'+
-    '</div>'+
-    '</div>';
-    return divDefaut;
-}
+        '<div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">'+
+            '<textarea class="form-control"name="plusdechamps['+i+'][description]" placeholder="Description"></textarea>'+
+        '</div>'+
+        '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
+            '<label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">'+
+                '<input type="radio" name="plusdechamps['+i+'][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>'+
+            '</label>'+
+            '<label class="custom-control custom-radio custom-control-inline">'+
+                '<input type="radio" name="plusdechamps['+i+'][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>'+
+            '</label>'+
+            '<label class="custom-control custom-radio custom-control-inline">'+
+                '<input type="radio" name="plusdechamps['+i+'][etat]" value="3" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>'+
+            '</label>'+
+        '</div>'+
+        '</div>';
+        return divDefaut;
+    }
 
 
     $("#add-btn").click(function(){
@@ -239,13 +239,22 @@ function getDiv(i) {
             url: '/api/erreurByCode/' + code,
             dataType: 'json',
             success: function(data) {
-<<<<<<< HEAD
-=======
                 parent.children('.divDescription').children('textarea').val(data[0].description);
->>>>>>> e086e657b4a514ea8f1489a5a459953622f9605d
                 parent.children('div').children('div').children('.divLocalisation').children('input').val(data[0].localisation);
-                parent.children('.divDescripyion').children('textarea').val(data[0].description);}
+            }
         });
     });
+
+    /*CONTROL DIAGNOSTQUE*/
+    function envoyerFormDiag()
+    {
+        constat = $('#constat').val().trim();
+        $('#constat').removeClass( "is-invalid" );
+        if(constat == '')
+        {
+            $('#constat').addClass( "is-invalid" );
+        }
+        $('#formDiag').submit();
+    }
 </script>
 @endsection
