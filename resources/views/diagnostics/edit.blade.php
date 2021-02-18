@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="divDescripyion form-group col-xs-12 col-sm-12 col-md-12">
+                                <div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">
                                     <textarea class="form-control description" name="plusdechamps[0][description]" placeholder="Description" value="{{ old('description') }}">{{ $diagnostic->description }}</textarea>
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12">  
@@ -183,7 +183,7 @@ divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid 
             '</div>'+
         '</div>'+
     '</div>'+
-    '<div class="divDescripyion form-group col-xs-12 col-sm-12 col-md-12">'+
+    '<div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">'+
         '<textarea class="form-control"name="plusdechamps['+i+'][description]" placeholder="Description"></textarea>'+
     '</div>'+
     '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
@@ -227,7 +227,7 @@ divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid 
             url: '/api/erreurByCode/' + code,
             dataType: 'json',
             success: function(data) {
-                parent.children('.divDescripyion').children('textarea').val(data[0].description);
+                parent.children('.divDescription').children('textarea').val(data[0].description);
                 parent.children('div').children('div').children('.divLocalisation').children('input').val(data[0].localisation);
             }
         });
