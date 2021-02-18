@@ -306,7 +306,7 @@
     method:'get',
     url:'/api/devis-list',
     success:function(data){
-    
+    console.log('ici');
     }
   })
   }, 3000);  
