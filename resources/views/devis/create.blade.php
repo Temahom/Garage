@@ -25,13 +25,13 @@
     <div class="row ml-1">
         <div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
          
-            <div class="row">
+        <div class="row">
     
                 <div class="col-md-2 col-sm-3 text-center pt-4">
                     <img style="height: 50px;width: auto;" class="" src="/assets/images/car.png" alt="logo">
                 </div>
     
-                <div class="col-md-10 col-sm-10">
+            <div class="col-md-10 col-sm-10">
     
                     <div style="font-size: 20px">
                         <a href="{{route('voitures.show',['voiture'=>$voiture->id])}}" style="color: #2EC551">
@@ -72,20 +72,10 @@
                         </div>
                     </div>	
                 </div>
-
             </div>
-
         </div>
     </div>
 </div> <br>
-<div class="row">
-    <div class="row">
-        <div class="form-group col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group col-xs-12 col-sm-12 col-md-12">
-                <a class="btn btn-primary" href="{{ route('commandes.index') }}" title="Aller au panier"> Aller au panier</a>
-            </div>
-        </div>
-    </div><br>
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -97,49 +87,113 @@
             </ul>
         </div>
     @endif
-    <div class="form-group col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group col-xs-12 col-sm-12 col-md-12">
-                <form action="{{ route('commandes.store') }}" method="POST" >
+     
+                        <form action="{{ route('commandes.store') }}" method="POST" >
+                            @csrf
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group col-xs-9 col-sm-9 col-md-9">
+                                        <div class="row">
+                                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                                <div class="form-group">
+                                                    <strong>Categorie :</strong>
+                                                    <select name="catProduit" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
+                                                        <option value=""></option>
+                                                            @foreach ($produits as $produit)
+                                                                <option value="{{$produit->categorie}}">{{$produit->categorie}}</option>
+                                                            @endforeach
+                                                    </select>		 
+
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                                <div class="form-group">
+                                                <strong>Nom du produit :</strong>
+                                                <select name="produit_id" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
+                                                    
+                                                </select>	
+                                                </div>		
+                                            </div>
+                                            <div class="col-xs-3 col-sm-3 col-md-3" style="width: 10px">
+                                                <div class="form-group">
+                                                    <strong>Quantité Voulue:</strong>
+                                                    <input type="number" name="qteProduit" class="custom-select form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                                <div class="form-group">
+                                                    <strong>Devis id:</strong>
+                                                            @foreach ($devis as $devi)
+                                                                <input class="custom-select form-control" value="{{$devi->id}}" onFocus="this.blur()"/>
+                                                            @endforeach
+                                                </div>
+                                            </div>
+                                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                                        <div class="form-group">
+                                                            <strong>Panier</strong>
+                                                            <button type="submit"  id="btn"class="custom-select form-control btn btn-primary">Ajouter un produit</button>
+                                                        </div>
+                                                    </div>                                       
+                                        </div>
+                                    </div>
+                                              
+                                                  
+                
+                                </div>                                       
+                            </div>
+                        </form>
+                </div>
+                  
+            </div>
+        </div>
+        <style>
+            th{
+                width: 20%;
+                color:rgb(255, 249, 249) !important;
+            }
+        </style>
+
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                    <table class="table table-bordered table-responsive-lg">
+                        <tr style="background-color: rgb(49, 158, 86)">
+                            <th>Catégorie</th>
+                            <th>Libellé</th>
+                            <th>Prix Unitaire</th>
+                            <th>Quantité</th>
+                            <th>Prix total</th>
+                        </tr>
+                        <tbody id="tableau">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+            <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                    <form action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
                     @csrf
-
-                    s
-
-                </form>
-
-                <table class="table table-bordered table-responsive-lg">
-                    <tr style="background-color: gray">
-                        <th>Catégorie</th>
-                        <th>Libellé</th>
-                        <th>Prix Unitaire</th>
-                        <th>Quantité</th>
-                        <th>Prix total</th>
-                    </tr>
-                    <tbody id="tableau">
-                        
-                    </tbody>
-                </table>
-<div class="form-group col-xs-12 col-sm-12 col-md-12">
-    <div class="form-group col-xs-12 col-sm-12 col-md-12">
-        <form action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
-           @csrf
-            <div class="row">
-                <div class="form-group col-xs-6 col-sm-6 col-md-6">
-                    <label for="cout" class="col-form-label">Coût de Réparation</label>
-                    <input id="cout" type="number" name="cout" required class="form-control" placeholder="Coût de réparation">
-                </div>
-                <div class="form-group col-xs-6 col-sm-6 col-md-6">
-                    <label for="expiration_expiration" class="col-form-label">Date Expiration</label>
-                    <input id="expiration" type="date" name="date_expiration" required class="form-control" placeholder="Date expiration...">
+                        <div class="row">
+                            <div class="form-group col-xs-6 col-sm-6 col-md-6">
+                                <label for="cout" class="col-form-label">Coût de Réparation</label>
+                                <input id="cout" type="number" name="cout" required class="form-control" placeholder="Coût de réparation">
+                            </div>
+                            <div class="form-group col-xs-6 col-sm-6 col-md-6">
+                                <label for="expiration_expiration" class="col-form-label">Date Expiration</label>
+                                <input id="expiration" type="date" name="date_expiration" required class="form-control" placeholder="Date expiration...">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
+                            <button type="submit" class="btn btn-success">Enregistrer</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-                <button type="submit" class="btn btn-success">Enregistrer</button>
-            </div>
-        </form>
-    </div>
-</div>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
    
@@ -177,13 +231,12 @@
             data:{"produit_id":produit.val(),"qteProduit":qte.val(),"devi_id":devis.val()},
             success: function(data) {
                 console.log(data);
-                tcom+=`<tr>
-                    
-                        <td>${data.produits.categorie}</td>
-                        <td>${data.produits.produit}</td>
-                        <td>${data.produits.prix1}</td>
-                        <td>${data.commande.qteProduit}</td>
-                        <td>${data.produits.prix1*parseInt(data.commande.qteProduit)}</td>
+                tcom+=`<tr style="background-color: rgb(185, 206, 192)">
+                        <td style="color: black">${data.produits.categorie}</td>
+                        <td style="color: black">${data.produits.produit}</td>
+                        <td style="color: black">${data.produits.prix1}</td>
+                        <td style="color: black">${data.commande.qteProduit}</td>
+                        <td style="color: black">${data.produits.prix1*parseInt(data.commande.qteProduit)}<sup> FCFA</sup></td>
                       </tr>`;   
         $('#tableau').html(tcom);
         $('select[name=produit_id]').val("");
