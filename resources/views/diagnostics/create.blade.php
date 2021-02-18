@@ -70,23 +70,29 @@
                     
 
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-10" >
-                    <div class="row p-3" style="border: 1px solid #D2D2E4">
+                <div class="col-xs-12 col-sm-12 col-md-11" >
+                    <div class="row p-3" style="border: 1px solid #D2D2E4; box-shadow: 0px 0px 3px #999; background-color: #fefefe;">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Constat</strong>
+                                <strong>Constat:</strong>
                                 <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
-                            <strong>Inspections</strong>
+                            <strong>Inspection(s):</strong>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12" id="dynamicAddRemove">
                            <style>
+                               #newdefaut
+                               {
+                                    border: 1px solid #D2D2E4;
+                                    box-shadow: 0px 0px 3px #999;
+                                    background-color: #fefefe;
+                               }
                                #remove-button{
                                    color: #888;
                                }
@@ -101,7 +107,7 @@
                            </style>
 
                             <!-- INSPECTION -->
-                            <div class="row p-3 mb-2" style="border: 1px solid #D2D2E4" id="newdefaut">
+                            <div class="row p-3 mb-2" id="newdefaut">
                                 <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">
                                     <span class="numero">#1</span>
                                     <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
@@ -118,11 +124,11 @@
                                             
                                         </div> 
                                         <div class="divLocalisation col-xs-12 col-sm-12 col-md-10">
-                                            <input type="text" class="form-control localisation" placeholder="Localisation">
+                                            <input type="text" class="form-control localisation" name="plusdechamps[0][localisation]" placeholder="Localisation">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="divDescripyion form-group col-xs-12 col-sm-12 col-md-12">
+                                <div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">
                                     <textarea class="form-control description" name="plusdechamps[0][description]" placeholder="Description"></textarea>
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12">  
@@ -142,7 +148,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 p-4" style="border: 1px solid #D2D2E4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 p-4" style="border: 1px solid #D2D2E4; box-shadow: 0px 0px 3px #999; background-color: #fefefe;">
                             <button type="button" name="add" id="add-btn" class="btn btn-light" style="border-radius:15px">Ajouter une nouvelle inspection</button>
                         </div>
                     </div>
@@ -186,7 +192,7 @@ function getDiv(i) {
             '</div>'+
         '</div>'+
     '</div>'+
-    '<div class="divDescripyion form-group col-xs-12 col-sm-12 col-md-12">'+
+    '<div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">'+
         '<textarea class="form-control"name="plusdechamps['+i+'][description]" placeholder="Description"></textarea>'+
     '</div>'+
     '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
@@ -233,9 +239,12 @@ function getDiv(i) {
             url: '/api/erreurByCode/' + code,
             dataType: 'json',
             success: function(data) {
-                parent.children('.divDescripyion').children('textarea').val(data[0].description);
+<<<<<<< HEAD
+=======
+                parent.children('.divDescription').children('textarea').val(data[0].description);
+>>>>>>> e086e657b4a514ea8f1489a5a459953622f9605d
                 parent.children('div').children('div').children('.divLocalisation').children('input').val(data[0].localisation);
-            }
+                parent.children('.divDescripyion').children('textarea').val(data[0].description);}
         });
     });
 </script>
