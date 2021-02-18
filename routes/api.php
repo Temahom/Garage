@@ -52,10 +52,14 @@ Route::get('erreurByCode/{code}',function($code){
 });  
 
 
-
 Route::get('produit/{categorie}',function($categorie){
-    return Produit::select('produit','id')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();  
+    return Produit::select('produit','id', 'categorie')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();  
 });  
 
+Route::get('commandes/{produit_id}',function($produit){
+    return Produit::select('*')->where('produit','=',$produit)->orderBy('produit','asc')->distinct()->get();  
+});  
 
-
+Route::get('produits/{catProduit}',function($produit){
+    return Produit::select('*')->where('categorie','=',$produit)->orderBy('produit','asc')->distinct()->get();  
+}); 
