@@ -209,6 +209,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/produits/create">Ajouter Produit</a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/produits.creer">Creer un nouveau Produit</a>
+                                        </li>
                                     </ul>    
                                 </div>
                             </li>
