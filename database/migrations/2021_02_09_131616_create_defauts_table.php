@@ -17,7 +17,7 @@ class CreateDefautsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('intervention_id');
             $table->longText('code');
-            $table->longText('categorie');
+            $table->longText('categorie')->nullable();
             $table->longText('localisation');
             $table->longText('description');
             $table->integer('etat');

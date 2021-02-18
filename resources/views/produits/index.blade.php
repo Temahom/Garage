@@ -22,7 +22,7 @@ setlocale(LC_TIME, "fr_FR", "French");
             </div>     
         </div></div>
      
-    <div class="d-flex" style="width: 100%">
+    <div class="d-flex" style="width: 100%;">
         <div class="mx-auto">
             <form action="{{ route('produits.index') }}" method="GET" role="search">
                 <div class="d-flex">
@@ -52,36 +52,35 @@ setlocale(LC_TIME, "fr_FR", "French");
 
 
 
-<table class="table table-bordered table-responsive-lg">
-
+<table class="table table-striped table-hover col-md-12">
+    <thead  class="" style="background-color: #4656E9;">
         <tr>
-            <th>N°</th>
-            <th>Catégorie</th>
-            <th>Nom Produit</th>
-            <th>Le Prix Unitaire</th>
-            <th>Quantité</th>
+            <th style="color: white;">N°</th>
+            <th style="color: white;">Catégorie</th>
+            <th style="color: white;">Nom Produit</th>
+            <th style="color: white;">Le Prix Unitaire</th>
+            <th style="color: white;">Quantité</th>
       <!--  <th scope="col">Date d'Ajout</th>    -->
-            <th width="280px" text-align="center">Action</th>
+            <th style="color: white;">Action</th>
         </tr>
+    </thead>
     <tbody>
 
         @foreach ($produits as $produit)
         <tr>
             <td>{{ ++$i }}</td>
-            <td onclick="showProduit({{ $produit->id }})">{{ $produit->categorie }}</td>
-            <td onclick="commanderProduit({{ $produit->id }})">{{ $produit->produit }}</td>
-            <td>{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-            <td>{{ $produit->qte }}</td>
+            <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
+            <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
+            <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
+            <td style="cursor: pointer;">{{ $produit->qte }}</td>
         <!--<td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
             <td>
 
            <!--    <a href="{{ route('produits.show', $produit->id) }}" title="show">  
                     <i class="fas fa-eye text-success  fa-lg"></i>    -->
-            
-               <button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
-                <i class="fas fa-eye text-success  fa-lg"></i>
-            </button>
-
+                    <button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
+                        <i class="fas fa-eye text-success  fa-lg"></i>
+                    </button>
                     <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
