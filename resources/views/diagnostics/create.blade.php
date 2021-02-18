@@ -74,14 +74,14 @@
                     <div class="row p-3" style="border: 1px solid #D2D2E4">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Constat</strong>
+                                <strong>Constat:</strong>
                                 <textarea class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
-                            <strong>Inspections</strong>
+                            <strong>Inspection(s):</strong>
                         </div>
                     </div>
                     <div class="row">
@@ -118,7 +118,7 @@
                                             
                                         </div> 
                                         <div class="divLocalisation col-xs-12 col-sm-12 col-md-10">
-                                            <input type="text" class="form-control localisation" placeholder="Localisation">
+                                            <input type="text" class="form-control localisation" name="plusdechamps[0][localisation]" placeholder="Localisation">
                                         </div>
                                     </div>
                                 </div>
