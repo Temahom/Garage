@@ -42,7 +42,7 @@ class CommandesApiController extends Controller
     {
         $produits=Produit::find($request->produit_id);
       
-       $data= ['produits'=>$produits,'commande'=> Commande::create($request->all())];
+       $data= ['produits'=>$produits,'commande'=>$request->all()];
        return $data;
     }
 
