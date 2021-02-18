@@ -79,9 +79,9 @@ setlocale(LC_TIME, "fr_FR", "French");
       
         
     </div>
-    <div class="mt-2" style="justify-content: center; display:flex;">
+    {{-- <div class="mt-2" style="justify-content: center; display:flex;">
         {{$devis->links()}}
-    </div>
+    </div> --}}
 </div>
 @endsection
         

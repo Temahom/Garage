@@ -17,9 +17,6 @@ class Commande extends Model
         'devi_id',
         'qteProduit',
     ];
-    public function produits()
-    {
-        return $this->hasMany(Produit::class);
-    }
+    
 }
 

@@ -14,16 +14,7 @@
     @csrf
      <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">
-            <div class="form-group">
-                <strong>Nom :</strong>
-                <input type="text" name="nom" class="form-control  @error('nom') is-invalid @enderror" placeholder="Nom" autocomplete="off" value="{{ old('nom') }}">
-                <div class="invalid-feedback">
-                    @if($errors->has('nom'))
-                    {{ $errors->first('nom') }}
-                    @endif
-                  </div>
-            </div>
-
+            
             <div class="form-group">
                 <strong>Prénoms:</strong>
                 <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" placeholder="Prenoms" autocomplete="off" value="{{ old('prenom') }}">
@@ -32,6 +23,16 @@
                     {{ $errors->first('prenom') }}
                     @endif
                 </div>
+            </div>
+
+            <div class="form-group">
+                <strong>Nom :</strong>
+                <input type="text" name="nom" class="form-control  @error('nom') is-invalid @enderror" placeholder="Nom" autocomplete="off" value="{{ old('nom') }}">
+                <div class="invalid-feedback">
+                    @if($errors->has('nom'))
+                    {{ $errors->first('nom') }}
+                    @endif
+                  </div>
             </div>
             
             <div class="form-group">

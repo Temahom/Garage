@@ -12,7 +12,11 @@ class Produit extends Model
     protected $guarded=[];
     public function devis()
     {
-     return $this->belongsToMany(Devi::class,'devi_produit','devi_id', 'produit_id');
+     return $this->belongsToMany(Devi::class,'commandes','devi_id', 'produit_id')->withPivot('qteProduit');
+    }
+    public function commandes()
+    {
+     return $this->hasMany(Commande::class);
     }
 
 }

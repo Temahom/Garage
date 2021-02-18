@@ -15,7 +15,7 @@ class CreateDefautsTable extends Migration
     {
         Schema::create('defauts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('defaut_id');
+            $table->unsignedBigInteger('intervention_id');
             $table->longText('code');
             $table->longText('categorie');
             $table->longText('localisation');

@@ -3,7 +3,6 @@
 @section('content')
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        
 <div class="row ml-1">
     <div class="col-md-7 pt-3"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
         <div class="row">
@@ -71,7 +70,7 @@
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-10" >
-                    <div class="row p-3" style="border: 1px solid #D2D2E4">
+                    <div class="row p-3" style="border: 1px solid #D2D2E4;">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat</strong>
@@ -121,18 +120,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="divDescripyion form-group col-xs-12 col-sm-12 col-md-12">
+                                <div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">
                                     <textarea class="form-control description" name="plusdechamps[0][description]" placeholder="Description" value="{{ old('description') }}">{{ $diagnostic->description }}</textarea>
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12">  
                                     <label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="{{$diagnostic->etat}} {{ old('description') }}" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="{{$diagnostic->1}} {{ old('description') }}" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
                                     </label>
                                     <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="{{$diagnostic->etat}} {{ old('description') }}" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="{{$diagnostic->2}} {{ old('description') }}" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
                                     </label>
                                     <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="{{$diagnostic->etat}} {{ old('description') }}" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="{{$diagnostic->3}} {{ old('description') }}" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
                                     </label>
                                 </div> 
                             </div>
@@ -163,7 +162,7 @@
 <script  type="text/javascript">
     var i = 0;
 
-var divDefaut;
+    var divDefaut;
 divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid #D2D2E4">'+
     '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
         '<span class="numero"></span>'+
@@ -175,7 +174,7 @@ divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid 
                 '<select name="plusdechamps['+i+'][code]" id="marques" class="custom-select form-control">'+
                 '<option value="code">Code</option>'+
                 '@foreach ($listedefauts as $listedefaut)'+
-                    '<option value="{{$listedefaut->code}}" {{ old('code') == ($defaut->code) ? 'selected' : '' }}>{{$listedefaut->code}}</option>'+
+                    '<option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>'+
                 '@endforeach'+
                 '</select>'+
             '</div>'+
@@ -184,7 +183,7 @@ divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid 
             '</div>'+
         '</div>'+
     '</div>'+
-    '<div class="divDescripyion form-group col-xs-12 col-sm-12 col-md-12">'+
+    '<div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">'+
         '<textarea class="form-control"name="plusdechamps['+i+'][description]" placeholder="Description"></textarea>'+
     '</div>'+
     '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
@@ -228,7 +227,7 @@ divDefaut =  '<div class="row p-3 mb-2" id="newdefaut" style="border: 1px solid 
             url: '/api/erreurByCode/' + code,
             dataType: 'json',
             success: function(data) {
-                parent.children('.divDescripyion').children('textarea').val(data[0].description);
+                parent.children('.divDescription').children('textarea').val(data[0].description);
                 parent.children('div').children('div').children('.divLocalisation').children('input').val(data[0].localisation);
             }
         });
