@@ -102,51 +102,7 @@
                 <form action="{{ route('commandes.store') }}" method="POST" >
                     @csrf
 
-                    <div class="row">
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                            <div class="form-group">
-                                <strong>Categorie :</strong>
-                                <select name="catProduit" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
-                                    <option value=""></option>
-                                        @foreach ($produits as $produit)
-                                            <option value="{{$produit->categorie}}">{{$produit->categorie}}</option>
-                                        @endforeach
-                                </select>		 
-
-                            </div>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                            <div class="form-group">
-                            <strong>Nom du produit :</strong>
-                            <select name="produit_id" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
-                                
-                            </select>	
-                            </div>		
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                            <div class="form-group">
-                                <strong>Quantité Voulue:</strong>
-                                <input type="number" name="qteProduit" class="custom-select form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-xs-3 col-sm-3 col-md-3">
-                            <div class="form-group">
-                                <strong>Devis id:</strong>
-                                <select name="devis_id" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
-                                        @foreach ($devis as $devi)
-                                            <option value="{{$devi->id}}">{{$devi->id}}</option>
-                                        @endforeach
-                                </select>	
-                            </div>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 text-center">
-                            <div class="form-group">
-                                <strong>Panier</strong>
-                                <button type="submit"  id="btn"class="custom-select form-control btn btn-primary">Ajouter un produit</button>
-                            </div>
-                        </div>
-                    </div>
+                    s
 
                 </form>
 
