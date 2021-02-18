@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-12 col-md-12">  
                                     <label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="plusdechamps[0][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>
+                                        <input type="radio" name="plusdechamps[0][etat]" value="1" class="custom-control-input" checked><span class="custom-control-label">Trés urgent</span>
                                     </label>
                                     <label class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" name="plusdechamps[0][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
@@ -197,7 +197,7 @@
         '</div>'+
         '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
             '<label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">'+
-                '<input type="radio" name="plusdechamps['+i+'][etat]" value="1" class="custom-control-input" ><span class="custom-control-label">Trés urgent</span>'+
+                '<input type="radio" name="plusdechamps['+i+'][etat]" value="1" class="custom-control-input" checked><span class="custom-control-label">Trés urgent</span>'+
             '</label>'+
             '<label class="custom-control custom-radio custom-control-inline">'+
                 '<input type="radio" name="plusdechamps['+i+'][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>'+
@@ -239,6 +239,8 @@
             url: '/api/erreurByCode/' + code,
             dataType: 'json',
             success: function(data) {
+                parent.children('.divDescription').children('textarea').removeClass('is-invalid');
+                parent.children('div').children('div').children('.divLocalisation').children('input').removeClass('is-invalid');
                 parent.children('.divDescription').children('textarea').val(data[0].description);
                 parent.children('div').children('div').children('.divLocalisation').children('input').val(data[0].localisation);
             }
@@ -248,13 +250,35 @@
     /*CONTROL DIAGNOSTQUE*/
     function envoyerFormDiag()
     {
+        var ok = 1;
         constat = $('#constat').val().trim();
         $('#constat').removeClass( "is-invalid" );
         if(constat == '')
         {
             $('#constat').addClass( "is-invalid" );
+            ok = 0;
         }
+        $('#dynamicAddRemove > div').each( function(){
+            $(this).children('.divDescription').children('textarea').removeClass('is-invalid');
+            $(this).children('div').children('div').children('.divLocalisation').children('input').removeClass('is-invalid');
+
+            localisation = $(this).children('div').children('div').children('.divLocalisation').children('input').val().trim();
+            description = $(this).children('.divDescription').children('textarea').val().trim();
+
+            if(localisation == '')
+            {
+                $(this).children('div').children('div').children('.divLocalisation').children('input').addClass('is-invalid');
+                ok = 0;
+            }
+            if(description == '')
+            {
+                $(this).children('.divDescription').children('textarea').addClass('is-invalid');
+                ok = 0;
+            }
+        });
+        if(ok)
         $('#formDiag').submit();
     }
+    /* FIN CONTROL DIAGNOSTQUE*/
 </script>
 @endsection
