@@ -63,3 +63,13 @@ Route::get('commandes/{produit_id}',function($produit){
 Route::get('produits/{catProduit}',function($produit){
     return Produit::select('*')->where('categorie','=',$produit)->orderBy('produit','asc')->distinct()->get();  
 }); 
+
+Route::get('eror',function(){
+    return Listedefaut::all();
+});
+Route::get('listesp',function(){
+    return listeproduit::all();
+});
+Route::get('voitures',function(){
+    return Liste::all();
+});

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Devi;
 use App\Models\Voiture;
+use App\Models\Commande;
 use App\Models\Intervention;
 
 class DeviController extends Controller
@@ -39,12 +40,18 @@ class DeviController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
-    {
+    { 
         $devi = new Devi();
         $devi->cout = $request->input('cout');
         $devi->date_expiration = $request->input('date_expiration');
         $devi->etat= 1;
         $devi->save();
+        $idDevi = $devi->id;
+        $commande = new Commande();
+        $commande->produit_id = $request->input('produit_id');
+        $commande->devi_id = $idDevi;
+        $commande->qteProduit = $request->input('qteProduit');
+        $commande->save();
         $intervention->devis_id = $devi->id;
         $intervention->update();
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('fait','Devis créer avec succés');
@@ -105,8 +112,7 @@ class DeviController extends Controller
     public function etat(Request $request, Devi $devi)
     {
         $data = Devi::where('date_expiration','<',now())->get();
-        //dd($data);
-      
+       
            foreach($data as $devi)
            {
                if($devi->etat !=2 && $devi->etat!=3){

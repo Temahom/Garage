@@ -16,9 +16,6 @@ class CommandesApiController extends Controller
      */
     public function index()
     {
-        // $produits=Produit::find(1);
-        // dd($produits->devis);
-        // return $produits->pivot;
         return  Commande::all();
     }
 
@@ -41,9 +38,8 @@ class CommandesApiController extends Controller
     public function store(Request $request)
     {
         $produits=Produit::find($request->produit_id);
-      
-       $data= ['produits'=>$produits,'commande'=>$request->all()];
-       return $data;
+        $data= ['produits'=>$produits,'commande'=>$request->all()];
+        return $data;
     }
 
     /**

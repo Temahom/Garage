@@ -55,7 +55,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/interventions-list', [InterventionController::class, 'index']);
     Route::get('/devis-etat', [DeviController::class, 'etat']);
-
+    
+    
+   Route::get('/produits.creer', [ProduitController::class, 'creer']);
 
 
     Route::get('/admin', function () {
