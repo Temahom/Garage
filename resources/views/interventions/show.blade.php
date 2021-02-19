@@ -73,7 +73,7 @@
         <p><h2>Diagnostic</h2></p>
         @if ( $intervention->diagnostic_id )
             <p>{{ $diagnostic->description }}</p>
-            <a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'diagnostic' => $intervention->diagnostic_id]) }}" title="Modifier">Modifier</a>
+            <a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
         @else
             <a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
         @endif

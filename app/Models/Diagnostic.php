@@ -15,4 +15,8 @@ class Diagnostic extends Model
     {
         return $this->hasMany(Intervention::class);
     }
+    public function defauts()
+    {
+        return $this->hasMany(Defaut::class);
+    }
 }

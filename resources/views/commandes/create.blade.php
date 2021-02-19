@@ -103,13 +103,14 @@
             var tcom ="";
             $('#btn').click(function (e) {
                 e.preventDefault()
-                var produit=$('select[name=produit_id]');
+                var produit=$('select[name=catProduit');
+                var produit=$('select[name=produit_id]');  
                var devis=$('select[name=devis_id]');
                 var qte=$('input[name=qteProduit]');
                 
                 $.ajax({
                 type: "POST",
-                url: "/api/commandes/",
+                url: "/api/commandes/"+ $('select[name=catProduit]').val()+ $('select[name=catProduit]').val(),
                 dataType: 'json',
                 data:{"produit_id":produit.val(),"qteProduit":qte.val(),"devi_id":devis.val()},
                 success: function(data) {

@@ -75,10 +75,11 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat:</strong>
-                                <textarea id="constat" class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic" autofocus></textarea>
+                                <textarea id="constat" class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic">@if ($diagnostic){{ $diagnostic->constat }}@endif</textarea>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
                             <strong>Inspection(s):</strong>
@@ -106,6 +107,51 @@
                                }
                            </style>
 
+                        @if (isset($defauts))
+                            @php  $i = 0; @endphp
+                            @foreach ($defauts as $defaut)
+                                @php  $i++; @endphp
+                               
+                                 <!-- INSPECTION RECUPERER -->
+                                <div class="row p-3 mb-2" id="newdefaut">
+                                    <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">
+                                        <span class="numero">#{{ $i }}</span>
+                                        <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                                <select name="plusdechamps[1][code]" id="codes" class="custom-select form-control">
+                                                    <option value="">code</option>
+                                                    @foreach ($listedefauts as $listedefaut)
+                                                        <option value="{{$listedefaut->code}}" {{ $listedefaut->code == $defaut->code ? 'selected' : '' }}>{{$listedefaut->code}}</option>
+                                                    @endforeach
+                                                </select>
+                                                
+                                            </div> 
+                                            <div class="divLocalisation col-xs-12 col-sm-12 col-md-10">
+                                                <input value="{{ $defaut->localisation }}" type="text" class="form-control localisation" name="plusdechamps[1][localisation]" placeholder="Localisation">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">
+                                        <textarea class="form-control description" name="plusdechamps[1][description]" placeholder="Description">{{ $defaut->description }}</textarea>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12">  
+                                        <label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" {{ $defaut->etat  }} name="plusdechamps[1][etat]" value="1" class="custom-control-input" {{ $defaut->etat == 1 ? 'checked' : '' }}><span class="custom-control-label">Trés urgent</span>
+                                        </label>
+                                        <label class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" value="{{ $defaut->etat }}" name="plusdechamps[1][etat]" value="2" class="custom-control-input" {{ $defaut->etat == 2 ? 'checked' : '' }}><span class="custom-control-label">Pas urgent</span>
+                                        </label>
+                                        <label class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" value="{{ $defaut->etat }}" name="plusdechamps[1][etat]" value="3" class="custom-control-input" {{ $defaut->etat == 3 ? 'checked' : '' }}><span class="custom-control-label">Peut urgent</span>
+                                        </label>
+                                    </div> 
+                                </div>
+                                <!-- FIN INSPECTION RECUPERER -->
+                            @endforeach
+                        @else
                             <!-- INSPECTION -->
                             <div class="row p-3 mb-2" id="newdefaut">
                                 <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">
@@ -144,6 +190,7 @@
                                 </div> 
                             </div>
                             <!-- FIN INSPECTION -->
+                        @endif
 
                         </div>
                     </div>
@@ -158,7 +205,7 @@
             <div class="row">
                 <div class="col-md-12 pl-0 py-4">
                     <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-                    <a class="btn btn-success" style="color: white" onclick="envoyerFormDiag()">Enregistrer</a>
+                    <a class="btn btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormDiag()">Enregistrer</a>
                 </div>
             </div>
         

@@ -80,7 +80,7 @@ class ProduitController extends Controller
             'categorie' => 'required',
             'produit' => 'required',
             'prix1' => 'required',
-            'qte' => 'required'
+        'qte' => 'required'
         ]);
 
         Produit::create($request->all());
@@ -127,7 +127,7 @@ class ProduitController extends Controller
             'categorie' => 'required',
             'produit' => 'required',
             'prix1' => 'required',
-            'qte' => 'required'
+           'qte' => 'required'
         ]);
         $produit->update($request->all());
 

@@ -33,7 +33,7 @@ class InterventionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Voiture $voiture)
+    public function create(Voiture $voiture, Intervention $intervention)
     {
         return view('interventions.create', compact('voiture'));
     }
