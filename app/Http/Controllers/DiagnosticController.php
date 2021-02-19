@@ -32,8 +32,13 @@ class DiagnosticController extends Controller
         $listedefauts = Listedefaut::all();
         $diagnostic = Diagnostic::find($intervention->diagnostic_id);
          //dd($intervention->diagnostic()->first()->defauts()->get());
-         $defauts = $intervention->diagnostic()->first()->defauts()->get();
-        return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic', 'defauts', 'listedefauts'));
+        if($intervention->diagnostic()->first())
+        {
+            $defauts = $intervention->diagnostic()->first()->defauts()->get();
+            return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic', 'defauts', 'listedefauts'));
+        }
+       
+        return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic', 'listedefauts'));
     }
 
     /**
