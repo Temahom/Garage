@@ -65,6 +65,7 @@ class DiagnosticController extends Controller
      */
     public function show(Diagnostic $diagnostic)
     {
+        //dd($diagnostic->intervention()->first()->defaut()->first());
         return view('diagnostics.show',compact('diagnostic'));
     }
     /**
