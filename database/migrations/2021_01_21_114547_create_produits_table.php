@@ -18,7 +18,7 @@ class CreateProduitsTable extends Migration
             $table->longText('categorie');
             $table->longText('produit');
             $table->Integer('prix1');
-          //  $table->float('qte');
+            $table->float('qte');
             $table->timestamps();
         });
     }

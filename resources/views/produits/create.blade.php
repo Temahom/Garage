@@ -72,7 +72,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 </div>		
             </div>
         
-    <!--          <div class="col-xs-6 col-sm-6 col-md-6">
+             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Quantité :</strong>
                     <input jsaction="input:trigger.Wtqxqe" type="number" name="qte" class="form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite" value="{{ old('qte') }}">
@@ -82,11 +82,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                         @endif
                     </div>
                 </div>
-<<<<<<< HEAD
             </div>          
-=======
-            </div>  -->
->>>>>>> 37dccb05fa3b4dd864b963bae51b0f87f2de8ad9
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success">Commander</button>
             </div>

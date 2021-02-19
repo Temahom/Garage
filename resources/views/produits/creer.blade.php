@@ -62,7 +62,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 </div>	
                 </div>		
             </div>
-    <!--        <div class="col-xs-12 col-sm-12 col-md-12 row">
+         <div class="col-xs-12 col-sm-12 col-md-12 row">
                 <div class="form-group col-xs-6 col-sm-6 col-md-6">
                     <strong>Quantité :</strong>
                     <input type="number" name="qte" class="form-control @error('qte') is-invalid @enderror"  placeholder="Saisir la Quantite" value="{{ old('qte') }}">
@@ -107,7 +107,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
 
 <script>
    
-  /*  $(document).ready(function() {
+   $(document).ready(function() {
         $('select[name=produit]').change(function () {
            var prix1='<option value="">Le prix du Produit </option>'
         $.ajax({
