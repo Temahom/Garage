@@ -58,8 +58,8 @@ setlocale(LC_TIME, "fr_FR", "French");
             <th style="color: white;">N°</th>
             <th style="color: white;">Catégorie</th>
             <th style="color: white;">Nom Produit</th>
-            <th style="color: white;">Le Prix Unitaire</th>
-            <th style="color: white;">Quantité</th>
+            <th style="color: white;">Prix Unitaire</th>
+            <th style="color: white;">En Stock</th>
       <!--  <th scope="col">Date d'Ajout</th>    -->
             <th style="color: white;">Action</th>
         </tr>
