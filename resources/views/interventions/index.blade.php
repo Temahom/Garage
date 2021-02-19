@@ -132,7 +132,7 @@
                               </thead>
                           @foreach ($diagnostics as $key=>$diagnostic)
                           <tr>
-                              <td onclick="showVoiture({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
+                              <td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
                               <td onclick="showVoiture({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->diagnostic()->first()->constat}}</td>
                               <td onclick="showVoiture({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($diagnostic->diagnostic()->first()->created_at, 'd m Y | H:i:s')}}</td>
                               <td onclick="showVoiture({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->voiture()->first()->marque.' '.$diagnostic->voiture()->first()->model}}</td>
@@ -283,22 +283,16 @@
 
         </div>
     </div>
-     
-    
-
-  {{-- <div class="row">
-		<div class="col-md-12 mt-3 d-flex justify-content-center">
-			{!! $interventions->links() !!}
-		</div>
-	</div> --}}
+   
 
     
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
 	<script>
-		function showVoiture(id)
+		function showDiagnostic(id)
 		{
-			window.location = 'voitures/' + id ;
+       
+			window.location = 'diagnostics/'+id ;
 		}
     
   setInterval(function(){

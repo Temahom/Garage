@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
     Route::resource('actors', ActorController::class);
     Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
+    Route::resource('diagnostics', DiagnosticController::class);
     
     Route::get('/interventions-list', [InterventionController::class, 'index']);
     Route::get('/devis-etat', [DeviController::class, 'etat']);
