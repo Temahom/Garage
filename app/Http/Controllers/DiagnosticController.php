@@ -31,9 +31,9 @@ class DiagnosticController extends Controller
     {
         $listedefauts = Listedefaut::all();
         $diagnostic = Diagnostic::find($intervention->diagnostic_id);
-        $defauts = $intervention->defauts();
-        dd($defauts);
-        return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic','defauts', 'listedefauts'));
+         //dd($intervention->diagnostic()->first()->defauts()->get());
+         $defauts = $intervention->diagnostic()->first()->defauts()->get();
+        return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic', 'defauts', 'listedefauts'));
     }
 
     /**
@@ -45,17 +45,18 @@ class DiagnosticController extends Controller
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
         $diagnostic = new Diagnostic();
-                 
-        
-        foreach ($request->plusdechamps as $key => $value) {
-            $value['intervention_id'] = $intervention->id;
-            Defaut::create($value);
-        }
-
         $diagnostic->constat = $request->input('constat');
         $diagnostic->save();
         $intervention->diagnostic_id = $diagnostic->id;
         $intervention->update();
+                 
+        
+        foreach ($request->plusdechamps as $key => $value) {
+            $value['diagnostic_id'] = $diagnostic->id;
+            Defaut::create($value);
+        }
+
+       
 
         
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] );
@@ -68,6 +69,7 @@ class DiagnosticController extends Controller
      */
     public function show(Diagnostic $diagnostic)
     {
+        //dd($diagnostic->intervention()->first()->defaut()->first());
         return view('diagnostics.show',compact('diagnostic'));
     }
     /**

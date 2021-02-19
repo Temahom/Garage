@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     @foreach ($defauts as $defaut)
-                        <h3>{{$defaut->code}}</h3>gggggggggggg
+                        <h3>{{$defaut->code}}</h3>
                     @endforeach
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">

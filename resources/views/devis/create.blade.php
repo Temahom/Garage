@@ -87,62 +87,6 @@
             </ul>
         </div>
     @endif
-     
-                        <form action="{{ route('commandes.store') }}" method="POST" >
-                            @csrf
-                            <div class="row">
-                                <div class="form-group col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group col-xs-9 col-sm-9 col-md-9">
-                                        <div class="row">
-                                            <div class="col-xs-3 col-sm-3 col-md-3">
-                                                <div class="form-group">
-                                                    <strong>Categorie :</strong>
-                                                    <select name="catProduit" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
-                                                        <option value=""></option>
-                                                            @foreach ($produits as $produit)
-                                                                <option value="{{$produit->categorie}}">{{$produit->categorie}}</option>
-                                                            @endforeach
-                                                    </select>		 
-
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-3 col-sm-3 col-md-3">
-                                                <div class="form-group">
-                                                <strong>Nom du produit :</strong>
-                                                <select name="produit_id" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
-                                                    
-                                                </select>	
-                                                </div>		
-                                            </div>
-                                            <div class="col-xs-3 col-sm-3 col-md-3" style="width: 10px">
-                                                <div class="form-group">
-                                                    <strong>Quantité Voulue:</strong>
-                                                    <input type="number" name="qteProduit" class="custom-select form-control">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-xs-3 col-sm-3 col-md-3">
-                                                <div class="form-group">
-                                                    <strong>Devis id:</strong>
-                                                            @foreach ($devis as $devi)
-                                                                <input class="custom-select form-control" value="{{$devi->id}}" onFocus="this.blur()"/>
-                                                            @endforeach
-                                                </div>
-                                            </div>
-                                                    <div class="col-xs-3 col-sm-3 col-md-3">
-                                                        <div class="form-group">
-                                                            <strong>Panier</strong>
-                                                            <button type="submit"  id="btn"class="custom-select form-control btn btn-primary">Ajouter un produit</button>
-                                                        </div>
-                                                    </div>                                       
-                                        </div>
-                                    </div>
-                                              
-                                                  
-                
-                                </div>                                       
-                            </div>
-                        </form>
                 </div>
                   
             </div>
@@ -153,30 +97,69 @@
                 color:rgb(255, 249, 249) !important;
             }
         </style>
-
-        <div class="row">
-            <div class="form-group col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group col-xs-12 col-sm-12 col-md-12">
-                    <table class="table table-bordered table-responsive-lg">
-                        <tr style="background-color: rgb(49, 158, 86)">
-                            <th>Catégorie</th>
-                            <th>Libellé</th>
-                            <th>Prix Unitaire</th>
-                            <th>Quantité</th>
-                            <th>Prix total</th>
-                        </tr>
-                        <tbody id="tableau">
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
             <div class="form-group col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group col-xs-12 col-sm-12 col-md-12">
                     <form action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
                     @csrf
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group col-xs-9 col-sm-9 col-md-9">
+                                <div class="row">
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <div class="form-group">
+                                            <strong>Categorie :</strong>
+                                            <select name="catProduit" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror">
+                                                <option value=""></option>
+                                                    @foreach ($produits as $produit)
+                                                        <option value="{{$produit->categorie}}">{{$produit->categorie}}</option>
+                                                    @endforeach
+                                            </select>		 
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <div class="form-group">
+                                        <strong>Nom du produit :</strong>
+                                        <select name="produit_id" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror">
+                                            
+                                        </select>	
+                                        </div>		
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3" style="width: 10px">
+                                        <div class="form-group">
+                                            <strong>Quantité Voulue:</strong>
+                                            <input type="number" name="qteProduit" class="custom-select form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <strong>Panier</strong>
+                                        <button type="submit"  id="btn"class="custom-select form-control btn btn-primary">Ajouter un produit</button>
+                                    </div>
+                                                                          
+                               </div>
+                                    
+                            </div>
+                        </div>                                       
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                                <table class="table table-bordered table-responsive-lg">
+                                    <tr style="background-color: rgb(49, 158, 86)">
+                                        <th>Catégorie</th>
+                                        <th>Libellé</th>
+                                        <th>Prix Unitaire</th>
+                                        <th>Quantité</th>
+                                        <th>Prix total</th>
+                                    </tr>
+                                    <tbody id="tableau">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                         <div class="row">
                             <div class="form-group col-xs-6 col-sm-6 col-md-6">
                                 <label for="cout" class="col-form-label">Coût de Réparation</label>
@@ -194,6 +177,7 @@
                     </form>
                 </div>
             </div>
+           
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
    
