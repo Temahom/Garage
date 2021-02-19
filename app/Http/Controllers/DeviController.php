@@ -41,6 +41,7 @@ class DeviController extends Controller
      */
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     { 
+        dd($request);
         $devi = new Devi();
         $devi->cout = $request->input('cout');
         $devi->date_expiration = $request->input('date_expiration');

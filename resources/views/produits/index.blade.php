@@ -58,8 +58,13 @@ setlocale(LC_TIME, "fr_FR", "French");
             <th style="color: white;">N°</th>
             <th style="color: white;">Catégorie</th>
             <th style="color: white;">Nom Produit</th>
+<<<<<<< HEAD
             <th style="color: white;">Prix Unitaire</th>
             <th style="color: white;">En Stock</th>
+=======
+            <th style="color: white;">Le Prix Unitaire</th>
+       <!--      <th style="color: white;">Quantité</th>     -->
+>>>>>>> 37dccb05fa3b4dd864b963bae51b0f87f2de8ad9
       <!--  <th scope="col">Date d'Ajout</th>    -->
             <th style="color: white;">Action</th>
         </tr>
@@ -72,7 +77,7 @@ setlocale(LC_TIME, "fr_FR", "French");
             <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
             <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
             <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-            <td style="cursor: pointer;">{{ $produit->qte }}</td>
+        <!--     <td style="cursor: pointer;">{{ $produit->qte }}</td>      -->
         <!--<td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
             <td>
 
