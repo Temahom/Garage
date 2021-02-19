@@ -65,8 +65,12 @@ class DiagnosticController extends Controller
      */
     public function show(Diagnostic $diagnostic)
     {
-        //dd($diagnostic->intervention()->first()->defaut()->first());
-        return view('diagnostics.show',compact('diagnostic'));
+        $voitureID =$diagnostic->intervention()->first()->voiture_id;
+        $voiture = Voiture::find($voitureID);
+
+        //dd($diagnostic->intervention()->first()->defauts()->get());
+        //$voiture=intervention()->first()->voiture()->first();
+        return view('diagnostics.show',compact('diagnostic','voiture'));
     }
     /**
      * Show the form for editing the specified resource.
