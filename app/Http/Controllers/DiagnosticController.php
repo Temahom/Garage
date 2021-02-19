@@ -32,8 +32,13 @@ class DiagnosticController extends Controller
         $listedefauts = Listedefaut::all();
         $diagnostic = Diagnostic::find($intervention->diagnostic_id);
          //dd($intervention->diagnostic()->first()->defauts()->get());
-         $defauts = $intervention->diagnostic()->first()->defauts()->get();
-        return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic', 'defauts', 'listedefauts'));
+        if($intervention->diagnostic()->first())
+        {
+            $defauts = $intervention->diagnostic()->first()->defauts()->get();
+            return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic', 'defauts', 'listedefauts'));
+        }
+       
+        return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic', 'listedefauts'));
     }
 
     /**
@@ -69,8 +74,12 @@ class DiagnosticController extends Controller
      */
     public function show(Diagnostic $diagnostic)
     {
-        //dd($diagnostic->intervention()->first()->defaut()->first());
-        return view('diagnostics.show',compact('diagnostic'));
+        $voitureID =$diagnostic->intervention()->first()->voiture_id;
+        $voiture = Voiture::find($voitureID);
+
+        //dd($diagnostic->intervention()->first()->defauts()->get());
+        //$voiture=intervention()->first()->voiture()->first();
+        return view('diagnostics.show',compact('diagnostic','voiture'));
     }
     /**
      * Show the form for editing the specified resource.
