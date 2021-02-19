@@ -32,7 +32,7 @@
                               </div>
                               <div class="modal-body" id="smallBody">
                                   <div>
-                                      <!-- the result to be displayed apply here    <form action="/produits/{{$produit->id}}" method="POST"> --> 
+                                      <form action="/produits/{{$produit->id}}" method="POST">
                                       <form action="{{ route('produits.destroy', $produit->id) }}" method="POST">
                                       <div class="modal-body">
                                           @csrf
