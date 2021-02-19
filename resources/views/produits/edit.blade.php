@@ -45,6 +45,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <select name="produit" id="leproduit" class="custom-select form-control  @error('produit') is-invalid @enderror">
                     <option value="{{ $produit->produit }}" {{ old('produit') == ($produit->produit) ? 'selected' : '' }}>{{ $produit->produit }}</option>
                 </select>
+                <input name="produit" type="text" value="{{ $produit->produit }}" class="custom-select form-control" id="inpuTxt2" style="display:none;" placeholder="Mettre le nom du produit"/>
                 <div class="invalid-feedback">
                     @if($errors->has('produit'))
                     {{ $errors->first('produit') }}
@@ -56,8 +57,9 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <div class="form-group">
                     <strong>Prix Unitaire :</strong>
                     <select name="prix1" id="leprix" class="form-control @error('prix1') is-invalid @enderror" >     
-                    <option value="{{ $produit->prix1 }}" {{ old('prix1') == ($produit->prix1) ? 'selected' : '' }}>{{ $produit->prix1 }}</option>
+                    <option value="{{ $produit->prix1 }}" {{ old('prix1') == ($produit->prix1) ? 'selected' : '' }}>{{ $produit->prix1 }}</option>s
                     </select>
+                    <input name="prix1" type="number" value="{{ $produit->prix1 }}" class="custom-select form-control" id="inpuTxt3" style="display:none;" autocomplete="off" placeholder="Mettre le prix du produit"/>
                     <div class="invalid-feedback">
                         @if($errors->has('prix1'))
                         {{ $errors->first('prix1') }}
@@ -131,6 +133,37 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         });
     });
 
+</script>
+<script>
+    function change()
+        {
+            var doc = document.getElementById("categorie");
+            var val = doc.options[doc.selectedIndex].value;
+            var input1 = document.getElementById("inpuTxt1");
+            var input2 = document.getElementById("inpuTxt2");
+            var input3 = document.getElementById("inpuTxt3");
+            var input4 = document.getElementById("leprix");
+            var input6 = document.getElementById("leproduit");
+            var input7 = document.getElementById("categorie");
+            
+            if(val=="autres")
+            {
+                input1.style.display="none";
+                input2.style.display="block";
+                input3.style.display="block";  
+                input4.style.display="none";
+                input6.style.display="none";
+            }
+            else
+            {
+                input1.style.display="none";
+                input2.style.display="none";
+                input3.style.display="none";
+                input4.style.display="block";
+                input6.style.display="block";
+                
+            }
+        }
 </script>
 
 
