@@ -75,10 +75,13 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat:</strong>
-                                <textarea id="constat" class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic" autofocus></textarea>
+                                <textarea id="constat" class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic" autofocus>@if ($diagnostic){{ $diagnostic->constat }}@endif</textarea>
                             </div>
                         </div>
                     </div>
+                    @foreach ($defauts as $defaut)
+                        <h3>{{$defaut->code}}</h3>gggggggggggg
+                    @endforeach
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
                             <strong>Inspection(s):</strong>
@@ -158,7 +161,7 @@
             <div class="row">
                 <div class="col-md-12 pl-0 py-4">
                     <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-                    <a class="btn btn-success" style="color: white" onclick="envoyerFormDiag()">Enregistrer</a>
+                    <a class="btn btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormDiag()">Enregistrer</a>
                 </div>
             </div>
         

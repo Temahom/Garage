@@ -32,4 +32,8 @@ class Intervention extends Model
     {
         return $this->belongsTo(Facture::class);
     }
+    public function defauts()
+    {
+        return $this->hasMany(Defaut::class);
+    }
 }

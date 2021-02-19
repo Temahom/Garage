@@ -30,7 +30,10 @@ class DiagnosticController extends Controller
     public function create(Voiture $voiture, Intervention $intervention)
     {
         $listedefauts = Listedefaut::all();
-        return view('diagnostics.create', compact('voiture', 'intervention','listedefauts'));
+        $diagnostic = Diagnostic::find($intervention->diagnostic_id);
+        $defauts = $intervention->defauts();
+        dd($defauts);
+        return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic','defauts', 'listedefauts'));
     }
 
     /**
