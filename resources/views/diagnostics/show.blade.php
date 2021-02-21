@@ -74,15 +74,17 @@
             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                 <table class="table table-borderless">
                     <thead>
-                      <tr>
-                        <th scope="col"><i class="fas fa-search"></i> Constat</th>
+                      <tr class="table-primary">
+                        <th scope="col" ><i class="fas fa-search"></i> Constat</th>
                         <th scope="col"><i class="far fa-calendar-alt"></i> Date d'examination</th>
+                        <th scope="col"><i class="fas fa-user"></i> Chef d'opération</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th scope="row">{{$diagnostic->constat}}</th>
                         <td>{{$diagnostic->created_at}}</td>
+                        <td>{{$diagnostic->intervention()->first()->user()->first()->name}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -90,7 +92,7 @@
             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                 <table class="table table-borderless">
                     <thead>
-                      <tr>
+                      <tr class="table-primary">
                         <th scope="col"><i class="fas fa-key"></i> </th>
                         <th scope="col"><i class="fas fa-link"></i> Localisation</th>
                         <th scope="col"><i class="fas fa-info-circle"></i> Description</th>
@@ -98,7 +100,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($diagnostic->intervention()->first()->defauts()->get() as $defaut)
+                        @foreach ($diagnostic->defauts()->get() as $defaut)
                       <tr>
                         <td scope="row">{{$defaut->code}}</td>
                         <td>{{$defaut->localisation}}</td>
