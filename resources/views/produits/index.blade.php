@@ -3,46 +3,33 @@
 setlocale(LC_TIME, "fr_FR", "French");
 @endphp
 @section('content')
-<div class="row" >
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Les Produits </h2>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 row">
-                <div class="form-group col-xs-6 col-sm-6 col-md-6">
-
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('produits.create') }}" title="Creer un produit"> <i class="fas fa-plus-circle"></i>
-                  Ajouter Un Produit </a>
-            </div> <br>
-      
-            <div class="pull-left">
-                <a class="btn btn-outline-success"  href="/produits.creer" title="Creer un produit non existant "> <i class="fas fa-plus-circle"></i>
-                  Créer nouveau Produit </a>
-            </div>     
-        </div></div>
-     
-    <div class="d-flex" style="width: 100%;">
-        <div class="mx-auto">
-            <form action="{{ route('produits.index') }}" method="GET" role="search">
-                <div class="d-flex">
-                    <button class="btn btn-info t" type="submit" title="recherche un produit">
-                        <span class="fas fa-search"></span>
-                    </button>
-                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher un produit" id="term">
-                        <a href="{{ route('produits.index') }}" class="">
-                            <button class="btn btn-danger" type="button" title="Actualiser page">
-                                <span class="fas fa-sync-alt"></span>
-                            </button>
-                        </a>
-                </div>
-            </form>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <br><h2>Liste des Produits</h2><br>
         </div>
-    </div>  
-
+        <div class="col-xs-12 col-sm-12 col-md-12 row">
+            <div class="col-xs-9 col-sm-9 col-md-9">     
+                 <div class="form-group">
+                     <a class="btn btn-secondary" href="{{ route('produits.create') }}"><i class="fas fa-plus"></i> Ajouter un Produit</a>
+                 </div>
+             </div>   
+             <div class="col-xs-3 col-sm-3 col-md-3">     
+                 <div class="form-group">
+                     <form action="{{ route('produits.index') }}" method="GET" role="search">
+                         <div class="d-flex">
+                             <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term">
+                             <button class="btn btn-info t" type="submit" title="recherche un produit">
+                                 <span class="fas fa-search"></span>
+                             </button>
+                         </div>
+                     </form><br>
+                 </div>
+             </div>   
+         </div>    
+         
+    </div>
 </div>
-</div><br><br>
-
 
 @if ($message = Session::get('success'))
 <div class="alert alert-success">
@@ -60,8 +47,6 @@ setlocale(LC_TIME, "fr_FR", "French");
             <th style="color: white;">Nom Produit</th>
             <th style="color: white;">Prix Unitaire</th>
             <th style="color: white;">En Stock</th>
-       <th scope="col">Date d'Ajout</th>   
-
             <th style="color: white;">Action</th>
         </tr>
     </thead>
@@ -73,14 +58,13 @@ setlocale(LC_TIME, "fr_FR", "French");
             <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
             <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
             <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-            <td style="cursor: pointer;">{{ $produit->qte }}</td>      -->
-            <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
+            <td style="cursor: pointer;">{{ $produit->qte }}</td>   
+        <!--    <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td>-->
             <td>
 
-              <a href="{{ route('produits.show', $produit->id) }}" title="show">  
-                    <i class="fas fa-eye text-success  fa-lg"></i>    -->
+              <a href="{{ route('produits.show', $produit->id) }}" title="show">                   
                     <button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
-                        <i class="fas fa-eye text-success  fa-lg"></i>
+                        <i class="fas fa-eye text-success  fa-lg"></i>    
                     </button>
                     <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
