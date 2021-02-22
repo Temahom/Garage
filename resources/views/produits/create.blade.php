@@ -31,7 +31,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
 							@foreach ($listes as $liste)
 								<option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
 							@endforeach
-					</select><br>
+					</select>
                     <input type="text" class="custom-select form-control" id="inpuTxt1" style="display:none;" value=""/>
                     <div class="invalid-feedback">
                         @if($errors->has('categorie'))
@@ -41,11 +41,11 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 </div>
                 <div class="form-group">
                     <strong>Nom du produit :</strong>
-                    <input name="produit" type="text" class="custom-select form-control" id="inpuTxt2" style="display:none;" placeholder="Mettre le nom du produit" autocomplete="off"/>
+              
                     <select name="produit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror" onchange="change();">
                         
                     </select>
-                  
+                    <input name="produit" type="text" class="custom-select form-control" id="inpuTxt2" style="display:none;" placeholder="Mettre le nom du produit" autocomplete="off"/>
                     <div class="invalid-feedback">
                         @if($errors->has('produit'))
                         {{ $errors->first('produit') }}
