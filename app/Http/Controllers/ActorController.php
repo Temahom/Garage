@@ -25,7 +25,8 @@ class ActorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Role $role, User $user)
-    {
+    {   
+        $this->authorize('create', User::class);
         $roles= Role::all();
         return view('actors.create',compact('roles', 'role', 'user'));
     }

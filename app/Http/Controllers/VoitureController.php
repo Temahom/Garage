@@ -47,7 +47,7 @@ class VoitureController extends Controller
     public function create(Client $client, Voiture $voiture)
     {
         
-      $this->authorize('create', Voiture::class);
+    //    $this->authorize('create', Voiture::class);
       $clients= Client::all();
       return view('voitures.create',compact('clients','client', 'voiture'));
     }
@@ -100,7 +100,6 @@ class VoitureController extends Controller
     public function edit(Voiture $voiture)
     {
         //
-        
         $clients = Client::all();
         return view('voitures.edit',compact('voiture','clients'));
     }
@@ -114,6 +113,7 @@ class VoitureController extends Controller
      */
     public function update(Request $request, Voiture $voiture)
     {
+        $this->authorize('update', $voiture);
         $data= request()->validate([
             'matricule'=>'required|distinct',
             'marque'=>'required',
@@ -138,6 +138,7 @@ class VoitureController extends Controller
      */
     public function destroy(Voiture $voiture)
     {
+        $this->authorize('delete', $voiture);
         $voiture->delete();
         return redirect('clients/'. $voiture->client_id);
     }

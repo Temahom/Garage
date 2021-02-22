@@ -29,6 +29,7 @@ class DiagnosticController extends Controller
 
     public function create(Voiture $voiture, Intervention $intervention)
     {
+        $this->authorize('create', Diagnostic::class);
         $listedefauts = Listedefaut::all();
         return view('diagnostics.create', compact('voiture', 'intervention','listedefauts'));
     }
@@ -89,6 +90,7 @@ class DiagnosticController extends Controller
      */
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic)
     {
+        $this->authorize('update', $diagnostic);
          $request->validate([
         'constat' => 'required',
         ]);
@@ -106,6 +108,7 @@ class DiagnosticController extends Controller
      */
     public function destroy(Diagnostic $diagnostic)
     {
+        $this->authorize('delete', $diagnostic);
         $diagnostic->delete();
 
         return redirect()->route('diagnostics.index')
