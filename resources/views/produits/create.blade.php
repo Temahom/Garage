@@ -82,11 +82,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                         @endif
                     </div>
                 </div>
-<<<<<<< HEAD
-            </div>  -->
-=======
             </div>          
->>>>>>> e1056e6ceaefbe2cd32f7b0e0c5a1aff8c020530
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success">Commander</button>
             </div>

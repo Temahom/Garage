@@ -60,7 +60,7 @@ setlocale(LC_TIME, "fr_FR", "French");
             <th style="color: white;">Nom Produit</th>
             <th style="color: white;">Prix Unitaire</th>
             <th style="color: white;">En Stock</th>
-       <th scope="col">Date d'Ajout</th>   
+         <!--    <th scope="col">Date d'Ajout</th>     -->
 
             <th style="color: white;">Action</th>
         </tr>
@@ -73,12 +73,12 @@ setlocale(LC_TIME, "fr_FR", "French");
             <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
             <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
             <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-            <td style="cursor: pointer;">{{ $produit->qte }}</td>      -->
-            <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
+            <td style="cursor: pointer;">{{ $produit->qte }}</td>     
+      <!--        <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> -->
             <td>
 
-              <a href="{{ route('produits.show', $produit->id) }}" title="show">  
-                    <i class="fas fa-eye text-success  fa-lg"></i>    -->
+      <!--        <a href="{{ route('produits.show', $produit->id) }}" title="show">  
+                     <i class="fas fa-eye text-success  fa-lg"></i>    -->
                     <button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
                         <i class="fas fa-eye text-success  fa-lg"></i>
                     </button>
