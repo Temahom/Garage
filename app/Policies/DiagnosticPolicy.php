@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Diagnostic;
 use App\Models\User;
-use App\Models\Voiture;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class VoiturePolicy
+class DiagnosticPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class VoiturePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Voiture  $voiture
+     * @param  \App\Models\Diagnostic  $diagnostic
      * @return mixed
      */
-    public function view(User $user, Voiture $voiture)
+    public function view(User $user, Diagnostic $diagnostic)
     {
         //
     }
@@ -41,41 +41,41 @@ class VoiturePolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id,[1,2]);
+        return in_array($user->role_id, [1,2]);
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Voiture  $voiture
+     * @param  \App\Models\Diagnostic  $diagnostic
      * @return mixed
      */
-    public function update(User $user, Voiture $voiture)
+    public function update(User $user, Diagnostic $diagnostic)
     {
-        return in_array($user->role_id,[1,2]);
+        return in_array($user->role_id, [1,2]);
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Voiture  $voiture
+     * @param  \App\Models\Diagnostic  $diagnostic
      * @return mixed
      */
-    public function delete(User $user, Voiture $voiture)
+    public function delete(User $user, Diagnostic $diagnostic)
     {
-        return in_array($user->role_id,[1,2]);
+        return in_array($user->role_id, [1,2]);
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Voiture  $voiture
+     * @param  \App\Models\Diagnostic  $diagnostic
      * @return mixed
      */
-    public function restore(User $user, Voiture $voiture)
+    public function restore(User $user, Diagnostic $diagnostic)
     {
         //
     }
@@ -84,10 +84,10 @@ class VoiturePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Voiture  $voiture
+     * @param  \App\Models\Diagnostic  $diagnostic
      * @return mixed
      */
-    public function forceDelete(User $user, Voiture $voiture)
+    public function forceDelete(User $user, Diagnostic $diagnostic)
     {
         //
     }

@@ -40,6 +40,7 @@ class ClientController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Client::class);
         return view('clients.create');
     }
 
@@ -51,7 +52,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-     
+        
         $request->validate([
         'nom' => 'required',
         'prenom' => 'required',
@@ -96,7 +97,8 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,Client $client)
-    {
+    {   
+        $this->authorize('update', $client);
          $request->validate([
         'nom' => 'required',
         'prenom' => 'required',
@@ -117,6 +119,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
+        $this->authorize('delete', $client);
         $client->delete();
 
         return redirect()->route('clients.index')

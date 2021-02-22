@@ -30,6 +30,7 @@ class DeviController extends Controller
      */
     public function create(Voiture $voiture, Intervention $intervention)
     {
+        $this->authorize('create', Devi::class);
         return view('devis.create', compact('voiture', 'intervention'));
     }
 
@@ -41,7 +42,7 @@ class DeviController extends Controller
      */
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     { 
-        dd($request);
+        
         $devi = new Devi();
         $devi->cout = $request->input('cout');
         $devi->date_expiration = $request->input('date_expiration');
@@ -91,6 +92,7 @@ class DeviController extends Controller
      */
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Devi $devi)
     {
+        $this->authorize('update', $devi);
         $devi->update($request->all());
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('modifier','Devis Modifier avec succées');
     
@@ -102,9 +104,9 @@ class DeviController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Devi $devi)
     {
-        $devi=Devi::findOrFail($id);
+        $this->authorize('delete', $devi );
         $devi->delete();
         return redirect('/devis')->with('Supprimer','Devis Supprimer avec succées');
     }
