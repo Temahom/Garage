@@ -14,7 +14,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                      <a class="btn btn-secondary" href="{{ route('produits.create') }}"><i class="fas fa-plus"></i> Ajouter un Produit</a>
                  </div>
              </div>   
-             <div class="col-xs-3 col-sm-3 col-md-3">     
+         <div class="col-xs-3 col-sm-3 col-md-3">     
                  <div class="form-group">
                      <form action="{{ route('produits.index') }}" method="GET" role="search">
                          <div class="d-flex">
@@ -25,9 +25,27 @@ setlocale(LC_TIME, "fr_FR", "French");
                          </div>
                      </form><br>
                  </div>
-             </div>   
-         </div>    
-         
+             </div>     
+      <!--       <div class="col-xs-4 col-sm-5 col-md-3">     
+                <div class="form-group">
+            <form action="{{ route('produits.index') }}" method="GET" role="search">
+                <div class="d-flex">
+                    <button class="btn btn-info t" type="submit" title="recherche un produit">
+                        <span class="fas fa-search"></span>
+                    </button>
+                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher produit" id="term">
+                        <a href="{{ route('produits.index') }}" class="">
+                            <button class="btn btn-danger" type="button" title="Actualiser page">
+                                <span class="fas fa-sync-alt"></span>
+                            </button>
+                        </a>
+                </div>
+            </form><br>
+        </div>
+    </div>      -->
+
+
+         </div>         
     </div>
 </div>
 
@@ -62,7 +80,7 @@ setlocale(LC_TIME, "fr_FR", "French");
         <!--    <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td>-->
             <td>
 
-              <a href="{{ route('produits.show', $produit->id) }}" title="show">                   
+          <!--       <a href="{{ route('produits.show', $produit->id) }}" title="show">      -->             
                     <button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
                         <i class="fas fa-eye text-success  fa-lg"></i>    
                     </button>
