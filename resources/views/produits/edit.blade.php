@@ -27,7 +27,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <div class="form-group">
                     <strong>Categorie :</strong>
                     <select name="categorie" id="categorie" class="custom-select form-control  @error('categorie') is-invalid @enderror" onchange="change();">
-						<option value="{{ $produit->categorie }}">{{ $produit->categorie }}</option>
+						
 							@foreach ($listes as $liste)
 								<option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
 							@endforeach
@@ -143,7 +143,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             var input6 = document.getElementById("leproduit");
             var input7 = document.getElementById("categorie");
             
-            if(val=="Autres")
+            if(val=="--- Autres ---")
             {
                 input1.style.display="none";
                 input2.style.display="block";
