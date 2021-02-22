@@ -57,8 +57,13 @@ class DiagnosticController extends Controller
                  
         
         foreach ($request->plusdechamps as $key => $value) {
-            $value['diagnostic_id'] = $diagnostic->id;
-            Defaut::create($value);
+            $defaut = new Defaut();
+            $defaut->diagnostic_id = $diagnostic->id;
+            $defaut->code =  $value['code'];
+            $defaut->localisation =  $value['localisation'];
+            $defaut->description =  $value['description'];
+            $defaut->etat =  $value['etat'];
+            $defaut->save();
         }
 
        
@@ -102,11 +107,24 @@ class DiagnosticController extends Controller
      */
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Diagnostic $diagnostic)
     {
-         $request->validate([
-        'constat' => 'required',
-        ]);
+        $diagnostic->constat = $request->input('constat');
+        $diagnostic->update();
 
-         $diagnostic->update($request->all());
+        $defauts = $intervention->diagnostic()->first()->defauts()->get();
+        foreach($defauts as $defaut)
+        {
+            $defaut->delete();
+        }
+                
+        foreach ($request->plusdechamps as $key => $value) {
+            $defaut = new Defaut();
+            $defaut->diagnostic_id = $diagnostic->id;
+            $defaut->code =  $value['code'];
+            $defaut->localisation =  $value['localisation'];
+            $defaut->description =  $value['description'];
+            $defaut->etat =  $value['etat'];
+            $defaut->save();
+        }
 
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] )
             ->with('success', 'Diagnostic ajouté avec succés');
