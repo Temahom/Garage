@@ -30,15 +30,7 @@ class DiagnosticController extends Controller
     public function create(Voiture $voiture, Intervention $intervention)
     {
         $listedefauts = Listedefaut::all();
-        $diagnostic = Diagnostic::find($intervention->diagnostic_id);
-         //dd($intervention->diagnostic()->first()->defauts()->get());
-        if($intervention->diagnostic()->first())
-        {
-            $defauts = $intervention->diagnostic()->first()->defauts()->get();
-            return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic', 'defauts', 'listedefauts'));
-        }
-       
-        return view('diagnostics.create', compact('voiture', 'intervention', 'diagnostic', 'listedefauts'));
+        return view('diagnostics.create', compact('voiture', 'intervention','listedefauts'));
     }
 
     /**
@@ -50,18 +42,17 @@ class DiagnosticController extends Controller
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
         $diagnostic = new Diagnostic();
+                 
+        
+        foreach ($request->plusdechamps as $key => $value) {
+            $value['diagnostic_id'] = $intervention->id;
+            Defaut::create($value);
+        }
+
         $diagnostic->constat = $request->input('constat');
         $diagnostic->save();
         $intervention->diagnostic_id = $diagnostic->id;
         $intervention->update();
-                 
-        
-        foreach ($request->plusdechamps as $key => $value) {
-            $value['diagnostic_id'] = $diagnostic->id;
-            Defaut::create($value);
-        }
-
-       
 
         
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] );
@@ -74,11 +65,7 @@ class DiagnosticController extends Controller
      */
     public function show(Diagnostic $diagnostic)
     {
-        $voitureID =$diagnostic->intervention()->first()->voiture_id;
-        $voiture = Voiture::find($voitureID);
-
-        //dd($diagnostic->intervention()->first()->defauts()->get());
-        //$voiture=intervention()->first()->voiture()->first();
+        $voiture = $diagnostic->intervention()->first()->voiture()->first();
         return view('diagnostics.show',compact('diagnostic','voiture'));
     }
     /**

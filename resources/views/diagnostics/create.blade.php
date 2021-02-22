@@ -75,7 +75,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat:</strong>
-                                <textarea id="constat" class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic">@if ($diagnostic){{ $diagnostic->constat }}@endif</textarea>
+                                <textarea id="constat" class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic">@if(isset($diagnostic)){{ $diagnostic->constat }}@endif</textarea>
                             </div>
                         </div>
                     </div>
