@@ -37,7 +37,7 @@ class InterventionController extends Controller
     public function create(Voiture $voiture, Intervention $intervention)
     {
         $this->authorize('create', Intervention::class);
-        $techniciens = User::where('role_id','=',2)->get();
+        $techniciens = User::where('role_id','=',3)->get();
         return view('interventions.create', compact('voiture', 'techniciens'));
     }
 
