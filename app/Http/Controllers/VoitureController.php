@@ -64,7 +64,7 @@ class VoitureController extends Controller
         $user = Auth::id();
         $data= request()->validate([
             'matricule'=>'required',
-            'marque'=>'required',
+            'marque'=>'required|unique',
             'model'=>'required',
             'annee'=>'required',
             'carburant'=>'required',
