@@ -42,7 +42,7 @@ return [
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
-            'auth_mode' => null,
+            'auth_mode' => true,
         ],
 
         'ses' => [
@@ -62,13 +62,7 @@ return [
             'path' => '/usr/sbin/sendmail -bs',
         ],
 
-        'stream' => [
-            'ssl' => [
-                'allow_self_signed' => true,
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-            ],
-        ],
+       
 
         'log' => [
             'transport' => 'log',
@@ -79,7 +73,13 @@ return [
             'transport' => 'array',
         ],
     ],
-
+    'stream' => [
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+        ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
