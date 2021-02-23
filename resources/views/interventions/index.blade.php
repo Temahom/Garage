@@ -49,7 +49,8 @@
             transition: all 0.2s ease-in-out;
           }
           .tabs label:hover {
-            background: #4656E9;
+            background-image: linear-gradient( to top,#2b2a34, #0E0C28);
+            color: white;
           }
           .tabs .tab-content {
             z-index: 2;
@@ -93,6 +94,7 @@
           }
           p.link a:hover {
             background-color: #522764;
+          
           }
 
     </style>
@@ -103,7 +105,7 @@
     
         @endif
     <div class="row">
-        <div class="col-lg-11 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">
             
             <ul class="tabs" role="tablist">
                 <li>
@@ -118,11 +120,11 @@
                         role="tabpanel" 
                         aria-labelledby="diagnostics" 
                         aria-hidden="false">
-                        <div class="col-xs-12 col-sm-12 col-md-12 row"><br>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
           
                           <table class="table table-striped table-hover col-md-12">
-                            <thead class="" style="background-color: #0E0C28;"> 
-                          <tr>
+                            <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
+                          <tr style="text-align: center">
                               <th style="color: white;">#</th>
                               <th style="color: white;">Constat</th>
                               <th style="color: white;">Date Edition</th>
@@ -131,7 +133,7 @@
                           </tr>
                               </thead>
                           @foreach ($diagnostics as $key=>$diagnostic)
-                          <tr>
+                          <tr style="text-align: center">
                               <td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
                               <td onclick="showDiagnostic({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->diagnostic()->first()->constat}}</td>
                               <td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($diagnostic->diagnostic()->first()->created_at, 'd m Y | H:i:s')}}</td>
@@ -158,10 +160,10 @@
                         role="tabpanel" 
                         aria-labelledby="devis" 
                         aria-hidden="true">
-                    
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                         <table class="table table-striped table-hover col-md-12">
-                          <thead class="" style="background-color: #4656E9;">
-                          <tr>
+                          <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                          <tr style="text-align: center">
                               <th style="color: white;">#</th>
                               <th style="color: white;">Date Edition</th>
                               <th style="color: white;">Date Expiration</th>
@@ -171,7 +173,7 @@
                           </tr>
                               </thead>
                           @foreach ($devis as $key=>$devi)
-                          <tr>
+                          <tr style="text-align: center">
                               <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
                               <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
                               <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
@@ -196,6 +198,7 @@
                               {!! $devis->links() !!}
                             </div>
                       </table>
+                        </div>
 
                   </div>
                 </li>
@@ -211,9 +214,10 @@
                         role="tabpanel" 
                         aria-labelledby="reparations" 
                         aria-hidden="true">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                         <table class="table table-striped table-hover col-md-12">
-                          <thead class="" style="background-color: #0E0C28;">
-                          <tr>
+                          <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                          <tr style="text-align: center">
                               <th style="color: white;">#</th>
                               <th style="color: white;">Entree Garage</th>
                               <th style="color: white;">Sortie Garage</th>
@@ -222,7 +226,7 @@
                           </tr>
                               </thead>
                           @foreach ($interventions as $intervention)
-                          <tr>
+                          <tr style="text-align: center">
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
@@ -236,6 +240,7 @@
                               {!! $reparations->links() !!}
                             </div>
                       </table>
+                        </div>
                   </div>
                 </li>
                 <li>
@@ -250,9 +255,10 @@
                         role="tabpanel" 
                         aria-labelledby="factures" 
                         aria-hidden="true">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                    <table class="table table-striped table-hover col-md-12">
-                          <thead class="" style="background-color: #4656E9;">
-                          <tr>
+                          <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                          <tr style="text-align: center">
                               <th style="color: white;">#</th>
                               <th style="color: white;">Date Edition</th>
                               <th style="color: white;">Date Expiration</th>
@@ -261,7 +267,7 @@
                           </tr>
                               </thead>
                           @foreach ($interventions as $intervention)
-                          <tr>
+                          <tr style="text-align: center">
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                               <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
@@ -272,6 +278,7 @@
                           
                           @endforeach
                       </table>
+                        </div>
                       {{-- <div class="col-md-12 mt-3 d-flex justify-content-center">
                         {!! $interventions->links() !!}
                       </div> --}}
