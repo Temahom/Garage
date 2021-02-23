@@ -17,7 +17,6 @@ class SmsController extends Controller
         $client = new \Nexmo\Client($basic);
         $message = $client->message()->send([
             'to' => '221778531640',
-            'to' => '221783071757',
             'from' => 'SAKA-Garage',
             "text" => "SAKA vous remercie d'être passé."
         ]);
