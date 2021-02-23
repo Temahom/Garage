@@ -8,6 +8,7 @@ use App\Models\Diagnostic;
 use App\Models\Reparation;
 use App\Models\Devi;
 use App\Models\Commande;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -35,7 +36,9 @@ class InterventionController extends Controller
      */
     public function create(Voiture $voiture, Intervention $intervention)
     {
-        return view('interventions.create', compact('voiture'));
+        $this->authorize('create', Intervention::class);
+        $techniciens = User::where('role_id','=',2)->get();
+        return view('interventions.create', compact('voiture', 'techniciens'));
     }
 
     /**
@@ -46,6 +49,12 @@ class InterventionController extends Controller
      */
     public function store(Request $request, Voiture $voiture, Commande $commande)
     {
+        $request->validate([
+            'type' => 'required',
+            'debut' => 'required',
+            'technicien' => 'required'
+        ]);
+
         $user = Auth::id();
         $intervention = new Intervention();
         $intervention->voiture_id = $voiture->id;
@@ -53,6 +62,7 @@ class InterventionController extends Controller
         $intervention->debut = $request->input('debut');
         $intervention->fin = $request->input('fin');
         $intervention->user_id = $user;
+        $intervention->technicien = $request->input('technicien');
         $intervention->save();
         return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
     }
@@ -134,11 +144,19 @@ class InterventionController extends Controller
 
     public function update(Request $request, Voiture $voiture)
     {  
+        $request->validate([
+            'type' => 'required',
+            'debut' => 'required',
+            'technicien' => 'required',
+        ]);
+
         $intervention = new Intervention();
+        $this->authorize($intervention);
         $intervention->voiture_id = $voiture->id;
         $intervention->type = $request->input('type');
         $intervention->debut = $request->input('debut');
         $intervention->fin = $request->input('fin');
+        $intervention->technicien = $request->input('technicien');
         // dd($intervention);
           $intervention->update(); 
           return redirect('/voitures/'.$voiture->id);

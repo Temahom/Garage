@@ -95,19 +95,30 @@
                                 <div>Le message que l'on veut voir défilé horizontalement...</div>
                             </div>                 
                         </li>
+                        @php
+                            use Carbon\Carbon;
+                            $notifications= App\Models\Intervention::where('diagnostic_id','=',null)->where('devis_id','=',null)->where('reparation_id','=',null)->where('technicien','=',Auth::id())->get();
+                            //dd($notifications);
+                        @endphp
                         <li class="nav-item dropdown notification">
                             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
-                                    <div class="notification-title"> Notifications <span class="badge badge-danger">20</span></div>
+                                    <div class="notification-title"> Notifications <span class="badge badge-danger">{{count($notifications)}}</span></div>
                                     <div class="notification-list">
                                         <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">
+                                            @foreach ($notifications as $notification)
+                                            <a href="/voitures/{{$notification->voiture_id}}/interventions/{{$notification->id}}" class="list-group-item list-group-item-action active">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">{{Auth::user()->name}}</span>Vous a attribuer une taches.
-                                                        <div class="notification-date">Il y'a 2 min </div>
+                                                 @if (isset($notification->user()->first()->image))
+                                                  <div class="notification-list-user-img"><img src="{{asset('images/'.$notification->user()->first()->image)}}" alt="" class="user-avatar-md rounded-circle"></div>
+                                                 @else
+                                                    <div class="notification-list-user-img"><img src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $notification->user()->first()->name}}" alt="" class="user-avatar-md rounded-circle"></div>
+                                                 @endif
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">{{$notification->user()->first()->name}}</span>Vous a attribué {{$notification->type == 'intervention'? 'une':'un'}}  <span class="badge bg-secondary">{{$notification->type}}</span>
+                                                        <div class="notification-date">Il Y'a {{Carbon::now()->diffInMinutes($notification->created_at)}} minutes</div>
                                                     </div>
+                                                    @endforeach
                                                 </div>
                                             </a>
                                            
@@ -283,6 +294,7 @@
     <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js" integrity="sha512-E0zfDwA1CopT4gzJmj9tMpd7O6pTpuybTK58eY1GwqptdasUohyImuualLt/S5XvM8CDnbaTNP/7MU3bQ5NmQg==" crossorigin="anonymous"></script>
+    
 </body>
  
 </html>

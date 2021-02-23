@@ -93,6 +93,22 @@
                     <input type="date" name="fin" value="{{ old('fin') }}" class="form-control">
                 </div>
             </div>
+			<div class="col-xs-8 col-sm-8 col-md-8 row">
+                <div class="form-group col-xs-8 col-sm-8 col-md-8">
+                    <strong>Chef d'Operation</strong>
+                    <select name="technicien" class="form-control @error('technicien') is-invalid @enderror">
+						<option value="">Assigné un technicien...</option>
+						@foreach ($techniciens as $technicien)
+						<option value="{{$technicien->id}}">{{$technicien->name}}</option>
+						@endforeach
+                    </select>
+					<div class="invalid-feedback">
+						@if($errors->has('technicien'))
+						{{ $errors->first('technicien') }}
+						@endif
+					</div>
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                     <a class="btn btn-secondary" href="{{ route('voitures.show',['voiture' => $voiture->id]) }}"><i class="fas fa-angle-left"></i> Retour</a>
                     <button type="submit" class="btn btn-success">Enregistrer</button>
