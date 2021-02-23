@@ -92,7 +92,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 var produit='<option value="">Nos Produits Disponibles</option>'
             $.ajax({
                 type: "GET",
-                url: "http://127.0.0.1:8000/api/listesp/"+ $('select[name=categorie]').val(),
+                url: "/api/listesp/"+ $('select[name=categorie]').val(),
                 dataType: 'json',
                 success: function(data) {
                     var produits= data;
@@ -113,7 +113,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
            var prix1='<option value="">Le prix du Produit </option>'
         $.ajax({
             type: "GET",
-            url: "http://127.0.0.1:8000/api/listespu/"+ $('select[name=produit]').val(),
+            url: "/api/listespu/"+ $('select[name=produit]').val(),
             dataType: 'json',
             success: function(data) {
                 var prix1s= data;
