@@ -32,7 +32,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                                     <option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
                                 @endforeach
                         </select>
-                        <input name="categorie1" type="text" class="custom-select form-control" id="inpuTxt1" style="display:none;" value="" placeholder="Entrer une nouvelle catégorie"/>
+                        <input name="categorie1" type="text" class="custom-select form-control" id="inpuTxt1" style="display:none;" value="" autocomplete="off" placeholder="Entrer une nouvelle catégorie"/>
                         <div class="invalid-feedback">
                             @if($errors->has('categorie'))
                             {{ $errors->first('categorie') }}
