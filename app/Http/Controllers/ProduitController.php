@@ -76,14 +76,28 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'categorie' => 'required',
-            'produit' => 'required',
-            'prix1' => 'required',
-        'qte' => 'required'
-        ]);
-
-        Produit::create($request->all());
+        if(isset($request->produit1)&& isset($request->prix)){
+            $prod=new Produit();
+            $prod->categorie=$request->categorie1;
+            $prod->prix1=$request->prix;
+            $prod->produit=$request->produit1;
+            $prod->qte=$request->qte;
+            $prod->save();
+        }else{
+            $request->validate([
+                'categorie' => 'required',
+                'produit' => 'required',
+                'prix1' => 'required',
+            'qte' => 'required'
+            ]);
+    
+            $prod=new Produit();
+            $prod->categorie=$request->categorie;
+            $prod->prix1=$request->prix1;
+            $prod->produit=$request->produit;
+            $prod->qte=$request->qte;
+            $prod->save();
+        }
         
 
         return redirect()->route('produits.index')

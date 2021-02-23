@@ -11,6 +11,8 @@ use App\Http\Controllers\VoitureController;
 use App\Http\Controllers\InterventionController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\MailSend;
+use App\Http\Controllers\SmsController;
 
 use Illuminate\Support\Facades\App;
 
@@ -29,7 +31,8 @@ use Illuminate\Support\Facades\App;
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
-
+Route::get('send-mail',[MailSend::class,'mailsend']);
+Route::get('send-message',[SmsController::class,'sendMessage']);
 Route::get('Pdf', function () {
    
    $commandes= \App\Models\Commande::all();

@@ -62,6 +62,8 @@ return [
             'path' => '/usr/sbin/sendmail -bs',
         ],
 
+       
+
         'log' => [
             'transport' => 'log',
             'channel' => env('MAIL_LOG_CHANNEL'),
@@ -71,7 +73,7 @@ return [
             'transport' => 'array',
         ],
     ],
-
+    
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -85,7 +87,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'name' => env('MAIL_FROM_NAME', 'Saka'),
     ],
 
     /*

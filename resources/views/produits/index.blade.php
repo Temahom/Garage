@@ -61,12 +61,12 @@ setlocale(LC_TIME, "fr_FR", "French");
 <table class="table table-striped table-hover col-md-12">
     <thead  class="" style="background-color: #4656E9;">
         <tr>
-            <th style="color: white;">N°</th>
-            <th style="color: white;">Catégorie</th>
-            <th style="color: white;">Nom Produit</th>
-            <th style="color: white;">Prix Unitaire</th>
-            <th style="color: white;">En Stock</th>
-            <th style="color: white;">Action</th>
+            <th style="color: white;" style="cursor: pointer;">N°</th>
+            <th style="color: white;" style="cursor: pointer;">Catégorie</th>
+            <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
+            <th style="color: white;" style="cursor: pointer;">Prix Unitaire</th>
+            <th style="color: white;" style="cursor: pointer;">En Stock</th>
+            <th style="color: white;" style="cursor: pointer;">Action</th>
         </tr>
     </thead>
     <tbody>
