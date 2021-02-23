@@ -108,19 +108,19 @@
                                     <div class="notification-list">
                                         <div class="list-group">
                                             @foreach ($notifications as $notification)
-                                            <a href="/voitures/{{$notification->voiture_id}}/interventions/{{$notification->id}}" class="list-group-item list-group-item-action active">
-                                                <div class="notification-info">
-                                                 @if (isset($notification->user()->first()->image))
-                                                  <div class="notification-list-user-img"><img src="{{asset('images/'.$notification->user()->first()->image)}}" alt="" class="user-avatar-md rounded-circle"></div>
-                                                 @else
-                                                    <div class="notification-list-user-img"><img src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $notification->user()->first()->name}}" alt="" class="user-avatar-md rounded-circle"></div>
-                                                 @endif
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">{{$notification->user()->first()->name}}</span>Vous a attribué {{$notification->type == 'intervention'? 'une':'un'}}  <span class="badge bg-secondary">{{$notification->type}}</span>
-                                                        <div class="notification-date">Il Y'a {{Carbon::now()->diffInMinutes($notification->created_at)}} minutes</div>
-                                                    </div>
-                                                    @endforeach
+                                                <a href="/voitures/{{$notification->voiture_id}}/interventions/{{$notification->id}}" class="list-group-item list-group-item-action active">
+                                                    <div class="notification-info">
+                                                    @if (isset($notification->user()->first()->image))
+                                                    <div class="notification-list-user-img"><img src="{{asset('images/'.$notification->user()->first()->image)}}" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    @else
+                                                        <div class="notification-list-user-img"><img src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $notification->user()->first()->name}}" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    @endif
+                                                        <div class="notification-list-user-block"><span class="notification-list-user-name">{{$notification->user()->first()->name}}</span>Vous a attribué {{$notification->type == 'intervention'? 'une':'un'}}  <span class="badge bg-secondary">{{$notification->type}}</span>
+                                                            <div class="notification-date">Il Y'a {{Carbon::now()->diffInMinutes($notification->created_at)}} minutes</div>
+                                                        </div>
+                                           
                                                 </div>
-                                            </a>
+                                            </a> @endforeach
                                            
                                         </div>
                                     </div>

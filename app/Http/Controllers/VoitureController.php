@@ -14,7 +14,7 @@ class VoitureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Client $clients)
+    public function index(Request $request)
     {
         $voitures = Voiture::where([
             [function ($query) use ($request){
@@ -63,7 +63,7 @@ class VoitureController extends Controller
         $user = Auth::id();
         $data= request()->validate([
             'matricule'=>'required',
-            'marque'=>'required|unique',
+            'marque'=>'required',
             'model'=>'required',
             'annee'=>'required',
             'carburant'=>'required',
