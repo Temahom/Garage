@@ -49,7 +49,7 @@
             transition: all 0.2s ease-in-out;
           }
           .tabs label:hover {
-            background-image: linear-gradient( to top,#2b2a34, #0E0C28);
+            background-image: linear-gradient( to top,#58575f, #51505c);
             color: white;
           }
           .tabs .tab-content {
@@ -68,7 +68,7 @@
           .tabs [id^="tab"]:checked + label {
             top: 0;
             padding-top: 17px;
-            background: #101010;
+            background-image: linear-gradient( to top,#2b2a34, #0E0C28);
             color:#ffffff;
           }
           .tabs [id^="tab"]:checked ~ [id^="tab-content"] {
