@@ -14,9 +14,8 @@ class VoitureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Client $clients)
     {
-  
         $voitures = Voiture::where([
             [function ($query) use ($request){
                 if (($term = $request->term)) {

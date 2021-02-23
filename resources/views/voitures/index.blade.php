@@ -54,7 +54,7 @@
             <th style="color: white;">Model</th>
             <th style="color: white;">Annee</th>
             <th style="color: white;">Carburant</th>
-            <th style="color: white;">Puissance</th>
+            <th style="color: white;">Propriètaire</th>
             <th style="color: white;">Enregistré par</th>
             <th style="color: white;">Action</th>
         </tr>
@@ -66,7 +66,8 @@
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->model}}</td>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->annee}}</td>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->carburant}}</td>
-            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->puissance}}</td>
+            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</td>
+            <!--  <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->puissance}}</td>-->
             <td> <div> {{(Auth::user()->id==$voiture->user_id)? 'Vous' :$voiture->user()->first()->name}} <span class="badge badge-secondary capitalize">{{$voiture->user()->first()->role()->first()->role}}</span></div> 
                 
             <td>
