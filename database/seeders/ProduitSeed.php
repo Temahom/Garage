@@ -1,6 +1,6 @@
 <?php 
 
-\App\Models\listeproduit::create(["categorie"=>"--- Autres ---","produit"=>"Autres","prix1"=>0]);
+\App\Models\listeproduit::create(["categorie"=>"* Ajouter","produit"=>"Autres","prix1"=>0]);
 \App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"Huile moteur","prix1"=>1000]);
 \App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"Pompe a eau + kit de courroie de distribution","prix1"=>3000]);
 \App\Models\listeproduit::create(["categorie"=>"Pieces moteur huile","produit"=>"kit de distribution","prix1"=>2000]);

@@ -139,7 +139,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             var input6 = document.getElementById("leproduit");
             var input7 = document.getElementById("categorie");
             
-            if(val=="--- Autres ---")
+            if(val=="* Ajouter")
             {
                 input1.style.display="block";
                 input2.style.display="block";
