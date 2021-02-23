@@ -104,7 +104,7 @@
                             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
-                                    <div class="notification-title"> Notifications <span class="badge badge-danger">{{count($notifications)==0?'0':count($notifications)}}</span></div>
+                                    <div class="notification-title"> Notifications <span class="badge badge-danger">{{count($notifications)== 0?'':count($notifications)}}</span></div>
                                     <div class="notification-list">
                                         <div class="list-group">
                                             @foreach ($notifications as $notification)
