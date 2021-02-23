@@ -17,6 +17,8 @@ class MailSend extends Controller
         \Mail::to('aziz.fall@mediapex.pro')->send(new SendMail($details));
         \Mail::to('moussa.thiam@mediapex.pro')->send(new SendMail($details));
         \Mail::to('fatoubibi96@gmail.com')->send(new SendMail($details));
+        \Mail::to('hildedokou@gmail.com')->send(new SendMail($details));
+        \Mail::to('diattamohamet30@gmail.com')->send(new SendMail($details));
         return view('emails.thanks');
     }
 }
