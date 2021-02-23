@@ -60,17 +60,17 @@
     </div>
 
     
-    <form action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
+    <form id="formProd" action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-11">
 
                 <div class="row" >
-                    <div class="form-group col-xs-6 col-sm-6 col-md-6">
+                    <div class="divCout form-group col-xs-6 col-sm-6 col-md-6">
                         <label for="cout" class="col-form-label">Coût de Réparation</label>
                         <input id="cout" type="number" name="cout" class="form-control" placeholder="Coût de réparation">
                     </div>
-                    <div class="form-group col-xs-6 col-sm-6 col-md-6">
+                    <div class="divDate form-group col-xs-6 col-sm-6 col-md-6">
                         <label for="expiration_expiration" class="col-form-label">Date Expiration</label>
                         <input id="expiration" type="date" name="date_expiration" class="form-control" placeholder="Date expiration...">
                     </div>
@@ -109,7 +109,7 @@
                                 <span class="numero">#1</span>
                                 <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
                             </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="divCategorie col-xs-4 col-sm-4 col-md-4">
                                 <div class="form-group catProduit">
                                     <strong>Categorie :</strong>
                                     <select name="produits[0][categorie]" id="categorie" class="custom-select">
@@ -121,7 +121,7 @@
 
                                 </div>
                             </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="divProduit col-xs-4 col-sm-4 col-md-4">
                                 <div class="form-group select-produit">
                                     <strong>Nom du produit :</strong>
                                     <select name="produits[0][produit_id]" id="leproduit" class="custom-select">
@@ -129,7 +129,7 @@
                                     </select>	
                                 </div>		
                             </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <strong>Quantité Voulue:</strong>
                                     <input type="number" name="produits[0][qteProduit]" class="custom-select form-control">
@@ -150,7 +150,7 @@
                 <div class="row">
                     <div class="col-md-12 pl-0 py-4">
                         <a class="btn btn-secondary" href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}">Retour</a>
-                        <a class="btn btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormDiag()">Enregistrer</a>
+                        <a class="btn btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormProd()">Enregistrer</a>
                     </div>
                 </div>
 
@@ -185,58 +185,104 @@
 
     function getDiv(i){
         divDevis = '<div class="row p-3 mb-2" id="newProduit">'+
-                        '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
-                            '<span class="numero"></span>'+
-                            '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>'+
-                        '</div>'+
-                        '<div class="col-xs-4 col-sm-4 col-md-4">'+
-                            '<div class="form-group catProduit">'+
-                                '<strong>Categorie :</strong>'+
-                                '<select name="produits['+i+'][categorie]" id="categorie" class="custom-select">'+
-                                    '<option value="">catégorie</option>'+
-                                    '@foreach ($produits as $produit)'+
-                                        '<option value="{{$produit->categorie}}">{{$produit->categorie}}</option>'+
-                                    '@endforeach'+
-                                '</select>'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="col-xs-4 col-sm-4 col-md-4">'+
-                            '<div class="form-group select-produit">'+
-                                '<strong>Nom du produit :</strong>'+
-                                '<select name="produits['+i+'][produit_id]" class="custom-select">'+
-                                    '<option value="">---</option>'+
-                                '</select>'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="col-xs-4 col-sm-4 col-md-4">'+
-                            '<div class="form-group">'+
-                                '<strong>Quantité Voulue:</strong>'+
-                                '<input type="number" name="produits['+i+'][qteProduit]" class="custom-select form-control">'+
-                            '</div>'+
-                        '</div>'+                           
-                    '</div>';
-                    return divDevis;
-                }
-
-                $("#add-btn").click(function(){
-                    div = getDiv(i);
-                    $("#dynamicAddRemove").append(div);
-                    numeroter();
-                    i++;
-                });
-
-                $(document).on('click', '#remove-button', function(){  
-                    $(this).parents('#newProduit').remove();
-                    numeroter();
-                });
-
-                function numeroter() {
-                    var num = 1;
-                    $('#dynamicAddRemove > div').each( function(){
-                        $(this).children('.divSup').children('.numero').text('#' + num);
-                        num++;
-                    });
+            '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
+                '<span class="numero"></span>'+
+                '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>'+
+            '</div>'+
+            '<div class="divCategorie col-xs-4 col-sm-4 col-md-4">'+
+                '<div class="form-group catProduit">'+
+                    '<strong>Categorie :</strong>'+
+                    '<select name="produits['+i+'][categorie]" id="categorie" class="custom-select">'+
+                        '<option value="">catégorie</option>'+
+                        '@foreach ($produits as $produit)'+
+                            '<option value="{{$produit->categorie}}">{{$produit->categorie}}</option>'+
+                        '@endforeach'+
+                    '</select>'+
+                '</div>'+
+            '</div>'+
+            '<div class="divProduit col-xs-4 col-sm-4 col-md-4">'+
+                '<div class="form-group select-produit">'+
+                    '<strong>Nom du produit :</strong>'+
+                    '<select name="produits['+i+'][produit_id]" class="custom-select">'+
+                        '<option value="">---</option>'+
+                    '</select>'+
+                '</div>'+
+            '</div>'+
+            '<div class="divQuantite col-xs-4 col-sm-4 col-md-4">'+
+                '<div class="form-group">'+
+                    '<strong>Quantité Voulue:</strong>'+
+                    '<input type="number" name="produits['+i+'][qteProduit]" class="custom-select form-control">'+
+                '</div>'+
+            '</div>'+                           
+        '</div>';
+        return divDevis;
     }
+
+    $("#add-btn").click(function(){
+        div = getDiv(i);
+        $("#dynamicAddRemove").append(div);
+        numeroter();
+        i++;
+    });
+
+    $(document).on('click', '#remove-button', function(){  
+        $(this).parents('#newProduit').remove();
+        numeroter();
+    });
+
+    function numeroter() {
+        var num = 1;
+        $('#dynamicAddRemove > div').each( function(){
+            $(this).children('.divSup').children('.numero').text('#' + num);
+            num++;
+        });
+    }
+
+/*CONTROL DEVIS*/
+function envoyerFormProd()
+    {
+    
+        var ok = 1;
+        cout = $('#cout').val().trim();
+        $('#cout').removeClass( "is-invalid" );
+        if(cout == '')
+        {
+            $('#cout').addClass( "is-invalid" );
+            ok = 0;
+        }
+
+        expiration = $('#expiration').val().trim();
+        $('#expiration').removeClass( "is-invalid" );
+        if(expiration == '')
+        {
+            $('#expiration').addClass( "is-invalid" );
+            ok = 0;
+        }
+        
+        
+        $('#dynamicAddRemove > div').each( function(){
+            $(this).children('.divCategorie').children('.catProduit').children('select').removeClass('is-invalid');
+            $(this).children('.divProduit').children('.select-produit').children('select').removeClass('is-invalid');
+
+            categorie = $(this).children('.divCategorie').children('.catProduit').children('select').val().trim();
+            produit = $(this).children('.divProduit').children('.select-produit').children('select').val().trim();
+
+            if(categorie == '')
+            {
+                $(this).children('.divCategorie').children('.catProduit').children('select').addClass('is-invalid');
+                ok = 0;
+            }
+            if(produit == '')
+            {
+                $(this).children('.divProduit').children('.select-produit').children('select').addClass('is-invalid');
+                ok = 0;
+            }
+        });
+        if(ok)
+        $('#formProd').submit();
+    }
+    /* FIN CONTROL DEVIS*/
+
 
 
 </script>
