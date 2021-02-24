@@ -263,9 +263,13 @@ function envoyerFormProd()
         $('#dynamicAddRemove > div').each( function(){
             $(this).children('.divCategorie').children('.catProduit').children('select').removeClass('is-invalid');
             $(this).children('.divProduit').children('.select-produit').children('select').removeClass('is-invalid');
+            $(this).children('.divQuantite').children('div').children('input').removeClass('is-invalid');
+           
 
             categorie = $(this).children('.divCategorie').children('.catProduit').children('select').val().trim();
             produit = $(this).children('.divProduit').children('.select-produit').children('select').val().trim();
+            quantite = $(this).children('.divQuantite').children('div').children('input').val().trim();
+            
 
             if(categorie == '')
             {
@@ -275,6 +279,11 @@ function envoyerFormProd()
             if(produit == '')
             {
                 $(this).children('.divProduit').children('.select-produit').children('select').addClass('is-invalid');
+                ok = 0;
+            }
+            if(quantite == '')
+            {
+                $(this).children('.divQuantite').children('div').children('input').addClass('is-invalid');
                 ok = 0;
             }
         });

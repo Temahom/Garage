@@ -49,6 +49,7 @@
         <table class="table table-striped table-hover col-md-12">
             <thead class="" style="background-color: #4656E9;">
         <tr>
+            <th style="color: white;">N°</th>
             <th style="color: white;">Matricule</th>
             <th style="color: white;">Marque</th>
             <th style="color: white;">Model</th>
@@ -61,6 +62,7 @@
             </thead>
         @foreach ($voitures as $voiture)
         <tr>
+            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->id}}</td>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->matricule}}</td>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->marque}}</td>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->model}}</td>

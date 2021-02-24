@@ -56,7 +56,8 @@ class ClientController extends Controller
         $request->validate([
         'nom' => 'required',
         'prenom' => 'required',
-        'telephone' => 'required',
+        'telephone' => 'required|unique:clients',
+        'email' => 'unique:clients',
         ]);
            
         $client = Client::create($request->all());
