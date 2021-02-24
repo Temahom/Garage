@@ -54,6 +54,7 @@ class DiagnosticController extends Controller
         $diagnostic->constat = $request->input('constat');
         $diagnostic->save();
         $intervention->diagnostic_id = $diagnostic->id;
+        $intervention->statut = 2;
         $intervention->update();
                  
         

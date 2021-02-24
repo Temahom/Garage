@@ -44,6 +44,7 @@ class ReparationController extends Controller
         ]);
         $reparation = new Reparation();
         $reparation->element_3 = $request->input('element_3');
+        $reparation->statut = 4;
         $reparation->save();
 
         $intervention->reparation_id = $reparation->id;

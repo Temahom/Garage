@@ -26,7 +26,7 @@ class AddDateExpirationToDevis extends Migration
     public function down()
     {
         Schema::table('devis', function (Blueprint $table) {
-            $table->date('date_expiration');
+            $table->dropColumn('date_expiration');
         });
     }
 }

@@ -42,7 +42,6 @@ class DeviController extends Controller
      */
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     { 
-        
         $devi = new Devi();
         $devi->cout = $request->input('cout');
         $devi->date_expiration = $request->input('date_expiration');
@@ -55,6 +54,7 @@ class DeviController extends Controller
         $commande->qteProduit = $request->input('qteProduit');
         $commande->save();
         $intervention->devis_id = $devi->id;
+        $intervention->statut = 3;
         $intervention->update();
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('fait','Devis créer avec succés');
     }

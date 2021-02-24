@@ -26,7 +26,7 @@ class AddEtatToDevis extends Migration
     public function down()
     {
         Schema::table('devis', function (Blueprint $table) {
-            $table->integer('etat');
+            $table->dropColumn('etat');
         });
     }
 }
