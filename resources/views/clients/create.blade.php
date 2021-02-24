@@ -61,7 +61,12 @@
             </div>
             <div class="form-group">
                 <strong>Email :</strong>
-                <input type="email" name="email" class="form-control" placeholder="Email"  value="{{ old('email') }}">
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email"  value="{{ old('email') }}">
+                <div class="invalid-feedback">
+                    @if($errors->has('email'))
+                    {{ $errors->first('email') }}
+                    @endif
+                </div>
             </div>
         </div>
        
