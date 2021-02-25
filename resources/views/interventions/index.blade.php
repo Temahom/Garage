@@ -67,7 +67,7 @@
           }
           .tabs [id^="tab"]:checked + label {
             top: 0;
-            padding-top: 17px;
+            padding-top: 10px;
             background-image: linear-gradient( to top,#2b2a34, #0E0C28);
             color:#ffffff;
           }
@@ -97,6 +97,16 @@
           
           }
 
+          .nav-link_1.active,
+          .nav-pills .show>.nav-link{
+           background-color:#138496!important;
+           color:#ffffff;
+           padding: 10px;
+           border-radius:0 20% 0 20%;
+           text-align: center;
+           font-size: 16px;
+          }
+
     </style>
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -107,24 +117,34 @@
 
         <div class="row" style="margin-top: 30px">
           <div class="col-2">
-            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
-              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details</a>
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
+              <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
+              <a class="nav-link_1" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details</a>
             </div>
           </div>
           <div class="col-10">
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                  <table class="table table-borderless">
+                <div class="form-group">
+                  <form action="/interventions-list" method="GET" role="search">
+                      <div class="d-flex">
+                          <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
+                          <button class="btn btn-info t" type="submit" title="recherche une voiture">
+                              <span class="fas fa-search"></span>
+                          </button>
+                      </div>
+                  </form><br>
+              </div>
+                <table class="table table-borderless">
                       <thead>
-                        <tr class="table-primary">
-                          <th scope="col" > #</th>
-                          <th scope="col" > Type</th>
-                          <th scope="col" > Etat</th>
-                          <th scope="col">Voiture</th>
-                          <th scope="col">Date Enregistrement </th>
-                          <th scope="col">Chargé Enregistrement</th>
-                          <th scope="col">Chargé Operation</th>
+                        <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); ">
+                          <th scope="col" style= "color:#ffffff" > #</th>
+                          <th scope="col" style= "color:#ffffff" > Type</th>
+                          <th scope="col" style= "color:#ffffff" > Etat</th>
+                          <th scope="col" style= "color:#ffffff" >Voiture</th>
+                          <th scope="col" style= "color:#ffffff" >Date Enregistrement </th>
+                          <th scope="col" style= "color:#ffffff" >Chargé Enregistrement</th>
+                          <th scope="col" style= "color:#ffffff" >Chargé Operation</th>
                         </tr>
                       </thead>
                       <tbody>

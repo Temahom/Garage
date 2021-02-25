@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Intervention;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -76,8 +77,10 @@ class ActorController extends Controller
     public function show($id)
     {
         $user= User::find($id);
-        $interventions = $user->interventions()->paginate(3);
-        return view('actors.show',compact('user','interventions'));
+        $interventions_manager = $user->interventions()->paginate(15);
+        $interventions_technicien = Intervention::where('technicien','=',$id);
+        $role = Role::find($user->role_id);
+        return view('actors.show',compact('user', 'interventions_manager', 'interventions_technicien', 'role'));
     }
 
     /**

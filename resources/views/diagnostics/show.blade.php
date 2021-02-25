@@ -5,6 +5,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Diagnostic</h2>
+                <a href="/diag-pdf/{{$diagnostic->id}}" class="btn btn-success mb-2">PDF</a>
             </div>
         </div>
     </div>
