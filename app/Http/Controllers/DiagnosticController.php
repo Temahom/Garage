@@ -53,11 +53,11 @@ class DiagnosticController extends Controller
         $diagnostic = new Diagnostic();
         $diagnostic->constat = $request->input('constat');
         $diagnostic->save();
+
         $intervention->diagnostic_id = $diagnostic->id;
         $intervention->statut = 2;
         $intervention->update();
                  
-        
         foreach ($request->plusdechamps as $key => $value) {
             $defaut = new Defaut();
             $defaut->diagnostic_id = $diagnostic->id;
@@ -67,10 +67,6 @@ class DiagnosticController extends Controller
             $defaut->etat =  $value['etat'];
             $defaut->save();
         }
-
-       
-
-        
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] );
     }
     /**

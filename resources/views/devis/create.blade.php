@@ -124,7 +124,7 @@
                             <div class="divProduit col-xs-4 col-sm-4 col-md-4">
                                 <div class="form-group select-produit">
                                     <strong>Nom du produit :</strong>
-                                    <select name="produits[0][produit_id]" id="leproduit" class="custom-select">
+                                    <select name="produits[0][id]" id="leproduit" class="custom-select">
                                         <option value="">---</option>
                                     </select>	
                                 </div>		
@@ -132,7 +132,7 @@
                             <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <strong>Quantité Voulue:</strong>
-                                    <input type="number" name="produits[0][qteProduit]" class="custom-select form-control">
+                                    <input type="number" name="produits[0][quantite]" class="custom-select form-control">
                                 </div>
                             </div>
                                                                     
@@ -203,7 +203,7 @@
             '<div class="divProduit col-xs-4 col-sm-4 col-md-4">'+
                 '<div class="form-group select-produit">'+
                     '<strong>Nom du produit :</strong>'+
-                    '<select name="produits['+i+'][produit_id]" class="custom-select">'+
+                    '<select name="produits['+i+'][id]" class="custom-select">'+
                         '<option value="">---</option>'+
                     '</select>'+
                 '</div>'+
@@ -211,7 +211,7 @@
             '<div class="divQuantite col-xs-4 col-sm-4 col-md-4">'+
                 '<div class="form-group">'+
                     '<strong>Quantité Voulue:</strong>'+
-                    '<input type="number" name="produits['+i+'][qteProduit]" class="custom-select form-control">'+
+                    '<input type="number" name="produits['+i+'][quantite]" class="custom-select form-control">'+
                 '</div>'+
             '</div>'+                           
         '</div>';

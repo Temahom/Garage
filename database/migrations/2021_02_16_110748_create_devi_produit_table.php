@@ -13,10 +13,11 @@ class CreateDeviProduitTable extends Migration
      */
     public function up()
     {
-        Schema::create('devi_produit', function (Blueprint $table) {
+        Schema::create('devi_produits', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('devi_id');
             $table->unsignedBigInteger('produit_id');
+            $table->integer('quantite');
             $table->timestamps();
         });
     }

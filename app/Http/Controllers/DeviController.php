@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Devi;
 use App\Models\Voiture;
-use App\Models\Commande;
+use App\Models\Devi_produit;
 use App\Models\Intervention;
 
 class DeviController extends Controller
@@ -47,15 +47,17 @@ class DeviController extends Controller
         $devi->date_expiration = $request->input('date_expiration');
         $devi->etat= 1;
         $devi->save();
-        $idDevi = $devi->id;
-        $commande = new Commande();
-        $commande->produit_id = $request->input('produit_id');
-        $commande->devi_id = $idDevi;
-        $commande->qteProduit = $request->input('qteProduit');
-        $commande->save();
         $intervention->devis_id = $devi->id;
         $intervention->statut = 3;
         $intervention->update();
+        
+        foreach ($request->produits as $key => $produit) {
+            $devi_produit = new Devi_produit();
+            $devi_produit->devi_id = $devi->id;
+            $devi_produit->produit_id = $produit['id'];
+            $devi_produit->quantite = $produit['quantite'];
+            $devi_produit->save();
+        }
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('fait','Devis créer avec succés');
     }
 

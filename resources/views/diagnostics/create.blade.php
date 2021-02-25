@@ -74,7 +74,7 @@
     >
         {{ csrf_field() }}
         @if (isset($defauts))
-            @method('PUT');
+            @method('PUT')
         @endif
                     
 
@@ -117,7 +117,7 @@
                            </style>
 
                             @if (isset($defauts))
-                                @php  $i = -1; @endphp
+                                @php  $i = 0; @endphp
                                 @foreach ($defauts as $defaut)
                                     @php  $i++; @endphp
                                 
