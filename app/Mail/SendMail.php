@@ -32,7 +32,7 @@ class SendMail extends Mailable
     {
         $file=$this->details["file"];
         return $this->subject('SAKA-SAV')
-            ->attach($file, "invoice.pdf")
+            ->attachData($file, "invoice.pdf")
                     ->view('emails.sendmail');
     }
 }
