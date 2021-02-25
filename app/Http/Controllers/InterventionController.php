@@ -19,10 +19,22 @@ class InterventionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $interventions = Intervention::where([
+            [function ($query) use ($request){
+                if (($term = $request->term)) {
+                    $query->orWhere('statut', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('type', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('technicien', 'LIKE' , '%' . $term . '%')->get();
+                    
+                }
+               }] 
+            ])->orderBy("id","asc")->paginate(15);
+  
+        // return view('voitures.index', compact('voitures'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 15); 
         
-        $interventions = Intervention::orderBy('created_at','DESC')->paginate(15);
         $diagnostics = Intervention::where('diagnostic_id','!=',null)->paginate(15);
         $devis = Intervention::where('devis_id','!=',null)->paginate(15);
         $reparations = Intervention::where('reparation_id','!=',null)->paginate(15);
