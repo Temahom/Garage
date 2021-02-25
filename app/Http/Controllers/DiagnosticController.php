@@ -32,7 +32,6 @@ class DiagnosticController extends Controller
         $this->authorize('create', Diagnostic::class);
         $listedefauts = Listedefaut::all();
         $diagnostic = Diagnostic::find($intervention->diagnostic_id);
-         //dd($intervention->diagnostic()->first()->defauts()->get());
         if($intervention->diagnostic()->first())
         {
             $defauts = $intervention->diagnostic()->first()->defauts()->get();
