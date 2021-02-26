@@ -13,17 +13,31 @@ th, td {
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
-
+.entete{
+  display: flex;
+}
+.gauche{
+  display: flex;
+  flex-direction: row;
+}
+.droite{
+  display: flex;
+  flex-direction: row;
+}
 tr:hover {background-color:#f5f5f5;}
 </style>
 </head>
 <body>
-
-<h2>Constat : {{$diagnostic->constat}} </h2>
-<h2>Date : {{$diagnostic->created_at}} </h2>
-<h2>Chef d'opération : {{$diagnostic->intervention()->first()->user()->first()->name}} </h2>
-<h2>Voiture : {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}} </h2>
-
+<div id="entete">
+  <div class="gauche">
+      <h2>Constat : {{$diagnostic->constat}} </h2>
+      <h2>Date : {{$diagnostic->created_at}} </h2>
+</div>
+<div class="droit">
+  <h2>Chef d'opération : {{$diagnostic->intervention()->first()->user()->first()->name}} </h2>
+  <h2>Voiture : {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}} </h2>
+</div>
+</div>
 <table>
   <tr>
     <th>Code</th>
