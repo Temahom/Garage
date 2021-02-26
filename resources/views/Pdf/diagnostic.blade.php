@@ -16,6 +16,7 @@ th, td {
 }
 .entete{
   display: inline;
+  width: 100%;
 
 }
 .gauche{
