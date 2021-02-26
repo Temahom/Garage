@@ -21,6 +21,7 @@ th, td {
 }
 .droite{
   float: right;
+  margin-left: 15px;
 }
 tr:hover {background-color:#f5f5f5;}
 </style>
