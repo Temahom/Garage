@@ -29,7 +29,8 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                         <select name="categorie" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror" onchange="change();">
                             <option value="">catégorie</option>
                                 @foreach ($listes as $liste)
-                                    <option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
+                                        <option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
+                          
                                 @endforeach
                         </select>
                         <input name="categorie1" type="text" class="custom-select form-control" id="inpuTxt1" style="display:none;" value="" autocomplete="off" placeholder="Entrer une nouvelle catégorie"/>
@@ -92,12 +93,19 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 var produit='<option value="">Nos Produits Disponibles</option>'
             $.ajax({
                 type: "GET",
-                url: "/api/listesp/"+ $('select[name=categorie]').val(),
+                url: "/api/listescate/"+ $('select[name=categorie]').val(),
                 dataType: 'json',
                 success: function(data) {
-                    var produits= data;
-                    produits.map(p=>{
-                    produit+='<option value="'+ p.produit+'">'+p.produit+'</option>'                   
+                    var produits=data;
+                    var test=[];
+                    produits.map(p=>{                        
+                        if(!test.includes(p.souscategorie)){
+                    produit+='<optgroup label="'+p.souscategorie+'">'
+                    '<option value="'+p.produit+'">'+p.produit+'</option></optgroup>'                                                             
+                         test.push(p.souscategorie)   
+                        }else{
+                            produit+='<option value="'+p.produit+'">'+p.produit+'</option> '
+                        }         
                     })
                     $('#leproduit').html(produit)
                 }
