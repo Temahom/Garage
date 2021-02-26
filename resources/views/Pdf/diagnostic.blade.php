@@ -14,15 +14,13 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 .entete{
-  display: flex;
+  display: inline;
 }
 .gauche{
-  display: flex;
-  flex-direction: row;
+  float: left;
 }
 .droite{
-  display: flex;
-  flex-direction: row;
+  float: right;
 }
 tr:hover {background-color:#f5f5f5;}
 </style>
