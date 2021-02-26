@@ -24,6 +24,9 @@ th, td {
   float: right;
   margin-left: 15px;
 }
+h2{
+  font-size: 20px;
+}
 tr:hover {background-color:#f5f5f5;}
 </style>
 </head>
