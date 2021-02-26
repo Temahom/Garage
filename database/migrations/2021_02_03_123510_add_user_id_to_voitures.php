@@ -26,7 +26,7 @@ class AddUserIdToVoitures extends Migration
     public function down()
     {
         Schema::table('voitures', function (Blueprint $table) {
-            Schema::dropIfExists('voitures');
+            $table->dropColumn('user_id');
         });
     }
 }

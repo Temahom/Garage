@@ -19,9 +19,22 @@ class InterventionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $interventions = Intervention::orderBy('created_at','DESC')->paginate(15);
+        $interventions = Intervention::where([
+            [function ($query) use ($request){
+                if (($term = $request->term)) {
+                    $query->orWhere('statut', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('type', 'LIKE' , '%' . $term . '%')->get();
+                    $query->orWhere('technicien', 'LIKE' , '%' . $term . '%')->get();
+                    
+                }
+               }] 
+            ])->orderBy("id","asc")->paginate(15);
+  
+        // return view('voitures.index', compact('voitures'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 15); 
+        
         $diagnostics = Intervention::where('diagnostic_id','!=',null)->paginate(15);
         $devis = Intervention::where('devis_id','!=',null)->paginate(15);
         $reparations = Intervention::where('reparation_id','!=',null)->paginate(15);
@@ -63,6 +76,7 @@ class InterventionController extends Controller
         $intervention->fin = $request->input('fin');
         $intervention->user_id = $user;
         $intervention->technicien = $request->input('technicien');
+        $intervention->statut = 1;
         $intervention->save();
         return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
     }

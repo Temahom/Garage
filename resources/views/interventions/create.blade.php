@@ -99,7 +99,7 @@
                     <select name="technicien" class="form-control @error('technicien') is-invalid @enderror">
 						<option value="">Assigné un technicien...</option>
 						@foreach ($techniciens as $technicien)
-						<option value="{{$technicien->id}}">{{$technicien->name}}</option>
+						<option value="{{$technicien->id}}">{{$technicien->name}} ({{$technicien->role()->first()->role}}) </span></option>
 						@endforeach
                     </select>
 					<div class="invalid-feedback">
@@ -116,5 +116,6 @@
 
         </div>
     </form>
+	
         
 @endsection

@@ -73,7 +73,7 @@ class VoitureController extends Controller
             'client_id'=>'required',
           ]);
           $data = array_merge($data, ['user_id'=>$user]);
-           $voiture = Voiture::create($data);
+          $voiture = Voiture::create($data);
            return redirect()->route('voitures.show', ['voiture' => $voiture]);
     }
 

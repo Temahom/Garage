@@ -26,7 +26,7 @@ class AddTechnicienToInterventions extends Migration
     public function down()
     {
         Schema::table('interventions', function (Blueprint $table) {
-          $table->integer('technicien');
+            $table->dropColumn('technicien');
         });
     }
 }
