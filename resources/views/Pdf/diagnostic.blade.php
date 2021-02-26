@@ -36,12 +36,12 @@ tr:hover {background-color:#f5f5f5;}
 <body>
 <div id="entete">
   <div class="gauche">
-      <h2>Constat : {{$diagnostic->constat}} </h2>
-      <h2>Date : {{$diagnostic->created_at}} </h2>
+      <h3>Constat : {{$diagnostic->constat}} </h3>
+      <h3>Date : {{$diagnostic->created_at}} </h3>
 </div>
 <div class="droit">
-  <h2>Chef d'opération : {{$diagnostic->intervention()->first()->user()->first()->name}} </h2>
-  <h2>Voiture : {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}} </h2>
+  <h3>Chef d'opération : {{$diagnostic->intervention()->first()->user()->first()->name}} </h3>
+  <h3>Voiture : {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}} </h3>
 </div>
 </div>
 <table>
