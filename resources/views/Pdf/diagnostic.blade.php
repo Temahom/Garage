@@ -23,7 +23,7 @@ th, td {
 }
 .droite{
   float: right;
-  padding-left: 20px;
+  margin: 20px;
 
 }
 h2{
