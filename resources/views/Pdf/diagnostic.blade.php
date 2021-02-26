@@ -16,13 +16,15 @@ th, td {
 }
 .entete{
   display: inline;
+
 }
 .gauche{
   float: left;
 }
 .droite{
   float: right;
-  margin: 15px;
+  padding-left: 20px;
+
 }
 h2{
   font-size: 20px;
