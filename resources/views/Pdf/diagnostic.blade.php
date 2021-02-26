@@ -22,7 +22,7 @@ th, td {
 }
 .droite{
   float: right;
-  margin-left: 15px;
+  margin: 15px;
 }
 h2{
   font-size: 20px;
