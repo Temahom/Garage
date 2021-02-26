@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Diagnostic</title>
 <style>
 table {
   border-collapse: collapse;
