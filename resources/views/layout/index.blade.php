@@ -215,6 +215,34 @@
                                     </ul>    
                                 </div>
                             </li>
+                          
+                           <!--      <li class="nav-item">
+                                <a class="nav-link" href="/calendar/index">Calendrier</a>
+                            </li>  -->
+
+                         <!--    <li class="nav-item">
+                                <a href="/admin/calendar.calendar" class="nav-link {{ request()->is('admin/system-calendar') || request()->is('admin/system-calendar/*') ? 'active' : '' }}">
+                                    <i class="nav-icon fa-fw fas fa-calendar">
+                
+                                    </i>
+                                    {{ trans('global.systemCalendar') }}
+                                </a>
+                            </li>
+                            -->
+
+                         <!--        <li class="nav-item "  style="padding-top: 5px">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-calendar" aria-controls="submenu-Calendar"><i class="nav-icon fa-fw fas fa-calendar"></i>Calendrier<span class="badge badge-success">6</span></a>
+                                <div id="submenu-calendar" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/calendar">Calendar</a>
+                                        </li>
+                                    </ul>    
+                                </div>
+                            </li>     -->
+
+
+
 
                         </ul>
                     </div>

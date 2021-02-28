@@ -74,3 +74,7 @@ Route::get('voitures',function(){
     return Liste::all();
 });
 Route::get('devis-list',[DeviController::class,'etat']);
+
+
+
+
