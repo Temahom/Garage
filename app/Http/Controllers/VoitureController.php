@@ -16,7 +16,6 @@ class VoitureController extends Controller
      */
     public function index(Request $request)
     {
-  
         $voitures = Voiture::where([
             [function ($query) use ($request){
                 if (($term = $request->term)) {
@@ -63,7 +62,7 @@ class VoitureController extends Controller
        // dd($request);
         $user = Auth::id();
         $data= request()->validate([
-            'matricule'=>'required',
+            'matricule'=>'required|unique:voitures',
             'marque'=>'required',
             'model'=>'required',
             'annee'=>'required',
@@ -74,7 +73,7 @@ class VoitureController extends Controller
             'client_id'=>'required',
           ]);
           $data = array_merge($data, ['user_id'=>$user]);
-           $voiture = Voiture::create($data);
+          $voiture = Voiture::create($data);
            return redirect()->route('voitures.show', ['voiture' => $voiture]);
     }
 

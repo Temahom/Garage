@@ -17,7 +17,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CalendarController;
  
 use Illuminate\Support\Facades\App;
-
+use App\Models\Voiture;
+use App\Models\Diagnostic;
      
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,13 @@ Route::get('Pdf', function () {
    
     $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
     return $pdf->stream('Devis.pdf');
+});
+Route::get('diag-pdf/{id}',function($id){
+    $diagnostic = Diagnostic::find($id);
+    $voitureID=$diagnostic->intervention()->first()->voiture_id;
+    $voiture = Voiture::find($voitureID);
+    $pdf = PDF::loadView("Pdf.diagnostic",compact('diagnostic','voiture'));
+    return $pdf->stream('Diagnostic.pdf');
 });
    
 Route::middleware('auth')->group(function () {

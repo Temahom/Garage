@@ -32,7 +32,6 @@ class DiagnosticController extends Controller
         $this->authorize('create', Diagnostic::class);
         $listedefauts = Listedefaut::all();
         $diagnostic = Diagnostic::find($intervention->diagnostic_id);
-         //dd($intervention->diagnostic()->first()->defauts()->get());
         if($intervention->diagnostic()->first())
         {
             $defauts = $intervention->diagnostic()->first()->defauts()->get();
@@ -53,10 +52,11 @@ class DiagnosticController extends Controller
         $diagnostic = new Diagnostic();
         $diagnostic->constat = $request->input('constat');
         $diagnostic->save();
+
         $intervention->diagnostic_id = $diagnostic->id;
+        $intervention->statut = 2;
         $intervention->update();
                  
-        
         foreach ($request->plusdechamps as $key => $value) {
             $defaut = new Defaut();
             $defaut->diagnostic_id = $diagnostic->id;
@@ -66,10 +66,6 @@ class DiagnosticController extends Controller
             $defaut->etat =  $value['etat'];
             $defaut->save();
         }
-
-       
-
-        
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id] );
     }
     /**

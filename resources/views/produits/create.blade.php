@@ -27,12 +27,13 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     <div class="form-group">
                         <strong>Categorie :</strong>
                         <select name="categorie" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror" onchange="change();">
-                            <option value=""></option>
+                            <option value="">catégorie</option>
                                 @foreach ($listes as $liste)
-                                    <option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
+                                        <option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
+                          
                                 @endforeach
                         </select>
-                        <input type="text" class="custom-select form-control" id="inpuTxt1" style="display:none;" value=""/>
+                        <input name="categorie1" type="text" class="custom-select form-control" id="inpuTxt1" style="display:none;" value="" autocomplete="off" placeholder="Entrer une nouvelle catégorie"/>
                         <div class="invalid-feedback">
                             @if($errors->has('categorie'))
                             {{ $errors->first('categorie') }}
@@ -42,9 +43,9 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     <div class="form-group">
                         <strong>Nom du produit :</strong>                                    
                             <select name="produit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror" onchange="change();">
-                                
+                                <option value="">produit</option>
                             </select>
-                            <input name="produit" type="text" class="custom-select form-control" id="inpuTxt2" style="display:none;" placeholder="Mettre le nom du produit" autocomplete="off"/>  
+                            <input type="text" name="produit1" class="custom-select form-control" id="inpuTxt2" style="display:none;" placeholder="Mettre le nom du produit" autocomplete="off"/>  
                             <div class="invalid-feedback">
                                 @if($errors->has('produit'))
                                 {{ $errors->first('produit') }}
@@ -55,9 +56,9 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <div class="col-xs-6 col-sm-6 col-md-6">      
                     <div class="form-group">
                         <strong>Le Prix Unitaire :</strong>
-                        <input name="prix1" type="number" class="custom-select form-control" id="inpuTxt3" style="display:none;" autocomplete="off" placeholder="Mettre le prix du produit"/>
+                        <input name="prix" type="number" class="custom-select form-control" id="inpuTxt3" style="display:none;" autocomplete="off" placeholder="Mettre le prix du produit"/>
                         <select  name="prix1" id="leprix" class="custom-select form-control @error('prix1') is-invalid @enderror" onchange="change();">
-                        
+                            <option value="">prix unitaire</option>
                         </select>
                         <div class="invalid-feedback">
                             @if($errors->has('prix1'))
@@ -92,12 +93,19 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 var produit='<option value="">Nos Produits Disponibles</option>'
             $.ajax({
                 type: "GET",
-                url: "http://127.0.0.1:8000/api/listesp/"+ $('select[name=categorie]').val(),
+                url: "/api/listescate/"+ $('select[name=categorie]').val(),
                 dataType: 'json',
                 success: function(data) {
-                    var produits= data;
-                    produits.map(p=>{
-                    produit+='<option value="'+ p.produit+'">'+p.produit+'</option>'                   
+                    var produits=data;
+                    var test=[];
+                    produits.map(p=>{                        
+                        if(!test.includes(p.souscategorie)){
+                    produit+='<optgroup label="'+p.souscategorie+'">'
+                    '<option value="'+p.produit+'">'+p.produit+'</option></optgroup>'                                                             
+                         test.push(p.souscategorie)   
+                        }else{
+                            produit+='<option value="'+p.produit+'">'+p.produit+'</option> '
+                        }         
                     })
                     $('#leproduit').html(produit)
                 }
@@ -113,7 +121,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
            var prix1='<option value="">Le prix du Produit </option>'
         $.ajax({
             type: "GET",
-            url: "http://127.0.0.1:8000/api/listespu/"+ $('select[name=produit]').val(),
+            url: "/api/listespu/"+ $('select[name=produit]').val(),
             dataType: 'json',
             success: function(data) {
                 var prix1s= data;
@@ -139,13 +147,14 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             var input6 = document.getElementById("leproduit");
             var input7 = document.getElementById("categorie");
             
-            if(val=="--- Autres ---")
+            if(val=="* Ajouter")
             {
-                input1.style.display="none";
+                input1.style.display="block";
                 input2.style.display="block";
                 input3.style.display="block";  
                 input4.style.display="none";
                 input6.style.display="none";
+                input7.style.display="none";
             }
             else
             {

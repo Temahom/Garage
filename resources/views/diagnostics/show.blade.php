@@ -5,6 +5,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Diagnostic</h2>
+                <a href="/diag-pdf/{{$diagnostic->id}}" class="btn btn-success mb-2">PDF</a>
             </div>
         </div>
     </div>
@@ -106,20 +107,17 @@
                         <td>{{$defaut->localisation}}</td>
                         <td>{{$defaut->description}}</td>
                         @if($defaut->etat==1)
-                        <td><i class="fas fa-thumbs-up " style="color:green"></i></td>
+                        <td title='Bon Etat'><i class="fas fa-thumbs-up " style="color:green"></i></td>
                         @elseif($defaut->etat==2)
-                        <td><i class="fas fa-minus-circle"></i></td>
+                        <td title="A Reparer"><i class="fas fa-minus-circle"></i></td>
                         @else
-                        <td><i class="fas fa-ban" style="color:red"></i></td>
+                        <td title='defectueux'><i class="fas fa-ban" style="color:red"></i></td>
                         @endif
                       </tr>
                       @endforeach
                     </tbody>
                   </table>
-                  
             </div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
           </div>
         </div>
       </div>

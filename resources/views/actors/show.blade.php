@@ -22,38 +22,47 @@
             <div class="pull-right py-3">
                  <a class="btn btn-secondary" href="#"><i class="fas fa-plus"></i> Attribuer Tache(s)</a>
              </div>
-             <form>
-                <div class="form-group">
-                  <label for="formControlRange">Example Range input</label>
-                  <input type="range" class="form-control-range" id="formControlRange" min="1" max="12" value="12" step="1">
-                </div>
-              </form>
              <table class="table table-striped table-hover">
                  <thead class="" style="background-color: #4656E9;">
                      <tr>
-                         <th style="color: white;">Categorie</th>
+                         <th style="color: white;">#</th>
+                         <th style="color: white;">Type</th>
                          <th style="color: white;">Description</th>
-                         <th style="color: white;">Date Debut</th>
-                         <th style="color: white;">Duree Estimative</th>
+                         <th style="color: white;">Debut de la tache</th>
                          <th style="color: white;">Statut</th>
                      </tr>
                  </thead>
-                 @foreach ($interventions as $intervention)
-                 <tr>
-                    <td>{{$intervention->type}}</td>
-                    <td>{{isset($intervention->diagnostic)?$intervention->diagnostic->first()->description:''}}</td>
-                    <td>{{$intervention->debut}}</td>
-                    <td>2 jours</td>
-                    <td style="color: red;">en cours</td>
-                </tr>   
-                 @endforeach
+                 @if ($role->id != 3 )
+                  @foreach ($interventions_technicien as $intervention)
+                    <tr>
+                        <td>{{$intervention->type}}</td>
+                        <td>{{$intervention->type}}</td>
+                        <td>{{isset($intervention->diagnostic)?$intervention->diagnostic->first()->description:''}}</td>
+                        <td>{{$intervention->debut}}</td>
+                        <td>2 jours</td>
+                        <td style="color: red;">en cours</td>
+                    </tr>   
+                   @endforeach 
+                   @else
+                   @foreach ($interventions_manager as $intervention)
+                    <tr>
+                      <td>{{$intervention->type}}</td>
+                      <td>{{$intervention->type}}</td>
+                      <td>{{isset($intervention->diagnostic)?$intervention->diagnostic->first()->description:''}}</td>
+                      <td>{{$intervention->debut}}</td>
+                      <td>2 jours</td>
+                      <td style="color: red;">en cours</td>
+                    </tr>
+                   @endforeach
+                   
+                 @endif
              </table>
           </div>
-          <div class="row">
+          {{-- <div class="row">
             <div class="col-md-12 mt-3 d-flex justify-content-center">
                 {!! $interventions->links() !!}
             </div>
-        </div>
+        </div> --}}
          <div class="row">
              <div class="col-md-12 ml-3 mt-3">
                  <a class="btn btn-secondary" href="{{ route('actors.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
