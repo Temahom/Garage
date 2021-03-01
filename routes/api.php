@@ -39,6 +39,9 @@ Route::get('listes/carburant/{lecarburant}',function($lecarburant){
     return Liste::select('lapuissance')->where('lecarburant','=',$lecarburant)->orderBy('lapuissance','asc')->distinct()->get();
 });
 
+Route::get('listescate/{categorie}',function($categorie){
+    return listeproduit::select('souscategorie','produit')->where('categorie','=',$categorie)->get();  
+});  
 Route::get('listesp/{categorie}',function($categorie){
     return listeproduit::select('produit')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();  
 });  
@@ -74,3 +77,7 @@ Route::get('voitures',function(){
     return Liste::all();
 });
 Route::get('devis-list',[DeviController::class,'etat']);
+
+
+
+

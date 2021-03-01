@@ -1,10 +1,7 @@
 
 @extends('layout.index')
 @php
-	use App\Models\listeproduit;
-    $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct()->get();
-    $devis=App\Models\Devi::all();
-    $produits=App\Models\Produit::all();
+    $liste_produits = App\Models\Produit::all();
 @endphp
 
 @section('content')
@@ -103,41 +100,82 @@
                                 box-shadow: none;
                             }
                         </style>
+                        @if (isset($produits))
+                            @foreach ($produits as $produit)
+                                <div class="row p-3 mb-2" id="newProduit">
+                                    <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">
+                                        <span class="numero">#1</span>
+                                        <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
+                                    </div>
+                                    <div class="divCategorie col-xs-4 col-sm-4 col-md-4">
+                                        <div class="form-group catProduit">
+                                            <strong>Categorie :</strong>
+                                            <select name="produits[0][categorie]" id="categorie" class="custom-select">
+                                                <option value="">catégorie</option>
+                                                @foreach ($liste_produits as $liste_produit)
+                                                    <option value="{{$liste_produit->categorie}}" {{ $liste_produit->id == $produit->id ? 'selected' : '' }}>{{$liste_produit->categorie}}</option>
+                                                @endforeach
+                                            </select>		 
 
-                        <div class="row p-3 mb-2" id="newProduit">
-                            <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">
-                                <span class="numero">#1</span>
-                                <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
-                            </div>
-                            <div class="divCategorie col-xs-4 col-sm-4 col-md-4">
-                                <div class="form-group catProduit">
-                                    <strong>Categorie :</strong>
-                                    <select name="produits[0][categorie]" id="categorie" class="custom-select">
-                                        <option value="">catégorie</option>
-                                        @foreach ($produits as $produit)
-                                            <option value="{{$produit->categorie}}">{{$produit->categorie}}</option>
-                                        @endforeach
-                                    </select>		 
+                                        </div>
+                                    </div>
+                                    <div class="divProduit col-xs-4 col-sm-4 col-md-4">
+                                        <div class="form-group select-produit">
+                                            <strong>Nom du produit :</strong>
+                                            <select name="produits[0][id]" id="leproduit" class="custom-select">
+                                                <option value="">---</option>
+                                            </select>	
+                                        </div>		
+                                    </div>
+                                    <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
+                                        <div class="form-group">
+                                            <strong>Quantité Voulue:</strong>
+                                            <input type="number" name="produits[0][quantite]" class="custom-select form-control">
+                                        </div>
+                                    </div>
+                                                                            
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="row p-3 mb-2" id="newProduit">
+                                <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">
+                                    <span class="numero">#1</span>
+                                    <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
+                                </div>
+                                <div class="divCategorie col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group catProduit">
+                                        <strong>Categorie :</strong>
+                                        <select name="produits[0][categorie]" id="categorie" class="custom-select">
+                                            <option value="">catégorie</option>
+                                            @foreach ($liste_produits as $liste_produit)
+                                                <option value="{{$liste_produit->categorie}}">{{$liste_produit->categorie}}</option>
+                                            @endforeach
+                                        </select>		 
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="divProduit col-xs-4 col-sm-4 col-md-4">
-                                <div class="form-group select-produit">
-                                    <strong>Nom du produit :</strong>
-                                    <select name="produits[0][id]" id="leproduit" class="custom-select">
-                                        <option value="">---</option>
-                                    </select>	
-                                </div>		
-                            </div>
-                            <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
-                                <div class="form-group">
-                                    <strong>Quantité Voulue:</strong>
-                                    <input type="number" name="produits[0][quantite]" class="custom-select form-control">
+                                <div class="divProduit col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group select-produit">
+                                        <strong>Nom du produit :</strong>
+                                        <select name="produits[0][id]" id="leproduit" class="custom-select">
+                                            <option value="">---</option>
+                                        </select>	
+                                    </div>		
                                 </div>
+                                <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <strong>Quantité Voulue:</strong>
+                                        <input type="number" name="produits[0][quantite]" class="custom-select form-control">
+                                    </div>
+                                </div>
+                                                                        
                             </div>
-                                                                    
-                        </div>
+                        @endif
+
+                        
                                 
+
+
                     </div>                                       
                 </div>
 
@@ -194,8 +232,8 @@
                     '<strong>Categorie :</strong>'+
                     '<select name="produits['+i+'][categorie]" id="categorie" class="custom-select">'+
                         '<option value="">catégorie</option>'+
-                        '@foreach ($produits as $produit)'+
-                            '<option value="{{$produit->categorie}}">{{$produit->categorie}}</option>'+
+                        '@foreach ($liste_produits as $liste_produit)'+
+                            '<option value="{{$liste_produit->categorie}}">{{$liste_produit->categorie}}</option>'+
                         '@endforeach'+
                     '</select>'+
                 '</div>'+
@@ -239,7 +277,7 @@
     }
 
 /*CONTROL DEVIS*/
-function envoyerFormProd()
+    function envoyerFormProd()
     {
     
         var ok = 1;

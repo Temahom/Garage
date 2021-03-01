@@ -104,7 +104,7 @@
                             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
-                                    <div class="notification-title"> Notifications <span class="badge badge-danger">{{count($notifications)== 0?'':count($notifications)}}</span></div>
+                                    <div class="notification-title"> Notifications <span class="badge badge-danger">{{count($notifications)==0?'0':count($notifications)}}</span></div>
                                     <div class="notification-list">
                                         <div class="list-group">
                                             @foreach ($notifications as $notification)
@@ -120,7 +120,8 @@
                                                         </div>
                                            
                                                 </div>
-                                            </a> @endforeach
+                                            </a> 
+                                            @endforeach
                                            
                                         </div>
                                     </div>
@@ -226,6 +227,34 @@
                                     </ul>    
                                 </div>
                             </li>
+                          
+                           <!--      <li class="nav-item">
+                                <a class="nav-link" href="/calendar/index">Calendrier</a>
+                            </li>  -->
+
+                         <!--    <li class="nav-item">
+                                <a href="/admin/calendar.calendar" class="nav-link {{ request()->is('admin/system-calendar') || request()->is('admin/system-calendar/*') ? 'active' : '' }}">
+                                    <i class="nav-icon fa-fw fas fa-calendar">
+                
+                                    </i>
+                                    {{ trans('global.systemCalendar') }}
+                                </a>
+                            </li>
+                            -->
+
+                         <!--        <li class="nav-item "  style="padding-top: 5px">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-calendar" aria-controls="submenu-Calendar"><i class="nav-icon fa-fw fas fa-calendar"></i>Calendrier<span class="badge badge-success">6</span></a>
+                                <div id="submenu-calendar" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/calendar">Calendar</a>
+                                        </li>
+                                    </ul>    
+                                </div>
+                            </li>     -->
+
+
+
 
                         </ul>
                     </div>

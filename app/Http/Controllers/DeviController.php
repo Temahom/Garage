@@ -31,6 +31,13 @@ class DeviController extends Controller
     public function create(Voiture $voiture, Intervention $intervention)
     {
         $this->authorize('create', Devi::class);
+
+        $devi = devi::find($intervention->devi_id);
+        if($intervention->devi()->first())
+        {
+            $produits = $intervention->devi()->first()->produits()->get();
+            return view('devis.create', compact('voiture', 'intervention', 'devi', 'produits'));
+        }
         return view('devis.create', compact('voiture', 'intervention'));
     }
 
@@ -43,10 +50,12 @@ class DeviController extends Controller
     public function store(Request $request, Voiture $voiture, Intervention $intervention)
     { 
         $devi = new Devi();
+
         $devi->cout = $request->input('cout');
         $devi->date_expiration = $request->input('date_expiration');
         $devi->etat= 1;
         $devi->save();
+
         $intervention->devis_id = $devi->id;
         $intervention->statut = 3;
         $intervention->update();

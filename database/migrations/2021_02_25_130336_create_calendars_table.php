@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeviProduitTable extends Migration
+class CreateCalendarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateDeviProduitTable extends Migration
      */
     public function up()
     {
-        Schema::create('devi_produits', function (Blueprint $table) {
+        Schema::create('calendars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('devi_id');
-            $table->unsignedBigInteger('produit_id');
-            $table->integer('quantite');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateDeviProduitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('devi_produit');
+        Schema::dropIfExists('calendars');
     }
 }

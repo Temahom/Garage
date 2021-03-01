@@ -13,7 +13,9 @@ use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\ActorController;
 use App\Http\Controllers\MailSend;
 use App\Http\Controllers\SmsController;
-
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\CalendarController;
+ 
 use Illuminate\Support\Facades\App;
 use App\Models\Voiture;
 use App\Models\Diagnostic;
@@ -76,6 +78,19 @@ Route::middleware('auth')->group(function () {
         return view('admin.home');
     });
         
+     //fullcalender
+    Route::get('/calendars.index', [CalendarController::class, 'index']);
+   
+    Route::get('events', [EventController::class, 'index']);
+    
+    Route::get('/events', [EventController::class, 'index']);
+    // Route::get('/admin.index',[CalendarController::class, 'index']);
+    /*Route::resource('fullcalendar',CalendarController::class);
+    Route::get('/produits.creer', [CalendarController::class, 'index']); */
+   // Route::post('fullcalendar/create','CalendarController@create');
+  /*  Route::post('fullcalendar/update','FullCalendarController@update');
+    Route::post('fullcalendar/delete','FullCalendarController@destroy'); */
+
 });
 
 
@@ -87,7 +102,6 @@ Route::middleware(['auth','manager'])->group(function () {
 Route::middleware(['auth','user'])->group(function () {
     
 });
-
 
 
 

@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Diagnostic</title>
 <style>
 table {
   border-collapse: collapse;
@@ -13,17 +14,36 @@ th, td {
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
+.entete{
+  display: inline;
+  width: 100%;
 
+}
+.gauche{
+  float: left;
+}
+.droite{
+  float: right;
+  margin: 20px;
+
+}
+h2{
+  font-size: 20px;
+}
 tr:hover {background-color:#f5f5f5;}
 </style>
 </head>
 <body>
-
-<h2>Constat : {{$diagnostic->constat}} </h2>
-<h2>Date : {{$diagnostic->created_at}} </h2>
-<h2>Chef d'opération : {{$diagnostic->intervention()->first()->user()->first()->name}} </h2>
-<h2>Voiture : {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}} </h2>
-
+<div id="entete">
+  <div class="gauche">
+      <h3>Constat : {{$diagnostic->constat}} </h3>
+      <h3>Date : {{$diagnostic->created_at}} </h3>
+</div>
+<div class="droit">
+  <h3>Chef d'opération : {{$diagnostic->intervention()->first()->user()->first()->name}} </h3>
+  <h3>Voiture : {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}} </h3>
+</div>
+</div>
 <table>
   <tr>
     <th>Code</th>
