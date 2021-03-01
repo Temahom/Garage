@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale-all.js" integrity="sha512-vTlIpCig7Yl48kFM3fyxWwW7t+cf+U7Bi22g/o2D4hbGKXnN//6hNZYtIZKSmXQJ5BTdr1jMBz6BUZV030LmuQ==" crossorigin="anonymous"></script>
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
@@ -19,7 +20,7 @@
 <div class="row">
   <div class="col-lg-12 margin-tb" style="width: 80%">
       <div class="pull-left">
-        <h1>Calendrier des événements</h1>
+        <h1>Calendrier des RV</h1>
       </div>
   </div>
   <div id='calendar' style="width: 98%"></div>
@@ -30,35 +31,19 @@
 <script>
 
 $(document).ready(function () {
-
-   
-
 var SITEURL = "{{ url('/') }}";
-
-  
-
 $.ajaxSetup({
-
     headers: {
-
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
     }
-
 });
 
-  
-
 var calendar = $('#calendar').fullCalendar({
-
+                   
                     editable: true,
-
                     events: SITEURL + "/fullcalendar",
-
                     displayEventTime: false,
-
                     editable: true,
-
                     eventRender: function (event, element, view) {
 
                         if (event.allDay === 'true') {
@@ -72,11 +57,9 @@ var calendar = $('#calendar').fullCalendar({
                         }
 
                     },
-
+                    locale: 'es',
                     selectable: true,
-
                     selectHelper: true,
-
                     select: function (start, end, allDay) {
 
                         var title = prompt('Nom d\'événement:');
@@ -130,6 +113,7 @@ var calendar = $('#calendar').fullCalendar({
   
 
                                     calendar.fullCalendar('unselect');
+                                    
 
                                 }
 
@@ -226,8 +210,6 @@ function displayMessage(message) {
     toastr.success(message, 'Rendez-vous');
 
 } 
-
-  
 
 </script>
   
