@@ -16,7 +16,7 @@ class CreateListeproduitsTable extends Migration
         Schema::create('listeproduits', function (Blueprint $table) {
             $table->id();
             $table->longText('categorie');
-            $table->longText('souscategorie');
+            $table->longText('souscategorie')->nullable();
             $table->longText('produit');
             $table->Integer('prix1');
             $table->timestamps();
