@@ -1,6 +1,8 @@
 @extends('layout.index')
 
 @section('content')
+<link rel="stylesheet" href="/assets/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -25,19 +27,73 @@
     <div class="row">
        
         @foreach ($actors as $actor)
-        <div onclick="showActor({{ $actor->id }})" class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">
-          @if(isset($actor->image))
-            <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$actor->image)}}" alt="Card image cap">
-          @else
-            <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $actor->name}}" alt="Card image cap">
-          @endif
-            <div class="card-body" style="justify-content: center; text-align: center;">
-              <h5 class="card-title">{{ $actor->name}}</h5>
-              <p class="card-text"><a style="text-decoration: none;" href="mailto:{{ $actor->email}}">{{ $actor->email}} </a><br> <span class="{{$actor->role()->first()->role=='Admin'? 'badge badge-success':'badge badge-primary'}}">{{ $actor->role()->first()->role}}</span> </p>
-              <a href="{{ route('actors.edit',$actor->id) }}" class="btn btn-primary btn-blok"><i class="fas fa-edit"></i></a>
-              <a href="{{ route('actors.show',$actor->id) }}" class="btn btn-danger btn-blok"><i class="fas fa-trash"></i></a>
+        {{-- <div onclick="showActor({{ $actor->id }})" class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;"> --}}
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card card-fluid">
+                    <!-- .card-body -->
+                    <div class="card-body text-center">
+                        <!-- .user-avatar -->
+                        <a href="{{ route('actors.edit',$actor->id)  }}" class="user-avatar user-avatar-xl my-3">
+                         @if(isset($actor->image))
+                            <img  src="{{asset('images/'.$actor->image)}}" alt="{{ $actor->name}}" class="rounded-circle user-avatar-xl">
+                          @else
+                          <img src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $actor->name}}"  alt="{{ $actor->name}}" class="rounded-circle user-avatar-xl">
+                          @endif
+                          
+                             <span class="avatar-badge has-indicator online" style="width: 30px; height: 30px;">
+                                        <i style="font-size: 20px !important;font-weight: bold;" class="icon-note" ></i>
+                                </span>
+                        
+                        </a>
+                        <!-- /.user-avatar -->
+                        <h3 class="card-title mb-2 text-truncate">
+                            <a href="{{ route('actors.show',$actor->id) }}">{{ $actor->name}} {{"@".$actor->role()->first()->role}} </a>
+                            </h3>
+                        <h6 class="card-subtitle text-muted mb-3">{{ $actor->email}}  </h6>
+                        <p>
+                            <a href="{{ route('actors.show',$actor->id) }}" class="btn btn-primary circle">Voir Profile
+                          <i class="fa fa-arrow-right ml-2"></i>
+                                </a>
+                        </p>
+                    </div>
+                    <!-- /.card-body -->
+                    <!-- .card-footer -->
+                    <footer class="card-footer p-0">
+                        <!-- .card-footer-item -->
+                        <div class="card-footer-item card-footer-item-bordered">
+                            <!-- .metric -->
+                            <div class="metric">
+                                <h6 class="metric-value"> 54 </h6>
+                                <p class="metric-label"> Taches </p>
+                            </div>
+                            <!-- /.metric -->
+                        </div>
+                        <!-- .card-footer-item -->
+                        <!-- /.card-footer-item -->
+                        <div class="card-footer-item card-footer-item-bordered">
+                            <!-- .metric -->
+                            <div class="metric">
+                                <h6 class="metric-value"> 53 </h6>
+                                <p class="metric-label"> Completées </p>
+                            </div>
+                            <!-- /.metric -->
+                        </div>
+                        <!-- .card-footer-item -->
+                        <!-- /.card-footer-item -->
+                        <div class="card-footer-item card-footer-item-bordered">
+                            <!-- .metric -->
+                            <div class="metric">
+                                <h6 class="metric-value"> 2 </h6>
+                                <p class="metric-label"> En Cours </p>
+                            </div>
+                            <!-- /.metric -->
+                        </div>
+                        <!-- /.card-footer-item -->
+                    </footer>
+                    <!-- /.card-footer -->
+                </div>
             </div>
-        </div>
+        {{-- </div> --}}
           
         
                    
