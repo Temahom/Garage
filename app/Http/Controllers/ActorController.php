@@ -78,7 +78,9 @@ class ActorController extends Controller
     {
         $user= User::find($id);
         $interventions_manager = $user->interventions()->paginate(15);
-        $interventions_technicien = Intervention::where('technicien','=',$id);
+        // dd($interventions_manager );
+        $interventions_technicien = Intervention::where('technicien','=',$id)->paginate(15);
+        // dd($interventions_technicien);
         $role = Role::find($user->role_id);
         return view('actors.show',compact('user', 'interventions_manager', 'interventions_technicien', 'role'));
     }
