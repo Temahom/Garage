@@ -96,12 +96,15 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 url: "/api/listescate/"+ $('select[name=categorie]').val(),
                 dataType: 'json',
                 success: function(data) {
-                    var produits=data;
+                    var produits= data;
                     var test=[];
                     produits.map(p=>{                        
                         if(!test.includes(p.souscategorie)){
-                    produit+='<optgroup label="'+p.souscategorie+'">'
-                    '<option value="'+p.produit+'">'+p.produit+'</option></optgroup>'                                                             
+                    produit+='<optgroup label="'+p.souscategorie+'"><option value="'+p.produit+'">'+p.produit+'</option>'
+                        '</optgroup>'
+                    
+                                
+                                
                          test.push(p.souscategorie)   
                         }else{
                             produit+='<option value="'+p.produit+'">'+p.produit+'</option> '
