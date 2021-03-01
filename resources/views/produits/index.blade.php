@@ -26,7 +26,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                      </form><br>
                  </div>
              </div>     
-      <!--       <div class="col-xs-4 col-sm-5 col-md-3">     
+      {{-- <!--       <div class="col-xs-4 col-sm-5 col-md-3">     
                 <div class="form-group">
             <form action="{{ route('produits.index') }}" method="GET" role="search">
                 <div class="d-flex">
@@ -42,7 +42,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                 </div>
             </form><br>
         </div>
-    </div>      -->
+    </div>      --> --}}
 
 
          </div>         
@@ -55,7 +55,7 @@ setlocale(LC_TIME, "fr_FR", "French");
 </div>
 @endif
 
-
+{{-- 
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12 row"><br>
 <table class="table table-striped table-hover col-md-12">
@@ -150,7 +150,7 @@ setlocale(LC_TIME, "fr_FR", "French");
   </table>
  </div>
 </div> </div>
-</div>
+</div> --}}
 
 
 
@@ -162,9 +162,9 @@ setlocale(LC_TIME, "fr_FR", "French");
     @foreach ($produits as $produit) 
      <div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">    
       @if(isset($produit->image))
-        <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$produit->categorie)}}" alt="Card image cap">
+        <img class="d-flex justify-content-center mt-2 " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$produit->categorie)}}" alt="Card image cap">
       @else
-        <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $produit->produit}}" alt="Card image cap">
+        <img class="d-flex justify-content-center mt-2 " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $produit->produit}}" alt="Card image cap">
       @endif
         <div class="card-body" style="justify-content: center; text-align: center;">
           <h5 class="card-title">{{ $produit->categorie}}</h5>
