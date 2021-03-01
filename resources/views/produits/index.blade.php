@@ -170,7 +170,7 @@ setlocale(LC_TIME, "fr_FR", "French");
           <h5 class="card-title">{{ $produit->categorie}}</h5>
           <p class="card-text"><a style="text-decoration: none; color: #fc0505;">{{ $produit->produit}} </a><br> <span class="{{$produit->prix1 }}">Prix Unitaire: {{$produit->prix1 }}<br> Stock : {{ $produit->qte}}</span> </p>
           <td>
-          <button type="button" class="btn btn-succes p-2 pr-2 pl-3" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
+          {{-- <button type="button" class="btn btn-succes p-2 pr-2 pl-3" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
             <i class="fas fa-eye text-success  fa-lg"></i>
         </button>
             <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -193,15 +193,15 @@ setlocale(LC_TIME, "fr_FR", "French");
                     </div>
                 </div>
              </td>
-        </div>
+        </div> --}}
         <a data-toggle="modal" id="smallButton{{$produit->id}}" data-target="#smallModal{{$produit->id}}" data-attr="{{ route('produits.destroy', $produit->id) }}" title="Supprimer Produit">
             <i class="fas fa-trash text-danger  fa-lg"></i>
         </a>
 <!-- small modal -->
-            <div class="modal fade" id="smallModal{{$produit->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
+        <div class="modal fade" id="smallModal{{$produit->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
