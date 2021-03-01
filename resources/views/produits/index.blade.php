@@ -172,8 +172,9 @@ setlocale(LC_TIME, "fr_FR", "French");
           <a data-toggle="modal" id="smallButton{{$produit->id}}" data-target="#smallModal{{$produit->id}}" data-attr="{{ route('produits.destroy', $produit->id) }}" title="Supprimer Produit">
             <i class="fas fa-trash text-danger  fa-lg"></i>
         </a>
-<!-- small modal -->
- <div class="modal fade" id="smallModal{{$produit->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+    <!-- small modal -->
+
+<div class="modal fade" id="smallModal{{$produit->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-sm" role="document">
   <div class="modal-content">
     <div class="modal-header">
@@ -182,8 +183,8 @@ setlocale(LC_TIME, "fr_FR", "French");
         </button>
     </div>
     <div class="modal-body" id="smallBody">
-        <div>
-               <form action="/produits/{{$produit->id}}" method="POST">
+     
+               
             <form action="{{ route('produits.destroy', $produit->id) }}" method="POST">
             <div class="modal-body">
                 @csrf
@@ -196,13 +197,12 @@ setlocale(LC_TIME, "fr_FR", "French");
             </div>
             </form>
           
-        </div>
-    </div>
-</div>
-</div>
-        </div>
         
+        </div>
     </div>
+    </div>
+    </div>   
+
                   
     @endforeach  
 </div>
