@@ -106,6 +106,15 @@
            text-align: center;
            font-size: 16px;
           }
+          .nav-link_1.active:hover,
+          .nav-pills .show>.nav-link:hover{
+           background-color:#138496!important;
+           color:#ffffff;
+           padding: 10px;
+           border-radius:0 20% 0 20%;
+           text-align: center;
+           font-size: 16px;
+          }
 
     </style>
         @if ($message = Session::get('success'))
