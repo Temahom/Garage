@@ -26,7 +26,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                      </form><br>
                  </div>
              </div>     
-      <!--       <div class="col-xs-4 col-sm-5 col-md-3">     
+      {{-- <!--       <div class="col-xs-4 col-sm-5 col-md-3">     
                 <div class="form-group">
             <form action="{{ route('produits.index') }}" method="GET" role="search">
                 <div class="d-flex">
@@ -42,7 +42,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                 </div>
             </form><br>
         </div>
-    </div>      -->
+    </div>      --> --}}
 
 
          </div>         
@@ -55,7 +55,7 @@ setlocale(LC_TIME, "fr_FR", "French");
 </div>
 @endif
 
-
+{{-- 
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12 row"><br>
 <table class="table table-striped table-hover col-md-12">
@@ -150,7 +150,7 @@ setlocale(LC_TIME, "fr_FR", "French");
   </table>
  </div>
 </div> </div>
-</div>
+</div> --}}
 
 
 
