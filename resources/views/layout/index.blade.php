@@ -211,6 +211,9 @@
                                     </ul>    
                                 </div>
                             </li>
+                            <li class="nav-item "  style="padding-top: 5px">
+                                <a class="nav-link active" href="/fullcalendar"><i class="nav-icon fa-fw fas fa-calendar"></i>Evénements<span class="badge badge-success">6</span></a>
+                            </li>
                            <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="fa fa-fw fa-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
                                 <div id="submenu-produit" class="collapse submenu">

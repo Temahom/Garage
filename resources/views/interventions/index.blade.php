@@ -125,19 +125,21 @@
           <div class="col-10">
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                <div class="form-group">
-                  <form action="/interventions-list" method="GET" role="search">
+                <div class="col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
+                  <div class="form-group">
+                    <form action="/interventions-list" method="GET" role="search">
                       <div class="d-flex">
-                          <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
-                          <button class="btn btn-info t" type="submit" title="recherche une voiture">
-                              <span class="fas fa-search"></span>
-                          </button>
+                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
+                        <button class="btn btn-info t" type="submit" title="recherche une intervention">
+                          <span class="fas fa-search"></span>
+                        </button>
                       </div>
-                  </form><br>
-              </div>
+                    </form><br>
+                  </div>
+                </div>  
                 <table class="table table-borderless">
                       <thead>
-                        <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); ">
+                        <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
                           <th scope="col" style= "color:#ffffff" > #</th>
                           <th scope="col" style= "color:#ffffff" > Type</th>
                           <th scope="col" style= "color:#ffffff" > Etat</th>
@@ -149,7 +151,7 @@
                       </thead>
                       <tbody>
                         @foreach ($interventions as $key=>$intervention)
-                        <tr style="cursor: pointer;">
+                        <tr style="cursor: pointer; text-align: center">
                           <th scope="row">{{$key+1}}</th>
                           <td>{{$intervention->type}}</td>
                           @switch($intervention->statut)
