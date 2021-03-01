@@ -12,16 +12,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 
-    
 
 </head>
 
-  
 
-<div class="container">
-
-    <div id='calendar'></div>
-
+<div class="row">
+  <div class="col-lg-12 margin-tb" style="width: 80%">
+      <div class="pull-left">
+        <h1>Calendrier des événements</h1>
+      </div>
+  </div>
+  <div id='calendar' style="width: 98%"></div>
 </div>
 
    
@@ -52,7 +53,7 @@ var calendar = $('#calendar').fullCalendar({
 
                     editable: true,
 
-                    events: SITEURL + "/fullcalender",
+                    events: SITEURL + "/fullcalendar",
 
                     displayEventTime: false,
 
@@ -78,7 +79,7 @@ var calendar = $('#calendar').fullCalendar({
 
                     select: function (start, end, allDay) {
 
-                        var title = prompt('Event Title:');
+                        var title = prompt('Nom d\'événement:');
 
                         if (title) {
 
@@ -88,7 +89,7 @@ var calendar = $('#calendar').fullCalendar({
 
                             $.ajax({
 
-                                url: SITEURL + "/fullcalenderAjax",
+                                url: SITEURL + "/fullcalendarAjax",
 
                                 data: {
 
@@ -106,7 +107,7 @@ var calendar = $('#calendar').fullCalendar({
 
                                 success: function (data) {
 
-                                    displayMessage("Event Created Successfully");
+                                    displayMessage("Evénement ajouté avec succès !!!");
 
   
 
@@ -148,7 +149,7 @@ var calendar = $('#calendar').fullCalendar({
 
                         $.ajax({
 
-                            url: SITEURL + '/fullcalenderAjax',
+                            url: SITEURL + '/fullcalendarAjax',
 
                             data: {
 
@@ -168,7 +169,7 @@ var calendar = $('#calendar').fullCalendar({
 
                             success: function (response) {
 
-                                displayMessage("Event Updated Successfully");
+                                displayMessage("Evénement modifié");
 
                             }
 
@@ -178,7 +179,7 @@ var calendar = $('#calendar').fullCalendar({
 
                     eventClick: function (event) {
 
-                        var deleteMsg = confirm("Do you really want to delete?");
+                        var deleteMsg = confirm("Voulez vous supprimer l'événement ?");
 
                         if (deleteMsg) {
 
@@ -186,7 +187,7 @@ var calendar = $('#calendar').fullCalendar({
 
                                 type: "POST",
 
-                                url: SITEURL + '/fullcalenderAjax',
+                                url: SITEURL + '/fullcalendarAjax',
 
                                 data: {
 
@@ -200,7 +201,7 @@ var calendar = $('#calendar').fullCalendar({
 
                                     calendar.fullCalendar('removeEvents', event.id);
 
-                                    displayMessage("Event Deleted Successfully");
+                                    displayMessage("Evénement supprimé avec succès !!!");
 
                                 }
 
@@ -222,12 +223,14 @@ var calendar = $('#calendar').fullCalendar({
 
 function displayMessage(message) {
 
-    toastr.success(message, 'Event');
+    toastr.success(message, 'Rendez-vous');
 
 } 
 
   
 
 </script>
-
-@endsection 
+  
+</body>
+</html>
+@endsection
