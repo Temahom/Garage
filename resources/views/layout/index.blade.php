@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <link href='/assets/vendor/full-calendar/css/fullcalendar.css' rel='stylesheet' />
-    <link href='/assets/vendor/full-calendar/css/fullcalendar.print.css' rel='stylesheet' media='print' />
+  
      <!-- Table CSS -->
     <link rel="stylesheet" type="text/css" href="/style-table.css">
     <title>Garage</title>
@@ -298,15 +297,6 @@
     <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
-    <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src='/assets/vendor/full-calendar/js/moment.min.js'></script>
-    <script src='/assets/vendor/full-calendar/js/fullcalendar.js'></script>
-    <script src='/assets/vendor/full-calendar/js/jquery-ui.min.js'></script>
-    <script src='/assets/vendor/full-calendar/js/calendar.js'></script>
-    <script src="/assets/libs/js/main-js.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js" integrity="sha512-E0zfDwA1CopT4gzJmj9tMpd7O6pTpuybTK58eY1GwqptdasUohyImuualLt/S5XvM8CDnbaTNP/7MU3bQ5NmQg==" crossorigin="anonymous"></script>
     
 </body>
  
