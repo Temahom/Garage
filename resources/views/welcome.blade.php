@@ -319,11 +319,10 @@ $({ Counter: 0 }).animate({
 
 
     });
-});
-$({ Counter: 0 }).animate({
+    $({ Counter: 0 }).animate({
       Counter: $('.compteurqte').text()
     }, {
-      duration: 1000,
+      duration: 2000,
       easing: 'swing',
       step: function() {
         $('.compteurqte').text(Math.ceil(this.Counter));
@@ -331,11 +330,11 @@ $({ Counter: 0 }).animate({
 
 
     });
-});
-$({ Counter: 0 }).animate({
+    
+    $({ Counter: 0 }).animate({
       Counter: $('.compteurtotal').text()
     }, {
-      duration: 1000,
+      duration: 2500,
       easing: 'swing',
       step: function() {
         $('.compteurtotal').text(Math.ceil(this.Counter));
@@ -343,7 +342,6 @@ $({ Counter: 0 }).animate({
 
 
     });
-
 </script>
 @endsection
         
