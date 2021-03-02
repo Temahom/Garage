@@ -39,8 +39,8 @@
 				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<div class="card">
 						<div class="card-header">
-							<h5 class="mb-0">Data Tables - Fixed Header  </h5>
-							<p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p>
+							<h5 class="mb-0">La Liste de clients</h5>
+							{{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -93,7 +93,7 @@
 							@endforeach
 
 									</tbody>
-									<tfoot>
+									{{-- <tfoot>
 										<tr>
 											<th >Prénoms</th>
 											<th >Genre</th>
@@ -102,7 +102,7 @@
 											<th >Email</th>
 											<th >Action</th>
 										</tr>
-									</tfoot>
+									</tfoot> --}}
 								</table>
 							</div>
 						</div>
