@@ -7,6 +7,7 @@ use App\Models\Devi;
 use App\Models\Voiture;
 use App\Models\Devi_produit;
 use App\Models\Intervention;
+use App\Models\listeproduit;
 
 class DeviController extends Controller
 {
@@ -31,8 +32,7 @@ class DeviController extends Controller
     public function create(Voiture $voiture, Intervention $intervention)
     {
         $this->authorize('create', Devi::class);
-
-        $devi = devi::find($intervention->devi_id);
+        $devi = Devi::find($intervention->devis_id);
         if($intervention->devi()->first())
         {
             $produits = $intervention->devi()->first()->produits()->get();
