@@ -187,7 +187,7 @@ use Carbon\Carbon;
             <div class="card-body">
                 <h5 class="text-muted">Prix total des produits en stock</h5>
                 <div class="metric-value d-inline-block">
-                    <h1 class="mb-1 compteurtotal">{{number_format($prix_total_des_produits,0, ",", " " )}} <sup>F CFA</sup></h1>
+                    <h1 class="mb-1"><span class="compteurtotal">{{number_format($prix_total_des_produits,0, ",", " " )}}</span> <sup>F CFA</sup></h1>
                 </div>
                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
