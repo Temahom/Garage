@@ -39,7 +39,7 @@
 				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<div class="card">
 						<div class="card-header">
-							<h5 class="mb-0">La Liste de clients</h5>
+							<h3 class="mb-0 text-center">La Liste de clients</h3>
 							{{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
 						</div>
 						<div class="card-body">
