@@ -134,11 +134,19 @@
                                         <div class="form-group select-produit">
                                             <strong>Nom du produit :</strong>
                                             <select name="produits[0][id]" id="leproduit" class="custom-select">
+<<<<<<< HEAD
                                                 <option value="{{$produit->produit}}">{{$produit->produit}}</option>
                                             </select>
                                             <script>
                                                 listeProduit();
                                             </script>	
+=======
+                                                <option value="">---</option>
+                                            </select>	
+                                            <script>
+                                                listeProduit();
+                                            </script>
+>>>>>>> 0c7f5ce9f901e93e2a75af291357f0e77787195f
                                         </div>		
                                     </div>
                                     <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
@@ -213,6 +221,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
    
 <script>   
+
+    function listeProduit()
+    {
+        return "<?php echo 'moussa thiam' ?>";
+    }
+
 
     $(document).on('change', '.catProduit select', function(){ 
         var selectCategorie = $(this);
@@ -344,6 +358,7 @@
     }
     /* FIN CONTROL DEVIS*/
 
+  
 
 
 </script>

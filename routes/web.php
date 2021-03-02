@@ -13,8 +13,9 @@ use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\ActorController;
 use App\Http\Controllers\MailSend;
 use App\Http\Controllers\SmsController;
-use App\Http\Controllers\EventController;
+//use App\Http\Controllers\EventController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\FullCalendarController;
  
 use Illuminate\Support\Facades\App;
 use App\Models\Voiture;
@@ -102,6 +103,9 @@ Route::middleware(['auth','manager'])->group(function () {
 Route::middleware(['auth','user'])->group(function () {
     
 });
+
+Route::get('fullcalendar', [FullCalendarController::class, 'index']);
+Route::post('fullcalendarAjax', [FullCalendarController::class, 'ajax']);
 
 
 

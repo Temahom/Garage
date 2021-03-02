@@ -2,6 +2,9 @@
     "terminal.integrated.commandsToSkipShell": [
 
         "cmder"
-    ]
+    ],
+    "files.associations": {
+        "*.extension": "php"
+    }
     
 }
