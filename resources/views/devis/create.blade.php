@@ -134,19 +134,11 @@
                                         <div class="form-group select-produit">
                                             <strong>Nom du produit :</strong>
                                             <select name="produits[0][id]" id="leproduit" class="custom-select">
-<<<<<<< HEAD
-                                                <option value="{{$produit->produit}}">{{$produit->produit}}</option>
-                                            </select>
-                                            <script>
-                                                listeProduit();
-                                            </script>	
-=======
                                                 <option value="">---</option>
                                             </select>	
                                             <script>
                                                 listeProduit();
                                             </script>
->>>>>>> 0c7f5ce9f901e93e2a75af291357f0e77787195f
                                         </div>		
                                     </div>
                                     <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
