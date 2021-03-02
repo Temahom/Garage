@@ -52,41 +52,42 @@
 										</tr>
 									</thead>
 									<tbody>
-										@foreach ($clients as $client)
+					@foreach ($clients as $client)
 		
-			<tr>
-				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;"><i class="fas fa-user"></i> {{ $client->prenom }} {{ $client->nom }}</td>
-				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->genre }}</td>
-				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->entreprise }}</td>
-				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->telephone }}</td>
-				<td onclick="showClient({{ $client->id }})" style="cursor: pointer;">{{ $client->email }}</td>
-				<td>
-					<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('clients.edit',$client->id)}}"><i class="fas fa-edit"></i></a>
-					<button type="button" class="btn btn-danger p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
-						<i class="fas fa-trash"></i>
-					</button>
+							<tr>
+								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;"><i class="fas fa-user"></i> {{ $client->prenom }} {{ $client->nom }}</td>
+								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->genre }}</td>
+								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->entreprise }}</td>
+								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->telephone }}</td>
+								<td onclick="showClient({{ $client->id }})" style="cursor: pointer;">{{ $client->email }}</td>
+								<td>
+									<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('clients.edit',$client->id)}}"><i class="fas fa-edit"></i></a>
+									<button type="button" class="btn btn-danger p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
+										<i class="fas fa-trash"></i>
+									</button>
 
-							<div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-body">
-											<h5>Voulez vous supprimer: <strong>{{ $client->nom }} {{ $client->prenom }}</strong>  ?</h5>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-											<form action="{{route('clients.destroy',$client->id)}}" method="POST">
-												@csrf
-												@method('DELETE')
-												<button type="submit" class="btn btn-danger">Supprimer</button>
-											</form>
-									</div>
-									</div>
-								</div>
-							</div>
+											<div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-body">
+															<h5>Voulez vous supprimer: <strong>{{ $client->nom }} {{ $client->prenom }}</strong>  ?</h5>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+															<form action="{{route('clients.destroy',$client->id)}}" method="POST">
+																@csrf
+																@method('DELETE')
+																<button type="submit" class="btn btn-danger">Supprimer</button>
+															</form>
+													</div>
+													</div>
+												</div>
+											</div>
 
-				</td>
-			</tr>
-			
+								</td>
+							</tr>
+							@endforeach
+
 									</tbody>
 									<tfoot>
 										<tr>
