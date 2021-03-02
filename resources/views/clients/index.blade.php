@@ -43,12 +43,12 @@
 								<table id="example4" class="table table-striped table-bordered" style="width:100%">
 									<thead>
 										<tr>
-											<th style="color: white;">Prénoms</th>
-											<th style="color: white;">Genre</th>
-											<th style="color: white;">Entreprise</th>
-											<th style="color: white;">Téléphone</th>
-											<th style="color: white;">Email</th>
-											<th style="color: white;">Action</th>
+											<th>Prénoms</th>
+											<th>Genre</th>
+											<th>Entreprise</th>
+											<th>Téléphone</th>
+											<th>Email</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
