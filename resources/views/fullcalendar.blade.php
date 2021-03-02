@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <title>Laravel Fullcalender Tutorial Tutorial - ItSolutionStuff.com</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -18,6 +18,7 @@
   
 <div class="container">
     <h1>Laravel FullCalender Tutorial Example - ItSolutionStuff.com</h1>
+    <div class="response">
     <div id='calendar'></div>
 </div>
    
