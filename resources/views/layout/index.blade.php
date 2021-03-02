@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <!-- Required meta tags -->

@@ -71,7 +71,6 @@ var calendar = $('#calendar').fullCalendar({
                         }
 
                     },
-                    locale: 'es',
                     selectable: true,
                     selectHelper: true,
                     select: function (start, end, allDay) {
@@ -227,6 +226,4 @@ function displayMessage(message) {
 
 </script>
   
-</body>
-</html>
 @endsection
