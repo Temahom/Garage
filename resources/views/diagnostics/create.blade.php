@@ -72,7 +72,7 @@
             action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST"
         @endif
     >
-        {{ csrf_field() }}
+        @csrf
         @if (isset($defauts))
             @method('PUT')
         @endif

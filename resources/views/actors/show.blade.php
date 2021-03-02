@@ -1,5 +1,38 @@
 @extends('layout.index')
+@php
+setlocale(LC_TIME, "fr_FR", "French");
+$date = new DateTime('now', new DateTimeZone('UTC'));
+use Carbon\Carbon;
+  $interventionsInachevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','!=',3)->count();
+  $interventionsAchevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','=',3)->count();
+  if($interventionsInachevee + $interventionsAchevee != 0){
+    $score = ($interventionsAchevee*100)/($interventionsInachevee + $interventionsAchevee);
+  }
+  else $score = '';
+
+  $interventionsInachevee2=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->where('statut','!=',3)->count();
+  $interventionsAchevee2=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->where('statut','=',3)->count();
+  if($interventionsInachevee2 + $interventionsAchevee2 != 0){
+    $score2 = ($interventionsAchevee2*100)/($interventionsInachevee2 + $interventionsAchevee2);
+  }
+  else $score2='';
+
+  $interventionsInachevee3=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->where('statut','!=',3)->count();
+  $interventionsAchevee3=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->where('statut','=',3)->count();
+  if($interventionsInachevee3 + $interventionsAchevee3 != 0){
+    $score3 = ($interventionsAchevee3*100)/($interventionsInachevee3 + $interventionsAchevee3);
+  }
+  else $score3='';
+ 
+  // $client30=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->count();
+ 
+ 
+  // $client60=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->count();
+  // $chiffre60=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->sum('cout');
+//  $total=$chiffres+$chiffre30+$chiffre60;
+@endphp
 @section('content')
+
 <style>
   .nav-link_1.active,
   .nav-pills .show>.nav-link{
@@ -32,16 +65,58 @@
         <div class="row">
           <div class="col-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Client</a>
-              <a class="nav-link_1" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Voiture</a>
+              <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Horaires</a>
               <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Interventions</a>
-              
             </div>
           </div>
           <div class="col-10">
             <div class="tab-content" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
-              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                      <div class="card">
+                          <h5 class="card-header" style="text-align: center">Historique Activité</h5>
+                          <div class="card-body p-0">
+                              <div class="table-responsive">
+                                  <table class="table">
+                                      <thead class="bg-light">
+                                          <tr class="border-0">
+                                              <th class="border-0">Periodes</th>
+                                              <th class="border-0">Taches Achevées</th>
+                                              <th class="border-0">Taches Innachevées</th>
+                                              <th class="border-0">Score</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td>Il y'a 0 à 30 jours</td>
+                                              <td>{{$interventionsAchevee}} {{$interventionsAchevee>1?"taches":"tache"}} </td>
+                                              <td>{{$interventionsInachevee}} {{$interventionsInachevee>1?"taches":"tache"}}</td>
+                                              <td>{{$score}} %</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Il y'a 2mois</td>
+                                              <td>{{$interventionsAchevee2}} {{$interventionsAchevee2>1?"taches":"tache"}} </td>
+                                              <td>{{$interventionsInachevee2}} {{$interventionsInachevee2>1?"taches":"tache"}}</td>
+                                              <td>{{$score2}} %</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Il y'a 3mois</td>
+                                              <td>{{$interventionsAchevee3}} {{$interventionsAchevee3>1?"taches":"tache"}} </td>
+                                              <td>{{$interventionsInachevee3}} {{$interventionsInachevee3>1?"taches":"tache"}}</td>
+                                              <td>{{$score3}} %</td>
+                                          </tr>
+                                          
+                                          {{-- <tr>
+                                              <td style="font-size: 15px; font-weight: bold;" colspan="9"><span class="float-right"><strong>Score Global: {{($score+$score2+$score3)/3}} %</strong></span></td>
+                                          </tr> --}}
+                                      </tbody>
+                                  </table>
+                                 
+                              </div>
+                          </div>
+                      </div>
+                  
+
+              </div>
               <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                 
                   <div class="pull-right py-3">
@@ -83,7 +158,7 @@
                          @foreach ($interventions_technicien as $intervention)
                           <tr>
                             <td>{{$intervention->type}}</td>
-                            <td>{{isset($intervention->diagnostic)?$intervention->diagnostic->first()->constat:'en attente'}}</td>
+                            <td>{{isset($intervention->diagnostic)?$intervention->diagnostic->first()->constat:'en attente'}} </td>
                             <td>{{isset($intervention->devi)?$intervention->devi->first()->cout:'en attente'}}</td>
                             <td>{{isset($intervention->reparation)?$intervention->reparation->first()->element_3:'en attente'}}</td>
                             <td>{{$intervention->debut}}</td>

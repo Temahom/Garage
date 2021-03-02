@@ -15,8 +15,9 @@
     <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+  
      <!-- Table CSS -->
-    <link rel="stylesheet" type="text/css" href="../style-table.css">
+    <link rel="stylesheet" type="text/css" href="/style-table.css">
     <title>Garage</title>
 </head>
 
@@ -230,35 +231,6 @@
                                     </ul>    
                                 </div>
                             </li>
-                          
-                           <!--      <li class="nav-item">
-                                <a class="nav-link" href="/calendar/index">Calendrier</a>
-                            </li>  -->
-
-                         <!--    <li class="nav-item">
-                                <a href="/admin/calendar.calendar" class="nav-link {{ request()->is('admin/system-calendar') || request()->is('admin/system-calendar/*') ? 'active' : '' }}">
-                                    <i class="nav-icon fa-fw fas fa-calendar">
-                
-                                    </i>
-                                    {{ trans('global.systemCalendar') }}
-                                </a>
-                            </li>
-                            -->
-
-                         <!--        <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-calendar" aria-controls="submenu-Calendar"><i class="nav-icon fa-fw fas fa-calendar"></i>Calendrier<span class="badge badge-success">6</span></a>
-                                <div id="submenu-calendar" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/admin/calendar">Calendar</a>
-                                        </li>
-                                    </ul>    
-                                </div>
-                            </li>     -->
-
-
-
-
                         </ul>
                     </div>
                 </nav>
@@ -276,9 +248,9 @@
                     <div class="ecommerce-widget">
 
                         <div class="row">
-                            <div style="width: 100%; padding-left: 30px" >
+                             <div style="width: 100%; margin-left:30px;" > 
                                 @yield('content')
-                            </div>
+                            </div> 
                             <div class="footer" style="text-align: center;">
                                 <div class="container-fluid" style="text-align: center;margin-left:15%;">
                                     <div class="row">
@@ -325,7 +297,6 @@
     <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js" integrity="sha512-E0zfDwA1CopT4gzJmj9tMpd7O6pTpuybTK58eY1GwqptdasUohyImuualLt/S5XvM8CDnbaTNP/7MU3bQ5NmQg==" crossorigin="anonymous"></script>
     
 </body>
  
