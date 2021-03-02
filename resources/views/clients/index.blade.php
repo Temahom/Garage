@@ -26,27 +26,33 @@
 				</div>  
 			</div>
 
-	@if($message = Session::get('success'))
-		<div class="alert alert-success">
-			<p>{{$message}}</p>
-		</div>
-	@endif
-
-	<div class="row">
-	<div class="col-xs-12 col-sm-12 col-md-12 row"><br>
-	<table class="table table-striped table-hover">
-		<thead class="" style="background-color: #4656E9;">
-			<tr>
-				<th style="color: white;">Prénoms</th>
-				<th style="color: white;">Genre</th>
-				<th style="color: white;">Entreprise</th>
-				<th style="color: white;">Téléphone</th>
-				<th style="color: white;">Email</th>
-				<th style="color: white;">Action</th>
-			</tr>
-		</thead>
-		<tbody>
-		@foreach ($clients as $client)
+			@if($message = Session::get('success'))
+				<div class="alert alert-success">
+					<p>{{$message}}</p>
+				</div>
+			@endif
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="card">
+						<div class="card-header">
+							<h5 class="mb-0">Data Tables - Fixed Header  </h5>
+							<p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="example4" class="table table-striped table-bordered" style="width:100%">
+									<thead>
+										<tr>
+											<th style="color: white;">Prénoms</th>
+											<th style="color: white;">Genre</th>
+											<th style="color: white;">Entreprise</th>
+											<th style="color: white;">Téléphone</th>
+											<th style="color: white;">Email</th>
+											<th style="color: white;">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach ($clients as $client)
 		
 			<tr>
 				<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;"><i class="fas fa-user"></i> {{ $client->prenom }} {{ $client->nom }}</td>
@@ -80,11 +86,26 @@
 
 				</td>
 			</tr>
-		
-		@endforeach
-		</tbody>
-	</table>
-	</div>
+			
+									</tbody>
+									<tfoot>
+										<tr>
+											<th style="color: white;">Prénoms</th>
+											<th style="color: white;">Genre</th>
+											<th style="color: white;">Entreprise</th>
+											<th style="color: white;">Téléphone</th>
+											<th style="color: white;">Email</th>
+											<th style="color: white;">Action</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>  
+			</div>
+			
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12 mt-3 d-flex justify-content-center">
