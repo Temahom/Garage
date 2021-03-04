@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <!-- Required meta tags -->
@@ -10,6 +10,8 @@
     <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/libs/css/style.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
+
     <link rel="stylesheet" href="/assets/vendor/charts/chartist-bundle/chartist.css">
     <link rel="stylesheet" href="/assets/vendor/charts/morris-bundle/morris.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
@@ -21,7 +23,6 @@
     <link rel="stylesheet" type="text/css" href="/style-table.css">
     <title>Garage</title>
 </head>
-
 <style>
     .dashboard-main-wrapper{
         background-color: white;
@@ -174,7 +175,7 @@
                             </li><br>
 
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="fa fa-fw fa-user-circle"></i>Clients<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success">6</span></a>
                                 <div id="submenu-client" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -201,7 +202,7 @@
                                 </div>
                             </li>
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="fas fa-users"></i>Acteurs<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success">6</span></a>
                                 <div id="submenu-acteur" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -217,7 +218,7 @@
                                 <a class="nav-link active" href="/fullcalendar"><i class="nav-icon fa-fw fas fa-calendar"></i>Evénements<span class="badge badge-success">6</span></a>
                             </li>
                            <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="fa fa-fw fa-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
                                 <div id="submenu-produit" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -279,7 +280,6 @@
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
     <!-- jquery 3.3.1 -->
-    <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <!-- bootstap bundle js -->
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <!-- slimscroll js -->

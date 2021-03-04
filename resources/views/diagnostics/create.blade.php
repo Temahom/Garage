@@ -72,7 +72,7 @@
             action="{{ route('voitures.interventions.diagnostics.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST"
         @endif
     >
-        {{ csrf_field() }}
+        @csrf
         @if (isset($defauts))
             @method('PUT')
         @endif
@@ -131,7 +131,7 @@
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                                     <select name="plusdechamps[{{ $i }}][code]" id="codes" class="custom-select form-control">
-                                                        <option value="">code</option>
+                                                        <option value="new">code</option>
                                                         @foreach ($listedefauts as $listedefaut)
                                                             <option value="{{$listedefaut->code}}" {{ $listedefaut->code == $defaut->code ? 'selected' : '' }}>{{$listedefaut->code}}</option>
                                                         @endforeach
@@ -171,7 +171,7 @@
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-12 col-md-2">
                                                 <select name="plusdechamps[0][code]" id="codes" class="custom-select form-control">
-                                                    <option value="">Choisir code</option>
+                                                    <option value="new">code</option>
                                                     @foreach ($listedefauts as $listedefaut)
                                                         <option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>
                                                     @endforeach
@@ -236,8 +236,8 @@
         '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
             '<div class="row">'+
                 '<div class="col-xs-12 col-sm-12 col-md-2">'+
-                    '<select name="plusdechamps['+i+'][code]" id="marques" class="custom-select form-control">'+
-                    '<option value="code">Code</option>'+
+                    '<select name="plusdechamps['+i+'][code]" id="marques" class="custom-select form-control ">'+
+                    '<option value="new">Code</option>'+
                     '@foreach ($listedefauts as $listedefaut)'+
                         '<option value="{{$listedefaut->code}}">{{$listedefaut->code}}</option>'+
                     '@endforeach'+
@@ -336,5 +336,24 @@
         $('#formDiag').submit();
     }
     /* FIN CONTROL DIAGNOSTQUE*/
+
+    /*DEBUT gestion des doublons*/
+            const selects = document.querySelectorAll('.custom-select');
+            selects.forEach((elem) => {
+                elem.addEventListener('change', (event) => {
+                    let values = Array.from(selects).map(select => select.value);
+                    for (let select of selects) {
+                    select.querySelectorAll('option').forEach((option) => {
+                        let value = option.value;
+                        if (value &&  value !== select.value && values.includes(value)) {
+                            option.disabled = true;
+                        } else {
+                            option.disabled = false;
+                        }
+                    });
+                }
+            });
+        });
+    /*FIN gestion des doublons*/
 </script>
 @endsection
