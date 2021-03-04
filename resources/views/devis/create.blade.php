@@ -124,7 +124,7 @@
                                             <select name="produits[0][categorie]" id="categorie" class="custom-select">
                                                 <option value="">catégorie</option>
                                                 @foreach ($liste_produits as $liste_produit)
-                                                    <option value="{{$liste_produit->categorie}}" {{ $liste_produit->id == $produit->id ? 'selected' : '' }}>{{$liste_produit->categorie}}</option>
+                                                    <option value="{{$liste_produit->categorie}}" {{ $liste_produit->id == $produit->id ? 'selected change' : '' }}>{{$liste_produit->categorie}}</option>
                                                 @endforeach
                                             </select>	 
 
@@ -137,7 +137,7 @@
                                                 <option value="">---</option>
                                             </select>	
                                             <script>
-                                                listeProduit();
+                                                liste;
                                             </script>
                                         </div>		
                                     </div>
@@ -168,6 +168,7 @@
 
                                     </div>
                                 </div>
+
                                 <div class="divProduit col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group select-produit">
                                         <strong>Nom du produit :</strong>
@@ -214,9 +215,9 @@
    
 <script>   
 
-    function listeProduit()
+    function categorieModifier()
     {
-        return "<?php echo 'moussa thiam' ?>";
+        alert(moussa);
     }
 
 

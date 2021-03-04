@@ -10,13 +10,19 @@ class Produit extends Model
     use HasFactory;
 
     protected $guarded=[];
+
     public function devis()
     {
-     return $this->belongsToMany(Devi::class,'commandes','devi_id', 'produit_id')->withPivot('qteProduit');
-    }
-    public function commandes()
-    {
-     return $this->hasMany(Commande::class);
+        return $this->belongsToMany(Devi::class,'commandes','devi_id', 'produit_id')->withPivot('qteProduit');
     }
 
+    public function commandes()
+    {
+        return $this->hasMany(Commande::class);
+    }
+
+    public function produitsByCategorie()
+    {
+        return Produit::select('produit','id', 'categorie')->where('categorie','=',$this->categorie)->orderBy('produit','asc')->distinct()->get();
+    }
 }
