@@ -48,6 +48,7 @@
 									<thead>
 										<tr style="background-color: #4656E9;">
 											<th style="color: white">Prénoms</th>
+											<th style="color: white">NOM</th>
 											<th style="color: white">Genre</th>
 											<th style="color: white">Entreprise</th>
 											<th style="color: white">Téléphone</th>
@@ -59,7 +60,8 @@
 					@foreach ($clients as $client)
 		
 							<tr>
-								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;"><i class="fas fa-user"></i> {{ $client->prenom }} {{ $client->nom }}</td>
+								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;"><i class="fas fa-user"></i> {{ $client->prenom }}</td>
+								<td onclick="showClient({{ $client->id }})" style="text-transform: uppercase;" style="cursor: pointer; text-transform: capitalize;">{{ $client->nom }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->genre }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->entreprise }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->telephone }}</td>

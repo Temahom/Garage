@@ -14,7 +14,6 @@
 
 </head>
 
-
 <div class="row">
   <div class="col-lg-12 margin-tb" style="width: 80%">
       <div class="pull-left">
@@ -24,6 +23,22 @@
   <div id='calendar' style="width: 98%"></div>
 </div>
 
+<style>
+     .fc th {
+                background-color: #4656E9 !important;
+                color: white !important;
+                padding: 1em !important;
+
+            }
+    .fc-popover .fc-header .fc-close {
+	            cursor: pointer;
+            }
+            .fc-content { /* default look for background events */
+                background:#4656E9;
+                color: white !important;
+            }
+
+</style>
    
 
 <script>
