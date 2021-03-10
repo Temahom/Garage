@@ -304,37 +304,37 @@
     });
 
     /*CONTROL DIAGNOSTQUE*/
-        function envoyerFormDiag()
+    function envoyerFormDiag()
+    {
+        var ok = 1;
+        constat = $('#constat').val().trim();
+        $('#constat').removeClass( "is-invalid" );
+        if(constat == '')
         {
-            var ok = 1;
-            constat = $('#constat').val().trim();
-            $('#constat').removeClass( "is-invalid" );
-            if(constat == '')
+            $('#constat').addClass( "is-invalid" );
+            ok = 0;
+        }
+        $('#dynamicAddRemove > div').each( function(){
+            $(this).children('.divDescription').children('textarea').removeClass('is-invalid');
+            $(this).children('div').children('div').children('.divLocalisation').children('input').removeClass('is-invalid');
+
+            localisation = $(this).children('div').children('div').children('.divLocalisation').children('input').val().trim();
+            description = $(this).children('.divDescription').children('textarea').val().trim();
+
+            if(localisation == '')
             {
-                $('#constat').addClass( "is-invalid" );
+                $(this).children('div').children('div').children('.divLocalisation').children('input').addClass('is-invalid');
                 ok = 0;
             }
-            $('#dynamicAddRemove > div').each( function(){
-                $(this).children('.divDescription').children('textarea').removeClass('is-invalid');
-                $(this).children('div').children('div').children('.divLocalisation').children('input').removeClass('is-invalid');
-
-                localisation = $(this).children('div').children('div').children('.divLocalisation').children('input').val().trim();
-                description = $(this).children('.divDescription').children('textarea').val().trim();
-
-                if(localisation == '')
-                {
-                    $(this).children('div').children('div').children('.divLocalisation').children('input').addClass('is-invalid');
-                    ok = 0;
-                }
-                if(description == '')
-                {
-                    $(this).children('.divDescription').children('textarea').addClass('is-invalid');
-                    ok = 0;
-                }
-            });
-            if(ok)
-            $('#formDiag').submit();
-        }
+            if(description == '')
+            {
+                $(this).children('.divDescription').children('textarea').addClass('is-invalid');
+                ok = 0;
+            }
+        });
+        if(ok)
+        $('#formDiag').submit();
+    }
     /* FIN CONTROL DIAGNOSTQUE*/
 
     /*DEBUT gestion des doublons*/
