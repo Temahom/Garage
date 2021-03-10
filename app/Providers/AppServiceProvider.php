@@ -36,5 +36,19 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         Paginator::useBootstrap();
         //
+        view()->composer('layouts.master', function ($view) {
+
+            $theme = \Cookie::get('theme');
+        
+            if ($theme != 'dark-theme' && $theme != 'light') {
+        
+                $theme = 'light';
+        
+            }
+        
+            $view->with('theme', $theme);
+        
+        });
+        
     }
 }
