@@ -130,7 +130,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="list-footer"> <a href="#">Voir toutes les notifiacations</a></div>
+                                    <div class="list-footer"> <a href="#">Voir toutes les notifications</a></div>
                                 </li>
                             </ul>
                         </li>
