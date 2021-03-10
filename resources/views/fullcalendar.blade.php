@@ -24,10 +24,15 @@
 </div>
 
 <style>
+    .fc-today-button{
+        background-color: #4656E9 !important;
+        color: white !important;
+    }
      .fc th {
                 background-color: #4656E9 !important;
                 color: white !important;
                 padding: 1em !important;
+
             }
     .fc-popover .fc-header .fc-close {
 	            cursor: pointer;
