@@ -150,7 +150,7 @@
                 <table class="table table-borderless">
                       <thead>
                         <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
-                          <th scope="col" style= "color:#ffffff" > #</th>
+                          <th scope="col" style= "color:#ffffff" > N<sup>o</sup></th>
                           <th scope="col" style= "color:#ffffff" > Type</th>
                           <th scope="col" style= "color:#ffffff" > Etat</th>
                           <th scope="col" style= "color:#ffffff" >Voiture</th>
@@ -208,7 +208,7 @@
                                     <table class="table table-striped table-hover col-md-12">
                                       <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
                                     <tr style="text-align: center">
-                                        <th style="color: white;">#</th>
+                                        <th style="color: white;">N<sup>o</sup></th>
                                         <th style="color: white;">Constat</th>
                                         <th style="color: white;">Date Edition</th>
                                         <th style="color: white;">Voiture </th>
@@ -247,7 +247,7 @@
                                   <table class="table table-striped table-hover col-md-12">
                                     <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
                                     <tr style="text-align: center">
-                                        <th style="color: white;">#</th>
+                                        <th style="color: white;">N<sup>o</sup></th>
                                         <th style="color: white;">Date Edition</th>
                                         <th style="color: white;">Date Expiration</th>
                                         <th style="color: white;">Coût</th>
@@ -291,7 +291,7 @@
                                     role="tab" 
                                     aria-selected="false" 
                                     aria-controls="panel3" 
-                                    tabindex="0">Resumes/Compte-rendus<sup><span class="badge badge-warning">{{App\Models\Summary::count()}}</span></sup></label>
+                                    tabindex="0">Resumes/ Compte-rendus<sup><span class="badge badge-warning">{{App\Models\Summary::count()}}</span></sup></label>
                             <div id="tab-content3" 
                                   class="tab-content"
                                   role="tabpanel" 
@@ -301,10 +301,10 @@
                                   <table class="table table-striped table-hover col-md-12">
                                     <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
                                     <tr style="text-align: center">
-                                        <th style="color: white;">#</th>
-                                        <th style="color: white;">Entree Garage</th>
-                                        <th style="color: white;">Sortie Garage</th>
-                                        <th style="color: white;">Mecanicien Chef</th>
+                                        <th style="color: white;">N<sup>o</sup></th>
+                                        <th style="color: white;">Date Edition</th>
+                                        <th style="color: white;">Lien contenu</th>
+                                        <th style="color: white;">Auteur</th>
                                         <th style="color: white;">Voiture</th>
                                     </tr>
                                         </thead>
@@ -342,7 +342,7 @@
                              <table class="table table-striped table-hover col-md-12">
                                     <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
                                     <tr style="text-align: center">
-                                        <th style="color: white;">#</th>
+                                        <th style="color: white;">N<sup>o</sup></th>
                                         <th style="color: white;">Date Edition</th>
                                         <th style="color: white;">Date Expiration</th>
                                         <th style="color: white;">Couts</th>
