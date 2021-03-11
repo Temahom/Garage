@@ -11,15 +11,11 @@
     <link rel="stylesheet" href="/assets/libs/css/style.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
-
     <link rel="stylesheet" href="/assets/vendor/charts/chartist-bundle/chartist.css">
     <link rel="stylesheet" href="/assets/vendor/charts/morris-bundle/morris.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <link href='/assets/vendor/full-calendar/css/fullcalendar.css' rel='stylesheet' />
-    <link href='/assets/vendor/full-calendar/css/fullcalendar.print.css' rel='stylesheet' media='print' />
-     <!-- Table CSS -->
     <link rel="stylesheet" type="text/css" href="/style-table.css">
     <title>Garage</title>
 </head>
@@ -215,7 +211,17 @@
                                 </div>
                             </li>
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="/fullcalendar"><i class="nav-icon fa-fw fas fa-calendar"></i>Evénements<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success">6</span></a>
+                                <div id="submenu-rv" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/fullcalendar">Liste RV</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" target="_blank" href="https://calendar.google.com/calendar/u/0?cid=cmI1dmlocnM1OWwwYjZkY3E0dnQ2MzFwOG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Ajouter rv</a>
+                                        </li>
+                                    </ul>    
+                                </div>
                             </li>
                            <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
@@ -301,10 +307,6 @@
     <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src='/assets/vendor/full-calendar/js/moment.min.js'></script>
-    <script src='/assets/vendor/full-calendar/js/fullcalendar.js'></script>
-    <script src='/assets/vendor/full-calendar/js/jquery-ui.min.js'></script>
-    <script src='/assets/vendor/full-calendar/js/calendar.js'></script>
     <script src="/assets/libs/js/main-js.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js" integrity="sha512-E0zfDwA1CopT4gzJmj9tMpd7O6pTpuybTK58eY1GwqptdasUohyImuualLt/S5XvM8CDnbaTNP/7MU3bQ5NmQg==" crossorigin="anonymous"></script>
     
