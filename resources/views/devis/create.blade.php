@@ -115,7 +115,7 @@
                             <?php $i = 0 ?>
                             <script>
                                 window.addEventListener('DOMContentLoaded', function() {
-                                    categorieModifier('moussa tjiam');
+                                    categorieModifier('Freinage');
                                 });
                             </script>
                             @foreach ($item_devis as $item_devi)
@@ -220,9 +220,24 @@
 
 <script type="text/javascript">   
    
-    function categorieModifier(categorie)
+    function categorieModifier(selectCategorie)
     {
-        alert(categorie);
+        alert(selectCategorie);
+        var produit='<option value="">Produit</option>';
+        $.ajax({
+            type: "GET",
+            url: "/api/produit/"+ selectCategorie,
+            dataType: 'json',
+            success: function(data) {
+                var produits = data;
+                produits.map(p=>{
+                    alert(p.id);
+                    produit+='<option value="'+ p.id+'">'+p.produit+'</option>'
+                });
+                selectCategorie.parents('#newProduit').children('div').children('.select-produit').children('select').html(produit);
+              
+            }
+        });
     }
     
     $(document).on('change', '.catProduit select', function(){ 
