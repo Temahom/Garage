@@ -1,4 +1,7 @@
 @extends('layout.index')
+@php
+use Carbon\Carbon;
+@endphp
 @section('content')
 <link rel="stylesheet" href="/assets/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
 
@@ -72,7 +75,7 @@
                         <div class="card-footer-item card-footer-item-bordered">
                             <!-- .metric -->
                             <div class="metric">
-                                <h6 class="metric-value"> 53 </h6>
+                                <h6 class="metric-value"> {{$interventionsAchevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','=',3)->where("user_id","=" ,$actor->id)->count()}} </h6>
                                 <p class="metric-label"> Completées </p>
                             </div>
                             <!-- /.metric -->
@@ -82,7 +85,7 @@
                         <div class="card-footer-item card-footer-item-bordered">
                             <!-- .metric -->
                             <div class="metric">
-                                <h6 class="metric-value"> 2 </h6>
+                                <h6 class="metric-value"> {{$interventionsInachevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','!=',3)->where("user_id","=" ,$actor->id)->count()}} </h6>
                                 <p class="metric-label"> En Cours </p>
                             </div>
                             <!-- /.metric -->
