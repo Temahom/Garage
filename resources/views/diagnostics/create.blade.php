@@ -270,6 +270,7 @@
     $("#add-btn").click(function(){
         div = getDiv(i);
         $("#dynamicAddRemove").append(div);
+        doublon();
         numeroter();
         i++;
     });
@@ -317,7 +318,7 @@
         $('#dynamicAddRemove > div').each( function(){
             $(this).children('.divDescription').children('textarea').removeClass('is-invalid');
             $(this).children('div').children('div').children('.divLocalisation').children('input').removeClass('is-invalid');
-
+            
             localisation = $(this).children('div').children('div').children('.divLocalisation').children('input').val().trim();
             description = $(this).children('.divDescription').children('textarea').val().trim();
 
@@ -338,6 +339,7 @@
     /* FIN CONTROL DIAGNOSTQUE*/
 
     /*DEBUT gestion des doublons*/
+        const doublon=()=>{
             const selects = document.querySelectorAll('.custom-select');
             selects.forEach((elem) => {
                 elem.addEventListener('change', (event) => {
@@ -354,6 +356,8 @@
                 }
             });
         });
+    }
+    doublon();
     /*FIN gestion des doublons*/
 </script>
 @endsection
