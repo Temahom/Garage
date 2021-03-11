@@ -1,5 +1,4 @@
 @extends('layout.index')
-
 @section('content')
 <link rel="stylesheet" href="/assets/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
 

@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures',VoitureController::class);
     Route::resource('voitures.interventions',InterventionController::class);
     Route::resource('voitures.interventions.reparations',ReparationController::class);
+    Route::resource('voitures.interventions.summaries',SummaryController::class);
     Route::resource('voitures.interventions.devis',DeviController::class);
     Route::resource('commandes', CommandeController::class);
     Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
