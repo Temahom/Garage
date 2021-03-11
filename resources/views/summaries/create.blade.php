@@ -70,5 +70,16 @@
             </div>
         </form> 
     </div>     
-</div>        
+</div> 
+{{-- ------formateur de texte dans summary(compte rendu)------- --}}
+<script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
+<script>
+    tinymce.init({
+        selector:'textarea.description',
+        width: 900,
+        height: 300
+    });
+</script>
+{{-- ----------------------end-----------------    --}}       
 @endsection
+    
