@@ -101,6 +101,7 @@
           .nav-pills .show>.nav-link{
            background-color:#138496!important;
            color:#ffffff;
+           
            padding: 10px;
            border-radius:0 20% 0 20%;
            text-align: center;

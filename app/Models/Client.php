@@ -13,4 +13,8 @@ class Client extends Model
     {
        return $this->hasMany('App\Models\Voiture');
     }
+    public function user()
+    {
+       return $this->belongsTo('App\Models\User');
+    }
 }

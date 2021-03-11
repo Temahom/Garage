@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Client;
+use Auth;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -53,15 +54,25 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         
-        $request->validate([
+        $data = request()->validate([
         'nom' => 'required',
         'prenom' => 'required',
         'telephone' => 'required|unique:clients',
         'email' => 'unique:clients',
+        'genre' => 'required',
+        'entreprise' => 'max:200'
         ]);
-           
-        $client = Client::create($request->all());
-        $voiture =  $client->voitures()->get();
+        $user_id = Auth::id();
+        $client = new Client();
+        $client->nom = $request->input('nom');
+        $client->prenom = $request->input('prenom');
+        $client->telephone = $request->input('telephone');
+        $client->email = $request->input('email');
+        $client->genre = $request->input('genre');
+        $client->entreprise = $request->input('entreprise');
+        $client->user_id= $user_id;
+        //dd($client);
+        $client = $client->save();
         return redirect()->route('clients.show', ['client' => $client])
         ->with('success','Client Enrégistré');
 
