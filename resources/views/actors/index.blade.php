@@ -57,12 +57,12 @@
                     </div>
                     <!-- /.card-body -->
                     <!-- .card-footer -->
-                    <footer class="card-footer p-0">
+                    <footer class="card-footer row p-0">
                         <!-- .card-footer-item -->
                         <div class="card-footer-item card-footer-item-bordered">
                             <!-- .metric -->
                             <div class="metric">
-                                <h6 class="metric-value"> 54 </h6>
+                                <h6 class="metric-value"> {{$interventions=\App\Models\Intervention::where("user_id","=" ,$actor->id)->count()}} </h6>
                                 <p class="metric-label"> Taches </p>
                             </div>
                             <!-- /.metric -->
