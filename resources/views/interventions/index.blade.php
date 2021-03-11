@@ -291,7 +291,7 @@
                                     role="tab" 
                                     aria-selected="false" 
                                     aria-controls="panel3" 
-                                    tabindex="0">Reparations <sup><span class="badge badge-warning">{{App\Models\Reparation::count()}}</span></sup></label>
+                                    tabindex="0">Resumes/Compte-rendus<sup><span class="badge badge-warning">{{App\Models\Summary::count()}}</span></sup></label>
                             <div id="tab-content3" 
                                   class="tab-content"
                                   role="tabpanel" 
@@ -320,7 +320,7 @@
                                     
                                     @endforeach
                                       <div class="col-md-12 mt-3 d-flex justify-content-center">
-                                        {!! $reparations->links() !!}
+                                        {!! $summaries->links() !!}
                                       </div>
                                 </table>
                                   </div>

@@ -38,9 +38,9 @@ class InterventionController extends Controller
         
         $diagnostics = Intervention::where('diagnostic_id','!=',null)->paginate(15);
         $devis = Intervention::where('devis_id','!=',null)->paginate(15);
-        $reparations = Intervention::where('reparation_id','!=',null)->paginate(15);
+        $summaries = Intervention::where('summary_id','!=',null)->paginate(15);
         $factures = Intervention::where('facture_id','!=',null)->paginate(15);
-        return view('interventions.index', compact('interventions','diagnostics','devis','reparations','factures'));
+        return view('interventions.index', compact('interventions','diagnostics','devis','summaries','factures'));
     }
 
     /**
