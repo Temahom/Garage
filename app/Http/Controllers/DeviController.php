@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Devi;
 use App\Models\Voiture;
 use App\Models\Devi_produit;
+use App\Models\Produit;
 use App\Models\Intervention;
 use App\Models\listeproduit;
 
@@ -35,8 +36,17 @@ class DeviController extends Controller
         $devi = Devi::find($intervention->devis_id);
         if($intervention->devi()->first())
         {
-            $produits = $intervention->devi()->first()->produits()->get();
-            return view('devis.create', compact('voiture', 'intervention', 'devi', 'produits'));
+            $i = 0;
+            $item_devis = [];
+            $devi_produits = $intervention->devi()->first()->devi_produits()->get();
+            foreach($devi_produits as $devi_produit)
+            {
+                $produit = Produit::find($devi_produit->produit_id);
+                $item_devis[$i]['devi_produit'] = $devi_produit;
+                $item_devis[$i]['produit'] = $produit;
+                $i++;
+            }
+            return view('devis.create', compact('voiture', 'intervention', 'devi', 'item_devis'));
         }
         return view('devis.create', compact('voiture', 'intervention'));
     }

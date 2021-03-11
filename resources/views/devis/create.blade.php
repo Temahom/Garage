@@ -58,14 +58,14 @@
 
     
     <form id="formProd"
-        @if (isset($produits))
+        @if (isset($item_devis))
             action="{{ route('voitures.interventions.devis.update',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'devi' => $devi->id]) }}" method="POST"
         @else
             action="{{ route('voitures.interventions.devis.store',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" method="POST"
         @endif
     >
         @csrf
-        @if (isset($produits))
+        @if (isset($item_devis))
             @method('PUT')
         @endif
 
@@ -76,11 +76,11 @@
                 <div class="row" >
                     <div class="divCout form-group col-xs-6 col-sm-6 col-md-6">
                         <label for="cout" class="col-form-label">Coût de Réparation</label>
-                        <input id="cout" value="{{ $devi->cout }}" type="number" name="cout" class="form-control" placeholder="Coût de réparation">
+                        <input id="cout" value="{{ isset($devi) ? $devi->cout : '' }}" type="number" name="cout" class="form-control" placeholder="Coût de réparation">
                     </div>
                     <div class="divDate form-group col-xs-6 col-sm-6 col-md-6">
                         <label for="expiration_expiration" class="col-form-label">Date Expiration</label>
-                        <input id="expiration" value="{{ $devi->date_expiration }}" type="date" name="date_expiration" class="form-control" placeholder="Date expiration...">
+                        <input id="expiration" value="{{ isset($devi) ? $devi->date_expiration : '' }}" type="date" name="date_expiration" class="form-control" placeholder="Date expiration...">
                     </div>
                 </div>
 
@@ -111,11 +111,18 @@
                                 box-shadow: none;
                             }
                         </style>
-                        @if (isset($produits))
-                            @foreach ($produits as $produit)
+                        @if (isset($item_devis))
+                            <?php $i = 0 ?>
+                            <script>
+                                window.addEventListener('DOMContentLoaded', function() {
+                                    categorieModifier('moussa tjiam');
+                                });
+                            </script>
+                            @foreach ($item_devis as $item_devi)
+                                <?php $i++ ?>
                                 <div class="row p-3 mb-2" id="newProduit">
                                     <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">
-                                        <span class="numero">#1</span>
+                                        <span class="numero">#{{ $i }}</span>
                                         <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
                                     </div>
                                     <div class="divCategorie col-xs-4 col-sm-4 col-md-4">
@@ -124,7 +131,7 @@
                                             <select name="produits[0][categorie]" id="categorie" class="custom-select">
                                                 <option value="">catégorie</option>
                                                 @foreach ($liste_produits as $liste_produit)
-                                                    <option value="{{$liste_produit->categorie}}" {{ $liste_produit->id == $produit->id ? 'selected change' : '' }}>{{$liste_produit->categorie}}</option>
+                                                    <option value="{{$liste_produit->categorie}}" {{ $liste_produit->id == $item_devi['produit']->id ? 'selected' : '' }}>{{$liste_produit->categorie}}</option>
                                                 @endforeach
                                             </select>	 
 
@@ -136,15 +143,12 @@
                                             <select name="produits[0][id]" id="leproduit" class="custom-select">
                                                 <option value="">---</option>
                                             </select>	
-                                            <script>
-                                                liste;
-                                            </script>
                                         </div>		
                                     </div>
                                     <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
                                         <div class="form-group">
                                             <strong>Quantité Voulue:</strong>
-                                            <input type="number" value="{{$produit->qte}}" name="produits[0][quantite]" class="custom-select form-control">
+                                            <input type="number" value="{{$item_devi['devi_produit']->quantite}}" name="produits[0][quantite]" class="custom-select form-control">
                                         </div>
                                     </div>
                                                                             
@@ -212,15 +216,15 @@
     </form>     
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">   
    
-<script>   
-
-    function categorieModifier()
+    function categorieModifier(categorie)
     {
-        alert(moussa);
+        alert(categorie);
     }
-
-
+    
     $(document).on('change', '.catProduit select', function(){ 
         var selectCategorie = $(this);
         var produit='<option value="">Produit</option>';
