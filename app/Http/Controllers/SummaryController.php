@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Summary;
+use App\Models\Voiture;
+use App\Models\Intervention;
 use Illuminate\Http\Request;
 
 class SummaryController extends Controller
@@ -22,9 +24,9 @@ class SummaryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Voiture $voiture, Intervention $intervention)
     {
-        //
+        return view('summaries.create', compact('voiture','intervention'));
     }
 
     /**
@@ -33,9 +35,17 @@ class SummaryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Voiture $voiture, Intervention $intervention)
     {
-        //
+         $data = request()->validate([
+           'description' => 'required',
+        ]);
+      $summary = new Summary();
+      $summary->resume = $request->input('description');
+      $summary->save();
+      $intervention->summary_id = $summary->id;
+      $intervention->update();
+      return redirect(route('voitures.interventions.show',['voiture'=>$voiture->id, 'intervention'=>$intervention->id]));
     }
 
     /**
@@ -55,9 +65,12 @@ class SummaryController extends Controller
      * @param  \App\Models\Summary  $summary
      * @return \Illuminate\Http\Response
      */
-    public function edit(Summary $summary)
+    public function edit( $id)
     {
-        //
+        $summary = Summary::find($id);
+        $intervention = Intervention::where('summary_id', '=',$id )->first();
+        $voiture = $intervention->voiture()->first();
+        return view('summaries.edit', compact('intervention','voiture','summary'));
     }
 
     /**
@@ -67,9 +80,17 @@ class SummaryController extends Controller
      * @param  \App\Models\Summary  $summary
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Summary $summary)
+    public function update(Request $request, $id)
     {
-        //
+        $data = request()->validate([
+            'description' => 'required',
+         ]);
+         $summary = Summary::find($id);
+         $intervention = Intervention::where('summary_id', '=',$id )->first();
+         $voiture = $intervention->voiture()->first();
+        $summary->resume = $request->input('description');
+        $summary->update();
+       return redirect(route('voitures.interventions.show',['voiture'=>$voiture->id, 'intervention'=>$intervention->id]));
     }
 
     /**

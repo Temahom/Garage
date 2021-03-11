@@ -13,6 +13,7 @@ use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\ActorController;
 use App\Http\Controllers\MailSend;
 use App\Http\Controllers\SmsController;
+use App\Http\Controllers\SummaryController;
 //use App\Http\Controllers\EventController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\FullCalendarController;

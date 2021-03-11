@@ -93,12 +93,12 @@
 </div>
 <div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
     <div class="col-md-6 p-3">
-        <p><h2>Maintenance/Réparation</h2></p>
-        @if ( $intervention->reparation_id )
-            <p>{{ $reparation->element_3 }}</p>
-            <a class="btn btn-warning" href="{{ route('voitures.interventions.reparations.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'reparation' => $intervention->reparation_id]) }}" title="Go back">Modifier</a>
+        <p><h2>Resume Intervention</h2></p>
+        @if ( $intervention->summary_id )
+            {{-- <p>{{ $summary->resume }}</p> --}}
+            <a class="btn btn-warning" href="{{ route('voitures.interventions.summaries.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'summary' => $summary->id]) }}" title="Go back">Modifier</a>
         @else
-            <a class="btn btn-primary" href="{{ route('voitures.interventions.reparations.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>
+            <a class="btn btn-primary" href="{{ route('voitures.interventions.summaries.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>
         @endif
     </div>
 </div>
