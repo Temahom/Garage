@@ -57,7 +57,7 @@
                     </div>
                     <!-- /.card-body -->
                     <!-- .card-footer -->
-                    <footer class="card-footer p-0">
+                    <footer class="card-footer row p-0">
                         <!-- .card-footer-item -->
                         <div class="card-footer-item card-footer-item-bordered">
                             <!-- .metric -->
