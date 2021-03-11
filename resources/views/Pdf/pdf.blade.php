@@ -333,7 +333,7 @@
         <a href="mailto:{{Auth::user()->email}}">{{Auth::user()->email}}</a>
       </div>
       <div class="data right">
-        <div class="title">Facture#{{count($commandes)}}</div>
+        <div class="title">Devis#{{count($commandes)}}</div>
         <div class="date">
           Date d'émission: {{now()}}<br>
         </div>
