@@ -24,12 +24,21 @@ use Carbon\Carbon;
   }
   else $score3='';
  
-  // $client30=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->count();
+  $nombreVoitures=\App\Models\Voiture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('user_id','=', $user->id)->get();
+  $nombreVoitures2=\App\Models\Voiture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->where('user_id','=', $user->id)->get();
+  $nombreVoitures3=\App\Models\Voiture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->where('user_id','=', $user->id)->get();
+
+  $nombreInterventions=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('user_id','=', $user->id)->get();
+  $nombreInterventions2=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->where('user_id','=', $user->id)->get();
+  $nombreInterventions3=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->where('user_id','=', $user->id)->get();
+
+  $nombreClients=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('user_id','=', $user->id)->get();
+  // dd($nombreClients);
+  $nombreClients2=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->where('user_id','=', $user->id)->get();
+  $nombreClients3=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->where('user_id','=', $user->id)->get();
+
  
- 
-  // $client60=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->count();
-  // $chiffre60=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->sum('cout');
-//  $total=$chiffres+$chiffre30+$chiffre60;
+   $interventionsAchevee2=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->where('statut','=',3)->count();
 @endphp
 @section('content')
 
@@ -65,8 +74,8 @@ use Carbon\Carbon;
         <div class="row">
           <div class="col-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Horaires</a>
-              <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Interventions</a>
+              <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statisque Taches</a>
+              <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>
             </div>
           </div>
           <div class="col-10">
@@ -78,6 +87,7 @@ use Carbon\Carbon;
                               <div class="table-responsive">
                                   <table class="table">
                                       <thead class="bg-light">
+                                    @if($user->id == 3)
                                           <tr class="border-0">
                                               <th class="border-0">Periodes</th>
                                               <th class="border-0">Taches Achevées</th>
@@ -104,10 +114,37 @@ use Carbon\Carbon;
                                               <td>{{$interventionsInachevee3}} {{$interventionsInachevee3>1?"taches":"tache"}}</td>
                                               <td>{{$score3}} %</td>
                                           </tr>
-                                          
                                           {{-- <tr>
                                               <td style="font-size: 15px; font-weight: bold;" colspan="9"><span class="float-right"><strong>Score Global: {{($score+$score2+$score3)/3}} %</strong></span></td>
                                           </tr> --}}
+                                        @else
+                                        <tr class="border-0">
+                                          <th class="border-0">Periodes</th>
+                                          <th class="border-0">Nombre de Clients Enregistrés</th>
+                                          <th class="border-0">Nombres de Voitures Enrisgistrées</th>
+                                          <th class="border-0">Nombre de travaux assignés</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td>Il y'a 0 à 30 jours</td>
+                                          <td>{{$nombreClients->count()}}</td>
+                                          <td>{{$nombreVoitures->count()}} {{$nombreVoitures->count()>1?"voitures":"voiture"}}</td>
+                                          <td>{{$nombreInterventions->count()}} {{$nombreInterventions->count()>1?"interventions":"intervention"}}</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Il y'a 2mois</td>
+                                          <td>{{$nombreClients2->count()}} {{$nombreClients2->count()>1?"clients":"client"}} </td>
+                                          <td>{{$nombreVoitures2->count()}} {{$nombreVoitures2->count()>1?"voitures":"voiture"}}</td>
+                                          <td>{{$nombreInterventions2->count()}} {{$nombreInterventions2->count()>1?"interventions":"intervention"}}</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Il y'a 3mois</td>
+                                          <td>{{$nombreClients3->count()}} {{$nombreClients2->count()>1?"clients":"client"}}</td>
+                                          <td>{{$nombreVoitures3->count()}} {{$nombreVoitures3->count()>1?"voitures":"voiture"}}</td>
+                                          <td>{{$nombreInterventions3->count()}} {{$nombreInterventions3->count()>1?"interventions":"intervention"}}</td>
+                                      </tr>
+                                        @endif  
                                       </tbody>
                                   </table>
                                  
@@ -171,7 +208,6 @@ use Carbon\Carbon;
                    </table>
                
               </div>
-              
             </div>
           </div>
         </div>

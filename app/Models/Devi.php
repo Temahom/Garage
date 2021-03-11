@@ -13,8 +13,8 @@ class Devi extends Model
     {
         return $this->hasMany(Intervention::class);
     }
-    public function produits()
+    public function devi_produits()
     {
-        return $this->belongsToMany(Produit::class,'devi_produits','devi_id', 'produit_id')->withPivot('quantite');
+        return $this->HasMany(Devi_produit::class);
     }
 }

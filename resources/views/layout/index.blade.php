@@ -96,7 +96,7 @@
                         </li>
                         @php
                             use Carbon\Carbon;
-                            $notifications= App\Models\Intervention::where('diagnostic_id','=',null)->where('devis_id','=',null)->where('reparation_id','=',null)->where('technicien','=',Auth::id())->get();
+                            $notifications= App\Models\Intervention::where('diagnostic_id','=',null)->where('devis_id','=',null)->where('summary_id','=',null)->where('technicien','=',Auth::id())->get();
                             //dd($notifications);
                         @endphp
                         <li class="nav-item dropdown notification">
@@ -309,7 +309,7 @@
     <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <script src="/assets/libs/js/main-js.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js" integrity="sha512-E0zfDwA1CopT4gzJmj9tMpd7O6pTpuybTK58eY1GwqptdasUohyImuualLt/S5XvM8CDnbaTNP/7MU3bQ5NmQg==" crossorigin="anonymous"></script>
-    
+
 </body>
  
 </html>

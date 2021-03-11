@@ -21,6 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('entreprise')->nullable();
             $table->string('telephone')->nullable();
             $table->string('email')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
         });
