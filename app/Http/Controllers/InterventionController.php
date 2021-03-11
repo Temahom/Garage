@@ -9,6 +9,7 @@ use App\Models\Reparation;
 use App\Models\Devi;
 use App\Models\Commande;
 use App\Models\User;
+use App\Models\Summary;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -37,9 +38,9 @@ class InterventionController extends Controller
         
         $diagnostics = Intervention::where('diagnostic_id','!=',null)->paginate(15);
         $devis = Intervention::where('devis_id','!=',null)->paginate(15);
-        $reparations = Intervention::where('reparation_id','!=',null)->paginate(15);
+        $summaries = Intervention::where('summary_id','!=',null)->paginate(15);
         $factures = Intervention::where('facture_id','!=',null)->paginate(15);
-        return view('interventions.index', compact('interventions','diagnostics','devis','reparations','factures'));
+        return view('interventions.index', compact('interventions','diagnostics','devis','summaries','factures'));
     }
 
     /**
@@ -96,10 +97,10 @@ class InterventionController extends Controller
             $diagnostic = Diagnostic::find($intervention->diagnostic_id);
             $data['diagnostic'] = $diagnostic;
         }
-        if($intervention->reparation_id)
+        if($intervention->summary_id)
         {
-            $reparation = Reparation::find($intervention->reparation_id);
-            $data['reparation'] = $reparation;
+            $summary = Summary::find($intervention->summary_id);
+            $data['summary'] = $summary;
         }
         if($intervention->devis_id)
         {
