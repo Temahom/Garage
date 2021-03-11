@@ -16,7 +16,7 @@
 						<a class="btn btn-secondary" href="{{route('clients.create')}}"><i class="fas fa-user-plus"></i> Nouveau Client</a>
 					</div>
 				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">     
+			<!--	<div class="col-xs-3 col-sm-3 col-md-3">     
 					<div class="form-group">
 						<form action="{{ route('clients.index') }}" method="GET" role="search">
 							<div class="d-flex">
@@ -27,7 +27,7 @@
 							</div>
 						</form><br>
 					</div>
-				</div>  
+				</div> -->
 			</div>
 
 			@if($message = Session::get('success'))
@@ -38,28 +38,30 @@
 			<div class="row">
 				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 					<div class="card">
-						<div class="card-header">
+						<!--<div class="card-header">
 							<h3 class="mb-0 text-center">La Liste de clients</h3>
 							{{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
-						</div>
+						</div>-->
 						<div class="card-body">
 							<div class="table-responsive">
 								<table id="example4" class="table table-striped table-bordered" style="width:100%">
 									<thead>
-										<tr>
-											<th>Prénoms</th>
-											<th>Genre</th>
-											<th>Entreprise</th>
-											<th>Téléphone</th>
-											<th>Email</th>
-											<th>Action</th>
+										<tr style="background-color: #4656E9;">
+											<th style="color: white">Prénoms</th>
+											<th style="color: white">NOM</th>
+											<th style="color: white">Genre</th>
+											<th style="color: white">Entreprise</th>
+											<th style="color: white">Téléphone</th>
+											<th style="color: white">Email</th>
+											<th style="color: white">Action</th>
 										</tr>
 									</thead>
 									<tbody>
 					@foreach ($clients as $client)
 		
 							<tr>
-								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;"><i class="fas fa-user"></i> {{ $client->prenom }} {{ $client->nom }}</td>
+								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;"><i class="fas fa-user"></i> {{ $client->prenom }}</td>
+								<td onclick="showClient({{ $client->id }})" style="text-transform: uppercase;" style="cursor: pointer; text-transform: capitalize;">{{ $client->nom }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->genre }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->entreprise }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->telephone }}</td>
