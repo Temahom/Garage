@@ -114,9 +114,19 @@ class DeviController extends Controller
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Devi $devi)
     {
         $this->authorize('update', $devi);
-        $devi->update($request->all());
+        $devi_produits = $devi->devi_produits()->get();
+        foreach($devi_produits as $devi_produit)
+        {
+            $devi_produit->delete();
+        }
+        foreach ($request->produits as $key => $produit) {
+            $devi_produit = new Devi_produit();
+            $devi_produit->devi_id = $devi->id;
+            $devi_produit->produit_id = $produit['id'];
+            $devi_produit->quantite = $produit['quantite'];
+            $devi_produit->save();
+        }
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('modifier','Devis Modifier avec succées');
-    
     }
 
     /**
