@@ -69,7 +69,7 @@
 <div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
 		<div class="section-block">
-			<h2 class="section-title py-4" style="text-align: center">INTERVENTIO</h2>
+			<h2 class="section-title py-4" style="text-align: center">INTERVENTION</h2>
 			<!-- DATE DEBUT DATE FIN  -->
 			<div class="row">
 				<div class="col-md-3">
@@ -136,6 +136,8 @@
 							@else
 								<a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
 							@endif
+							<a href="/Pdf/{{$intervention->id}}" class="btn btn-success"><i class="icon-printer"></i> Imprimer</a>
+							<a href="/send-devis/{{$intervention->id}}" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"> Envoyer au client</i></a>
 						</div>
 					</div>
 

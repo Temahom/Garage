@@ -41,6 +41,7 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 Route::get('send-mail',[MailSend::class,'mailsend']);
+Route::get('send-devis/{id}',[MailSend::class,'send_devis']);
 Route::get('send-message',[SmsController::class,'sendMessage']);
 Route::get('Pdf', function () {
    
@@ -54,9 +55,12 @@ Route::get('Pdf/{id}', function ($id) {
    $devis_id=Intervention::find($id)->devis_id;
    $devi = Devi::find($devis_id);
    $pdevis=$devi->produits()->get();
+   $devi_client=Intervention::find($id)->voiture->client()->first();
+
+   //dd(Intervention::find($id)->voiture->client()->get());
   // $commandes= \App\Models\Commande::all();
    
-    $pdf = PDF::loadView('Pdf.pdf',compact('pdevis','devi'));    
+    $pdf = PDF::loadView('Pdf.pdf',compact('pdevis','devi','devi_client'));    
     return $pdf->stream('Devis.pdf');
 });
 Route::get('diag-pdf/{id}',function($id){

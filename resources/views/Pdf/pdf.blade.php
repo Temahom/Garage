@@ -328,9 +328,10 @@
   <section>
     <div class="details clearfix">
       <div class="client left">
-        <p>Délivré par :</p>
-        <p class="name">{{Auth::user()->name}}</p>
-        <a href="mailto:{{Auth::user()->email}}">{{Auth::user()->email}}</a>
+        <p>Délivré à : <span class="name">{{$devi_client->nom}} {{$devi_client->prenom}}</span></p>    
+        <a href="mailto:{{$devi_client->email}}">{{$devi_client->email}}</a>
+        <br>
+        <a href="tel:{{$devi_client->telephone}}">{{$devi_client->telephone}}</a>
       </div>
       <div class="data right">
         <div class="title">Devis#{{$devi->id}}</div>
