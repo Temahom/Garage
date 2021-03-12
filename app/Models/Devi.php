@@ -19,6 +19,6 @@ class Devi extends Model
     }
     public function produits()
     {
-        return $this->belongsToMany(Produit::class);
+        return $this->belongsToMany(Produit::class,'devi_produits')->withPivot('quantite');
     }
 }

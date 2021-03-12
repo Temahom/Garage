@@ -1,6 +1,23 @@
 @extends('layout.index')
 
 @section('content')
+@if($message = Session::get('devis-send'))
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        {{$message}}
+	      </div>
+	    </div>
+	  </div>
+	</div>
+@endif
 <!-- INFORMATIONS VOITURE  -->
 <div class="row">
 	<div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
@@ -69,7 +86,7 @@
 <div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
 		<div class="section-block">
-			<h2 class="section-title py-4" style="text-align: center">INTERVENTIO</h2>
+			<h2 class="section-title py-4" style="text-align: center">INTERVENTION</h2>
 			<!-- DATE DEBUT DATE FIN  -->
 			<div class="row">
 				<div class="col-md-3">
@@ -136,6 +153,8 @@
 							@else
 								<a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
 							@endif
+							<a href="/Pdf/{{$intervention->id}}" class="btn btn-success"><i class="icon-printer"></i> Imprimer</a>
+							<a href="/send-devis/{{$intervention->id}}" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"> Envoyer au client</i></a>
 						</div>
 					</div>
 
@@ -183,4 +202,10 @@
 <div class="row">
     <a class="btn btn-secondary mt-3" href="{{ route('voitures.show',['voiture' => $voiture->id]) }}" title="Go back"><i class="fas fa-angle-left"></i>  Retour</a>
 </div>
+
+<script>
+	$('#exampleModalCenter').modal('show');
+</script>
+
 @endsection
+
