@@ -1,6 +1,7 @@
 @extends('layout.index')
 
 @section('content')
+<!-- INFORMATIONS VOITURE  -->
 <div class="row">
 	<div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
 
@@ -59,50 +60,127 @@
 	</div>
 </div>
 
-		<div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
-			<div class="col-md-6 p-3">
-					<h2>Debut</h2>{{ $intervention->debut }}
+
+
+
+<!-- ============================================================== -->
+<!-- TAB INTERVENTION  -->
+<!-- ============================================================== -->
+<div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
+	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+		<div class="section-block">
+			<h2 class="section-title py-4" style="text-align: center">INTERVENTIO</h2>
+			<!-- DATE DEBUT DATE FIN  -->
+			<div class="row">
+				<div class="col-md-3">
+					<h4 style="display: inline-block">Debut : </h4> {{ $intervention->debut }}
+				</div>
+				<div class="col-md-3">
+					<h4 style="display: inline-block">Fin : </h4> {{ $intervention->fin }}
+				</div>
 			</div>
-			<div class="col-md-3 p-3">
-				<h2>Fin</h2>{{ $intervention->fin }}
+			<!-- FIN DATE DEBUT DATE FIN  -->
+		</div>
+		<div class="tab-outline">
+			<ul class="nav nav-tabs" id="myTab2" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="tab-outline-one" data-toggle="tab" href="#outline-one" role="tab" aria-controls="home" aria-selected="true">Diagnostic</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Devis</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Résumé Intervention</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="myTabContent2">
+
+
+
+				<!-- ============================================================== -->
+				<!-- DIAGNOSTIC  -->
+				<!-- ============================================================== -->
+				<div class="tab-pane fade show active" id="outline-one" role="tabpanel" aria-labelledby="tab-outline-one">
+					
+					<div class="row">
+						<div class="col-md-6">
+							<p><h2>Diagnostic</h2></p>
+							@if ( $intervention->diagnostic_id )
+								<p>{{ $diagnostic->description }}</p>
+								<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
+							@else
+								<a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
+							@endif
+						</div>
+					</div>
+					
+
+				</div>
+				<!-- ============================================================== -->
+				<!-- FIN DIAGNOSTIC  -->
+				<!-- ============================================================== -->
+
+
+
+				<!-- ============================================================== -->
+				<!-- DEVIS  -->
+				<!-- ============================================================== -->
+				<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
+					
+					<div class="row">
+						<div class="col-md-6">
+							<p><h2>Devis</h2></p>
+							@if ( $intervention->devis_id )
+								<p>{{number_format($devi->cout,0, ",", " " )}} <sup>F CFA</sup></p>
+								<a class="btn btn-warning" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
+							@else
+								<a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
+							@endif
+						</div>
+					</div>
+
+				</div>
+				<!-- ============================================================== -->
+				<!-- FIN DEVIS  -->
+				<!-- ============================================================== -->
+
+
+
+				<!-- ============================================================== -->
+				<!-- RESUME  -->
+				<!-- ============================================================== -->
+				<div class="tab-pane fade" id="outline-three" role="tabpanel" aria-labelledby="tab-outline-three">
+				
+					<div class="row">
+						<div class="col-md-6">
+							<p><h2>Resume Intervention</h2></p>
+							@if ( $intervention->summary_id )
+								{{-- <p>{{ $summary->resume }}</p> --}}
+								<a class="btn btn-warning" href="{{ route('voitures.interventions.summaries.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'summary' => $summary->id]) }}" title="Go back">Modifier</a>
+							@else
+								<a class="btn btn-primary" href="{{ route('voitures.interventions.summaries.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>
+							@endif
+						</div>
+					</div>
+
+				</div>
+				<!-- ============================================================== -->
+				<!-- FIN RESUME  -->
+				<!-- ============================================================== -->
+
+
+
 			</div>
 		</div>
+	</div>
+</div>
+<!-- ============================================================== -->
+<!-- FIN TAB INTERVENTION  -->
+<!-- ============================================================== -->
 
-<div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
-    <div class="col-md-6 p-3">
-        <p><h2>Diagnostic</h2></p>
-        @if ( $intervention->diagnostic_id )
-            <p>{{ $diagnostic->description }}</p>
-            <a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
-        @else
-            <a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
-        @endif
-    </div>
-</div>
 
-<div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
-    <div class="col-md-6 p-3">
-        <p><h2>Devis</h2></p>
-        @if ( $intervention->devis_id )
-            <p>{{number_format($devi->cout,0, ",", " " )}} <sup>F CFA</sup></p>
-            <a class="btn btn-warning" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
-        @else
-            <a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
-        @endif
-    </div>
-</div>
-<div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
-    <div class="col-md-6 p-3">
-        <p><h2>Resume Intervention</h2></p>
-        @if ( $intervention->summary_id )
-            {{-- <p>{{ $summary->resume }}</p> --}}
-            <a class="btn btn-warning" href="{{ route('voitures.interventions.summaries.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'summary' => $summary->id]) }}" title="Go back">Modifier</a>
-        @else
-            <a class="btn btn-primary" href="{{ route('voitures.interventions.summaries.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>
-        @endif
-    </div>
-</div>
+
 <div class="row">
     <a class="btn btn-secondary mt-3" href="{{ route('voitures.show',['voiture' => $voiture->id]) }}" title="Go back"><i class="fas fa-angle-left"></i>  Retour</a>
 </div>
-    @endsection
+@endsection
