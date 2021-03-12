@@ -30,7 +30,7 @@ class MailSend extends Controller
             $devi = Devi::find($devis_id);
             $pdevis=$devi->produits()->get();
             $devi_client=Intervention::find($id)->voiture->client()->first();
-
+            $intervention = Intervention::find($id);
    //dd(Intervention::find($id)->voiture->client()->get());
   // $commandes= \App\Models\Commande::all();
    
