@@ -333,9 +333,9 @@
         <a href="mailto:{{Auth::user()->email}}">{{Auth::user()->email}}</a>
       </div>
       <div class="data right">
-        <div class="title">Devis#{{count($commandes)}}</div>
+        <div class="title">Devis#{{$devi->id}}</div>
         <div class="date">
-          Date d'émission: {{now()}}<br>
+          Date d'expiration: {{$devi->date_expiration}}<br>
         </div>
       </div>
     </div>
@@ -348,17 +348,27 @@
               <th class="desc"><div>Catégorie</div></th>
               <th class="qty"><div>Libellé</div></th>
               <th class="unit"><div>Quantité</div></th>
-              <th class="total"><div>Total</div></th>
+              <th class="total"><div>Prix Unitaire</div></th>
             </tr>
           </tbody>
           <tbody class="body">
-            @foreach ($commandes as $commande)
+            @php
+              $prixHT=0;
+              $prixtotal=0;
+
+            @endphp
+            @foreach ($pdevis as $pdevi)
             <tr>
-              <td class="no">{{ $commande->id }}</td>
-              <td class="desc">{{ $commande->catProduit }}</td>
-              <td class="qty">{{ $commande->nomProduit}}</td>
-              <td class="unit">{{ $commande->qteProduit }}</td>
-              <td class="total">$1,200.00</td>
+              <td class="no">{{ $pdevi->id }}</td>
+              <td class="desc">{{ $pdevi->categorie }}</td>
+              <td class="qty">{{ $pdevi->produit}}</td>
+              <td class="unit">{{ $pdevi->pivot->quantite}}</td>
+              <td class="total">{{number_format($pdevi->prix1,0, ",", " " )}} <sup>FCFA</sup></td>
+               @php
+                  $prixHT+=($pdevi->pivot->quantite*$pdevi->prix1);
+                  $prixtotal+=$prixHT;
+
+            @endphp
             </tr>
             @endforeach
           </tbody>
@@ -372,7 +382,7 @@
               <td class="desc"></td>
               <td class="qty"></td>
               <td class="unit">Hors Taxe:</td>
-              <td class="total">5,200.00<sup>FCFA</sup></td>
+              <td class="total">{{number_format($prixHT,0, ",", " " )}}<sup>FCFA</sup></td>
             </tr>
             <tr>
               <td class="no"></td>
@@ -382,7 +392,14 @@
               <td class="total">1,300.00 <sup>FCFA</sup></td>
             </tr>
             <tr>
-              <td class="grand-total" colspan="5"><div><span>TOTAL:</span>6,500.00<sup>FCFA</sup></div></td>
+              <td class="no"></td>
+              <td class="desc"></td>
+              <td class="qty"></td>
+              <td class="unit">Côut de la réparation:</td>
+              <td class="total"> {{number_format($devi->cout,0, ",", " " )}} <sup>FCFA</sup></td>
+            </tr>
+            <tr>
+              <td class="grand-total" colspan="5"><div><span>TOTAL:</span>{{number_format($prixtotal+=$devi->cout,0, ",", " " )}}<sup>FCFA</sup></div></td>
             </tr>
           </tbody>
         </table>

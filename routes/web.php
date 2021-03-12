@@ -21,6 +21,9 @@ use App\Http\Controllers\FullCalendarController;
 use Illuminate\Support\Facades\App;
 use App\Models\Voiture;
 use App\Models\Diagnostic;
+use App\Models\Intervention;
+use App\Models\Devi;
+use App\Models\Produit;
      
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +46,16 @@ Route::get('Pdf', function () {
    $commandes= \App\Models\Commande::all();
    
     $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
+    return $pdf->stream('Devis.pdf');
+});
+Route::get('Pdf/{id}', function ($id) {
+
+   $devis_id=Intervention::find($id)->devis_id;
+   $devi = Devi::find($devis_id);
+   $pdevis=$devi->produits()->get();
+  // $commandes= \App\Models\Commande::all();
+   
+    $pdf = PDF::loadView('Pdf.pdf',compact('pdevis','devi'));    
     return $pdf->stream('Devis.pdf');
 });
 Route::get('diag-pdf/{id}',function($id){
