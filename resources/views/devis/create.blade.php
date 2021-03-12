@@ -113,11 +113,6 @@
                         </style>
                         @if (isset($item_devis))
                             <?php $i = 0 ?>
-                            <script>
-                                window.addEventListener('DOMContentLoaded', function() {
-                                    categorieModifier('moussa tjiam');
-                                });
-                            </script>
                             @foreach ($item_devis as $item_devi)
                                 <?php $i++ ?>
                                 <div class="row p-3 mb-2" id="newProduit">
@@ -128,7 +123,7 @@
                                     <div class="divCategorie col-xs-4 col-sm-4 col-md-4">
                                         <div class="form-group catProduit">
                                             <strong>Categorie :</strong>
-                                            <select name="produits[0][categorie]" id="categorie" class="custom-select">
+                                            <select name="produits[{{ $i }}][categorie]" id="categorie" class="custom-select">
                                                 <option value="">catégorie</option>
                                                 @foreach ($liste_produits as $liste_produit)
                                                     <option value="{{$liste_produit->categorie}}" {{ $liste_produit->id == $item_devi['produit']->id ? 'selected' : '' }}>{{$liste_produit->categorie}}</option>
@@ -140,15 +135,21 @@
                                     <div class="divProduit col-xs-4 col-sm-4 col-md-4">
                                         <div class="form-group select-produit">
                                             <strong>Nom du produit :</strong>
-                                            <select name="produits[0][id]" id="leproduit" class="custom-select">
-                                                <option value="">---</option>
+                                            @php
+                                                $produits = $item_devi['produit']->produitsByCategorie();
+                                            @endphp
+                                            <select name="produits[{{ $i }}][id]" id="leproduit" class="custom-select">
+                                                <option>produit</option>
+                                               @foreach ($produits as $produit))
+                                                   <option value="{{ $produit->id }}" {{ $produit->id == $item_devi['produit']->id ? 'selected' : '' }}>{{ $produit->produit }}</option>
+                                               @endforeach
                                             </select>	
                                         </div>		
                                     </div>
                                     <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
                                         <div class="form-group">
                                             <strong>Quantité Voulue:</strong>
-                                            <input type="number" value="{{$item_devi['devi_produit']->quantite}}" name="produits[0][quantite]" class="custom-select form-control">
+                                            <input type="number" value="{{$item_devi['devi_produit']->quantite}}" name="produits[{{ $i }}][quantite]" class="custom-select form-control">
                                         </div>
                                     </div>
                                                                             
@@ -218,11 +219,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
 
-<script type="text/javascript">   
-   
-    function categorieModifier(categorie)
+<script type="text/javascript">
+
+    function test()
     {
-        alert(categorie);
+        return '<option>moussa</option>';
+    }
+   
+    function categorieModifier(selectCategorie)
+    {
+        alert(selectCategorie);
+        var produit='<option value="">Produit</option>';
+        $.ajax({
+            type: "GET",
+            url: "/api/produit/"+ selectCategorie,
+            dataType: 'json',
+            success: function(data) {
+                var produits = data;
+                produits.map(p=>{
+                    produit+='<option value="'+ p.id+'">'+p.produit+'</option>'
+                });
+                selectCategorie.parents('#newProduit').children('div').children('.select-produit').children('select').html(produit);
+              
+            }
+        });
     }
     
     $(document).on('change', '.catProduit select', function(){ 
