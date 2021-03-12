@@ -17,4 +17,8 @@ class Devi extends Model
     {
         return $this->HasMany(Devi_produit::class);
     }
+    public function produits()
+    {
+        return $this->belongsToMany(Produit::class);
+    }
 }
