@@ -202,4 +202,10 @@
 <div class="row">
     <a class="btn btn-secondary mt-3" href="{{ route('voitures.show',['voiture' => $voiture->id]) }}" title="Go back"><i class="fas fa-angle-left"></i>  Retour</a>
 </div>
+
+<script>
+	$('#exampleModalCenter').modal('show');
+</script>
+
 @endsection
+
