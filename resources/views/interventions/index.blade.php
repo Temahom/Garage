@@ -117,6 +117,10 @@
            font-size: 16px;
           }
 
+          .second{
+            margin:7px;
+          }
+
     </style>
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -128,8 +132,14 @@
         <div class="row" style="margin-top: 30px">
           <div class="col-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
-              <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
-              <a class="nav-link_1" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details</a>
+              <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
+              <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details <i class="fas fa-angle-down"></i></a>
+              
+                <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
+                <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
+                <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Resumes/Compte-rendus</a>
+                <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
+              
             </div>
           </div>
           <div class="col-10">
@@ -147,6 +157,7 @@
                     </form><br>
                   </div>
                 </div>  
+               
                 <table class="table table-borderless">
                       <thead>
                         <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
@@ -184,8 +195,160 @@
                         </tr>
                         @endforeach
                       </tbody>
-                    </table>
+                </table>
               </div>
+
+              <div class="tab-pane fade" id="diagnostic" role="tabpanel" aria-labelledby="v-pills-home-diagnostic">
+                <div class="col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
+                  <div class="form-group">
+                    <form action="/interventions-list" method="GET" role="search">
+                      <div class="d-flex">
+                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
+                        <button class="btn btn-info t" type="submit" title="recherche une intervention">
+                          <span class="fas fa-search"></span>
+                        </button>
+                      </div>
+                    </form><br>
+                  </div>
+                </div> 
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <legend><span class="badge badge-light"> Récapitultif-Dignostics <sup> <span class="badge badge-primary">{{App\Models\Diagnostic::count()}}</span></sup></span></legend>
+                  <table class="table table-striped table-hover col-md-12">
+                    <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
+                        <tr style="text-align: center">
+                            <th style="color: white;">N<sup>o</sup></th>
+                            <th style="color: white;">Constat</th>
+                            <th style="color: white;">Date Edition</th>
+                            <th style="color: white;">Voiture </th>
+                            <th style="color: white;">Proprietaire </th>
+                        </tr>
+                    </thead>
+                    @foreach ($diagnostics as $key=>$diagnostic)
+                      <tr style="text-align: center">
+                          <td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
+                          <td onclick="showDiagnostic({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->diagnostic()->first()->constat}}</td>
+                          <td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($diagnostic->diagnostic()->first()->created_at, 'd m Y | H:i:s')}}</td>
+                          <td onclick="showDiagnostic({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->voiture()->first()->marque.' '.$diagnostic->voiture()->first()->model}}</td>
+                          <td onclick="showDiagnostic({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->voiture()->first()->client()->first()->prenom.' '.$diagnostic->voiture()->first()->client()->first()->nom}}</td>
+                      </tr>
+                    @endforeach
+                    <div class="col-md-12 mt-3 d-flex justify-content-center">
+                      {!! $diagnostics->links() !!}
+                    </div>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="devis" role="tabpanel" aria-labelledby="v-pills-home-devis">
+                <div class="col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
+                  <div class="form-group">
+                    <form action="/interventions-list" method="GET" role="search">
+                      <div class="d-flex">
+                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
+                        <button class="btn btn-info t" type="submit" title="recherche une intervention">
+                          <span class="fas fa-search"></span>
+                        </button>
+                      </div>
+                    </form><br>
+                  </div>
+                </div> 
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <legend><span class="badge badge-light"> Récapitultif-Devis <sup> <span class="badge badge-primary">{{App\Models\Devi::count()}}</span></sup></span></legend>
+                  <table class="table table-striped table-hover col-md-12">
+                    <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                        <tr style="text-align: center">
+                            <th style="color: white;">N<sup>o</sup></th>
+                            <th style="color: white;">Date Edition</th>
+                            <th style="color: white;">Date Expiration</th>
+                            <th style="color: white;">Coût</th>
+                            <th style="color: white;">Client</th>
+                            <th style="color: white;">Etat</th>
+                        </tr>
+                    </thead>
+                    @foreach ($devis as $key=>$devi)
+                      <tr style="text-align: center">
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">
+                          <form action="/devis-etat" method="POST">
+                            @csrf
+                            @method('Patch')
+                            @if ($devi->devi()->first()->etat == 1)
+                              <span class="badge-dot badge-primary mr-1"></span>En Cours</td>
+                            @elseif($devi->devi()->first()->etat == 2)
+                              <span class="badge-dot badge-success mr-1"></span>Validé</td>
+                            @else 
+                              <span class="badge-dot badge-danger mr-1"></span>Expiré</td>   
+                            @endif
+                        </form>
+                      </tr>
+                    @endforeach
+                      <div class="col-md-12 mt-3 d-flex justify-content-center">
+                        {!! $devis->links() !!}
+                      </div>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="v-pills-home-resume">
+                <div class="col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
+                  <div class="form-group">
+                    <form action="/interventions-list" method="GET" role="search">
+                      <div class="d-flex">
+                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
+                        <button class="btn btn-info t" type="submit" title="recherche une intervention">
+                          <span class="fas fa-search"></span>
+                        </button>
+                      </div>
+                    </form><br>
+                  </div>
+                </div> 
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <legend><span class="badge badge-light"> Récapitultif-Compte-rendus <sup> <span class="badge badge-primary">{{App\Models\Summary::count()}}</span></sup></span></legend>
+                  <table class="table table-striped table-hover col-md-12">
+                    <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                    <tr style="text-align: center">
+                        <th style="color: white;">N<sup>o</sup></th>
+                        <th style="color: white;">Date Edition</th>
+                        <th style="color: white;">Lien contenu</th>
+                        <th style="color: white;">Auteur</th>
+                        <th style="color: white;">Voiture</th>
+                    </tr>
+                        </thead>
+                    @foreach ($interventions as $intervention)
+                      <tr style="text-align: center">
+                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          
+                      </tr>
+                    
+                    @endforeach
+                      <div class="col-md-12 mt-3 d-flex justify-content-center">
+                        {!! $summaries->links() !!}
+                      </div>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="facture" role="tabpanel" aria-labelledby="v-pills-home-facture">
+                
+                  <div class=" col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
+                    <div class="form-group">
+                      <form action="/interventions-list" method="GET" role="search">
+                        <div class="d-flex">
+                          <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
+                          <button class="btn btn-info t" type="submit" title="recherche une intervention">
+                            <span class="fas fa-search"></span>
+                          </button>
+                        </div>
+                      </form><br>
+                    </div>
+                  </div>   
+              </div>
+              
               <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                 <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-12 row">
@@ -203,32 +366,7 @@
                                   role="tabpanel" 
                                   aria-labelledby="diagnostics" 
                                   aria-hidden="false">
-                                  <div class="col-xs-12 col-sm-12 col-md-12">
-                    
-                                    <table class="table table-striped table-hover col-md-12">
-                                      <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
-                                    <tr style="text-align: center">
-                                        <th style="color: white;">N<sup>o</sup></th>
-                                        <th style="color: white;">Constat</th>
-                                        <th style="color: white;">Date Edition</th>
-                                        <th style="color: white;">Voiture </th>
-                                        <th style="color: white;">Proprietaire </th>
-                                    </tr>
-                                        </thead>
-                                    @foreach ($diagnostics as $key=>$diagnostic)
-                                    <tr style="text-align: center">
-                                        <td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
-                                        <td onclick="showDiagnostic({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->diagnostic()->first()->constat}}</td>
-                                        <td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($diagnostic->diagnostic()->first()->created_at, 'd m Y | H:i:s')}}</td>
-                                        <td onclick="showDiagnostic({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->voiture()->first()->marque.' '.$diagnostic->voiture()->first()->model}}</td>
-                                        <td onclick="showDiagnostic({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->voiture()->first()->client()->first()->prenom.' '.$diagnostic->voiture()->first()->client()->first()->nom}}</td>
-                                    </tr>
-                                    @endforeach
-                                      <div class="col-md-12 mt-3 d-flex justify-content-center">
-                                        {!! $diagnostics->links() !!}
-                                      </div>
-                                </table>
-                            </div>
+                                  
                           </li>
           
                           <li>
@@ -243,45 +381,7 @@
                                   role="tabpanel" 
                                   aria-labelledby="devis" 
                                   aria-hidden="true">
-                                  <div class="col-xs-12 col-sm-12 col-md-12">
-                                  <table class="table table-striped table-hover col-md-12">
-                                    <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
-                                    <tr style="text-align: center">
-                                        <th style="color: white;">N<sup>o</sup></th>
-                                        <th style="color: white;">Date Edition</th>
-                                        <th style="color: white;">Date Expiration</th>
-                                        <th style="color: white;">Coût</th>
-                                        <th style="color: white;">Client</th>
-                                        <th style="color: white;">Etat</th>
-                                    </tr>
-                                        </thead>
-                                    @foreach ($devis as $key=>$devi)
-                                    <tr style="text-align: center">
-                                        <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
-                                        <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
-                                        <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
-                                        <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
-                                        <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
-                                        <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">
-                                        <form action="/devis-etat" method="POST">
-                                          @csrf
-                                          @method('Patch')
-                                          @if ($devi->devi()->first()->etat == 1)
-                                            <span class="badge-dot badge-primary mr-1"></span>En Cours</td>
-                                          @elseif($devi->devi()->first()->etat == 2)
-                                            <span class="badge-dot badge-success mr-1"></span>Validé</td>
-                                          @else 
-                                            <span class="badge-dot badge-danger mr-1"></span>Expiré</td>   
-                                          @endif
-                                      </form>
-                                    </tr>
-                                    
-                                    @endforeach
-                                      <div class="col-md-12 mt-3 d-flex justify-content-center">
-                                        {!! $devis->links() !!}
-                                      </div>
-                                </table>
-                                  </div>
+                                  
           
                             </div>
                           </li>
@@ -297,33 +397,6 @@
                                   role="tabpanel" 
                                   aria-labelledby="reparations" 
                                   aria-hidden="true">
-                                  <div class="col-xs-12 col-sm-12 col-md-12">
-                                  <table class="table table-striped table-hover col-md-12">
-                                    <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
-                                    <tr style="text-align: center">
-                                        <th style="color: white;">N<sup>o</sup></th>
-                                        <th style="color: white;">Date Edition</th>
-                                        <th style="color: white;">Lien contenu</th>
-                                        <th style="color: white;">Auteur</th>
-                                        <th style="color: white;">Voiture</th>
-                                    </tr>
-                                        </thead>
-                                    @foreach ($interventions as $intervention)
-                                    <tr style="text-align: center">
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        
-                                    </tr>
-                                    
-                                    @endforeach
-                                      <div class="col-md-12 mt-3 d-flex justify-content-center">
-                                        {!! $summaries->links() !!}
-                                      </div>
-                                </table>
-                                  </div>
                             </div>
                           </li>
                           <li>
@@ -339,33 +412,33 @@
                                   aria-labelledby="factures" 
                                   aria-hidden="true">
                                   <div class="col-xs-12 col-sm-12 col-md-12">
-                             <table class="table table-striped table-hover col-md-12">
-                                    <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
-                                    <tr style="text-align: center">
-                                        <th style="color: white;">N<sup>o</sup></th>
-                                        <th style="color: white;">Date Edition</th>
-                                        <th style="color: white;">Date Expiration</th>
-                                        <th style="color: white;">Couts</th>
-                                        <th style="color: white;">Client</th>
-                                    </tr>
+                                    <table class="table table-striped table-hover col-md-12">
+                                        <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                                          <tr style="text-align: center">
+                                              <th style="color: white;">N<sup>o</sup></th>
+                                              <th style="color: white;">Date Edition</th>
+                                              <th style="color: white;">Date Expiration</th>
+                                              <th style="color: white;">Couts</th>
+                                              <th style="color: white;">Client</th>
+                                          </tr>
                                         </thead>
-                                    @foreach ($interventions as $intervention)
-                                    <tr style="text-align: center">
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                        
-                                    </tr>
-                                    
-                                    @endforeach
-                                </table>
+                                        @foreach ($interventions as $intervention)
+                                          <tr style="text-align: center">
+                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                                              
+                                          </tr>
+                                        @endforeach
+                                    </table>
+                                    </div>
+                                      {{-- <div class="col-md-12 mt-3 d-flex justify-content-center">
+                                        {!! $interventions->links() !!}
+                                      </div> --}}
+                                    </div>
                                   </div>
-                                {{-- <div class="col-md-12 mt-3 d-flex justify-content-center">
-                                  {!! $interventions->links() !!}
-                                </div> --}}
-                            </div>
                           </li>
                       </ul>
           
@@ -391,6 +464,11 @@
 			window.location = 'diagnostics/'+id ;
 		}
     
+    $(document).ready(function(){
+      console.log('ok');
+    $('#diagnostic').css('display','none');
+    
+    });
   setInterval(function(){
   $.ajax({
     method:'get',

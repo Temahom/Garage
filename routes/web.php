@@ -14,6 +14,7 @@ use App\Http\Controllers\ActorController;
 use App\Http\Controllers\MailSend;
 use App\Http\Controllers\SmsController;
 use App\Http\Controllers\SummaryController;
+use App\Http\Controllers\SignaturePadController;
 //use App\Http\Controllers\EventController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\FullCalendarController;
@@ -72,6 +73,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/interventions-list', [InterventionController::class, 'index']);
     Route::get('/devis-etat', [DeviController::class, 'etat']);
+
+    Route::get('signaturepad', [SignaturePadController::class, 'index']);
+    Route::post('signaturepad', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
     
     
    Route::get('/produits.creer', [ProduitController::class, 'creer']);

@@ -63,7 +63,9 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <form action="{{route('voitures.interventions.summaries.store',['voiture'=>$voiture->id, 'intervention'=>$intervention->id])}}" method="POST">
             @csrf
-            <textarea class="description" name="description"></textarea>
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
+              <textarea class="description" name="description"></textarea>
+            </div>  
             <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
                 <a class="btn btn-secondary"  href="{{ route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}"><i class="fas fa-angle-left"></i>  Retour</a>
                 <button type="submit" class="btn btn-success">Enregistrer</button>
@@ -76,7 +78,7 @@
 <script>
     tinymce.init({
         selector:'textarea.description',
-        width: 900,
+        // width: 900,
         height: 300
     });
 </script>
