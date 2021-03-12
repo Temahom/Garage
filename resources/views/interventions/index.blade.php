@@ -9,94 +9,7 @@
         </div>
     </div>
     <style>
-        svg{
-            display: none;
-        }
-         /* @import url("https://fonts.googleapis.com/css?family=Lato"); */
         
-
-          .tabs {
-            width: 100%;
-            float: none;
-            list-style: none;
-            position: relative;
-            margin: 30px 0 0 10px;
-            text-align: left;
-          }
-          .tabs li {
-            float: left;
-            display: block;
-          }
-          .tabs input[type="radio"] {
-            position: absolute;
-            top: 0;
-            left: -9999px;
-          }
-          .tabs label {
-            display: block;
-            padding: 14px 21px;
-            border-radius: 2px 2px 0 0;
-            font-size: 20px;
-            font-weight: normal;
-            text-transform: uppercase;
-            background: #ffffff;
-            cursor: pointer;
-            position: relative;
-            top: 4px;
-            -moz-transition: all 0.2s ease-in-out;
-            -o-transition: all 0.2s ease-in-out;
-            -webkit-transition: all 0.2s ease-in-out;
-            transition: all 0.2s ease-in-out;
-          }
-          .tabs label:hover {
-            background-image: linear-gradient( to top,#58575f, #51505c);
-            color: white;
-          }
-          .tabs .tab-content {
-            z-index: 2;
-            display: none;
-            overflow: hidden;
-            width: 100%;
-            font-size: 17px;
-            line-height: 25px;
-            padding: 25px;
-            position: absolute;
-            top: 53px;
-            left: 0;
-            background: #FFFFFF;
-          }
-          .tabs [id^="tab"]:checked + label {
-            top: 0;
-            padding-top: 10px;
-            background-image: linear-gradient( to top,#2b2a34, #0E0C28);
-            color:#ffffff;
-          }
-          .tabs [id^="tab"]:checked ~ [id^="tab-content"] {
-            display: block;
-          }
-
-          p.link {
-            clear: both;
-            margin: 380px 0 0 15px;
-          }
-          p.link a {
-            text-transform: uppercase;
-            text-decoration: none;
-            display: inline-block;
-            color: #fff;
-            padding: 5px 10px;
-            margin: 0 5px;
-            background-color: #612e76;
-            -moz-transition: all 0.2s ease-in;
-            -o-transition: all 0.2s ease-in;
-            -webkit-transition: all 0.2s ease-in;
-            transition: all 0.2s ease-in;
-          }
-          p.link a:hover {
-            background-color: #522764;
-          
-          }
-
           .nav-link_1.active,
           .nav-pills .show>.nav-link{
            background-color:#138496!important;
@@ -119,8 +32,113 @@
 
           .second{
             margin:7px;
+            background-color:#F9F8F9!important;
+           color:#138496;
+           padding: 10px;
+           border-radius:0 20% 0 20%;
           }
+          .third{
+            margin-left:25px;
+          }
+          
+      /* --------------------radial_progress--------------- */
+      .pie {
+  position: relative;
+  display: inline-block;
+  background-image: conic-gradient(
+    rgba(0,0,0,0) calc(3.6deg * var(--percent)),
+    rgba(0,0,0,1) calc(3.6deg * var(--percent))
+  );
+  background-blend-mode: overlay;
+  background-position: 50% 50%;
+  background-size: 150%; /* oversize bg image to prevent "underdraw" */
+  width: 3.75em;
+  height: 3.75em;
+  border-radius: 50%;
+}
 
+/* show the percentage (thanks to Ana Tudor for the counter() trick) */
+.pie--value::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  counter-reset: percent var(--percent);
+  content: counter(percent) "%";
+  color: #fff;
+  text-shadow: 0 0 1px #000;
+}
+
+.pie--disc::before {
+  content: '';
+  position: absolute;
+  top: .5em;
+  left: .5em;
+  right: .5em;
+  bottom: .5em;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.pie--disc::after {
+  color: #000;
+  text-shadow: none;
+}
+
+
+/* demo styles
+----------------------------------------------------- */
+
+body::before {
+  color: red;
+  font-size: 150%;
+  content: "This browser doesn't support conical graidents yet";
+}
+
+@supports (background: conic-gradient(red, blue)) {
+  body::before {
+    content: '';
+  }
+}
+
+body {
+  font: 90%/1.5 Arial;
+  background: #fcf3f0;
+  text-align: center;
+}
+
+.pie {
+  border: .15em solid #fff;
+  box-shadow: 0 .075em .2em .05em rgba(0,0,0,.25);
+  margin: .75rem;
+}
+.pie:nth-child(1) {
+  background-color: #d44;
+}
+.pie:nth-child(2) {
+  background-color: #fc3;
+}
+.pie:nth-child(3) {
+  background-color: #ac0;
+}
+.pie:nth-child(4) {
+  background-color: #0ac;
+}
+.pie:nth-child(5) {
+  background-color: #d6b;
+}
+
+.big {
+  font-size: 200%;
+}
+.med {
+  font-size: 150%;
+}
+.sml {
+  font-size: 100%;
+}
+
+     /* ------------------------end-------------------------- */
     </style>
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -350,103 +368,73 @@
               </div>
               
               <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                <div class="row">
-                  <div class="col-xs-12 col-sm-12 col-md-12 row">
-                      
-                      <ul class="tabs" role="tablist">
-                          <li>
-                            <input type="radio" name="tabs" id="tab1" checked />
-                            <label for="tab1" 
-                                    role="tab" 
-                                    aria-selected="true" 
-                                    aria-controls="panel1" 
-                                    tabindex="0">Diagnostics <sup><span class="badge badge-warning">{{App\Models\Diagnostic::count()}}</span></sup></label>
-                            <div id="tab-content1" 
-                                  class="tab-content" 
-                                  role="tabpanel" 
-                                  aria-labelledby="diagnostics" 
-                                  aria-hidden="false">
-                                  
-                          </li>
-          
-                          <li>
-                            <input type="radio" name="tabs" id="tab2" />
-                            <label for="tab2"
-                                    role="tab" 
-                                    aria-selected="false" 
-                                    aria-controls="panel2" 
-                                    tabindex="0">Devis <sup><span class="badge badge-primary">{{App\Models\Devi::count()}}</span></sup></label>
-                            <div id="tab-content2" 
-                                  class="tab-content"
-                                  role="tabpanel" 
-                                  aria-labelledby="devis" 
-                                  aria-hidden="true">
-                                  
-          
-                            </div>
-                          </li>
-                          <li>
-                            <input type="radio" name="tabs" id="tab3" />
-                            <label for="tab3"
-                                    role="tab" 
-                                    aria-selected="false" 
-                                    aria-controls="panel3" 
-                                    tabindex="0">Resumes/ Compte-rendus<sup><span class="badge badge-warning">{{App\Models\Summary::count()}}</span></sup></label>
-                            <div id="tab-content3" 
-                                  class="tab-content"
-                                  role="tabpanel" 
-                                  aria-labelledby="reparations" 
-                                  aria-hidden="true">
-                            </div>
-                          </li>
-                          <li>
-                            <input type="radio" name="tabs" id="tab4" />
-                            <label for="tab4"
-                                    role="tab" 
-                                    aria-selected="false" 
-                                    aria-controls="panel4" 
-                                    tabindex="0">Factures <sup><span class="badge badge-primary">{{App\Models\Facture::count()}}</span></sup></label>
-                            <div id="tab-content4" 
-                                  class="tab-content"
-                                  role="tabpanel" 
-                                  aria-labelledby="factures" 
-                                  aria-hidden="true">
-                                  <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <table class="table table-striped table-hover col-md-12">
-                                        <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
-                                          <tr style="text-align: center">
-                                              <th style="color: white;">N<sup>o</sup></th>
-                                              <th style="color: white;">Date Edition</th>
-                                              <th style="color: white;">Date Expiration</th>
-                                              <th style="color: white;">Couts</th>
-                                              <th style="color: white;">Client</th>
-                                          </tr>
-                                        </thead>
-                                        @foreach ($interventions as $intervention)
-                                          <tr style="text-align: center">
-                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                              <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                                              
-                                          </tr>
-                                        @endforeach
-                                    </table>
-                                    </div>
-                                      {{-- <div class="col-md-12 mt-3 d-flex justify-content-center">
-                                        {!! $interventions->links() !!}
-                                      </div> --}}
-                                    </div>
-                                  </div>
-                          </li>
-                      </ul>
-          
-                   <br style="clear: both;" />
-          
-                  </div>
-              </div>
-                    
+                <h1>Single element Radial Progress Indicator</h1>
+                {{-- <h2>Normal</h2>
+                <div class="big">
+                  <div class="pie pie--value" style="--percent:35;"></div>
+                  <div class="pie pie--value" style="--percent:15;"></div>
+                  <div class="pie pie--value" style="--percent:65;"></div>
+                  <div class="pie pie--value" style="--percent:85;"></div>
+                  <div class="pie" style="--percent:40;"></div>
+                </div>
+                <div class="med">
+                  <div class="pie pie--value" style="--percent:35;"></div>
+                  <div class="pie pie--value" style="--percent:15;"></div>
+                  <div class="pie pie--value" style="--percent:65;"></div>
+                  <div class="pie pie--value" style="--percent:85;"></div>
+                  <div class="pie" style="--percent:40;"></div>
+                </div>
+                <div class="sml">
+                  <div class="pie pie--value" style="--percent:35;"></div>
+                  <div class="pie pie--value" style="--percent:15;"></div>
+                  <div class="pie pie--value" style="--percent:65;"></div>
+                  <div class="pie pie--value" style="--percent:85;"></div>
+                  <div class="pie" style="--percent:40;"></div>
+                </div> --}}
+                
+                <h2>Disc variant</h2>
+                <div class="big">
+                  <div class="pie pie--value pie--disc" style="--percent:35;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:15;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:65;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:85;"></div>
+                  <div class="pie pie--disc" style="--percent:40;"></div>
+                </div>
+                {{-- <div class="med">
+                  <div class="pie pie--value pie--disc" style="--percent:35;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:15;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:65;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:85;"></div>
+                  <div class="pie pie--disc" style="--percent:40;"></div>
+                </div> --}}
+                {{-- <div class="sml">
+                  <div class="pie pie--value pie--disc" style="--percent:35;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:15;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:65;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:85;"></div>
+                  <div class="pie pie--disc" style="--percent:40;"></div>
+                </div> --}}
+                
+                {{-- <h2>Dynamically updated (CSS custom property)</h2>
+                <div class="big">
+                 <div class="js pie pie--value"></div>
+                 <div class="js pie pie--value pie--disc"></div>
+                 <div class="js pie"></div>
+                 <div class="js pie pie--disc"></div>
+                </div>
+                <div class="med">
+                 <div class="js pie pie--value"></div>
+                 <div class="js pie pie--value pie--disc"></div>
+                 <div class="js pie"></div>
+                 <div class="js pie pie--disc"></div>
+                </div>
+                <div class="sml">
+                 <div class="js pie pie--value"></div>
+                 <div class="js pie pie--value pie--disc"></div>
+                 <div class="js pie"></div>
+                 <div class="js pie pie--disc"></div>
+                </div>
+                 --}}
               </div>
             </div>
           </div>
@@ -464,20 +452,42 @@
 			window.location = 'diagnostics/'+id ;
 		}
     
-    $(document).ready(function(){
-      console.log('ok');
-    $('#diagnostic').css('display','none');
     
-    });
-  setInterval(function(){
-  $.ajax({
-    method:'get',
-    url:'/api/devis-list',
-    success:function(data){
-    console.log('ici');
-    }
-  })
-  }, 3000);  
+
+
+      setInterval(function(){
+      $.ajax({
+        method:'get',
+        url:'/api/devis-list',
+        success:function(data){
+        console.log('ici');
+        }
+      })
+      }, 3000);
+   /* --------------------radial_progress--------------- */
+  /* Example code for updating a chart with JS */
+
+function loop(t) {
+  requestAnimationFrame(loop);
+  updateCharts(Math.floor(t / 16) % 100);
+}
+
+function updateCharts(value) {
+  charts.forEach(chart => setChartValue(chart, value));
+}
+
+function setChartValue(chart, value) {
+  chart.style.setProperty('--percent', value);
+}
+
+let charts = document.querySelectorAll('.js');
+
+loop();
+
+
+     /* ------------------------end-------------------------- */
+
+    
 
 
 
