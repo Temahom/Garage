@@ -18,7 +18,7 @@ setlocale(LC_TIME, "fr_FR", "French");
         <table class="table  table-bordered first" style="text-align: center;">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>N<sup>o</sup></th>
                     <th style="text-transform: uppercase;">Date</th>
                     <th style="text-transform: uppercase;">Coût de Reparations</th>
                     <th style="text-transform: uppercase;">Actions</th>
