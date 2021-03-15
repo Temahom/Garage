@@ -1,3 +1,6 @@
+@php
+setlocale(LC_TIME, "fr_FR", "French");
+@endphp
 <!DOCTYPE html>
 <html>
 <head>
@@ -328,7 +331,7 @@
   <section>
     <div class="details clearfix">
       <div class="client left">
-        <p>Délivré à : <span class="name">{{$devi_client->nom}} {{$devi_client->prenom}}</span></p>    
+        <p>Délivré à : <span class="name">{{$devi_client->prenom}} {{$devi_client->nom}}</span></p>    
         <a href="mailto:{{$devi_client->email}}">{{$devi_client->email}}</a>
         <br>
         <a href="tel:{{$devi_client->telephone}}">{{$devi_client->telephone}}</a>
@@ -336,7 +339,7 @@
       <div class="data right">
         <div class="title">Devis#{{$devi->id}}</div>
         <div class="date">
-          Date d'expiration: {{$devi->date_expiration}}<br>
+          Date d'expiration: {{strftime("%A %d %B %Y", strtotime($devi->date_expiration))}}<br>
         </div>
       </div>
     </div>
