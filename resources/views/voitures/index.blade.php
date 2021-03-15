@@ -16,18 +16,18 @@
                         @endcan
                      </div>
                  </div>   
-                 <div class="col-xs-3 col-sm-3 col-md-3">     
-                     <div class="form-group">
-                         <form action="{{ route('voitures.index') }}" method="GET" role="search">
-                             <div class="d-flex">
-                                 <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
-                                 <button class="btn btn-info t" type="submit" title="recherche une voiture">
-                                     <span class="fas fa-search"></span>
-                                 </button>
-                             </div>
-                         </form><br>
-                     </div>
-                 </div>   
+               <!--  <div class="col-xs-3 col-sm-3 col-md-3">     
+                        <div class="form-group">
+                            <form action="{{ route('voitures.index') }}" method="GET" role="search">
+                                <div class="d-flex">
+                                    <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
+                                    <button class="btn btn-info t" type="submit" title="recherche une voiture">
+                                        <span class="fas fa-search"></span>
+                                    </button>
+                                </div>
+                            </form><br>
+                        </div>
+                    </div>  --> 
              </div>    
              
         </div>
