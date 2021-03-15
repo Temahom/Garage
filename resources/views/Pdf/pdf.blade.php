@@ -1,6 +1,4 @@
-@php
-setlocale(LC_TIME, "fr_FR", "French");
-@endphp
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -336,6 +334,9 @@ setlocale(LC_TIME, "fr_FR", "French");
         <br>
         <a href="tel:{{$devi_client->telephone}}">{{$devi_client->telephone}}</a>
       </div>
+       @php
+          setlocale(LC_TIME, "fr_FR", "French");
+    @endphp
       <div class="data right">
         <div class="title">Devis#{{$devi->id}}</div>
         <div class="date">
