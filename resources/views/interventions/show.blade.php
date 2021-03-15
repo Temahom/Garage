@@ -182,7 +182,7 @@
 											<td>{{ $item['produit']->produit }}</td>
 											<td>{{ $item['devi_produit']->quantite }}</td>
 											<td>{{ number_format($item['produit']->prix1, 0, ",", " " ) }}</td>
-											<td><?php echo number_format($item['produit']->prix1 * $item['devi_produit']->quantite), 0, ",", " " ?></td>
+											<td><?php echo number_format($item['produit']->prix1 * $item['devi_produit']->quantite, 0, ",", " ") ?></td>
 									  	</tr>
 										<?php $total += $item['produit']->prix1 * $item['devi_produit']->quantite ?>
 									@endforeach
