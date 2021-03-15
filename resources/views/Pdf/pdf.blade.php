@@ -369,7 +369,6 @@
               <td class="total">{{number_format($pdevi->prix1,0, ",", " " )}} <sup>FCFA</sup></td>
                @php
                   $prixHT+=($pdevi->pivot->quantite*$pdevi->prix1);
-                  $prixtotal+=$prixHT;
 
             @endphp
             </tr>
@@ -396,7 +395,7 @@
             </tr>
             <tr>
 
-              <td class="grand-total" colspan="5"><div><span>TOTAL:</span><?= number_format($prixtotal+$devi->cout,0, ",", " " );?><sup>FCFA</sup></div></td>
+              <td class="grand-total" colspan="5"><div><span>TOTAL:</span><?= number_format($prixHt+$devi->cout,0, ",", " " );?><sup>FCFA</sup></div></td>
             </tr>
           </tbody>
         </table>
