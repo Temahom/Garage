@@ -162,7 +162,7 @@ body::before {
           <div class="col-xs-10 col-sm-10 col-md-10">
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                 
+                 <div class="row">
                 <div class="card">
                   <!--<div class="card-header">
                     <h3 class="mb-0 text-center">La Liste de clients</h3>
@@ -213,7 +213,7 @@ body::before {
               </div>
               </div>
               </div>
-
+            </div>
               <div class="tab-pane fade" id="diagnostic" role="tabpanel" aria-labelledby="v-pills-home-diagnostic">
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -311,6 +311,7 @@ body::before {
                
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Compte-rendus <sup> <span class="badge badge-primary">{{App\Models\Summary::count()}}</span></sup></span></legend>
+                  <div class="row">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                       <!--<div class="card-header">
@@ -348,6 +349,7 @@ body::before {
                 </div>
                 </div>
                 </div>
+              </div>
               </div>
               <div class="tab-pane fade" id="facture" role="tabpanel" aria-labelledby="v-pills-home-facture">
                 
