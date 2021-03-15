@@ -108,7 +108,6 @@
 				<!-- ============================================================== -->
 				<div class="tab-pane fade show active" id="outline-one" role="tabpanel" aria-labelledby="tab-outline-one">
 					@if ( $intervention->diagnostic_id )
-					{
 						<div class="row">
 							<div class="col-md-12">
 								<h2>Constat</h2>
@@ -140,7 +139,7 @@
 								</table>
 							</div>
 						</div>
-					}
+					@endif
 
 					<div class="row">
 						<div class="col-md-12 mt-3">
@@ -165,7 +164,6 @@
 				<!-- ============================================================== -->
 				<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
 					@if ( $intervention->devis_id )
-					{
 						<div class="row my-4">
 							<div class="col-md-12">
 								<table class="table table-bordered">
@@ -196,7 +194,7 @@
 								</table>
 							</div>
 						</div>
-					}
+					@endif
 
 					<div class="row">
 						<div class="col-md-12">
