@@ -27,7 +27,7 @@ class ActorController extends Controller
      */
     public function create(Role $role, User $user)
     {   
-        $this->authorize('create', User::class);
+       // $this->authorize('create', User::class);
         $roles= Role::all();
         return view('actors.create',compact('roles', 'role', 'user'));
     }
@@ -112,28 +112,27 @@ class ActorController extends Controller
             'name'=>'required',
             'email'=>'required',
             'role_id'=>'required',
-            'image' => 'max:5000',
           ]);
           $password=bcrypt(12345678);
           $name =  $request->input('name');
           $email = $request->input('email');
           $role_id = $request->input('role_id');
-          $image = $request->file('image');
-          if(!empty($image))
-         { 
-          $imageName = time().'.'.$image->extension();
-          $image->move(public_path('images'),$imageName);
-         }
-         else $imageName =null;
+        //   $image = $request->file('image');
+        //   if(!empty($image))
+        //  { 
+        //   $imageName = time().'.'.$image->extension();
+        //   $image->move(public_path('images'),$imageName);
+        //  }
+        //  else $imageName =null;
 
           $user= User::find($id);
           $user->name = $name;
           $user->email = $email;
           $user->role_id = $role_id;
           $user->password = $password;
-          $user->image = $imageName;
+        //   $user->image = $imageName;
           $user->save();
-          return back();
+          return redirect(route('actors.index'));
     }
 
     /**

@@ -48,7 +48,7 @@
         @endif
       </div>
   </div>
-  
+  @if(!isset($user->id))
   <div class="form-group">
     <strong>Photo Profil</strong>
     <div class="input-group mb-3 is-invalid">
@@ -57,7 +57,8 @@
       @error('image')
       <div class="invalid-feedback">{{$errors->first('image')}}</div>
       @enderror
-  </div>    
+  </div>  
+  @endif  
 
   
 </div>
