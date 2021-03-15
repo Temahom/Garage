@@ -395,7 +395,7 @@
             </tr>
             <tr>
 
-              <td class="grand-total" colspan="5"><div><span>TOTAL:</span><?= number_format($prixHt+$devi->cout,0, ",", " " );?><sup>FCFA</sup></div></td>
+              <td class="grand-total" colspan="5"><div><span>TOTAL:</span><?= number_format($prixHT+$devi->cout,0, ",", " " );?><sup>FCFA</sup></div></td>
             </tr>
           </tbody>
         </table>
