@@ -163,7 +163,14 @@ body::before {
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                  
-                <table id="example4" class="table table-borderless">
+                <div class="card">
+                  <!--<div class="card-header">
+                    <h3 class="mb-0 text-center">La Liste de clients</h3>
+                    {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
+                  </div>-->
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table id="example4" class="table table-striped table-bordered" style="width:100%">
                       <thead>
                         <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
                           <th scope="col" style= "color:#ffffff" > N<sup>o</sup></th>
@@ -201,6 +208,9 @@ body::before {
                         @endforeach
                       </tbody>
                 </table>
+              </div>
+              </div>
+              </div>
               </div>
 
               <div class="tab-pane fade" id="diagnostic" role="tabpanel" aria-labelledby="v-pills-home-diagnostic">
