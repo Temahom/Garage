@@ -169,6 +169,7 @@ body::before {
                     {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
                   </div>-->
                   <div class="card-body">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="table-responsive">
                       <table id="example4" class="table table-striped table-bordered" style="width:100%">
                       <thead>
@@ -217,16 +218,24 @@ body::before {
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Dignostics <sup> <span class="badge badge-primary">{{App\Models\Diagnostic::count()}}</span></sup></span></legend>
-                  <table class="table table-striped table-hover col-md-12">
-                    <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
-                        <tr style="text-align: center">
-                            <th style="color: white;">N<sup>o</sup></th>
-                            <th style="color: white;">Constat</th>
-                            <th style="color: white;">Date Edition</th>
-                            <th style="color: white;">Voiture </th>
-                            <th style="color: white;">Proprietaire </th>
-                        </tr>
-                    </thead>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                      <!--<div class="card-header">
+                        <h3 class="mb-0 text-center">La Liste de clients</h3>
+                        {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
+                      </div>-->
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table id="example4" class="table col-md-12 table-striped table-bordered" style="width:100%">
+                        <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
+                            <tr style="text-align: center">
+                                <th style="color: white;">N<sup>o</sup></th>
+                                <th style="color: white;">Constat</th>
+                                <th style="color: white;">Date Edition</th>
+                                <th style="color: white;">Voiture </th>
+                                <th style="color: white;">Proprietaire </th>
+                            </tr>
+                        </thead>
                     @foreach ($diagnostics as $key=>$diagnostic)
                       <tr style="text-align: center">
                           <td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
@@ -241,32 +250,43 @@ body::before {
                     </div>
                   </table>
                 </div>
+                </div>
+                </div>
+                </div>
               </div>
               <div class="tab-pane fade" id="devis" role="tabpanel" aria-labelledby="v-pills-home-devis">
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Devis <sup> <span class="badge badge-primary">{{App\Models\Devi::count()}}</span></sup></span></legend>
-                  <table class="table table-striped table-hover col-md-12">
-                    <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
-                        <tr style="text-align: center">
-                            <th style="color: white;">N<sup>o</sup></th>
-                            <th style="color: white;">Date Edition</th>
-                            <th style="color: white;">Date Expiration</th>
-                            <th style="color: white;">Coût</th>
-                            <th style="color: white;">Client</th>
-                            <th style="color: white;">Etat</th>
-                        </tr>
-                    </thead>
-                    @foreach ($devis as $key=>$devi)
-                      <tr style="text-align: center">
-                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
-                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
-                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
-                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
-                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
-                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">
-                          <form action="/devis-etat" method="POST">
-                            @csrf
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                      <!--<div class="card-header">
+                        <h3 class="mb-0 text-center">La Liste de clients</h3>
+                        {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
+                      </div>-->
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table id="example4" class="table table-striped table-bordered" style="width:100%">
+                        <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                            <tr style="text-align: center">
+                                <th style="color: white;">N<sup>o</sup></th>
+                                <th style="color: white;">Date Edition</th>
+                                <th style="color: white;">Date Expiration</th>
+                                <th style="color: white;">Coût</th>
+                                <th style="color: white;">Client</th>
+                                <th style="color: white;">Etat</th>
+                            </tr>
+                        </thead>
+                        @foreach ($devis as $key=>$devi)
+                          <tr style="text-align: center">
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
+                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">
+                              <form action="/devis-etat" method="POST">
+                                @csrf
                             @method('Patch')
                             @if ($devi->devi()->first()->etat == 1)
                               <span class="badge-dot badge-primary mr-1"></span>En Cours</td>
@@ -283,36 +303,50 @@ body::before {
                       </div>
                   </table>
                 </div>
+                </div>
+                </div>
+                </div>
               </div>
               <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="v-pills-home-resume">
                
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Compte-rendus <sup> <span class="badge badge-primary">{{App\Models\Summary::count()}}</span></sup></span></legend>
-                  <table class="table table-striped table-hover col-md-12">
-                    <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
-                    <tr style="text-align: center">
-                        <th style="color: white;">N<sup>o</sup></th>
-                        <th style="color: white;">Date Edition</th>
-                        <th style="color: white;">Lien contenu</th>
-                        <th style="color: white;">Auteur</th>
-                        <th style="color: white;">Voiture</th>
-                    </tr>
-                        </thead>
-                    @foreach ($summaries as $summary)
-                      <tr style="text-align: center">
-                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{$summary->summary()->first()->created_at}}</td>
-                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                          
-                      </tr>
-                    
-                    @endforeach
-                      <div class="col-md-12 mt-3 d-flex justify-content-center">
-                        {!! $summaries->links() !!}
-                      </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                      <!--<div class="card-header">
+                        <h3 class="mb-0 text-center">La Liste de clients</h3>
+                        {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
+                      </div>-->
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table id="example4" class="table col-md-12 table-striped table-bordered" style="width:100%">
+                        <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                        <tr style="text-align: center">
+                            <th style="color: white;">N<sup>o</sup></th>
+                            <th style="color: white;">Date Edition</th>
+                            <th style="color: white;">Lien contenu</th>
+                            <th style="color: white;">Auteur</th>
+                            <th style="color: white;">Voiture</th>
+                        </tr>
+                            </thead>
+                        @foreach ($summaries as $summary)
+                          <tr style="text-align: center">
+                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{$summary->summary()->first()->created_at}}</td>
+                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                              
+                          </tr>
+                        
+                        @endforeach
+                          <div class="col-md-12 mt-3 d-flex justify-content-center">
+                            {!! $summaries->links() !!}
+                          </div>
                   </table>
+                </div>
+                </div>
+                </div>
                 </div>
               </div>
               <div class="tab-pane fade" id="facture" role="tabpanel" aria-labelledby="v-pills-home-facture">
