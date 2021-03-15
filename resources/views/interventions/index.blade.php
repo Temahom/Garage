@@ -148,11 +148,10 @@ body::before {
         @endif
 
         <div class="row" style="margin-top: 30px">
-          <div class="col-2">
+          <div class="col-xs-2 col-sm-2 col-md-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
               <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
-              <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details <i class="fas fa-angle-down"></i></a>
-              
+              <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
                 <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
                 <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
                 <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Resumes/Compte-rendus</a>
@@ -160,22 +159,10 @@ body::before {
               
             </div>
           </div>
-          <div class="col-10">
+          <div class="col-xs-10 col-sm-10 col-md-10">
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                <div class="col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
-                  <div class="form-group">
-                    <form action="/interventions-list" method="GET" role="search">
-                      <div class="d-flex">
-                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
-                        <button class="btn btn-info t" type="submit" title="recherche une intervention">
-                          <span class="fas fa-search"></span>
-                        </button>
-                      </div>
-                    </form><br>
-                  </div>
-                </div>  
-               
+                 
                 <table class="table table-borderless">
                       <thead>
                         <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
@@ -217,18 +204,7 @@ body::before {
               </div>
 
               <div class="tab-pane fade" id="diagnostic" role="tabpanel" aria-labelledby="v-pills-home-diagnostic">
-                <div class="col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
-                  <div class="form-group">
-                    <form action="/interventions-list" method="GET" role="search">
-                      <div class="d-flex">
-                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
-                        <button class="btn btn-info t" type="submit" title="recherche une intervention">
-                          <span class="fas fa-search"></span>
-                        </button>
-                      </div>
-                    </form><br>
-                  </div>
-                </div> 
+                
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Dignostics <sup> <span class="badge badge-primary">{{App\Models\Diagnostic::count()}}</span></sup></span></legend>
                   <table class="table table-striped table-hover col-md-12">
@@ -257,18 +233,7 @@ body::before {
                 </div>
               </div>
               <div class="tab-pane fade" id="devis" role="tabpanel" aria-labelledby="v-pills-home-devis">
-                <div class="col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
-                  <div class="form-group">
-                    <form action="/interventions-list" method="GET" role="search">
-                      <div class="d-flex">
-                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
-                        <button class="btn btn-info t" type="submit" title="recherche une intervention">
-                          <span class="fas fa-search"></span>
-                        </button>
-                      </div>
-                    </form><br>
-                  </div>
-                </div> 
+                
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Devis <sup> <span class="badge badge-primary">{{App\Models\Devi::count()}}</span></sup></span></legend>
                   <table class="table table-striped table-hover col-md-12">
@@ -310,18 +275,7 @@ body::before {
                 </div>
               </div>
               <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="v-pills-home-resume">
-                <div class="col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
-                  <div class="form-group">
-                    <form action="/interventions-list" method="GET" role="search">
-                      <div class="d-flex">
-                        <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
-                        <button class="btn btn-info t" type="submit" title="recherche une intervention">
-                          <span class="fas fa-search"></span>
-                        </button>
-                      </div>
-                    </form><br>
-                  </div>
-                </div> 
+               
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Compte-rendus <sup> <span class="badge badge-primary">{{App\Models\Summary::count()}}</span></sup></span></legend>
                   <table class="table table-striped table-hover col-md-12">
@@ -334,13 +288,13 @@ body::before {
                         <th style="color: white;">Voiture</th>
                     </tr>
                         </thead>
-                    @foreach ($interventions as $intervention)
+                    @foreach ($summaries as $summary)
                       <tr style="text-align: center">
-                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                          <td onclick="showVoiture({{ $intervention->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{$summary->summary()->first()->created_at}}</td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                           
                       </tr>
                     
@@ -353,18 +307,7 @@ body::before {
               </div>
               <div class="tab-pane fade" id="facture" role="tabpanel" aria-labelledby="v-pills-home-facture">
                 
-                  <div class=" col-xs-3 col-sm-3 col-md-3" style="margin-left: 75%">     
-                    <div class="form-group">
-                      <form action="/interventions-list" method="GET" role="search">
-                        <div class="d-flex">
-                          <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
-                          <button class="btn btn-info t" type="submit" title="recherche une intervention">
-                            <span class="fas fa-search"></span>
-                          </button>
-                        </div>
-                      </form><br>
-                    </div>
-                  </div>   
+                     
               </div>
               
               <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style="text-align: center;">
@@ -394,10 +337,10 @@ body::before {
                 
                 {{-- <h2>Diagramme Circulaire</h2> --}}
                 <div class="big">
-                  <div id="diagnostic" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger">Diagnostic <i class="fas fa-stethoscope"></i></span> </label>
-                  <div id="devis" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success">Devis |</span></label>
-                  <div id="resume" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;">Compte-Rendu |</span></label>
-                  <div id="facture" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark">  Facture |</span></label>
+                  <div id="diagnostic" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
+                  <div id="devis" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
+                  <div id="resume" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
+                  <div id="facture" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
                   {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
                 </div>
                 {{-- <div class="med">
