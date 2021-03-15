@@ -163,7 +163,7 @@ body::before {
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                  
-                <table class="table table-borderless">
+                <table id="example4" class="table table-borderless">
                       <thead>
                         <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
                           <th scope="col" style= "color:#ffffff" > N<sup>o</sup></th>

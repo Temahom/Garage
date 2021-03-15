@@ -46,7 +46,7 @@
     <div class="row">
 
     <div class="col-xs-12 col-sm-12 col-md-12 row"><br>
-        <table class="table table-striped table-hover col-md-12">
+        <table id="example4" class="table table-striped table-hover col-md-12">
             <thead class="" style="background-color: #4656E9;">
         <tr>
             <th style="color: white;">N°</th>
