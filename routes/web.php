@@ -44,24 +44,21 @@ Route::get('send-mail',[MailSend::class,'mailsend']);
 Route::get('send-devis/{id}',[MailSend::class,'send_devis']);
 Route::get('send-message',[SmsController::class,'sendMessage']);
 Route::get('Pdf', function () {
-   
-   $commandes= \App\Models\Commande::all();
+
    
     $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
     return $pdf->stream('Devis.pdf');
 });
 Route::get('Pdf/{id}', function ($id) {
-    setlocale(LC_TIME, "fr_FR", "French");
    $devis_id=Intervention::find($id)->devis_id;
    $devi = Devi::find($devis_id);
-   $date_exp=strftime("%A %d %B %Y", strtotime($devi->date_expiration));
    $pdevis=$devi->produits()->get();
    $devi_client=Intervention::find($id)->voiture->client()->first();
 
    //dd(Intervention::find($id)->voiture->client()->get());
   // $commandes= \App\Models\Commande::all();
    
-    $pdf = PDF::loadView('Pdf.pdf',compact('pdevis','devi','devi_client','date_exp'));    
+    $pdf = PDF::loadView('Pdf.pdf',compact('pdevis','devi','devi_client'));    
     return $pdf->stream('Devis.pdf');
 });
 Route::get('diag-pdf/{id}',function($id){
