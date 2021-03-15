@@ -107,10 +107,41 @@
 				<!-- DIAGNOSTIC  -->
 				<!-- ============================================================== -->
 				<div class="tab-pane fade show active" id="outline-one" role="tabpanel" aria-labelledby="tab-outline-one">
-					
+
 					<div class="row">
-						<div class="col-md-6">
-							<p><h2>Diagnostic</h2></p>
+						<div class="col-md-12">
+							<h2>Constat</h2>
+							<p>Faisceau en court-circuit sur la masse, sonde de niveau du réservoir de carburant, calculateur de gestion moteur</p>
+						</div>
+					</div>
+
+					<div class="row mt-4">
+						<div class="col-md-12">
+							<table class="table table-bordered">
+								<thead>
+								  <tr>
+									<th scope="col">Code</th>
+									<th scope="col">Localisaton</th>
+									<th scope="col">Déscription</th>
+									<th scope="col">Etat</th>
+								  </tr>
+								</thead>
+								<tbody>
+									@foreach ($diagnostic['defauts'] as $defaut)
+										<tr>
+											<th scope="row">{{ $defaut->code }}</th>
+											<td>{{ $defaut->localisation }}</td>
+											<td>{{ $defaut->description }}</td>
+											<td>{{ $defaut->etat }}</td>
+									  	</tr>
+									@endforeach
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 mt-3">
 							@if ( $intervention->diagnostic_id )
 								<p>{{ $diagnostic->description }}</p>
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>

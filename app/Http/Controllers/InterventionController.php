@@ -96,6 +96,7 @@ class InterventionController extends Controller
         {
             $diagnostic = Diagnostic::find($intervention->diagnostic_id);
             $data['diagnostic'] = $diagnostic;
+            $data['diagnostic']['defauts'] = $diagnostic->defauts()->get();
         }
         if($intervention->summary_id)
         {
