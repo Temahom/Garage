@@ -338,7 +338,7 @@
       <div class="data right">
         <div class="title">Devis#{{$devi->id}}</div>
         <div class="date">
-          Date d'expiration: {{$date_exp}}<br>
+          Date d'expiration: {{$devi->date_expiration}}<br>
         </div>
       </div>
     </div>
