@@ -111,7 +111,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<h2>Constat</h2>
-							<p>Faisceau en court-circuit sur la masse, sonde de niveau du réservoir de carburant, calculateur de gestion moteur</p>
+							<p>{{ $diagnostic->constat }}</p>
 						</div>
 					</div>
 
@@ -164,11 +164,40 @@
 				<!-- ============================================================== -->
 				<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
 					
+					<div class="row my-4">
+						<div class="col-md-12">
+							<table class="table table-bordered">
+								<thead>
+								  <tr>
+									<th scope="col">Produit</th>
+									<th scope="col">Quantité</th>
+									<th scope="col">Prix/1</th>
+									<th scope="col">Total</th>
+								  </tr>
+								</thead>
+								<tbody>
+									<?php  $total = 0 ?>
+									@foreach ($devi['item_devis'] as $item)
+										<tr>
+											<td>{{ $item['produit']->produit }}</td>
+											<td>{{ $item['devi_produit']->quantite }}</td>
+											<td>{{ number_format($item['produit']->prix1, 0, ",", " " ) }}</td>
+											<td><?php echo number_format($item['produit']->prix1 * $item['devi_produit']->quantite), 0, ",", " " ?></td>
+									  	</tr>
+										<?php $total += $item['produit']->prix1 * $item['devi_produit']->quantite ?>
+									@endforeach
+									<tr>
+										<th scope="col" colspan="3">Total</th>
+										<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
 					<div class="row">
-						<div class="col-md-6">
-							<p><h2>Devis</h2></p>
+						<div class="col-md-12">
 							@if ( $intervention->devis_id )
-								<p>{{number_format($devi->cout,0, ",", " " )}} <sup>F CFA</sup></p>
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
 								<a href="/Pdf/{{$intervention->id}}" target="_blank" class="btn btn-success"><i class="icon-printer"></i> Imprimer</a>
 								<a href="/send-devis/{{$intervention->id}}" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"> Envoyer au client</i></a>	

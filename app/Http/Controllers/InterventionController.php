@@ -10,6 +10,7 @@ use App\Models\Devi;
 use App\Models\Commande;
 use App\Models\User;
 use App\Models\Summary;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -105,8 +106,19 @@ class InterventionController extends Controller
         }
         if($intervention->devis_id)
         {
+            $i = 0;
+            $item_devis = [];
             $devi = Devi::find($intervention->devis_id);
             $data['devi'] = $devi;
+            $devi_produits = $intervention->devi()->first()->devi_produits()->get();
+            foreach($devi_produits as $devi_produit)
+            {
+                $produit = Produit::find($devi_produit->produit_id);
+                $item_devis[$i]['devi_produit'] = $devi_produit;
+                $item_devis[$i]['produit'] = $produit;
+                $i++;
+            }
+            $data['devi']['item_devis'] = $item_devis;
         }
         return view('interventions.show', $data);
     }
