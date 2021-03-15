@@ -101,11 +101,11 @@ body::before {
   }
 }
 
-body {
+/* body {
   font: 90%/1.5 Arial;
   background: #fcf3f0;
   text-align: center;
-}
+} */
 
 .pie {
   border: .15em solid #fff;
@@ -129,7 +129,7 @@ body {
 }
 
 .big {
-  font-size: 200%;
+  font-size: 400%;
 }
 .med {
   font-size: 150%;
@@ -367,8 +367,8 @@ body {
                   </div>   
               </div>
               
-              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                <h1>Single element Radial Progress Indicator</h1>
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style="text-align: center;">
+                <h1>Vue Proportionnelle des Activites par Rapport au Nombre D'Interventions </h1>
                 {{-- <h2>Normal</h2>
                 <div class="big">
                   <div class="pie pie--value" style="--percent:35;"></div>
@@ -392,13 +392,13 @@ body {
                   <div class="pie" style="--percent:40;"></div>
                 </div> --}}
                 
-                <h2>Disc variant</h2>
+                {{-- <h2>Diagramme Circulaire</h2> --}}
                 <div class="big">
-                  <div class="pie pie--value pie--disc" style="--percent:35;"></div>
-                  <div class="pie pie--value pie--disc" style="--percent:15;"></div>
-                  <div class="pie pie--value pie--disc" style="--percent:65;"></div>
-                  <div class="pie pie--value pie--disc" style="--percent:85;"></div>
-                  <div class="pie pie--disc" style="--percent:40;"></div>
+                  <div id="diagnostic" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger">Diagnostic <i class="fas fa-stethoscope"></i></span> </label>
+                  <div id="devis" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success">Devis |</span></label>
+                  <div id="resume" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;">Compte-Rendu |</span></label>
+                  <div id="facture" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark">  Facture |</span></label>
+                  {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
                 </div>
                 {{-- <div class="med">
                   <div class="pie pie--value pie--disc" style="--percent:35;"></div>
