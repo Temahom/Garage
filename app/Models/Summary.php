@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Summary extends Model
 {
     use HasFactory;
+    public function intevention()
+    {
+        return $this->hasMany(Intervention::class);
+    }
 }

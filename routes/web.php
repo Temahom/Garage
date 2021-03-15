@@ -51,16 +51,17 @@ Route::get('Pdf', function () {
     return $pdf->stream('Devis.pdf');
 });
 Route::get('Pdf/{id}', function ($id) {
-
+    setlocale(LC_TIME, "fr_FR", "French");
    $devis_id=Intervention::find($id)->devis_id;
    $devi = Devi::find($devis_id);
+   $date_exp=strftime("%A %d %B %Y", strtotime($devi->date_expiration));
    $pdevis=$devi->produits()->get();
    $devi_client=Intervention::find($id)->voiture->client()->first();
 
    //dd(Intervention::find($id)->voiture->client()->get());
   // $commandes= \App\Models\Commande::all();
    
-    $pdf = PDF::loadView('Pdf.pdf',compact('pdevis','devi','devi_client'));    
+    $pdf = PDF::loadView('Pdf.pdf',compact('pdevis','devi','devi_client','date_exp'));    
     return $pdf->stream('Devis.pdf');
 });
 Route::get('diag-pdf/{id}',function($id){
