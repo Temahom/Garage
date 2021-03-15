@@ -33,9 +33,6 @@ class InterventionController extends Controller
                 }
                }] 
             ])->orderBy("id","asc")->paginate(15);
-  
-        // return view('voitures.index', compact('voitures'))
-        //     ->with('i', (request()->input('page', 1) - 1) * 15); 
         
         $diagnostics = Intervention::where('diagnostic_id','!=',null)->paginate(15);
         $devis = Intervention::where('devis_id','!=',null)->paginate(15);

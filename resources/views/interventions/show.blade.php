@@ -2,9 +2,11 @@
 
 @section('content')
 @if($message = Session::get('devis-send'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
 	<strong>{{$message}}</strong>
-	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	  <span aria-hidden="true">&times;</span>
+	</button>
   </div>
 @endif
 <!-- INFORMATIONS VOITURE  -->
@@ -107,43 +109,49 @@
 				<!-- DIAGNOSTIC  -->
 				<!-- ============================================================== -->
 				<div class="tab-pane fade show active" id="outline-one" role="tabpanel" aria-labelledby="tab-outline-one">
-
-					<div class="row">
-						<div class="col-md-12">
-							<h2>Constat</h2>
-							<p>{{ $diagnostic->constat }}</p>
+					@if ( $intervention->diagnostic_id )
+						<div class="row">
+							<div class="col-md-12">
+								<h2>Constat</h2>
+								<p>{{ $diagnostic->constat }}</p>
+							</div>
 						</div>
-					</div>
 
-					<div class="row mt-4">
-						<div class="col-md-12">
-							<table class="table table-bordered">
-								<thead>
-								  <tr>
-									<th scope="col">Code</th>
-									<th scope="col">Localisaton</th>
-									<th scope="col">Déscription</th>
-									<th scope="col">Etat</th>
-								  </tr>
-								</thead>
-								<tbody>
-									@foreach ($diagnostic['defauts'] as $defaut)
-										<tr>
-											<th scope="row">{{ $defaut->code }}</th>
-											<td>{{ $defaut->localisation }}</td>
-											<td>{{ $defaut->description }}</td>
-											<td>{{ $defaut->etat }}</td>
-									  	</tr>
-									@endforeach
-								</tbody>
-							</table>
+						<div class="row mt-4">
+							<div class="col-md-12">
+								<table class="table table-bordered">
+									<thead>
+									<tr>
+										<th scope="col">Code</th>
+										<th scope="col">Localisaton</th>
+										<th scope="col">Déscription</th>
+										<th scope="col">Etat</th>
+									</tr>
+									</thead>
+									<tbody>
+										@foreach ($diagnostic['defauts'] as $defaut)
+											<tr>
+												<th scope="row">{{ $defaut->code }}</th>
+												<td>{{ $defaut->localisation }}</td>
+												<td>{{ $defaut->description }}</td>
+												<td>{{ $defaut->etat }}</td>
+											</tr>
+										@endforeach
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</div>
+					@else
+						<div class="row">
+							<div class="col-md-12">
+								<p>Vide</p>
+							</div>
+						</div>
+					@endif
 
 					<div class="row">
 						<div class="col-md-12 mt-3">
 							@if ( $intervention->diagnostic_id )
-								<p>{{ $diagnostic->description }}</p>
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
 							@else
 								<a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
@@ -163,44 +171,51 @@
 				<!-- DEVIS  -->
 				<!-- ============================================================== -->
 				<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
-					
-					<div class="row my-4">
-						<div class="col-md-12">
-							<table class="table table-bordered">
-								<thead>
-								  <tr>
-									<th scope="col">Produit</th>
-									<th scope="col">Quantité</th>
-									<th scope="col">Prix/1</th>
-									<th scope="col">Total</th>
-								  </tr>
-								</thead>
-								<tbody>
-									<?php  $total = 0 ?>
-									@foreach ($devi['item_devis'] as $item)
-										<tr>
-											<td>{{ $item['produit']->produit }}</td>
-											<td>{{ $item['devi_produit']->quantite }}</td>
-											<td>{{ number_format($item['produit']->prix1, 0, ",", " " ) }}</td>
-											<td><?php echo number_format($item['produit']->prix1 * $item['devi_produit']->quantite, 0, ",", " ") ?></td>
-									  	</tr>
-										<?php $total += $item['produit']->prix1 * $item['devi_produit']->quantite ?>
-									@endforeach
+					@if ( $intervention->devis_id )
+						<div class="row my-4">
+							<div class="col-md-12">
+								<table class="table table-bordered">
+									<thead>
 									<tr>
-										<th scope="col" colspan="3">Total</th>
-										<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
+										<th scope="col">Produit</th>
+										<th scope="col">Quantité</th>
+										<th scope="col">Prix/1</th>
+										<th scope="col">Total</th>
 									</tr>
-								</tbody>
-							</table>
+									</thead>
+									<tbody>
+										<?php  $total = 0 ?>
+										@foreach ($devi['item_devis'] as $item)
+											<tr>
+												<td>{{ $item['produit']->produit }}</td>
+												<td>{{ $item['devi_produit']->quantite }}</td>
+												<td>{{ number_format($item['produit']->prix1, 0, ",", " " ) }}</td>
+												<td><?php echo number_format($item['produit']->prix1 * $item['devi_produit']->quantite, 0, ",", " ") ?></td>
+											</tr>
+											<?php $total += $item['produit']->prix1 * $item['devi_produit']->quantite ?>
+										@endforeach
+										<tr>
+											<th scope="col" colspan="3">Total</th>
+											<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</div>
+					@else
+						<div class="row">
+							<div class="col-md-12">
+								<p>Vide</p>
+							</div>
+						</div>
+					@endif
 
 					<div class="row">
 						<div class="col-md-12">
 							@if ( $intervention->devis_id )
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
-								<a href="/Pdf/{{$intervention->id}}" target="_blank" class="btn btn-success"><i class="icon-printer"></i> Imprimer</a>
-								<a href="/send-devis/{{$intervention->id}}" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"> Envoyer au client</i></a>	
+								<a href="/Pdf/{{$intervention->id}}" target="_blank" class="btn btn-primary"><i class="icon-printer"></i> Imprimer</a>
+								<a href="/send-devis/{{$intervention->id}}" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"> Envoyer au client</i></a>	
 							@else
 								<a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
 							@endif
@@ -218,12 +233,23 @@
 				<!-- RESUME  -->
 				<!-- ============================================================== -->
 				<div class="tab-pane fade" id="outline-three" role="tabpanel" aria-labelledby="tab-outline-three">
-				
+					@if ( $intervention->summary_id )
+						<div class="row">
+							<div class="col-md-12 py-4">
+								<p><?php echo $summary->resume ?></p>
+							</div>
+						</div>
+					@else
+						<div class="row">
+							<div class="col-md-12 py-4">
+								<p>Vide</p>
+							</div>
+						</div>
+					@endif
 					<div class="row">
-						<div class="col-md-6">
-							<p><h2>Resume Intervention</h2></p>
+						<div class="col-md-12">
 							@if ( $intervention->summary_id )
-								{{-- <p>{{ $summary->resume }}</p> --}}
+								
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.summaries.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'summary' => $summary->id]) }}" title="Go back">Modifier</a>
 							@else
 								<a class="btn btn-primary" href="{{ route('voitures.interventions.summaries.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Go back">Ajouter</a>

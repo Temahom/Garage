@@ -311,39 +311,30 @@ body::before {
                
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Compte-rendus <sup> <span class="badge badge-primary">{{App\Models\Summary::count()}}</span></sup></span></legend>
-                  <div class="row">
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                      <!--<div class="card-header">
-                        <h3 class="mb-0 text-center">La Liste de clients</h3>
-                        {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
-                      </div>-->
-                      <div class="card-body">
-                        <div class="table-responsive">
-                          <table id="example4" class="table col-md-12 table-striped table-bordered" style="width:100%">
-                        <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
-                        <tr style="text-align: center">
-                            <th style="color: white;">N<sup>o</sup></th>
-                            <th style="color: white;">Date Edition</th>
-                            <th style="color: white;">Lien contenu</th>
-                            <th style="color: white;">Auteur</th>
-                            <th style="color: white;">Voiture</th>
-                        </tr>
-                            </thead>
-                        @foreach ($summaries as $summary)
-                          <tr style="text-align: center">
-                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{$summary->summary()->first()->created_at}}</td>
-                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
-                              
-                          </tr>
-                        
-                        @endforeach
-                          <div class="col-md-12 mt-3 d-flex justify-content-center">
-                            {!! $summaries->links() !!}
-                          </div>
+                  <table class="table table-striped table-hover col-md-12">
+                    <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                    <tr style="text-align: center">
+                        <th style="color: white;">N<sup>o</sup></th>
+                        <th style="color: white;">Date Edition</th>
+                        <th style="color: white;">Lien contenu</th>
+                        <th style="color: white;">Auteur</th>
+                        <th style="color: white;">Voiture</th>
+                    </tr>
+                        </thead>
+                    @foreach ($summaries as $key=>$summary)
+                      <tr style="text-align: center">
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format(($summary->summary()->first()->created_at), 'd m Y | H:i:s')}}</td>
+                          <td style="cursor: pointer; text-transform: capitalize;"> <a href="{{route('voitures.interventions.summaries.show',['voiture'=>$summary->voiture_id,'intervention'=>$summary->id ,'summary'=>$summary->summary()->first()->id])}}"> contenu <i class="fas fa-external-link-alt"></i></a></td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{App\Models\User::find($summary->technicien)->name}}</td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{$summary->voiture()->first()->marque}}- ({{$summary->voiture()->first()->matricule}})</td>
+                          
+                      </tr>
+                    
+                    @endforeach
+                      <div class="col-md-12 mt-3 d-flex justify-content-center">
+                        {!! $summaries->links() !!}
+                      </div>
                   </table>
                 </div>
                 </div>
@@ -383,11 +374,13 @@ body::before {
                 
                 {{-- <h2>Diagramme Circulaire</h2> --}}
                 <div class="big">
+                  @if(App\Models\Intervention::count() > 0)
                   <div id="diagnostic" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
                   <div id="devis" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
                   <div id="resume" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
                   <div id="facture" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
                   {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
+                  @endif
                 </div>
                 {{-- <div class="med">
                   <div class="pie pie--value pie--disc" style="--percent:35;"></div>
