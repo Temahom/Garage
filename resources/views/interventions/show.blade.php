@@ -139,7 +139,7 @@
 							@if ( $intervention->devis_id )
 								<p>{{number_format($devi->cout,0, ",", " " )}} <sup>F CFA</sup></p>
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
-								<a href="/Pdf/{{$intervention->id}}" class="btn btn-success"><i class="icon-printer"></i> Imprimer</a>
+								<a href="/Pdf/{{$intervention->id}}" target="_blank" class="btn btn-success"><i class="icon-printer"></i> Imprimer</a>
 								<a href="/send-devis/{{$intervention->id}}" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"> Envoyer au client</i></a>	
 							@else
 								<a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
