@@ -107,38 +107,39 @@
 				<!-- DIAGNOSTIC  -->
 				<!-- ============================================================== -->
 				<div class="tab-pane fade show active" id="outline-one" role="tabpanel" aria-labelledby="tab-outline-one">
-
-					<div class="row">
-						<div class="col-md-12">
-							<h2>Constat</h2>
-							<p>{{ $diagnostic->constat }}</p>
+					@if ( $intervention->diagnostic_id )
+						<div class="row">
+							<div class="col-md-12">
+								<h2>Constat</h2>
+								<p>{{ $diagnostic->constat }}</p>
+							</div>
 						</div>
-					</div>
 
-					<div class="row mt-4">
-						<div class="col-md-12">
-							<table class="table table-bordered">
-								<thead>
-								  <tr>
-									<th scope="col">Code</th>
-									<th scope="col">Localisaton</th>
-									<th scope="col">Déscription</th>
-									<th scope="col">Etat</th>
-								  </tr>
-								</thead>
-								<tbody>
-									@foreach ($diagnostic['defauts'] as $defaut)
-										<tr>
-											<th scope="row">{{ $defaut->code }}</th>
-											<td>{{ $defaut->localisation }}</td>
-											<td>{{ $defaut->description }}</td>
-											<td>{{ $defaut->etat }}</td>
-									  	</tr>
-									@endforeach
-								</tbody>
-							</table>
+						<div class="row mt-4">
+							<div class="col-md-12">
+								<table class="table table-bordered">
+									<thead>
+									<tr>
+										<th scope="col">Code</th>
+										<th scope="col">Localisaton</th>
+										<th scope="col">Déscription</th>
+										<th scope="col">Etat</th>
+									</tr>
+									</thead>
+									<tbody>
+										@foreach ($diagnostic['defauts'] as $defaut)
+											<tr>
+												<th scope="row">{{ $defaut->code }}</th>
+												<td>{{ $defaut->localisation }}</td>
+												<td>{{ $defaut->description }}</td>
+												<td>{{ $defaut->etat }}</td>
+											</tr>
+										@endforeach
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</div>
+					@endif
 
 					<div class="row">
 						<div class="col-md-12 mt-3">
@@ -162,37 +163,38 @@
 				<!-- DEVIS  -->
 				<!-- ============================================================== -->
 				<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
-					
-					<div class="row my-4">
-						<div class="col-md-12">
-							<table class="table table-bordered">
-								<thead>
-								  <tr>
-									<th scope="col">Produit</th>
-									<th scope="col">Quantité</th>
-									<th scope="col">Prix/1</th>
-									<th scope="col">Total</th>
-								  </tr>
-								</thead>
-								<tbody>
-									<?php  $total = 0 ?>
-									@foreach ($devi['item_devis'] as $item)
-										<tr>
-											<td>{{ $item['produit']->produit }}</td>
-											<td>{{ $item['devi_produit']->quantite }}</td>
-											<td>{{ number_format($item['produit']->prix1, 0, ",", " " ) }}</td>
-											<td><?php echo number_format($item['produit']->prix1 * $item['devi_produit']->quantite, 0, ",", " ") ?></td>
-									  	</tr>
-										<?php $total += $item['produit']->prix1 * $item['devi_produit']->quantite ?>
-									@endforeach
+					@if ( $intervention->devis_id )
+						<div class="row my-4">
+							<div class="col-md-12">
+								<table class="table table-bordered">
+									<thead>
 									<tr>
-										<th scope="col" colspan="3">Total</th>
-										<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
+										<th scope="col">Produit</th>
+										<th scope="col">Quantité</th>
+										<th scope="col">Prix/1</th>
+										<th scope="col">Total</th>
 									</tr>
-								</tbody>
-							</table>
+									</thead>
+									<tbody>
+										<?php  $total = 0 ?>
+										@foreach ($devi['item_devis'] as $item)
+											<tr>
+												<td>{{ $item['produit']->produit }}</td>
+												<td>{{ $item['devi_produit']->quantite }}</td>
+												<td>{{ number_format($item['produit']->prix1, 0, ",", " " ) }}</td>
+												<td><?php echo number_format($item['produit']->prix1 * $item['devi_produit']->quantite, 0, ",", " ") ?></td>
+											</tr>
+											<?php $total += $item['produit']->prix1 * $item['devi_produit']->quantite ?>
+										@endforeach
+										<tr>
+											<th scope="col" colspan="3">Total</th>
+											<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</div>
+					@endif
 
 					<div class="row">
 						<div class="col-md-12">
