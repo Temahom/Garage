@@ -4,7 +4,7 @@
 @if($message = Session::get('devis-send'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
 	<strong>{{$message}}</strong>
-	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
   </div>
 @endif
 <!-- INFORMATIONS VOITURE  -->
