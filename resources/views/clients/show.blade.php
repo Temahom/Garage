@@ -63,10 +63,17 @@
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">     
         </div></div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12 row"><br>
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 "><br>
           
-            <table class="table table-striped table-hover col-md-12">
+            <div class="card">
+                <!--<div class="card-header">
+                    <h3 class="mb-0 text-center">La Liste de clients</h3>
+                    {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
+                </div>-->
+                <div class="card-body">
+                    <div class="table-responsive">
+                    <table id="example4" class="table  table-striped table-bordered" style="width:100%">
                 <thead class="" style="background-color: #4656E9;">
                     <tr>
                         <th style="color: white;">Matricule</th>
@@ -98,6 +105,10 @@
                     
                 @endforeach
             </table>
+            </div>
+        </div>
+        </div>
+         </div>
          </div>
          <div class="row">
             <div class="col-md-12 mt-3 d-flex justify-content-center">
