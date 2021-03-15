@@ -54,9 +54,10 @@ class SummaryController extends Controller
      * @param  \App\Models\Summary  $summary
      * @return \Illuminate\Http\Response
      */
-    public function show(Summary $summary)
+    public function show($id)
     {
-        //
+       $summary = Summary::find($id);
+       return view('summaries.show', compact('summary'));
     }
 
     /**
