@@ -143,7 +143,6 @@
 					<div class="row">
 						<div class="col-md-12 mt-3">
 							@if ( $intervention->diagnostic_id )
-								<p>{{ $diagnostic->description }}</p>
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
 							@else
 								<a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
@@ -218,10 +217,15 @@
 				<!-- RESUME  -->
 				<!-- ============================================================== -->
 				<div class="tab-pane fade" id="outline-three" role="tabpanel" aria-labelledby="tab-outline-three">
+
+					<div class="row">
+						<div class="col-md-12">
+							
+						</div>
+					</div>
 				
 					<div class="row">
-						<div class="col-md-6">
-							<p><h2>Resume Intervention</h2></p>
+						<div class="col-md-12">
 							@if ( $intervention->summary_id )
 								{{-- <p>{{ $summary->resume }}</p> --}}
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.summaries.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id, 'summary' => $summary->id]) }}" title="Go back">Modifier</a>
