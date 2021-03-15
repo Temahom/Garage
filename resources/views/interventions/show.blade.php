@@ -112,7 +112,7 @@
 					@if ( $intervention->diagnostic_id )
 						<div class="row">
 							<div class="col-md-12">
-								<h2>Constat</h2>
+								<h4>Constat</h4>
 								<p>{{ $diagnostic->constat }}</p>
 							</div>
 						</div>
@@ -174,14 +174,24 @@
 					@if ( $intervention->devis_id )
 						<div class="row my-4">
 							<div class="col-md-12">
+
+								<table class="table table-bordered mb-4">
+									<tbody>
+										<tr>
+											<th scope="col" colspan="4">Cout de réparation</th>
+											<th scope="col" style="width: 200px">{{ $devi->cout }}</th>
+										</tr>
+									</tbody>
+								</table>
+
 								<table class="table table-bordered">
 									<thead>
-									<tr>
-										<th scope="col">Produit</th>
-										<th scope="col">Quantité</th>
-										<th scope="col">Prix/1</th>
-										<th scope="col">Total</th>
-									</tr>
+										<tr>
+											<th scope="col">Produit</th>
+											<th scope="col">Quantité</th>
+											<th scope="col">Prix/1</th>
+											<th scope="col" style="width: 200px">Total</th>
+										</tr>
 									</thead>
 									<tbody>
 										<?php  $total = 0 ?>
@@ -200,6 +210,16 @@
 										</tr>
 									</tbody>
 								</table>
+
+								<table class="table table-bordered mt-4">
+									<tbody>
+										<tr>
+											<th scope="col" colspan="4">Net à payer</th>
+											<th scope="col" style="width: 200px"><?php echo number_format($total + $devi->cout, 0, ",", " ") ?></th>
+										</tr>
+									</tbody>
+								</table>
+
 							</div>
 						</div>
 					@else
