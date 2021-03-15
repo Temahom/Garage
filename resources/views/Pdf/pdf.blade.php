@@ -338,7 +338,7 @@
       <div class="data right">
         <div class="title">Devis#{{$devi->id}}</div>
         <div class="date">
-          Date d'expiration: {{strftime("%A %d %B %Y", strtotime($devi->date_expiration))}}<br>
+          Date d'expiration: {{$date_exp}}<br>
         </div>
       </div>
     </div>
