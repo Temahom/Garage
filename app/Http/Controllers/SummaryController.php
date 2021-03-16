@@ -66,11 +66,8 @@ class SummaryController extends Controller
      * @param  \App\Models\Summary  $summary
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit(Voiture $voiture, Intervention $intervention, Summary $summary )
     {
-        $summary = Summary::find($id);
-        $intervention = Intervention::where('summary_id', '=',$id )->first();
-        $voiture = $intervention->voiture()->first();
         return view('summaries.edit', compact('intervention','voiture','summary'));
     }
 
@@ -81,17 +78,16 @@ class SummaryController extends Controller
      * @param  \App\Models\Summary  $summary
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Voiture $voiture, Intervention $intervention, Summary $summary)
     {
         $data = request()->validate([
             'description' => 'required',
-         ]);
-         $summary = Summary::find($id);
-         $intervention = Intervention::where('summary_id', '=',$id )->first();
-         $voiture = $intervention->voiture()->first();
-        $summary->resume = $request->input('description');
+        ]);
+
+        $summary->resume = $data['description'];
         $summary->update();
-       return redirect(route('voitures.interventions.show',['voiture'=>$voiture->id, 'intervention'=>$intervention->id]));
+
+        return redirect(route('voitures.interventions.show',['voiture'=>$voiture->id, 'intervention'=>$intervention->id]));
     }
 
     /**
