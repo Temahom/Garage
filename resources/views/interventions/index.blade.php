@@ -162,9 +162,8 @@ body::before {
           <div class="col-xs-10 col-sm-10 col-md-10">
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                 <div class="row">
-               
-                      <table class="table table-striped table-bordered" style="width:100%">
+                 
+                <table class="table table-borderless">
                       <thead>
                         <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
                           <th scope="col" style= "color:#ffffff" > N<sup>o</sup></th>
@@ -202,29 +201,22 @@ body::before {
                         @endforeach
                       </tbody>
                 </table>
-            </div>
+              </div>
+
               <div class="tab-pane fade" id="diagnostic" role="tabpanel" aria-labelledby="v-pills-home-diagnostic">
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Dignostics <sup> <span class="badge badge-primary">{{App\Models\Diagnostic::count()}}</span></sup></span></legend>
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                      <!--<div class="card-header">
-                        <h3 class="mb-0 text-center">La Liste de clients</h3>
-                        {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
-                      </div>-->
-                      <div class="card-body">
-                        <div class="table-responsive">
-                          <table id="example4" class="table col-md-12 table-striped table-bordered" style="width:100%">
-                        <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
-                            <tr style="text-align: center">
-                                <th style="color: white;">N<sup>o</sup></th>
-                                <th style="color: white;">Constat</th>
-                                <th style="color: white;">Date Edition</th>
-                                <th style="color: white;">Voiture </th>
-                                <th style="color: white;">Proprietaire </th>
-                            </tr>
-                        </thead>
+                  <table class="table table-striped table-hover col-md-12">
+                    <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
+                        <tr style="text-align: center">
+                            <th style="color: white;">N<sup>o</sup></th>
+                            <th style="color: white;">Constat</th>
+                            <th style="color: white;">Date Edition</th>
+                            <th style="color: white;">Voiture </th>
+                            <th style="color: white;">Proprietaire </th>
+                        </tr>
+                    </thead>
                     @foreach ($diagnostics as $key=>$diagnostic)
                       <tr style="text-align: center">
                           <td onclick="showDiagnostic({{ $diagnostic->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
@@ -239,43 +231,32 @@ body::before {
                     </div>
                   </table>
                 </div>
-                </div>
-                </div>
-                </div>
               </div>
               <div class="tab-pane fade" id="devis" role="tabpanel" aria-labelledby="v-pills-home-devis">
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Devis <sup> <span class="badge badge-primary">{{App\Models\Devi::count()}}</span></sup></span></legend>
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                      <!--<div class="card-header">
-                        <h3 class="mb-0 text-center">La Liste de clients</h3>
-                        {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
-                      </div>-->
-                      <div class="card-body">
-                        <div class="table-responsive">
-                          <table id="example4" class="table table-striped table-bordered" style="width:100%">
-                        <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
-                            <tr style="text-align: center">
-                                <th style="color: white;">N<sup>o</sup></th>
-                                <th style="color: white;">Date Edition</th>
-                                <th style="color: white;">Date Expiration</th>
-                                <th style="color: white;">Coût</th>
-                                <th style="color: white;">Client</th>
-                                <th style="color: white;">Etat</th>
-                            </tr>
-                        </thead>
-                        @foreach ($devis as $key=>$devi)
-                          <tr style="text-align: center">
-                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
-                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
-                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
-                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
-                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
-                              <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">
-                              <form action="/devis-etat" method="POST">
-                                @csrf
+                  <table class="table table-striped table-hover col-md-12">
+                    <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                        <tr style="text-align: center">
+                            <th style="color: white;">N<sup>o</sup></th>
+                            <th style="color: white;">Date Edition</th>
+                            <th style="color: white;">Date Expiration</th>
+                            <th style="color: white;">Coût</th>
+                            <th style="color: white;">Client</th>
+                            <th style="color: white;">Etat</th>
+                        </tr>
+                    </thead>
+                    @foreach ($devis as $key=>$devi)
+                      <tr style="text-align: center">
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format($devi->devi()->first()->created_at, 'd-m-Y | H:i:s')}}</td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{date("d-m-Y", strtotime($devi->devi()->first()->date_expiration))}}</td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{number_format($devi->devi()->first()->cout)}} <sup>Fcfa</sup></td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">{{$devi->voiture()->first()->client()->first()->prenom.' '.$devi->voiture()->first()->client()->first()->nom}}</td>
+                          <td onclick="showVoiture({{ $devi->id }})" style="cursor: pointer; text-transform: capitalize;">
+                          <form action="/devis-etat" method="POST">
+                            @csrf
                             @method('Patch')
                             @if ($devi->devi()->first()->etat == 1)
                               <span class="badge-dot badge-primary mr-1"></span>En Cours</td>
@@ -292,9 +273,6 @@ body::before {
                       </div>
                   </table>
                 </div>
-                </div>
-                </div>
-                </div>
               </div>
               <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="v-pills-home-resume">
                
@@ -310,13 +288,13 @@ body::before {
                         <th style="color: white;">Voiture</th>
                     </tr>
                         </thead>
-                    @foreach ($summaries as $key=>$summary)
+                    @foreach ($summaries as $summary)
                       <tr style="text-align: center">
-                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{$key+1}}</td>
-                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{date_format(($summary->summary()->first()->created_at), 'd m Y | H:i:s')}}</td>
-                          <td style="cursor: pointer; text-transform: capitalize;"> <a href="{{route('voitures.interventions.summaries.show',['voiture'=>$summary->voiture_id,'intervention'=>$summary->id ,'summary'=>$summary->summary()->first()->id])}}"> contenu <i class="fas fa-external-link-alt"></i></a></td>
-                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{App\Models\User::find($summary->technicien)->name}}</td>
-                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{$summary->voiture()->first()->marque}}- ({{$summary->voiture()->first()->matricule}})</td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;">{{$summary->summary()->first()->created_at}}</td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
+                          <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                           
                       </tr>
                     
@@ -326,10 +304,6 @@ body::before {
                       </div>
                   </table>
                 </div>
-                </div>
-                </div>
-                </div>
-              </div>
               </div>
               <div class="tab-pane fade" id="facture" role="tabpanel" aria-labelledby="v-pills-home-facture">
                 
@@ -363,13 +337,11 @@ body::before {
                 
                 {{-- <h2>Diagramme Circulaire</h2> --}}
                 <div class="big">
-                  @if(App\Models\Intervention::count() > 0)
                   <div id="diagnostic" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
                   <div id="devis" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
                   <div id="resume" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
                   <div id="facture" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
                   {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
-                  @endif
                 </div>
                 {{-- <div class="med">
                   <div class="pie pie--value pie--disc" style="--percent:35;"></div>
