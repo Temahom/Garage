@@ -76,7 +76,7 @@
                 <div class="row" >
                     <div class="divCout form-group col-xs-6 col-sm-6 col-md-6">
                         <label for="cout" class="col-form-label">Coût de Réparation</label>
-                        <input id="cout" value="{{ isset($devi) ? $devi->cout : '' }}" type="number" name="cout" class="form-control" placeholder="Coût de réparation">
+                        <input id="cout" value="{{ isset($devi) ? $devi->cout : '' }}" type="number" min="0" name="cout" class="form-control" placeholder="Coût de réparation">
                     </div>
                     <div class="divDate form-group col-xs-6 col-sm-6 col-md-6">
                         <label for="expiration_expiration" class="col-form-label">Date Expiration</label>
@@ -149,7 +149,7 @@
                                     <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
                                         <div class="form-group">
                                             <strong>Quantité Voulue:</strong>
-                                            <input type="number" value="{{$item_devi['devi_produit']->quantite}}" name="produits[{{ $i }}][quantite]" class="custom-select form-control">
+                                            <input type="number" min="0" value="{{$item_devi['devi_produit']->quantite}}" name="produits[{{ $i }}][quantite]" class="custom-select form-control">
                                         </div>
                                     </div>
                                                                             
@@ -185,7 +185,7 @@
                                 <div class="divQuantite col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <strong>Quantité Voulue:</strong>
-                                        <input type="number" name="produits[0][quantite]" class="custom-select form-control">
+                                        <input type="number" min="0" name="produits[0][quantite]" class="custom-select form-control">
                                     </div>
                                 </div>
                                                                         
@@ -294,7 +294,7 @@
             '<div class="divQuantite col-xs-4 col-sm-4 col-md-4">'+
                 '<div class="form-group">'+
                     '<strong>Quantité Voulue:</strong>'+
-                    '<input type="number" name="produits['+i+'][quantite]" class="custom-select form-control">'+
+                    '<input type="number" min="0" name="produits['+i+'][quantite]" class="custom-select form-control">'+
                 '</div>'+
             '</div>'+                           
         '</div>';
@@ -370,8 +370,14 @@
                 ok = 0;
             }
         });
-        if(ok)
-        $('#formProd').submit();
+        if(ok){
+            $('#formProd').submit();
+        }
+        else{
+            alert('Il y\'a un champ vide');
+        }
+        
+        
     }
     /* FIN CONTROL DEVIS*/
 
