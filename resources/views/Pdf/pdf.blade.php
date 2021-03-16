@@ -369,7 +369,6 @@
               <td class="total">{{number_format($pdevi->prix1,0, ",", " " )}} <sup>FCFA</sup></td>
                @php
                   $prixHT+=($pdevi->pivot->quantite*$pdevi->prix1);
-                  $prixtotal+=$prixHT;
 
             @endphp
             </tr>
@@ -391,18 +390,12 @@
               <td class="no"></td>
               <td class="desc"></td>
               <td class="qty"></td>
-              <td class="unit">TVA 18%:</td>
-              <td class="total">1,300.00 <sup>FCFA</sup></td>
-            </tr>
-            <tr>
-              <td class="no"></td>
-              <td class="desc"></td>
-              <td class="qty"></td>
               <td class="unit">Côut de la réparation:</td>
               <td class="total"> {{number_format($devi->cout,0, ",", " " )}} <sup>FCFA</sup></td>
             </tr>
             <tr>
-              <td class="grand-total" colspan="5"><div><span>TOTAL:</span>{{number_format($prixtotal+=$devi->cout,0, ",", " " )}}<sup>FCFA</sup></div></td>
+
+              <td class="grand-total" colspan="5"><div><span>TOTAL:</span><?= number_format($prixHT+$devi->cout,0, ",", " " );?><sup>FCFA</sup></div></td>
             </tr>
           </tbody>
         </table>
