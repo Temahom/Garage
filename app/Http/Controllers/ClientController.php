@@ -72,7 +72,7 @@ class ClientController extends Controller
         $client->entreprise = $request->input('entreprise');
         $client->user_id= $user_id;
         //dd($client);
-        $client = $client->save();
+        $client->save();
         return redirect()->route('clients.show', ['client' => $client])
         ->with('success','Client Enrégistré');
 
