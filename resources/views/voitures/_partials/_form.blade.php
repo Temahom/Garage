@@ -80,6 +80,15 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       </div>
       </div> 
       <div class="col-xs-6 col-sm-6 col-md-6">
+         <div class="form-group">
+        <strong>Kilométrage</strong>
+        <input type="number" name="kilometrage" id="lekilometrage" class="custom-select form-control @error('kilometrage') is-invalid @enderror" autocomplete="off" placeholder="Kilometrage"  value="{{ old('kilometrage') }}">
+        <div class="invalid-feedback">
+          @if($errors->has('kilometrage'))
+          {{ $errors->first('kilometrage') }}
+          @endif
+        </div>			
+      </div>
       <div class="form-group">
         <strong>Année</strong>
         <select name="annee" id="lannee" class="custom-select form-control @error('annee') is-invalid @enderror js-example-basic-single">
@@ -116,15 +125,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
         </div>			
       </div>
       
-      <div class="form-group">
-        <strong>Kilométrage</strong>
-        <input type="number" name="kilometrage" id="lekilometrage" class="custom-select form-control @error('kilometrage') is-invalid @enderror" autocomplete="off" placeholder="Kilometrage"  value="{{ old('kilometrage') }}">
-        <div class="invalid-feedback">
-          @if($errors->has('kilometrage'))
-          {{ $errors->first('kilometrage') }}
-          @endif
-        </div>			
-      </div></div> 
+     </div> 
   </div>
 </div>
 
@@ -222,11 +223,10 @@ $(document).ready(function() {
 
 });
 
-
-$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
-
-
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+          class : "custom-select form-control"
+        });
+    });
 
 </script>
