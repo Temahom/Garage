@@ -225,6 +225,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
 <script  type="text/javascript">
     var i = 1000;
+    var nbItemDefaut = 0;
     var divDefaut;
 
     function getDiv(i) {
@@ -302,11 +303,12 @@
     });
 
     function numeroter() {
-        var num = 1;
+        var num = 0;
         $('#dynamicAddRemove > div').each( function(){
-            $(this).children('.divSup').children('.numero').text('#' + num);
             num++;
+            $(this).children('.divSup').children('.numero').text('#' + num);
         });
+        nbItemDefaut = num;
     }
 
     $(document).on('change', 'select', function(){  
@@ -335,6 +337,11 @@
         {
             $('#constat').addClass( "is-invalid" );
             ok = 0;
+        }
+        if(nbItemDefaut == 0)
+        {
+            alert('Ajouter au moins une inspection');
+            return 0;
         }
         $('#dynamicAddRemove > div').each( function(){
             $(this).children('.divDescription').children('textarea').removeClass('is-invalid');
