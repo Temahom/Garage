@@ -354,8 +354,12 @@
                 ok = 0;
             }
         });
-        if(ok)
-        $('#formDiag').submit();
+        if(ok){
+            $('#formDiag').submit();
+        }
+        else{
+            alert('il y\'a au moins un champs vide');
+        }
     }
     /* FIN CONTROL DIAGNOSTQUE*/
 </script>
