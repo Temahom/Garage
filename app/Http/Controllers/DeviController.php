@@ -69,14 +69,16 @@ class DeviController extends Controller
         $intervention->devis_id = $devi->id;
         $intervention->statut = 3;
         $intervention->update();
-        
-        foreach ($request->produits as $key => $produit) {
-            $devi_produit = new Devi_produit();
-            $devi_produit->devi_id = $devi->id;
-            $devi_produit->produit_id = $produit['id'];
-            $devi_produit->quantite = $produit['quantite'];
-            $devi_produit->save();
+        if ($request->produits) {
+            foreach ($request->produits as $key => $produit) {
+                $devi_produit = new Devi_produit();
+                $devi_produit->devi_id = $devi->id;
+                $devi_produit->produit_id = $produit['id'];
+                $devi_produit->quantite = $produit['quantite'];
+                $devi_produit->save();
+            }
         }
+       
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('fait','Devis créer avec succés');
     }
 
@@ -119,13 +121,17 @@ class DeviController extends Controller
         {
             $devi_produit->delete();
         }
-        foreach ($request->produits as $key => $produit) {
-            $devi_produit = new Devi_produit();
-            $devi_produit->devi_id = $devi->id;
-            $devi_produit->produit_id = $produit['id'];
-            $devi_produit->quantite = $produit['quantite'];
-            $devi_produit->save();
+        if ($request->produits)
+        {
+            foreach ($request->produits as $key => $produit) {
+                $devi_produit = new Devi_produit();
+                $devi_produit->devi_id = $devi->id;
+                $devi_produit->produit_id = $produit['id'];
+                $devi_produit->quantite = $produit['quantite'];
+                $devi_produit->save();
+            }
         }
+        
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('modifier','Devis Modifier avec succées');
     }
 

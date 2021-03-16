@@ -144,13 +144,13 @@
 					@else
 						<div class="row">
 							<div class="col-md-12">
-								<p>Vide</p>
+								<p>Vide...</p>
 							</div>
 						</div>
 					@endif
 
-					<div class="row">
-						<div class="col-md-12 mt-3">
+					<div class="row mt-4">
+						<div class="col-md-12">
 							@if ( $intervention->diagnostic_id )
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
 							@else
@@ -179,7 +179,7 @@
 									<tbody>
 										<tr>
 											<th scope="col" colspan="4">Cout de réparation</th>
-											<th scope="col" style="width: 200px">{{ $devi->cout }}</th>
+											<th scope="col" style="width: 200px">{{ number_format($devi->cout, 0, ",", " " ) }}</th>
 										</tr>
 									</tbody>
 								</table>
@@ -225,12 +225,12 @@
 					@else
 						<div class="row">
 							<div class="col-md-12">
-								<p>Vide</p>
+								<p>Vide...</p>
 							</div>
 						</div>
 					@endif
 
-					<div class="row">
+					<div class="row mt-4">
 						<div class="col-md-12">
 							@if ( $intervention->devis_id )
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
@@ -261,12 +261,12 @@
 						</div>
 					@else
 						<div class="row">
-							<div class="col-md-12 py-4">
-								<p>Vide</p>
+							<div class="col-md-12">
+								<p>Vide...</p>
 							</div>
 						</div>
 					@endif
-					<div class="row">
+					<div class="row mt-4">
 						<div class="col-md-12">
 							@if ( $intervention->summary_id )
 								
