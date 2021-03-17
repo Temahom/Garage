@@ -2,11 +2,8 @@
  
 @section('content')
 
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="fr">
-=======
->>>>>>> 015d39689f956fe1950505fcf1b93033a3188ecd
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -20,24 +17,12 @@
 
 
 </head>
-<<<<<<< HEAD
 <body>
   
 <div class="container">
     <h1>Laravel FullCalender Tutorial Example - ItSolutionStuff.com</h1>
     <div class="response">
     <div id='calendar'></div>
-=======
-
-
-<div class="row">
-  <div class="col-lg-12 margin-tb" style="width: 80%">
-      <div class="pull-left">
-        <h1>Calendrier des RV</h1>
-      </div>
-  </div>
-  <div id='calendar' style="width: 98%"></div>
->>>>>>> 015d39689f956fe1950505fcf1b93033a3188ecd
 </div>
 
    
