@@ -77,6 +77,12 @@ class InterventionController extends Controller
         $intervention->technicien = $request->input('technicien');
         $intervention->statut = 1;
         $intervention->save();
+        $techniciens = User::find($intervention->technicien);
+        $url=env('APP_URL');
+        $url .='voitures/'.$voiture->id.'/interventions/'.$intervention->id;
+        $mail=new MailSend();
+
+        $mail->notification_operation($techniciens,$url);
         return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
     }
 
