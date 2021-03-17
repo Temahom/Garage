@@ -19,7 +19,7 @@
                     <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $client->email}}</div>
                     <div class="text-right" style="font-size: 12px;">
                         <a class="text-primary mr-1" href="{{ route('clients.edit',$client->id)}}">Modifier</a> 
-                        <button type="button" class="text-danger" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
+                        <button type="button" class="text-danger hide_delete" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
                             Supprimer
                         </button>
     
@@ -98,7 +98,7 @@
                             <a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>   
                             @csrf
                             @method('DELETE')      
-                            <button type="submit" class="btn btn-danger p-0 pr-2 pl-2"><i class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger p-0 pr-2 pl-2 hide_delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>

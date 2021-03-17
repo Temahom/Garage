@@ -80,7 +80,7 @@
             <td>
             {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
                     <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>
-                    <button type="button" class="btn btn-danger  p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
+                    <button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
                         <i class="fas fa-trash"></i>
                     </button> 
                     <div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -90,7 +90,7 @@
 									<h5>Voulez vous vraiment supprimer <strong>la {{ $voiture->marque }} de {{ $voiture->matricule }} de liste des voitures</strong>  ?</h5>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+									<button type="button" class="btn btn-secondary hide_delete" data-dismiss="modal">Annuler</button>
 									<form action="{{route('voitures.destroy',$voiture->id)}}" method="POST">
 										@csrf
 										@method('DELETE')

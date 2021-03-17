@@ -65,7 +65,8 @@
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer;">{{ $client->email }}</td>
 								<td>
 									<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('clients.edit',$client->id)}}"><i class="fas fa-edit"></i></a>
-									<button type="button" class="btn btn-danger p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
+									
+									<button type="button" class="btn btn-danger p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $client->id }}" style="display: block" id="hide_delete" onclick="OnOff();">
 										<i class="fas fa-trash"></i>
 									</button>
 
@@ -136,13 +137,16 @@
         return tri(tdValue(asc ? row1 : row2, ids), tdValue(asc ? row2 : row1, ids));
     };
         const tbody = document.querySelector('tbody');
-        const thx = document.querySelectorAll('th');
-        const trxb = tbody.querySelectorAll('tr');
+	const thx = document.querySelectorAll('th');
+	const trxb = tbody.querySelectorAll('tr');
 
-            thx.forEach(th => th.addEventListener('click', () => {
-                let classe = Array.from(trxb).sort(compare(Array.from(thx).indexOf(th), this.asc = !this.asc));
-                classe.forEach(tr => tbody.appendChild(tr));
-            }));
+	thx.forEach(th => th.addEventListener('click', () => {
+		let classe = Array.from(trxb).sort(compare(Array.from(thx).indexOf(th), this.asc = !this.asc));
+		classe.forEach(tr => tbody.appendChild(tr));
+	}));
+
+
 </script>
+
 @endsection
    

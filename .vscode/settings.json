@@ -5,6 +5,7 @@
     ],
     "files.associations": {
         "*.extension": "php"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
     
 }
