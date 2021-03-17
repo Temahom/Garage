@@ -66,7 +66,7 @@
 								<td>
 									<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('clients.edit',$client->id)}}"><i class="fas fa-edit"></i></a>
 									
-									<button type="button" class="btn btn-danger p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $client->id }}" style="display: block" id="hide_delete" onclick="OnOff();">
+									<button type="button" class="btn btn-danger p-0 pr-2 pl-2 hide_delete" data-toggle="modal" id="hide_delete" data-target="#exampleModal{{ $client->id }}" onclick="OnOff();">
 										<i class="fas fa-trash"></i>
 									</button>
 
@@ -147,6 +147,7 @@
 
 
 </script>
+
 
 @endsection
    

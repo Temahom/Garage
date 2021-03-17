@@ -295,6 +295,10 @@
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
     <!-- jquery 3.3.1 -->
+    <script>
+        document.getElementById("hide_delete").style.display = "none";
+    </script>
+
     <!-- bootstap bundle js -->
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <!-- slimscroll js -->
@@ -336,9 +340,7 @@
     {{---------------------select2---------------------- --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     {{------------------------end----------------------------- --}}
-    <script>
-        $('.hide_delete').hide();
-    </script>
+    
 </body>
  
 </html>

@@ -33,7 +33,7 @@
 				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux / {{ $voiture->kilometrage}} km</div>		
 				<div class="text-right" style="font-size: 12px;">
 					<a class="text-primary mr-1" href="{{ route('voitures.edit',$voiture->id)}}">Modifier</a> 
-					<button type="button" class="text-danger hide_delete" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
+					<button type="button" class="text-danger hide_delete" id="hide_delete" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
 						Supprimer
 					</button>
 					<div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -109,7 +109,7 @@
 						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->fin }}</td>
 						<td>
 							<a class="btn btn-primary  p-0 pr-2 pl-2" href="{{route('voitures.interventions.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-edit"></i></a>
-							<button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
+							<button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" id="hide_delete" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
 								<i class="fas fa-trash"></i>
 							</button>
 
@@ -163,5 +163,6 @@
 			window.location = voiture_id + '/interventions/' + intervention_id ;
 		}
 	</script>
+
       
 @endsection
