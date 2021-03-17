@@ -74,10 +74,10 @@
 <!-- ============================================================== -->
 <!-- TAB INTERVENTION  -->
 <!-- ============================================================== -->
-<div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px ">
+<div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px;box-shadow: 0 10px 20px rgba(148,149,150,0.19), 0 6px 6px rgba(148,149,150,0.23); ">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
 		<div class="section-block">
-			<h2 class="section-title py-4" style="text-align: center">INTERVENTION</h2>
+			<h2 class="section-title py-4" style="text-align: center;">INTERVENTION</h2>
 			<!-- DATE DEBUT DATE FIN  -->
 			<div class="row">
 				<div class="col-md-3">
@@ -171,6 +171,13 @@
 				<!-- DEVIS  -->
 				<!-- ============================================================== -->
 				<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
+
+					<div class="row mt-4">
+						<div class="col-md-12">
+							<p><b>Date d'expiration : </b>{{$devi->date_expiration}}</p>
+						</div>
+					</div>
+
 					@if ( $intervention->devis_id )
 						<div class="row my-4">
 							<div class="col-md-12">

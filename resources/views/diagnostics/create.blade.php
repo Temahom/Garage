@@ -225,7 +225,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
 <script  type="text/javascript">
     var i = 1000;
-    var nbItemDefaut = 0;
+    var nbItemDefaut = 1;
     var divDefaut;
 
     function getDiv(i) {

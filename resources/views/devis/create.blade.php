@@ -96,7 +96,7 @@
                             #newProduit
                             {
                                  border: 1px solid #D2D2E4;
-                                 box-shadow: 0px 0px 3px #999;
+                                 box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.2);
                                  background-color: #fefefe;
                             }
                             #remove-button{
