@@ -79,7 +79,7 @@ class InterventionController extends Controller
         $intervention->save();
         $techniciens = User::find($intervention->technicien);
         $url=env('APP_URL');
-        $url .='/voitures/'.$voiture->id.'/interventions/'.$intervention->id;
+        $url .='voitures/'.$voiture->id.'/interventions/'.$intervention->id;
         $mail=new MailSend();
 
         $mail->notification_operation($techniciens,$url);
