@@ -39,7 +39,7 @@
             <div class="col-xs-8 col-sm-8 col-md-8 row">
                 <div class="form-group col-xs-4 col-sm-4 col-md-4">
                     <strong>Début:</strong>
-                    <input type="date" name="debut" class="form-control @error('debut') is-invalid @enderror" value="{{ old('debut') }} {{$intervention->debut}}">
+                    <input type="date" name="debut" class="form-control @error('debut') is-invalid @enderror" value="{{ isset($intervention) ? $intervention->debut : '' }}">
 					<div class="invalid-feedback">
 						@if($errors->has('debut'))
 						{{ $errors->first('debut') }}
@@ -47,8 +47,8 @@
 					</div>
                 </div>
                  <div class="form-group col-xs-4 col-sm-4 col-md-4">
-                    <strong>Fin</strong>
-                    <input type="date" name="fin" value="{{ old('fin') }} {{$intervention->fin}}" class="form-control">
+                    <strong>Fin:</strong>
+                    <input type="date" name="fin" value="{{ isset($intervention) ? $intervention->fin : '' }}" class="form-control">
                 </div>
             </div>
 			<div class="col-xs-8 col-sm-8 col-md-8 row">
