@@ -80,7 +80,7 @@
             <td>
             {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
                     <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>
-                    <button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" id="hide_delete" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
+                    <button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
                         <i class="fas fa-trash"></i>
                     </button> 
                     <div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

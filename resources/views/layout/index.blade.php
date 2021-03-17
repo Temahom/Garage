@@ -296,7 +296,10 @@
     <!-- Optional JavaScript -->
     <!-- jquery 3.3.1 -->
     <script>
-        document.getElementById("hide_delete").style.display = "none";
+       var btns= document.querySelectorAll(".hide_delete")
+            btns.forEach(b=>{
+                b.style.display="none";
+            })
     </script>
 
     <!-- bootstap bundle js -->
