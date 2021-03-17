@@ -134,7 +134,8 @@ class InterventionController extends Controller
      */
     public function edit(Voiture $voiture, Intervention $intervention)
     {
-        return view('interventions.edit', compact('voiture','intervention'));
+        $techniciens = User::where('role_id','=',3)->get();
+        return view('interventions.edit', compact('voiture','intervention', 'techniciens'));
     }
 
     /**
