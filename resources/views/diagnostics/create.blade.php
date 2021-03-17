@@ -148,13 +148,13 @@
                                         </div>
                                         <div class="form-group col-xs-12 col-sm-12 col-md-12">  
                                             <label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" {{ $defaut->etat  }} name="plusdechamps[{{ $i }}][etat]" value="1" class="custom-control-input" {{ $defaut->etat == 1 ? 'checked' : '' }}><span class="custom-control-label">Trés urgent</span>
+                                                <input type="radio" name="plusdechamps[{{ $i }}][etat]" value="1" class="custom-control-input" {{ $defaut->etat == 1 ? 'checked' : '' }}><span class="custom-control-label">Trés urgent</span>
                                             </label>
                                             <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" value="{{ $defaut->etat }}" name="plusdechamps[{{ $i }}][etat]" value="2" class="custom-control-input" {{ $defaut->etat == 2 ? 'checked' : '' }}><span class="custom-control-label">Pas urgent</span>
+                                                <input type="radio" name="plusdechamps[{{ $i }}][etat]" value="2" class="custom-control-input" {{ $defaut->etat == 2 ? 'checked' : '' }}><span class="custom-control-label">Pas urgent</span>
                                             </label>
                                             <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" value="{{ $defaut->etat }}" name="plusdechamps[{{ $i }}][etat]" value="3" class="custom-control-input" {{ $defaut->etat == 3 ? 'checked' : '' }}><span class="custom-control-label">Peut urgent</span>
+                                                <input type="radio" name="plusdechamps[{{ $i }}][etat]" value="3" class="custom-control-input" {{ $defaut->etat == 3 ? 'checked' : '' }}><span class="custom-control-label">Peut urgent</span>
                                             </label>
                                         </div> 
                                     </div>
