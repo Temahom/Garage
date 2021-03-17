@@ -172,13 +172,14 @@
 				<!-- ============================================================== -->
 				<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
 
-					<div class="row mt-4">
-						<div class="col-md-12">
-							<p><b>Date d'expiration : </b>{{$devi->date_expiration}}</p>
-						</div>
-					</div>
-
 					@if ( $intervention->devis_id )
+
+						<div class="row mt-4">
+							<div class="col-md-12">
+								<p><b>Date d'expiration : </b>{{$devi->date_expiration}}</p>
+							</div>
+						</div>
+						
 						<div class="row my-4">
 							<div class="col-md-12">
 
