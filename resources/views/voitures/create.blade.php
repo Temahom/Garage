@@ -165,7 +165,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 $(document).ready(function() {
 	$('select[name=marque]').change(function () {
 		var model='<option value="">choisissez le model</option>'
-   
+  
     $.ajax({
           type: "GET",
           url: "/api/listes/"+ $('select[name=marque]').val(),

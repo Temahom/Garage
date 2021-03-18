@@ -86,13 +86,24 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
                 <div class="form-group">
                   <strong>Transmission</strong>
                   <select name="transmission" id="latransmission" class="custom-select form-control @error('transmission') is-invalid @enderror js-example-basic-single">
-                    @if(!empty($voiture->transmission))
-                    <option value="{{$voiture->transmission}}">{{$voiture->transmission}}</option>
-                     @endif
-                    <option value="">Transmission</option>
-                    <option value="Manuel" {{ old('transmission') == 'Manuel' ? 'selected' : '' }}>Manuel</option>
-                    <option value="Automatique" {{ old('transmission') == 'Automatique' ? 'selected' : '' }}>Automatique</option>
-                    <option value="semi-automatique" {{ old('transmission') == 'semi-automatique' ? 'selected' : '' }}>Semi-Automatique</option>
+                    @if($voiture->transmission ="Manuel")
+                      <option value="Manuel" {{ old('transmission') == 'Manuel' ? 'selected' : '' }} selected>Manuel</option>
+                      <option value="Automatique" {{ old('transmission') == 'Automatique' ? 'selected' : '' }} >Automatique</option>
+                      <option value="semi-automatique" {{ old('transmission') == 'semi-automatique' ? 'selected' : '' }} >semi-automatique</option>
+                    @elseif($voiture->transmission ="Automatique")
+                      <option value="Manuel" {{ old('transmission') == 'Manuel' ? 'selected' : '' }} >Manuel</option>
+                      <option value="Automatique" {{ old('transmission') == 'Automatique' ? 'selected' : '' }} selected>Automatique</option>
+                      <option value="semi-automatique" {{ old('transmission') == 'semi-automatique' ? 'selected' : '' }} >semi-automatique</option>
+                    @elseif($voiture->transmission ="semi-automatique")
+                      <option value="Manuel" {{ old('transmission') == 'Manuel' ? 'selected' : '' }} >Manuel</option>
+                      <option value="Automatique" {{ old('transmission') == 'Automatique' ? 'selected' : '' }} >Automatique</option>
+                      <option value="semi-automatique" {{ old('transmission') == 'semi-automatique' ? 'selected' : '' }} selected>semi-automatique</option>
+                    @else
+                      <option value="">Transmission</option>
+                      <option value="Manuel" {{ old('transmission') == 'Manuel' ? 'selected' : '' }} >Manuel</option>
+                      <option value="Automatique" {{ old('transmission') == 'Automatique' ? 'selected' : '' }} >Automatique</option>
+                      <option value="semi-automatique" {{ old('transmission') == 'semi-automatique' ? 'selected' : '' }}>semi-automatique</option>
+                    @endif
                   </select>
                   <div class="invalid-feedback">
                     @if($errors->has('transmission'))
@@ -240,6 +251,83 @@ $(document).ready(function() {
     })
 
     })
+
+
+
+    $(document).ready(function() {
+	$('select[name=marque]').change(function () {
+		var model='<option value="">choisissez le model</option>'
+    $.ajax({
+          type: "GET",
+          url: "/api/listes/"+ $('select[name=marque]').val(),
+          dataType: 'json',
+          success: function(data) {
+			var models= data;
+            models.map(m=>{
+              model+='<option value="'+ m.lemodel+'" >'+ m.lemodel+'</option>'
+            
+            })
+            $('#lemodel').html(model)
+
+            $('#lannee').html("")
+            $('#lapuissance').html("")
+          }
+          });
+	});
+});
+
+
+
+$(document).ready(function() {
+	$('select[name=model]').change(function () {
+		var annee='<option value="">Choisissez son année</option>'
+    $.ajax({
+          type: "GET",
+          url: "/api/listes/model/"+ $('select[name=model]').val(),
+          dataType: 'json',
+          success: function(data) {
+			var annees= data;
+            annees.map(a=>{
+              annee+='<option value="'+ a.lannee+'">'+a.lannee+'</option>'
+            
+            })
+            $('#lannee').html(annee)
+            $('#lapuissance').html("")
+          }
+          });
+
+	});
+
+});
+
+
+
+$(document).ready(function() {
+	$('select[name=carburant]').change(function () {
+		var puissance='<option value="">Choisissez la puissance</option>'
+    $.ajax({
+          type: "GET",
+          url: "/api/listes/carburant/"+ $('select[name=carburant]').val(),
+          dataType: 'json',
+          success: function(data) {
+			var puissances= data;
+            puissances.map(p=>{
+              puissance+='<option value="'+ p.lapuissance+'">'+p.lapuissance+'</option>'
+            
+            })
+            $('#lapuissance').html(puissance)
+          }
+          });
+
+	});
+
+});
+
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+          class : "custom-select form-control"
+        });
+    });
   
 </script>
     
