@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ClientController extends Controller
 {
@@ -109,14 +110,18 @@ class ClientController extends Controller
      */
     public function update(Request $request,Client $client)
     {   
+        
         $this->authorize('update', $client);
-         $request->validate([
+        $request->validate([
         'nom' => 'required',
         'prenom' => 'required',
-        'telephone' => 'required',
+        'email' => [Rule::unique('clients')->ignore($client->id)],
+        'genre' => 'required',
+        'entreprise' => 'max:200',
+        'telephone' => ['required', Rule::unique('clients')->ignore($client->id)]
         ]);
 
-         $client->update($request->all());
+        $client->update($request->all());
 
          return redirect()->route('clients.index')
         ->with('success','Client Modifié !!');
