@@ -281,8 +281,9 @@ use Carbon\Carbon;
 </div>  
 
 
-<div class="row">  
-        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-6 mt-5">
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
             <div class="card">
                 <h5 class="card-header" style="text-align: center">Tableau récaptulatif mensuel des Clients</h5>
                 <div class="card-body p-0">
@@ -325,9 +326,11 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-        </div>
+        </div
+    ></div>
 </div>
  {{-- fin tableau de Vieillissment du clients --}}
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
