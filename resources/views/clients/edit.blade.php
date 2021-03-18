@@ -70,7 +70,10 @@
                 </div>
                 <div class="form-group">
                     <strong>Email:</strong>
-                    <input type="email" name="email" value="{{ $client->email }}" class="form-control" placeholder="Email" >
+                    <input type="email" name="email" value="{{ $client->email }}" class="form-control  @error('email') is-invalid @enderror" placeholder="Email" >
+                    @if($errors->has('email'))
+                    {{ $errors->first('email') }}
+                    @endif
                 </div>
             </div>
 
