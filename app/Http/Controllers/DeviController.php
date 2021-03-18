@@ -116,6 +116,9 @@ class DeviController extends Controller
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Devi $devi)
     {
         $this->authorize('update', $devi);
+        $devi->cout = $request->input('cout');
+        $devi->date_expiration = $request->input('date_expiration');
+        $devi->update();
         $devi_produits = $devi->devi_produits()->get();
         foreach($devi_produits as $devi_produit)
         {

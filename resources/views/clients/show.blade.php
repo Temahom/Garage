@@ -1,9 +1,9 @@
 @extends('layout.index')
 @section('content')
-    <div class="row ml-1">
-        <div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-            <div class="row">
 
+    <div class="row ml-1">
+        <div class="col-md-5 col-sm-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+            <div class="row">
                 <div class="col-md-2 col-sm-3 text-center pt-3">
                     @if ($client->genre == "homme")
                         <img style="height: 50px;width: auto;" class="" src="/assets/images/masculin.png" alt="logo">
@@ -19,7 +19,7 @@
                     <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $client->email}}</div>
                     <div class="text-right" style="font-size: 12px;">
                         <a class="text-primary mr-1" href="{{ route('clients.edit',$client->id)}}">Modifier</a> 
-                        <button type="button" class="text-danger" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
+                        <button type="button" class="text-danger hide_delete" id="hide_clients" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
                             Supprimer
                         </button>
     
@@ -40,8 +40,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                     </div>
                 </div>
 
@@ -52,7 +50,8 @@
   
                 
 
-<div class="row">
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
 
     <div class="col-lg-12 margin-tb">
         <div class="col-xs-12 col-sm-12 col-md-12 row">
@@ -98,7 +97,7 @@
                             <a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>   
                             @csrf
                             @method('DELETE')      
-                            <button type="submit" class="btn btn-danger p-0 pr-2 pl-2"><i class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger p-0 pr-2 pl-2 hide_delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -121,7 +120,7 @@
             </div>
          </div>
            
-    </div>
+    </div></div></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 

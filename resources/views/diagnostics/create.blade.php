@@ -3,66 +3,15 @@
 @section('content')
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        
-<div class="row ml-1">
-    <div class="col-md-7 pt-3"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-        <div class="row">
-            <div class="col-md-2 col-sm-3 text-center pt-4">
-                <img style="height: 50px;width: auto;" class="" src="/assets/images/car.png" alt="logo">
-            </div>
-            <div class="col-md-10 col-sm-10">
+@include('voitures._partials.carinformation')
 
-                <div style="font-size: 20px">
-                    <a href="{{route('voitures.show',['voiture'=>$voiture->id])}}" style="color: #2EC551">
-                        {{ $voiture->matricule }}
-                    </a>
-                    <span style="font-size: 12px;">
-                        ( De<a href="{{route('clients.show',['client'=>$voiture->client_id])}}" style="color: #2EC551">
-                            <i class="fas fa-user"></i>
-                            {{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}
-                        </a>)
-                    </span>
-                </div>
-
-                <div style="font-size: 14px;"> {{ $voiture->marque}} {{ $voiture->model}} {{ $voiture->annee}}</div>
-                <div style="font-size: 14px;"> {{ $voiture->carburant}}</div>
-                <div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux</div>
-                <div class="text-right" style="font-size: 12px;">
-                    <a class="text-primary mr-1" href="{{ route('voitures.edit',$voiture->id)}}">Modifier</a> 
-                    <button type="button" class="text-danger" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
-                        Supprimer
-                    </button>
-                    <div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <h5>Voulez vous supprimer: <strong>{{ $voiture->matricule }}</strong>  ?</h5>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                    <form action="{{route('voitures.destroy',$voiture->id)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                                    </form>
-                            </div>
-                            </div>
-                        </div>
-                    </div>	
-                </div>
-            </div>
+<div class="row pt-5">
+    <div class="col-lg-12">
+        <div class="pull-left">
+            <h2>DIAGNOSTIC</h2>
         </div>
     </div>
-</div> 
-        
-
-    <div class="row pt-5">
-        <div class="col-lg-12">
-            <div class="pull-left">
-                <h2>DIAGNOSTIC</h2>
-            </div>
-        </div>
-    </div>  
+</div>  
 
 
     <form id="formDiag"
@@ -100,7 +49,7 @@
                                #newdefaut
                                {
                                     border: 1px solid #D2D2E4;
-                                    box-shadow: 0px 0px 3px #999;
+                                    box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.2);
                                     background-color: #fefefe;
                                }
                                #remove-button{
@@ -148,13 +97,13 @@
                                         </div>
                                         <div class="form-group col-xs-12 col-sm-12 col-md-12">  
                                             <label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" {{ $defaut->etat  }} name="plusdechamps[{{ $i }}][etat]" value="1" class="custom-control-input" {{ $defaut->etat == 1 ? 'checked' : '' }}><span class="custom-control-label">Trés urgent</span>
+                                                <input type="radio" name="plusdechamps[{{ $i }}][etat]" value="1" class="custom-control-input" {{ $defaut->etat == 1 ? 'checked' : '' }}><span class="custom-control-label">Trés urgent</span>
                                             </label>
                                             <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" value="{{ $defaut->etat }}" name="plusdechamps[{{ $i }}][etat]" value="2" class="custom-control-input" {{ $defaut->etat == 2 ? 'checked' : '' }}><span class="custom-control-label">Pas urgent</span>
+                                                <input type="radio" name="plusdechamps[{{ $i }}][etat]" value="2" class="custom-control-input" {{ $defaut->etat == 2 ? 'checked' : '' }}><span class="custom-control-label">Pas urgent</span>
                                             </label>
                                             <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" value="{{ $defaut->etat }}" name="plusdechamps[{{ $i }}][etat]" value="3" class="custom-control-input" {{ $defaut->etat == 3 ? 'checked' : '' }}><span class="custom-control-label">Peut urgent</span>
+                                                <input type="radio" name="plusdechamps[{{ $i }}][etat]" value="3" class="custom-control-input" {{ $defaut->etat == 3 ? 'checked' : '' }}><span class="custom-control-label">Peut urgent</span>
                                             </label>
                                         </div> 
                                     </div>
@@ -225,6 +174,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
 <script  type="text/javascript">
     var i = 1000;
+    var nbItemDefaut = 1;
     var divDefaut;
 
     function getDiv(i) {
@@ -302,11 +252,12 @@
     });
 
     function numeroter() {
-        var num = 1;
+        var num = 0;
         $('#dynamicAddRemove > div').each( function(){
-            $(this).children('.divSup').children('.numero').text('#' + num);
             num++;
+            $(this).children('.divSup').children('.numero').text('#' + num);
         });
+        nbItemDefaut = num;
     }
 
     $(document).on('change', 'select', function(){  
@@ -335,6 +286,11 @@
         {
             $('#constat').addClass( "is-invalid" );
             ok = 0;
+        }
+        if(nbItemDefaut == 0)
+        {
+            alert('Ajouter au moins une inspection');
+            return 0;
         }
         $('#dynamicAddRemove > div').each( function(){
             $(this).children('.divDescription').children('textarea').removeClass('is-invalid');

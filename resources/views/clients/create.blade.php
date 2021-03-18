@@ -12,7 +12,8 @@
    
 <form action="{{ route('clients.store') }}" method="POST">
     @csrf
-     <div class="row">
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
         <div class="col-xs-6 col-sm-6 col-md-6">
             
             <div class="form-group">
@@ -43,12 +44,22 @@
                       <option value="femme" {{ old('genre') == 'femme' ? 'selected' : '' }}>Femme</option>
                     </select>
             </div>
+                <div class="invalid-feedback">
+                    @if($errors->has('genre'))
+                    {{ $errors->first('genre') }}
+                    @endif
+                </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
                 <strong>Entreprise :</strong>
                 <input type="text" name="entreprise" class="form-control" placeholder="Entreprise" autocomplete="off"  value="{{ old('entreprise') }}">
             </div>
+                <div class="invalid-feedback">
+                    @if($errors->has('entreprise'))
+                    {{ $errors->first('entreprise') }}
+                    @endif
+                </div>
             
             <div class="form-group">
                 <strong>Téléphone :</strong>
@@ -74,7 +85,7 @@
             <a class="btn btn-secondary" href="{{ route('clients.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
             <button type="submit" class="btn btn-success">Enregistrer</button>
         </div>
-    </div>
+    </div></div>
    
 </form>
 @endsection
