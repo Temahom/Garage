@@ -66,7 +66,7 @@ class SummaryController extends Controller
      * @param  \App\Models\Summary  $summary
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit($id)
     {
         $summary = Summary::find($id);
         $intervention = Intervention::where('summary_id', '=',$id )->first();
