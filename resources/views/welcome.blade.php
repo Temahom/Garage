@@ -5,15 +5,26 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
 use Carbon\Carbon;
   $clients=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
   $chiffres=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('cout');
- $produit_en_stock=\App\Models\Produit::select("qte")->where('qte','>',0)->count();
- $produit_total=\App\Models\Produit::sum("qte");
- $prix_total_des_produits=\App\Models\Produit::sum("prix1");
+  $produit_en_stock=\App\Models\Produit::select("qte")->where('qte','>',0)->count();
+  $produit_total=\App\Models\Produit::sum("qte");
+  $prix_total_des_produits=\App\Models\Produit::sum("prix1");
   $client30=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->count();
   $chiffre30=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->sum('cout');
  
   $client60=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->count();
   $chiffre60=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-2)->sum('cout');
  $total=$chiffres+$chiffre30+$chiffre60;
+ //*************Ventes et Factures
+  $facturesMois=\App\Models\Facture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
+     //facture aujourd"hui
+  $facturesJour=\App\Models\Facture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->whereDay('created_at', Carbon::now()->day)->count();
+        ////Vente(produits qui sont dans devi) 
+        $vente=\App\Models\Devi_Produit::select("produit_id,quantite")->where('produit_id','*','quantite');
+  $deviProduitMois=\App\Models\Devi_Produit::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('produit_id');
+         ///
+  $deviProduitJour=\App\Models\Devi_Produit::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->whereDay('created_at', Carbon::now()->day)->sum('produit_id');
+  
+
 @endphp
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
@@ -218,7 +229,7 @@ use Carbon\Carbon;
                 <div class="card-body">
                     <h5 class="text-muted">Les Factures d’Aujourd’hui</h5>
                     <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+                        <h1 class="mb-1">{{$facturesJour}}</h1>
                     </div>
                     <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                         <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -234,7 +245,7 @@ use Carbon\Carbon;
                 <div class="card-body">
                     <h5 class="text-muted">Les Factures de ce Mois</h5>
                     <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+                        <h1 class="mb-1">{{ $facturesMois}}</h1>
                     </div>
                     <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                         <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
