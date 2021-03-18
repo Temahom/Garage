@@ -92,137 +92,138 @@ use Carbon\Carbon;
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 row">  
     
-    <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
-        <div class="card">
-            <div class="card-body">
-                    <div id="clock"></div>
-                        <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
-            </div>           
+        <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
+            <div class="card">
+                <div class="card-body">
+                        <div id="clock"></div>
+                            <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
+                </div>           
+            </div>
         </div>
-    </div>
-    <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center; cursor: pointer;">
-        <div class="card" onclick="show('clients')">
-            <div class="card-body " ><br>
-                <div class="metric-value d-inline-block">
-                    <p>
-                        <span class="clw compteur"  style="font-weight: bold; font-size:30px;">{{\App\Models\Client::count()}}</span>
-                        <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Client::count()>1?"Clients":"Client"}}</span>
-                    </p>
+        <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center; cursor: pointer;">
+            <div class="card" onclick="show('clients')">
+                <div class="card-body " ><br>
+                    <div class="metric-value d-inline-block">
+                        <p>
+                            <span class="clw compteur"  style="font-weight: bold; font-size:30px;">{{\App\Models\Client::count()}}</span>
+                            <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Client::count()>1?"Clients":"Client"}}</span>
+                        </p>
+                    </div>
                 </div>
+                <div class="col-md-12 col-sm-12 text-center pt-6">
+                    <img style="height: 50px;width: auto;" class="" src="/assets/images/user1.png" alt="logo">
+                </div><br>
             </div>
-            <div class="col-md-12 col-sm-12 text-center pt-6">
-				<img style="height: 50px;width: auto;" class="" src="/assets/images/user1.png" alt="logo">
-			</div><br>
         </div>
-    </div>
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2" style="text-align: center; cursor: pointer;">
-        <div class="card" onclick="show('voitures')">
-            <div class="card-body " ><br>
-                <div class="metric-value d-inline-block" >
-                    <p>
-                        <span class="clw compteur1" style="font-weight: bold; font-size:30px;" >{{\App\Models\Voiture::count()}}</span>
-                        <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Voiture::count()>1?"Voitures":"Voiture"}}</span>
-                    </p>
-                </div>    
-            </div>
-            <div class="col-md-12 col-sm-12 text-center pt-6">
-				<img style="height: 50px;width: auto;" class="" src="/assets/images/car12.png" alt="logo">
-			</div><br>
-        </div>
-    </div>
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3" style="text-align: center; cursor: pointer;">
-        <div class="card" onclick="show('interventions-list')">
-            <div class="card-body " ><br>
-                <div class="metric-value d-inline-block">
-                    <p>
-                        <span class="clw compteur2" style="font-weight: bold; font-size:30px;">{{\App\Models\Intervention::count()}}</span>
-                        <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Intervention::count()>1?"Interventions":"Intervention"}}</span>
-                    </p>
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2" style="text-align: center; cursor: pointer;">
+            <div class="card" onclick="show('voitures')">
+                <div class="card-body " ><br>
+                    <div class="metric-value d-inline-block" >
+                        <p>
+                            <span class="clw compteur1" style="font-weight: bold; font-size:30px;" >{{\App\Models\Voiture::count()}}</span>
+                            <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Voiture::count()>1?"Voitures":"Voiture"}}</span>
+                        </p>
+                    </div>    
                 </div>
+                <div class="col-md-12 col-sm-12 text-center pt-6">
+                    <img style="height: 50px;width: auto;" class="" src="/assets/images/car12.png" alt="logo">
+                </div><br>
             </div>
-            <div class="col-md-12 col-sm-12 text-center pt-6">
-				<img style="height: 50px;width: auto;" class="" src="/assets/images/out1.png" alt="logo">
-			</div><br>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3" style="text-align: center; cursor: pointer;">
+            <div class="card" onclick="show('interventions-list')">
+                <div class="card-body " ><br>
+                    <div class="metric-value d-inline-block">
+                        <p>
+                            <span class="clw compteur2" style="font-weight: bold; font-size:30px;">{{\App\Models\Intervention::count()}}</span>
+                            <span class="clw" style="font-weight: bold;margin-left: 10px;font-size:20px;">{{\App\Models\Intervention::count()>1?"Interventions":"Intervention"}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 text-center pt-6">
+                    <img style="height: 50px;width: auto;" class="" src="/assets/images/out1.png" alt="logo">
+                </div><br>
+            </div>
         </div>
     </div>
-</div></div>
+</div>
 
 
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 row">  
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
 
-     <!-- ============================================================== -->
-    <!-- visitor  -->
-    <!-- ============================================================== -->
-   <!--  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-        <div class="card border-3 border-top border-top-primary">
-            <div class="card-body">
-                <h5 class="text-muted">Nombre de produit en Stock</h5>
-                <div class="metric-value d-inline-block">
-                    <h1 class="mb-1">{{ $produit_en_stock}}</h1>
-                </div>
-                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+              <!-- ============================================================== -->
+                    <!-- visitor  -->
+                    <!-- ============================================================== -->
+                <!--  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Nombre de produit en Stock</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    -->
+                    <!-- ============================================================== -->
+                    <!-- end visitor  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- sales  -->
+                    <!-- ============================================================== -->
+                <!--    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Quantité de produits en stock</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1 compteurqte">{{$produit_total}}</h1>
+                                </div>
+                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>     -->
+                    <!-- ============================================================== -->
+                    <!-- end sales  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- new customer  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>    -->
-    <!-- ============================================================== -->
-    <!-- end visitor  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- sales  -->
-    <!-- ============================================================== -->
- <!--    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-        <div class="card border-3 border-top border-top-primary">
-            <div class="card-body">
-                <h5 class="text-muted">Quantité de produits en stock</h5>
-                <div class="metric-value d-inline-block">
-                    <h1 class="mb-1 compteurqte">{{$produit_total}}</h1>
-                </div>
-                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
-                </div>
-            </div>
-        </div>
-    </div>     -->
-    <!-- ============================================================== -->
-    <!-- end sales  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- new customer  -->
-    <!-- ============================================================== -->
-     <!-- ============================================================== -->
-     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-        <div class="card border-3 border-top border-top-primary">
-            <div class="card-body">
-                <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
-                <div class="metric-value d-inline-block">
-                    <h1 class="mb-1">{{ $produit_en_stock}}</h1>
-                </div>
-                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                </div>
-            </div>
-        </div>
         </div>
         <!-- ============================================================== -->
         <!-- end visitor  -->
-    <!-- ============================================================== -->
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-        <div class="card border-3 border-top border-top-primary">
-            <div class="card-body">
-                <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
-                <div class="metric-value d-inline-block">
-                    <h1 class="mb-1">{{ $produit_en_stock}}</h1>
-                </div>
-                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+         <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- ============================================================== -->
+        <!-- ============================================================== -->
         <!-- end visitor  -->
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
@@ -240,7 +241,7 @@ use Carbon\Carbon;
         <!-- ============================================================== -->
         <!-- end visitor  -->
           <!-- end visitor  -->
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
                 <div class="card-body">
                     <h5 class="text-muted">Les Factures de ce Mois</h5>
@@ -269,83 +270,79 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- end new customer  -->
-    <!-- ============================================================== -->
-    <!-- total orders  -->
-    <!-- ============================================================== -->
-<!--    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-        <div class="card border-3 border-top border-top-primary">
-            <div class="card-body">
-                <h5 class="text-muted">Produits Restants</h5>
-                <div class="metric-value d-inline-block">
-                    <h1 class="mb-1">1340</h1>
-                </div>
-                <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-                    <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
-                </div>
-            </div>
-        </div>
-    </div>   -->
-
-
+                        <!-- ============================================================== -->
+                        <!-- end new customer  -->
+                <!-- ============================================================== -->
+                <!-- total orders  -->
+                <!-- ============================================================== -->
+            <!--    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="card border-3 border-top border-top-primary">
+                        <div class="card-body">
+                            <h5 class="text-muted">Produits Restants</h5>
+                            <div class="metric-value d-inline-block">
+                                <h1 class="mb-1">1340</h1>
+                            </div>
+                            <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
+                                <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>   -->
+    </div>
 </div>  
 
 
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 row">  
-<div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-6 mt-5">
-    <div class="card">
-        <h5 class="card-header" style="text-align: center">Tableau récaptulatif mensuel des Clients</h5>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead class="bg-light">
-                        <tr class="border-0">
-                            <th class="border-0">Vieillissement du client</th>
-                            <th class="border-0">Clients</th>
-                            <th class="border-0">Chiffre d'affaire</th>
-                            <th class="border-0">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Il y'a 0 à 30 jours</td>
-                            <td>{{$clients}} {{$clients>1?"clients":"client"}} </td>
-                            <td>{{number_format($chiffres,0, ",", " " )}} <sup>F CFA</sup></td>
-                            <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
-                        </tr>
-                        <tr>
-                            <td>Il y'a 31 à 60 jours</td>
-                            <td>{{$client30}} {{$client30>1?"clients":"client"}} </td>
-                            <td>{{number_format($chiffre30,0, ",", " " )}} <sup>F CFA</sup></td>
-                            <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
-                        </tr>
-                        <tr>
-                            <td>Il y'a 61 à 90 jours</td>
-                            <td>{{$client60}}  {{$client60>1?"clients":"client"}} </td>
-                            <td>{{number_format($chiffre60,0, ",", " " )}} <sup>F CFA</sup></td>
-                            <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
-                        </tr>
-                        
-                        <tr>
-                            <td style="font-size: 15px; font-weight: bold;" colspan="9"><span class="float-right"><strong>Totale : {{number_format($total,0, ",", " " )}}<sup> F CFA</sup></strong></span></td>
-                        </tr>
-                    </tbody>
-                </table>
-               
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+            <div class="card">
+                <h5 class="card-header" style="text-align: center">Tableau récaptulatif mensuel des Clients</h5>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-light">
+                                <tr class="border-0">
+                                    <th class="border-0">Vieillissement du client</th>
+                                    <th class="border-0">Clients</th>
+                                    <th class="border-0">Chiffre d'affaire</th>
+                                    <th class="border-0">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Il y'a 0 à 30 jours</td>
+                                    <td>{{$clients}} {{$clients>1?"clients":"client"}} </td>
+                                    <td>{{number_format($chiffres,0, ",", " " )}} <sup>F CFA</sup></td>
+                                    <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
+                                </tr>
+                                <tr>
+                                    <td>Il y'a 31 à 60 jours</td>
+                                    <td>{{$client30}} {{$client30>1?"clients":"client"}} </td>
+                                    <td>{{number_format($chiffre30,0, ",", " " )}} <sup>F CFA</sup></td>
+                                    <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
+                                </tr>
+                                <tr>
+                                    <td>Il y'a 61 à 90 jours</td>
+                                    <td>{{$client60}}  {{$client60>1?"clients":"client"}} </td>
+                                    <td>{{number_format($chiffre60,0, ",", " " )}} <sup>F CFA</sup></td>
+                                    <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="font-size: 15px; font-weight: bold;" colspan="9"><span class="float-right"><strong>Totale : {{number_format($total,0, ",", " " )}}<sup> F CFA</sup></strong></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div></div>
+        </div
+    ></div>
+</div>
  {{-- fin tableau de Vieillissment du clients --}}
 
- 
 
-
-
-
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 <script src="assets/libs/js/clock.js"></script>

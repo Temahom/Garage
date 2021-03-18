@@ -1,8 +1,5 @@
 @extends('layout.index')
-
 @section('content')
-
-
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -44,6 +41,7 @@
     
         @endif
         <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
             <div class="col-xs-12 col-sm-12 col-md-12 "><br>
               
                 <div class="card">
@@ -109,7 +107,7 @@
     </div>
     </div>
     </div>
-    </div>
+    </div></div>
     <div class="row">
 		<div class="col-md-12 mt-3 d-flex justify-content-center">
 			{!! $voitures->links() !!}

@@ -1,9 +1,9 @@
 @extends('layout.index')
 @section('content')
-    <div class="row ml-1">
-        <div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-            <div class="row">
 
+    <div class="row ml-1">
+        <div class="col-md-5 col-sm-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+            <div class="row">
                 <div class="col-md-2 col-sm-3 text-center pt-3">
                     @if ($client->genre == "homme")
                         <img style="height: 50px;width: auto;" class="" src="/assets/images/masculin.png" alt="logo">
@@ -40,8 +40,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                     </div>
                 </div>
 
@@ -52,7 +50,8 @@
   
                 
 
-<div class="row">
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
 
     <div class="col-lg-12 margin-tb">
         <div class="col-xs-12 col-sm-12 col-md-12 row">
@@ -121,7 +120,7 @@
             </div>
          </div>
            
-    </div>
+    </div></div></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
