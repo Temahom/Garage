@@ -27,6 +27,7 @@ use Carbon\Carbon;
     
         @endif
     <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
        
         @foreach ($actors as $actor)
         {{-- <div onclick="showActor({{ $actor->id }})" class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;"> --}}
@@ -101,11 +102,13 @@ use Carbon\Carbon;
                    
         @endforeach  
   
-
+    </div>
 </div>
 <div class="row">
-    <div class="col-md-12 mt-3 d-flex justify-content-center">
-        {!! $actors->links() !!}
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-md-12 mt-3 d-flex justify-content-center">
+            {!! $actors->links() !!}
+        </div>
     </div>
 </div>
 
