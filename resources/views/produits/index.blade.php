@@ -157,53 +157,55 @@ setlocale(LC_TIME, "fr_FR", "French");
 <div> <br></div>
 
 
-<div class="row">
-@foreach ($produits as $produit) 
-<div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">    
-            @if(isset($produit->image))
-                <img class="d-flex justify-content-center mt-2 " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$produit->categorie)}}" alt="Card image cap">
-            @else
-                <img class="d-flex justify-content-center mt-2 " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $produit->produit}}" alt="Card image cap">
-            @endif
-    <div class="card-body" style="justify-content: center; text-align: center;">
-            <h5 class="card-title">{{ $produit->categorie}}</h5>
-            <p class="card-text"><a style="text-decoration: none; color: #fc0505;">{{ $produit->produit}} </a><br> <span class="{{$produit->prix1 }}">Prix Unitaire: {{$produit->prix1 }}<br> Stock : {{ $produit->qte}}</span> </p>
-            <a data-toggle="modal" id="smallButton{{$produit->id}}" data-target="#smallModal{{$produit->id}}" data-attr="{{ route('produits.destroy', $produit->id) }}" title="Supprimer Produit">
-                <i class="fas fa-trash text-danger  fa-lg"></i>
-            </a>
-            <!-- small modal -->
+        <div class="row" style="justify-content: center; text-align: center;">
+            <div class="col-xs-12 col-sm-12 col-md-12 row">  
+                @foreach ($produits as $produit) 
+                    <div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">    
+                            @if(isset($produit->image))
+                                <img class="d-flex justify-content-center mt-2 " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$produit->categorie)}}" alt="Card image cap">
+                            @else
+                                <img class="d-flex justify-content-center mt-2 " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $produit->produit}}" alt="Card image cap">
+                            @endif
+                        <div class="card-body" style="justify-content: center; text-align: center;">
+                            <h5 class="card-title">{{ $produit->categorie}}</h5>
+                            <p class="card-text"><a style="text-decoration: none; color: #fc0505;">{{ $produit->produit}} </a><br> <span class="{{$produit->prix1 }}">Prix Unitaire: {{$produit->prix1 }}<br> Stock : {{ $produit->qte}}</span> </p>
+                            <a data-toggle="modal" id="smallButton{{$produit->id}}" data-target="#smallModal{{$produit->id}}" data-attr="{{ route('produits.destroy', $produit->id) }}" title="Supprimer Produit">
+                                <i class="fas fa-trash text-danger  fa-lg"></i>
+                            </a>
+                            <!-- small modal -->
 
-            <div class="modal fade" id="smallModal{{$produit->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body" id="smallBody">
-                            <form action="{{ route('produits.destroy', $produit->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <h5 class="text-center">Etes-vous sûr que vous voulez supprimer le Produit :{{ $produit->produit }} ? </h5>
+                            <div class="modal fade" id="smallModal{{$produit->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" id="smallBody">
+                                            <form action="{{ route('produits.destroy', $produit->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <h5 class="text-center">Etes-vous sûr que vous voulez supprimer le Produit :{{ $produit->produit }} ? </h5>
 
-                                <div class="modal-footer">
-                                    <button type="button"  title="reset" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                    <button type="submit"  title="delete" class="btn btn-danger">Oui,Supprimer</button>
-                                </div>
-                            </form>
-                
-                
-                        </div>
-    
-                    </div>
-                </div>   
+                                                <div class="modal-footer">
+                                                    <button type="button"  title="reset" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                    <button type="submit"  title="delete" class="btn btn-danger">Oui,Supprimer</button>
+                                                </div>
+                                            </form>
+                                
+                                
+                                        </div>
+                    
+                                    </div>
+                                </div>   
 
+                            </div>
+                        </div>     
+                    </div>             
+                @endforeach  
             </div>
-        </div>     
-    </div>             
-    @endforeach  
-</div>
+        </div>
 
 
 {!! $produits->links() !!}
