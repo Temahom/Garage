@@ -109,7 +109,7 @@
 						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->fin }}</td>
 						<td>
 							<a class="btn btn-primary  p-0 pr-2 pl-2" href="{{route('voitures.interventions.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-edit"></i></a>
-							<button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
+							<button type="button" class="btn btn-danger  p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
 								<i class="fas fa-trash"></i>
 							</button>
 
