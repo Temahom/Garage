@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Devi;
 use App\Models\Voiture;
 use App\Models\Devi_produit;
+use App\Models\Produit;
 use App\Models\Intervention;
 use App\Models\listeproduit;
 
@@ -35,8 +36,17 @@ class DeviController extends Controller
         $devi = Devi::find($intervention->devis_id);
         if($intervention->devi()->first())
         {
-            $produits = $intervention->devi()->first()->produits()->get();
-            return view('devis.create', compact('voiture', 'intervention', 'devi', 'produits'));
+            $i = 0;
+            $item_devis = [];
+            $devi_produits = $intervention->devi()->first()->devi_produits()->get();
+            foreach($devi_produits as $devi_produit)
+            {
+                $produit = Produit::find($devi_produit->produit_id);
+                $item_devis[$i]['devi_produit'] = $devi_produit;
+                $item_devis[$i]['produit'] = $produit;
+                $i++;
+            }
+            return view('devis.create', compact('voiture', 'intervention', 'devi', 'item_devis'));
         }
         return view('devis.create', compact('voiture', 'intervention'));
     }
@@ -59,14 +69,16 @@ class DeviController extends Controller
         $intervention->devis_id = $devi->id;
         $intervention->statut = 3;
         $intervention->update();
-        
-        foreach ($request->produits as $key => $produit) {
-            $devi_produit = new Devi_produit();
-            $devi_produit->devi_id = $devi->id;
-            $devi_produit->produit_id = $produit['id'];
-            $devi_produit->quantite = $produit['quantite'];
-            $devi_produit->save();
+        if ($request->produits) {
+            foreach ($request->produits as $key => $produit) {
+                $devi_produit = new Devi_produit();
+                $devi_produit->devi_id = $devi->id;
+                $devi_produit->produit_id = $produit['id'];
+                $devi_produit->quantite = $produit['quantite'];
+                $devi_produit->save();
+            }
         }
+       
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('fait','Devis créer avec succés');
     }
 
@@ -104,9 +116,26 @@ class DeviController extends Controller
     public function update(Request $request, Voiture $voiture, Intervention $intervention, Devi $devi)
     {
         $this->authorize('update', $devi);
-        $devi->update($request->all());
+        $devi->cout = $request->input('cout');
+        $devi->date_expiration = $request->input('date_expiration');
+        $devi->update();
+        $devi_produits = $devi->devi_produits()->get();
+        foreach($devi_produits as $devi_produit)
+        {
+            $devi_produit->delete();
+        }
+        if ($request->produits)
+        {
+            foreach ($request->produits as $key => $produit) {
+                $devi_produit = new Devi_produit();
+                $devi_produit->devi_id = $devi->id;
+                $devi_produit->produit_id = $produit['id'];
+                $devi_produit->quantite = $produit['quantite'];
+                $devi_produit->save();
+            }
+        }
+        
         return redirect()->route('voitures.interventions.show',['voiture' => $voiture->id, 'intervention' => $intervention->id])->with('modifier','Devis Modifier avec succées');
-    
     }
 
     /**

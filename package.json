@@ -23,6 +23,7 @@
         "fullcalendar-scheduler": "^5.5.1",
         "moderate": "^1.1.1",
         "moment": "^2.29.1",
+        "tinymce": "^5.7.0",
         "vue-full-calendar": "^2.8.1-0"
     }
 }

@@ -32,5 +32,9 @@ class Intervention extends Model
     {
         return $this->belongsTo(Facture::class);
     }
+    public function summary()
+    {
+        return $this->belongsTo(Summary::class);
+    }
    
 }

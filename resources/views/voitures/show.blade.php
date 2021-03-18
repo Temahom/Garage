@@ -33,7 +33,7 @@
 				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux / {{ $voiture->kilometrage}} km</div>		
 				<div class="text-right" style="font-size: 12px;">
 					<a class="text-primary mr-1" href="{{ route('voitures.edit',$voiture->id)}}">Modifier</a> 
-					<button type="button" class="text-danger" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
+					<button type="button" class="text-danger hide_delete" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
 						Supprimer
 					</button>
 					<div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,18 +83,25 @@
 	@endif
     <!--liste voiture--->
 	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 row"><br>
+        <div class="col-xs-12 col-sm-12 col-md-12 "><br>
           
-            <table class="table table-striped table-hover col-md-12">
-				<thead class="" style="background-color: #4656E9;">
-					<tr>
-						<th style="color: white;">Type</th>
-						<th style="color: white;">Début</th>
-						<th style="color: white;">Fin</th>
-						<th style="color: white;">Action</th>
-					</tr>
-				</thead>
-				<tbody>
+            <div class="card">
+                <!--<div class="card-header">
+                    <h3 class="mb-0 text-center">La Liste de clients</h3>
+                    {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
+                </div>-->
+                <div class="card-body">
+                    <div class="table-responsive">
+                    <table id="example4" class="table  table-striped table-bordered" style="width:100%">
+						<thead class="" style="background-color: #4656E9;">
+							<tr>
+								<th style="color: white;">Type</th>
+								<th style="color: white;">Début</th>
+								<th style="color: white;">Fin</th>
+								<th style="color: white;">Action</th>
+							</tr>
+						</thead>
+						<tbody>
 				@foreach ($interventions as $intervention)
 					<tr>
 						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;"><i class="fas fa-cog"></i> {{ $intervention->type }}</td>
@@ -102,7 +109,7 @@
 						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->fin }}</td>
 						<td>
 							<a class="btn btn-primary  p-0 pr-2 pl-2" href="{{route('voitures.interventions.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-edit"></i></a>
-							<button type="button" class="btn btn-danger  p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
+							<button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
 								<i class="fas fa-trash"></i>
 							</button>
 
@@ -130,6 +137,10 @@
 				</tbody>
 			</table>
 		</div>
+		</div>
+		</div>
+		</div>
+
 	</div>
 	<br>
 </div>
@@ -152,5 +163,6 @@
 			window.location = voiture_id + '/interventions/' + intervention_id ;
 		}
 	</script>
+
       
 @endsection

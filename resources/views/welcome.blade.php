@@ -5,7 +5,9 @@ $date = new DateTime('now', new DateTimeZone('UTC'));
 use Carbon\Carbon;
   $clients=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
   $chiffres=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('cout');
- 
+ $produit_en_stock=\App\Models\Produit::select("qte")->where('qte','>',0)->count();
+ $produit_total=\App\Models\Produit::sum("qte");
+ $prix_total_des_produits=\App\Models\Produit::sum("prix1");
   $client30=\App\Models\Client::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->count();
   $chiffre30=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month-1)->sum('cout');
  
@@ -136,6 +138,86 @@ use Carbon\Carbon;
     </div>
 </div>
 
+
+<div class="row">
+
+     <!-- ============================================================== -->
+    <!-- visitor  -->
+    <!-- ============================================================== -->
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+        <div class="card border-3 border-top border-top-primary">
+            <div class="card-body">
+                <h5 class="text-muted">Nombre de produit en Stock</h5>
+                <div class="metric-value d-inline-block">
+                    <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+                </div>
+                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end visitor  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- sales  -->
+    <!-- ============================================================== -->
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+        <div class="card border-3 border-top border-top-primary">
+            <div class="card-body">
+                <h5 class="text-muted">Quantité de produits en stock</h5>
+                <div class="metric-value d-inline-block">
+                    <h1 class="mb-1 compteurqte">{{$produit_total}}</h1>
+                </div>
+                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end sales  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- new customer  -->
+    <!-- ============================================================== -->
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+        <div class="card border-3 border-top border-top-primary">
+            <div class="card-body">
+                <h5 class="text-muted">Prix total des produits en stock</h5>
+                <div class="metric-value d-inline-block">
+                    <h1 class="mb-1">{{number_format($prix_total_des_produits,0, ",", " " )}}<sup>F CFA</sup></h1>
+                </div>
+                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end new customer  -->
+    <!-- ============================================================== -->
+   
+    <!-- ============================================================== -->
+    <!-- total orders  -->
+    <!-- ============================================================== -->
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+        <div class="card border-3 border-top border-top-primary">
+            <div class="card-body">
+                <h5 class="text-muted">Produits Restants</h5>
+                <div class="metric-value d-inline-block">
+                    <h1 class="mb-1">1340</h1>
+                </div>
+                <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
+                    <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>  
+
+
 <div class="row">
 <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-6 mt-5">
     <div class="card">
@@ -182,6 +264,9 @@ use Carbon\Carbon;
     </div>
 </div>
  {{-- fin tableau de Vieillissment du clients --}}
+
+
+
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
@@ -233,8 +318,20 @@ $({ Counter: 0 }).animate({
       }
 
 
-    });      
+    });
+    $({ Counter: 0 }).animate({
+      Counter: $('.compteurqte').text()
+    }, {
+      duration: 2000,
+      easing: 'swing',
+      step: function() {
+        $('.compteurqte').text(Math.ceil(this.Counter));
+      }
 
+
+    });
+    
+   
 </script>
 @endsection
         

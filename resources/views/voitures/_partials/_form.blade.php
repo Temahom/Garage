@@ -1,18 +1,16 @@
 
 @php
-	use App\Models\Liste;
+use App\Models\Liste;
 $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 							
 @endphp
 
-
 <div class="row">
-
   <div class="col-xs-12 col-sm-12 col-md-12 row">  
     <div class="col-xs-6 col-sm-6 col-md-6">      
       <div class="form-group">
         <strong>Proprietaire</strong>
-        <select name="client_id" class="custom-select form-control  @error('client_id') is-invalid @enderror">
+        <select name="client_id" class="custom-select form-control  @error('client_id') is-invalid @enderror js-example-basic-single" >
           @if(!empty($client->id))
             <option value="{{$client->id}}">{{$client->prenom.' '.$client->nom}}</option>
           @else   
@@ -43,7 +41,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       </div>
       <div class="form-group">
         <strong>Marque</strong>
-        <select name="marque" id="marques" class="custom-select form-control @error('marque') is-invalid @enderror">
+        <select name="marque" id="marques" class="custom-select form-control @error('marque') is-invalid @enderror js-example-basic-single">
           <option value="">Marque</option>
           @foreach ($listes as $liste)
             <option value="{{$liste->marques}}" {{ old('marque') == ($liste->marques) ? 'selected' : '' }}>{{$liste->marques}}</option>
@@ -57,7 +55,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       </div> 
       <div class="form-group">
         <strong>Modele</strong>
-        <select name="model" id="lemodel" class="custom-select form-control @error('model') is-invalid @enderror">
+        <select name="model" id="lemodel" class="custom-select form-control @error('model') is-invalid @enderror js-example-basic-single">
           <option value="">Modèle</option>
         </select>
         <div class="invalid-feedback">
@@ -68,7 +66,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       </div>
       <div class="form-group">
         <strong>Transmission</strong>
-        <select name="transmission" id="latransmission" class="custom-select form-control @error('transmission') is-invalid @enderror">
+        <select name="transmission" id="latransmission" class="custom-select form-control @error('transmission') is-invalid @enderror js-example-basic-single">
           <option value="">Transmission</option>
           <option value="Manuel" {{ old('transmission') == 'Manuel' ? 'selected' : '' }}>Manuel</option>
           <option value="Automatique" {{ old('transmission') == 'Automatique' ? 'selected' : '' }}>Automatique</option>
@@ -82,9 +80,18 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       </div>
       </div> 
       <div class="col-xs-6 col-sm-6 col-md-6">
+         <div class="form-group">
+        <strong>Kilométrage</strong>
+        <input type="number" name="kilometrage" id="lekilometrage" class="custom-select form-control @error('kilometrage') is-invalid @enderror" autocomplete="off" placeholder="Kilometrage"  value="{{ old('kilometrage') }}">
+        <div class="invalid-feedback">
+          @if($errors->has('kilometrage'))
+          {{ $errors->first('kilometrage') }}
+          @endif
+        </div>			
+      </div>
       <div class="form-group">
         <strong>Année</strong>
-        <select name="annee" id="lannee" class="custom-select form-control @error('annee') is-invalid @enderror">
+        <select name="annee" id="lannee" class="custom-select form-control @error('annee') is-invalid @enderror js-example-basic-single">
           <option value="">Année</option>
         </select>	
         <div class="invalid-feedback">
@@ -95,7 +102,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       </div> 
       <div class="form-group">
         <strong>Carburant</strong>
-        <select name="carburant" id="lecarburant" class="custom-select form-control @error('carburant') is-invalid @enderror">
+        <select name="carburant" id="lecarburant" class="custom-select form-control @error('carburant') is-invalid @enderror js-example-basic-single">
           <option value="">Carburant</option>
           <option value="Essence" {{ old('carburant') == 'Essence' ? 'selected' : '' }}>Essence</option>
           <option value="Gazoil" {{ old('carburant') == 'Gazoil' ? 'selected' : '' }}>Gazoil</option>
@@ -108,7 +115,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       </div> 
       <div class="form-group">
         <strong>Puissance</strong>
-        <select name="puissance" id="lapuissance" class="custom-select form-control @error('puissance') is-invalid @enderror">
+        <select name="puissance" id="lapuissance" class="custom-select form-control @error('puissance') is-invalid @enderror js-example-basic-single">
           <option value="">Puissance</option>
         </select>
         <div class="invalid-feedback">
@@ -118,15 +125,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
         </div>			
       </div>
       
-      <div class="form-group">
-        <strong>Kilométrage</strong>
-        <input type="number" name="kilometrage" id="lekilometrage" class="custom-select form-control @error('kilometrage') is-invalid @enderror" autocomplete="off" placeholder="Kilometrage"  value="{{ old('kilometrage') }}">
-        <div class="invalid-feedback">
-          @if($errors->has('kilometrage'))
-          {{ $errors->first('kilometrage') }}
-          @endif
-        </div>			
-      </div></div> 
+     </div> 
   </div>
 </div>
 
@@ -156,9 +155,7 @@ $(document).ready(function() {
             $('#lemodel').html(model)
           }
           });
-
 	});
-
 });
 
 
@@ -226,9 +223,10 @@ $(document).ready(function() {
 
 });
 
-
-
-
-
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+          class : "custom-select form-control"
+        });
+    });
 
 </script>

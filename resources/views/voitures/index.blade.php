@@ -16,18 +16,18 @@
                         @endcan
                      </div>
                  </div>   
-                 <div class="col-xs-3 col-sm-3 col-md-3">     
-                     <div class="form-group">
-                         <form action="{{ route('voitures.index') }}" method="GET" role="search">
-                             <div class="d-flex">
-                                 <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
-                                 <button class="btn btn-info t" type="submit" title="recherche une voiture">
-                                     <span class="fas fa-search"></span>
-                                 </button>
-                             </div>
-                         </form><br>
-                     </div>
-                 </div>   
+               <!--  <div class="col-xs-3 col-sm-3 col-md-3">     
+                        <div class="form-group">
+                            <form action="{{ route('voitures.index') }}" method="GET" role="search">
+                                <div class="d-flex">
+                                    <input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
+                                    <button class="btn btn-info t" type="submit" title="recherche une voiture">
+                                        <span class="fas fa-search"></span>
+                                    </button>
+                                </div>
+                            </form><br>
+                        </div>
+                    </div>  --> 
              </div>    
              
         </div>
@@ -43,25 +43,32 @@
             </div> 
     
         @endif
-    <div class="row">
-
-    <div class="col-xs-12 col-sm-12 col-md-12 row"><br>
-        <table class="table table-striped table-hover col-md-12">
-            <thead class="" style="background-color: #4656E9;">
-        <tr>
-            <th style="color: white;">N°</th>
-            <th style="color: white;">Matricule</th>
-            <th style="color: white;">Marque</th>
-            <th style="color: white;">Model</th>
-            <th style="color: white;">Annee</th>
-            <th style="color: white;">Carburant</th>
-            <th style="color: white;">Propriètaire</th>
-            <th style="color: white;">Enregistré par</th>
-            <th style="color: white;">Action</th>
-        </tr>
-            </thead>
-        @foreach ($voitures as $voiture)
-        <tr>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 "><br>
+              
+                <div class="card">
+                    <!--<div class="card-header">
+                        <h3 class="mb-0 text-center">La Liste de clients</h3>
+                        {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
+                    </div>-->
+                    <div class="card-body">
+                        <div class="table-responsive">
+                    <table id="example4" class="table  table-striped table-bordered" style="width:100%">
+                    <thead class="" style="background-color: #4656E9;">
+                        <tr>
+                            <th style="color: white;">N°</th>
+                            <th style="color: white;">Matricule</th>
+                            <th style="color: white;">Marque</th>
+                            <th style="color: white;">Model</th>
+                            <th style="color: white;">Annee</th>
+                            <th style="color: white;">Carburant</th>
+                            <th style="color: white;">Propriètaire</th>
+                            <th style="color: white;">Enregistré par</th>
+                            <th style="color: white;">Action</th>
+                        </tr>
+                    </thead>
+                @foreach ($voitures as $voiture)
+                <tr>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->id}}</td>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->matricule}}</td>
             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->marque}}</td>
@@ -73,7 +80,7 @@
             <td>
             {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
                     <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>
-                    <button type="button" class="btn btn-danger  p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
+                    <button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
                         <i class="fas fa-trash"></i>
                     </button> 
                     <div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,7 +90,7 @@
 									<h5>Voulez vous vraiment supprimer <strong>la {{ $voiture->marque }} de {{ $voiture->matricule }} de liste des voitures</strong>  ?</h5>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+									<button type="button" class="btn btn-secondary hide_delete" data-dismiss="modal">Annuler</button>
 									<form action="{{route('voitures.destroy',$voiture->id)}}" method="POST">
 										@csrf
 										@method('DELETE')
@@ -98,6 +105,9 @@
             
         @endforeach
     </table>
+    </div>
+    </div>
+    </div>
     </div>
     </div>
     <div class="row">

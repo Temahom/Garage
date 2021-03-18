@@ -13,6 +13,8 @@ use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\ActorController;
 use App\Http\Controllers\MailSend;
 use App\Http\Controllers\SmsController;
+use App\Http\Controllers\SummaryController;
+use App\Http\Controllers\SignaturePadController;
 //use App\Http\Controllers\EventController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\FullCalendarController;
@@ -21,8 +23,9 @@ use App\Http\Controllers\FullCalendarController;
 use Illuminate\Support\Facades\App;
 use App\Models\Voiture;
 use App\Models\Diagnostic;
-use App\Models\Product;
-use App\Models\Category;
+use App\Models\Intervention;
+use App\Models\Devi;
+use App\Models\Produit;
      
 /*
 |--------------------------------------------------------------------------
@@ -39,12 +42,24 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');  
 Route::get('send-mail',[MailSend::class,'mailsend']);
+Route::get('send-devis/{id}',[MailSend::class,'send_devis']);
 Route::get('send-message',[SmsController::class,'sendMessage']);
 Route::get('Pdf', function () {
-   
-   $commandes= \App\Models\Commande::all();
+
    
     $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
+    return $pdf->stream('Devis.pdf');
+});
+Route::get('Pdf/{id}', function ($id) {
+   $devis_id=Intervention::find($id)->devis_id;
+   $devi = Devi::find($devis_id);
+   $pdevis=$devi->produits()->get();
+   $devi_client=Intervention::find($id)->voiture->client()->first();
+
+   //dd(Intervention::find($id)->voiture->client()->get());
+  // $commandes= \App\Models\Commande::all();
+   
+    $pdf = PDF::loadView('Pdf.pdf',compact('pdevis','devi','devi_client'));    
     return $pdf->stream('Devis.pdf');
 });
 Route::get('diag-pdf/{id}',function($id){
@@ -65,6 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures',VoitureController::class);
     Route::resource('voitures.interventions',InterventionController::class);
     Route::resource('voitures.interventions.reparations',ReparationController::class);
+    Route::resource('voitures.interventions.summaries',SummaryController::class);
     Route::resource('voitures.interventions.devis',DeviController::class);
     Route::resource('commandes', CommandeController::class);
     Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
@@ -74,6 +90,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/interventions-list', [InterventionController::class, 'index']);
     Route::get('/devis-etat', [DeviController::class, 'etat']);
+
+    Route::get('signaturepad', [SignaturePadController::class, 'index']);
+    Route::post('signaturepad', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
     
     
    Route::get('/produits.creer', [ProduitController::class, 'creer']);
