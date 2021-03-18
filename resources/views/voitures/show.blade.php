@@ -93,11 +93,6 @@
 </div>
 </div>
 <div class="row">
-	<div class="col-md-12 mt-3 d-flex justify-content-center">
-		{!! $interventions->render() !!}
-	</div>
-</div>
-<div class="row">
 	<div class="col-md-12 mt-3 ml-3">
 		<a class="btn btn-secondary" href="{{ route('clients.show', ['client' => $voiture->client_id]) }}"><i class="fas fa-angle-left"></i> Retour</a>
 	</div>

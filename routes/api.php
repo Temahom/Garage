@@ -6,6 +6,7 @@ use App\Models\Liste;
 use App\Models\listeproduit;
 use App\Models\Produit;
 use App\Models\Listedefaut;
+use App\Models\Voiture;
 use App\Http\Controllers\DeviController;
 use App\Http\Controllers\CommandesApiController;
 /*
@@ -78,6 +79,12 @@ Route::get('voitures',function(){
 });
 Route::get('devis-list',[DeviController::class,'etat']);
 
+Route::get('vehicules',function(){
+    return Voiture::all();
+});
 
+Route::get('vehicule/{id}',function($id){
+    return Voiture::find($id);
+});
 
 
