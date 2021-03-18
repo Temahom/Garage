@@ -156,12 +156,14 @@ body::before {
                 <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
                 <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
                 <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Resumes/Compte-rendus</a>
-                <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>             
+                <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
+              
             </div>
           </div>
-          <div class="col-xs-10 col-sm-10 col-md-10">
+          <div class="col-xs-10 col-sm-10 col-md-10 ">
             <div class="tab-content" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">                
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                 
                 <table class="table table-borderless">
                       <thead>
                         <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
@@ -202,7 +204,9 @@ body::before {
                 </table>
               </div>
 
-            <div class="tab-pane fade" id="diagnostic" role="tabpanel" aria-labelledby="v-pills-home-diagnostic">                
+              <div class="tab-pane fade" id="diagnostic" role="tabpanel" aria-labelledby="v-pills-home-diagnostic">
+                
+                <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Dignostics <sup> <span class="badge badge-primary">{{App\Models\Diagnostic::count()}}</span></sup></span></legend>
                   <table class="table table-striped table-hover col-md-12">
                     <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
@@ -228,9 +232,10 @@ body::before {
                     </div>
                   </table>
                 </div>
-            <div class="tab-pane fade" id="devis" role="tabpanel" aria-labelledby="v-pills-home-devis">
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">   
+              </div>
+              <div class="tab-pane fade" id="devis" role="tabpanel" aria-labelledby="v-pills-home-devis">
+                
+                <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Devis <sup> <span class="badge badge-primary">{{App\Models\Devi::count()}}</span></sup></span></legend>
                   <table class="table table-striped table-hover col-md-12">
                     <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
@@ -269,11 +274,10 @@ body::before {
                       </div>
                   </table>
                 </div>
-            </div>
-          </div>
-            <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="v-pills-home-resume">              
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">  
+              </div>
+              <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="v-pills-home-resume">
+               
+                <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Compte-rendus <sup> <span class="badge badge-primary">{{App\Models\Summary::count()}}</span></sup></span></legend>
                   <table class="table table-striped table-hover col-md-12">
                     <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
@@ -302,82 +306,79 @@ body::before {
                   </table>
                 </div>
               </div>
-            </div>
               <div class="tab-pane fade" id="facture" role="tabpanel" aria-labelledby="v-pills-home-facture">
                 
                      
               </div>
               
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style="text-align: center;">
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">  
-                    <h1>Vue Proportionnelle des Activites par Rapport au Nombre D'Interventions </h1>
-                    {{-- <h2>Normal</h2>
-                    <div class="big">
-                      <div class="pie pie--value" style="--percent:35;"></div>
-                      <div class="pie pie--value" style="--percent:15;"></div>
-                      <div class="pie pie--value" style="--percent:65;"></div>
-                      <div class="pie pie--value" style="--percent:85;"></div>
-                      <div class="pie" style="--percent:40;"></div>
-                    </div>
-                    <div class="med">
-                      <div class="pie pie--value" style="--percent:35;"></div>
-                      <div class="pie pie--value" style="--percent:15;"></div>
-                      <div class="pie pie--value" style="--percent:65;"></div>
-                      <div class="pie pie--value" style="--percent:85;"></div>
-                      <div class="pie" style="--percent:40;"></div>
-                    </div>
-                    <div class="sml">
-                      <div class="pie pie--value" style="--percent:35;"></div>
-                      <div class="pie pie--value" style="--percent:15;"></div>
-                      <div class="pie pie--value" style="--percent:65;"></div>
-                      <div class="pie pie--value" style="--percent:85;"></div>
-                      <div class="pie" style="--percent:40;"></div>
-                    </div> --}}
-                    
-                    {{-- <h2>Diagramme Circulaire</h2> --}}
-                    <div class="big">
-                      <div id="diagnostic" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
-                      <div id="devis" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
-                      <div id="resume" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
-                      <div id="facture" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
-                      {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
-                    </div>
-                    {{-- <div class="med">
-                      <div class="pie pie--value pie--disc" style="--percent:35;"></div>
-                      <div class="pie pie--value pie--disc" style="--percent:15;"></div>
-                      <div class="pie pie--value pie--disc" style="--percent:65;"></div>
-                      <div class="pie pie--value pie--disc" style="--percent:85;"></div>
-                      <div class="pie pie--disc" style="--percent:40;"></div>
-                    </div> --}}
-                    {{-- <div class="sml">
-                      <div class="pie pie--value pie--disc" style="--percent:35;"></div>
-                      <div class="pie pie--value pie--disc" style="--percent:15;"></div>
-                      <div class="pie pie--value pie--disc" style="--percent:65;"></div>
-                      <div class="pie pie--value pie--disc" style="--percent:85;"></div>
-                      <div class="pie pie--disc" style="--percent:40;"></div>
-                    </div> --}}
-                    
-                    {{-- <h2>Dynamically updated (CSS custom property)</h2>
-                    <div class="big">
-                    <div class="js pie pie--value"></div>
-                    <div class="js pie pie--value pie--disc"></div>
-                    <div class="js pie"></div>
-                    <div class="js pie pie--disc"></div>
-                    </div>
-                    <div class="med">
-                    <div class="js pie pie--value"></div>
-                    <div class="js pie pie--value pie--disc"></div>
-                    <div class="js pie"></div>
-                    <div class="js pie pie--disc"></div>
-                    </div>
-                    <div class="sml">
-                    <div class="js pie pie--value"></div>
-                    <div class="js pie pie--value pie--disc"></div>
-                    <div class="js pie"></div>
-                    <div class="js pie pie--disc"></div>
-                    </div>
-                    --}}
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style="text-align: center;">
+                <h1>Vue Proportionnelle des Activites par Rapport au Nombre D'Interventions </h1>
+                {{-- <h2>Normal</h2>
+                <div class="big">
+                  <div class="pie pie--value" style="--percent:35;"></div>
+                  <div class="pie pie--value" style="--percent:15;"></div>
+                  <div class="pie pie--value" style="--percent:65;"></div>
+                  <div class="pie pie--value" style="--percent:85;"></div>
+                  <div class="pie" style="--percent:40;"></div>
+                </div>
+                <div class="med">
+                  <div class="pie pie--value" style="--percent:35;"></div>
+                  <div class="pie pie--value" style="--percent:15;"></div>
+                  <div class="pie pie--value" style="--percent:65;"></div>
+                  <div class="pie pie--value" style="--percent:85;"></div>
+                  <div class="pie" style="--percent:40;"></div>
+                </div>
+                <div class="sml">
+                  <div class="pie pie--value" style="--percent:35;"></div>
+                  <div class="pie pie--value" style="--percent:15;"></div>
+                  <div class="pie pie--value" style="--percent:65;"></div>
+                  <div class="pie pie--value" style="--percent:85;"></div>
+                  <div class="pie" style="--percent:40;"></div>
+                </div> --}}
+                
+                {{-- <h2>Diagramme Circulaire</h2> --}}
+                <div class="big">
+                  <div id="diagnostic" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
+                  <div id="devis" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
+                  <div id="resume" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
+                  <div id="facture" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
+                  {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
+                </div>
+                {{-- <div class="med">
+                  <div class="pie pie--value pie--disc" style="--percent:35;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:15;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:65;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:85;"></div>
+                  <div class="pie pie--disc" style="--percent:40;"></div>
+                </div> --}}
+                {{-- <div class="sml">
+                  <div class="pie pie--value pie--disc" style="--percent:35;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:15;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:65;"></div>
+                  <div class="pie pie--value pie--disc" style="--percent:85;"></div>
+                  <div class="pie pie--disc" style="--percent:40;"></div>
+                </div> --}}
+                
+                {{-- <h2>Dynamically updated (CSS custom property)</h2>
+                <div class="big">
+                 <div class="js pie pie--value"></div>
+                 <div class="js pie pie--value pie--disc"></div>
+                 <div class="js pie"></div>
+                 <div class="js pie pie--disc"></div>
+                </div>
+                <div class="med">
+                 <div class="js pie pie--value"></div>
+                 <div class="js pie pie--value pie--disc"></div>
+                 <div class="js pie"></div>
+                 <div class="js pie pie--disc"></div>
+                </div>
+                <div class="sml">
+                 <div class="js pie pie--value"></div>
+                 <div class="js pie pie--value pie--disc"></div>
+                 <div class="js pie"></div>
+                 <div class="js pie pie--disc"></div>
+                </div>
+                 --}}
               </div>
             </div>
           </div>
