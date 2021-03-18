@@ -143,7 +143,7 @@ use Carbon\Carbon;
      <!-- ============================================================== -->
     <!-- visitor  -->
     <!-- ============================================================== -->
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+   <!--  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
         <div class="card border-3 border-top border-top-primary">
             <div class="card-body">
                 <h5 class="text-muted">Nombre de produit en Stock</h5>
@@ -155,14 +155,14 @@ use Carbon\Carbon;
                 </div>
             </div>
         </div>
-    </div>
+    </div>    -->
     <!-- ============================================================== -->
     <!-- end visitor  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- sales  -->
     <!-- ============================================================== -->
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+ <!--    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
         <div class="card border-3 border-top border-top-primary">
             <div class="card-body">
                 <h5 class="text-muted">Quantité de produits en stock</h5>
@@ -174,34 +174,96 @@ use Carbon\Carbon;
                 </div>
             </div>
         </div>
-    </div>
+    </div>     -->
     <!-- ============================================================== -->
     <!-- end sales  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- new customer  -->
     <!-- ============================================================== -->
+     <!-- ============================================================== -->
+     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+        <div class="card border-3 border-top border-top-primary">
+            <div class="card-body">
+                <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
+                <div class="metric-value d-inline-block">
+                    <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+                </div>
+                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end visitor  -->
+    <!-- ============================================================== -->
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
         <div class="card border-3 border-top border-top-primary">
             <div class="card-body">
-                <h5 class="text-muted">Prix total des produits en stock</h5>
+                <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
                 <div class="metric-value d-inline-block">
-                    <h1 class="mb-1">{{number_format($prix_total_des_produits,0, ",", " " )}}<sup>F CFA</sup></h1>
+                    <h1 class="mb-1">{{ $produit_en_stock}}</h1>
                 </div>
                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
+                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
                 </div>
             </div>
         </div>
     </div>
     <!-- ============================================================== -->
-    <!-- end new customer  -->
-    <!-- ============================================================== -->
-   
+        <!-- end visitor  -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Factures d’Aujourd’hui</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end visitor  -->
+          <!-- end visitor  -->
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Factures de ce Mois</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end visitor  -->
+                <!-- ============================================================== -->
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                <div class="card border-3 border-top border-top-primary">
+                    <div class="card-body">
+                        <h5 class="text-muted">Prix total des produits en stock</h5>
+                        <div class="metric-value d-inline-block">
+                            <h1 class="mb-1">{{number_format($prix_total_des_produits,0, ",", " " )}}<sup>F CFA</sup></h1>
+                        </div>
+                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end new customer  -->
     <!-- ============================================================== -->
     <!-- total orders  -->
     <!-- ============================================================== -->
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+<!--    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
         <div class="card border-3 border-top border-top-primary">
             <div class="card-body">
                 <h5 class="text-muted">Produits Restants</h5>
@@ -213,8 +275,15 @@ use Carbon\Carbon;
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+    </div>   -->
+
+
+</div>  
+=======
     </div>  
 </div>  </div>
+>>>>>>> 4f44ec1a99c05961d4f8e85d3a508c05595067f0
 
 
 <div class="row">
@@ -264,6 +333,8 @@ use Carbon\Carbon;
     </div>
 </div></div>
  {{-- fin tableau de Vieillissment du clients --}}
+
+ 
 
 
 
