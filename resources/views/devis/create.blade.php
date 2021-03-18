@@ -6,8 +6,6 @@
 
 @section('content')
 
-@include('voitures._partials.carinfosup')
-
 
     <form id="formProd"
         @if (isset($item_devis))

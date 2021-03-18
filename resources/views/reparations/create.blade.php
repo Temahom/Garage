@@ -2,9 +2,6 @@
 
 @section('content')
 
-@include('voitures._partials.carinfosup')
-
-
 <br><br>
 
 
