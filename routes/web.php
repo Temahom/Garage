@@ -18,7 +18,8 @@ use App\Http\Controllers\SignaturePadController;
 //use App\Http\Controllers\EventController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\FullCalendarController;
- 
+ use App\Http\Controllers\TestController;
+
 use Illuminate\Support\Facades\App;
 use App\Models\Voiture;
 use App\Models\Diagnostic;
@@ -39,7 +40,7 @@ use App\Models\Produit;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+})->middleware('auth');  
 Route::get('send-mail',[MailSend::class,'mailsend']);
 Route::get('send-devis/{id}',[MailSend::class,'send_devis']);
 Route::get('send-message',[SmsController::class,'sendMessage']);
@@ -68,9 +69,10 @@ Route::get('diag-pdf/{id}',function($id){
     $pdf = PDF::loadView("Pdf.diagnostic",compact('diagnostic','voiture'));
     return $pdf->stream('Diagnostic.pdf');
 });
-   
-Route::middleware('auth')->group(function () {
 
+
+Route::middleware('auth')->group(function () {
+    
     Route::resource('produits',ProduitController::class);
     Route::resource('clients',ClientController::class);  
     Route::resource('clients.voitures', VoitureController::class);
@@ -95,10 +97,16 @@ Route::middleware('auth')->group(function () {
     
    Route::get('/produits.creer', [ProduitController::class, 'creer']);
 
-
     Route::get('/admin', function () {
         return view('admin.home');
     });
+           //routes
+         
+    
+   /* Route::get('/', function () {
+        return view('google_map');
+    }); */
+ 
         
      //fullcalender
     Route::get('/calendars.index', [CalendarController::class, 'index']);
@@ -129,4 +137,7 @@ Route::get('fullcalendar', [FullCalendarController::class, 'index']);
 Route::post('fullcalendarAjax', [FullCalendarController::class, 'ajax']);
 
 
+Route::get('/google_map', function () {
+    return view('google_map');
+});
 
