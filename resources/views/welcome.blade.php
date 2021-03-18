@@ -79,16 +79,14 @@ use Carbon\Carbon;
     
 </style>
 <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 row">  
     
     <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
         <div class="card">
             <div class="card-body">
                     <div id="clock"></div>
-                    <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
-                </div> 
-               
-          
-           
+                        <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
+            </div>           
         </div>
     </div>
     <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center; cursor: pointer;">
@@ -136,10 +134,11 @@ use Carbon\Carbon;
 			</div><br>
         </div>
     </div>
-</div>
+</div></div>
 
 
 <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 row">  
 
      <!-- ============================================================== -->
     <!-- visitor  -->
@@ -276,13 +275,19 @@ use Carbon\Carbon;
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </div>   -->
 
 
 </div>  
+=======
+    </div>  
+</div>  </div>
+>>>>>>> 4f44ec1a99c05961d4f8e85d3a508c05595067f0
 
 
 <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 row">  
 <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-6 mt-5">
     <div class="card">
         <h5 class="card-header" style="text-align: center">Tableau récaptulatif mensuel des Clients</h5>
@@ -326,7 +331,7 @@ use Carbon\Carbon;
             </div>
         </div>
     </div>
-</div>
+</div></div>
  {{-- fin tableau de Vieillissment du clients --}}
 
  
