@@ -147,7 +147,8 @@ body::before {
     
         @endif
 
-        <div class="row" style="margin-top: 30px">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">  
           <div class="col-xs-2 col-sm-2 col-md-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
               <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
@@ -159,7 +160,7 @@ body::before {
               
             </div>
           </div>
-          <div class="col-xs-10 col-sm-10 col-md-10">
+          <div class="col-xs-10 col-sm-10 col-md-10 ">
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                  
@@ -382,6 +383,7 @@ body::before {
             </div>
           </div>
         </div>
+      </div>
     
    
 
