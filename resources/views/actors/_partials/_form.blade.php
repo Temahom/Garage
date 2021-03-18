@@ -41,7 +41,7 @@
 
   <div class="form-group">
     <strong>Adresse Email</strong>
-    <input type="text" name="email" value="{{ isset($user) ? $user->email:''}} {{ old('email') }}" autocomplete="off" class="custom-select form-control @error('email') is-invalid @enderror" placeholder="Saisir Email...">
+    <input type="email" name="email" value="{{ isset($user) ? $user->email:''}} {{ old('email') }}" autocomplete="off" class="custom-select form-control @error('email') is-invalid @enderror" placeholder="Saisir Email...">
     <div class="invalid-feedback">
         @if($errors->has('email'))
           {{ $errors->first('email') }}
