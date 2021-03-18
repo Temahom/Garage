@@ -275,15 +275,10 @@ use Carbon\Carbon;
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
     </div>   -->
 
 
 </div>  
-=======
-    </div>  
-</div>  </div>
->>>>>>> 4f44ec1a99c05961d4f8e85d3a508c05595067f0
 
 
 <div class="row">
