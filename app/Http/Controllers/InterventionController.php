@@ -174,7 +174,7 @@ class InterventionController extends Controller
         return redirect('/voitures/'.$voiture->id.'/interventions/'.$intervention->id);
     } */
 
-    public function update(Request $request, Voiture $voiture)
+    public function update(Request $request, Voiture $voiture, Intervention $intervention)
     {  
         $request->validate([
             'type' => 'required',
@@ -182,16 +182,14 @@ class InterventionController extends Controller
             'technicien' => 'required',
         ]);
 
-        $intervention = new Intervention();
         $this->authorize($intervention);
-        $intervention->voiture_id = $voiture->id;
+
         $intervention->type = $request->input('type');
         $intervention->debut = $request->input('debut');
         $intervention->fin = $request->input('fin');
         $intervention->technicien = $request->input('technicien');
-        // dd($intervention);
-          $intervention->update(); 
-          return redirect('/voitures/'.$voiture->id);
+        $intervention->update(); 
+        return redirect('/voitures/'.$voiture->id);
     }  
     /**
      * Remove the specified resource from storage.
