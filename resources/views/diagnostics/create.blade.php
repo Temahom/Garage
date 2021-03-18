@@ -3,6 +3,7 @@
 @section('content')
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+@include('voitures._partials.carinformation')
 
 <div class="row pt-5">
     <div class="col-lg-12">

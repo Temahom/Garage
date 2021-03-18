@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('voitures._partials.carinformation')
+
 <br><br>
 
 
