@@ -43,7 +43,7 @@ class ActorController extends Controller
     {
         $data= request()->validate([
             'name'=>'required',
-            'email'=>'required',
+            'email'=>'required|unique:users',
             'role_id'=>'required',
             'image' => 'sometimes|required|max:5000',
           ]);
