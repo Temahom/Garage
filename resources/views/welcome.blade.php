@@ -19,11 +19,11 @@ use Carbon\Carbon;
      //facture aujourd"hui
   $facturesJour=\App\Models\Facture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->whereDay('created_at', Carbon::now()->day)->count();
         ////Vente(produits qui sont dans devi) 
-        $vente=\App\Models\Devi_Produit::select("produit_id,quantite")->where('produit_id','*','quantite');
-  $deviProduitMois=\App\Models\Devi_Produit::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('produit_id');
+     //   $vente=\App\Models\Devi_Produit::select("produit_id,quantite")->where('produit_id','*','quantite');
+ /* $deviProduitMois=\App\Models\Devi_Produit::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('produit_id');
          ///
   $deviProduitJour=\App\Models\Devi_Produit::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->whereDay('created_at', Carbon::now()->day)->sum('produit_id');
-  
+  */
 
 @endphp
 @section('content')

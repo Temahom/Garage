@@ -164,8 +164,8 @@
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- left sidebar -->
-        <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
+        <!-- ==============================================================//   sidebar-dark  --> 
+        <div class="nav-left-sidebar " style="background-color: #068c94;">
             <br>
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
