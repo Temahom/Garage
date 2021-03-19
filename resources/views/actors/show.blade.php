@@ -44,18 +44,29 @@ use Carbon\Carbon;
 
 <style>
   .tab-outline .nav.nav-tabs .nav-item .nav-link {
-    display: block !important;
+    display: block;
     padding: 0px !important;
-    color: #71748d !important;
-    background-color: #e9e9f2 !important;
-    border-color: #c4c4cf #c4c4cf #c4c4cf !important;
-    margin-right: 3px !important;
+    color: #71748d;
+    background-color: #e9e9f2;
+    border-color: #c4c4cf #c4c4cf #c4c4cf;
+    margin-right: 3px;
 }
+  .nav-link_1.active,
+  .nav-pills .show .nav-link{
+    background-color: gray!important;
+    color:#ffffff;
+    padding: 5px;
+    margin: 5px;
+    border-radius:0 20% 0 20%;
+    text-align: center;
+    font-size: 16px;
+  }
+
 </style>
 
                 <div class="row ml-1" style="justify-content:center;">
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-                    <div  class="card d-flex justify-content-center mr-2" style="margin-left: 35%; width: 18rem; justify-content: center; text-align: center; cursor: pointer;">
+                    <div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">
                         @if(isset($user->image))
                           <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$user->image)}}" alt="Card image cap">
                         @else
