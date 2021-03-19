@@ -45,7 +45,7 @@ use Carbon\Carbon;
 <style>
   .tab-outline .nav.nav-tabs .nav-item .nav-link {
     display: block;
-    padding: 0px !important;
+    padding: 3px !important;
     color: #71748d;
     background-color: #e9e9f2;
     border-color: #c4c4cf #c4c4cf #c4c4cf;
