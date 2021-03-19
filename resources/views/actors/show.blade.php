@@ -43,158 +43,14 @@ use Carbon\Carbon;
 @section('content')
 
 <style>
-  /* Global deco */
-
-* {
-  box-sizing: border-box;
+  .tab-outline .nav.nav-tabs .nav-item .nav-link {
+    display: block !important;
+    padding: 0px !important;
+    color: #71748d !important;
+    background-color: #e9e9f2 !important;
+    border-color: #c4c4cf #c4c4cf #c4c4cf !important;
+    margin-right: 3px !important;
 }
-
-html {
-  font-size: 62.5%;
-  font-size: calc(1em * .625);
-}
-
-body {
-  margin: 0;
-  font-size: 1.6em;
-  font-family: arial, sans-serif;
-}
-
-.main {
-  padding: 5rem 2rem;
-  background: #fff;
-}
-
-/* Global layout */
-
-.navigation {
-  background: #333;
-}
-.navigation > a {
-  display: block;
-  padding: 10px;
-  background: rgba(255,255,255,.3);
-  margin-bottom: 2px;
-  color: #fff;
-  text-decoration: none;
-}
-.navigation > a:hover,
-.navigation > a:focus,
-.navigation > a:active {
-  background: #555;
-}
-
-.nav-button {
-  display: none; /* no button by default */
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 1; /* will be above everything */
-  height: 2.4rem;
-  width: 2.8rem;
-  background-color: transparent;
-  background-image: linear-gradient(to right, currentColor, currentColor);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 5px;
-  padding: 0;
-  outline: 0;
-  border: 0;
-  color: #333;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-.nav-button::before,
-.nav-button::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0;
-  display: block;
-  height: 5px;
-  background: currentColor;
-  transition: .25s;
-  transition-property: transform, top;
-  will-change: transform, top;
-}
-.nav-button::before {
-  top: 0;
-}
-.nav-button::after {
-  top: calc(100% - 4px);
-}
-
-
-@media (max-width: 545px) {
-  .js-enabled html,
-  .js-enabled body {
-    overflow-x: hidden; /* you shall not pass! */
-  }
-  .js-enabled .nav-button {
-    display: inline-block;
-  }
-  .js-enabled .navigation {
-    position: absolute;
-    width: 60vw;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0; /* will be under everything */
-  }
-
-  /* styling opened nav */
-  .js-enabled .main {
-    position: relative;
-    transition: transform .25s;
-    will-change: transform;
-    min-height: 100vh;
-  }
-  .js-enabled .main.is-opened {
-    transform: translateX(60vw);
-  }
-}
-
-</style>
-
-<script>
-  (function() {
-
-// old browser or not ?
-if ( !('querySelector' in document && 'addEventListener' in window) ) {
-return;
-}
-window.document.documentElement.className += ' js-enabled';
-
-function toggleNav() {
-
-// Define targets
-var target = document.querySelector('.main');
-var button = document.querySelector('.nav-button');
-
-// click-touch event
-if ( button ) {
-  button.addEventListener('click', 
-  function (e) { 
-    target.classList.toggle('is-opened'); 
-    e.preventDefault();
-  }, false );
-}
-} // end toggleNav()
-
-toggleNav();
-}());
-</script>
-
-<style>
-  .nav-link_1.active,
-  .nav-pills .show>.nav-link{
-    background-color: gray!important;x
-    color:#ffffff;
-    padding: 10px;
-    margin: 10px;
-    border-radius:0 20% 0 20%;
-    text-align: center;
-    font-size: 16px;
-  }
 </style>
 
                 <div class="row ml-1" style="justify-content:center;">
@@ -215,48 +71,24 @@ toggleNav();
                   </div>
                 </div> 
         
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 row">
-            <div class="tab-outline">
-              <ul class="nav nav-tabs" id="myTab2" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link nav-link_1 active" id="v-pills" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link nav-link_1" id="v-pills" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>             
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      
-              
-        <!--  <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" content="width=device-width;">
-            <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
-            <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>
-          </nav>
-              <div class="pos-f-t">
-                <nav class="navbar navbar-dark bg-dark">
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                </nav>
-                <div class="collapse" id="navbarToggleExternalContent">
-                  <div class="bg-dark p-4">
-                    <h4 class="text-white">Détails</h4>
-                    <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" content="width=device-width;">
-                      <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
-                      <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>
-                    </nav>
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="tab-outline">
+                      <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link nav-link_1 active" id="v-pills" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link nav-link_1" id="v-pills" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>             
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>-->
+                
                   <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <div class="card">
-                        <!--  <div class="titre" style="text-align: center;">                           
-                              <h3><mark style=" background-color:#4656E990; color: white; padding: 8px">Historique Activité</mark></h3>
-                          </div>-->
                           <div class="card-body">
                               <div class="table-responsive">
                                   <table class="table  table-striped table-bordered">
@@ -335,7 +167,7 @@ toggleNav();
                             
                                 <div class="card-body">
                                   <div class="table-responsive">
-                                    <table id="example4" class="table  table-striped table-bordered" style="width:98%">
+                                    <table id="example4" class="table  table-striped table-bordered" style="width:100%">
                                           <thead class="" style="background-color: #4656E9;">
                                               @if ($role->id != 3 )
                                                 <tr>
