@@ -217,7 +217,7 @@ toggleNav();
         
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 row">
-            <div class="tab-outline" style="margin-left: 2%">
+            <div class="tab-outline">
               <ul class="nav nav-tabs" id="myTab2" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link nav-link_1 active" id="v-pills" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
