@@ -63,7 +63,8 @@ use Carbon\Carbon;
   }
 
 </style>
-
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="row ml-1" style="justify-content:center;">
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
                     <div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">
@@ -231,7 +232,8 @@ use Carbon\Carbon;
                       </div>
            
 
-
+  </div>
+</div>
         
                   {{-- <div class="row">
                     <div class="col-md-12 mt-3 d-flex justify-content-center">
