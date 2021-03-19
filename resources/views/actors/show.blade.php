@@ -71,59 +71,72 @@ use Carbon\Carbon;
             </div>
         </div> 
         
-        <div class="row">
-          <div class="col-2">
-            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statisque Taches</a>
-              <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>
-            </div>
-          </div>
-          <div class="col-10">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">  
+              <div class="pos-f-t">
+                <div class="collapse" id="navbarToggleExternalContent">
+                  <div class="bg-dark p-4">
+                    <h4 class="text-white">Collapsed content</h4>
+                    <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" content="width=device-width;">
+                      <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
+                      <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>
+                    </nav>
+                  </div>
+                </div>
+                <nav class="navbar navbar-dark bg-dark">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </nav>
+              </div>
+          <div class="col-xs-10 col-sm-10 col-md-10" style="width: 100%">
             <div class="tab-content" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <div class="card">
-                          <h5 class="card-header" style="text-align: center">Historique Activité</h5>
-                          <div class="card-body p-0">
+                          <div class="titre" style="text-align: center;">                           
+                              <h3><mark style=" background-color:#4656E990; color: white; padding: 8px">Historique Activité</mark></h3>
+                          </div>
+                          <div class="card-body">
                               <div class="table-responsive">
-                                  <table class="table">
-                                      <thead class="bg-light">
-                                    @if($user->id == 3)
-                                          <tr class="border-0">
-                                              <th class="border-0">Periodes</th>
-                                              <th class="border-0">Taches Achevées</th>
-                                              <th class="border-0">Taches Innachevées</th>
-                                              <th class="border-0">Score</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                          <tr>
-                                              <td>Il y'a 0 à 30 jours</td>
-                                              <td>{{$interventionsAchevee}} {{$interventionsAchevee>1?"taches":"tache"}} </td>
-                                              <td>{{$interventionsInachevee}} {{$interventionsInachevee>1?"taches":"tache"}}</td>
-                                              <td>{{$score}} %</td>
-                                          </tr>
-                                          <tr>
-                                              <td>Il y'a 2mois</td>
-                                              <td>{{$interventionsAchevee2}} {{$interventionsAchevee2>1?"taches":"tache"}} </td>
-                                              <td>{{$interventionsInachevee2}} {{$interventionsInachevee2>1?"taches":"tache"}}</td>
-                                              <td>{{$score2}} %</td>
-                                          </tr>
-                                          <tr>
-                                              <td>Il y'a 3mois</td>
-                                              <td>{{$interventionsAchevee3}} {{$interventionsAchevee3>1?"taches":"tache"}} </td>
-                                              <td>{{$interventionsInachevee3}} {{$interventionsInachevee3>1?"taches":"tache"}}</td>
-                                              <td>{{$score3}} %</td>
-                                          </tr>
-                                          {{-- <tr>
-                                              <td style="font-size: 15px; font-weight: bold;" colspan="9"><span class="float-right"><strong>Score Global: {{($score+$score2+$score3)/3}} %</strong></span></td>
-                                          </tr> --}}
-                                        @else
-                                        <tr class="border-0">
-                                          <th class="border-0">Periodes</th>
-                                          <th class="border-0">Nombre de Clients Enregistrés</th>
-                                          <th class="border-0">Nombres de Voitures Enrisgistrées</th>
-                                          <th class="border-0">Nombre de travaux assignés</th>
-                                      </tr>
+                                  <table class="table  table-striped table-bordered" style="width:100%">
+                                      <thead class="" style="background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                                          @if($user->id == 3)
+                                                <tr> 
+                                                    <th style="color: white;">Periodes</th>
+                                                    <th style="color: white;">Taches Achevées</th>
+                                                    <th style="color: white;">Taches Innachevées</th>
+                                                    <th style="color: white;">Score</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Il y'a 0 à 30 jours</td>
+                                                    <td>{{$interventionsAchevee}} {{$interventionsAchevee>1?"taches":"tache"}} </td>
+                                                    <td>{{$interventionsInachevee}} {{$interventionsInachevee>1?"taches":"tache"}}</td>
+                                                    <td>{{$score}} %</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Il y'a 2mois</td>
+                                                    <td>{{$interventionsAchevee2}} {{$interventionsAchevee2>1?"taches":"tache"}} </td>
+                                                    <td>{{$interventionsInachevee2}} {{$interventionsInachevee2>1?"taches":"tache"}}</td>
+                                                    <td>{{$score2}} %</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Il y'a 3mois</td>
+                                                    <td>{{$interventionsAchevee3}} {{$interventionsAchevee3>1?"taches":"tache"}} </td>
+                                                    <td>{{$interventionsInachevee3}} {{$interventionsInachevee3>1?"taches":"tache"}}</td>
+                                                    <td>{{$score3}} %</td>
+                                                </tr>
+                                                {{-- <tr>
+                                                    <td style="font-size: 15px; font-weight: bold;" colspan="9"><span class="float-right"><strong>Score Global: {{($score+$score2+$score3)/3}} %</strong></span></td>
+                                                </tr> --}}
+                                              @else
+                                              <tr class="border-0">
+                                                <th class="border-0" style="color: white;">Periodes</th>
+                                                <th class="border-0" style="color: white;">Nombre de Clients Enregistrés</th>
+                                                <th class="border-0" style="color: white;">Nombres de Voitures Enrisgistrées</th>
+                                                <th class="border-0" style="color: white;">Nombre de travaux assignés</th>
+                                              </tr>
                                   </thead>
                                   <tbody>
                                       <tr>
@@ -151,66 +164,64 @@ use Carbon\Carbon;
                               </div>
                           </div>
                       </div>
-                  
-
-              </div>
-              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                
-                  <div class="pull-right py-3">
-                     <caption>Liste Operations</caption>
-                   </div>
-                   <table class="table table-striped table-hover">
-                       <thead class="" style="background-color: #4656E9;">
-                        @if ($role->id != 3 )
-                          <tr>
-                              <td style="color:#ffffff">Type</td>
-                              <td style="color:#ffffff">Constat</td>
-                              <td style="color:#ffffff">Voiture</td>
-                              <td style="color:#ffffff">Date Operation</td>
-                              <td style="color:#ffffff">Chargé d'Operation</td>
-                          </tr> 
-                         @else
-                          <tr>
-                            <td style="color:#ffffff">Tache</td>
-                            <td style="color:#ffffff">Diagnostic</td>
-                            <td style="color:#ffffff">Devis</td>
-                            <td style="color:#ffffff">Reparation</td>
-                            <td style="color:#ffffff">Date Attribution</td>
-                            <td style="color:#ffffff">Voiture</td>
-                            <td style="color:#ffffff">Attribué par</td>
-                          </tr>
-                       @endif
-                       </thead>
-                       @if ($role->id != 3 )
-                        @foreach ($interventions_manager as $intervention)
-                          <tr>
-                              <td>{{$intervention->type}}</td>
-                              <td>{{isset($intervention->diagnostic)?$intervention->diagnostic->first()->constat:''}}</td>
-                              <td title="{{$intervention->voiture()->first()->marque}} {{$intervention->voiture()->first()->model}}">{{$intervention->voiture()->first()->matricule}}</td>
-                              <td>{{$intervention->debut}}</td>
-                              <td>{{App\Models\User::find($intervention->technicien)->name}}</td>
-                          </tr>   
-                         @endforeach 
-                         @else
-                         @foreach ($interventions_technicien as $intervention)
-                          <tr>
-                            <td>{{$intervention->type}}</td>
-                            <td>{{isset($intervention->diagnostic)?$intervention->diagnostic->first()->constat:'en attente'}} </td>
-                            <td>{{isset($intervention->devi)?$intervention->devi->first()->cout:'en attente'}}</td>
-                            <td>{{isset($intervention->reparation)?$intervention->reparation->first()->element_3:'en attente'}}</td>
-                            <td>{{$intervention->debut}}</td>
-                            <td>{{$intervention->voiture()->first()->matricule}}</td>
-                            <td>{{$intervention->user()->first()->name}}</td>
-                          </tr>
-                         @endforeach
-                         
-                       @endif
-                   </table>
-               
-              </div>
-            </div>
-          </div>
-        </div>
+                    </div>
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">               
+                          <div class="card">
+                            <div class="titre" style="text-align: center;">                           
+                                <h3><mark style=" background-color:#4656E990; color: white; padding: 8px">Liste Opérations</mark></h3>
+                            </div>
+                                <div class="card-body">
+                                  <div class="table-responsive">
+                                    <table id="example4" class="table  table-striped table-bordered" style="width:100%">
+                                          <thead class="" style="background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                                              @if ($role->id != 3 )
+                                                <tr>
+                                                    <td style="color:#ffffff">Type</td>
+                                                    <td style="color:#ffffff">Constat</td>
+                                                    <td style="color:#ffffff">Voiture</td>
+                                                    <td style="color:#ffffff">Date Operation</td>
+                                                    <td style="color:#ffffff">Chargé d'Operation</td>
+                                                </tr> 
+                                              @else
+                                                <tr>
+                                                  <td style="color:#ffffff">Tache</td>
+                                                  <td style="color:#ffffff">Diagnostic</td>
+                                                  <td style="color:#ffffff">Devis</td>
+                                                  <td style="color:#ffffff">Reparation</td>
+                                                  <td style="color:#ffffff">Date Attribution</td>
+                                                  <td style="color:#ffffff">Voiture</td>
+                                                  <td style="color:#ffffff">Attribué par</td>
+                                                </tr>
+                                            @endif
+                                          </thead>
+                                            @if ($role->id != 3 )
+                                              @foreach ($interventions_manager as $intervention)
+                                                <tr>
+                                                    <td>{{$intervention->type}}</td>
+                                                    <td>{{isset($intervention->diagnostic)?$intervention->diagnostic->first()->constat:''}}</td>
+                                                    <td title="{{$intervention->voiture()->first()->marque}} {{$intervention->voiture()->first()->model}}">{{$intervention->voiture()->first()->matricule}}</td>
+                                                    <td>{{$intervention->debut}}</td>
+                                                    <td>{{App\Models\User::find($intervention->technicien)->name}}</td>
+                                                </tr>   
+                                              @endforeach 
+                                              @else
+                                              @foreach ($interventions_technicien as $intervention)
+                                                <tr>
+                                                  <td>{{$intervention->type}}</td>
+                                                  <td>{{isset($intervention->diagnostic)?$intervention->diagnostic->first()->constat:'en attente'}} </td>
+                                                  <td>{{isset($intervention->devi)?$intervention->devi->first()->cout:'en attente'}}</td>
+                                                  <td>{{isset($intervention->reparation)?$intervention->reparation->first()->element_3:'en attente'}}</td>
+                                                  <td>{{$intervention->debut}}</td>
+                                                  <td>{{$intervention->voiture()->first()->matricule}}</td>
+                                                  <td>{{$intervention->user()->first()->name}}</td>
+                                                </tr>
+                                              @endforeach
+                                            @endif
+                                    </table>              
+                                </div>
+                            </div>
+                          </div>
+                        </div>
 
 
         
@@ -228,5 +239,6 @@ use Carbon\Carbon;
      </div>
 
     </div>
+      </div>
 
 @endsection    
