@@ -10,6 +10,8 @@
         </div>
     </div>
 
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 row">  
     <div class="row ml-1">
         <div class="col-md-7 pt-3"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
             <div class="row">
@@ -121,5 +123,7 @@
           </div>
         </div>
       </div>
+  </div>
+</div>
     
 @endsection

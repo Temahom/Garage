@@ -169,3 +169,13 @@ setlocale(LC_TIME, "fr_FR", "French");
 
 
 @endsection
+
+
+
+        <!-- ============================================================== 
+////Vente(produits qui sont dans devi) 
+/*     $vente=\App\Models\Devi_produit::select("produit_id,quantite")->where('produit_id','*','quantite');
+$deviProduitMois=\App\Models\Devi_produit::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('produit_id');
+      ///
+$deviProduitJour=\App\Models\Devi_produit::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->whereDay('created_at', Carbon::now()->day)->sum('produit_id');
+-->

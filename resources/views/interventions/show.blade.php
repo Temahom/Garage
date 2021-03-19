@@ -64,12 +64,12 @@
 						<div class="row mt-4">
 							<div class="col-md-12">
 								<table class="table table-bordered">
-									<thead>
+									<thead style="background-color: #4656E9;">
 									<tr>
-										<th scope="col">Code</th>
-										<th scope="col">Localisaton</th>
-										<th scope="col">Déscription</th>
-										<th scope="col">Etat</th>
+										<th scope="col" style="color: #ffffff">Code</th>
+										<th scope="col" style="color: #ffffff">Localisaton</th>
+										<th scope="col" style="color: #ffffff">Déscription</th>
+										<th scope="col" style="color: #ffffff">Etat</th>
 									</tr>
 									</thead>
 									<tbody>
@@ -137,12 +137,12 @@
 								</table>
 
 								<table class="table table-bordered">
-									<thead>
+									<thead style="background-color: #4656E9;">
 										<tr>
-											<th scope="col">Produit</th>
-											<th scope="col">Quantité</th>
-											<th scope="col">Prix/1</th>
-											<th scope="col" style="width: 200px">Total</th>
+											<th scope="col" style="color: #ffffff">Produit</th>
+											<th scope="col" style="color: #ffffff">Quantité</th>
+											<th scope="col" style="color: #ffffff">Prix/1</th>
+											<th scope="col" style="color: #ffffff; width: 200px">Total</th>
 										</tr>
 									</thead>
 									<tbody>
