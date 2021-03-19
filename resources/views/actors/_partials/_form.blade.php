@@ -33,10 +33,10 @@
     <strong>Prenom | Nom</strong>
     <input type="text" name="name" value="{{ isset($user) ? $user->name:''}} {{ old('name') }}" autocomplete="off" class="custom-select form-control @error('name') is-invalid @enderror" placeholder="Saisir Prenom | Nom..." >
     <div class="invalid-feedback">
-        @if($errors->has('name'))
-          {{ $errors->first('name') }}
-        @endif
-      </div>
+      @if($errors->has('name'))
+        Le champs est obligatoire.
+      @endif
+    </div>
   </div>
 
   <div class="form-group">
