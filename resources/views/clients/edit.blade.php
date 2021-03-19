@@ -10,12 +10,14 @@
     </div>
    
   
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
     <form action="{{ route('clients.update',$client->id) }}" method="POST">
         @csrf
         @method('PUT')
    
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Prénoms:</strong>
                     <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" value="{{ $client->prenom }}" placeholder="Prenoms" >
@@ -85,4 +87,5 @@
 
         </div>
     </form>
+    </div></div>
 @endsection
