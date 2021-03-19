@@ -214,17 +214,18 @@ toggleNav();
             </div>
         </div> 
         
-     
+        <div class="tab-outline">
+          <ul class="nav nav-tabs" id="myTab2" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link nav-link_1 active" id="v-pills" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link_1" id="v-pills" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>             
+            </li>
+          </ul>
+        </div>
       
-                <nav id="navigation" role="navigation" class="navigation nav flex-column nav-pills" role="tablist" aria-orientation="vertical" style="width: 30% !important">
-                  <a class="nav-link nav-link_1 active" id="v-pills" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
-                  <a class="nav-link nav-link_1" id="v-pills" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>                 
-                </nav>                
-                <div class="main" role="main">
-                  <button class="nav-button" role="button" type="button" aria-label="navigation"></button>
-              </div>
-    
-          
+              
         <!--  <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" content="width=device-width;">
             <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
             <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>
@@ -245,17 +246,17 @@ toggleNav();
                   </div>
                 </div>
               </div>-->
-          <div class="col-xs-10 col-sm-10 col-md-10" style="marg">
+          <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <div class="card">
-                          <div class="titre" style="text-align: center;">                           
+                        <!--  <div class="titre" style="text-align: center;">                           
                               <h3><mark style=" background-color:#4656E990; color: white; padding: 8px">Historique Activité</mark></h3>
-                          </div>
+                          </div>-->
                           <div class="card-body">
                               <div class="table-responsive">
                                   <table class="table  table-striped table-bordered" style="width:100%">
-                                      <thead class="" style="background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                                      <thead class="" style="background-color: #4656E9;">
                                           @if($user->id == 3)
                                                 <tr> 
                                                     <th style="color: white;">Periodes</th>
@@ -323,13 +324,13 @@ toggleNav();
                     </div>
                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">               
                           <div class="card">
-                            <div class="titre" style="text-align: center;">                           
+                            <!--<div class="titre" style="text-align: center;">                           
                                 <h3><mark style=" background-color:#4656E990; color: white; padding: 8px">Liste Opérations</mark></h3>
-                            </div>
+                            </div>-->
                                 <div class="card-body">
                                   <div class="table-responsive">
                                     <table id="example4" class="table  table-striped table-bordered" style="width:100%">
-                                          <thead class="" style="background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+                                          <thead class="" style="background-color: #4656E9;">
                                               @if ($role->id != 3 )
                                                 <tr>
                                                     <td style="color:#ffffff">Type</td>

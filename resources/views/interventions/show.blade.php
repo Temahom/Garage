@@ -18,7 +18,7 @@
 <!-- ============================================================== -->
 <!-- TAB INTERVENTION  -->
 <!-- ============================================================== -->
-<div class="row" style="border: 1px solid #aaa; width: 99%; background-color: white; margin-top: 20px;box-shadow: 0 10px 20px rgba(148,149,150,0.19), 0 6px 6px rgba(148,149,150,0.23); ">
+<div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px;box-shadow: 0 10px 20px rgba(148,149,150,0.19), 0 6px 6px rgba(148,149,150,0.23); ">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
 		<div class="section-block">
 			<h2 class="section-title py-4" style="text-align: center;">INTERVENTION</h2>
@@ -66,10 +66,10 @@
 								<table class="table table-bordered">
 									<thead style="background-color: #4656E9;">
 									<tr>
-										<th scope="col" style="color:#ffffff">Code</th>
-										<th scope="col" style="color:#ffffff">Localisaton</th>
-										<th scope="col" style="color:#ffffff">Déscription</th>
-										<th scope="col" style="color:#ffffff">Etat</th>
+										<th scope="col" style="color: #ffffff">Code</th>
+										<th scope="col" style="color: #ffffff">Localisaton</th>
+										<th scope="col" style="color: #ffffff">Déscription</th>
+										<th scope="col" style="color: #ffffff">Etat</th>
 									</tr>
 									</thead>
 									<tbody>
@@ -139,10 +139,10 @@
 								<table class="table table-bordered">
 									<thead style="background-color: #4656E9;">
 										<tr>
-											<th scope="col" style="color: #ffff;">Produit</th>
-											<th scope="col" style="color: #ffff;">Quantité</th>
-											<th scope="col" style="color: #ffff;">Prix/1</th>
-											<th scope="col" style="color: #ffff; width: 200px">Total</th>
+											<th scope="col" style="color: #ffffff">Produit</th>
+											<th scope="col" style="color: #ffffff">Quantité</th>
+											<th scope="col" style="color: #ffffff">Prix/1</th>
+											<th scope="col" style="color: #ffffff; width: 200px">Total</th>
 										</tr>
 									</thead>
 									<tbody>
