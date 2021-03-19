@@ -43,6 +43,148 @@ use Carbon\Carbon;
 @section('content')
 
 <style>
+  /* Global deco */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-size: calc(1em * .625);
+}
+
+body {
+  margin: 0;
+  font-size: 1.6em;
+  font-family: arial, sans-serif;
+}
+
+.main {
+  padding: 5rem 2rem;
+  background: #fff;
+}
+
+/* Global layout */
+
+.navigation {
+  background: #333;
+}
+.navigation > a {
+  display: block;
+  padding: 10px;
+  background: rgba(255,255,255,.3);
+  margin-bottom: 2px;
+  color: #fff;
+  text-decoration: none;
+}
+.navigation > a:hover,
+.navigation > a:focus,
+.navigation > a:active {
+  background: #555;
+}
+
+.nav-button {
+  display: none; /* no button by default */
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1; /* will be above everything */
+  height: 2.4rem;
+  width: 2.8rem;
+  background-color: transparent;
+  background-image: linear-gradient(to right, currentColor, currentColor);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 5px;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  color: #333;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-button::before,
+.nav-button::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  display: block;
+  height: 5px;
+  background: currentColor;
+  transition: .25s;
+  transition-property: transform, top;
+  will-change: transform, top;
+}
+.nav-button::before {
+  top: 0;
+}
+.nav-button::after {
+  top: calc(100% - 4px);
+}
+
+
+@media (max-width: 545px) {
+  .js-enabled html,
+  .js-enabled body {
+    overflow-x: hidden; /* you shall not pass! */
+  }
+  .js-enabled .nav-button {
+    display: inline-block;
+  }
+  .js-enabled .navigation {
+    position: absolute;
+    width: 60vw;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0; /* will be under everything */
+  }
+
+  /* styling opened nav */
+  .js-enabled .main {
+    position: relative;
+    transition: transform .25s;
+    will-change: transform;
+    min-height: 100vh;
+  }
+  .js-enabled .main.is-opened {
+    transform: translateX(60vw);
+  }
+}
+
+</style>
+
+<script>
+  (function() {
+
+// old browser or not ?
+if ( !('querySelector' in document && 'addEventListener' in window) ) {
+return;
+}
+window.document.documentElement.className += ' js-enabled';
+
+function toggleNav() {
+
+// Define targets
+var target = document.querySelector('.main');
+var button = document.querySelector('.nav-button');
+
+// click-touch event
+if ( button ) {
+  button.addEventListener('click', 
+  function (e) { 
+    target.classList.toggle('is-opened'); 
+    e.preventDefault();
+  }, false );
+}
+} // end toggleNav()
+
+toggleNav();
+}());
+</script>
+
+<style>
   .nav-link_1.active,
   .nav-pills .show>.nav-link{
     background-color: gray!important;
@@ -74,35 +216,16 @@ use Carbon\Carbon;
         
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row"> 
-          <div class="col-xs-2 col-sm-2 col-md-2">
-            <div class="nav-left-sidebar sidebar-dark" style="height: 25% !important">
-              <div class="menu-list">
-                  <nav class="navbar navbar-expand-lg navbar-light">
-                      <div class="collapse navbar-collapse" id="navbarNav">
-                          <ul class="navbar-nav flex-column">
-                              <li class="nav-divider" style="font-size: 25px">
-                                Menu
-                              </li><br>
-
-                              <li class="nav-item ">
-                                  <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success">6</span></a>
-                                  <div id="submenu-client" class="collapse submenu">
-                                      <ul class="nav flex-column">
-                                          <li class="nav-item">
-                                              <a class="nav-link" href="/clients">Liste Clients</a>
-                                          </li>
-                                          <li class="nav-item">
-                                              <a class="nav-link" href="/clients/create">Ajouter Client</a>
-                                          </li>
-                                      </ul>    
-                                  </div>
-                              </li> 
-                          </ul>
-                      </div>
-                  </nav>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <nav id="navigation" role="navigation" class="navigation nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                  <a class="nav-link nav-link_1 active" id="v-pills" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
+                  <a class="nav-link nav-link_1" id="v-pills" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>                 
+                </nav>                
+                <div class="main" role="main">
+                  <button class="nav-button" role="button" type="button" aria-label="navigation"></button>
               </div>
             </div>
-          </div>
+          
         <!--  <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" content="width=device-width;">
             <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
             <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>
@@ -123,7 +246,7 @@ use Carbon\Carbon;
                   </div>
                 </div>
               </div>-->
-          <div class="col-xs-10 col-sm-10 col-md-10">
+          <div class="col-xs-8 col-sm-8 col-md-8">
             <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <div class="card">
