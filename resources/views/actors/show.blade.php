@@ -45,7 +45,7 @@ use Carbon\Carbon;
 <style>
   .nav-link_1.active,
   .nav-pills .show>.nav-link{
-    background-color:#4656E9!important;
+    background-color: gray!important;
     color:#ffffff;
     padding: 10px;
     margin: 10px;
@@ -54,6 +54,7 @@ use Carbon\Carbon;
     font-size: 16px;
   }
 </style>
+
     <div class="row ml-1" style="justify-content:center;">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
                     <div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">
@@ -72,24 +73,57 @@ use Carbon\Carbon;
         </div> 
         
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xs-12 col-sm-12 col-md-12 row"> 
+          <div class="col-xs-2 col-sm-2 col-md-2">
+            <div class="nav-left-sidebar sidebar-dark" style="height: 25% !important">
+              <div class="menu-list">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                      <div class="collapse navbar-collapse" id="navbarNav">
+                          <ul class="navbar-nav flex-column">
+                              <li class="nav-divider" style="font-size: 25px">
+                                Menu
+                              </li><br>
+
+                              <li class="nav-item ">
+                                  <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success">6</span></a>
+                                  <div id="submenu-client" class="collapse submenu">
+                                      <ul class="nav flex-column">
+                                          <li class="nav-item">
+                                              <a class="nav-link" href="/clients">Liste Clients</a>
+                                          </li>
+                                          <li class="nav-item">
+                                              <a class="nav-link" href="/clients/create">Ajouter Client</a>
+                                          </li>
+                                      </ul>    
+                                  </div>
+                              </li> 
+                          </ul>
+                      </div>
+                  </nav>
+              </div>
+            </div>
+          </div>
+        <!--  <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" content="width=device-width;">
+            <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
+            <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>
+          </nav>
               <div class="pos-f-t">
+                <nav class="navbar navbar-dark bg-dark">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </nav>
                 <div class="collapse" id="navbarToggleExternalContent">
                   <div class="bg-dark p-4">
-                    <h4 class="text-white">Collapsed content</h4>
+                    <h4 class="text-white">Détails</h4>
                     <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" content="width=device-width;">
                       <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
                       <a class="nav-link_1" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>
                     </nav>
                   </div>
                 </div>
-                <nav class="navbar navbar-dark bg-dark">
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                </nav>
-              </div>
-          <div class="col-xs-10 col-sm-10 col-md-10" style="width: 100%">
+              </div>-->
+          <div class="col-xs-10 col-sm-10 col-md-10">
             <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <div class="card">
