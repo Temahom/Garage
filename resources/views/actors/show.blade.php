@@ -88,7 +88,7 @@ use Carbon\Carbon;
                           </div>
                           <div class="card-body">
                               <div class="table-responsive">
-                                  <table id="example4" class="table  table-striped table-bordered" style="width:100%">
+                                  <table class="table  table-striped table-bordered" style="width:100%">
                                       <thead class="" style="background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
                                           @if($user->id == 3)
                                                 <tr> 
