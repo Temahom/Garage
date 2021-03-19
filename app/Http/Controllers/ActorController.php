@@ -112,7 +112,7 @@ class ActorController extends Controller
         
         $data= request()->validate([
             'name'=>'required',
-            'email'=>['required', Rule::unique('voitures')->ignore($user->id)],
+            'email'=>['required', Rule::unique('users')->ignore($user->id)],
             'role_id'=>'required',
           ]);
           $password=bcrypt(12345678);
