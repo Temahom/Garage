@@ -73,7 +73,6 @@ use Carbon\Carbon;
         
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row">  
-            <div class="col-2">
               <div class="pos-f-t">
                 <div class="collapse" id="navbarToggleExternalContent">
                   <div class="bg-dark p-4">
@@ -90,8 +89,7 @@ use Carbon\Carbon;
                   </button>
                 </nav>
               </div>
-            </div>
-          <div class="col-10">
+          <div class="col-xs-10 col-sm-10 col-md-10" style="width: 100%">
             <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <div class="card">
