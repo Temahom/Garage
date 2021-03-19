@@ -214,17 +214,16 @@ toggleNav();
             </div>
         </div> 
         
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row"> 
-            <div class="col-xs-4 col-sm-4 col-md-4">
-                <nav id="navigation" role="navigation" class="navigation nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+     
+      
+                <nav id="navigation" role="navigation" class="navigation nav flex-column nav-pills" role="tablist" aria-orientation="vertical" style="width: 30% !important">
                   <a class="nav-link nav-link_1 active" id="v-pills" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
                   <a class="nav-link nav-link_1" id="v-pills" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>                 
                 </nav>                
                 <div class="main" role="main">
                   <button class="nav-button" role="button" type="button" aria-label="navigation"></button>
               </div>
-            </div>
+    
           
         <!--  <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" content="width=device-width;">
             <a class="nav-link_1 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
@@ -246,7 +245,7 @@ toggleNav();
                   </div>
                 </div>
               </div>-->
-          <div class="col-xs-8 col-sm-8 col-md-8">
+          <div class="col-xs-10 col-sm-10 col-md-10" style="marg">
             <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <div class="card">
