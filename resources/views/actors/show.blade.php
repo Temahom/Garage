@@ -187,7 +187,7 @@ toggleNav();
 <style>
   .nav-link_1.active,
   .nav-pills .show>.nav-link{
-    background-color: gray!important;
+    background-color: gray!important;x
     color:#ffffff;
     padding: 10px;
     margin: 10px;
@@ -197,9 +197,9 @@ toggleNav();
   }
 </style>
 
-    <div class="row ml-1" style="justify-content:center;">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-                    <div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">
+                <div class="row ml-1" style="justify-content:center;">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+                    <div  class="card d-flex justify-content-center mr-2" style="margin-left: 35%; width: 18rem; justify-content: center; text-align: center; cursor: pointer;">
                         @if(isset($user->image))
                           <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$user->image)}}" alt="Card image cap">
                         @else
@@ -210,19 +210,24 @@ toggleNav();
                             <p class="card-text"><a style="text-decoration: none;" href="mailto:{{ $user->email}}">{{ $user->email}} </a><br> <span class="{{$user->role()->first()->role=='Admin'? 'badge badge-success':'badge badge-primary'}}">{{ $user->role()->first()->role}}</span> </p>
                             <a href="{{ route('actors.edit',$user->id) }}" class="btn btn-primary btn-blok"><i class="fas fa-edit"></i></a>
                             <a href="{{ route('actors.show',$user->id) }}" class="btn btn-danger btn-blok"><i class="fas fa-trash"></i></a>
-                          </div>  </div>
-            </div>
-        </div> 
+                          </div>  
+                    </div>
+                  </div>
+                </div> 
         
-        <div class="tab-outline">
-          <ul class="nav nav-tabs" id="myTab2" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link nav-link_1 active" id="v-pills" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link_1" id="v-pills" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>             
-            </li>
-          </ul>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 row">
+            <div class="tab-outline" style="margin-left: 2%">
+              <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link nav-link_1 active" id="v-pills" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Statistique Taches</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-link_1" id="v-pills" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Historique Interventions</a>             
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       
               
@@ -246,8 +251,7 @@ toggleNav();
                   </div>
                 </div>
               </div>-->
-          <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="tab-content" id="v-pills-tabContent">
+                  <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <div class="card">
                         <!--  <div class="titre" style="text-align: center;">                           
@@ -255,7 +259,7 @@ toggleNav();
                           </div>-->
                           <div class="card-body">
                               <div class="table-responsive">
-                                  <table class="table  table-striped table-bordered" style="width:100%">
+                                  <table class="table  table-striped table-bordered">
                                       <thead class="" style="background-color: #4656E9;">
                                           @if($user->id == 3)
                                                 <tr> 
@@ -322,14 +326,16 @@ toggleNav();
                           </div>
                       </div>
                     </div>
+                 
                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">               
                           <div class="card">
                             <!--<div class="titre" style="text-align: center;">                           
                                 <h3><mark style=" background-color:#4656E990; color: white; padding: 8px">Liste Opérations</mark></h3>
                             </div>-->
+                            
                                 <div class="card-body">
                                   <div class="table-responsive">
-                                    <table id="example4" class="table  table-striped table-bordered" style="width:100%">
+                                    <table id="example4" class="table  table-striped table-bordered" style="width:98%">
                                           <thead class="" style="background-color: #4656E9;">
                                               @if ($role->id != 3 )
                                                 <tr>
@@ -379,23 +385,20 @@ toggleNav();
                             </div>
                           </div>
                         </div>
+                      </div>
+           
 
 
         
-          {{-- <div class="row">
-            <div class="col-md-12 mt-3 d-flex justify-content-center">
-                {!! $interventions->links() !!}
-            </div>
-        </div> --}}
-         <div class="row">
-             <div class="col-md-12 ml-3 mt-3">
-                 <a class="btn btn-secondary" href="{{ route('actors.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
-             </div>
-          </div>
-            
-     </div>
-
-    </div>
-      </div>
-
+                  {{-- <div class="row">
+                    <div class="col-md-12 mt-3 d-flex justify-content-center">
+                        {!! $interventions->links() !!}
+                    </div>
+                  </div> --}}
+                    <div class="row">
+                        <div class="col-md-12 ml-3 mt-3">
+                            <a class="btn btn-secondary" href="{{ route('actors.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
+                        </div>
+                      </div>
+ 
 @endsection    
