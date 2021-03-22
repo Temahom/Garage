@@ -179,11 +179,11 @@
                     
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 25px">
+                            <li class="nav-divider" style="font-size: 20px">
                                Menu
                             </li><br>
 
-                            <li class="nav-item ">
+                            <li class="nav-item" style="padding-top: 8px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success"></span></a>
                                 <div id="submenu-client" class="collapse submenu">
                                     <ul class="nav flex-column">
