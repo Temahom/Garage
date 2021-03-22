@@ -185,7 +185,7 @@
                             </li><br>
 
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success"></span></a>
                                 <div id="submenu-client" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -199,7 +199,7 @@
                             </li>
 
                             <li class="nav-item " style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success"></span></a>
                                 <div id="submenu-voiture" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -212,7 +212,7 @@
                                 </div>
                             </li>
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success"></span></a>
                                 <div id="submenu-acteur" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -225,7 +225,7 @@
                                 </div>
                             </li>
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success"></span></a>
                                 <div id="submenu-rv" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -238,7 +238,7 @@
                                 </div>
                             </li>
                            <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success"></span></a>
                                 <div id="submenu-produit" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -255,7 +255,7 @@
                             </li>
 
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="/google_map"><i class="nav-icon fa-fw fas fa-position"></i>Google Map<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="/google_map"><i class="nav-icon fa-fw fas fa-position"></i>Google Map<span class="badge badge-success"></span></a>
                             </li> 
 
                         </ul>
