@@ -31,9 +31,6 @@
 <style>
 
 
-    *{
-        overflow:hidden !important;
-    }
     .dashboard-main-wrapper{
         background-color: white;
     }
@@ -93,7 +90,7 @@
         <!-- navbar -->
         <!-- ============================================================== -->
         <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top" style="width: auto !important;">
                 <a class="navbar-brand" href="/">
                     <img style="height: 50px;width: auto;" class="logo-img" src="/assets/images/logo.png" alt="logo">
                 </a>
@@ -170,10 +167,10 @@
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ==============================================================//   sidebar-dark  --> 
-        <div class="nav-left-sidebar " style="background-color: #068c94;">
+        <div class="nav-left-sidebar" style="background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
             <br>
             <div class="menu-list">
-                <nav class="navbar navbar-expand-lg navbar-light  fixed-top">
+                <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">Clients</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

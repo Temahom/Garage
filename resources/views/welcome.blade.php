@@ -191,7 +191,7 @@ use Carbon\Carbon;
                     <!-- ============================================================== -->
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
-                <div class="card-body" style="background-color: #def847;">
+                <div class="card-body">
                     <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
                     <div class="metric-value d-inline-block">
                         <h1 class="mb-1">{{ $produit_en_stock}}</h1>
@@ -207,7 +207,7 @@ use Carbon\Carbon;
          <!-- ============================================================== -->
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
-                <div class="card-body" style="background-color: #f080c1;">
+                <div class="card-body">
                     <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
                     <div class="metric-value d-inline-block">
                         <h1 class="mb-1">{{ $produit_en_stock}}</h1>
@@ -222,7 +222,7 @@ use Carbon\Carbon;
         <!-- end visitor  -->
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
-                <div class="card-body" style="background-color: #f7b233;">
+                <div class="card-body">
                     <h5 class="text-muted">Les Factures d’Aujourd’hui</h5>
                     <div class="metric-value d-inline-block">
                         <h1 class="mb-1">{{$facturesJour}}</h1>
@@ -238,7 +238,7 @@ use Carbon\Carbon;
           <!-- end visitor  -->
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
-                <div class="card-body" style="background-color: #f8535c;">
+                <div class="card-body">
                     <h5 class="text-muted">Les Factures de ce Mois</h5>
                     <div class="metric-value d-inline-block">
                         <h1 class="mb-1">{{ $facturesMois}}</h1>
@@ -254,7 +254,7 @@ use Carbon\Carbon;
                 <!-- ============================================================== -->
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                 <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body" style="background-color: #41ee66;">
+                    <div class="card-body">
                         <h5 class="text-muted">Prix total des produits en stock</h5>
                         <div class="metric-value d-inline-block">
                             <h1 class="mb-1">{{number_format($prix_total_des_produits,0, ",", " " )}}<sup>F CFA</sup></h1>
