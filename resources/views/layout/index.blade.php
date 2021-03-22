@@ -164,8 +164,8 @@
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- left sidebar -->
-        <!-- ==============================================================//   sidebar-dark  --> 
-        <div class="nav-left-sidebar " style="background-color: #068c94;">
+        <!-- ==============================================================//   sidebar-dark // style="background-color: #068c94;" --> 
+        <div class="nav-left-sidebar " style="background-color: #1b4f52;">
             <br>
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light  fixed-top">
@@ -181,13 +181,13 @@
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success"></span></a>
-                                <div id="submenu-client" class="collapse submenu">
-                                    <ul class="nav flex-column">
+                                <div id="submenu-client" class="collapse submenu" style="background-color: #1b4f52;">
+                                    <ul class="nav flex-column"  >
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/clients">Liste Clients</a>
+                                            <a class="nav-link" href="/clients" style="color: #fcfcfc;">Liste Clients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/clients/create">Ajouter Client</a>
+                                            <a class="nav-link" href="/clients/create" style="color: #fcfcfc;">Ajouter Client</a>
                                         </li>
                                     </ul>    
                                 </div>
