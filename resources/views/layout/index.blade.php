@@ -89,8 +89,6 @@
         <!-- ============================================================== -->
         <!-- navbar -->
        
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
                  <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top" style="width: auto !important;">
@@ -164,39 +162,35 @@
                 </div>
             </nav>
         </div>
-    </div>
-</div>
         <!-- ============================================================== -->
         <!-- end navbar -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- left sidebar -->
-<<<<<<< HEAD
-        <!-- ==============================================================//   sidebar-dark // style="background-color: #068c94;" --> 
-        <div class="nav-left-sidebar " style="background-color: #1b4f52;">
-=======
         <!-- ==============================================================//   sidebar-dark  --> 
         <div class="nav-left-sidebar" style="background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
->>>>>>> 63935c0ac5d53677dbebbad6bb25d66acd4b7176
             <br>
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    
+                    <a class="d-xl-none d-lg-none" href="#">Clients</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 20px">
+                            <li class="nav-divider" style="font-size: 25px">
                                Menu
                             </li><br>
 
-                            <li class="nav-item" style="padding-top: 8px">
+                            <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success"></span></a>
-                                <div id="submenu-client" class="collapse submenu" style="background-color: #1b4f52;">
-                                    <ul class="nav flex-column"  >
+                                <div id="submenu-client" class="collapse submenu">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/clients" style="color: #fcfcfc;">Liste Clients</a>
+                                            <a class="nav-link" href="/clients">Liste Clients</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/clients/create" style="color: #fcfcfc;">Ajouter Client</a>
+                                            <a class="nav-link" href="/clients/create">Ajouter Client</a>
                                         </li>
                                     </ul>    
                                 </div>
