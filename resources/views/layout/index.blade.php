@@ -29,6 +29,11 @@
     <title>Garage</title>
 </head>
 <style>
+
+
+    *{
+        overflow:hidden !important;
+    }
     .dashboard-main-wrapper{
         background-color: white;
     }
