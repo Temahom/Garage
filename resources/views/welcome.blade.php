@@ -191,7 +191,7 @@ use Carbon\Carbon;
                     <!-- ============================================================== -->
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
-                <div class="card-body" style="background-color: #def847;">
+                <div class="card-body">
                     <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
                     <div class="metric-value d-inline-block">
                         <h1 class="mb-1">{{ $produit_en_stock}}</h1>
@@ -207,10 +207,17 @@ use Carbon\Carbon;
          <!-- ============================================================== -->
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
+<<<<<<< HEAD
                 <div class="card-body" style="background-color: #f080c1;" >
                     <h5 style="color: #fcfcfc;" class="text-muted">Les Ventes de ce Mois-ci</h5>
                     <div class="metric-value d-inline-block" >
                         <h1  style="color: #fcfcfc;"  class="mb-1">{{ $produit_en_stock}}</h1>
+=======
+                <div class="card-body">
+                    <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $produit_en_stock}}</h1>
+>>>>>>> 63935c0ac5d53677dbebbad6bb25d66acd4b7176
                     </div>
                     <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                         <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -222,7 +229,7 @@ use Carbon\Carbon;
         <!-- end visitor  -->
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
-                <div class="card-body" style="background-color: #f7b233;">
+                <div class="card-body">
                     <h5 class="text-muted">Les Factures d’Aujourd’hui</h5>
                     <div class="metric-value d-inline-block">
                         <h1 class="mb-1">{{$facturesJour}}</h1>
@@ -238,7 +245,7 @@ use Carbon\Carbon;
           <!-- end visitor  -->
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="card border-3 border-top border-top-primary">
-                <div class="card-body" style="background-color: #f8535c;">
+                <div class="card-body">
                     <h5 class="text-muted">Les Factures de ce Mois</h5>
                     <div class="metric-value d-inline-block">
                         <h1 class="mb-1">{{ $facturesMois}}</h1>
@@ -254,7 +261,7 @@ use Carbon\Carbon;
                 <!-- ============================================================== -->
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                 <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body" style="background-color: #41ee66;">
+                    <div class="card-body">
                         <h5 class="text-muted">Prix total des produits en stock</h5>
                         <div class="metric-value d-inline-block">
                             <h1 class="mb-1">{{number_format($prix_total_des_produits,0, ",", " " )}}<sup>F CFA</sup></h1>
