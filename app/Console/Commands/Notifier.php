@@ -45,8 +45,8 @@ class Notifier extends Command
         ];
         \Mail::to('diattamohamet30@gmail.com')->send(new SendMail($details));
         \Mail::to('hildedokou@gmail.com')->send(new SendMail($details));
-        \Mail::to('moussathiam80@gmail.com')->send(new SendMail($details));
+       // \Mail::to('moussathiam80@gmail.com')->send(new SendMail($details));
 
-        return 0;
+       //return 0;
     }
 }
