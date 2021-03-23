@@ -45,7 +45,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <strong>Matricule:</strong>
-                  <input type="text" name="matricule" value="{{ isset($voiture) ? $voiture->matricule : old('matricule')}}  " autocomplete="off" class="custom-select form-control @error('matricule') is-invalid @enderror" placeholder="Saisir matricule...">
+                  <input type="text" id="lematricule" name="matricule" value="{{ isset($voiture) ? $voiture->matricule : old('matricule')}}  " autocomplete="off" class="custom-select form-control @error('matricule') is-invalid @enderror" placeholder="Saisir matricule...">
                   <div class="invalid-feedback">
                       @if($errors->has('matricule'))
                         {{ $errors->first('matricule') }}
