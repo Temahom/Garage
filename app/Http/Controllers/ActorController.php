@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\Intervention;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ActorController extends Controller
 {
@@ -42,7 +43,7 @@ class ActorController extends Controller
     {
         $data= request()->validate([
             'name'=>'required',
-            'email'=>'required',
+            'email'=>'required|unique:users',
             'role_id'=>'required',
             'image' => 'sometimes|required|max:5000',
           ]);
@@ -107,10 +108,11 @@ class ActorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user= User::find($id);
         
         $data= request()->validate([
             'name'=>'required',
-            'email'=>'required',
+            'email'=>['required', Rule::unique('users')->ignore($user->id)],
             'role_id'=>'required',
           ]);
           $password=bcrypt(12345678);
@@ -125,7 +127,7 @@ class ActorController extends Controller
         //  }
         //  else $imageName =null;
 
-          $user= User::find($id);
+          
           $user->name = $name;
           $user->email = $email;
           $user->role_id = $role_id;

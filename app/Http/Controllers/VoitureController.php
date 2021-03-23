@@ -6,6 +6,7 @@ use App\Models\Client;
 use Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Gate;
 class VoitureController extends Controller
 {
@@ -114,7 +115,7 @@ class VoitureController extends Controller
     {
         $this->authorize('update', $voiture);
         $data= request()->validate([
-            'matricule'=>'required|distinct',
+            'matricule'=>['required', Rule::unique('voitures')->ignore($voiture->id)],
             'marque'=>'required',
             'model'=>'required',
             'annee'=>'required',
