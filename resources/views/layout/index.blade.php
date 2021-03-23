@@ -171,13 +171,8 @@
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- left sidebar -->
-<<<<<<< HEAD
-        <!-- ==============================================================//   sidebar-dark // style="background-color: #068c94;" --> 
-        <div class="nav-left-sidebar " style="background-color: #1b4f52;">
-=======
         <!-- ==============================================================//   sidebar-dark  --> 
         <div class="nav-left-sidebar" style="background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
->>>>>>> 63935c0ac5d53677dbebbad6bb25d66acd4b7176
             <br>
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
