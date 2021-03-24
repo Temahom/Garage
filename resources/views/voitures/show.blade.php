@@ -8,7 +8,7 @@
 
 <style>
 	.row{
-		overflow-x: autos;
+		overflow-x: auto;
 	}
 </style>
 	
