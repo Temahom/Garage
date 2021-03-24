@@ -6,9 +6,7 @@
 	.row{
 		overflow-x: auto;
 	}
-	*{
-		scroll: none;
-	}
+	
 </style>
 
 <div class="row">

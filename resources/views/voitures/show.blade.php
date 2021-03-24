@@ -6,7 +6,11 @@
 
 @include('voitures._partials.carinformation')
 
-
+<style>
+	.row{
+		overflow: hidden;
+	}
+</style>
 	
     <div class="row">
 	
