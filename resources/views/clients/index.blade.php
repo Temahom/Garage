@@ -4,7 +4,10 @@
 
 <style>
 	.row{
-		overflow: hidden;
+		overflow-x: auto;
+	}
+	*{
+		scroll: none;
 	}
 </style>
 
