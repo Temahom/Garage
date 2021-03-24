@@ -6,10 +6,15 @@
             <div class="pull-left">
                 <h2>Historique Interventions</h2>
             </div>
+
         </div>
     </div>
     <style>
         
+        .row {
+          overflow: hidden;
+        }
+
           .nav-link_1.active,
           .nav-pills .show>.nav-link{
            background-color:#138496!important;
@@ -147,9 +152,37 @@ body::before {
     
         @endif
 
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="tab-outline">
+              <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Resumes/Compte-rendus</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
+                </li>
+              </ul><br>
+            </div>
+          </div>
+        </div>  
+
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">  
-          <div class="col-xs-2 col-sm-2 col-md-2">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">
+         <!-- <div class="col-xs-2 col-sm-2 col-md-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
               <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
               <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
@@ -159,8 +192,8 @@ body::before {
                 <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
               
             </div>
-          </div>
-          <div class="col-xs-10 col-sm-10 col-md-10 ">
+          </div>-->
+          <div class="col-xs-12 col-sm-12 col-md-12 ">
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                  
