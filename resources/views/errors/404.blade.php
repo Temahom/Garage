@@ -1,4 +1,4 @@
-@extends('layout.index')
+
 
 <style>
 
@@ -203,12 +203,12 @@
 				<h1>4<span>0</span>4</h1>
 			</div>
 			<h2>
-        ❤️😉LA PAGE QUE VOUS AVEZ DEMANDEE N'EXISTE PAS !!❤️☹️😓
+        😉LA PAGE QUE VOUS AVEZ DEMANDEE N'EXISTE PAS !!☹️😓
       </h2>
 			<form class="notfound-search">
 				<input type="text" placeholder="Search...">
 				<button type="button"><span></span></button>
-			</form>
+      </form>
 		</div>
 	</div>
 
