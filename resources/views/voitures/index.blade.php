@@ -3,7 +3,7 @@
 
 <style>
 	.row{
-		overflow: hidden;
+		overflow-x: auto;
 	}
 </style>
 

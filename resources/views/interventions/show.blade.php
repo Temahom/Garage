@@ -13,7 +13,11 @@
 @include('voitures._partials.carinformation')
 
 
-
+<style>
+	.row{
+		overflow-x: auto;
+	}
+</style>
 
 <!-- ============================================================== -->
 <!-- TAB INTERVENTION  -->
