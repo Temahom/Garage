@@ -44,6 +44,10 @@ use Carbon\Carbon;
 @section('content')
 
 <style>
+
+  *{
+    overflow: hidden;
+  }
   .tab-outline .nav.nav-tabs .nav-item .nav-link {
     display: block;
     padding: 3px !important;
@@ -175,7 +179,7 @@ use Carbon\Carbon;
                     </div>
                  
                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">               
-                          <div class="card" style="width: 96%">
+                          <div class="card" style="width: 98%">
                             <!--<div class="titre" style="text-align: center;">                           
                                 <h3><mark style=" background-color:#4656E990; color: white; padding: 8px">Liste Opérations</mark></h3>
                             </div>-->
