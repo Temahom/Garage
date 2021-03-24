@@ -42,10 +42,12 @@ use Carbon\Carbon;
 @endphp
 
 @section('content')
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
 
 <style>
+
+  *{
+    overflow: hidden;
+  }
   .tab-outline .nav.nav-tabs .nav-item .nav-link {
     display: block;
     padding: 3px !important;
@@ -68,7 +70,7 @@ use Carbon\Carbon;
 </style>
 
                 <div class="row">
-                  <div class="col-xs-12 col-sm-12 col-md-12" style="width: 95%">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
                     <div  class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;">
                         @if(isset($user->image))
                           <img class="d-flex justify-content-center " style="align-self:center;width: 100px ; height: 100px; border-radius: 50%;" src="{{asset('images/'.$user->image)}}" alt="Card image cap">
@@ -100,12 +102,15 @@ use Carbon\Carbon;
                   </div>
                 </div>
                 
+
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12"> 
                   <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                      <div class="card">
+                      <div class="card" style="width: 98%">
                           <div class="card-body">
                               <div class="table-responsive">
-                                  <table class="table  table-striped table-bordered">
+                                  <table class="table  table-striped table-bordered" style="width: 100%">
                                       <thead class="" style="background-color: #4656E9;">
                                           @if($user->id == 3)
                                                 <tr> 
@@ -174,7 +179,7 @@ use Carbon\Carbon;
                     </div>
                  
                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">               
-                          <div class="card">
+                          <div class="card" style="width: 98%">
                             <!--<div class="titre" style="text-align: center;">                           
                                 <h3><mark style=" background-color:#4656E990; color: white; padding: 8px">Liste Opérations</mark></h3>
                             </div>-->
@@ -232,6 +237,8 @@ use Carbon\Carbon;
                           </div>
                         </div>
                       </div>
+                </div>
+              </div>
         
                   {{-- <div class="row">
                     <div class="col-md-12 mt-3 d-flex justify-content-center">
