@@ -3,6 +3,13 @@
 use Carbon\Carbon;
 @endphp
 @section('content')
+
+<style>
+	.row{
+		overflow: hidden;
+	}
+</style>
+
 <link rel="stylesheet" href="/assets/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
 
     <div class="row">
