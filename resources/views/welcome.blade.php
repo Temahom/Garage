@@ -25,6 +25,10 @@ use Carbon\Carbon;
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 <link rel="stylesheet" href="/assets/libs/css/clock.css">
 <style>
+
+    .row{
+        overflow: hidden;
+    }
     #cercle .card {
       
         justify-content: center;
