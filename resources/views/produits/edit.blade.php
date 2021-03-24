@@ -6,6 +6,13 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
 @endphp
 
 @section('content')
+
+<style>
+	.row{
+		overflow: hidden;
+	}
+</style>
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
