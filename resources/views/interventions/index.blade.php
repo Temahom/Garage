@@ -12,7 +12,7 @@
     <style>
         
         .row {
-          overflow: hidden;
+          overflow-x: auto;
         }
 
           .nav-link_1.active,
