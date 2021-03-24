@@ -44,9 +44,9 @@ use Carbon\Carbon;
 @section('content')
 
 <style>
-
-  *{
+.row{
     overflow: hidden;
+    overflow-x: auto;
   }
   .tab-outline .nav.nav-tabs .nav-item .nav-link {
     display: block;
@@ -55,6 +55,7 @@ use Carbon\Carbon;
     background-color: #e9e9f2;
     border-color: #c4c4cf #c4c4cf #c4c4cf;
     margin-right: 3px;
+    overflow-x: auto;
 }
   .nav-link_1.active,
   .nav-pills .show .nav-link{
@@ -103,14 +104,14 @@ use Carbon\Carbon;
                 </div>
                 
 
-              <div class="row">
+              <div class="row tableau">
                 <div class="col-xs-12 col-sm-12 col-md-12"> 
                   <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                       <div class="card" style="width: 98%">
                           <div class="card-body">
                               <div class="table-responsive">
-                                  <table class="table  table-striped table-bordered" style="width: 100%">
+                                  <table class="table  table-striped table-bordered" style="width: 100%;">
                                       <thead class="" style="background-color: #4656E9;">
                                           @if($user->id == 3)
                                                 <tr> 
@@ -245,10 +246,10 @@ use Carbon\Carbon;
                         {!! $interventions->links() !!}
                     </div>
                   </div> --}}
-                      <div class="row">
+                    
                         <div class="col-md-12 ml-3 mt-3">
                             <a class="btn btn-secondary" href="{{ route('actors.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
                         </div>
-                      </div>
+                        <br>
  
 @endsection    
