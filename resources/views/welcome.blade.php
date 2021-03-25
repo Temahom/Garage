@@ -24,9 +24,9 @@ use Carbon\Carbon;
    $interventions=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
     $mois_ci=Carbon::now()->format('F');
    $voitures=\App\Models\Voiture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
-   
+      ///Tab Recapitulatif Journaliere
+   $jour_ci=Carbon::now()->day; 
   
-
 
 @endphp
 @section('content')
@@ -298,6 +298,41 @@ use Carbon\Carbon;
     </div>
 </div>  
 
+  {{-- debut tableau recaputulatif du jour--}}
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+            <div class="card">
+                <h5 class="card-header" style="text-align: center ; background-color: #580701;">Tableau récaptulatif du Jour</h5>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-light">
+                                <tr class="border-0">
+                                    <th class="border-5">Aujourd'hui</th> 
+                                    <th class="border-5">Nombre Interventions</th>
+                                    <th class="border-5">Facture Impayée</th>  
+                                    <th class="border-5">Chiffre d'Affaire</th>   
+                                 </tr>
+                            </thead>
+                            <tbody>                 
+                                <tr>
+                                    <td> Le {{ $jour_ci}}  </td> 
+                                   </tr>
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+</div> 
+ {{-- fin tableau recaputulatif du jour--}}   
+
+
+
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
@@ -386,6 +421,10 @@ use Carbon\Carbon;
         <canvas id="myChart2" ></canvas>
     </div>
 </div>
+{{-- --}}
+   
+ <div><div>{{-- ------------------------------espace------------------------------------------------}}   </div></div>
+
  {{-- debut tableau recaputulatif de ce mois_ci--}}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
@@ -400,8 +439,8 @@ use Carbon\Carbon;
                                     <th class="border-0">Ce Mois-ci</th>
                                     <th class="border-0">Diagnostics</th>
                                     <th class="border-0">Devis</th>
-                                    <th class="border-0">Interventions</th>      
-                                </tr>
+                                    <th class="border-0">Interventions</th> 
+                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -409,7 +448,7 @@ use Carbon\Carbon;
                                     <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
                                     <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
                                     <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
-                                    </tr>
+                                   </tr>
                             </tbody>
                         </table>
                     
@@ -444,11 +483,11 @@ use Carbon\Carbon;
                             <tbody>
                                 <tr>
                                     <td>{{$mois_ci}}<sup>iéme </sup> Mois </td>
-                                    <td> <center> {{$clients}} </center> </td> 
-                                    <td> <center> {{$voitures}} </center> </td> 
-                                    <td> <center> {{$diagnostics}} </center> </td> 
-                                    <td> <center> {{$devis}} </center> </td>
-                                    <td> <center> {{$interventions}} </center> </td>
+                                    <td> {{$clients}}</td> 
+                                    <td>  {{$voitures}}  </td> 
+                                    <td>  {{$diagnostics}}  </td> 
+                                    <td>   {{$devis}}  </td>
+                                    <td>  {{$interventions}}  </td>
                                     </tr>
                             </tbody>
                         </table>
