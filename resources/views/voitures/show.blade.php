@@ -11,7 +11,7 @@
 		overflow-x: auto;
 	}
 </style>
-	
+	@can('create', App\Models\Intervention::class)
     <div class="row">
 	
 		<div class="col-lg-12 mt-4">
@@ -23,6 +23,7 @@
 			</div>
 		</div>
 	</div>
+	@endcan
 	<br>
 
 	@if($message = Session::get('success'))
@@ -48,7 +49,9 @@
 								<th style="color: white;">Type</th>
 								<th style="color: white;">Début</th>
 								<th style="color: white;">Fin</th>
+								@can('create', App\Models\Intervention::create)
 								<th style="color: white;">Action</th>
+								@endcan
 							</tr>
 						</thead>
 						<tbody>
@@ -57,6 +60,7 @@
 						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;"><i class="fas fa-cog"></i> {{ $intervention->type }}</td>
 						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->debut }}</td>
 						<td onclick="showIntervention({{ $intervention->voiture_id }} , {{ $intervention->id }})" style="cursor: pointer;">{{ $intervention->fin }}</td>
+						@can('update', $intervention)
 						<td>
 							<a class="btn btn-primary  p-0 pr-2 pl-2" href="{{route('voitures.interventions.edit',['voiture' => $voiture->id, 'intervention' => $intervention->id])}}"><i class="fas fa-edit"></i></a>
 							<button type="button" class="btn btn-danger  p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $intervention->id }}">
@@ -82,6 +86,7 @@
 							</div>
 
 						</td>
+						@endcan
 					</tr>
 				@endforeach
 				</tbody>
