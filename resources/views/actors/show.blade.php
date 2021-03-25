@@ -81,8 +81,10 @@ use Carbon\Carbon;
                           <div class="card-body" style="justify-content: center; text-align: center;">
                          <h5 class="card-title">{{ $user->name}}</h5>
                             <p class="card-text"><a style="text-decoration: none;" href="mailto:{{ $user->email}}">{{ $user->email}} </a><br> <span class="{{$user->role()->first()->role=='Admin'? 'badge badge-success':'badge badge-primary'}}">{{ $user->role()->first()->role}}</span> </p>
+                            @can('update', $user)
                             <a href="{{ route('actors.edit',$user->id) }}" class="btn btn-primary btn-blok"><i class="fas fa-edit"></i></a>
-                            <a href="{{ route('actors.show',$user->id) }}" class="btn btn-danger btn-blok"><i class="fas fa-trash"></i></a>
+                            @endcan
+                            {{-- <a href="{{ route('actors.show',$user->id) }}" class="btn btn-danger btn-blok"><i class="fas fa-trash"></i></a> --}}
                           </div>  
                     </div>
                   </div>

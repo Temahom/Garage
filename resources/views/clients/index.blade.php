@@ -15,12 +15,15 @@
 			<div class="pull-left">
 				<br><h2>Listes des Clients</h2><br>
 			</div>
+			
 			<div class="col-xs-12 col-sm-12 col-md-12 row">
+				@can('create', App\Models\Client::class)
                 <div class="col-xs-9 col-sm-9 col-md-9">     
                     <div class="form-group">
 						<a class="btn btn-secondary" href="{{route('clients.create')}}"><i class="fas fa-user-plus"></i> Nouveau Client</a>
 					</div>
 				</div>
+				@endcan
 			<!--	<div class="col-xs-3 col-sm-3 col-md-3">     
 					<div class="form-group">
 						<form action="{{ route('clients.index') }}" method="GET" role="search">
@@ -58,7 +61,9 @@
 											<th style="color: white">Entreprise</th>
 											<th style="color: white">Téléphone</th>
 											<th style="color: white">Email</th>
+											@can('create', App\Models\Client::class)
 											<th style="color: white">Action</th>
+											@endcan
 										</tr>
 									</thead>
 									<tbody>
@@ -71,6 +76,7 @@
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->entreprise }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->telephone }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer;">{{ $client->email }}</td>
+								@can('create', App\Models\Client::class)
 								<td>
 									<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('clients.edit',$client->id)}}"><i class="fas fa-edit"></i></a>
 									
@@ -97,6 +103,7 @@
 											</div>
 
 								</td>
+								@endcan
 							</tr>
 							@endforeach
 
