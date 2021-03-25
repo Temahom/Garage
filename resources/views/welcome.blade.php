@@ -18,7 +18,13 @@ use Carbon\Carbon;
   $facturesMois=\App\Models\Facture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
      //facture aujourd"hui
   $facturesJour=\App\Models\Facture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->whereDay('created_at', Carbon::now()->day)->count();
-   
+       ///Tab Recapitulatif Mensuel de diagnostic,Devis et Interventions
+   $diagnostics=\App\Models\Diagnostic::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
+   $devis=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
+   $interventions=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
+    $mois_ci=Carbon::now()->month;
+  
+
 
 @endphp
 @section('content')
@@ -352,6 +358,43 @@ use Carbon\Carbon;
         <canvas id="myChart2" ></canvas>
     </div>
 </div>
+ {{-- debut tableau recaputulatif de ce mois_ci--}}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+            <div class="card">
+                <h5 class="card-header" style="text-align: center">Tableau récaptulatif de ce mois_ci </h5>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-light">
+                                <tr class="border-0">
+                                    <th class="border-0">Ce Mois-ci</th>
+                                    <th class="border-0">Diagnostics</th>
+                                    <th class="border-0">Devis</th>
+                                    <th class="border-0">Interventions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{$mois_ci}}</td>
+                                    <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
+                                    <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
+                                    <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+</div>
+ {{-- fin tableau recaputulatif Mensuel --}}
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
