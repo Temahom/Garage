@@ -298,6 +298,41 @@ use Carbon\Carbon;
     </div>
 </div>  
 
+  {{-- debut tableau recaputulatif du jour--}}
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+            <div class="card">
+                <h5 class="card-header" style="text-align: center ; background-color: #580701;">Tableau récaptulatif du Jour</h5>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-light">
+                                <tr class="border-0">
+                                    <th class="border-5">Aujourd'hui</th> 
+                                    <th class="border-5">Nombre Interventions</th>
+                                    <th class="border-5">Facture Impayée</th>  
+                                    <th class="border-5">Chiffre d'Affaire</th>   
+                                 </tr>
+                            </thead>
+                            <tbody>                 
+                                <tr>
+                                    <td> Le {{ $jour_ci}}  </td> 
+                                   </tr>
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+</div> 
+ {{-- fin tableau recaputulatif du jour--}}   
+
+
+
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
