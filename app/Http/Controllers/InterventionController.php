@@ -182,7 +182,7 @@ class InterventionController extends Controller
             'technicien' => 'required',
         ]);
 
-        $this->authorize($intervention);
+        $this->authorize('update', $intervention);
 
         $intervention->type = $request->input('type');
         $intervention->debut = $request->input('debut');

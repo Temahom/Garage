@@ -28,7 +28,7 @@ class ActorController extends Controller
      */
     public function create(Role $role, User $user)
     {   
-       // $this->authorize('create', User::class);
+        $this->authorize('create', User::class);
         $roles= Role::all();
         return view('actors.create',compact('roles', 'role', 'user'));
     }
@@ -109,7 +109,7 @@ class ActorController extends Controller
     public function update(Request $request, $id)
     {
         $user= User::find($id);
-        
+        $this->authorize('update', $user);
         $data= request()->validate([
             'name'=>'required',
             'email'=>['required', Rule::unique('users')->ignore($user->id)],

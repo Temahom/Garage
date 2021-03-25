@@ -277,14 +277,15 @@ $(document).ready(function() {
             //  alert('le champ ' + key + ' ne pas pas etre vide')
             $("'#"+key+"'").html('<div class="invalid-feedback">champ vide </div>')
           }  
+          else $('#form').submit()
         }
 
-      tab.map(element=>{
-           if(element == ""){
+      // tab.map(element=>{
+      //      if(element == ""){
 
-           }
-           else $('#form').submit()
-      })
+      //      }
+      //      else $('#form').submit()
+      // })
       // if(modele == "" && annee =="" && carburant=="" && puissance=="" && transmission=="")
       //   {
       //     alert('champs manquant')

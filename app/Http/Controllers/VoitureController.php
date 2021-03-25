@@ -47,7 +47,7 @@ class VoitureController extends Controller
     public function create(Client $client, Voiture $voiture)
     {
         
-    //    $this->authorize('create', Voiture::class);
+       $this->authorize('create', Voiture::class);
       $clients= Client::all();
       return view('voitures.create',compact('clients','client', 'voiture'));
     }
