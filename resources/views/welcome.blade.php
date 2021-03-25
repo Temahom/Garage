@@ -24,9 +24,9 @@ use Carbon\Carbon;
    $interventions=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
     $mois_ci=Carbon::now()->month;
    $voitures=\App\Models\Voiture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
-   
+      ///Tab Recapitulatif Journaliere
+   $jour_ci=Carbon::now()->day; 
   
-
 
 @endphp
 @section('content')
@@ -360,6 +360,10 @@ use Carbon\Carbon;
         <canvas id="myChart2" ></canvas>
     </div>
 </div>
+{{-- --}}
+   
+ <div><div>{{-- ------------------------------espace------------------------------------------------}}   </div></div>
+
  {{-- debut tableau recaputulatif de ce mois_ci--}}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
@@ -374,8 +378,8 @@ use Carbon\Carbon;
                                     <th class="border-0">Ce Mois-ci</th>
                                     <th class="border-0">Diagnostics</th>
                                     <th class="border-0">Devis</th>
-                                    <th class="border-0">Interventions</th>      
-                                </tr>
+                                    <th class="border-0">Interventions</th> 
+                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -383,7 +387,7 @@ use Carbon\Carbon;
                                     <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
                                     <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
                                     <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
-                                    </tr>
+                                   </tr>
                             </tbody>
                         </table>
                     
@@ -418,11 +422,11 @@ use Carbon\Carbon;
                             <tbody>
                                 <tr>
                                     <td>{{$mois_ci}}<sup>iéme </sup> Mois </td>
-                                    <td> <center> {{$clients}} </center> </td> 
-                                    <td> <center> {{$voitures}} </center> </td> 
-                                    <td> <center> {{$diagnostics}} </center> </td> 
-                                    <td> <center> {{$devis}} </center> </td>
-                                    <td> <center> {{$interventions}} </center> </td>
+                                    <td> {{$clients}}</td> 
+                                    <td>  {{$voitures}}  </td> 
+                                    <td>  {{$diagnostics}}  </td> 
+                                    <td>   {{$devis}}  </td>
+                                    <td>  {{$interventions}}  </td>
                                     </tr>
                             </tbody>
                         </table>
