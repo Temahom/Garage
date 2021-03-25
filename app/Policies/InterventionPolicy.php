@@ -41,7 +41,7 @@ class InterventionPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [4,2]);
     }
 
     /**
@@ -53,7 +53,7 @@ class InterventionPolicy
      */
     public function update(User $user, Intervention $intervention)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [4,2]);
     }
 
     /**

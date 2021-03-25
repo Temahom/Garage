@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         \App\Models\User::create([
-            "name"=>"Mohamet_mediapex",
+            "name"=>"Mohamet",
             "email"=>"fatoubibi96@gmail.com",
             "role_id"=>(1),
             "password"=>bcrypt(12345678)
@@ -34,10 +34,16 @@ class DatabaseSeeder extends Seeder
             "role_id"=>(3),
             "password"=>bcrypt(12345678)
         ]);
+        \App\Models\User::create([
+            "name"=>"Moustapha",
+            "email"=>"thiamcoder@coder.com",
+            "role_id"=>(4),
+            "password"=>bcrypt(12345678)
+        ]);
             
         \App\Models\Role::create([
             'id'=>(1),
-            'role'=>'Admin'
+            'role'=>'Gerant'
         ]);
         \App\Models\Role::create([
             'id'=>(2),
@@ -45,7 +51,11 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\Role::create([
             'id'=>(3),
-            'role'=>'Manager'
+            'role'=>'Mecanicien'
+        ]);
+        \App\Models\Role::create([
+            'id'=>(4),
+            'role'=>'SuperAdmin'
         ]);
         /**
          * Seeder pour les voitures
