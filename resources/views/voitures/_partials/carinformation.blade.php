@@ -25,6 +25,7 @@
 				<div style="font-size: 14px;"> {{ $voiture->marque}} - {{ $voiture->model}} - {{ $voiture->annee}}</div>
 				<div style="font-size: 14px;"> {{ $voiture->transmission}} <i class="fas fa-burn"></i> {{ $voiture->carburant}}</div>			
 				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux / {{ $voiture->kilometrage}} km</div>		
+				@can('update', $voiture)
 				<div class="text-right" style="font-size: 12px;">
 					<a class="text-primary mr-1" href="{{ route('voitures.edit',$voiture->id)}}">Modifier</a> 
 					<button type="button" class="text-danger hide_delete" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
@@ -48,6 +49,8 @@
 						</div>
 					</div>	
 				</div>
+				@endcan
+				
 
 			</div>
 

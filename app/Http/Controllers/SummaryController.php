@@ -26,6 +26,7 @@ class SummaryController extends Controller
      */
     public function create(Voiture $voiture, Intervention $intervention)
     {
+        $this->authorize('create', Summary::class);
         return view('summaries.create', compact('voiture','intervention'));
     }
 
@@ -83,7 +84,7 @@ class SummaryController extends Controller
         $data = request()->validate([
             'description' => 'required',
         ]);
-
+        $this->authorize('update', $summary);
         $summary->resume = $data['description'];
         $summary->update();
 
