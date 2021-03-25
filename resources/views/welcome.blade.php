@@ -86,7 +86,10 @@ use Carbon\Carbon;
         color: white;
     }
     
-    
+    .chart{
+        width: 500px;
+        height: 500px;
+    }
 </style>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 row">  
@@ -336,11 +339,19 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-        </div
-    ></div>
+        </div>
+
+</div>
 </div>
  {{-- fin tableau de Vieillissment du clients --}}
-
+<div class="row">
+    <div class="col-md-6 chart">
+        <canvas id="myChart" ></canvas>
+    </div>
+    <div class="col-md-6 chart">
+        <canvas id="myChart2" ></canvas>
+    </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
@@ -404,7 +415,96 @@ $({ Counter: 0 }).animate({
 
     });
     
-   
+    const Produits=[
+                {libele:'Mangue',prix:140000},
+                {libele:'Orange',prix:100000},
+                {libele:'Banane',prix:200000},
+                {libele:'Papaye',prix:50000},
+            ];
+            var lab=[];
+            var prix=[];
+            Produits.forEach(p=>{
+                lab.push(p.libele)
+                prix.push(p.prix)
+            })
+            console.log(lab);
+            var ctx=document.getElementById('myChart')
+            var ctx2=document.getElementById('myChart2')
+            var myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: lab,
+                    datasets: [{
+                        label: 'Le Prix:',
+                        data: prix,
+                        minBarLength: 2,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+        });
+
+            var myChart = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: lab,
+                    datasets: [{
+                        label: 'Le Prix:',
+                        data: prix,
+                        minBarLength: 2,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+        });
 </script>
 @endsection
         
