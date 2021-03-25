@@ -5,6 +5,12 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 							
 @endphp
 
+<style>
+	.row{
+		overflow: hidden;
+	}
+</style>
+
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 row">  
     <div class="col-xs-6 col-sm-6 col-md-6">      

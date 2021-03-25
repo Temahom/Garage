@@ -74,6 +74,9 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Se Connecter</button>
                     </form>
+                    <label class="mt-3 text-center" style="margin-left: 30%;">
+                        <span><a href="{{route('password.request')}}">Forgot password?</a></span>
+                    </label>
                 </div>
             </div>
     </div>

@@ -1,5 +1,12 @@
 @extends('layout.index')
 @section('content')
+
+<style>
+	.row{
+		overflow-x: auto;
+	}
+</style>
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
