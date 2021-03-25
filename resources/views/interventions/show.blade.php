@@ -164,10 +164,10 @@
 									</tbody>
 								</table>
 
-								<table class="table table-bordered mt-4" style="border: none; display: flex; justify-content: flex-end; ">
+								<table class="table table-bordered mt-5">
 									<tbody>
 										<tr>
-											<th scope="col" colspan="4">Total des produits commandés</th>
+											<th scope="col" colspan="4">Total produit(s) commandé(s)</th>
 											<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
 										</tr>
 										<tr>
