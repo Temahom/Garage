@@ -94,10 +94,7 @@ use Carbon\Carbon;
         color: white;
     }
     
-    .chart{
-        width: 500px;
-        height: 500px;
-    }
+     
 </style>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 row">  
@@ -403,12 +400,12 @@ use Carbon\Carbon;
                                     <th class="border-0">Ce Mois-ci</th>
                                     <th class="border-0">Diagnostics</th>
                                     <th class="border-0">Devis</th>
-                                    <th class="border-0">Interventions</th>
+                                    <th class="border-0">Interventions</th>      
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{$mois_ci}}</td>
+                                    <td>{{$mois_ci}}<sup>iéme </sup> Mois </td>
                                     <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
                                     <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
                                     <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
@@ -446,12 +443,12 @@ use Carbon\Carbon;
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{$mois_ci}}</td>
-                                    <td>{{$clients}} {{$clients>1?"clients":"client"}} </td> 
-                                    <td>{{$voitures}} {{$voitures>1?"voitures":"voiture"}} </td> 
-                                    <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
-                                    <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
-                                    <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
+                                    <td>{{$mois_ci}}<sup>iéme </sup> Mois </td>
+                                    <td> <center> {{$clients}} </center> </td> 
+                                    <td> <center> {{$voitures}} </center> </td> 
+                                    <td> <center> {{$diagnostics}} </center> </td> 
+                                    <td> <center> {{$devis}} </center> </td>
+                                    <td> <center> {{$interventions}} </center> </td>
                                     </tr>
                             </tbody>
                         </table>
