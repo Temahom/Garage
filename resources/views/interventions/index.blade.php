@@ -27,7 +27,7 @@
            color:#ffffff;
            
            padding: 10px;
-           border-radius:0 20% 0 20%;
+           border-radius:20% 20% 20% 20%;
            text-align: center;
            font-size: 16px;
           }
@@ -36,7 +36,7 @@
            background-color:#138496!important;
            color:#ffffff;
            padding: 10px;
-           border-radius:0 20% 0 20%;
+           border-radius:20% 20% 20% 20%;
            text-align: center;
            font-size: 16px;
           }
@@ -97,8 +97,7 @@
 }
 
 
-/* demo styles
------------------------------------------------------ */
+/* demo styles---------------------------------------------------- */
 
 body::before {
   color: red;
