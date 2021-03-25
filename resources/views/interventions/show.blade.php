@@ -96,7 +96,7 @@
 							</div>
 						</div>
 					@endif
-
+                    @can('create', App\Models\Diagnostic::class)
 					<div class="row mt-4">
 						<div class="col-md-12">
 							@if ( $intervention->diagnostic_id )
@@ -106,6 +106,7 @@
 							@endif
 						</div>
 					</div>
+					@endcan
 					
 
 				</div>
@@ -185,7 +186,8 @@
 							</div>
 						</div>
 					@endif
-
+                     
+					@can('create', App\Models\Devi::class)
 					<div class="row mt-4">
 						<div class="col-md-12">
 							@if ( $intervention->devis_id )
@@ -197,6 +199,7 @@
 							@endif
 						</div>
 					</div>
+					@endcan
 
 				</div>
 				<!-- ============================================================== -->
@@ -222,6 +225,7 @@
 							</div>
 						</div>
 					@endif
+					@can('create', App\Models\Summary::class)
 					<div class="row mt-4">
 						<div class="col-md-12">
 							@if ( $intervention->summary_id )
@@ -232,6 +236,7 @@
 							@endif
 						</div>
 					</div>
+					@endcan
 
 				</div>
 				<!-- ============================================================== -->

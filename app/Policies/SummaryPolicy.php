@@ -2,10 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Summary;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UserPolicy
+class SummaryPolicy
 {
     use HandlesAuthorization;
 
@@ -24,10 +25,10 @@ class UserPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function view(User $user, User $model)
+    public function view(User $user, Summary $summary)
     {
         //
     }
@@ -40,29 +41,29 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id, [2, 4]);
+        return in_array($user->role_id, [3,4]);
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function update(User $user, User $model)
+    public function update(User $user, Summary $summary)
     {
-        return in_array($user->role_id, [2, 4]);
+        return in_array($user->role_id, [3,4]);
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function delete(User $user, User $model)
+    public function delete(User $user, Summary $summary)
     {
         //
     }
@@ -71,10 +72,10 @@ class UserPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function restore(User $user, User $model)
+    public function restore(User $user, Summary $summary)
     {
         //
     }
@@ -83,10 +84,10 @@ class UserPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function forceDelete(User $user, User $model)
+    public function forceDelete(User $user, Summary $summary)
     {
         //
     }

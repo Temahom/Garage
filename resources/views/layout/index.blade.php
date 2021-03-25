@@ -189,9 +189,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients">Liste Clients</a>
                                         </li>
+                                        @can('create', App\Models\Client::class)
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients/create">Ajouter Client</a>
                                         </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -203,12 +205,15 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures">Liste voitures</a>
                                         </li>
+                                        @can('create', App\Models\Voiture::class)
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
                                         </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
+                            @can('create', App\Models\User::class)
                             <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success"></span></a>
                                 <div id="submenu-acteur" class="collapse submenu">
@@ -222,6 +227,7 @@
                                     </ul>    
                                 </div>
                             </li>
+                            @endcan
                             <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success"></span></a>
                                 <div id="submenu-rv" class="collapse submenu">
