@@ -1,6 +1,6 @@
 
 <p style='line-height:normal;font-size:20px;font-family:fira sans;'>&nbsp;</p>
-<table style="width: 0.0px;border-collapse:collapse;border:none;">
+<table style=";border-collapse:collapse;border:none;">
     <tbody>
         <tr>
             <td colspan="2" style="width:240.0px;border:none;height:232px;">
@@ -87,7 +87,7 @@
     </tbody>
 </table>
 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
-<table style="width: 0.0px;border-collapse:collapse;border:none;">
+<table style=";border-collapse:collapse;border:none;">
     <tbody>
         <tr>
             <td style="width:210.65px;border:none;">
@@ -191,7 +191,7 @@
 </table>
 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
-<table style="width: 0.0px;border-collapse:collapse;border:none;">
+<table style=";border-collapse:collapse;border:none;">
     <tbody>
         <tr>
             <td colspan="2" style="width:240.0px;border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
