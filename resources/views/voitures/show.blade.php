@@ -49,7 +49,7 @@
 								<th style="color: white;">Type</th>
 								<th style="color: white;">Début</th>
 								<th style="color: white;">Fin</th>
-								@can('create', App\Models\Intervention::create)
+								@can('create', App\Models\Intervention::class)
 								<th style="color: white;">Action</th>
 								@endcan
 							</tr>
