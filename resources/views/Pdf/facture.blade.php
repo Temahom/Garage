@@ -91,7 +91,7 @@
         </tr>
     </tbody>
 </table>
-<p style='line-height:normal;font-size:20px;font-family:fira sans;margin-right:36.0px;'><span style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
+<p style='line-height:normal;font-size:20px;font-family:fira sans;margin-right:20px;'><span style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
 <table style="width: 0.0px;margin-left:20px;border-collapse:collapse;border:none;">
     <tbody>
         <tr>
@@ -194,8 +194,8 @@
         </tr>
     </tbody>
 </table>
-<p style='line-height:normal;font-size:20px;font-family:fira sans;margin-right:36.0px;'><span style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
-<p style='line-height:normal;font-size:20px;font-family:fira sans;margin-right:36.0px;'><span style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
+<p style='line-height:normal;font-size:20px;font-family:fira sans;margin-right:20px;'><span style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
+<p style='line-height:normal;font-size:20px;font-family:fira sans;margin-right:20px;'><span style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
 <table style="width: 0.0px;margin-left:20px;border-collapse:collapse;border:none;">
     <tbody>
         <tr>
@@ -380,4 +380,4 @@
         </tr>
     </tbody>
 </table>
-<p style='line-height:115%;font-size:20px;font-family:fira sans;margin-right:36.0px;'><span style="font-size:13px;line-height:115%;font-family:montserrat;">&nbsp;</span></p>
+<p style='line-height:115%;font-size:20px;font-family:fira sans;margin-right:20px;'><span style="font-size:13px;line-height:115%;font-family:montserrat;">&nbsp;</span></p>
