@@ -44,12 +44,10 @@ Route::get('/', function () {
 Route::get('send-mail',[MailSend::class,'mailsend']);
 Route::get('send-devis/{id}',[MailSend::class,'send_devis']);
 Route::get('send-message',[SmsController::class,'sendMessage']);
-/* Route::get('Pdf', function () {
-
-   
-    $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
-    return $pdf->stream('Devis.pdf');
-}); */
+ Route::get('facture', function () {
+    $pdf = PDF::loadView('Pdf.facture');    
+    return $pdf->stream('facture.pdf');
+}); 
 Route::get('Pdf/{id}', function ($id) {
    $devis_id=Intervention::find($id)->devis_id;
    $devi = Devi::find($devis_id);
