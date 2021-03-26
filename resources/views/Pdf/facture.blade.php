@@ -1,5 +1,5 @@
 <p style='margin:0cm;margin-bottom:.0001pt;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'>&nbsp;</p>
-<table style="width: 0.0pt;margin-left:2.0pt;border-collapse:collapse;border:none;">
+<table style="width: 0.0pt;margin-left:2.0pt;border-collapse:collapse;border:none;margin-left: 100%;">
     <tbody>
         <tr>
             <td colspan="2" style="width:240.0pt;border:none;padding:0cm 2.0pt 0cm 2.0pt;height:132.0pt;">
@@ -347,9 +347,6 @@
             <td style="width: 53.25pt;border: none;padding: 0cm 2pt;height: 19pt;vertical-align: bottom;">
                 <p style='margin:0cm;margin-bottom:.0001pt;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="font-size:13px;">&nbsp;</span></p>
             </td>
-            <td style="width:93.0pt;border:none;border-bottom:solid black 1.0pt;padding:0cm 2.0pt 0cm 2.0pt;height:19.0pt;">
-                <p style='margin:0cm;margin-bottom:.0001pt;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;text-align:right;'><strong><span style="font-size:11px;font-family:Roboto;color:#333F4F;">EXPEDITIO, MANUTENTION</span></strong></p>
-            </td>
             <td style="width:81.15pt;border:none;border-bottom:solid black 1.0pt;padding:0cm 2.0pt 0cm 2.0pt;height:19.0pt;">
                 <p style='margin:0cm;margin-bottom:.0001pt;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;text-align:right;'><span style="font-size:12px;font-family:Roboto;">0.00</span></p>
             </td>
@@ -364,8 +361,8 @@
             <td style="width:93.0pt;border:none;padding:0cm 2.0pt 0cm 2.0pt;height:33.0pt;">
                 <p style='margin:0cm;margin-bottom:.0001pt;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;text-align:right;'><strong><span style="font-size:16px;font-family:Roboto;color:#333F4F;">SOLDE DU</span></strong></p>
             </td>
-            <td style="width:81.15pt;border:none;border-bottom:solid black 1.0pt;background:#D9EAD3;padding:0cm 2.0pt 0cm 2.0pt;height:33.0pt;">
-                <p style='margin:0cm;margin-bottom:.0001pt;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;text-align:right;'><strong><span style="font-size:16px;font-family:Roboto;">0.00&euro;</span></strong></p>
+            <td style="width:81.15pt;border:none;border-bottom:solid black 1.0pt;background:#eaead3;padding:0cm 2.0pt 0cm 2.0pt;height:33.0pt;">
+                <p style='margin:0cm;margin-bottom:.0001pt;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;text-align:right;'><strong><span style="font-size:16px;font-family:Roboto;">0.00F CFA;</span></strong></p>
             </td>
         </tr>
         <tr>
