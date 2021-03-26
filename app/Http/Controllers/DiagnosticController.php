@@ -51,7 +51,9 @@ class DiagnosticController extends Controller
     {
         $diagnostic = new Diagnostic();
         $diagnostic->constat = $request->input('constat');
+        $diagnostic->coût = $request->input('coût');
         $diagnostic->save();
+
 
         $intervention->diagnostic_id = $diagnostic->id;
         $intervention->statut = 2;
@@ -106,8 +108,9 @@ class DiagnosticController extends Controller
     {
         $this->authorize('update', $diagnostic);
         $diagnostic->constat = $request->input('constat');
+        $diagnostic->coût = $request->input('coût');
         $diagnostic->update();
-
+        
         $defauts = $intervention->diagnostic()->first()->defauts()->get();
         foreach($defauts as $defaut)
         {
