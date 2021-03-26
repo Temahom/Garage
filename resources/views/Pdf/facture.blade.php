@@ -1,3 +1,8 @@
+<style>
+    body{
+        width: 100%;
+    }
+</style>
 <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:fira sans;'>&nbsp;</p>
 <table style="width: 0.0px;margin-left:2.0px;border-collapse:collapse;border:none;">
     <tbody>
