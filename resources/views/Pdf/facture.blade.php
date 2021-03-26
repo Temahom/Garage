@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td style="width:210.65px;border:none;padding:0cm 2.0px 0cm 2.0px;height:18.0px;">
-                <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="color:#333F4F;">&lt;Nom de la compagnie&gt;</span></p>
+                <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="color:#333F4F;">SAKA</span></p>
             </td>
             <td style="width:29.35px;border:none;padding:0cm 2.0px 0cm 2.0px;height:18.0px;">
                 <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="font-size:13px;">&nbsp;</span></p>
@@ -120,7 +120,7 @@
         </tr>
         <tr>
             <td style="width:210.65px;border:none;padding:0cm 2.0px 0cm 2.0px;height:18.0px;">
-                <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="font-size:13px;font-family:Roboto;">&lt;Nom&gt;</span></p>
+                <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="font-size:13px;font-family:Roboto;">{{$devi_client->prenom}} {{$devi_client->nom}}</span></p>
             </td>
             <td style="width:29.35px;border:none;padding:0cm 2.0px 0cm 2.0px;height:18.0px;">
                 <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="font-size:13px;">&nbsp;</span></p>
@@ -137,7 +137,7 @@
         </tr>
         <tr>
             <td style="width:210.65px;border:none;padding:0cm 2.0px 0cm 2.0px;height:18.0px;">
-                <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="font-size:13px;font-family:Roboto;">&lt;Nom de la societe&gt;</span></p>
+                <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="font-size:13px;font-family:Roboto;">{{$devi_client->email}}</span></p>
             </td>
             <td style="width:29.35px;border:none;padding:0cm 2.0px 0cm 2.0px;height:18.0px;">
                 <p style='margin:0cm;margin-bottom:.0001px;line-height:normal;font-size:15px;font-family:"Arial",sans-serif;'><span style="font-size:13px;">&nbsp;</span></p>
