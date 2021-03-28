@@ -25,7 +25,7 @@
 <div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px;box-shadow: 0 10px 20px rgba(148,149,150,0.19), 0 6px 6px rgba(148,149,150,0.23); ">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
 		<div class="section-block">
-			<h2 class="section-title py-4" style="text-align: center;">INTERVENTION</h2>
+			<h2 class="section-title py-4" style="text-align: center; text-shadow: 1px 1px 3px #b3b9ee">INTERVENTION</h2>
 			<!-- DATE DEBUT DATE FIN  -->
 			<div class="row">
 				<div class="col-md-3">
@@ -70,8 +70,8 @@
 								<table class="table table-bordered mb-4">
 									<tbody>
 										<tr>
-											<th scope="col" colspan="4">Coût du Diagnostic (F CFA)</th>
-											<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }}</th>
+											<th scope="col" colspan="4">Coût du Diagnostic</th>
+											<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }} F CFA</th>
 										</tr>
 									</tbody>
 								</table>
