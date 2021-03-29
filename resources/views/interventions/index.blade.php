@@ -197,7 +197,7 @@ font-size: 100%;
         
       <div class="row tab-content-2">
     
-          <div class="tab-outline">
+          <div class="tab-outline" style="width: 150%">
             <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
               <li class="nav-item">
                 <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
