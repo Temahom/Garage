@@ -139,7 +139,8 @@ background-color: #d6b;
 }
 
 .big {
-font-size: ;
+  margin-left: 15%;
+  font-size: 260%;
 }
 .med {
 font-size: 150%;
@@ -179,10 +180,8 @@ font-size: 100%;
     
         @endif
 
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="row tab-content-2">
+        
+      <div class="row tab-content-2" style="width: 100%">
         <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="tab-outline">
             <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
@@ -428,7 +427,6 @@ font-size: 100%;
           </div>
         </div>
       </div>
-  </div>
     
    
 
