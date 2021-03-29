@@ -16,7 +16,7 @@
     .nav-pills .show>.nav-link{
     background-color:#1B192E!important;
     color:#ffffff;
-    padding: 12px;
+    padding: 10px;
     border-radius:20px;
     font-size: 16px;
     }
@@ -24,10 +24,10 @@
     .nav-pills .show>.nav-link:hover{
     background-color:#1B192E!important;
     color:#ffffff;
-    padding: 12px;
+    padding: 10px;
     border-radius:20px;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     }
 
     .second{
@@ -35,14 +35,27 @@
       background-color:#F9F8F9!important;
     color:#737373;
     padding: 12px;
-    border-radius:20px;
+    border-radius:15px;
     font-size: 16px;
     }
     /* .third{
       margin-left:25px;
     } */
 
- 
+    .tab-content-2 {
+      border: 2px solid;
+      padding: 10px;
+      margin-top: 45px;
+      border-radius: 5px;
+    }
+
+    .nav-tabs-2{
+      width: 110%;
+      display: flex;
+      
+      justify-content: center;
+      padding-top: 10px;
+    }
     
 /* --------------------radial_progress--------------- */
 .pie {
@@ -182,8 +195,7 @@ font-size: 100%;
         @endif
 
         
-    <div class="row tab-content-2">
-      <div class="row">
+      <div class="row tab-content-2">
         <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="tab-outline">
             <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
@@ -200,7 +212,6 @@ font-size: 100%;
             </ul><br>
           </div>
         </div>
-      </div>
           <div class="col-xs-12 col-sm-12 col-md-12 ">
             <div class="tab-content " id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
