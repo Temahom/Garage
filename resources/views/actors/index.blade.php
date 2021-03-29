@@ -3,6 +3,13 @@
 use Carbon\Carbon;
 @endphp
 @section('content')
+
+<style>
+	.row{
+		overflow: hidden;
+	}
+</style>
+
 <link rel="stylesheet" href="/assets/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
 
     <div class="row">
@@ -10,9 +17,11 @@ use Carbon\Carbon;
             <div class="pull-left">
                 <h2>Liste Acteurs</h2>
             </div>
+            @can('create', App\Models\User::class)
             <div class="pull-right py-3">
                  <a class="btn btn-success" href="{{ route('actors.create') }}">Ajouter Acteur</a>
             </div>
+            @endcan
         </div>
     </div>
     <style>
@@ -42,10 +51,11 @@ use Carbon\Carbon;
                           @else
                           <img src="https://ui-avatars.com/api/?background=random&color=fff&name={{ $actor->name}}"  alt="{{ $actor->name}}" class="rounded-circle user-avatar-xl">
                           @endif
-                          
+                           @can('update', $actor)
                              <span class="avatar-badge has-indicator online" style="width: 30px; height: 30px;">
                                         <i style="font-size: 20px !important;font-weight: bold;" class="icon-note" ></i>
                                 </span>
+                            @endcan    
                         
                         </a>
                         <!-- /.user-avatar -->

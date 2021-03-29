@@ -7,6 +7,13 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
 
 
 @section('content')
+
+<style>
+	.row{
+		overflow: hidden;
+	}
+</style>
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -68,7 +75,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     </div>	
                     <div class="form-group">
                         <strong> Quantité :</strong>
-                            <input jsaction="input:trigger.Wtqxqe" type="number" name="qte" class="custom-select form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite" value="{{ old('qte') }}">
+                            <input jsaction="input:trigger.Wtqxqe" type="number"  min="0" name="qte" class="custom-select form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite" value="{{ old('qte') }}">
                             <div class="invalid-feedback">
                                 @if($errors->has('qte'))
                                 {{ $errors->first('qte') }}

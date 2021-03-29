@@ -41,7 +41,7 @@ class VoiturePolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id,[1,2]);
+        return in_array($user->role_id,[2,4]);
     }
 
     /**
@@ -53,7 +53,7 @@ class VoiturePolicy
      */
     public function update(User $user, Voiture $voiture)
     {
-        return in_array($user->role_id,[1,2]);
+        return in_array($user->role_id,[2,4]);
     }
 
     /**
@@ -65,7 +65,7 @@ class VoiturePolicy
      */
     public function delete(User $user, Voiture $voiture)
     {
-        return in_array($user->role_id,[1,2]);
+        return in_array($user->role_id,[2,4]);
     }
 
     /**

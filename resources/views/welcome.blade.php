@@ -18,13 +18,25 @@ use Carbon\Carbon;
   $facturesMois=\App\Models\Facture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
      //facture aujourd"hui
   $facturesJour=\App\Models\Facture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->whereDay('created_at', Carbon::now()->day)->count();
-   
+       ///Tab Recapitulatif Mensuel de diagnostic,Devis et Interventions
+   $diagnostics=\App\Models\Diagnostic::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
+   $devis=\App\Models\Devi::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
+   $interventions=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
+    $mois_ci=Carbon::now()->format('F');
+   $voitures=\App\Models\Voiture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
+      ///Tab Recapitulatif Journaliere
+   $jour_ci=Carbon::now()->day; 
+  
 
 @endphp
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 <link rel="stylesheet" href="/assets/libs/css/clock.css">
 <style>
+
+    .row{
+        overflow: hidden;
+    }
     #cercle .card {
       
         justify-content: center;
@@ -82,8 +94,12 @@ use Carbon\Carbon;
         color: white;
     }
     
-    
+     
 </style>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">  
+
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 row">  
     
@@ -286,12 +302,46 @@ use Carbon\Carbon;
     </div>
 </div>  
 
+  {{-- debut tableau recaputulatif du jour--}}
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+            <div class="card">
+                <h5 class="card-header" style="text-align: center ; background-color: #580701;">Tableau récaptulatif du Jour</h5>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-light">
+                                <tr class="border-0">
+                                    <th class="border-5">Aujourd'hui</th> 
+                                    <th class="border-5">Nombre Interventions</th>
+                                    <th class="border-5">Facture Impayée</th>  
+                                    <th class="border-5">Chiffre d'Affaire</th>   
+                                 </tr>
+                            </thead>
+                            <tbody>                 
+                                <tr>
+                                    <td> Le {{ $jour_ci}}  </td> 
+                                   </tr>
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+ {{-- fin tableau recaputulatif du jour--}}   
+
+
+
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
         <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
             <div class="card">
-                <h5 class="card-header" style="text-align: center">Tableau récaptulatif mensuel des Clients</h5>
+                <h5 class="card-header" style="text-align: center;  background-color: #068c94;">Tableau récaptulatif mensuel des Clients</h5>
                 <div class="card-body p-0">
                     <div class="table-responsive">
                         <table class="table">
@@ -332,10 +382,130 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-        </div
-    ></div>
+        </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+                    <div class="card">
+                        <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de ce mois_ci </h5>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th class="border-0">Ce Mois-ci</th>
+                                            <th class="border-0">Diagnostics</th>
+                                            <th class="border-0">Devis</th>
+                                            <th class="border-0">Interventions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{$mois_ci}}</td>
+                                            <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
+                                            <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
+                                            <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+   </div>
 </div>
  {{-- fin tableau de Vieillissment du clients --}}
+ <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-md-6 chart">
+            <canvas id="myChart" ></canvas>
+        </div>
+        <div class="col-md-6 chart">
+            <canvas id="myChart2" ></canvas>
+        </div>
+    </div>
+</div>
+{{-- --}}
+   
+ <div><div>{{-- ------------------------------espace------------------------------------------------}}   </div></div>
+
+ {{-- debut tableau recaputulatif de ce mois_ci--}}
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 row">  
+                            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+                                <div class="card">
+                                    <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de ce mois_ci </h5>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th class="border-0">Ce Mois-ci</th>
+                                                        <th class="border-0">Diagnostics</th>
+                                                        <th class="border-0">Devis</th>
+                                                        <th class="border-0">Interventions</th> 
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>{{$mois_ci}}<sup>iéme </sup> Mois </td>
+                                                        <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
+                                                        <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
+                                                        <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+ {{-- fin tableau recaputulatif de ce mois ci--}}   
+
+ {{-- debut tableau recaputulatif de ce mois_ci avec clients et voitures--}}
+ <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 mt-8">
+            <div class="card">
+                <h5 class="card-header" style="text-align: center ; background-color: #339207;">Tableau récaptulatif du Mois </h5>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-light">
+                                <tr class="border-0">
+                                    <th class="border-0">Ce Mois-ci</th>
+                                    <th class="border-0">Clients</th>  
+                                    <th class="border-0">Voitures</th>
+                                    <th class="border-0">Diagnostics</th>
+                                    <th class="border-0">Devis</th>
+                                    <th class="border-0">Interventions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{$mois_ci}}<sup>iéme </sup> Mois </td>
+                                    <td> {{$clients}}</td> 
+                                    <td>  {{$voitures}}  </td> 
+                                    <td>  {{$diagnostics}}  </td> 
+                                    <td>   {{$devis}}  </td>
+                                    <td>  {{$interventions}}  </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+    </div>
+</div>
+ {{-- fin tableau recaputulatif de ce mois ci avec clients et voitures--}}   
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
@@ -400,7 +570,96 @@ $({ Counter: 0 }).animate({
 
     });
     
-   
+    const Produits=[
+                {libele:'Mangue',prix:140000},
+                {libele:'Orange',prix:100000},
+                {libele:'Banane',prix:200000},
+                {libele:'Papaye',prix:50000},
+            ];
+            var lab=[];
+            var prix=[];
+            Produits.forEach(p=>{
+                lab.push(p.libele)
+                prix.push(p.prix)
+            })
+            console.log(lab);
+            var ctx=document.getElementById('myChart')
+            var ctx2=document.getElementById('myChart2')
+            var myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: lab,
+                    datasets: [{
+                        label: 'Le Prix:',
+                        data: prix,
+                        minBarLength: 2,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+        });
+
+            var myChart = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: lab,
+                    datasets: [{
+                        label: 'Le Prix:',
+                        data: prix,
+                        minBarLength: 2,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+        });
 </script>
 @endsection
         

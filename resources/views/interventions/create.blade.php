@@ -2,6 +2,12 @@
 
 @section('content')
 
+<style>
+	.row{
+		overflow: hidden;
+	}
+</style>
+
 <div class="row ml-1">
 	<div class="col-md-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
 		
@@ -29,6 +35,7 @@
 				<div style="font-size: 14px;"> {{ $voiture->marque}} - {{ $voiture->model}} - {{ $voiture->annee}}</div>
 				<div style="font-size: 14px;"> {{ $voiture->transmission}} - {{ $voiture->carburant}}</div>			
 				<div style="font-size: 14px;"> {{ $voiture->puissance}} cheveaux - {{ $voiture->kilometrage}} km</div>		
+				@can('update', $voiture)
 				<div class="text-right" style="font-size: 12px;">
 					<a class="text-primary mr-1" href="{{ route('voitures.edit',$voiture->id)}}">Modifier</a> 
 					<button type="button" class="text-danger hide_delete" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
@@ -52,6 +59,7 @@
 						</div>
 					</div>	
 				</div>
+				@endcan
 
 			</div>
 

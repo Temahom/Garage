@@ -1,6 +1,12 @@
 @extends('layout.index')
 @section('content')
 
+<style>
+	.row{
+		overflow-x: auto;
+	}
+</style>
+
     <div class="row ml-1">
         <div class="col-md-5 col-sm-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
             <div class="row">
@@ -17,6 +23,7 @@
                     <div style="font-size: 14px;"><i class="fas fa-home"></i> {{ $client->entreprise}}</div>
                     <div style="font-size: 14px;"><i class="fas fa-phone"></i> {{ $client->telephone}}</div>
                     <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $client->email}}</div>
+                    @can('update', $client)
                     <div class="text-right" style="font-size: 12px;">
                         <a class="text-primary mr-1" href="{{ route('clients.edit',$client->id)}}">Modifier</a> 
                         <button type="button" class="text-danger hide_delete" id="hide_clients" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
@@ -41,6 +48,7 @@
                                     </div>
                                 </div>
                     </div>
+                    @endcan
                 </div>
 
             </div>

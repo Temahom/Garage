@@ -6,6 +6,15 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
 @endphp
 @extends('layout.index')
 @section('content')
+
+
+<style>
+	.row{
+		overflow: hidden;
+	}
+</style>
+
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -14,7 +23,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
         </div>
     </div>
 
-    <form action="{{ route('voitures.store') }}" method="POST" >
+    <form action="{{ route('voitures.store') }}" method="POST" id="form">
       @csrf
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row">  
@@ -43,7 +52,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
           <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
               <strong>Matricule:</strong>
-              <input type="text" name="matricule" value="{{ isset($voiture) ? $voiture->matricule : old('matricule')}}  " autocomplete="off" class="custom-select form-control @error('matricule') is-invalid @enderror" placeholder="Saisir matricule...">
+              <input type="text" name="matricule" value="{{old('matricule')}} " autocomplete="off" class="custom-select form-control @error('matricule') is-invalid @enderror" placeholder="Saisir matricule...">
               <div class="invalid-feedback">
                   @if($errors->has('matricule'))
                     {{ $errors->first('matricule') }}
@@ -52,13 +61,10 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
             </div>
             <div class="form-group">
               <strong>Marque</strong>
-              <select name="marque" id="marques" class="custom-select form-control @error('marque') is-invalid @enderror js-example-basic-single">
-                @if(!empty($voiture->marque))
-                  <option value="{{$voiture->marque}}">{{$voiture->marque}}</option>
-                @endif  
+              <select name="marque" id="marques" class="custom-select form-control @error('marque') is-invalid @enderror js-example-basic-single"> 
                 <option value="">Marque</option>
                 @foreach ($listes as $liste)
-                  <option value="{{$liste->marques}}" {{ old('marque') == ($liste->marques) ? 'selected' : '' }}>{{$liste->marques}}</option>
+                  <option value="{{$liste->marques}} " {{ old('marque') == ($liste->marques) ? 'selected' : '' }} >{{$liste->marques}}</option>
                 @endforeach 
               </select>	
                 <div class="invalid-feedback">
@@ -72,7 +78,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
               <select name="model" id="lemodel" class="custom-select form-control @error('model') is-invalid @enderror js-example-basic-single">
                 <option value="">Modèle</option>
               </select>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback" id="modele">
                 @if($errors->has('model'))
                 {{ $errors->first('model') }}
                 @endif
@@ -82,15 +88,12 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
             <div class="form-group">
               <strong>Transmission</strong>
               <select name="transmission" id="latransmission" class="custom-select form-control @error('transmission') is-invalid @enderror js-example-basic-single">
-                @if(!empty($voiture->transmission))
-                <option value="{{$voiture->transmission}}">{{$voiture->transmission}}</option>
-                 @endif
                 <option value="">Transmission</option>
                 <option value="Manuel" {{ old('transmission') == 'Manuel' ? 'selected' : '' }}>Manuel</option>
                 <option value="Automatique" {{ old('transmission') == 'Automatique' ? 'selected' : '' }}>Automatique</option>
                 <option value="semi-automatique" {{ old('transmission') == 'semi-automatique' ? 'selected' : '' }}>Semi-Automatique</option>
               </select>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback" id="transmission">
                 @if($errors->has('transmission'))
                 {{ $errors->first('transmission') }}
                 @endif
@@ -100,8 +103,8 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
             <div class="col-xs-6 col-sm-6 col-md-6">
                <div class="form-group">
               <strong>Kilométrage</strong>
-              <input type="number" name="kilometrage" value="{{isset($voiture->kilometrage)?$voiture->kilometrage:''}}" id="lekilometrage" class="custom-select form-control @error('kilometrage') is-invalid @enderror" autocomplete="off" placeholder="Kilometrage"  value="{{ old('kilometrage') }}">
-              <div class="invalid-feedback">
+              <input type="number" name="kilometrage" value="{{old('kilometrage')}}" id="lekilometrage" class="custom-select form-control @error('kilometrage') is-invalid @enderror" autocomplete="off" placeholder="Kilometrage"  value="{{ old('kilometrage') }}">
+              <div class="invalid-feedback" id="kilometrage">
                 @if($errors->has('kilometrage'))
                 {{ $errors->first('kilometrage') }}
                 @endif
@@ -113,7 +116,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
                
                 <option value="">Année</option>
               </select>	
-              <div class="invalid-feedback">
+              <div class="invalid-feedback" id="annee">
                 @if($errors->has('annee'))
                 {{ $errors->first('annee') }}
                 @endif
@@ -127,7 +130,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
                 <option value="Essence" {{ old('carburant') == 'Essence' ? 'selected' : '' }}>Essence</option>
                 <option value="Gazoil" {{ old('carburant') == 'Gazoil' ? 'selected' : '' }}>Gazoil</option>
               </select>	
-              <div class="invalid-feedback">
+              <div class="invalid-feedback" id="carburant">
                 @if($errors->has('carburant'))
                 {{ $errors->first('carburant') }}
                 @endif
@@ -139,7 +142,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
                 
                 <option value="">Puissance</option>
               </select>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback" id="puissance">
                 @if($errors->has('puissance'))
                 {{ $errors->first('puissance') }}
                 @endif
@@ -152,7 +155,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
           <a class="btn btn-secondary" href="{{ route('voitures.index') }}"><i class="fas fa-angle-left"></i>  Retour</a>
-          <button type="submit" class="btn btn-success">Enregistrer</button>
+          <a class="btn btn-success" onclick="formSend()" style="color:#ffffff">Enregistrer</a>
         </div>
       
       </div>
@@ -171,10 +174,10 @@ $(document).ready(function() {
           url: "/api/listes/"+ $('select[name=marque]').val(),
           dataType: 'json',
           success: function(data) {
-			var models= data;
+		    	var models= data;
             models.map(m=>{
-              model+='<option value="'+ m.lemodel+'" >'+ m.lemodel+'</option>'
-            
+              model+='<option value="'+ m.lemodel+'">'+ m.lemodel+'</option>'
+              {{ old('marque') == ($liste->marques) ? 'selected' : '' }}
             })
             $('#lemodel').html(model)
           }
@@ -252,6 +255,44 @@ $(document).ready(function() {
           class : "custom-select form-control"
         });
     });
+
+
+    function formSend()
+    {
+      var modele = $('#lemodel').val()
+      var annee = $('#lannee').val()
+      var carburant = $('#lecarburant').val()
+      var puissance = $('#lapuissance').val()
+      var transmission = $('#latransmission').val()
+      var tab=[]
+      tab['modele']= modele
+      tab['annee']= annee
+      tab['carburant']= carburant
+      tab['puissance']= puissance
+      tab['transmission']= transmission
+
+      for (const [key, value] of Object.entries(tab)) {
+          // console.log(key, value);
+          if(value==""){
+            //  alert('le champ ' + key + ' ne pas pas etre vide')
+            $("'#"+key+"'").html('<div class="invalid-feedback">champ vide </div>')
+          }  
+          else $('#form').submit()
+        }
+
+      // tab.map(element=>{
+      //      if(element == ""){
+
+      //      }
+      //      else $('#form').submit()
+      // })
+      // if(modele == "" && annee =="" && carburant=="" && puissance=="" && transmission=="")
+      //   {
+      //     alert('champs manquant')
+      //   }
+      //   else
+      //     $('#form').submit()
+    }
 
 </script>
         

@@ -13,7 +13,11 @@
 @include('voitures._partials.carinformation')
 
 
-
+<style>
+	.row{
+		overflow-x: auto;
+	}
+</style>
 
 <!-- ============================================================== -->
 <!-- TAB INTERVENTION  -->
@@ -21,7 +25,7 @@
 <div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px;box-shadow: 0 10px 20px rgba(148,149,150,0.19), 0 6px 6px rgba(148,149,150,0.23); ">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
 		<div class="section-block">
-			<h2 class="section-title py-4" style="text-align: center;">INTERVENTION</h2>
+			<h2 class="section-title py-4" style="text-align: center; text-shadow: 1px 1px 3px #b3b9ee">INTERVENTION</h2>
 			<!-- DATE DEBUT DATE FIN  -->
 			<div class="row">
 				<div class="col-md-3">
@@ -56,13 +60,22 @@
 					@if ( $intervention->diagnostic_id )
 						<div class="row">
 							<div class="col-md-12">
-								<h4>Constat</h4>
+								<h4><u>Constat:</u></h4>
 								<p>{{ $diagnostic->constat }}</p>
 							</div>
 						</div>
 
 						<div class="row mt-4">
 							<div class="col-md-12">
+								<table class="table table-bordered mb-4">
+									<tbody>
+										<tr>
+											<th scope="col" colspan="4">Coût du Diagnostic</th>
+											<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }} F CFA</th>
+										</tr>
+									</tbody>
+								</table>
+
 								<table class="table table-bordered">
 									<thead style="background-color: #4656E9;">
 									<tr>
@@ -92,7 +105,7 @@
 							</div>
 						</div>
 					@endif
-
+                    @can('create', App\Models\Diagnostic::class)
 					<div class="row mt-4">
 						<div class="col-md-12">
 							@if ( $intervention->diagnostic_id )
@@ -102,6 +115,7 @@
 							@endif
 						</div>
 					</div>
+					@endcan
 					
 
 				</div>
@@ -127,22 +141,13 @@
 						<div class="row my-4">
 							<div class="col-md-12">
 
-								<table class="table table-bordered mb-4">
-									<tbody>
-										<tr>
-											<th scope="col" colspan="4">Cout de réparation</th>
-											<th scope="col" style="width: 200px">{{ number_format($devi->cout, 0, ",", " " ) }}</th>
-										</tr>
-									</tbody>
-								</table>
-
 								<table class="table table-bordered">
 									<thead style="background-color: #4656E9;">
 										<tr>
 											<th scope="col" style="color: #ffffff">Produit</th>
 											<th scope="col" style="color: #ffffff">Quantité</th>
-											<th scope="col" style="color: #ffffff">Prix/1</th>
-											<th scope="col" style="color: #ffffff; width: 200px">Total</th>
+											<th scope="col" style="color: #ffffff">Prix unitaire (F CFA)</th>
+											<th scope="col" style="color: #ffffff; width: 200px">Montant (F CFA)</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -156,9 +161,22 @@
 											</tr>
 											<?php $total += $item['produit']->prix1 * $item['devi_produit']->quantite ?>
 										@endforeach
+									</tbody>
+								</table>
+
+								<table class="table table-bordered mt-5">
+									<tbody>
 										<tr>
-											<th scope="col" colspan="3">Total</th>
+											<th scope="col" colspan="4">Total produit(s) commandé(s)</th>
 											<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
+										</tr>
+										<tr>
+											<th scope="col" colspan="4">Coût du Diagnostic</th>
+											<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }}</th>
+										</tr>
+										<tr>
+											<th scope="col" colspan="4">Cout de réparation</th>
+											<th scope="col" style="width: 200px">{{ number_format($devi->cout, 0, ",", " " ) }}</th>
 										</tr>
 									</tbody>
 								</table>
@@ -167,7 +185,7 @@
 									<tbody>
 										<tr>
 											<th scope="col" colspan="4">Net à payer</th>
-											<th scope="col" style="width: 200px"><?php echo number_format($total + $devi->cout, 0, ",", " ") ?></th>
+											<th scope="col" style="width: 200px"><?php echo number_format($total + $devi->cout + $diagnostic->coût, 0, ",", " ") ?></th>
 										</tr>
 									</tbody>
 								</table>
@@ -181,7 +199,8 @@
 							</div>
 						</div>
 					@endif
-
+                     
+					@can('create', App\Models\Devi::class)
 					<div class="row mt-4">
 						<div class="col-md-12">
 							@if ( $intervention->devis_id )
@@ -193,6 +212,7 @@
 							@endif
 						</div>
 					</div>
+					@endcan
 
 				</div>
 				<!-- ============================================================== -->
@@ -218,6 +238,7 @@
 							</div>
 						</div>
 					@endif
+					@can('create', App\Models\Summary::class)
 					<div class="row mt-4">
 						<div class="col-md-12">
 							@if ( $intervention->summary_id )
@@ -228,6 +249,7 @@
 							@endif
 						</div>
 					</div>
+					@endcan
 
 				</div>
 				<!-- ============================================================== -->

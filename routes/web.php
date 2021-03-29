@@ -44,12 +44,10 @@ Route::get('/', function () {
 Route::get('send-mail',[MailSend::class,'mailsend']);
 Route::get('send-devis/{id}',[MailSend::class,'send_devis']);
 Route::get('send-message',[SmsController::class,'sendMessage']);
-Route::get('Pdf', function () {
-
-   
-    $pdf = PDF::loadView('Pdf.pdf',["commandes"=>$commandes]);    
-    return $pdf->stream('Devis.pdf');
-});
+ Route::get('facture', function () {
+    $pdf = PDF::loadView('Pdf.facture');    
+    return $pdf->stream('facture.pdf');
+}); 
 Route::get('Pdf/{id}', function ($id) {
    $devis_id=Intervention::find($id)->devis_id;
    $devi = Devi::find($devis_id);
@@ -82,8 +80,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures.interventions.reparations',ReparationController::class);
     Route::resource('voitures.interventions.summaries',SummaryController::class);
     Route::resource('voitures.interventions.devis',DeviController::class);
-    Route::resource('commandes', CommandeController::class);
-    Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
+/*     Route::resource('commandes', CommandeController::class);
+ */    Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
     Route::resource('actors', ActorController::class);
     Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
     Route::resource('diagnostics', DiagnosticController::class);
@@ -109,11 +107,11 @@ Route::middleware('auth')->group(function () {
  
         
      //fullcalender
-    Route::get('/calendars.index', [CalendarController::class, 'index']);
+    //Route::get('/calendars.index', [CalendarController::class, 'index']);
    
-    Route::get('events', [EventController::class, 'index']);
+    /* Route::get('events', [EventController::class, 'index']);
     
-    Route::get('/events', [EventController::class, 'index']);
+    Route::get('/events', [EventController::class, 'index']); */
     // Route::get('/admin.index',[CalendarController::class, 'index']);
     /*Route::resource('fullcalendar',CalendarController::class);
     Route::get('/produits.creer', [CalendarController::class, 'index']); */

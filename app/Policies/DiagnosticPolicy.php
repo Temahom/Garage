@@ -41,7 +41,7 @@ class DiagnosticPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [3,4]);
     }
 
     /**
@@ -53,7 +53,7 @@ class DiagnosticPolicy
      */
     public function update(User $user, Diagnostic $diagnostic)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [3,4]);
     }
 
     /**
@@ -65,7 +65,7 @@ class DiagnosticPolicy
      */
     public function delete(User $user, Diagnostic $diagnostic)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [4,3]);
     }
 
     /**

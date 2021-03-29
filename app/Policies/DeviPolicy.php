@@ -41,7 +41,7 @@ class DeviPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [4,3]);
     }
 
     /**
@@ -53,7 +53,7 @@ class DeviPolicy
      */
     public function update(User $user, Devi $devi)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [4,3]);
     }
 
     /**
@@ -65,7 +65,7 @@ class DeviPolicy
      */
     public function delete(User $user, Devi $devi)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [4,3]);
     }
 
     /**

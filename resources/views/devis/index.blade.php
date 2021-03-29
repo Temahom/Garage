@@ -5,9 +5,11 @@ setlocale(LC_TIME, "fr_FR", "French");
 @section('titre')
 <div style="display: flex; justify-content:space-between;" >
     <h1>Devis</h1>
+    @can('create', App\Models\Devi::class)
     <div class="input-group-append">
-    <a href="/devis/create" class="btn btn-primary">Créer</a>
-</div>
+       <a href="/devis/create" class="btn btn-primary">Créer</a>
+    </div>
+    @endcan
 </div>
 @endsection
 @section('content')

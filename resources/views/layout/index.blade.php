@@ -89,8 +89,6 @@
         <!-- ============================================================== -->
         <!-- navbar -->
        
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
                  <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top" style="width: auto !important;">
@@ -164,8 +162,6 @@
                 </div>
             </nav>
         </div>
-    </div>
-</div>
         <!-- ============================================================== -->
         <!-- end navbar -->
         <!-- ============================================================== -->
@@ -176,23 +172,28 @@
             <br>
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    
+                    <a class="d-xl-none d-lg-none" href="#"> </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 20px">
+                            <li class="nav-divider" style="font-size: 25px">
                                Menu
                             </li><br>
 
-                            <li class="nav-item" style="padding-top: 8px">
+                            <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success"></span></a>
                                 <div id="submenu-client" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients">Liste Clients</a>
                                         </li>
+                                        @can('create', App\Models\Client::class)
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients/create">Ajouter Client</a>
                                         </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -204,12 +205,15 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures">Liste voitures</a>
                                         </li>
+                                        @can('create', App\Models\Voiture::class)
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
                                         </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
+                            @can('create', App\Models\User::class)
                             <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success"></span></a>
                                 <div id="submenu-acteur" class="collapse submenu">
@@ -223,6 +227,7 @@
                                     </ul>    
                                 </div>
                             </li>
+                            @endcan
                             <li class="nav-item "  style="padding-top: 5px">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success"></span></a>
                                 <div id="submenu-rv" class="collapse submenu">

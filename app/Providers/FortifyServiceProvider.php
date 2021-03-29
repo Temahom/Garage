@@ -49,7 +49,9 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::loginView(function(){
             return view("auth.login");
         } );
-        //Fortify::registerView(fn () => view("auth.register"));
+        Fortify::registerView(function(){
+            return view("auth.register");
+        });
 
         
         Fortify::authenticateUsing(function (Request $request) {
@@ -60,13 +62,13 @@ class FortifyServiceProvider extends ServiceProvider
                 return $user;
             }
         });
-        /* Fortify::requestPasswordResetLinkView(function () {
+        Fortify::requestPasswordResetLinkView(function () {
             return view("auth.forgot-password");
-        });-->
+        });
         
         Fortify::resetPasswordView(function ($request) {
             return view("auth.reset-password", ["request" => $request]);
-        }); */
+        });
     
     
 

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Actor;
+use App\Models\Summary;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ActorPolicy
+class SummaryPolicy
 {
     use HandlesAuthorization;
 
@@ -25,12 +25,12 @@ class ActorPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Actor  $actor
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function view(User $user, Actor $actor)
+    public function view(User $user, Summary $summary)
     {
-        
+        //
     }
 
     /**
@@ -41,41 +41,41 @@ class ActorPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id, [1, 4]);
+        return in_array($user->role_id, [3,4]);
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Actor  $actor
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function update(User $user, Actor $actor)
+    public function update(User $user, Summary $summary)
     {
-        return in_array($user->role_id, [1, 4]);
+        return in_array($user->role_id, [3,4]);
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Actor  $actor
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function delete(User $user, Actor $actor)
+    public function delete(User $user, Summary $summary)
     {
-        return in_array($user->role_id, [1,4]);
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Actor  $actor
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function restore(User $user, Actor $actor)
+    public function restore(User $user, Summary $summary)
     {
         //
     }
@@ -84,10 +84,10 @@ class ActorPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Actor  $actor
+     * @param  \App\Models\Summary  $summary
      * @return mixed
      */
-    public function forceDelete(User $user, Actor $actor)
+    public function forceDelete(User $user, Summary $summary)
     {
         //
     }
