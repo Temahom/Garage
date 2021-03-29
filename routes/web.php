@@ -70,7 +70,7 @@ Route::get('diag-pdf/{id}',function($id){
 
 
 Route::middleware('auth')->group(function () {
-    
+    Route::get('facture/{id}',[FactureController::class,'facture_diagnostic']);
     Route::resource('produits',ProduitController::class);
     Route::resource('clients',ClientController::class);  
     Route::resource('clients.voitures', VoitureController::class);

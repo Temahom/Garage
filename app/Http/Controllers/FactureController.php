@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Facture;
+use App\Models\Diagnostic;
+use App\Models\Intervention;
 use Illuminate\Http\Request;
 
 class FactureController extends Controller
@@ -80,5 +84,18 @@ class FactureController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function facture_diagnostic($id)
+    {
+       dd( Carbon::createFromFormat("d-m-y H:i", Date()));
+        $diagnostic=Diagnostic::find($id);
+        $intervention=$diagnostic->intervention;
+        dd($intervention->devi());
+        $facture= new Facture();
+        $facture->etat=1;
+        $facture->numero=time();
+        $facture->diagnostic_id=$id;
+
+
     }
 }
