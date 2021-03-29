@@ -19,4 +19,8 @@ class Diagnostic extends Model
     {
         return $this->hasMany(Defaut::class);
     }
+    public function facture()
+    {
+        return $this->hasMany(Facture::class);
+    }
 }

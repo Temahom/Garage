@@ -21,4 +21,8 @@ class Devi extends Model
     {
         return $this->belongsToMany(Produit::class,'devi_produits')->withPivot('quantite');
     }
+    public function facture()
+    {
+        return $this->hasMany(Facture::class);
+    }
 }
