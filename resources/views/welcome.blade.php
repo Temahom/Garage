@@ -477,7 +477,7 @@ use Carbon\Carbon;
                             <thead class="bg-light">
                                 <tr class="border-0">
                                     <th class="border-0">Ce Mois-ci</th>
-                                    <th class="border-0">Clients</th>  
+                                    <th class="border-0">Clients test</th>  
                                     <th class="border-0">Voitures</th>
                                     <th class="border-0">Diagnostics</th>
                                     <th class="border-0">Devis</th>
