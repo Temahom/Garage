@@ -42,20 +42,7 @@
       margin-left:25px;
     } */
 
-    .tab-content-2 {
-      border: 2px solid;
-      padding: 10px;
-      margin-top: 45px;
-      border-radius: 5px;
-    }
-
-    .nav-tabs-2{
-      width: 110%;
-      display: flex;
-      
-      justify-content: center;
-      padding-top: 10px;
-    }
+ 
     
 /* --------------------radial_progress--------------- */
 .pie {
@@ -195,8 +182,9 @@ font-size: 100%;
         @endif
 
         
-      <div class="row tab-content-2">
-        <div class="col-xs-12 col-sm-12 col-md-12 row" style="width: 110%">
+    <div class="row tab-content-2">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="tab-outline">
             <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
               <li class="nav-item">
@@ -212,6 +200,7 @@ font-size: 100%;
             </ul><br>
           </div>
         </div>
+      </div>
           <div class="col-xs-12 col-sm-12 col-md-12 ">
             <div class="tab-content " id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
