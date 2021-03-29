@@ -139,7 +139,7 @@ background-color: #d6b;
 }
 
 .big {
-font-size: 250%;
+font-size: ;
 }
 .med {
 font-size: 150%;
@@ -160,17 +160,18 @@ font-size: 100%;
         </div>
     </div>
     <div class="row">
-      <div class="col-xs-10 col-sm-10 col-md-10">
+      <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="big">
           <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
           <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
-          <div class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
+          <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
           <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
           {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
         </div>
       </div>
     </div>
-    
+
+ 
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
@@ -178,6 +179,9 @@ font-size: 100%;
     
         @endif
 
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="row tab-content-2">
         <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="tab-outline">
@@ -424,6 +428,7 @@ font-size: 100%;
           </div>
         </div>
       </div>
+  </div>
     
    
 
