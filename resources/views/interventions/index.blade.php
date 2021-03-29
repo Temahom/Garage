@@ -3,10 +3,14 @@
 @section('content')
 
 <style>
-                              
-  .row{
-    overflow-x: auto;
+
+                  
+@media screen and (max-width: 767px) {
+  .row {
+          overflow-x: auto !important;
   }
+
+  }                            
 
     .nav-link_1.active,
     .nav-pills .show>.nav-link{
@@ -149,15 +153,16 @@ font-size: 150%;
 font-size: 100%;
 }
 
-/* ------------------------end-------------------------- */
+/* ------------------------en mode téléphone-------------------------- */
 
 @media screen and (max-width: 767px) {
  
  .big {
          display: none;
  }
- 
+
  }
+
 </style>
 
     <div class="row">
