@@ -30,12 +30,14 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-11" >
                     <div class="row p-3" style="border: 1px solid #D2D2E4; box-shadow: 0px 0px 3px #999; background-color: #fefefe;">
-                        <div class="col-xs-12 col-sm-8 col-md-8">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Constat:</strong>
                                 <textarea id="constat" class="form-control" style="min-height: 30px;" name="constat"  placeholder="Entrer les observation issus du diagnostic">@if(isset($diagnostic)){{ $diagnostic->constat }}@endif</textarea>
                             </div>
                         </div>
+                    </div>
+                    <div class="row p-3" style="border: 1px solid #D2D2E4; box-shadow: 0px 0px 3px #999; background-color: #fefefe; margin-top: 10px;">
                         <div class="col-xs-12 col-sm-4 col-md-4">
                             <div class="form-group">
                                 <strong>Coût:</strong>
