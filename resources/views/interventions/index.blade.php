@@ -50,7 +50,7 @@
     }
 
     .nav-tabs-2{
-      width: 110%;
+      width: 150%;
       display: flex;
       
       justify-content: center;
@@ -196,7 +196,6 @@ font-size: 100%;
 
         
       <div class="row tab-content-2">
-    
           <div class="tab-outline" style="width: 150%">
             <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
               <li class="nav-item">
@@ -210,7 +209,7 @@ font-size: 100%;
                 <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
               </li> --}}
             </ul><br>
-        </div>
+          </div>
           <div class="col-xs-12 col-sm-12 col-md-12 ">
             <div class="tab-content " id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
