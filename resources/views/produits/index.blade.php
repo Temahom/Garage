@@ -4,6 +4,11 @@ setlocale(LC_TIME, "fr_FR", "French");
 @endphp
 @section('content')
 
+<style>
+	.row{
+		overflow-x: auto;
+	}
+</style>
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
@@ -35,7 +40,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                           <div class="table-responsive">
                               <table id="example4" class="table table-striped table-bordered" style="width:100%">
                                 
-                                <thead  class="" style="background-color: #068c94;">
+                                <thead  class="" style="background-color: #4656E9;">
                                     <tr>
                                         <th style="color: white;" style="cursor: pointer;">N°</th>
                                         <th style="color: white;" style="cursor: pointer;">Catégorie</th>
@@ -57,9 +62,9 @@ setlocale(LC_TIME, "fr_FR", "French");
                                         <td>
             
                                     <!--       <a href="{{ route('produits.show', $produit->id) }}" title="show">      -->             
-                                                <button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
+                                                <!--<button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
                                                     <i class="fas fa-eye text-success  fa-lg"></i>    
-                                                </button>
+                                                </button>-->
                                                 <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">

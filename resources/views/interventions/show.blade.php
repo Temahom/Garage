@@ -12,6 +12,15 @@
 
 @include('voitures._partials.carinformation')
 
+<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/libs/css/style.css">
+<link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+<link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
+<link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
+<link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
+<link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
 
 <style>
 	.row{
@@ -25,7 +34,7 @@
 <div class="row" style="border: 1px solid #aaa; width: 100%; background-color: white; margin-top: 20px;box-shadow: 0 10px 20px rgba(148,149,150,0.19), 0 6px 6px rgba(148,149,150,0.23); ">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
 		<div class="section-block">
-			<h2 class="section-title py-4" style="text-align: center;">INTERVENTION</h2>
+			<h2 class="section-title py-4" style="text-align: center; text-shadow: 1px 1px 3px #b3b9ee">INTERVENTION</h2>
 			<!-- DATE DEBUT DATE FIN  -->
 			<div class="row">
 				<div class="col-md-3">
@@ -70,8 +79,8 @@
 								<table class="table table-bordered mb-4">
 									<tbody>
 										<tr>
-											<th scope="col" colspan="4">Coût du Diagnostic (F CFA)</th>
-											<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }}</th>
+											<th scope="col" colspan="4">Coût du Diagnostic</th>
+											<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }} F CFA</th>
 										</tr>
 									</tbody>
 								</table>
@@ -164,10 +173,10 @@
 									</tbody>
 								</table>
 
-								<table class="table table-bordered mt-4" style="border: none; display: flex; justify-content: flex-end; ">
+								<table class="table table-bordered mt-5">
 									<tbody>
 										<tr>
-											<th scope="col" colspan="4">Total des produits commandés</th>
+											<th scope="col" colspan="4">Total produit(s) commandé(s)</th>
 											<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
 										</tr>
 										<tr>
@@ -271,10 +280,11 @@
 <div class="row">
     <a class="btn btn-secondary mt-3" href="{{ route('voitures.show',['voiture' => $voiture->id]) }}" title="Go back"><i class="fas fa-angle-left"></i>  Retour</a>
 </div>
+<script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<script src="/assets/libs/js/main-js.js"></script>
 
-<script>
-	$('#exampleModalCenter').modal('show');
-</script>
 
 @endsection
 

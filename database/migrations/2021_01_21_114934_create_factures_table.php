@@ -15,6 +15,10 @@ class CreateFacturesTable extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
+            $table->string('numero');
+            $table->integer('etat');
+            $table->unsignedBigInteger('devi_id');
+            $table->unsignedBigInteger('diagnostic_id');
             $table->timestamps();
         });
     }

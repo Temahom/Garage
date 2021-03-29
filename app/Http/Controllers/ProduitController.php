@@ -54,7 +54,7 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', Produit::class);
+        // $this->authorize('create', Produit::class);
         return view('produits.create');
     }
      
@@ -137,7 +137,7 @@ class ProduitController extends Controller
      */
     public function update(Request $request,Produit $produit)
     {
-        $this->authorize('update', $produit);
+        // $this->authorize('update', $produit);
         $request->validate([
             'categorie' => 'required',
             'produit' => 'required',
@@ -157,7 +157,7 @@ class ProduitController extends Controller
      */
     public function destroy(Produit $produit)
     {
-        $this->authorize('delete', $produit);
+        // $this->authorize('delete', $produit);
         $produit->delete();
 
         return redirect()->route('produits.index')

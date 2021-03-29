@@ -1,10 +1,168 @@
 @extends('layout.index')
 
 @section('content')
+
 <style>
-	.row{
-		overflow: hidden;
-	}
+
+                  
+@media screen and (max-width: 767px) {
+  .row {
+          overflow-x: auto !important;
+  }
+
+  }                            
+
+    .nav-link_1.active,
+    .nav-pills .show>.nav-link{
+    background-color:#1B192E!important;
+    color:#ffffff;
+    padding: 12px;
+    border-radius:20px;
+    font-size: 16px;
+    }
+    .nav-link_1.active:hover,
+    .nav-pills .show>.nav-link:hover{
+    background-color:#1B192E!important;
+    color:#ffffff;
+    padding: 12px;
+    border-radius:20px;
+    text-align: center;
+    font-size: 16px;
+    }
+
+    .second{
+      margin:7px;
+      background-color:#F9F8F9!important;
+    color:#737373;
+    padding: 12px;
+    border-radius:20px;
+    font-size: 16px;
+    }
+    /* .third{
+      margin-left:25px;
+    } */
+
+    .tab-content-2 {
+      border: 2px solid;
+      padding: 10px;
+      margin-top: 45px;
+      border-radius: 5px;
+    }
+
+    .nav-tabs-2{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding-top: 10px;
+    }
+    
+/* --------------------radial_progress--------------- */
+.pie {
+position: relative;
+display: inline-block;
+background-image: conic-gradient(
+rgba(0,0,0,0) calc(3.6deg * var(--percent)),
+rgba(0,0,0,1) calc(3.6deg * var(--percent))
+);
+background-blend-mode: overlay;
+background-position: 50% 50%;
+background-size: 150%; /* oversize bg image to prevent "underdraw" */
+width: 3.75em;
+height: 3.75em;
+border-radius: 50%;
+}
+
+/* show the percentage (thanks to Ana Tudor for the counter() trick) */
+.pie--value::after {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+counter-reset: percent var(--percent);
+content: counter(percent) "%";
+color: #fff;
+text-shadow: 0 0 1px #000;
+}
+
+.pie--disc::before {
+content: '';
+position: absolute;
+top: .5em;
+left: .5em;
+right: .5em;
+bottom: .5em;
+border-radius: 50%;
+background: #fff;
+}
+
+.pie--disc::after {
+color: #000;
+text-shadow: none;
+}
+
+
+/* demo styles---------------------------------------------------- */
+
+body::before {
+color: red;
+font-size: 150%;
+content: "This browser doesn't support conical graidents yet";
+}
+
+@supports (background: conic-gradient(red, blue)) {
+body::before {
+content: '';
+}
+}
+
+/* body {
+font: 90%/1.5 Arial;
+background: #fcf3f0;
+text-align: center;
+} */
+
+.pie {
+border: .15em solid #fff;
+box-shadow: 0 .075em .2em .05em rgba(0,0,0,.25);
+margin: .75rem;
+}
+.pie:nth-child(1) {
+background-color: #d44;
+}
+.pie:nth-child(2) {
+background-color: #fc3;
+}
+.pie:nth-child(3) {
+background-color: #ac0;
+}
+.pie:nth-child(4) {
+background-color: #0ac;
+}
+.pie:nth-child(5) {
+background-color: #d6b;
+}
+
+.big {
+  margin-left: 15%;
+  font-size: 260%;
+}
+.med {
+font-size: 150%;
+}
+.sml {
+font-size: 100%;
+}
+
+/* ------------------------en mode téléphone-------------------------- */
+
+@media screen and (max-width: 767px) {
+ 
+ .big {
+         display: none;
+ }
+
+ }
+
 </style>
 
     <div class="row">
@@ -15,141 +173,19 @@
 
         </div>
     </div>
-    <style>
-        
-         .row{
-          overflow-x: auto;
-        }
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="big">
+          <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
+          <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
+          <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
+          <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
+          {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
+        </div>
+      </div>
+    </div>
 
-          .nav-link_1.active,
-          .nav-pills .show>.nav-link{
-           background-color:#138496!important;
-           color:#ffffff;
-           
-           padding: 10px;
-           border-radius:20% 20% 20% 20%;
-           text-align: center;
-           font-size: 16px;
-          }
-          .nav-link_1.active:hover,
-          .nav-pills .show>.nav-link:hover{
-           background-color:#138496!important;
-           color:#ffffff;
-           padding: 10px;
-           border-radius:20% 20% 20% 20%;
-           text-align: center;
-           font-size: 16px;
-          }
-
-          .second{
-            margin:7px;
-            background-color:#F9F8F9!important;
-           color:#138496;
-           padding: 10px;
-           border-radius:0 20% 0 20%;
-          }
-          .third{
-            margin-left:25px;
-          }
-          
-      /* --------------------radial_progress--------------- */
-      .pie {
-  position: relative;
-  display: inline-block;
-  background-image: conic-gradient(
-    rgba(0,0,0,0) calc(3.6deg * var(--percent)),
-    rgba(0,0,0,1) calc(3.6deg * var(--percent))
-  );
-  background-blend-mode: overlay;
-  background-position: 50% 50%;
-  background-size: 150%; /* oversize bg image to prevent "underdraw" */
-  width: 3.75em;
-  height: 3.75em;
-  border-radius: 50%;
-}
-
-/* show the percentage (thanks to Ana Tudor for the counter() trick) */
-.pie--value::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  counter-reset: percent var(--percent);
-  content: counter(percent) "%";
-  color: #fff;
-  text-shadow: 0 0 1px #000;
-}
-
-.pie--disc::before {
-  content: '';
-  position: absolute;
-  top: .5em;
-  left: .5em;
-  right: .5em;
-  bottom: .5em;
-  border-radius: 50%;
-  background: #fff;
-}
-
-.pie--disc::after {
-  color: #000;
-  text-shadow: none;
-}
-
-
-/* demo styles---------------------------------------------------- */
-
-body::before {
-  color: red;
-  font-size: 150%;
-  content: "This browser doesn't support conical graidents yet";
-}
-
-@supports (background: conic-gradient(red, blue)) {
-  body::before {
-    content: '';
-  }
-}
-
-/* body {
-  font: 90%/1.5 Arial;
-  background: #fcf3f0;
-  text-align: center;
-} */
-
-.pie {
-  border: .15em solid #fff;
-  box-shadow: 0 .075em .2em .05em rgba(0,0,0,.25);
-  margin: .75rem;
-}
-.pie:nth-child(1) {
-  background-color: #d44;
-}
-.pie:nth-child(2) {
-  background-color: #fc3;
-}
-.pie:nth-child(3) {
-  background-color: #ac0;
-}
-.pie:nth-child(4) {
-  background-color: #0ac;
-}
-.pie:nth-child(5) {
-  background-color: #d6b;
-}
-
-.big {
-  font-size: 400%;
-}
-.med {
-  font-size: 150%;
-}
-.sml {
-  font-size: 100%;
-}
-
-     /* ------------------------end-------------------------- */
-    </style>
+ 
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
@@ -157,52 +193,37 @@ body::before {
     
         @endif
 
-
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="tab-outline">
-              <ul class="nav nav-tabs" id="myTab2" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Resumes/Compte-rendus</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
-                </li>
-              </ul><br>
-            </div>
-          </div>
-        </div>  
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-         <!-- <div class="col-xs-2 col-sm-2 col-md-2">
-            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
-              <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
-              <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
+        
+      <div class="row tab-content-2" style="width: 100%">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="tab-outline">
+            <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
+              </li>
+              {{-- <li class="nav-item">
+                <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
+              </li> --}}
+              <li class="nav-item">
                 <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
-                <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Resumes/Compte-rendus</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Compte-rendus</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
-              
-            </div>
-          </div>-->
+              </li>
+            </ul><br>
+          </div>
+        </div>
           <div class="col-xs-12 col-sm-12 col-md-12 ">
-            <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-content " id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                  
-                <table class="table table-borderless">
+                <table class="table table-bordered mt-4">
                       <thead>
                         <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
                           <th scope="col" style= "color:#ffffff" > N<sup>o</sup></th>
@@ -240,13 +261,16 @@ body::before {
                         @endforeach
                       </tbody>
                 </table>
+                <div class="col-md-12 mt-3 d-flex justify-content-center">
+                  {!! $interventions->links() !!}
+                </div>
               </div>
 
               <div class="tab-pane fade" id="diagnostic" role="tabpanel" aria-labelledby="v-pills-home-diagnostic">
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Dignostics <sup> <span class="badge badge-primary">{{App\Models\Diagnostic::count()}}</span></sup></span></legend>
-                  <table class="table table-striped table-hover col-md-12">
+                  <table class="table table-bordered mt-4 table-hover col-md-12">
                     <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
                         <tr style="text-align: center">
                             <th style="color: white;">N<sup>o</sup></th>
@@ -265,17 +289,17 @@ body::before {
                           <td onclick="showDiagnostic({{ $diagnostic->id}})" style="cursor: pointer; text-transform: capitalize;">{{$diagnostic->voiture()->first()->client()->first()->prenom.' '.$diagnostic->voiture()->first()->client()->first()->nom}}</td>
                       </tr>
                     @endforeach
-                    <div class="col-md-12 mt-3 d-flex justify-content-center">
-                      {!! $diagnostics->links() !!}
-                    </div>
                   </table>
+                  <div class="col-md-12 mt-3 d-flex justify-content-center">
+                    {!! $diagnostics->links() !!}
+                  </div>
                 </div>
               </div>
               <div class="tab-pane fade" id="devis" role="tabpanel" aria-labelledby="v-pills-home-devis">
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Devis <sup> <span class="badge badge-primary">{{App\Models\Devi::count()}}</span></sup></span></legend>
-                  <table class="table table-striped table-hover col-md-12">
+                  <table class="table table-bordered mt-4 table-hover col-md-12">
                     <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
                         <tr style="text-align: center">
                             <th style="color: white;">N<sup>o</sup></th>
@@ -307,17 +331,17 @@ body::before {
                         </form>
                       </tr>
                     @endforeach
-                      <div class="col-md-12 mt-3 d-flex justify-content-center">
-                        {!! $devis->links() !!}
-                      </div>
                   </table>
+                  <div class="col-md-12 mt-3 d-flex justify-content-center">
+                    {!! $devis->links() !!}
+                  </div>
                 </div>
               </div>
               <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="v-pills-home-resume">
                
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <legend><span class="badge badge-light"> Récapitultif-Compte-rendus <sup> <span class="badge badge-primary">{{App\Models\Summary::count()}}</span></sup></span></legend>
-                  <table class="table table-striped table-hover col-md-12">
+                  <table class="table table-bordered mt-4 table-hover col-md-12">
                     <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
                     <tr style="text-align: center">
                         <th style="color: white;">N<sup>o</sup></th>
@@ -338,10 +362,10 @@ body::before {
                       </tr>
                     
                     @endforeach
-                      <div class="col-md-12 mt-3 d-flex justify-content-center">
-                        {!! $summaries->links() !!}
-                      </div>
                   </table>
+                  <div class="col-md-12 mt-3 d-flex justify-content-center">
+                    {!! $summaries->links() !!}
+                  </div>
                 </div>
               </div>
               <div class="tab-pane fade" id="facture" role="tabpanel" aria-labelledby="v-pills-home-facture">
@@ -375,17 +399,7 @@ body::before {
                 </div> --}}
                 
                 {{-- <h2>Diagramme Circulaire</h2> --}}
-                <div class="row">
-                  <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="big">
-                      <div id="diagnostic" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
-                      <div id="devis" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
-                      <div id="resume" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
-                      <div id="facture" class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
-                      {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
-                    </div>
-                  </div>
-                </div>
+                
                 {{-- <div class="med">
                   <div class="pie pie--value pie--disc" style="--percent:35;"></div>
                   <div class="pie pie--value pie--disc" style="--percent:15;"></div>
