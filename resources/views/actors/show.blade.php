@@ -44,10 +44,7 @@ use Carbon\Carbon;
 @section('content')
 
 <style>
-.row{
-    overflow: hidden;
-    overflow-x: auto;
-  }
+
   .tab-outline .nav.nav-tabs .nav-item .nav-link {
     display: block;
     padding: 3px !important;
