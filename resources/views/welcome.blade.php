@@ -130,436 +130,464 @@ $jour_ci = Carbon::now()->day;
 
     </style>
 
+
+    <!-- Horloge, nb client, nb voiture nb intervention  -->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
 
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <!-- Horloge  -->
+        <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
+            <div class="card">
+                <div class="card-body">
+                    <div id="clock"></div>
+                    <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
+                </div>
+            </div>
+        </div>
+        <!-- FIN Horloge -->
 
-                    <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
-                        <div class="card">
-                            <div class="card-body">
-                                <div id="clock"></div>
-                                <h5 class="text-center" style="text-transform: capitalize;" id="ladate"></h5>
-                            </div>
-                        </div>
+        <!--nb client-->
+        <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center; cursor: pointer;">
+            <div class="card" onclick="show('clients')">
+                <div class="card-body "><br>
+                    <div class="metric-value d-inline-block">
+                        <p>
+                            <span class="clw compteur"
+                                style="font-weight: bold; font-size:30px;">{{ \App\Models\Client::count() }}</span>
+                            <span class="clw"
+                                style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Client::count() > 1 ? 'Clients' : 'Client' }}
+                            </span>
+                        </p>
                     </div>
-                    <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1"
-                        style="text-align: center; cursor: pointer;">
-                        <div class="card" onclick="show('clients')">
-                            <div class="card-body "><br>
-                                <div class="metric-value d-inline-block">
-                                    <p>
-                                        <span class="clw compteur"
-                                            style="font-weight: bold; font-size:30px;">{{ \App\Models\Client::count() }}</span>
-                                        <span class="clw"
-                                            style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Client::count() > 1 ? 'Clients' : 'Client' }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 text-center pt-6">
-                                <img style="height: 50px;width: auto;" class="" src="/assets/images/user1.png" alt="logo">
-                            </div><br>
-                        </div>
+                </div>
+                <div class="col-md-12 col-sm-12 text-center pt-6">
+                    <img style="height: 50px;width: auto;" class="" src="/assets/images/user1.png" alt="logo">
+                </div><br>
+            </div>
+        </div>
+        <!-- FIN nb client -->
+
+        <!-- nd voiture -->
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2" style="text-align: center; cursor: pointer;">
+            <div class="card" onclick="show('voitures')">
+                <div class="card-body "><br>
+                    <div class="metric-value d-inline-block">
+                        <p>
+                            <span class="clw compteur1"
+                                style="font-weight: bold; font-size:30px;">{{ \App\Models\Voiture::count() }}</span>
+                            <span class="clw"
+                                style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Voiture::count() > 1 ? 'Voitures' : 'Voiture' }}</span>
+                        </p>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2"
-                        style="text-align: center; cursor: pointer;">
-                        <div class="card" onclick="show('voitures')">
-                            <div class="card-body "><br>
-                                <div class="metric-value d-inline-block">
-                                    <p>
-                                        <span class="clw compteur1"
-                                            style="font-weight: bold; font-size:30px;">{{ \App\Models\Voiture::count() }}</span>
-                                        <span class="clw"
-                                            style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Voiture::count() > 1 ? 'Voitures' : 'Voiture' }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 text-center pt-6">
-                                <img style="height: 50px;width: auto;" class="" src="/assets/images/car12.png" alt="logo">
-                            </div><br>
-                        </div>
+                </div>
+                <div class="col-md-12 col-sm-12 text-center pt-6">
+                    <img style="height: 50px;width: auto;" class="" src="/assets/images/car12.png" alt="logo">
+                </div><br>
+            </div>
+        </div>
+        <!-- Fin nb voiture  -->
+
+        <!-- nb intervention  -->
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3" style="text-align: center; cursor: pointer;">
+            <div class="card" onclick="show('interventions-list')">
+                <div class="card-body "><br>
+                    <div class="metric-value d-inline-block">
+                        <p>
+                            <span class="clw compteur2"
+                                style="font-weight: bold; font-size:30px;">{{ \App\Models\Intervention::count() }}
+                            </span>
+                            <span class="clw"
+                                style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Intervention::count() > 1 ? 'Interventions' : 'Intervention' }}
+                            </span>
+                        </p>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3"
-                        style="text-align: center; cursor: pointer;">
-                        <div class="card" onclick="show('interventions-list')">
-                            <div class="card-body "><br>
-                                <div class="metric-value d-inline-block">
-                                    <p>
-                                        <span class="clw compteur2"
-                                            style="font-weight: bold; font-size:30px;">{{ \App\Models\Intervention::count() }}</span>
-                                        <span class="clw"
-                                            style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Intervention::count() > 1 ? 'Interventions' : 'Intervention' }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 text-center pt-6">
-                                <img style="height: 50px;width: auto;" class="" src="/assets/images/out1.png" alt="logo">
-                            </div><br>
+                </div>
+            </div>
+        </div>
+        <!-- FIN nb intervention  -->
+
+    </div>
+    <!-- FIN Horloge, nb client, nd voiture nb intervention  -->
+
+    <!-- les vente Facture ..... -->
+    <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $produit_en_stock }}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $produit_en_stock }}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Factures d’Aujourd’hui</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $facturesJour }}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Factures de ce Mois</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $facturesMois }}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Prix total des produits en stock</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ number_format($prix_total_des_produits, 0, ',', ' ') }}<sup>F CFA</sup>
+                        </h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i>
+                        </span>
+                        <span class="ml-1">10%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN les vente Facture ..... -->
+
+    <!-- tableau recaputulatif  jour et mois -->
+    <div class="row">
+
+        <!-- tableau recaputulatif du jour -->
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">Tableau récaptulatif du Jour</h5>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Jour</th>
+                                <th scope="col">Nombre Interventions</th>
+                                <th scope="col">Facture Impayée</th>
+                                <th scope="col">Chiffre d'Affaire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lundi 29 Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                            <tr>
+                                <td>Lundi 29 Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                            <tr>
+                                <td>Lundi 29 Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- FIN tableau recaputulatif du jour -->
+
+        <!-- tableau recaputulatif du mois -->
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">Tableau récaptulatif du Jour</h5>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Mois</th>
+                                <th scope="col">Nombre Interventions</th>
+                                <th scope="col">Facture Impayée</th>
+                                <th scope="col">Chiffre d'Affaire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                            <tr>
+                                <td>Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                            <tr>
+                                <td>Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- FIN tableau recaputulatif du mois -->
+
+    </div>
+    <!-- FIN tableau recaputulatif du jour et mois-->
+
+
+    <div class="row">
+
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">% of Income Budget</h5>
+                <div class="card-body">
+                    <div id="morris_gross" style="height: 272px;"></div>
+                </div>
+                <div class="card-footer bg-white">
+                    <p>Budget<span class="float-right text-dark">12,000.00</span></p>
+                    <p>
+                        Balance
+                        <span class="float-right text-dark">-2300.00
+                            <span class="ml-2 text-secondary">
+                                <i class="fas fa-caret-up mr-1"></i>25%
+                            </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">AP and AR Balance
+                </h5>
+                <div class="card-body">
+                    <canvas id="chartjs_balance_bar"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">
+            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+                <div class="card">
+                    <h5 class="card-header" style="text-align: center;  background-color: #068c94;">Tableau récaptulatif
+                        mensuel des Clients</h5>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="bg-light">
+                                    <tr class="border-0">
+                                        <th class="border-0">Vieillissement du client</th>
+                                        <th class="border-0">Clients</th>
+                                        <th class="border-0">Chiffre d'affaire</th>
+                                        <th class="border-0">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Il y'a 0 à 30 jours</td>
+                                        <td>{{ $clients }} {{ $clients > 1 ? 'clients' : 'client' }} </td>
+                                        <td>{{ number_format($chiffres, 0, ',', ' ') }} <sup>F CFA</sup></td>
+                                        <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Il y'a 31 à 60 jours</td>
+                                        <td>{{ $client30 }} {{ $client30 > 1 ? 'clients' : 'client' }} </td>
+                                        <td>{{ number_format($chiffre30, 0, ',', ' ') }} <sup>F CFA</sup></td>
+                                        <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Il y'a 61 à 90 jours</td>
+                                        <td>{{ $client60 }} {{ $client60 > 1 ? 'clients' : 'client' }} </td>
+                                        <td>{{ number_format($chiffre60, 0, ',', ' ') }} <sup>F CFA</sup></td>
+                                        <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="font-size: 15px; font-weight: bold;" colspan="9"><span
+                                                class="float-right"><strong>Totale :
+                                                    {{ number_format($total, 0, ',', ' ') }}<sup> F
+                                                        CFA</sup></strong></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+                <div class="card">
+                    <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de
+                        ce mois_ci </h5>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="bg-light">
+                                    <tr class="border-0">
+                                        <th class="border-0">Ce Mois-ci</th>
+                                        <th class="border-0">Diagnostics</th>
+                                        <th class="border-0">Devis</th>
+                                        <th class="border-0">Interventions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $mois_ci }}</td>
+                                        <td>{{ $diagnostics }} {{ $diagnostics > 1 ? 'diagnostics' : 'diagnostic' }}
+                                        </td>
+                                        <td>{{ $devis }} {{ $devis > 1 ? 'devis' : 'devi' }} </td>
+                                        <td>{{ $interventions }}
+                                            {{ $interventions > 1 ? 'interventions' : 'intervention' }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">
-
-                    <!-- ============================================================== -->
-                    <!-- visitor  -->
-                    <!-- ============================================================== -->
-                    <!--  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                            <div class="card border-3 border-top border-top-primary">
-                                <div class="card-body">
-                                    <h5 class="text-muted">Nombre de produit en Stock</h5>
-                                    <div class="metric-value d-inline-block">
-                                        <h1 class="mb-1">{{ $produit_en_stock }}</h1>
-                                    </div>
-                                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    -->
-                    <!-- ============================================================== -->
-                    <!-- end visitor  -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- sales  -->
-                    <!-- ============================================================== -->
-                    <!--    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                            <div class="card border-3 border-top border-top-primary">
-                                <div class="card-body">
-                                    <h5 class="text-muted">Quantité de produits en stock</h5>
-                                    <div class="metric-value d-inline-block">
-                                        <h1 class="mb-1 compteurqte">{{ $produit_total }}</h1>
-                                    </div>
-                                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>     -->
-                    <!-- ============================================================== -->
-                    <!-- end sales  -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- new customer  -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                        <div class="card border-3 border-top border-top-primary">
-                            <div class="card-body">
-                                <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
-                                <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">{{ $produit_en_stock }}</h1>
-                                </div>
-                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                            class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- end visitor  -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                        <div class="card border-3 border-top border-top-primary">
-                            <div class="card-body">
-                                <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
-                                <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">{{ $produit_en_stock }}</h1>
-                                </div>
-                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                            class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- end visitor  -->
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                        <div class="card border-3 border-top border-top-primary">
-                            <div class="card-body">
-                                <h5 class="text-muted">Les Factures d’Aujourd’hui</h5>
-                                <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">{{ $facturesJour }}</h1>
-                                </div>
-                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                            class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- end visitor  -->
-                    <!-- end visitor  -->
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                        <div class="card border-3 border-top border-top-primary">
-                            <div class="card-body">
-                                <h5 class="text-muted">Les Factures de ce Mois</h5>
-                                <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">{{ $facturesMois }}</h1>
-                                </div>
-                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                            class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- end visitor  -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                        <div class="card border-3 border-top border-top-primary">
-                            <div class="card-body">
-                                <h5 class="text-muted">Prix total des produits en stock</h5>
-                                <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">{{ number_format($prix_total_des_produits, 0, ',', ' ') }}<sup>F
-                                            CFA</sup></h1>
-                                </div>
-                                <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                            class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- end new customer  -->
-                    <!-- ============================================================== -->
-                    <!-- total orders  -->
-                    <!-- ============================================================== -->
-                    <!--    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                        <div class="card border-3 border-top border-top-primary">
-                            <div class="card-body">
-                                <h5 class="text-muted">Produits Restants</h5>
-                                <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">1340</h1>
-                                </div>
-                                <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>   -->
-                </div>
-            </div>
-
-            {{-- debut tableau recaputulatif du jour --}}
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">
-                    <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
-                        <div class="card">
-                            <h5 class="card-header" style="text-align: center ; background-color: #580701;">Tableau
-                                récaptulatif du Jour</h5>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="bg-light">
-                                            <tr class="border-0">
-                                                <th class="border-5">Aujourd'hui</th>
-                                                <th class="border-5">Nombre Interventions</th>
-                                                <th class="border-5">Facture Impayée</th>
-                                                <th class="border-5">Chiffre d'Affaire</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td> Le {{ $jour_ci }} </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- fin tableau recaputulatif du jour --}}
 
-
-
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">
-                    <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
-                        <div class="card">
-                            <h5 class="card-header" style="text-align: center;  background-color: #068c94;">Tableau
-                                récaptulatif mensuel des Clients</h5>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="bg-light">
-                                            <tr class="border-0">
-                                                <th class="border-0">Vieillissement du client</th>
-                                                <th class="border-0">Clients</th>
-                                                <th class="border-0">Chiffre d'affaire</th>
-                                                <th class="border-0">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Il y'a 0 à 30 jours</td>
-                                                <td>{{ $clients }} {{ $clients > 1 ? 'clients' : 'client' }} </td>
-                                                <td>{{ number_format($chiffres, 0, ',', ' ') }} <sup>F CFA</sup></td>
-                                                <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Il y'a 31 à 60 jours</td>
-                                                <td>{{ $client30 }} {{ $client30 > 1 ? 'clients' : 'client' }} </td>
-                                                <td>{{ number_format($chiffre30, 0, ',', ' ') }} <sup>F CFA</sup></td>
-                                                <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Il y'a 61 à 90 jours</td>
-                                                <td>{{ $client60 }} {{ $client60 > 1 ? 'clients' : 'client' }} </td>
-                                                <td>{{ number_format($chiffre60, 0, ',', ' ') }} <sup>F CFA</sup></td>
-                                                <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td style="font-size: 15px; font-weight: bold;" colspan="9"><span
-                                                        class="float-right"><strong>Totale :
-                                                            {{ number_format($total, 0, ',', ' ') }}<sup> F
-                                                                CFA</sup></strong></span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
-                        <div class="card">
-                            <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau
-                                récaptulatif de ce mois_ci </h5>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="bg-light">
-                                            <tr class="border-0">
-                                                <th class="border-0">Ce Mois-ci</th>
-                                                <th class="border-0">Diagnostics</th>
-                                                <th class="border-0">Devis</th>
-                                                <th class="border-0">Interventions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>{{ $mois_ci }}</td>
-                                                <td>{{ $diagnostics }} {{ $diagnostics > 1 ? 'diagnostics' : 'diagnostic' }}
-                                                </td>
-                                                <td>{{ $devis }} {{ $devis > 1 ? 'devis' : 'devi' }} </td>
-                                                <td>{{ $interventions }}
-                                                    {{ $interventions > 1 ? 'interventions' : 'intervention' }} </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+        </div>
+    </div>
+    {{-- fin tableau de Vieillissment du clients --}}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">
+            <div class="col-md-6 chart">
+                <canvas id="myChart"></canvas>
             </div>
-            {{-- fin tableau de Vieillissment du clients --}}
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">
-                    <div class="col-md-6 chart">
-                        <canvas id="myChart"></canvas>
-                    </div>
-                    <div class="col-md-6 chart">
-                        <canvas id="myChart2"></canvas>
-                    </div>
-                </div>
+            <div class="col-md-6 chart">
+                <canvas id="myChart2"></canvas>
             </div>
-            {{--  --}}
+        </div>
+    </div>
+    {{--  --}}
 
-            <div>
-                <div>{{-- ------------------------------espace---------------------------------------------- --}} </div>
-            </div>
+    <div>
+        <div>{{-- ------------------------------espace---------------------------------------------- --}} </div>
+    </div>
 
-            {{-- debut tableau recaputulatif de ce mois_ci --}}
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">
-                    <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
-                        <div class="card">
-                            <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau
-                                récaptulatif de ce mois_ci </h5>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="bg-light">
-                                            <tr class="border-0">
-                                                <th class="border-0">Ce Mois-ci</th>
-                                                <th class="border-0">Diagnostics</th>
-                                                <th class="border-0">Devis</th>
-                                                <th class="border-0">Interventions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>{{ $mois_ci }}<sup>iéme </sup> Mois </td>
-                                                <td>{{ $diagnostics }} {{ $diagnostics > 1 ? 'diagnostics' : 'diagnostic' }}
-                                                </td>
-                                                <td>{{ $devis }} {{ $devis > 1 ? 'devis' : 'devi' }} </td>
-                                                <td>{{ $interventions }}
-                                                    {{ $interventions > 1 ? 'interventions' : 'intervention' }} </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+    {{-- debut tableau recaputulatif de ce mois_ci --}}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">
+            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+                <div class="card">
+                    <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de
+                        ce mois_ci </h5>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="bg-light">
+                                    <tr class="border-0">
+                                        <th class="border-0">Ce Mois-ci</th>
+                                        <th class="border-0">Diagnostics</th>
+                                        <th class="border-0">Devis</th>
+                                        <th class="border-0">Interventions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $mois_ci }}<sup>iéme </sup> Mois </td>
+                                        <td>{{ $diagnostics }} {{ $diagnostics > 1 ? 'diagnostics' : 'diagnostic' }}
+                                        </td>
+                                        <td>{{ $devis }} {{ $devis > 1 ? 'devis' : 'devi' }} </td>
+                                        <td>{{ $interventions }}
+                                            {{ $interventions > 1 ? 'interventions' : 'intervention' }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- fin tableau recaputulatif de ce mois ci --}}
+        </div>
+    </div>
+    {{-- fin tableau recaputulatif de ce mois ci --}}
 
-            {{-- debut tableau recaputulatif de ce mois_ci avec clients et voitures --}}
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row">
-                    <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 mt-8">
-                        <div class="card">
-                            <h5 class="card-header" style="text-align: center ; background-color: #339207;">Tableau
-                                récaptulatif du Mois </h5>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="bg-light">
-                                            <tr class="border-0">
-                                                <th class="border-0">Ce Mois-ci</th>
-                                                <th class="border-0">Clients</th>
-                                                <th class="border-0">Voitures</th>
-                                                <th class="border-0">Diagnostics</th>
-                                                <th class="border-0">Devis</th>
-                                                <th class="border-0">Interventions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>{{ $mois_ci }}<sup>iéme </sup> Mois </td>
-                                                <td> {{ $clients }}</td>
-                                                <td> {{ $voitures }} </td>
-                                                <td> {{ $diagnostics }} </td>
-                                                <td> {{ $devis }} </td>
-                                                <td> {{ $interventions }} </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+    {{-- debut tableau recaputulatif de ce mois_ci avec clients et voitures --}}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">
+            <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 mt-8">
+                <div class="card">
+                    <h5 class="card-header" style="text-align: center ; background-color: #339207;">Tableau récaptulatif du
+                        Mois </h5>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="bg-light">
+                                    <tr class="border-0">
+                                        <th class="border-0">Ce Mois-ci</th>
+                                        <th class="border-0">Clients</th>
+                                        <th class="border-0">Voitures</th>
+                                        <th class="border-0">Diagnostics</th>
+                                        <th class="border-0">Devis</th>
+                                        <th class="border-0">Interventions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $mois_ci }}<sup>iéme </sup> Mois </td>
+                                        <td> {{ $clients }}</td>
+                                        <td> {{ $voitures }} </td>
+                                        <td> {{ $diagnostics }} </td>
+                                        <td> {{ $devis }} </td>
+                                        <td> {{ $interventions }} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -577,6 +605,11 @@ $jour_ci = Carbon::now()->day;
         integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
     <script src="assets/libs/js/clock.js"></script>
+    <!-- morris js -->
+    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+    <script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
+
     <script>
         function show(page) {
             window.location = page;
@@ -586,6 +619,105 @@ $jour_ci = Carbon::now()->day;
 
 
     <script>
+        Morris.Donut({
+            element: 'morris_gross',
+
+            data: [{
+                    value: 94,
+                    label: 'Budget'
+                },
+                {
+                    value: 15,
+                    label: ''
+                }
+
+            ],
+
+            labelColor: '#5969ff',
+
+            colors: [
+                '#5969ff',
+                '#a8b0ff'
+
+            ],
+
+            formatter: function(x) {
+                return x + "%"
+            },
+            resize: true
+
+        });
+
+
+
+        // ============================================================== 
+        // Chart Balance Bar
+        // ============================================================== 
+        var ctx = document.getElementById("chartjs_balance_bar").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+
+
+            data: {
+                labels: ["Current", "1-30", "31-60", "61-90", "91+"],
+                datasets: [{
+                    label: 'Aged Payables',
+                    data: [500, 1000, 1500, 3700, 2500],
+                    backgroundColor: "rgba(89, 105, 255,.8)",
+                    borderColor: "rgba(89, 105, 255,1)",
+                    borderWidth: 2
+
+                }, {
+                    label: 'Aged Receiables',
+                    data: [1000, 1500, 2500, 3500, 2500],
+                    backgroundColor: "rgba(255, 64, 123,.8)",
+                    borderColor: "rgba(255, 64, 123,1)",
+                    borderWidth: 2
+
+
+                }]
+
+            },
+            options: {
+                legend: {
+                    display: true,
+
+                    position: 'bottom',
+
+                    labels: {
+                        fontColor: '#71748d',
+                        fontFamily: 'Circular Std Book',
+                        fontSize: 14,
+                    }
+                },
+
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 14,
+                            fontFamily: 'Circular Std Book',
+                            fontColor: '#71748d',
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontSize: 14,
+                            fontFamily: 'Circular Std Book',
+                            fontColor: '#71748d',
+                        }
+                    }]
+                }
+            }
+
+
+
+        });
+
+
+
+
+
+
         var date = new Date();
         var options = {
             weekday: "long",

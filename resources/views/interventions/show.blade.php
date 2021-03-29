@@ -22,11 +22,7 @@
 <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
 <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
 
-<style>
-	.row{
-		overflow-x: auto;
-	}
-</style>
+
 
 <!-- ============================================================== -->
 <!-- TAB INTERVENTION  -->
@@ -119,6 +115,7 @@
 						<div class="col-md-12">
 							@if ( $intervention->diagnostic_id )
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
+								<a class="btn btn-primary" href="/facture/{{$intervention->diagnostic_id}}" title="Facture">Generer la facture</a>
 							@else
 								<a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
 							@endif
