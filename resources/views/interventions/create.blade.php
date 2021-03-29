@@ -8,7 +8,7 @@
 	}
 </style>
 
-@include('voiture._partials.carinformation')
+@include('voitures._partials.carinformation')
     
 <br>
     <form action="{{route('voitures.interventions.store',['voiture' => $voiture->id])}}" method="POST">
