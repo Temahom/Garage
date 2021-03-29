@@ -6,11 +6,7 @@
 
 @include('voitures._partials.carinformation')
 
-<style>
-	.row{
-		overflow-x: auto;
-	}
-</style>
+
 	@can('create', App\Models\Intervention::class)
     <div class="row">
 	
