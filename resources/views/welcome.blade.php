@@ -326,8 +326,7 @@ use Carbon\Carbon;
                 </div>
             </div>
         </div>
-
-</div>
+    </div>
 </div> 
  {{-- fin tableau recaputulatif du jour--}}   
 
@@ -381,44 +380,46 @@ use Carbon\Carbon;
             </div>
         </div>
 
-        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
-            <div class="card">
-                <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de ce mois_ci </h5>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="bg-light">
-                                <tr class="border-0">
-                                    <th class="border-0">Ce Mois-ci</th>
-                                    <th class="border-0">Diagnostics</th>
-                                    <th class="border-0">Devis</th>
-                                    <th class="border-0">Interventions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{$mois_ci}}</td>
-                                    <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
-                                    <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
-                                    <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
-                                    </tr>
-                            </tbody>
-                        </table>
-                    
+                <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+                    <div class="card">
+                        <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de ce mois_ci </h5>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th class="border-0">Ce Mois-ci</th>
+                                            <th class="border-0">Diagnostics</th>
+                                            <th class="border-0">Devis</th>
+                                            <th class="border-0">Interventions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{$mois_ci}}</td>
+                                            <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
+                                            <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
+                                            <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
    </div>
 </div>
  {{-- fin tableau de Vieillissment du clients --}}
-<div class="row">
-    <div class="col-md-6 chart">
-        <canvas id="myChart" ></canvas>
-    </div>
-    <div class="col-md-6 chart">
-        <canvas id="myChart2" ></canvas>
+ <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-md-6 chart">
+            <canvas id="myChart" ></canvas>
+        </div>
+        <div class="col-md-6 chart">
+            <canvas id="myChart2" ></canvas>
+        </div>
     </div>
 </div>
 {{-- --}}
@@ -426,39 +427,38 @@ use Carbon\Carbon;
  <div><div>{{-- ------------------------------espace------------------------------------------------}}   </div></div>
 
  {{-- debut tableau recaputulatif de ce mois_ci--}}
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 row">  
-        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
-            <div class="card">
-                <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de ce mois_ci </h5>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="bg-light">
-                                <tr class="border-0">
-                                    <th class="border-0">Ce Mois-ci</th>
-                                    <th class="border-0">Diagnostics</th>
-                                    <th class="border-0">Devis</th>
-                                    <th class="border-0">Interventions</th> 
-                                 </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{$mois_ci}}<sup>iéme </sup> Mois </td>
-                                    <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
-                                    <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
-                                    <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
-                                   </tr>
-                            </tbody>
-                        </table>
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-
-</div>
-</div> 
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 row">  
+                            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
+                                <div class="card">
+                                    <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de ce mois_ci </h5>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <th class="border-0">Ce Mois-ci</th>
+                                                        <th class="border-0">Diagnostics</th>
+                                                        <th class="border-0">Devis</th>
+                                                        <th class="border-0">Interventions</th> 
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>{{$mois_ci}}<sup>iéme </sup> Mois </td>
+                                                        <td>{{$diagnostics}} {{$diagnostics>1?"diagnostics":"diagnostic"}} </td> 
+                                                        <td>{{$devis}} {{$devis>1?"devis":"devi"}} </td>
+                                                        <td>{{$interventions}} {{$interventions>1?"interventions":"intervention"}} </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
  {{-- fin tableau recaputulatif de ce mois ci--}}   
 
  {{-- debut tableau recaputulatif de ce mois_ci avec clients et voitures--}}
@@ -496,8 +496,7 @@ use Carbon\Carbon;
                 </div>
             </div>
         </div>
-
-</div>
+    </div>
 </div> 
  {{-- fin tableau recaputulatif de ce mois ci avec clients et voitures--}}   
 
