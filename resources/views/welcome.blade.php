@@ -25,7 +25,7 @@ use Carbon\Carbon;
     $mois_ci=Carbon::now()->format('F');
    $voitures=\App\Models\Voiture::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->count();
       ///Tab Recapitulatif Journaliere
-   $jour_ci=Carbon::now()->day; 
+   $jour_ci=Carbon::now()->day;    
   
 
 @endphp
@@ -303,7 +303,7 @@ use Carbon\Carbon;
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
         <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
             <div class="card">
-                <h5 class="card-header" style="text-align: center ; background-color: #580701;">Tableau récaptulatif du Jour</h5>
+                <h5 class="card-header" style="text-align: center ; background-color: #550600;">Tableau récaptulatif du Jour</h5>
                 <div class="card-body p-0">
                     <div class="table-responsive">
                         <table class="table">
@@ -466,7 +466,7 @@ use Carbon\Carbon;
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
         <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 mt-8">
             <div class="card">
-                <h5 class="card-header" style="text-align: center ; background-color: #339207;">Tableau récaptulatif du Mois </h5>
+                <h5 class="card-header" style="text-align: center ; background-color: #308b06;">Tableau récaptulatif du Mois </h5>
                 <div class="card-body p-0">
                     <div class="table-responsive">
                         <table class="table">
