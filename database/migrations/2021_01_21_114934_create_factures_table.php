@@ -17,8 +17,8 @@ class CreateFacturesTable extends Migration
             $table->id();
             $table->string('numero');
             $table->integer('etat');
-            $table->unsignedBigInteger('devi_id');
-            $table->unsignedBigInteger('diagnostic_id');
+            $table->unsignedBigInteger('devi_id')->nullable();
+            $table->unsignedBigInteger('diagnostic_id')->nullable();
             $table->timestamps();
         });
     }
