@@ -3,54 +3,30 @@
 @section('content')
 
 <style>
+  
                               
   .row{
     overflow-x: auto;
   }
-
-    .nav-link_1.active,
-    .nav-pills .show>.nav-link{
-    background-color:#1B192E!important;
-    color:#ffffff;
-    padding: 12px;
-    border-radius:20px;
-    font-size: 16px;
-    }
-    .nav-link_1.active:hover,
-    .nav-pills .show>.nav-link:hover{
-    background-color:#1B192E!important;
-    color:#ffffff;
-    padding: 12px;
-    border-radius:20px;
-    text-align: center;
-    font-size: 16px;
-    }
-
-    .second{
-      margin:7px;
-      background-color:#F9F8F9!important;
-    color:#737373;
-    padding: 12px;
-    border-radius:20px;
-    font-size: 16px;
-    }
-    /* .third{
-      margin-left:25px;
-    } */
-
-    .tab-content-2 {
-      border: 2px solid;
-      padding: 10px;
-      margin-top: 45px;
-      border-radius: 5px;
-    }
-
-    .nav-tabs-2{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      padding-top: 10px;
-    }
+  .tab-outline .nav.nav-tabs .nav-item .nav-link {
+    display: block !important;
+    padding: 3px !important;
+    color: #71748d !important;
+    background-color: #e9e9f2 !important;
+    border-color: #c4c4cf #c4c4cf #c4c4cf !important;
+    margin-right: 3px !important;
+    overflow-x: auto !important;
+}
+  .nav-link_1.active,
+  .nav-pills .show .nav-link{
+    background-color: gray!important;
+    color:#ffffff !important;
+    padding: 5px !important;
+    margin: 5px !important;
+    border-radius:0 20% 0 20% !important;
+    text-align: center !important;
+    font-size: 16px !important;
+  }
     
 /* --------------------radial_progress--------------- */
 .pie {
@@ -178,8 +154,37 @@ font-size: 100%;
     
         @endif
 
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="tab-outline">
+              <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
+                </li>
+                {{-- <li class="nav-item">
+                  <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
+                </li> --}}
+                <li class="nav-item">
+                  <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Compte-rendus</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
       <div class="row tab-content-2">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+       <!-- <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="tab-outline">
             <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
               <li class="nav-item">
@@ -202,7 +207,7 @@ font-size: 100%;
               </li>
             </ul><br>
           </div>
-        </div>
+        </div>-->
           <div class="col-xs-12 col-sm-12 col-md-12 ">
             <div class="tab-content " id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
