@@ -35,6 +35,13 @@
   .row {
           overflow-x: auto !important;
   }
+  .menu-list{
+    position: fixed !important;
+    background-image: linear-gradient( to top,#2b2a34, #0E0C28);
+    z-index: 1 !important;
+    width: 100%;
+    margin-top: -2% !important;
+  }
 
   }  
     .dashboard-main-wrapper {
