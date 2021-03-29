@@ -150,6 +150,14 @@ font-size: 100%;
 }
 
 /* ------------------------end-------------------------- */
+
+@media screen and (max-width: 767px) {
+ 
+ .big {
+         display: none;
+ }
+ 
+ }
 </style>
 
     <div class="row">
