@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+use App\Models\Devi;
 use App\Models\Liste;
 use App\Models\Facture;
 use App\Models\Produit;
@@ -26,8 +28,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 }); 
 Route::get('chart',function ()
 {
-    dd();
-   return Facture::all();
+    
+    $fature=Facture::with('devi','diagnostic')->whereMonth('created_at', Carbon::now()->month)->first();
+    $chiffe_affaires=$fature->devi->cout+$fature->diagnostic->coût;
+    $devi = Devi::find($fature->devi->id);
+    $les_devis=$devi->produits()->get();
+    $prixHT=0;
+    foreach ($les_devis as $le_devi) {
+        $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
+    }
+    $chiffe_affaires+=$prixHT;
+   
+   return ["CA"=>$chiffe_affaires ,"CAI"=>0];
 });
 Route::resource('commandes', CommandesApiController::class);
 Route::get('listes/{marques}',function($marques){
