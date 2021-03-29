@@ -378,6 +378,7 @@ $jour_ci = Carbon::now()->day;
 
 
     <div class="row">
+
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="card">
                 <h5 class="card-header">% of Income Budget</h5>
@@ -385,13 +386,29 @@ $jour_ci = Carbon::now()->day;
                     <div id="morris_gross" style="height: 272px;"></div>
                 </div>
                 <div class="card-footer bg-white">
-                    <p>Budget <span class="float-right text-dark">12,000.00</span></p>
-                    <p>Balance<span class="float-right text-dark">-2300.00 <span class="ml-2 text-secondary"><i
-                                    class="fas fa-caret-up mr-1"></i>25%</span></span>
+                    <p>Budget<span class="float-right text-dark">12,000.00</span></p>
+                    <p>
+                        Balance
+                        <span class="float-right text-dark">-2300.00
+                            <span class="ml-2 text-secondary">
+                                <i class="fas fa-caret-up mr-1"></i>25%
+                            </span>
+                        </span>
                     </p>
                 </div>
             </div>
         </div>
+
+        <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">AP and AR Balance
+                </h5>
+                <div class="card-body">
+                    <canvas id="chartjs_balance_bar"></canvas>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
@@ -577,8 +594,6 @@ $jour_ci = Carbon::now()->day;
             </div>
         </div>
     </div>
-    </div>
-    </div>
     {{-- fin tableau recaputulatif de ce mois ci avec clients et voitures --}}
 
 
@@ -604,8 +619,6 @@ $jour_ci = Carbon::now()->day;
 
 
     <script>
-
-        
         Morris.Donut({
             element: 'morris_gross',
 
@@ -632,6 +645,71 @@ $jour_ci = Carbon::now()->day;
                 return x + "%"
             },
             resize: true
+
+        });
+
+
+
+        // ============================================================== 
+        // Chart Balance Bar
+        // ============================================================== 
+        var ctx = document.getElementById("chartjs_balance_bar").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+
+
+            data: {
+                labels: ["Current", "1-30", "31-60", "61-90", "91+"],
+                datasets: [{
+                    label: 'Aged Payables',
+                    data: [500, 1000, 1500, 3700, 2500],
+                    backgroundColor: "rgba(89, 105, 255,.8)",
+                    borderColor: "rgba(89, 105, 255,1)",
+                    borderWidth: 2
+
+                }, {
+                    label: 'Aged Receiables',
+                    data: [1000, 1500, 2500, 3500, 2500],
+                    backgroundColor: "rgba(255, 64, 123,.8)",
+                    borderColor: "rgba(255, 64, 123,1)",
+                    borderWidth: 2
+
+
+                }]
+
+            },
+            options: {
+                legend: {
+                    display: true,
+
+                    position: 'bottom',
+
+                    labels: {
+                        fontColor: '#71748d',
+                        fontFamily: 'Circular Std Book',
+                        fontSize: 14,
+                    }
+                },
+
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 14,
+                            fontFamily: 'Circular Std Book',
+                            fontColor: '#71748d',
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontSize: 14,
+                            fontFamily: 'Circular Std Book',
+                            fontColor: '#71748d',
+                        }
+                    }]
+                }
+            }
+
+
 
         });
 
