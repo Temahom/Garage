@@ -96,6 +96,10 @@ use Carbon\Carbon;
     
      
 </style>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">  
+
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 row">  
     
@@ -498,6 +502,8 @@ use Carbon\Carbon;
         </div>
     </div>
 </div> 
+    </div>
+</div>
  {{-- fin tableau recaputulatif de ce mois ci avec clients et voitures--}}   
 
 
