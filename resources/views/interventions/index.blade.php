@@ -3,30 +3,58 @@
 @section('content')
 
 <style>
-  
-                              
-  .row{
-    overflow-x: auto;
+
+                  
+@media screen and (max-width: 767px) {
+  .row {
+          overflow-x: auto !important;
   }
-  .tab-outline .nav.nav-tabs .nav-item .nav-link {
-    display: block !important;
-    padding: 3px !important;
-    color: #71748d !important;
-    background-color: #e9e9f2 !important;
-    border-color: #c4c4cf #c4c4cf #c4c4cf !important;
-    margin-right: 3px !important;
-    overflow-x: auto !important;
-}
-  .nav-link_1.active,
-  .nav-pills .show .nav-link{
-    background-color: gray!important;
-    color:#ffffff !important;
-    padding: 5px !important;
-    margin: 5px !important;
-    border-radius:0 20% 0 20% !important;
-    text-align: center !important;
-    font-size: 16px !important;
-  }
+
+  }                            
+
+    .nav-link_1.active,
+    .nav-pills .show>.nav-link{
+    background-color:#1B192E!important;
+    color:#ffffff;
+    padding: 12px;
+    border-radius:20px;
+    font-size: 16px;
+    }
+    .nav-link_1.active:hover,
+    .nav-pills .show>.nav-link:hover{
+    background-color:#1B192E!important;
+    color:#ffffff;
+    padding: 12px;
+    border-radius:20px;
+    text-align: center;
+    font-size: 16px;
+    }
+
+    .second{
+      margin:7px;
+      background-color:#F9F8F9!important;
+    color:#737373;
+    padding: 12px;
+    border-radius:20px;
+    font-size: 16px;
+    }
+    /* .third{
+      margin-left:25px;
+    } */
+
+    .tab-content-2 {
+      border: 2px solid;
+      padding: 10px;
+      margin-top: 45px;
+      border-radius: 5px;
+    }
+
+    .nav-tabs-2{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding-top: 10px;
+    }
     
 /* --------------------radial_progress--------------- */
 .pie {
@@ -115,7 +143,8 @@ background-color: #d6b;
 }
 
 .big {
-font-size: 250%;
+  margin-left: 15%;
+  font-size: 260%;
 }
 .med {
 font-size: 150%;
@@ -124,7 +153,16 @@ font-size: 150%;
 font-size: 100%;
 }
 
-/* ------------------------end-------------------------- */
+/* ------------------------en mode téléphone-------------------------- */
+
+@media screen and (max-width: 767px) {
+ 
+ .big {
+         display: none;
+ }
+
+ }
+
 </style>
 
     <div class="row">
@@ -140,13 +178,14 @@ font-size: 100%;
         <div class="big">
           <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
           <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
-          <div class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
+          <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
           <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
           {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
         </div>
       </div>
     </div>
-    
+
+ 
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
@@ -154,37 +193,9 @@ font-size: 100%;
     
         @endif
 
-
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="tab-outline">
-              <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
-                </li>
-                {{-- <li class="nav-item">
-                  <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
-                </li> --}}
-                <li class="nav-item">
-                  <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Compte-rendus</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-
-      <div class="row tab-content-2">
-       <!-- <div class="col-xs-12 col-sm-12 col-md-12">
+        
+      <div class="row tab-content-2" style="width: 100%">
+        <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="tab-outline">
             <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
               <li class="nav-item">
@@ -207,7 +218,7 @@ font-size: 100%;
               </li>
             </ul><br>
           </div>
-        </div>-->
+        </div>
           <div class="col-xs-12 col-sm-12 col-md-12 ">
             <div class="tab-content " id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">

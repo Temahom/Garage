@@ -1,12 +1,13 @@
 <?php
 
+use App\Models\Liste;
+use App\Models\Facture;
+use App\Models\Produit;
+use App\Models\Voiture;
+use App\Models\Listedefaut;
+use App\Models\listeproduit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Liste;
-use App\Models\listeproduit;
-use App\Models\Produit;
-use App\Models\Listedefaut;
-use App\Models\Voiture;
 use App\Http\Controllers\DeviController;
 use App\Http\Controllers\CommandesApiController;
 /*
@@ -23,6 +24,11 @@ use App\Http\Controllers\CommandesApiController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 }); 
+Route::get('chart',function ()
+{
+    dd();
+   return Facture::all();
+});
 Route::resource('commandes', CommandesApiController::class);
 Route::get('listes/{marques}',function($marques){
     return Liste::select('lemodel')->where('marques','=',$marques)->orderBy('lemodel')->distinct()->get();  

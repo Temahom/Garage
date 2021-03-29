@@ -60,7 +60,6 @@ $jour_ci = Carbon::now()->day;
         integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="/assets/libs/css/clock.css">
-
     <style>
         .row {
             overflow: hidden;
@@ -202,9 +201,6 @@ $jour_ci = Carbon::now()->day;
                         </p>
                     </div>
                 </div>
-                <div class="col-md-12 col-sm-12 text-center pt-6">
-                    <img style="height: 50px;width: auto;" class="" src="/assets/images/out1.png" alt="logo">
-                </div><br>
             </div>
         </div>
         <!-- FIN nb intervention  -->
@@ -212,169 +208,191 @@ $jour_ci = Carbon::now()->day;
     </div>
     <!-- FIN Horloge, nb client, nd voiture nb intervention  -->
 
-
+    <!-- les vente Facture ..... -->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $produit_en_stock }}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <!-- ============================================================== -->
-            <!-- visitor  -->
-            <!-- ============================================================== -->
-            <!--  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Nombre de produit en Stock</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">{{ $produit_en_stock }}</h1>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    -->
-            <!-- ============================================================== -->
-            <!-- end visitor  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- sales  -->
-            <!-- ============================================================== -->
-            <!--    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                <div class="card border-3 border-top border-top-primary">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Quantité de produits en stock</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1 compteurqte">{{ $produit_total }}</h1>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>     -->
-            <!-- ============================================================== -->
-            <!-- end sales  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- new customer  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body">
-                        <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
-                        <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">{{ $produit_en_stock }}</h1>
-                        </div>
-                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                    class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                        </div>
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $produit_en_stock }}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- end visitor  -->
-            <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body">
-                        <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
-                        <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">{{ $produit_en_stock }}</h1>
-                        </div>
-                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                    class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                        </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Factures d’Aujourd’hui</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $facturesJour }}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- end visitor  -->
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body">
-                        <h5 class="text-muted">Les Factures d’Aujourd’hui</h5>
-                        <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">{{ $facturesJour }}</h1>
-                        </div>
-                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                    class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                        </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Les Factures de ce Mois</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ $facturesMois }}</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- end visitor  -->
-            <!-- end visitor  -->
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body">
-                        <h5 class="text-muted">Les Factures de ce Mois</h5>
-                        <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">{{ $facturesMois }}</h1>
-                        </div>
-                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                    class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                        </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Prix total des produits en stock</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">{{ number_format($prix_total_des_produits, 0, ',', ' ') }}<sup>F CFA</sup>
+                        </h1>
                     </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- end visitor  -->
-            <!-- ============================================================== -->
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                <div class="card border-3 border-top border-top-primary">
-                    <div class="card-body">
-                        <h5 class="text-muted">Prix total des produits en stock</h5>
-                        <div class="metric-value d-inline-block">
-                            <h1 class="mb-1">{{ number_format($prix_total_des_produits, 0, ',', ' ') }}<sup>F CFA</sup>
-                            </h1>
-                        </div>
-                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                    class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
-                        </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
+                                class="fa fa-fw fa-arrow-up"></i>
+                        </span>
+                        <span class="ml-1">10%</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- FIN les vente Facture ..... -->
 
-    {{-- debut tableau recaputulatif du jour --}}
+    <!-- tableau recaputulatif  jour et mois -->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
-                <div class="card">
-                    <h5 class="card-header" style="text-align: center ; background-color: #580701;">Tableau récaptulatif du
-                        Jour</h5>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="bg-light">
-                                    <tr class="border-0">
-                                        <th class="border-5">Aujourd'hui</th>
-                                        <th class="border-5">Nombre Interventions</th>
-                                        <th class="border-5">Facture Impayée</th>
-                                        <th class="border-5">Chiffre d'Affaire</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td> Le {{ $jour_ci }} </td>
-                                    </tr>
-                                </tbody>
-                            </table>
 
-                        </div>
-                    </div>
+        <!-- tableau recaputulatif du jour -->
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">Tableau récaptulatif du Jour</h5>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Jour</th>
+                                <th scope="col">Nombre Interventions</th>
+                                <th scope="col">Facture Impayée</th>
+                                <th scope="col">Chiffre d'Affaire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lundi 29 Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                            <tr>
+                                <td>Lundi 29 Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                            <tr>
+                                <td>Lundi 29 Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- FIN tableau recaputulatif du jour -->
+
+        <!-- tableau recaputulatif du mois -->
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">Tableau récaptulatif du Jour</h5>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Mois</th>
+                                <th scope="col">Nombre Interventions</th>
+                                <th scope="col">Facture Impayée</th>
+                                <th scope="col">Chiffre d'Affaire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                            <tr>
+                                <td>Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                            <tr>
+                                <td>Mars 2021</td>
+                                <td>17</td>
+                                <td>450000</td>
+                                <td>230000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- FIN tableau recaputulatif du mois -->
+
+    </div>
+    <!-- FIN tableau recaputulatif du jour et mois-->
+
+
+    <div class="row">
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">% of Income Budget</h5>
+                <div class="card-body">
+                    <div id="morris_gross" style="height: 272px;"></div>
+                </div>
+                <div class="card-footer bg-white">
+                    <p>Budget <span class="float-right text-dark">12,000.00</span></p>
+                    <p>Balance<span class="float-right text-dark">-2300.00 <span class="ml-2 text-secondary"><i
+                                    class="fas fa-caret-up mr-1"></i>25%</span></span>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-    {{-- fin tableau recaputulatif du jour --}}
 
 
 
@@ -572,6 +590,11 @@ $jour_ci = Carbon::now()->day;
         integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
     <script src="assets/libs/js/clock.js"></script>
+    <!-- morris js -->
+    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+    <script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
+
     <script>
         function show(page) {
             window.location = page;
@@ -581,6 +604,42 @@ $jour_ci = Carbon::now()->day;
 
 
     <script>
+
+        
+        Morris.Donut({
+            element: 'morris_gross',
+
+            data: [{
+                    value: 94,
+                    label: 'Budget'
+                },
+                {
+                    value: 15,
+                    label: ''
+                }
+
+            ],
+
+            labelColor: '#5969ff',
+
+            colors: [
+                '#5969ff',
+                '#a8b0ff'
+
+            ],
+
+            formatter: function(x) {
+                return x + "%"
+            },
+            resize: true
+
+        });
+
+
+
+
+
+
         var date = new Date();
         var options = {
             weekday: "long",
