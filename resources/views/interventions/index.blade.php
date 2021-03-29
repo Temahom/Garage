@@ -195,8 +195,8 @@ font-size: 100%;
         @endif
 
         
-      <div class="row tab-content-2" style="width: 100%">
-        <div class="col-xs-12 col-sm-12 col-md-12" style="width: 100%">
+      <div class="row tab-content-2">
+        <div class="col-xs-12 col-sm-12 col-md-12 row" style="width: 110%">
           <div class="tab-outline">
             <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
               <li class="nav-item">
