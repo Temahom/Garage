@@ -198,6 +198,9 @@ $jour_ci = Carbon::now()->day;
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-12 col-sm-12 text-center pt-6">
+                        <img style="height: 50px;width: auto;" class="" src="/assets/images/out1.png" alt="logo">
+                    </div><br>
                 </div>
             </div>
         <!-- FIN nb intervention  -->
