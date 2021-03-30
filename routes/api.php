@@ -29,17 +29,56 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('chart',function ()
 {
     
-    $fature=Facture::with('devi','diagnostic')->whereMonth('created_at', Carbon::now()->month)->first();
-    $chiffe_affaires=$fature->devi->cout+$fature->diagnostic->coût;
-    $devi = Devi::find($fature->devi->id);
-    $les_devis=$devi->produits()->get();
+    $fatures=Facture::with('devi','diagnostic')->whereMonth('created_at', Carbon::now()->month)->where("etat",">", 0)->get();
+  
+    //Pour le chiffre d'affaire des factures  payer
     $prixHT=0;
-    foreach ($les_devis as $le_devi) {
-        $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
+    $chiffe_affaires=0;
+    foreach ($fatures as $fature) {
+        if ($fature->devi) {
+            $chiffe_affaires+=$fature->devi->cout+$fature->diagnostic->coût;
+            $devi = Devi::find($fature->devi->id);
+            $les_devis=$devi->produits()->get();
+        
+            foreach ($les_devis as $le_devi) {
+                $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
+            }
+            
+        }else{
+            $chiffe_affaires+=$fature->diagnostic->coût;//98 500 000
+        }
+        
+      
+       
     }
     $chiffe_affaires+=$prixHT;
-   
-   return ["CA"=>$chiffe_affaires ,"CAI"=>0];
+
+
+   //  Calcule du chiffre d'affaire des impayée
+   $fatures_impayer=Facture::with('devi','diagnostic')->whereMonth('created_at', Carbon::now()->month)->where("etat",0)->get();
+    $prixHT_imp=0;
+    $chiffe_affaires_imp=0;
+    foreach ($fatures_impayer as $fature) {
+        if ($fature->devi) {
+            $chiffe_affaires_imp+=$fature->devi->cout+$fature->diagnostic->coût;
+            $devi = Devi::find($fature->devi->id);
+            $les_devis=$devi->produits()->get();
+        
+            foreach ($les_devis as $le_devi) {
+                $prixHT_imp += $le_devi->pivot->quantite * $le_devi->prix1;
+            }
+            
+        }else{
+            $chiffe_affaires_imp+=$fature->diagnostic->coût;//98 500 000
+        }
+        
+      
+       
+    }
+    $chiffe_affaires_imp+=$prixHT_imp;
+
+
+   return ["CA"=>$chiffe_affaires ,"CAI"=>$chiffe_affaires_imp];
 });
 Route::resource('commandes', CommandesApiController::class);
 Route::get('listes/{marques}',function($marques){

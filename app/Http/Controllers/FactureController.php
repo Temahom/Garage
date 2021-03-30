@@ -87,14 +87,20 @@ class FactureController extends Controller
     }
     public function facture_diagnostic($id)
     {
-       dd( Carbon::createFromFormat("d-m-y H:i", Date()));
+    
         $diagnostic=Diagnostic::find($id);
-        $intervention=$diagnostic->intervention;
-        dd($intervention->devi());
+        $intervention=$diagnostic->intervention()->first();
         $facture= new Facture();
+        if($intervention->devis_id){
+            $facture->devi_id=$intervention->devis_id;
+        }else{
+            $facture->devi_id=0;
+        }
         $facture->etat=1;
         $facture->numero=time();
         $facture->diagnostic_id=$id;
+        $facture->save();
+        return redirect()->back();
 
 
     }
