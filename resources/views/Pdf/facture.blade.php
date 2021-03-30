@@ -1,3 +1,9 @@
+<style>
+    body{
+        margin: 70px;
+    }
+    
+</style>
 <p style='line-height:normal;font-size:20px;font-family:fira sans;'>&nbsp;</p>
 <table style=";border-collapse:collapse;border:none;">
     <tbody>
@@ -22,8 +28,7 @@
         </tr>
         <tr>
             <td style="width:210.65px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span style="color:#333F4F;">&lt;Nom
-                        de la compagnie&gt;</span></p>
+                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span style="color:#333F4F;margin-right: 300px;font-weight: bold;">SAKA</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -45,7 +50,7 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="color:#333F4F;">&lt;Adresse postale&gt;</span></p>
+                        style="color:#333F4F;">Sector 32, Street 49, Choueifat - Lebanon</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -67,7 +72,8 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="color:#333F4F;background:white;">&lt;Details du contact&gt;</span></p>
+                        style="font-family:montserrat;color:#333F4F;"><span
+                            style="background:white;">77 719 93 89 <br>allouch.nabil@sakatrading.com</span></span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -85,29 +91,6 @@
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
                             style="font-size:12px;font-family:montserrat;color:#1F3864;">NO DE FACTURE</span></strong>
                 </p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width:210.65px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-family:montserrat;color:#333F4F;">&lt;<span
-                            style="background:white;">T&eacute;l&eacute;phone, Email</span>&gt;</span></p>
-            </td>
-            <td style="width:29.35px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
-            </td>
-            <td style="border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
-            </td>
-            <td style="width:100%;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
-            </td>
-            <td style="width:100%;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
             </td>
         </tr>
     </tbody>
@@ -141,7 +124,7 @@
         <tr>
             <td style="width:210.65px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><strong><span
-                            style="font-size:12px;color:#1F3864;background:white;">DESTINATAIRE</span></strong></p>
+                            style="font-size:12px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;">DESTINATAIRE</span></strong></p>
             </td>
             <td style="width:29.35px;border:none;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -149,7 +132,7 @@
             </td>
             <td style="width:140.25px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><strong><span
-                            style="font-size:12px;color:#1F3864;background:white;">ENVOYEZ &Agrave;</span></strong></p>
+                            style="font-size:12px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;">ENVOYEZ &Agrave;</span></strong></p>
             </td>
             <td style="width:6.0px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -256,12 +239,12 @@
         style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
         style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
-<table style=";border-collapse:collapse;border:none;">
+<table style="border-collapse:collapse;border:none;margin: 20px;">
     <tbody>
-        <tr>
+        <tr style="height: 50px;">
             <td colspan="2" style="width:240.0px;border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;font-family:montserrat;color:white;">DESCRIpxION</span></strong></p>
+                            style="font-size:12px;font-family:montserrat;color:white;margin-right: 900px;">DESCRIPTION</span></strong></p>
             </td>
             <td style="width:53.25px;border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
@@ -276,7 +259,7 @@
                             style="font-size:12px;font-family:montserrat;color:white;">TOTAL</span></strong></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
@@ -284,20 +267,20 @@
             <td
                 style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;00000000000</span></p>
             </td>
             <td
                 style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:13px;">0.00</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">1000000000000</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
@@ -305,20 +288,20 @@
             <td
                 style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:13px;">0.00</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
@@ -326,20 +309,20 @@
             <td
                 style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:13px;">0.00</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
@@ -347,20 +330,20 @@
             <td
                 style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:13px;">0.00</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
@@ -368,20 +351,20 @@
             <td
                 style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:13px;">0.00</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
@@ -389,20 +372,20 @@
             <td
                 style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;">&nbsp;</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
             </td>
             <td
                 style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:13px;">0.00</span></p>
+                        style="font-size:13px;margin-right: 25px;margin-left: 25px;">0.002</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td style="width:234.0px;border:none;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:12px;background:white;">Remarques, notes et instructions de paiement:</span>
@@ -418,15 +401,15 @@
             </td>
             <td style="width:93.0px;border:none;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
-                            style="font-size:11px;font-family:montserrat;color:#333F4F;background:white;">SOUS-TOTAL</span></strong>
+                            style="font-size:11px;font-family:montserrat;color:#333F4F;background:white;margin-right: 12px;">SOUS-TOTAL</span></strong>
                 </p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;">0.00</span></p>
+                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td colspan="2" rowspan="4" style="width:240.0px;border:none;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
@@ -437,53 +420,53 @@
             </td>
             <td style="width:93.0px;border:none;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
-                            style="font-size:11px;font-family:montserrat;color:#333F4F;">REMISE</span></strong></p>
+                            style="font-size:11px;font-family:montserrat;color:#333F4F;margin-right: 12px;">REMISE</span></strong></p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;">0.00</span></p>
+                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td style="width: 53.25px;border: none;height: 19px;vertical-align: bottom;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
             </td>
             <td style="width:93.0px;border:none;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
-                            style="font-size:11px;font-family:montserrat;color:#333F4F;">TAUX
+                            style="font-size:11px;font-family:montserrat;color:#333F4F;margin-right: 12px;">TAUX
                             D&rsquo;IMPOSITION</span></strong></p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;">0.00%</span></p>
+                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00%</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td style="width: 53.25px;border: none;height: 19px;vertical-align: bottom;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
             </td>
             <td style="width:93.0px;border:none;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
-                            style="font-size:11px;font-family:montserrat;color:#333F4F;">TAXE TOTAL</span></strong></p>
+                            style="font-size:11px;font-family:montserrat;color:#333F4F;margin-right: 12px;">TAXE TOTAL</span></strong></p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;">0.00</span></p>
+                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td style="width: 53.25px;border: none;height: 19px;vertical-align: bottom;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid black 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;">0.00</span></p>
+                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td colspan="2" style="width:240.0px;border:none;height:33.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;">&nbsp;</span></p>
@@ -494,14 +477,14 @@
             </td>
             <td style="width:93.0px;border:none;height:33.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
-                            style="font-size:16px;font-family:montserrat;color:#333F4F;">SOLDE DU</span></strong></p>
+                            style="font-size:16px;font-family:montserrat;color:#333F4F;margin-right: 12px;">SOLDE DU</span></strong></p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
-                            style="font-size:16px;font-family:montserrat;">0.00F CFA;</span></strong></p>
+                            style="font-size:16px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00F CFA;</span></strong></p>
             </td>
         </tr>
-        <tr>
+        <tr style="height: 30px;">
             <td style="border:none;"><br></td>
             <td style="border:none;"><br></td>
             <td style="border:none;"><br></td>
