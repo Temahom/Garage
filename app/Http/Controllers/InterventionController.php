@@ -42,6 +42,28 @@ class InterventionController extends Controller
         return view('interventions.index', compact('interventions','diagnostics','devis','summaries','factures'));
     }
 
+
+    public function index_mois()
+    {
+        
+        $interventions = Intervention::whereYear('created_at', Carbon::now()->year)
+                                      ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
+        $diagnostics = Intervention::where('diagnostic_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                                     ->whereMonth('created_at', Carbon::now()->month)
+                                                                     ->paginate(10);
+        $devis = Intervention::where('devis_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                            ->whereMonth('created_at', Carbon::now()->month)
+                                                            ->paginate(10);
+        $summaries = Intervention::where('summary_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                                ->whereMonth('created_at', Carbon::now()->month)
+                                                                ->paginate(10);
+        $factures = Intervention::where('facture_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                                ->whereMonth('created_at', Carbon::now()->month)
+                                                                ->paginate(10);
+        // dd($factures);
+        return view('interventions.index_mois', compact('interventions','diagnostics','devis','summaries','factures'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
