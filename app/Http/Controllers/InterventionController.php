@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Intervention;
+use Auth;
+use App\Models\Devi;
+use App\Models\User;
+use App\Models\Facture;
+use App\Models\Produit;
+use App\Models\Summary;
 use App\Models\Voiture;
+use App\Models\Commande;
 use App\Models\Diagnostic;
 use App\Models\Reparation;
-use App\Models\Devi;
-use App\Models\Commande;
-use App\Models\User;
-use App\Models\Summary;
-use App\Models\Produit;
+use App\Models\Intervention;
 use Illuminate\Http\Request;
-use Auth;
 
 class InterventionController extends Controller
 {
@@ -123,6 +124,12 @@ class InterventionController extends Controller
             }
             $data['devi']['item_devis'] = $item_devis;
         }
+        $facture=Facture::where('diagnostic_id',$intervention->diagnostic_id)->first();
+            if ($facture) {
+                $data['facture']=$facture;
+            }
+        
+      //  dd($facture);
         return view('interventions.show', $data);
     }
 

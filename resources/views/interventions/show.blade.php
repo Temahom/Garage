@@ -115,7 +115,12 @@
 						<div class="col-md-12">
 							@if ( $intervention->diagnostic_id )
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
-								<a class="btn btn-primary" href="/facture/{{$intervention->diagnostic_id}}" title="Facture">Generer la facture</a>
+									@if (isset($facture->diagnostic_id) && $facture->diagnostic_id)
+									<a class="btn btn-primary" href="/facture" title="Imprimer Facture">Imprimer la facture</a>
+									@else
+									<a class="btn btn-primary" href="/facture/{{$intervention->diagnostic_id}}" title="Facture">Generer la facture</a>
+									@endif
+								
 							@else
 								<a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
 							@endif
