@@ -146,7 +146,7 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;font-family:montserrat;font-size: 22px;">&lt;Nom&gt;</span></p>
+                        style="font-family:montserrat;font-size: 22px;">&lt;Nom&gt;</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -154,7 +154,7 @@
             </td>
             <td style="width:140.25px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;font-family:montserrat;font-size: 22px;">&lt;Nom&gt;</span></p>
+                        style="font-family:montserrat;font-size: 22px;">&lt;Nom&gt;</span></p>
             </td>
             <td style="width:6.0px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -168,7 +168,7 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;font-family:montserrat;font-size: 22px;">&lt;Nom de la societe&gt;</span></p>
+                        style="font-family:montserrat;font-size: 22px;">&lt;Nom de la societe&gt;</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -176,7 +176,7 @@
             </td>
             <td style="width:140.25px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;font-family:montserrat;font-size: 22px;">&lt;Nom de la societe&gt;</span></p>
+                        style="font-family:montserrat;font-size: 22px;">&lt;Nom de la societe&gt;</span></p>
             </td>
             <td style="width:6.0px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -190,7 +190,7 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;font-family:montserrat;">&lt;Adresse postale&gt;</span></p>
+                        style="font-size:22px;font-family:montserrat;">&lt;Adresse postale&gt;</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -198,7 +198,7 @@
             </td>
             <td style="width:140.25px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;font-family:montserrat;font-size: 22px;">&lt;Adresse postale&gt;</span></p>
+                        style="font-family:montserrat;font-size: 22px;">&lt;Adresse postale&gt;</span></p>
             </td>
             <td style="width:6.0px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
