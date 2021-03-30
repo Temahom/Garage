@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Client;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -33,6 +34,15 @@ class ClientController extends Controller
         return view('clients.index', compact('clients'))
             ->with('i', (request()->input('page', 1) - 1) * 15); 
              
+    }
+
+    public function index_mois()
+    {
+        
+        $clients = Client::whereYear('created_at', Carbon::now()->year)
+        ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
+        // dd($clients);
+        return view('clients.index_mois', compact('clients'));
     }
 
     /**f

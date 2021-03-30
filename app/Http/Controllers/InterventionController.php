@@ -13,6 +13,7 @@ use App\Models\Summary;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 use Auth;
+use Carbon\Carbon;
 
 class InterventionController extends Controller
 {
@@ -39,6 +40,28 @@ class InterventionController extends Controller
         $summaries = Intervention::where('summary_id','!=',null)->paginate(15);
         $factures = Intervention::where('facture_id','!=',null)->paginate(15);
         return view('interventions.index', compact('interventions','diagnostics','devis','summaries','factures'));
+    }
+
+
+    public function index_mois()
+    {
+        
+        $interventions = Intervention::whereYear('created_at', Carbon::now()->year)
+                                      ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
+        $diagnostics = Intervention::where('diagnostic_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                                     ->whereMonth('created_at', Carbon::now()->month)
+                                                                     ->paginate(10);
+        $devis = Intervention::where('devis_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                            ->whereMonth('created_at', Carbon::now()->month)
+                                                            ->paginate(10);
+        $summaries = Intervention::where('summary_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                                ->whereMonth('created_at', Carbon::now()->month)
+                                                                ->paginate(10);
+        $factures = Intervention::where('facture_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                                ->whereMonth('created_at', Carbon::now()->month)
+                                                                ->paginate(10);
+        // dd($factures);
+        return view('interventions.index_mois', compact('interventions','diagnostics','devis','summaries','factures'));
     }
 
     /**
