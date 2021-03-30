@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <td style="width:210.65px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span style="color:#333F4F;margin-right: 300px;font-weight: bold;">SAKA</span></p>
+                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span style="color:#333F4F;margin-right: 300px;font-weight: bold;font-size: 25px;">SAKA</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -44,13 +44,13 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;font-family:montserrat;color:#1F3864;">DATE</span></strong></p>
+                            style="font-size:12px;font-family:montserrat;color:#1F3864;font-size: 25px;">DATE</span></strong></p>
             </td>
         </tr>
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="color:#333F4F;">Sector 32, Street 49, Choueifat - Lebanon</span></p>
+                        style="color:#333F4F;font-size: 2Opx;">Sector 32, Street 49, Choueifat - Lebanon</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -73,7 +73,7 @@
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-family:montserrat;color:#333F4F;"><span
-                            style="background:white;">77 719 93 89 <br>allouch.nabil@sakatrading.com</span></span></p>
+                            style="background:white;font-size: 2Opx;">77 719 93 89 <br>allouch.nabil@sakatrading.com</span></span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -89,7 +89,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;font-family:montserrat;color:#1F3864;">NO DE FACTURE</span></strong>
+                            style="font-size:12px;font-family:montserrat;color:#1F3864;font-size: 25px;">NO DE FACTURE</span></strong>
                 </p>
             </td>
         </tr>
@@ -97,7 +97,7 @@
 </table>
 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
         style="font-size:13px;font-family:montserrat;">&nbsp;</span></p>
-<table style=";border-collapse:collapse;border:none;">
+<table style="border-collapse:collapse;border:none;">
     <tbody>
         <tr>
             <td style="width:210.65px;border:none;">
@@ -124,7 +124,7 @@
         <tr>
             <td style="width:210.65px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><strong><span
-                            style="font-size:12px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;">DESTINATAIRE</span></strong></p>
+                            style="font-size:12px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;font-size: 25px;">DESTINATAIRE</span></strong></p>
             </td>
             <td style="width:29.35px;border:none;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -132,7 +132,7 @@
             </td>
             <td style="width:140.25px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><strong><span
-                            style="font-size:12px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;">ENVOYEZ &Agrave;</span></strong></p>
+                            style="font-size:12px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;font-size: 25px;">ENVOYEZ &Agrave;</span></strong></p>
             </td>
             <td style="width:6.0px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -146,7 +146,7 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;font-family:montserrat;">&lt;Nom&gt;</span></p>
+                        style="font-size:13px;font-family:montserrat;font-size: 2Opx;">&lt;Nom&gt;</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -154,7 +154,7 @@
             </td>
             <td style="width:140.25px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;font-family:montserrat;">&lt;Nom&gt;</span></p>
+                        style="font-size:13px;font-family:montserrat;font-size: 2Opx;">&lt;Nom&gt;</span></p>
             </td>
             <td style="width:6.0px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -168,7 +168,7 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;font-family:montserrat;">&lt;Nom de la societe&gt;</span></p>
+                        style="font-size:13px;font-family:montserrat;font-size: 2Opx;">&lt;Nom de la societe&gt;</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -176,7 +176,7 @@
             </td>
             <td style="width:140.25px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;font-family:montserrat;">&lt;Nom de la societe&gt;</span></p>
+                        style="font-size:13px;font-family:montserrat;font-size: 2Opx;">&lt;Nom de la societe&gt;</span></p>
             </td>
             <td style="width:6.0px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -198,7 +198,7 @@
             </td>
             <td style="width:140.25px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:13px;font-family:montserrat;">&lt;Adresse postale&gt;</span></p>
+                        style="font-size:13px;font-family:montserrat;font-size: 2Opx;">&lt;Adresse postale&gt;</span></p>
             </td>
             <td style="width:6.0px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -213,7 +213,7 @@
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;font-family:montserrat;">&lt;<span
-                            style="background:white;">T&eacute;l&eacute;phone, Email</span>&gt;</span></p>
+                            style="background:white;font-size: 2Opx;">T&eacute;l&eacute;phone, Email</span>&gt;</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -222,7 +222,7 @@
             <td style="width:140.25px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:13px;font-family:montserrat;">&lt;<span
-                            style="background:white;">T&eacute;l&eacute;phone</span>&gt;</span></p>
+                            style="background:white;font-size: 2Opx;">T&eacute;l&eacute;phone</span>&gt;</span></p>
             </td>
             <td style="width:6.0px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
