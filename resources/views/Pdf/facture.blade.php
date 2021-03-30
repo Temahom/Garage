@@ -244,7 +244,7 @@
         <tr style="height: 50px;">
             <td colspan="2" style="width:240.0px;border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;font-family:montserrat;color:white;margin-right: 900px;">DESCRIPTION</span></strong></p>
+                            style="font-size:12px;font-family:montserrat;color:white;margin-right: 800px;">DESCRIPTION</span></strong></p>
             </td>
             <td style="width:53.25px;border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
