@@ -2,9 +2,10 @@
   
 @section('content')
 
+
 <style>
 	.row{
-		overflow: hidden;
+		overflow: hidden !important;
 	}
 </style>
 
