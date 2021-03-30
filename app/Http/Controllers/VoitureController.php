@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Voiture;
 use App\Models\Client;
 use Auth;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -37,6 +38,16 @@ class VoitureController extends Controller
         return view('voitures.index', compact('voitures'))
             ->with('i', (request()->input('page', 1) - 1) * 15); 
              
+    }
+
+
+    public function index_mois()
+    {
+        
+        $voitures = Voiture::whereYear('created_at', Carbon::now()->year)
+        ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
+        // dd($voitures);
+        return view('voitures.index_mois', compact('voitures'));
     }
 
     /**

@@ -73,20 +73,23 @@ Route::middleware('auth')->group(function () {
     Route::get('facture/{id}',[FactureController::class,'facture_diagnostic']);
     Route::resource('produits',ProduitController::class);
     Route::resource('clients',ClientController::class);  
+    Route::get('clients-mois',[ClientController::class, 'index_mois']);  
     Route::resource('clients.voitures', VoitureController::class);
     Route::resource('factures',FactureController::class);
     Route::resource('voitures',VoitureController::class);
+    Route::get('voitures-mois',[VoitureController::class, 'index_mois']);
     Route::resource('voitures.interventions',InterventionController::class);
     Route::resource('voitures.interventions.reparations',ReparationController::class);
     Route::resource('voitures.interventions.summaries',SummaryController::class);
     Route::resource('voitures.interventions.devis',DeviController::class);
 /*     Route::resource('commandes', CommandeController::class);
- */    Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
+*/  Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
     Route::resource('actors', ActorController::class);
     Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
     Route::resource('diagnostics', DiagnosticController::class);
     
     Route::get('/interventions-list', [InterventionController::class, 'index']);
+    Route::get('/interventions-mois', [InterventionController::class, 'index_mois']);
     Route::get('/devis-etat', [DeviController::class, 'etat']);
 
     Route::get('signaturepad', [SignaturePadController::class, 'index']);
