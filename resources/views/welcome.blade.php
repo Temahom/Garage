@@ -125,8 +125,9 @@ $jour_ci = Carbon::now()->day;
         }
 
     </style>
+    
 
-    <!-- Horloge, nb client, nb voiture nb intervention  -->
+    <!-- ---------------------------Horloge, nb client, nb voiture nb intervention -------------------------------------- -->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row">
 
@@ -197,14 +198,18 @@ $jour_ci = Carbon::now()->day;
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-12 col-sm-12 text-center pt-6">
+                        <img style="height: 50px;width: auto;" class="" src="/assets/images/out1.png" alt="logo">
+                    </div><br>
                 </div>
             </div>
         <!-- FIN nb intervention  -->
         </div>
     </div>
-    <!-- FIN Horloge, nb client, nd voiture nb intervention  -->
+    <!-- -------------------------------FIN Horloge, nb client, nd voiture nb intervention------------------------  -->
 
-    <!-- les vente Facture ..... -->
+
+    <!-- -----------------------------------------les vente Facture ..... -------------------------------------------->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row">
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
@@ -260,8 +265,10 @@ $jour_ci = Carbon::now()->day;
                             <h1 class="mb-1">{{ $facturesMois }}</h1>
                         </div>
                         <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                    class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                            <span class="icon-circle-small icon-box-xs text-success bg-success-light">
+                                <i class="fa fa-fw fa-arrow-up"></i>
+                            </span>
+                            <span class="ml-1">5%</span>
                         </div>
                     </div>
                 </div>
@@ -276,8 +283,8 @@ $jour_ci = Carbon::now()->day;
                             </h1>
                         </div>
                         <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                    class="fa fa-fw fa-arrow-up"></i>
+                            <span class="icon-circle-small icon-box-xs text-success bg-success-light">
+                                <i class="fa fa-fw fa-arrow-up"></i>
                             </span>
                             <span class="ml-1">10%</span>
                         </div>
@@ -286,9 +293,10 @@ $jour_ci = Carbon::now()->day;
             </div>
         </div>
     </div>
-    <!-- FIN les vente Facture ..... -->
+    <!-- ----------------------------------------FIN les vente Facture ---------------------------------------- -->
 
-    <!-- tableau recaputulatif  jour et mois -->
+
+    <!-- ------------------------------------tableau recaputulatif  jour et mois --------------------------------->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row">
         <!-- tableau recaputulatif du jour -->
@@ -372,43 +380,46 @@ $jour_ci = Carbon::now()->day;
         <!-- FIN tableau recaputulatif du mois -->
         </div>
     </div>
-    <!-- FIN tableau recaputulatif du jour et mois-->
+    <!----------------------------------- FIN tableau recaputulatif du jour et moi------------------------s-->
 
 
+    <!-- ---------------------------------------------Chiffre affaire / mois --------------------------->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row">
+
+              <!--  Chiffre affaire de ce mois -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">% of Income Budget</h5>
+                    <h5 class="card-header">Chiffre affaire de ce mois</h5>
                     <div class="card-body">
                         <div id="morris_gross" style="height: 272px;"></div>
                     </div>
                     <div class="card-footer bg-white">
-                        <p>Budget<span class="float-right text-dark">12,000.00</span></p>
                         <p>
-                            Balance
-                            <span class="float-right text-dark">-2300.00
-                                <span class="ml-2 text-secondary">
-                                    <i class="fas fa-caret-up mr-1"></i>25%
-                                </span>
-                            </span>
+                            Payé<span class="float-right text-dark">12 000 000</span>
+                        </p>
+                        <p>
+                            Impayé<span class="float-right text-dark">2 300 000</span>
                         </p>
                     </div>
                 </div>
             </div>
+            <!--  FIN Chiffre affaire de ce mois -->
 
+            <!--  Chiffre affaire par mois -->
             <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">AP and AR Balance
-                    </h5>
+                    <h5 class="card-header">Chiffre affaire par mois</h5>
                     <div class="card-body">
                         <canvas id="chartjs_balance_bar"></canvas>
                     </div>
                 </div>
             </div>
+            <!--  FIN Chiffre affaire par mois -->
+
         </div>
     </div>
-
+    <!-- ----------------------------------------- FIN Chiffre affaire / mois ------------------------------------->
 
 
 
@@ -450,10 +461,13 @@ $jour_ci = Carbon::now()->day;
                                     </tr>
 
                                     <tr>
-                                        <td style="font-size: 15px; font-weight: bold;" colspan="9"><span
-                                                class="float-right"><strong>Totale :
-                                                    {{ number_format($total, 0, ',', ' ') }}<sup> F
-                                                        CFA</sup></strong></span></td>
+                                        <td style="font-size: 15px; font-weight: bold;" colspan="9">
+                                            <span class="float-right">
+                                                <strong>
+                                                    Totale : {{ number_format($total, 0, ',', ' ') }}<sup> F CFA</sup>
+                                                </strong>
+                                            </span>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -613,12 +627,14 @@ $jour_ci = Carbon::now()->day;
 
 
     <script>
+
+        // Chiffre affaire de ce mois
         Morris.Donut({
             element: 'morris_gross',
 
             data: [{
                     value: 94,
-                    label: 'Budget'
+                    label: 'Payé'
                 },
                 {
                     value: 15,
@@ -631,7 +647,7 @@ $jour_ci = Carbon::now()->day;
 
             colors: [
                 '#5969ff',
-                '#a8b0ff'
+                'rgba(255, 64, 123,.8)'
 
             ],
 
@@ -641,16 +657,13 @@ $jour_ci = Carbon::now()->day;
             resize: true
 
         });
+        // FIN Chiffre affaire de ce mois
 
 
-
-        // ============================================================== 
-        // Chart Balance Bar
-        // ============================================================== 
+        // Chiffre affaire par mois
         var ctx = document.getElementById("chartjs_balance_bar").getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
-
 
             data: {
                 labels: ["Current", "1-30", "31-60", "61-90", "91+"],
@@ -702,11 +715,8 @@ $jour_ci = Carbon::now()->day;
                     }]
                 }
             }
-
-
-
         });
-
+        // FIN Chiffre affaire par mois
 
 
 

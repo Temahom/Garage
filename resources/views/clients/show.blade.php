@@ -2,11 +2,6 @@
 @section('content')
 
 
-<style>
-	.card{
-		overflow: hidden !important;
-	}
-</style>
 
     <div class="row ml-1">
         <div class="col-md-5 col-sm-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">

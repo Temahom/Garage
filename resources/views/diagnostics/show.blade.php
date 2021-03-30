@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div></div></div>
 
   
     <div class="row" style="margin-top: 30px">
