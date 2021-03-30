@@ -44,7 +44,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;font-family:montserrat;color:#1F3864;font-size: 25px;">DATE</span></strong></p>
+                            style="font-size:15px;font-family:montserrat;color:#1F3864;font-size: 25px;">DATE</span></strong></p>
             </td>
         </tr>
         <tr>
@@ -89,7 +89,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;font-family:montserrat;color:#1F3864;font-size: 25px;">NO DE FACTURE</span></strong>
+                            style="font-size:15px;font-family:montserrat;color:#1F3864;font-size: 25px;">NO DE FACTURE</span></strong>
                 </p>
             </td>
         </tr>
@@ -115,16 +115,16 @@
                             style="font-size:18px;line-height:  115%;font-family:montserrat;color:#333F4F;">&lt;</span></em><em><span
                             style="font-size:18px;line-height:  115%;font-family:montserrat;color:#212121;background:white;">Conditions
                             de paiement, par exemple: d&ucirc; dans X jours</span></em><em><span
-                            style="font-size:12px;line-height:  115%;font-family:montserrat;color:#333F4F;">&gt;</span></em>
+                            style="font-size:15px;line-height:  115%;font-family:montserrat;color:#333F4F;">&gt;</span></em>
                 </p>
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><em><span
-                            style="font-size:12px;font-family:montserrat;color:#333F4F;">&nbsp;</span></em></p>
+                            style="font-size:15px;font-family:montserrat;color:#333F4F;">&nbsp;</span></em></p>
             </td>
         </tr>
         <tr>
             <td style="width:210.65px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><strong><span
-                            style="font-size:12px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;font-size: 25px;">DESTINATAIRE</span></strong></p>
+                            style="font-size:15px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;font-size: 25px;">DESTINATAIRE</span></strong></p>
             </td>
             <td style="width:29.35px;border:none;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -132,7 +132,7 @@
             </td>
             <td style="width:140.25px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><strong><span
-                            style="font-size:12px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;font-size: 25px;">ENVOYEZ &Agrave;</span></strong></p>
+                            style="font-size:15px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;font-size: 25px;">ENVOYEZ &Agrave;</span></strong></p>
             </td>
             <td style="width:6.0px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -244,19 +244,19 @@
         <tr style="height: 50px;">
             <td colspan="2" style="width:240.0px;border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;font-family:montserrat;color:white;margin-right: 800px;">DESCRIPTION</span></strong></p>
+                            style="font-size:15px;font-family:montserrat;color:white;margin-right: 700px;margin-left:120px;">DESCRIPTION</span></strong></p>
             </td>
             <td style="width:53.25px;border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;color:white;">QUANTIT&Eacute;</span></strong></p>
+                            style="font-size:15px;color:white;">QUANTIT&Eacute;</span></strong></p>
             </td>
             <td style="width:93.0px;border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;color:white;">PRIX UNITAIRE</span></strong></p>
+                            style="font-size:15px;color:white;">PRIX UNITAIRE</span></strong></p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:12px;font-family:montserrat;color:white;">TOTAL</span></strong></p>
+                            style="font-size:15px;font-family:montserrat;color:white;">TOTAL</span></strong></p>
             </td>
         </tr>
         <tr style="height: 30px;">
@@ -406,7 +406,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
+                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
         <tr style="height: 30px;">
@@ -424,7 +424,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
+                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
         <tr style="height: 30px;">
@@ -439,7 +439,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00%</span></p>
+                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00%</span></p>
             </td>
         </tr>
         <tr style="height: 30px;">
@@ -453,7 +453,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
+                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
         <tr style="height: 30px;">
@@ -463,7 +463,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid black 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:12px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
+                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
             </td>
         </tr>
         <tr style="height: 30px;">
