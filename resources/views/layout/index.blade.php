@@ -268,11 +268,6 @@
                                     </ul>    
                                 </div>
                             </li>
-
-                            <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="/google_map"><i class="nav-icon fa-fw fas fa-position"></i>Google Map<span class="badge badge-success"></span></a>
-                            </li> 
-
                         </ul>
                     </div>
                 </nav>
