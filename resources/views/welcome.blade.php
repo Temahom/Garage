@@ -130,10 +130,9 @@ $jour_ci = Carbon::now()->day;
 
     </style>
 
-
     <!-- Horloge, nb client, nb voiture nb intervention  -->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row" style="width: 94%">
 
             <!-- Horloge  -->
             <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
@@ -211,7 +210,7 @@ $jour_ci = Carbon::now()->day;
 
     <!-- les vente Facture ..... -->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row" style="width: 94%">
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                 <div class="card border-3 border-top border-top-primary">
                     <div class="card-body">
@@ -295,7 +294,7 @@ $jour_ci = Carbon::now()->day;
 
     <!-- tableau recaputulatif  jour et mois -->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row" style="width: 94%">
         <!-- tableau recaputulatif du jour -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
@@ -381,7 +380,7 @@ $jour_ci = Carbon::now()->day;
 
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row" style="width: 94%">
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card">
                     <h5 class="card-header">% of Income Budget</h5>
@@ -418,7 +417,7 @@ $jour_ci = Carbon::now()->day;
 
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row" style="width: 94%">
             <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
                 <div class="card">
                     <h5 class="card-header" style="text-align: center;  background-color: #068c94;">Tableau récaptulatif
@@ -505,7 +504,7 @@ $jour_ci = Carbon::now()->day;
     </div>
     {{-- fin tableau de Vieillissment du clients --}}
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row" style="width: 94%">
             <div class="col-md-6 chart">
                 <canvas id="myChart"></canvas>
             </div>
@@ -522,7 +521,7 @@ $jour_ci = Carbon::now()->day;
     <br><br>
     {{-- debut tableau recaputulatif de ce mois_ci --}}
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row" style="width: 94%">
             <div class="col-xs-4 col-sm-4 col-md-4">
                 <div class="card">
                     <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de
@@ -592,8 +591,6 @@ $jour_ci = Carbon::now()->day;
     {{-- fin tableau recaputulatif de ce mois ci --}}
 
     {{-- debut tableau recaputulatif de ce mois_ci avec clients et voitures --}}
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
             
         </div>
     </div>
