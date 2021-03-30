@@ -37,7 +37,7 @@
 
   }  
 
-#menu-list{
+.nav-link{
     background-color: #24274a !important;
     color: white !important;
 }
@@ -45,12 +45,7 @@
     background-color: #24274a !important;
     color: #fff !important;
 }
-
-    .dashboard-main-wrapper {
-        background-color: white;
-    }
-
-
+ 
     .dashboard-main-wrapper{
         background-color: white;
     }
@@ -65,12 +60,7 @@
       text-transform: capitalize;
     }
 
-    .nav-divider{
-        color: rgb(0, 0, 0) !important;
-        text-align: center;
-        background-color: rgb(255, 255, 255) !important;
-        border-radius: 15px !important;
-    }
+   
     .marquee-rtl {
         max-width: 100% ;                      /* largeur de la fenêtre */
         margin: 1em auto 2em;
@@ -198,7 +188,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 25px">
+                            <li class="nav-divider" style="font-size: 10px; margin-left: 75%">
                                Menu
                             </li><br>
 
