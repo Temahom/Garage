@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 <style>
 	.row{
-		overflow: hidden;
+		overflow: hidden !important;
 	}
 </style>
 

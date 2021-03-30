@@ -61,17 +61,6 @@ $jour_ci = Carbon::now()->day;
         crossorigin="anonymous" />
     <link rel="stylesheet" href="/assets/libs/css/clock.css">
     <style>
-
-@media screen and (max-width: 767px) {
-  .row {
-          overflow-x: auto !important;
-  }
-
-  }  
-        .row {
-            overflow: hidden;
-        }
-
         #cercle .card {
 
             justify-content: center;
