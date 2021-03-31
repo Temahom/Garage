@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
