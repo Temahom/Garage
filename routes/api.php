@@ -1,5 +1,4 @@
 <?php
-
 use Carbon\Carbon;
 use App\Models\Devi;
 use App\Models\Liste;
@@ -12,34 +11,84 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeviController;
 use App\Http\Controllers\CommandesApiController;
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+
+
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 }); 
 Route::get('chart',function ()
 {
+    function chiffre($mois)
+{
+    $fatures=Facture::with('devi','diagnostic')->whereMonth('created_at', $mois)->where("etat",">", 0)->get();
     
-    $fature=Facture::with('devi','diagnostic')->whereMonth('created_at', Carbon::now()->month)->first();
-    $chiffe_affaires=$fature->devi->cout+$fature->diagnostic->coût;
-    $devi = Devi::find($fature->devi->id);
-    $les_devis=$devi->produits()->get();
-    $prixHT=0;
-    foreach ($les_devis as $le_devi) {
-        $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
-    }
-    $chiffe_affaires+=$prixHT;
+        //Pour le chiffre d'affaire des factures  payer
+        $prixHT=0;
+        $chiffe_affaires=0;
+        foreach ($fatures as $fature) {
+            if ($fature->devi) {
+                $chiffe_affaires+=$fature->devi->cout+$fature->diagnostic->coût;
+                $devi = Devi::find($fature->devi->id);
+                $les_devis=$devi->produits()->get();
+            
+                foreach ($les_devis as $le_devi) {
+                    $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
+                }
+                
+            }else{
+                $chiffe_affaires+=$fature->diagnostic->coût;//98 500 000
+            }
+            
+        
+        
+        }
+        $chiffe_affaires+=$prixHT;
+
+
+    //  Calcule du chiffre d'affaire des impayée
+    $fatures_impayer=Facture::with('devi','diagnostic')->whereMonth('created_at', $mois)->where("etat",0)->get();
+        $prixHT_imp=0;
+        $chiffe_affaires_imp=0;
+        foreach ($fatures_impayer as $fature) {
+            if ($fature->devi) {
+                $chiffe_affaires_imp+=$fature->devi->cout+$fature->diagnostic->coût;
+                $devi = Devi::find($fature->devi->id);
+                $les_devis=$devi->produits()->get();
+            
+                foreach ($les_devis as $le_devi) {
+                    $prixHT_imp += $le_devi->pivot->quantite * $le_devi->prix1;
+                }
+                
+            }else{
+                $chiffe_affaires_imp+=$fature->diagnostic->coût;//98 500 000
+            }
+            
+        
+        
+        }
+        $chiffe_affaires_imp+=$prixHT_imp;
+
+return ["CA"=>$chiffe_affaires ,"CAI"=>$chiffe_affaires_imp];
+}
    
-   return ["CA"=>$chiffe_affaires ,"CAI"=>0];
+//$chiffe_affaires_imp+=$prixHT_imp;
+/**
+ * Poru tous les 6 mois
+ */
+
+$months = [];
+//dd(Carbon::now()->month(02)->format('F'));
+$mois=Carbon::now()->month;
+for($i = 0; $i <$mois; $i++){
+   $array = [];
+   $array[Carbon::now()->create()->month(Carbon::now()->month- $i)->format('F')] = chiffre(Carbon::now()->month- $i);
+   array_push($months, $array);
+}
+return $months;
+
+   //return ["CA"=>$chiffe_affaires ,"CAI"=>$chiffe_affaires_imp];
 });
 Route::resource('commandes', CommandesApiController::class);
 Route::get('listes/{marques}',function($marques){

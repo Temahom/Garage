@@ -33,7 +33,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                       </div>-->
                       <div class="card-body">
                           <div class="table-responsive">
-                              <table id="example4" class="table table-striped table-bordered" style="width:100%">
+                              <table id="example4" class="table table-striped table-bordered">
                                 
                                 <thead  class="" style="background-color: #4656E9;">
                                     <tr>

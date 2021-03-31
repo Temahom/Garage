@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Intervention;
+use Auth;
+use App\Models\Devi;
+use App\Models\User;
+use App\Models\Facture;
+use App\Models\Produit;
+use App\Models\Summary;
 use App\Models\Voiture;
+use App\Models\Commande;
 use App\Models\Diagnostic;
 use App\Models\Reparation;
-use App\Models\Devi;
-use App\Models\Commande;
-use App\Models\User;
-use App\Models\Summary;
-use App\Models\Produit;
+use App\Models\Intervention;
 use Illuminate\Http\Request;
-use Auth;
 
 class InterventionController extends Controller
 {
@@ -39,6 +40,28 @@ class InterventionController extends Controller
         $summaries = Intervention::where('summary_id','!=',null)->paginate(15);
         $factures = Intervention::where('facture_id','!=',null)->paginate(15);
         return view('interventions.index', compact('interventions','diagnostics','devis','summaries','factures'));
+    }
+
+
+    public function index_mois()
+    {
+        
+        $interventions = Intervention::whereYear('created_at', Carbon::now()->year)
+                                      ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
+        $diagnostics = Intervention::where('diagnostic_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                                     ->whereMonth('created_at', Carbon::now()->month)
+                                                                     ->paginate(10);
+        $devis = Intervention::where('devis_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                            ->whereMonth('created_at', Carbon::now()->month)
+                                                            ->paginate(10);
+        $summaries = Intervention::where('summary_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                                ->whereMonth('created_at', Carbon::now()->month)
+                                                                ->paginate(10);
+        $factures = Intervention::where('facture_id','!=',null)->whereYear('created_at', Carbon::now()->year)
+                                                                ->whereMonth('created_at', Carbon::now()->month)
+                                                                ->paginate(10);
+        // dd($factures);
+        return view('interventions.index_mois', compact('interventions','diagnostics','devis','summaries','factures'));
     }
 
     /**
@@ -123,6 +146,12 @@ class InterventionController extends Controller
             }
             $data['devi']['item_devis'] = $item_devis;
         }
+        $facture=Facture::where('diagnostic_id',$intervention->diagnostic_id)->first();
+            if ($facture) {
+                $data['facture']=$facture;
+            }
+        
+      //  dd($facture);
         return view('interventions.show', $data);
     }
 
