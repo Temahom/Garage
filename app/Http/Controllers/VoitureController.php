@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Voiture;
 use App\Models\Client;
+use App\Models\Intervention;
 use Auth;
 use Carbon\Carbon;
 
@@ -35,8 +36,9 @@ class VoitureController extends Controller
                 ->orderBy("id","asc")
                 ->paginate(15);
         $user = Auth::id(); 
-        dd($user);
-        return view('voitures.index', compact('voitures'))
+        $interventionAssignees = Intervention::where('technicien','=',$user)->get();
+        // dd($interventionAssignees);
+        return view('voitures.index', compact('voitures','interventionAssignees'))
             ->with('i', (request()->input('page', 1) - 1) * 15); 
              
     }
@@ -44,11 +46,13 @@ class VoitureController extends Controller
 
     public function index_mois()
     {
-        
         $voitures = Voiture::whereYear('created_at', Carbon::now()->year)
         ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
-        // dd($voitures);
-        return view('voitures.index_mois', compact('voitures'));
+        $user = Auth::id(); 
+        $interventionAssignees = Intervention::where('technicien','=',$user)->whereYear('created_at', Carbon::now()->year)
+                                                                            ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
+        dd($interventionAssignees);
+        return view('voitures.index_mois', compact('voitures', 'interventionAssignees'));
     }
 
     /**
@@ -58,10 +62,9 @@ class VoitureController extends Controller
      */
     public function create(Client $client, Voiture $voiture)
     {
-        
        $this->authorize('create', Voiture::class);
-      $clients= Client::all();
-      return view('voitures.create',compact('clients','client', 'voiture'));
+       $clients= Client::all();
+       return view('voitures.create',compact('clients','client', 'voiture'));
     }
 
     /**
