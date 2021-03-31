@@ -77,7 +77,8 @@ use Carbon\Carbon;
                         </a>
                         <!-- /.user-avatar -->
                         <h3 class="card-title mb-2 text-truncate">
-                            <a href="{{ route('actors.show',$actor->id) }}">{{ $actor->name}} {{"@".$actor->role()->first()->role}} </a>
+                            <a href="{{ route('actors.show',$actor->id) }}">{{ $actor->name}} </a>
+                           <h3> <span class="badge badge-dark"> {{"@".$actor->role()->first()->role}} </span> </h3>
                             </h3>
                         <h6 class="card-subtitle text-muted mb-3">{{ $actor->email}}  </h6>
                         <p>
