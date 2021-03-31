@@ -4,6 +4,8 @@
 
 @include('voitures._partials.carinformation')
 
+<br>
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -13,43 +15,54 @@
         </div>
     </div>
 
-    <br>
+<br>
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 row">
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+              <div class="card border-3 border-top border-top-primary">
+                  <div class="card-body">
+                      <h5 class="text-muted">Date d'examination</h5>
+                      <div>
+                        <p align="center">{{$diagnostic->created_at}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Chef d'opération</h5>
+                    <div>
+                      <p align="center">{{$diagnostic->intervention()->first()->user()->first()->name}}</p>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Constat</h5>
+                    <div style="margin-left: 10%">
+                      <p>{{$diagnostic->constat}}</p>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+      </div>
+    </div>
+
+
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 row">
-              <div class="col-xs-1 col-sm-1 col-md-1">
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr class="table-primary">
-                        <th scope="col" style="text-align: center"><i class="fas fa-user"></i>N°</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style="text-align: center">{{$diagnostic->id}}</td>
-                      </tr>
-                    </tbody>
-                  </table>               
-              </div>
-              <div class="col-xs-4 col-sm-4 col-md-4">
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr class="table-primary">
-                        <th scope="col" style="text-align: center"><i class="fas fa-search"></i> Constat</th>
-                        <th scope="col" style="text-align: center"><i class="far fa-calendar-alt"></i> Date d'examination</th>
-                        <th scope="col" style="text-align: center"><i class="fas fa-user"></i> Chef d'opération</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th style="text-align: center" scope="row">{{$diagnostic->constat}}</th>
-                        <td style="text-align: center">{{$diagnostic->created_at}}</td>
-                        <td style="text-align: center">{{$diagnostic->intervention()->first()->user()->first()->name}}</td>
-                      </tr>
-                    </tbody>
-                  </table>               
-              </div>
-              <div class="col-xs-7 col-sm-7 col-md-7">
-                <table class="table table-borderless">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <table id="example4" class="table  table-striped table-bordered table-borderless">
                   <thead>
                     <tr class="table-primary">
                       <th scope="col" style="text-align: center"><i class="fas fa-key"></i> </th>
@@ -78,5 +91,12 @@
               </div>
             </div>
           </div>
+
+          <style>
+            th{
+              background-color:#4656E9 !important;
+              color: white !important;
+            }
+          </style>
     
 @endsection
