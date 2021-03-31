@@ -75,7 +75,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                </div>
                <div class="form-group">
                 <strong>Quantité:</strong>
-                <input type="number" name="qte" value="{{ $produit->qte }}" class="form-control @error('qte') is-invalid @enderror" placeholder="Entrer la quantite" value="{{ old('qte') }}">
+                <input type="number" min="0" name="qte" value="{{ $produit->qte }}" class="form-control @error('qte') is-invalid @enderror" placeholder="Entrer la quantite" value="{{ old('qte') }}">
                 <div class="invalid-feedback">
                     @if($errors->has('qte'))
                     {{ $errors->first('qte') }}

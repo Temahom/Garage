@@ -40,11 +40,28 @@ use Carbon\Carbon;
        
         @foreach ($actors as $actor)
         {{-- <div onclick="showActor({{ $actor->id }})" class="card d-flex justify-content-center mr-2" style="width: 18rem; justify-content: center; text-align: center; cursor: pointer;"> --}}
-            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12">      
                 <div class="card card-fluid">
                     <!-- .card-body -->
-                    <div class="card-body text-center">
+                  <div class="card-body text-center">
                         <!-- .user-avatar -->
+
+                      <td>
+                            <div class="dropdown float-right">
+                                <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
+                           <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <!-- item-->
+                                   <a href="javascript:void(0);" class="dropdown-item "> Taches <span class="badge badge-dark">  {{$interventions=\App\Models\Intervention::where("user_id","=" ,$actor->id)->count()}}</span> </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">En Cours <span class="badge badge-dark"> {{$interventionsInachevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','!=',3)->where("user_id","=" ,$actor->id)->count()}}</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Completées <span class="badge badge-dark">  {{$interventionsAchevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','=',3)->where("user_id","=" ,$actor->id)->count()}}</a>
+                                   </div>
+                            </div>
+                        </td>
+
                         <a href="{{ route('actors.edit',$actor->id)  }}" class="user-avatar user-avatar-xl my-3">
                          @if(isset($actor->image))
                             <img  src="{{asset('images/'.$actor->image)}}" alt="{{ $actor->name}}" class="rounded-circle user-avatar-xl">
@@ -71,38 +88,7 @@ use Carbon\Carbon;
                     </div>
                     <!-- /.card-body -->
                     <!-- .card-footer -->
-                    <footer class="card-footer row p-0">
-                        <!-- .card-footer-item -->
-                        <div class="card-footer-item card-footer-item-bordered">
-                            <!-- .metric -->
-                            <div class="metric">
-                                <h6 class="metric-value"> {{$interventions=\App\Models\Intervention::where("user_id","=" ,$actor->id)->count()}} </h6>
-                                <p class="metric-label"> Taches </p>
-                            </div>
-                            <!-- /.metric -->
-                        </div>
-                        <!-- .card-footer-item -->
-                        <!-- /.card-footer-item -->
-                        <div class="card-footer-item card-footer-item-bordered">
-                            <!-- .metric -->
-                            <div class="metric">
-                                <h6 class="metric-value"> {{$interventionsAchevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','=',3)->where("user_id","=" ,$actor->id)->count()}} </h6>
-                                <p class="metric-label"> Completées </p>
-                            </div>
-                            <!-- /.metric -->
-                        </div>
-                        <!-- .card-footer-item -->
-                        <!-- /.card-footer-item -->
-                        <div class="card-footer-item card-footer-item-bordered">
-                            <!-- .metric -->
-                            <div class="metric">
-                                <h6 class="metric-value"> {{$interventionsInachevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','!=',3)->where("user_id","=" ,$actor->id)->count()}} </h6>
-                                <p class="metric-label"> En Cours </p>
-                            </div>
-                            <!-- /.metric -->
-                        </div>
-                        <!-- /.card-footer-item -->
-                    </footer>
+                    
                     <!-- /.card-footer -->
                 </div>
             </div>
