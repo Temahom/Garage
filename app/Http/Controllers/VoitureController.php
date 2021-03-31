@@ -34,7 +34,8 @@ class VoitureController extends Controller
             ])
                 ->orderBy("id","asc")
                 ->paginate(15);
-  
+        $user = Auth::id(); 
+        dd($user);
         return view('voitures.index', compact('voitures'))
             ->with('i', (request()->input('page', 1) - 1) * 15); 
              
