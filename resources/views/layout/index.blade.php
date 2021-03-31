@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <head>
     <!-- Required meta tags -->
@@ -17,15 +16,15 @@
     <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <link rel="stylesheet" type="text/css" href="/style-table.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/style-table.css"> -->
     <link rel="stylesheet" type="text/css" href="/assets/vendor/datatables/css/dataTables.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="/assets/vendor/datatables/css/buttons.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="/assets/vendor/datatables/css/select.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="/assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
     {{-- ---------  select2------------------------------------ --}}
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="select2.css">
-    <link rel="stylesheet" href="select2-bootstrap.css">
+    <!-- <link rel="stylesheet" href="select2.css"> 
+    <link rel="stylesheet" href="select2-bootstrap.css"> -->
     {{-- ------------------------end-------------------------- --}}
     <title>Garage</title>
 </head>
