@@ -396,10 +396,10 @@ $jour_ci = Carbon::now()->day;
                     </div>
                     <div class="card-footer bg-white">
                         <p>
-                            Payé<span class="float-right text-dark">12 000 000</span>
+                            Payé<span class="float-right text-dark" id="paye"></span>
                         </p>
                         <p>
-                            Impayé<span class="float-right text-dark">2 300 000</span>
+                            Impayé<span class="float-right text-dark" id="impaye"></span>
                         </p>
                     </div>
                 </div>
@@ -536,18 +536,45 @@ $jour_ci = Carbon::now()->day;
 
 
     <script>
+        var moris;
+        var pourcent_ca;
+        var pourcent_cai;
+        var lab=[];
+        var prix_ca=[];
+        var prix_cai=[];
+        var int1=new Intl.NumberFormat();
+        $.ajax({
+            url:'/api/chart',
+            type:'GET',
+            success: function(data) {
+              
+                moris=data[0].chiffre;
+                $('#paye').html(int1.format(moris.data.CA)+" <sup>F CFA</sup>");
+                $('#impaye').html(int1.format(moris.data.CAI)+" <sup>F CFA</sup>");
 
+                pourcent_ca=moris.data.CA*100/(moris.data.CAI+moris.data.CA);
+                pourcent_cai=moris.data.CAI*100/(moris.data.CAI+moris.data.CA);
+                data.forEach(c=>{
+                    lab.push(c.chiffre.mois);
+                    prix_ca.push(c.chiffre.data.CA);
+                    prix_cai.push(c.chiffre.data.CAI);
+                   //console.log(prix_cai);
+                })
+                
+            }
+        })
         // Chiffre affaire de ce mois
-        Morris.Donut({
+        setTimeout(()=>{
+            Morris.Donut({
             element: 'morris_gross',
 
             data: [{
-                    value: 94,
+                    value: Math.round(pourcent_ca),
                     label: 'Payé'
                 },
                 {
-                    value: 15,
-                    label: ''
+                    value: Math.round(pourcent_cai),
+                    label: 'Impayé'
                 }
 
             ],
@@ -566,6 +593,10 @@ $jour_ci = Carbon::now()->day;
             resize: true
 
         });
+        
+        },500)
+        //clearInterval(time)
+       // console.log(moris);
         // FIN Chiffre affaire de ce mois
 
 
@@ -575,17 +606,17 @@ $jour_ci = Carbon::now()->day;
             type: 'bar',
 
             data: {
-                labels: ["Current", "1-30", "31-60", "61-90", "91+"],
+                labels: lab,
                 datasets: [{
-                    label: 'Aged Payables',
-                    data: [500, 1000, 1500, 3700, 2500],
+                    label: 'Chiffre d\'afaire',
+                    data: prix_ca,
                     backgroundColor: "rgba(89, 105, 255,.8)",
                     borderColor: "rgba(89, 105, 255,1)",
                     borderWidth: 2
 
                 }, {
-                    label: 'Aged Receiables',
-                    data: [1000, 1500, 2500, 3500, 2500],
+                    label: 'Detes ',
+                    data: prix_cai,
                     backgroundColor: "rgba(255, 64, 123,.8)",
                     borderColor: "rgba(255, 64, 123,1)",
                     borderWidth: 2
@@ -693,107 +724,6 @@ $jour_ci = Carbon::now()->day;
 
         });
 
-        const Produits = [{
-                libele: 'Mangue',
-                prix: 140000
-            },
-            {
-                libele: 'Orange',
-                prix: 100000
-            },
-            {
-                libele: 'Banane',
-                prix: 200000
-            },
-            {
-                libele: 'Papaye',
-                prix: 50000
-            },
-        ];
-        var lab = [];
-        var prix = [];
-        Produits.forEach(p => {
-            lab.push(p.libele)
-            prix.push(p.prix)
-        })
-        console.log(lab);
-        var ctx = document.getElementById('myChart')
-        var ctx2 = document.getElementById('myChart2')
-        var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: lab,
-                datasets: [{
-                    label: 'Le Prix:',
-                    data: prix,
-                    minBarLength: 2,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        var myChart = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: lab,
-                datasets: [{
-                    label: 'Le Prix:',
-                    data: prix,
-                    minBarLength: 2,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
+       
     </script>
 @endsection
