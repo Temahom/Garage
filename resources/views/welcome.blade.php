@@ -125,7 +125,7 @@ $jour_ci = Carbon::now()->day;
         }
 
     </style>
-    
+
 
     <!-- ---------------------------Horloge, nb client, nb voiture nb intervention -------------------------------------- -->
     <div class="row">
@@ -342,7 +342,7 @@ $jour_ci = Carbon::now()->day;
         <!-- tableau recaputulatif du mois -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">Tableau récaptulatif du Jour</h5>
+                    <h5 class="card-header">Tableau récaptulatif du Mois</h5>
                     <div class="card-body">
                         <table class="table">
                             <thead>
@@ -388,7 +388,7 @@ $jour_ci = Carbon::now()->day;
         <div class="col-xs-12 col-sm-12 col-md-12 row">
 
               <!--  Chiffre affaire de ce mois -->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="card">
                     <h5 class="card-header">Chiffre affaire de ce mois</h5>
                     <div class="card-body">
@@ -407,7 +407,7 @@ $jour_ci = Carbon::now()->day;
             <!--  FIN Chiffre affaire de ce mois -->
 
             <!--  Chiffre affaire par mois -->
-            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
                 <div class="card">
                     <h5 class="card-header">Chiffre affaire par mois</h5>
                     <div class="card-body">
@@ -422,187 +422,96 @@ $jour_ci = Carbon::now()->day;
     <!-- ----------------------------------------- FIN Chiffre affaire / mois ------------------------------------->
 
 
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
-                <div class="card">
-                    <h5 class="card-header" style="text-align: center;  background-color: #068c94;">Tableau récaptulatif
-                        mensuel des Clients</h5>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="bg-light">
-                                    <tr class="border-0">
-                                        <th class="border-0">Vieillissement du client</th>
-                                        <th class="border-0">Clients</th>
-                                        <th class="border-0">Chiffre d'affaire</th>
-                                        <th class="border-0">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Il y'a 0 à 30 jours</td>
-                                        <td>{{ $clients }} {{ $clients > 1 ? 'clients' : 'client' }} </td>
-                                        <td>{{ number_format($chiffres, 0, ',', ' ') }} <sup>F CFA</sup></td>
-                                        <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Il y'a 31 à 60 jours</td>
-                                        <td>{{ $client30 }} {{ $client30 > 1 ? 'clients' : 'client' }} </td>
-                                        <td>{{ number_format($chiffre30, 0, ',', ' ') }} <sup>F CFA</sup></td>
-                                        <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Il y'a 61 à 90 jours</td>
-                                        <td>{{ $client60 }} {{ $client60 > 1 ? 'clients' : 'client' }} </td>
-                                        <td>{{ number_format($chiffre60, 0, ',', ' ') }} <sup>F CFA</sup></td>
-                                        <td><span class="badge-dot badge-success mr-1"></span>Validé </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="font-size: 15px; font-weight: bold;" colspan="9">
-                                            <span class="float-right">
-                                                <strong>
-                                                    Totale : {{ number_format($total, 0, ',', ' ') }}<sup> F CFA</sup>
-                                                </strong>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-5">
-                <div class="card">
-                    <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de
-                        ce mois_ci </h5>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="bg-light">
-                                    <tr class="border-0">
-                                        <th class="border-0">Ce Mois-ci</th>
-                                        <th class="border-0">Diagnostics</th>
-                                        <th class="border-0">Devis</th>
-                                        <th class="border-0">Interventions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{{ $mois_ci }}</td>
-                                        <td>{{ $diagnostics }} {{ $diagnostics > 1 ? 'diagnostics' : 'diagnostic' }}
-                                        </td>
-                                        <td>{{ $devis }} {{ $devis > 1 ? 'devis' : 'devi' }} </td>
-                                        <td>{{ $interventions }}
-                                            {{ $interventions > 1 ? 'interventions' : 'intervention' }}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    {{-- fin tableau de Vieillissment du clients --}}
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-            <div class="col-md-6 chart">
-                <canvas id="myChart"></canvas>
-            </div>
-            <div class="col-md-6 chart">
-                <canvas id="myChart2"></canvas>
-            </div>
-        </div>
-    </div>
-    {{--  --}}
-
-    <div>
-        <div>{{-- ------------------------------espace---------------------------------------------- --}} </div>
-    </div>
-    <br><br>
-    {{-- debut tableau recaputulatif de ce mois_ci --}}
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-            <div class="col-xs-4 col-sm-4 col-md-4">
-                <div class="card">
-                    <h5 class="card-header" style="text-align: center ; background-color: #068c94;">Tableau récaptulatif de
-                        ce mois_ci </h5>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="bg-light">
-                                    <tr class="border-0">
-                                        <th class="border-0">Ce Mois-ci</th>
-                                        <th class="border-0">Diagnostics</th>
-                                        <th class="border-0">Devis</th>
-                                        <th class="border-0">Interventions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{{ $mois_ci }}</td>
-                                        <td>{{ $diagnostics }} {{ $diagnostics > 1 ? 'diagnostics' : 'diagnostic' }}
-                                        </td>
-                                        <td>{{ $devis }} {{ $devis > 1 ? 'devis' : 'devi' }} </td>
-                                        <td>{{ $interventions }}
-                                            {{ $interventions > 1 ? 'interventions' : 'intervention' }}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-8 col-sm-8 col-md-8">
-                <div class="card">
-                    <h5 class="card-header" style="text-align: center ; background-color: #339207;">Plus de détails de ce mois</h5>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="bg-light">
-                                    <tr class="border-0">
-                                        <th class="border-0">Ce Mois-ci</th>
-                                        <th class="border-0">Clients</th>
-                                        <th class="border-0">Voitures</th>
-                                        <th class="border-0">Diagnostics</th>
-                                        <th class="border-0">Devis</th>
-                                        <th class="border-0">Interventions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{{ $mois_ci }}</td>
-                                        <td> {{ $clients }}</td>
-                                        <td> {{ $voitures }} </td>
-                                        <td> {{ $diagnostics }} </td>
-                                        <td> {{ $devis }} </td>
-                                        <td> {{ $interventions }} </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- fin tableau recaputulatif de ce mois ci --}}
-
-    {{-- debut tableau recaputulatif de ce mois_ci avec clients et voitures --}}
     
-    {{-- fin tableau recaputulatif de ce mois ci avec clients et voitures --}}
+    <!-- ------------------------------------tableau recaputulatif  jour et mois --------------------------------->
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <!-- tableau chiffre d'affaire de ce mois -->
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="card">
+                    <h5 class="card-header">chiffre d'affaire de ce mois</h5>
+                    <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th  scope="col">CA</th>
+                                    <td>17 000 000</td>
+                                </tr>
+                                <tr>
+                                    <th  scope="col">Impayé</th>
+                                    <td>1 200 000</td>
+                                </tr>
+                                <tr>
+                                    <th>TOTAL</th>
+                                    <th>18 200 000</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <!-- FIN tableau chiffre d'affaire de ce mois -->
+
+        <!-- LISTE voiture en garage -->
+            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                <div class="card">
+                    <h5 class="card-header">Voitures en garage</h5>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="bg-light">
+                                    <tr class="border-0">
+                                        <th class="border-0">Matricule</th>
+                                        <th class="border-0">Marque</th>
+                                        <th class="border-0">Model</th>
+                                        <th class="border-0">Propriétaire</th>
+                                        <th class="border-0">état</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>DK1010AA</td>
+                                        <td>BMW</td>
+                                        <td>Alpha</td>
+                                        <td>Moussa thiam</td>
+                                        <td>réparé</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DK1010AA</td>
+                                        <td>BMW</td>
+                                        <td>Alpha</td>
+                                        <td>Moussa thiam</td>
+                                        <td>réparé</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DK1010AA</td>
+                                        <td>BMW</td>
+                                        <td>Alpha</td>
+                                        <td>Moussa thiam</td>
+                                        <td>réparé</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DK1010AA</td>
+                                        <td>BMW</td>
+                                        <td>Alpha</td>
+                                        <td>Moussa thiam</td>
+                                        <td>réparé</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN LISTE voiture en garage -->
+
+        </div>
+    </div>
+    <!----------------------------------- FIN tableau recaputulatif du jour et moi------------------------s-->
+
 
 
 

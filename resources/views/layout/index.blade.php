@@ -37,14 +37,6 @@
 
   }  
 
-.nav-link{
-    background-color: #24274a !important;
-    color: white !important;
-}
-.nav-link:hover{
-    background-color: #24274a !important;
-    color: #fff !important;
-}
  
     .dashboard-main-wrapper{
         background-color: white;
@@ -193,7 +185,7 @@
                             </li><br>
 
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success"></span></a>
                                 <div id="submenu-client" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -209,7 +201,7 @@
                             </li>
 
                             <li class="nav-item " style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success"></span></a>
                                 <div id="submenu-voiture" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -225,7 +217,7 @@
                             </li>
                             @can('create', App\Models\User::class)
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success"></span></a>
                                 <div id="submenu-acteur" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -239,7 +231,7 @@
                             </li>
                             @endcan
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success"></span></a>
                                 <div id="submenu-rv" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -252,7 +244,7 @@
                                 </div>
                             </li>
                            <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success"></span></a>
                                 <div id="submenu-produit" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -335,8 +327,19 @@
     <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
     <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
     <!-- chart c3 js -->
-    <script src="/assets/vendor/charts/c3charts/c3.min.js"></script>
     
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="/assets/vendor/datatables/js/buttons.bootstrap4.min.js"></script>
+    <script src="/assets/vendor/datatables/js/data-table.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
     {{---------------------select2---------------------- --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     {{------------------------end----------------------------- --}}
