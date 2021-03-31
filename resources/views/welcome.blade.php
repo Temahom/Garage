@@ -220,8 +220,10 @@ $jour_ci = Carbon::now()->day;
                             <h1 class="mb-1">{{ $produit_en_stock }}</h1>
                         </div>
                         <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                    class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                            <span class="icon-circle-small icon-box-xs text-success bg-success-light">
+                                <i class="fa fa-fw fa-arrow-up"></i>
+                            </span>
+                            <span class="ml-1">5%</span>
                         </div>
                     </div>
                 </div>
