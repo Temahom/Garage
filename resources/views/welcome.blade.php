@@ -220,8 +220,10 @@ $jour_ci = Carbon::now()->day;
                             <h1 class="mb-1">{{ $produit_en_stock }}</h1>
                         </div>
                         <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i
-                                    class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                            <span class="icon-circle-small icon-box-xs text-success bg-success-light">
+                                <i class="fa fa-fw fa-arrow-up"></i>
+                            </span>
+                            <span class="ml-1">5%</span>
                         </div>
                     </div>
                 </div>
@@ -396,10 +398,10 @@ $jour_ci = Carbon::now()->day;
                     </div>
                     <div class="card-footer bg-white">
                         <p>
-                            Payé<span class="float-right text-dark">12 000 000</span>
+                            Payé<span class="float-right text-dark" id="paye"></span>
                         </p>
                         <p>
-                            Impayé<span class="float-right text-dark">2 300 000</span>
+                            Impayé<span class="float-right text-dark" id="impaye"></span>
                         </p>
                     </div>
                 </div>
@@ -522,109 +524,18 @@ $jour_ci = Carbon::now()->day;
         integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
     <script src="assets/libs/js/clock.js"></script>
+   
     <!-- morris js -->
-    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-    <script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
+    <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
+    <script src="/assets/vendor/charts/morris-bundle/morrisjs.html" type="text/html"></script>
+    <script src="assets/libs/js/les_courbes.js"></script>
 
-    <script>
-        function show(page) {
-            window.location = page;
-        }
-
-    </script>
+   
 
 
     <script>
-
-        // Chiffre affaire de ce mois
-        Morris.Donut({
-            element: 'morris_gross',
-
-            data: [{
-                    value: 94,
-                    label: 'Payé'
-                },
-                {
-                    value: 15,
-                    label: ''
-                }
-
-            ],
-
-            labelColor: '#5969ff',
-
-            colors: [
-                '#5969ff',
-                'rgba(255, 64, 123,.8)'
-
-            ],
-
-            formatter: function(x) {
-                return x + "%"
-            },
-            resize: true
-
-        });
-        // FIN Chiffre affaire de ce mois
-
-
-        // Chiffre affaire par mois
-        var ctx = document.getElementById("chartjs_balance_bar").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-
-            data: {
-                labels: ["Current", "1-30", "31-60", "61-90", "91+"],
-                datasets: [{
-                    label: 'Aged Payables',
-                    data: [500, 1000, 1500, 3700, 2500],
-                    backgroundColor: "rgba(89, 105, 255,.8)",
-                    borderColor: "rgba(89, 105, 255,1)",
-                    borderWidth: 2
-
-                }, {
-                    label: 'Aged Receiables',
-                    data: [1000, 1500, 2500, 3500, 2500],
-                    backgroundColor: "rgba(255, 64, 123,.8)",
-                    borderColor: "rgba(255, 64, 123,1)",
-                    borderWidth: 2
-
-
-                }]
-
-            },
-            options: {
-                legend: {
-                    display: true,
-
-                    position: 'bottom',
-
-                    labels: {
-                        fontColor: '#71748d',
-                        fontFamily: 'Circular Std Book',
-                        fontSize: 14,
-                    }
-                },
-
-                scales: {
-                    xAxes: [{
-                        ticks: {
-                            fontSize: 14,
-                            fontFamily: 'Circular Std Book',
-                            fontColor: '#71748d',
-                        }
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            fontSize: 14,
-                            fontFamily: 'Circular Std Book',
-                            fontColor: '#71748d',
-                        }
-                    }]
-                }
-            }
-        });
+       
         // FIN Chiffre affaire par mois
 
 
@@ -693,107 +604,12 @@ $jour_ci = Carbon::now()->day;
 
         });
 
-        const Produits = [{
-                libele: 'Mangue',
-                prix: 140000
-            },
-            {
-                libele: 'Orange',
-                prix: 100000
-            },
-            {
-                libele: 'Banane',
-                prix: 200000
-            },
-            {
-                libele: 'Papaye',
-                prix: 50000
-            },
-        ];
-        var lab = [];
-        var prix = [];
-        Produits.forEach(p => {
-            lab.push(p.libele)
-            prix.push(p.prix)
-        })
-        console.log(lab);
-        var ctx = document.getElementById('myChart')
-        var ctx2 = document.getElementById('myChart2')
-        var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: lab,
-                datasets: [{
-                    label: 'Le Prix:',
-                    data: prix,
-                    minBarLength: 2,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        var myChart = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: lab,
-                datasets: [{
-                    label: 'Le Prix:',
-                    data: prix,
-                    minBarLength: 2,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
+       
+    </script>
+     <script>
+        function show(page) {
+            window.location = page;
+        }
 
     </script>
 @endsection

@@ -15,6 +15,7 @@ use App\Http\Controllers\CommandesApiController;
 
 
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 }); 
@@ -80,10 +81,11 @@ return ["CA"=>$chiffe_affaires ,"CAI"=>$chiffe_affaires_imp];
 
 $months = [];
 //dd(Carbon::now()->month(02)->format('F'));
+Carbon::setLocale('fr');
 $mois=Carbon::now()->month;
 for($i = 0; $i <$mois; $i++){
    $array = [];
-   $array[Carbon::now()->create()->month(Carbon::now()->month- $i)->format('F')] = chiffre(Carbon::now()->month- $i);
+   $array["chiffre"] =["mois"=>Carbon::now()->create()->month(Carbon::now()->month- $i)->format('F'),"data"=>chiffre(Carbon::now()->month- $i)] ;
    array_push($months, $array);
 }
 return $months;
