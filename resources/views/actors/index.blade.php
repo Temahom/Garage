@@ -53,11 +53,11 @@ use Carbon\Carbon;
                             </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <!-- item-->
-                                   <a href="javascript:void(0);" class="dropdown-item "> Taches <span>  {{$interventions=\App\Models\Intervention::where("user_id","=" ,$actor->id)->count()}}</span> </a>
+                                   <a href="javascript:void(0);" class="dropdown-item "> Taches <span class="badge badge-dark">  {{$interventions=\App\Models\Intervention::where("user_id","=" ,$actor->id)->count()}}</span> </a>
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">En Cours {{$interventionsInachevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','!=',3)->where("user_id","=" ,$actor->id)->count()}}</a>
+                                    <a href="javascript:void(0);" class="dropdown-item">En Cours <span class="badge badge-dark"> {{$interventionsInachevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','!=',3)->where("user_id","=" ,$actor->id)->count()}}</a>
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Completées {{$interventionsAchevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','=',3)->where("user_id","=" ,$actor->id)->count()}}</a>
+                                    <a href="javascript:void(0);" class="dropdown-item">Completées <span class="badge badge-dark">  {{$interventionsAchevee=\App\Models\Intervention::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('statut','=',3)->where("user_id","=" ,$actor->id)->count()}}</a>
                                    </div>
                             </div>
                         </td>
