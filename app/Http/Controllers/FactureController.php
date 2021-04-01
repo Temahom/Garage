@@ -94,6 +94,9 @@ class FactureController extends Controller
         $facture= new Facture();
         if($intervention->devis_id){
             $facture->devi_id=$intervention->devis_id;
+        }else{
+        $facture->devi_id=0;
+
         }
         $facture->etat=1;
         $facture->numero=time();
@@ -115,7 +118,7 @@ class FactureController extends Controller
         $facture=Facture::find($id);
         $prix_total=0;
         $les_devis=0;
-        if (isset($facture->devi_id) ) {
+        if (isset($facture->devi_id) &&  $facture->devi_id==0) {
             $diagnostic=Diagnostic::find($facture->diagnostic_id);
             $prix_total=$diagnostic->coût;
             $pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture'));    
