@@ -27,7 +27,13 @@
 </head>
 <style>
 
-    
+    @media screen and (max-width: 767px) {
+  .row {
+          overflow-x: auto !important;
+  }
+
+  }  
+
     .dashboard-main-wrapper{
         background-color: white;
     }
