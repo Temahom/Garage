@@ -124,13 +124,25 @@ $jour_ci = Carbon::now()->day;
             color: white;
         }
 
+        .titre_statistique{
+            width: 100%; 
+            text-align: center; 
+            border-bottom: 1px solid #000; 
+            line-height: 0.1em;
+            margin: 10px 0 20px; 
+        }
+        .titre_statistique span { 
+            background:#fff; 
+            padding:0 10px; 
+        }
+
     </style>
 
 
     <!-- ---------------------------Horloge, nb client, nb voiture nb intervention -------------------------------------- -->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row">
-
+            <h5 class="titre_statistique"><span>Statistiques du mois en cours</span> </h5>
             <!-- Horloge  -->
             <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
                 <div class="card">
@@ -205,6 +217,7 @@ $jour_ci = Carbon::now()->day;
             </div>
         <!-- FIN nb intervention  -->
         </div>
+          
     </div>
     <!-- -------------------------------FIN Horloge, nb client, nd voiture nb intervention------------------------  -->
 
