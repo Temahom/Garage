@@ -3,50 +3,52 @@
 
 
 
-    <div class="row ml-1">
-        <div class="col-md-5 col-sm-5 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
-            <div class="row">
-                <div class="col-md-2 col-sm-3 text-center pt-3">
-                    @if ($client->genre == "homme")
-                        <img style="height: 50px;width: auto;" class="" src="/assets/images/masculin.png" alt="logo">
-                    @else
-                        <img style="height: 50px;width: auto;" class="" src="/assets/images/feminin.png" alt="logo">
-                    @endif
-                </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">  
+            <div class="col-md-4 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 text-center pt-3">
+                        @if ($client->genre == "homme")
+                            <img style="height: 50px;width: auto;" class="" src="/assets/images/masculin.png" alt="logo">
+                        @else
+                            <img style="height: 50px;width: auto;" class="" src="/assets/images/feminin.png" alt="logo">
+                        @endif
+                    </div>
 
-                <div class="col-md-10 col-sm-10">
-                    <div style="font-size: 20px; color: #2EC551"><a href="{{route('clients.show',['client'=>$client->id])}}" style="color: #2EC551">{{ $client->prenom}}  {{ $client->nom}}</a></div>
-                    <div style="font-size: 14px;"><i class="fas fa-home"></i> {{ $client->entreprise}}</div>
-                    <div style="font-size: 14px;"><i class="fas fa-phone"></i> {{ $client->telephone}}</div>
-                    <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $client->email}}</div>
-                    @can('update', $client)
-                    <div class="text-right" style="font-size: 12px;">
-                        <a class="text-primary mr-1" href="{{ route('clients.edit',$client->id)}}">Modifier</a> 
-                        <button type="button" class="text-danger hide_delete" id="hide_clients" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
-                            Supprimer
-                        </button>
-    
-                                <div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <h5>Voulez vous supprimer: <strong>{{ $client->nom }} {{ $client->prenom }}</strong>  ?</h5>
+                    <div class="col-md-10 col-sm-10">
+                        <div style="font-size: 20px; color: #2EC551"><a href="{{route('clients.show',['client'=>$client->id])}}" style="color: #2EC551">{{ $client->prenom}}  {{ $client->nom}}</a></div>
+                        <div style="font-size: 14px;"><i class="fas fa-home"></i> {{ $client->entreprise}}</div>
+                        <div style="font-size: 14px;"><i class="fas fa-phone"></i> {{ $client->telephone}}</div>
+                        <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $client->email}}</div>
+                        @can('update', $client)
+                        <div class="text-right" style="font-size: 12px;">
+                            <a class="text-primary mr-1" href="{{ route('clients.edit',$client->id)}}">Modifier</a> 
+                            <button type="button" class="text-danger hide_delete" id="hide_clients" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $client->id }}">
+                                Supprimer
+                            </button>
+        
+                                    <div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <h5>Voulez vous supprimer: <strong>{{ $client->nom }} {{ $client->prenom }}</strong>  ?</h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                    <form action="{{route('clients.destroy',$client->id)}}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                    </form>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                <form action="{{route('clients.destroy',$client->id)}}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Supprimer</button>
-                                                </form>
-                                        </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                        </div>
+                        @endcan
                     </div>
-                    @endcan
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
