@@ -70,7 +70,7 @@
                             @endcan
                         </tr>
                     </thead>
-                    @if($interventionAssignees && Auth::id()==3)
+                    @if($interventionAssignees && App\Models\Role::find(Auth::id())->role == 'Mecanicien' )
                       @foreach ($interventionAssignees as $voiture)
                           <tr>
                             <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->voiture()->first()->id}}</td>
@@ -94,34 +94,34 @@
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->carburant}}</td>
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</td>
                     <td> <div> {{(Auth::user()->id==$voiture->user_id)? 'Vous' :$voiture->user()->first()->name}} <span class="badge badge-secondary capitalize">{{$voiture->user()->first()->role()->first()->role}}</span></div>            
-            @can('update', $voiture)
-            <td>
-            {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
-                    <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>
-                    <button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
-                        <i class="fas fa-trash"></i>
-                    </button> 
-                    <div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-body">
-									<h5>Voulez vous vraiment supprimer <strong>la {{ $voiture->marque }} de {{ $voiture->matricule }} de liste des voitures</strong>  ?</h5>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary hide_delete" data-dismiss="modal">Annuler</button>
-									<form action="{{route('voitures.destroy',$voiture->id)}}" method="POST">
-										@csrf
-										@method('DELETE')
-										<button type="submit" class="btn btn-danger">Supprimer</button>
-									</form>
-							</div>
-						</div>
-					</div>
-            </td>
-            @endcan
-        </tr>
+                   @can('update', $voiture)
+                    <td>
+                    {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
+                            <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>
+                            <button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
+                                <i class="fas fa-trash"></i>
+                            </button> 
+                            <div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <h5>Voulez vous vraiment supprimer <strong>la {{ $voiture->marque }} de {{ $voiture->matricule }} de liste des voitures</strong>  ?</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary hide_delete" data-dismiss="modal">Annuler</button>
+                                            <form action="{{route('voitures.destroy',$voiture->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                            </form>
+                                    </div>
+                                </div>
+                            </div>
+                    </td>
+                    @endcan
+                </tr>
             
-        @endforeach
+                @endforeach
         @endif
     </table>
     </div>
