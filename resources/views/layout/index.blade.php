@@ -26,6 +26,8 @@
     <title>Garage</title>
 </head>
 <style>
+
+    
     .dashboard-main-wrapper{
         background-color: white;
     }
