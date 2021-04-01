@@ -23,7 +23,7 @@ Route::get('chart',function ()
 {
     function chiffre($mois)
 {
-    $fatures=Facture::with('devi','diagnostic')->whereMonth('created_at', $mois)->where("etat",">", 0)->get();
+    $fatures=Facture::with('devi','diagnostic')->whereMonth('created_at', $mois)->where("etat", 2)->get();
     
         //Pour le chiffre d'affaire des factures  payer
         $prixHT=0;
@@ -49,7 +49,7 @@ Route::get('chart',function ()
 
 
     //  Calcule du chiffre d'affaire des impayée
-    $fatures_impayer=Facture::with('devi','diagnostic')->whereMonth('created_at', $mois)->where("etat",0)->get();
+    $fatures_impayer=Facture::with('devi','diagnostic')->whereMonth('created_at', $mois)->where("etat",1)->get();
         $prixHT_imp=0;
         $chiffe_affaires_imp=0;
         foreach ($fatures_impayer as $fature) {

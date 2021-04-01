@@ -116,7 +116,10 @@
 							@if ( $intervention->diagnostic_id )
 								<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
 									@if (isset($facture->diagnostic_id) && $facture->diagnostic_id)
-									<a class="btn btn-primary" href="/facture" title="Imprimer Facture">Imprimer la facture</a>
+									<a class="btn btn-primary" href="/facture/diagnostic/{{$facture->diagnostic_id}}" title="Imprimer Facture">Imprimer la facture</a>
+										@if ($facture->etat==1)
+										<a class="btn btn-primary" href="/facture/{{$facture->id}}/payer" title="Payer la facture">Payer la facture</a>
+										@endif
 									@else
 									<a class="btn btn-primary" href="/facture/{{$intervention->diagnostic_id}}" title="Facture">Generer la facture</a>
 									@endif

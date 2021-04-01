@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Devi;
 use App\Models\Facture;
 use App\Models\Diagnostic;
 use App\Models\Intervention;
 use Illuminate\Http\Request;
-
+use PDF;
 class FactureController extends Controller
 {
     /**
@@ -93,8 +94,6 @@ class FactureController extends Controller
         $facture= new Facture();
         if($intervention->devis_id){
             $facture->devi_id=$intervention->devis_id;
-        }else{
-            $facture->devi_id=0;
         }
         $facture->etat=1;
         $facture->numero=time();
@@ -104,4 +103,33 @@ class FactureController extends Controller
 
 
     }
+     public function facture_diagnostic_payer($id)
+    {
+        $facture=Facture::find($id);
+        $facture->etat=2;
+        $facture->save();
+        return redirect()->back();
+    }
+    public function facture_pdf($id)
+    {
+        $facture=Facture::find($id);
+        $prix_total=0;
+        $les_devis=0;
+        if ($facture->devi_id==0 && !$facture->devi_id ) {
+            $diagnostic=Diagnostic::find($facture->diagnostic_id);
+            $prix_total=$diagnostic->coût;
+            $pdf = PDF::loadView('Pdf.facture',compact('prix_total'));    
+            return $pdf->stream('facture.pdf');
+        }else{
+            $devi = Devi::find($facture->devi_id);
+            $les_devis=$devi->produits()->get();
+            $pdf = PDF::loadView('Pdf.facture');    
+            return $pdf->stream('facture.pdf');
+                
+        }
+       // dd($les_devis);
+        
+        
+    }
+    
 }

@@ -26,6 +26,7 @@ use App\Models\Diagnostic;
 use App\Models\Intervention;
 use App\Models\Devi;
 use App\Models\Produit;
+
      
 /*
 |--------------------------------------------------------------------------
@@ -44,10 +45,7 @@ Route::get('/', function () {
 Route::get('send-mail',[MailSend::class,'mailsend']);
 Route::get('send-devis/{id}',[MailSend::class,'send_devis']);
 Route::get('send-message',[SmsController::class,'sendMessage']);
- Route::get('facture', function () {
-    $pdf = PDF::loadView('Pdf.facture');    
-    return $pdf->stream('facture.pdf');
-}); 
+ Route::get('facture/diagnostic/{id}',[FactureController::class,'facture_pdf']); 
 Route::get('Pdf/{id}', function ($id) {
    $devis_id=Intervention::find($id)->devis_id;
    $devi = Devi::find($devis_id);
@@ -71,6 +69,7 @@ Route::get('diag-pdf/{id}',function($id){
 
 Route::middleware('auth')->group(function () {
     Route::get('facture/{id}',[FactureController::class,'facture_diagnostic']);
+    Route::get('facture/{id}/payer',[FactureController::class,'facture_diagnostic_payer']);
     Route::resource('produits',ProduitController::class);
     Route::resource('clients',ClientController::class);  
     Route::get('clients-mois',[ClientController::class, 'index_mois']);  
