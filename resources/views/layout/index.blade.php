@@ -39,7 +39,16 @@
   .lemenuu{
       display: none !important;
   }
-
+  .navbar-toggler-icon {
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: middle;
+        content: "";
+        background: no-repeat center center;
+        background-size: 100% 100%;
+        background-color: gainsboro;
+    }
   }  
 
  
