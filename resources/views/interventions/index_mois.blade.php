@@ -175,11 +175,11 @@ font-size: 100%;
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="big">
-          @if( App\Models\Intervention::count() > 0)
-            <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
-            <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
-            <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
-            <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
+          @if($interventions->count() > 0)
+            <div  class="pie pie--value pie--disc" style="--percent:{{($diagnostics->count()*100) /$interventions->count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
+            <div  class="pie pie--value pie--disc" style="--percent:{{($devis->count()*100) / $interventions->count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
+            <div  class="pie pie--value pie--disc" style="--percent:{{($summaries->count()*100) / $interventions->count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
+            <div  class="pie pie--value pie--disc" style="--percent:{{($factures->count() *100) / $interventions->count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
              {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
           @endif   
         </div>
@@ -210,7 +210,8 @@ font-size: 100%;
                 <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
               </li> --}}
             </ul><br>
-        </div>
+            
+         </div>
           <div class="col-xs-12 col-sm-12 col-md-12 ">
             <div class="tab-content " id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -261,7 +262,7 @@ font-size: 100%;
               <div class="tab-pane fade" id="diagnostic" role="tabpanel" aria-labelledby="v-pills-home-diagnostic">
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                  <legend><span class="badge badge-light"> Récapitultif-Dignostics <sup> <span class="badge badge-primary">{{App\Models\Diagnostic::count()}}</span></sup></span></legend>
+                  <legend><span class="badge badge-light"> Récapitultif-Dignostics <sup> <span class="badge badge-primary">{{$diagnostics->count()}}</span></sup></span></legend>
                   <table class="table table-bordered mt-4 table-hover col-md-12">
                     <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);"> 
                         <tr style="text-align: center">
@@ -290,7 +291,7 @@ font-size: 100%;
               <div class="tab-pane fade" id="devis" role="tabpanel" aria-labelledby="v-pills-home-devis">
                 
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                  <legend><span class="badge badge-light"> Récapitultif-Devis <sup> <span class="badge badge-primary">{{App\Models\Devi::count()}}</span></sup></span></legend>
+                  <legend><span class="badge badge-light"> Récapitultif-Devis <sup> <span class="badge badge-primary">{{$devis->count()}}</span></sup></span></legend>
                   <table class="table table-bordered mt-4 table-hover col-md-12">
                     <thead class="" style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
                         <tr style="text-align: center">
@@ -332,7 +333,7 @@ font-size: 100%;
               <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="v-pills-home-resume">
                
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                  <legend><span class="badge badge-light"> Récapitultif-Compte-rendus <sup> <span class="badge badge-primary">{{App\Models\Summary::count()}}</span></sup></span></legend>
+                  <legend><span class="badge badge-light"> Récapitultif-Compte-rendus <sup> <span class="badge badge-primary">{{$summaries->count()}}</span></sup></span></legend>
                   <table class="table table-bordered mt-4 table-hover col-md-12">
                     <thead class=""  style=" background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
                     <tr style="text-align: center">
@@ -352,8 +353,8 @@ font-size: 100%;
                           <td onclick="showVoiture({{ $summary->id }})" style="cursor: pointer; text-transform: capitalize;"></td>
                           
                       </tr>
-                    
                     @endforeach
+                    
                   </table>
                   <div class="col-md-12 mt-3 d-flex justify-content-center">
                     {!! $summaries->links() !!}
@@ -430,7 +431,11 @@ font-size: 100%;
               </div>
             </div>
           </div>
+          <div>
+            <a href="/interventions-list" class="btn btn-outline-light float-right">Historique Globale</a>
+          </div>
         </div>
+      
       </div>
     
    

@@ -144,14 +144,14 @@ $jour_ci = Carbon::now()->day;
 
             <!--nb client-->
             <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center; cursor: pointer;">
-                <div class="card" onclick="show('clients')">
+                <div class="card" onclick="show('clients-mois')">
                     <div class="card-body "><br>
                         <div class="metric-value d-inline-block">
                             <p>
                                 <span class="clw compteur"
-                                    style="font-weight: bold; font-size:30px;">{{ \App\Models\Client::count() }}</span>
+                                    style="font-weight: bold; font-size:30px;">{{ $clients }}</span>
                                 <span class="clw"
-                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Client::count() > 1 ? 'Clients' : 'Client' }}
+                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ $clients > 1 ? 'Clients' : 'Client' }}
                                 </span>
                             </p>
                         </div>
@@ -165,14 +165,14 @@ $jour_ci = Carbon::now()->day;
 
         <!-- nd voiture -->
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2" style="text-align: center; cursor: pointer;">
-                <div class="card" onclick="show('voitures')">
+                <div class="card" onclick="show('voitures-mois')">
                     <div class="card-body "><br>
                         <div class="metric-value d-inline-block">
                             <p>
                                 <span class="clw compteur1"
-                                    style="font-weight: bold; font-size:30px;">{{ \App\Models\Voiture::count() }}</span>
+                                    style="font-weight: bold; font-size:30px;">{{ $voitures}}</span>
                                 <span class="clw"
-                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Voiture::count() > 1 ? 'Voitures' : 'Voiture' }}</span>
+                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ $voitures > 1 ? 'Voitures' : 'Voiture' }}</span>
                             </p>
                         </div>
                     </div>
@@ -185,15 +185,15 @@ $jour_ci = Carbon::now()->day;
 
         <!-- nb intervention  -->
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3" style="text-align: center; cursor: pointer;">
-                <div class="card" onclick="show('interventions-list')">
+                <div class="card" onclick="show('interventions-mois')">
                     <div class="card-body "><br>
                         <div class="metric-value d-inline-block">
                             <p>
                                 <span class="clw compteur2"
-                                    style="font-weight: bold; font-size:30px;">{{ \App\Models\Intervention::count() }}
+                                    style="font-weight: bold; font-size:30px;">{{ $interventions }}
                                 </span>
                                 <span class="clw"
-                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Intervention::count() > 1 ? 'Interventions' : 'Intervention' }}
+                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ $interventions > 1 ? 'Interventions' : 'Intervention' }}
                                 </span>
                             </p>
                         </div>

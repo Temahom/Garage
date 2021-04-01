@@ -16,7 +16,7 @@
                         @endcan
                      </div>
                  </div>   
-               <!--  <div class="col-xs-3 col-sm-3 col-md-3">     
+               {{-- <!--  <div class="col-xs-3 col-sm-3 col-md-3">     
                         <div class="form-group">
                             <form action="{{ route('voitures.index') }}" method="GET" role="search">
                                 <div class="d-flex">
@@ -27,7 +27,7 @@
                                 </div>
                             </form><br>
                         </div>
-                    </div>  --> 
+                    </div>  -->  --}}
              </div>    
              
         </div>
@@ -120,7 +120,6 @@
                     </td>
                     @endcan
                 </tr>
-            
                 @endforeach
         @endif
     </table>
