@@ -35,8 +35,17 @@
   .row {
           overflow-x: auto !important;
   }
+  .menu-list{
+    position: fixed !important;
+    background-image: linear-gradient( to top,#2b2a34, #0E0C28);
+    z-index: 1 !important;
+    width: 100%;
+    margin-top: -2% !important;
+  }
 
-  }  
+  } 
+  
+ 
 
  
     .dashboard-main-wrapper{
@@ -260,6 +269,13 @@
                                     </ul>    
                                 </div>
                             </li>
+                            
+                            <div>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Gestion Stock<span class="badge badge-success"></span></a>
+                            </li>
+                          </div>
+
                         </ul>
                     </div>
                 </nav>

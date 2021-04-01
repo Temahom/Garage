@@ -63,7 +63,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <div class="col-xs-6 col-sm-6 col-md-6">      
                     <div class="form-group">
                         <strong>Le Prix Unitaire :</strong>
-                        <input name="prix" type="number" class="custom-select form-control" id="inpuTxt3" style="display:none;" autocomplete="off" placeholder="Mettre le prix du produit"/>
+                        <input name="prix" type="number" class="custom-select form-control" min="0" id="inpuTxt3" style="display:none;" autocomplete="off" placeholder="Mettre le prix du produit"/>
                         <select  name="prix1" id="leprix" class="custom-select form-control @error('prix1') is-invalid @enderror" onchange="change();">
                             <option value="">prix unitaire</option>
                         </select>
