@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">  
             <div class="col-md-4 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
                 <div class="row">
-                    <div class="col-md-2 col-sm-3 text-center pt-3">
+                    <div class="col-md-2 col-sm-3 text-center pt-4">
                         @if ($client->genre == "homme")
                             <img style="height: 50px;width: auto;" class="" src="/assets/images/masculin.png" alt="logo">
                         @else
