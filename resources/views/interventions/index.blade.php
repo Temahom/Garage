@@ -142,7 +142,7 @@ background-color: #d6b;
 }
 
 .big {
-  margin-left: 15%;
+  text-align: center;
   font-size: 260%;
 }
 .med {
@@ -172,16 +172,17 @@ font-size: 100%;
 
         </div>
     </div>
+   
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center">
         <div class="big">
-          @if( App\Models\Intervention::count() > 0)
-            <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
-            <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
-            <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
-            <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
-             {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
-          @endif   
+              @if( App\Models\Intervention::count() > 0)
+                <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Diagnostic::count()*100) / App\Models\Intervention::count()}};"></div><label for="diagnostic"><span class="badge badge-danger"> Diagnostics |</span> </label>
+                <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Devi::count()*100) / App\Models\Intervention::count()}};"></div><label for="devis"><span class="badge badge-success"> Devis |</span></label>
+                <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Summary::count()*100) / App\Models\Intervention::count()}};"></div><label for="resume"><span class="badge" style="background: #DD66BB; color:#ffffff;"> Compte-Rendus |</span></label>
+                <div  class="pie pie--value pie--disc" style="--percent:{{(App\Models\Facture::count()*100) / App\Models\Intervention::count()}};"></div><label for="facture"><span class="badge badge-dark"> Factures |</span></label>
+                {{-- <div class="pie pie--disc" style="--percent:40;"></div> --}}
+              @endif   
         </div>
       </div>
     </div>
@@ -196,25 +197,26 @@ font-size: 100%;
 
         
       <div class="row tab-content-2" style="width: 100%">
-
-          <div class="tab-outline">
-            <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist" style="width: 150%; margin-left: 10%">
-              <li class="nav-item">
-                <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
-                <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
-                <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
-                <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Compte-rendus</a>
-                <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
-              </li>
-              {{-- <li class="nav-item">
-                <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
-              </li> --}}
-            </ul><br>
-        </div>
-          <div class="col-xs-12 col-sm-12 col-md-12 ">
+        
+          <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center">
+            <div class="tab-outline">
+              <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist" >
+                <li class="nav-item" style="text-align: center">
+                  <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
+                  <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
+                  <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>
+                  <a class="nav-link_1 second third" id="v-pills-profile-resume" data-toggle="pill" href="#resume" role="tab" aria-controls="v-pills-resume" aria-selected="false">Compte-rendus</a>
+                  <a class="nav-link_1 second third" id="v-pills-profile-facture" data-toggle="pill" href="#facture" role="tab" aria-controls="v-pills-facture" aria-selected="false">Factures</a>
+                </li>
+                {{-- <li class="nav-item">
+                  <a class="nav-link_1 second" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Details  <i class="fas fa-angle-down"></i></a>
+                </li> --}}
+              </ul><br>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="tab-content " id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                 
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">                 
                 <table class="table table-bordered mt-4">
                       <thead>
                         <tr style="background-image: linear-gradient( to top,#2b2a34, #0E0C28); text-align: center">
@@ -431,7 +433,6 @@ font-size: 100%;
             </div>
           </div>
         </div>
-      </div>
     
    
 
