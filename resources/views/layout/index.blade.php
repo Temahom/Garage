@@ -43,6 +43,20 @@
             background-color: gainsboro;
     }
 
+    .indicator {
+        content: '';
+        position: inherit;
+        top: 16px;
+        right: 23px;
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 100%;
+        background-color: #ef172c;
+        animation: .9s infinite beatHeart;
+        transform-origin: center;
+    }
+
   }  
 
     .dashboard-main-wrapper{
