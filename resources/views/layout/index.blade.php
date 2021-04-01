@@ -1,18 +1,19 @@
+
+
 <!doctype html>
 <html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
-
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/libs/css/style.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="/assets/vendor/charts/chartist-bundle/chartist.css"> 
+    <link rel="stylesheet" href="/assets/vendor/charts/chartist-bundle/chartist.css">
     <link rel="stylesheet" href="/assets/vendor/charts/morris-bundle/morris.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
@@ -22,14 +23,10 @@
     <link rel="stylesheet" type="text/css" href="/assets/vendor/datatables/css/buttons.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="/assets/vendor/datatables/css/select.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="/assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
-    {{-- ---------  select2------------------------------------ --}}
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="select2.css">
-    <link rel="stylesheet" href="select2-bootstrap.css">
-    {{-- ------------------------end-------------------------- --}}
     <title>Garage</title>
 </head>
 <style>
+<<<<<<< HEAD
 
 @media screen and (max-width: 767px) {
   .row {
@@ -48,6 +45,8 @@
  
 
  
+=======
+>>>>>>> 97b3741e088f1f2bef5d310e3c7428520a2537fd
     .dashboard-main-wrapper{
         background-color: white;
     }
@@ -62,7 +61,12 @@
       text-transform: capitalize;
     }
 
-   
+    .nav-divider{
+        color: rgb(0, 0, 0) !important;
+        text-align: center;
+        background-color: rgb(255, 255, 255) !important;
+        border-radius: 15px !important;
+    }
     .marquee-rtl {
         max-width: 100% ;                      /* largeur de la fenêtre */
         margin: 1em auto 2em;
@@ -100,10 +104,9 @@
     <div class="dashboard-main-wrapper">
         <!-- ============================================================== -->
         <!-- navbar -->
-       
-                 <!-- ============================================================== -->
+        <!-- ============================================================== -->
         <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top" style="width: auto !important;">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
                 <a class="navbar-brand" href="/">
                     <img style="height: 50px;width: auto;" class="logo-img" src="/assets/images/logo.png" alt="logo">
                 </a>
@@ -179,55 +182,50 @@
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- left sidebar -->
-        <!-- ==============================================================//   sidebar-dark  --> 
-        <div class="nav-left-sidebar" style="background-image: linear-gradient( to top,#2b2a34, #0E0C28);">
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
             <br>
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#"> </a>
+                    <a class="d-xl-none d-lg-none" href="#">Clients</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 10px; margin-left: 75%">
+                            <li class="nav-divider" style="font-size: 25px">
                                Menu
                             </li><br>
 
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success">6</span></a>
                                 <div id="submenu-client" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients">Liste Clients</a>
                                         </li>
-                                        @can('create', App\Models\Client::class)
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients/create">Ajouter Client</a>
                                         </li>
-                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
 
                             <li class="nav-item " style="padding-top: 5px">
-                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success">6</span></a>
                                 <div id="submenu-voiture" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures">Liste voitures</a>
                                         </li>
-                                        @can('create', App\Models\Voiture::class)
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
                                         </li>
-                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
-                            @can('create', App\Models\User::class)
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success">6</span></a>
                                 <div id="submenu-acteur" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -239,9 +237,8 @@
                                     </ul>    
                                 </div>
                             </li>
-                            @endcan
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success">6</span></a>
                                 <div id="submenu-rv" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -254,7 +251,7 @@
                                 </div>
                             </li>
                            <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
                                 <div id="submenu-produit" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -323,56 +320,54 @@
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
     <!-- jquery 3.3.1 -->
-    <script>
-       var btns= document.querySelectorAll(".hide_delete")
-            btns.forEach(b=>{
-                b.style.display="none";
-            })
-    </script>
-
     <!-- bootstap bundle js -->
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- slimscroll js -->
-    <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <!-- main js -->
-    <script src="/assets/libs/js/main-js.js"></script>
-    <!-- chart chartist js -->
-    <script src="/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-    <!-- sparkline js -->
-    <script src="/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-    <!-- morris js -->
-    <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
-    <!-- chart c3 js -->
+    <script>
+        var btns= document.querySelectorAll(".hide_delete")
+             btns.forEach(b=>{
+                 b.style.display="none";
+             })
+     </script>
     
-    <script src="/assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
-    <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
-    <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="/assets/libs/js/main-js.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js" integrity="sha512-E0zfDwA1CopT4gzJmj9tMpd7O6pTpuybTK58eY1GwqptdasUohyImuualLt/S5XvM8CDnbaTNP/7MU3bQ5NmQg==" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="/assets/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-    <script src="/assets/vendor/datatables/js/buttons.bootstrap4.min.js"></script>
-    <script src="/assets/vendor/datatables/js/data-table.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
-    <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
-    {{---------------------select2---------------------- --}}
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    {{------------------------end----------------------------- --}}
-    
+     <!-- bootstap bundle js -->
+     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+     <!-- slimscroll js -->
+     <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+     <!-- main js -->
+     <script src="/assets/libs/js/main-js.js"></script>
+     <!-- chart chartist js -->
+     <script src="/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+     <!-- sparkline js -->
+     <script src="/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+     <!-- morris js -->
+     <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+     <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
+     <!-- chart c3 js -->    
+     <script src="/assets/vendor/charts/c3charts/c3.min.js"></script>
+     <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+     <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+     <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
+    <!--  <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>-->
+     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+     <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+     <script src="/assets/libs/js/main-js.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js" integrity="sha512-E0zfDwA1CopT4gzJmj9tMpd7O6pTpuybTK58eY1GwqptdasUohyImuualLt/S5XvM8CDnbaTNP/7MU3bQ5NmQg==" crossorigin="anonymous"></script>
+     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+     <script src="/assets/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+     <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+     <script src="/assets/vendor/datatables/js/buttons.bootstrap4.min.js"></script>
+     <script src="/assets/vendor/datatables/js/data-table.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+     <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
+     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+     <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+     {{---------------------select2---------------------- --}}
+     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </body>
  
 </html>
