@@ -525,11 +525,11 @@ $jour_ci = Carbon::now()->day;
         crossorigin="anonymous"></script>
     <script src="assets/libs/js/clock.js"></script>
    
-    <!-- morris js -->
-    <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
-    <script src="/assets/vendor/charts/morris-bundle/morrisjs.html" type="text/html"></script>
-    <script src="assets/libs/js/les_courbes.js"></script>
+     <!-- morris js -->
+     <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+     <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+     <script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
+    <script src="/assets/libs/js/les_courbes.js"></script>
 
    
 
