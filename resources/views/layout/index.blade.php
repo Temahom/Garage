@@ -36,6 +36,19 @@
           overflow-x: auto !important;
   }
 
+  .lemenuu{
+      display: none !important;
+  }
+  .navbar-toggler-icon {
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: middle;
+        content: "";
+        background: no-repeat center center;
+        background-size: 100% 100%;
+        background-color: gainsboro;
+    }
   }  
 
  
@@ -181,7 +194,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 10px; margin-left: 75%">
+                            <li class="nav-divider lemenuu" style="background-color: white ; color: black; text-align: center; font-size: 25px; padding: 7px;  border-radius: 10px; ">
                                Menu
                             </li><br>
 
@@ -327,14 +340,13 @@
     <!-- morris js -->
     <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
     <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
-    <!-- chart c3 js -->
-    
+    <!-- chart c3 js -->    
     <script src="/assets/vendor/charts/c3charts/c3.min.js"></script>
     <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
-    <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  <!--  <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>-->
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <script src="/assets/libs/js/main-js.js"></script>
