@@ -36,6 +36,10 @@
           overflow-x: auto !important;
   }
 
+  .lemenuu{
+      display: none !important;
+  }
+
   }  
 
  
@@ -181,7 +185,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="background-color: white ; color: black; text-align: center; font-size: 25px; padding: 7px;  border-radius: 10px; ">
+                            <li class="nav-divider lemenuu" style="background-color: white ; color: black; text-align: center; font-size: 25px; padding: 7px;  border-radius: 10px; ">
                                Menu
                             </li><br>
 
