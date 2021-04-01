@@ -32,6 +32,10 @@
           overflow-x: auto !important;
   }
 
+  .nav-divider{
+      display: none;
+  }
+
   .navbar-toggler-icon {
             display: inline-block;
             width: 1.5em;
