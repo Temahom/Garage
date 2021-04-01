@@ -26,6 +26,43 @@
     <title>Garage</title>
 </head>
 <style>
+
+    @media screen and (max-width: 767px) {
+  .row {
+          overflow-x: auto !important;
+  }
+
+  .nav-divider{
+      display: none;
+  }
+
+  .navbar-toggler-icon {
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            vertical-align: middle;
+            content: "";
+            background: no-repeat center;
+            background-size: 100% 100%;
+            background-color: gainsboro;
+    }
+
+    .indicator {
+        content: '';
+        position: inherit;
+        top: 16px;
+        right: 23px;
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 100%;
+        background-color: #ef172c;
+        animation: .9s infinite beatHeart;
+        transform-origin: center;
+    }
+
+  }  
+
     .dashboard-main-wrapper{
         background-color: white;
     }
@@ -166,7 +203,7 @@
             <br>
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Clients</a>
+                    <a class="d-xl-none d-lg-none" href="#">Menu</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

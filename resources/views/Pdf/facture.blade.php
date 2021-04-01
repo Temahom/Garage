@@ -453,7 +453,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
+                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">{{$prix_total}}</span></p>
             </td>
         </tr>
         <tr style="height: 30px;">
