@@ -181,7 +181,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 10px; margin-left: 75%">
+                            <li class="nav-divider" style="background-color: white ; color: black; text-align: center; font-size: 25px; padding: 7px;  border-radius: 10px; ">
                                Menu
                             </li><br>
 
@@ -327,8 +327,7 @@
     <!-- morris js -->
     <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
     <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
-    <!-- chart c3 js -->
-    
+    <!-- chart c3 js -->    
     <script src="/assets/vendor/charts/c3charts/c3.min.js"></script>
     <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
