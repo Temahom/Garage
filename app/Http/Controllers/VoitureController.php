@@ -32,14 +32,14 @@ class VoitureController extends Controller
                     $query->orWhere('puissance', 'LIKE' , '%' . $term . '%')->get();
                 }
                }] 
-            ])
-                ->orderBy("id","asc")
-                ->paginate(15);
+            ]) ->orderBy("id","asc")->paginate(15);
+
         $user = Auth::id(); 
+
+        // recuperation des interventions realisé par le un mecanicien
         $interventionAssignees = Intervention::where('technicien','=',$user)->get();
-        // dd($interventionAssignees);
-        return view('voitures.index', compact('voitures','interventionAssignees'))
-            ->with('i', (request()->input('page', 1) - 1) * 15); 
+      
+        return view('voitures.index', compact('voitures','interventionAssignees'))->with('i', (request()->input('page', 1) - 1) * 15); 
              
     }
 
@@ -51,7 +51,7 @@ class VoitureController extends Controller
         $user = Auth::id(); 
         $interventionAssignees = Intervention::where('technicien','=',$user)->whereYear('created_at', Carbon::now()->year)
                                                                             ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
-        dd($interventionAssignees);
+        
         return view('voitures.index_mois', compact('voitures', 'interventionAssignees'));
     }
 
