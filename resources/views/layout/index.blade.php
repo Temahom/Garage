@@ -267,12 +267,11 @@
                                 </div>
                             </li>
                             
-                            <div>
-                            <li class="nav-item ">
-                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Gestion Stock<span class="badge badge-success"></span></a>
+                            
+                            <li class="nav-item "   style="padding-top: 5px">
+                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;"  aria-expanded="false" ><i class="icon-circle"></i>Gestion Stock<span class="badge badge-success"></span></a>
                             </li>
-                          </div>
-
+            
                         </ul>
                     </div>
                 </nav>
