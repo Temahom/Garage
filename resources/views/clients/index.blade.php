@@ -145,6 +145,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 	</script>
 
 <script>
+/*
     const compare = (ids, asc) => (row1, row2) => {
         const tdValue = (row, ids) => row.children[ids].textContent;
         const tri = (v1, v2) => v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
@@ -158,7 +159,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 			let classe = Array.from(trxb).sort(compare(Array.from(thx).indexOf(th), this.asc = !this.asc));
 			classe.forEach(tr => tbody.appendChild(tr));
 		}));
-
+*/
 </script>
 
 
