@@ -20,6 +20,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\FullCalendarController;
  use App\Http\Controllers\TestController;
 
+
 use Illuminate\Support\Facades\App;
 use App\Models\Voiture;
 use App\Models\Diagnostic;
@@ -140,5 +141,9 @@ Route::post('fullcalendarAjax', [FullCalendarController::class, 'ajax']);
 
 Route::get('/google_map', function () {
     return view('google_map');
+});
+
+Route::get('/gestion_stock', function () {
+    return view('gestion_stock');
 });
 

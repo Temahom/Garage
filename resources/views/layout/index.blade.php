@@ -26,27 +26,6 @@
     <title>Garage</title>
 </head>
 <style>
-<<<<<<< HEAD
-
-@media screen and (max-width: 767px) {
-  .row {
-          overflow-x: auto !important;
-  }
-  .menu-list{
-    position: fixed !important;
-    background-image: linear-gradient( to top,#2b2a34, #0E0C28);
-    z-index: 1 !important;
-    width: 100%;
-    margin-top: -2% !important;
-  }
-
-  } 
-  
- 
-
- 
-=======
->>>>>>> 97b3741e088f1f2bef5d310e3c7428520a2537fd
     .dashboard-main-wrapper{
         background-color: white;
     }
@@ -269,7 +248,7 @@
                             
                             
                             <li class="nav-item "   style="padding-top: 5px">
-                                <a class="nav-link active" href="#" style="background-color:#393555; color: white;"  aria-expanded="false" ><i class="icon-circle"></i>Gestion Stock<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="/gestion_stock" style="background-color:#393555; color: white;"  aria-expanded="false" ><i class="icon-circle"></i>Gestion Stock<span class="badge badge-success"></span></a>
                             </li>
             
                         </ul>
