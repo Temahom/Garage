@@ -3,17 +3,6 @@
 
 @section('content')
  
-@php
-use App\Models\Produit;					
-use App\Models\devi_produit;
-use Illuminate\Support\Facades\App;
-use App\Models\Voiture;
-use App\Models\Diagnostic;
-use App\Models\Intervention;
-use App\Models\Devi;
-													
-@endphp 
-
 <style>
 body, html {
 	height:100%;
@@ -179,7 +168,7 @@ body, html {
                     <div class="card bg-success text-white h-100">
                         <div class="card-body bg-success">
                             <div class="rotate">
-                                <i class="fa fa-cubes fa-4x"></i>
+                                <i class="fa fa-cubes fa-5x"></i>
                             </div>
                             <h6 class="text-uppercase">Total Produits</h6>
                             <h1 class="display-4">134</h1>
@@ -190,7 +179,7 @@ body, html {
                     <div class="card text-white bg-danger h-100">
                         <div class="card-body bg-danger">
                             <div class="rotate">
-                                <i class="fa fa-minus fa-4x"></i>
+                                <i class="fa fa-plus fa-5x"></i>
                             </div>
                             <h6 class="text-uppercase">Total Produits Commandés/Vendus</h6>
                             <h1 class="display-4">87</h1>
@@ -201,7 +190,7 @@ body, html {
                     <div class="card text-white bg-info h-100">
                         <div class="card-body bg-info">
                             <div class="rotate">
-                                <i class="fa fa-plus fa-4x"></i>
+                                <i class="fa fa-minus fa-5x"></i>
                             </div>
                             <h6 class="text-uppercase">Total Produits Restants</h6>
                             <h1 class="display-4">125</h1>
@@ -212,7 +201,7 @@ body, html {
                     <div class="card text-white bg-warning h-100">
                         <div class="card-body">
                             <div class="rotate">
-                                <i class="fa fa-share fa-4x"></i>
+                                <i class="fa fa-share fa-5x"></i>
                             </div>
                             <h6 class="text-uppercase">Total Revenue</h6>
                             <h1 class="display-4">36</h1>
