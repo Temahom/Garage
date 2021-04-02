@@ -26,6 +26,16 @@
     <title>Garage</title>
 </head>
 <style>
+    @font-face {
+            font-family: "Open Sans";
+            src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+                    url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+            }
+
+     h1, h2 {
+         font-family: "Open Sans"!important;
+         font-weight:bold;
+     }    
 
     @media screen and (max-width: 767px) {
   .row {
