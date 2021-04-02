@@ -157,10 +157,9 @@ font-size: 100%;
 @media screen and (max-width: 767px) {
  
  .big {
-         display: none;
+  display: none;
  }
-
- }
+}
 
 </style>
 
@@ -198,10 +197,10 @@ font-size: 100%;
         
       <div class="row tab-content-2" style="width: 100%">
         
-          <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center">
+          <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
             <div class="tab-outline">
-              <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist" >
-                <li class="nav-item" style="text-align: center">
+              <ul class="nav nav-tabs nav-tabs-2" id="myTab2" role="tablist">
+                <li class="nav-item">
                   <a class="nav-link_1  second active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Resume</a>
                   <a class="nav-link_1 second third" id="v-pills-profile-diagnostic" data-toggle="pill" href="#diagnostic" role="tab" aria-controls="v-pills-diagnostic" aria-selected="false">Diagnostics</a>
                   <a class="nav-link_1 second third" id="v-pills-profile-devis" data-toggle="pill" href="#devis" role="tab" aria-controls="v-pills-devis" aria-selected="false">Devis</a>

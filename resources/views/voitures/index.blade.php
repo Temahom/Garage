@@ -1,6 +1,8 @@
 @extends('layout.index')
 @section('content')
-
+@php
+setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
+@endphp
 
 
     <div class="row">
@@ -16,7 +18,7 @@
                         @endcan
                      </div>
                  </div>   
-               <!--  <div class="col-xs-3 col-sm-3 col-md-3">     
+               {{-- <!--  <div class="col-xs-3 col-sm-3 col-md-3">     
                         <div class="form-group">
                             <form action="{{ route('voitures.index') }}" method="GET" role="search">
                                 <div class="d-flex">
@@ -27,7 +29,7 @@
                                 </div>
                             </form><br>
                         </div>
-                    </div>  --> 
+                    </div>  -->  --}}
              </div>    
              
         </div>
@@ -65,6 +67,7 @@
                             <th style="color: white;">Carburant</th>
                             <th style="color: white;">Propriètaire</th>
                             <th style="color: white;">Enregistré par</th>
+                            <th style="color: white;">Periode Enregistrement</th>
                             @can('create', App\Models\Voiture::class)
                             <th style="color: white;">Action</th>
                             @endcan
@@ -94,7 +97,8 @@
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->carburant}}</td>
                     <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</td>
                     <td> <div> {{(Auth::user()->id==$voiture->user_id)? 'Vous' :$voiture->user()->first()->name}} <span class="badge badge-secondary capitalize">{{$voiture->user()->first()->role()->first()->role}}</span></div>            
-                   @can('update', $voiture)
+                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer;text-transform: capitalize;">{{ strftime('%B %Y', strtotime($voiture->created_at)) }}</td>
+                  @can('update', $voiture)
                     <td>
                     {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
                             <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>
@@ -120,7 +124,6 @@
                     </td>
                     @endcan
                 </tr>
-            
                 @endforeach
         @endif
     </table>

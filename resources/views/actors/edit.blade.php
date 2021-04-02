@@ -2,11 +2,11 @@
 
 @section('content')
 
-<style>
-	.row{
-		overflow: hidden;
-	}
-</style>
+    <style>
+        .row{
+            overflow: hidden;
+        }
+    </style>
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -22,5 +22,5 @@
         @include('actors._partials._form')
 
     </form>
-    
+
 @endsection

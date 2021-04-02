@@ -124,13 +124,42 @@ $jour_ci = Carbon::now()->day;
             color: white;
         }
 
+        .titre_statistique{
+            width: 100%; 
+            text-align: center; 
+            /* border-bottom: 1px solid #000;  */
+            line-height: 0.1em;
+            margin: 10px 0 20px; 
+        }
+        .titre_statistique span { 
+            background-image: linear-gradient(to left, #000, grey);
+            color:#fff;
+            border-radius:20px;
+            padding:0 10px;
+            padding:5px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+         .box_section{
+            border: 1px solid grey; 
+            border-radius:10px;
+             margin-bottom:20px; 
+             box-shadow: 0px 3px 0px grey;
+         }
+        .float-left span {
+            box-shadow: 2px 2px 0px gray;
+            background: #fff;
+            color:gray;
+            
+        }
     </style>
 
 
     <!-- ---------------------------Horloge, nb client, nb voiture nb intervention -------------------------------------- -->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-
+        <div class="col-xs-12 col-sm-12 col-md-12 row" style="border: 1px solid grey; border-radius:10px; margin-bottom:20px; box-shadow: 3px 0px 3px grey;">
+            <div class="float-left"><span class="badge badge-pill badge-info">1 <sup>ere </sup>Section</span></div><br>
+            <h4 class="titre_statistique"><span>Statistiques du mois en cours</span> </h4>
             <!-- Horloge  -->
             <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
                 <div class="card">
@@ -144,14 +173,14 @@ $jour_ci = Carbon::now()->day;
 
             <!--nb client-->
             <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12" id="block-1" style="text-align: center; cursor: pointer;">
-                <div class="card" onclick="show('clients')">
+                <div class="card" onclick="show('clients-mois')">
                     <div class="card-body "><br>
                         <div class="metric-value d-inline-block">
                             <p>
                                 <span class="clw compteur"
-                                    style="font-weight: bold; font-size:30px;">{{ \App\Models\Client::count() }}</span>
+                                    style="font-weight: bold; font-size:30px;">{{ $clients }}</span>
                                 <span class="clw"
-                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Client::count() > 1 ? 'Clients' : 'Client' }}
+                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ $clients > 1 ? 'Clients' : 'Client' }}
                                 </span>
                             </p>
                         </div>
@@ -165,14 +194,14 @@ $jour_ci = Carbon::now()->day;
 
         <!-- nd voiture -->
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-2" style="text-align: center; cursor: pointer;">
-                <div class="card" onclick="show('voitures')">
+                <div class="card" onclick="show('voitures-mois')">
                     <div class="card-body "><br>
                         <div class="metric-value d-inline-block">
                             <p>
                                 <span class="clw compteur1"
-                                    style="font-weight: bold; font-size:30px;">{{ \App\Models\Voiture::count() }}</span>
+                                    style="font-weight: bold; font-size:30px;">{{ $voitures}}</span>
                                 <span class="clw"
-                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Voiture::count() > 1 ? 'Voitures' : 'Voiture' }}</span>
+                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ $voitures > 1 ? 'Voitures' : 'Voiture' }}</span>
                             </p>
                         </div>
                     </div>
@@ -185,15 +214,15 @@ $jour_ci = Carbon::now()->day;
 
         <!-- nb intervention  -->
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12" id="block-3" style="text-align: center; cursor: pointer;">
-                <div class="card" onclick="show('interventions-list')">
+                <div class="card" onclick="show('interventions-mois')">
                     <div class="card-body "><br>
                         <div class="metric-value d-inline-block">
                             <p>
                                 <span class="clw compteur2"
-                                    style="font-weight: bold; font-size:30px;">{{ \App\Models\Intervention::count() }}
+                                    style="font-weight: bold; font-size:30px;">{{ $interventions }}
                                 </span>
                                 <span class="clw"
-                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ \App\Models\Intervention::count() > 1 ? 'Interventions' : 'Intervention' }}
+                                    style="font-weight: bold;margin-left: 10px;font-size:20px;">{{ $interventions > 1 ? 'Interventions' : 'Intervention' }}
                                 </span>
                             </p>
                         </div>
@@ -205,14 +234,17 @@ $jour_ci = Carbon::now()->day;
             </div>
         <!-- FIN nb intervention  -->
         </div>
+          
     </div>
     <!-- -------------------------------FIN Horloge, nb client, nd voiture nb intervention------------------------  -->
 
 
     <!-- -----------------------------------------les vente Facture ..... -------------------------------------------->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 row box_section" style="margin-top:20px">
+            <div class="float-left"><span class="badge badge-pill badge-info">2<sup>e </sup> Section</span></div><br>
+            <h4 class="titre_statistique"><span>Flux des Ventes</span> </h4>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 ">
                 <div class="card border-3 border-top border-top-primary">
                     <div class="card-body">
                         <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
@@ -300,7 +332,9 @@ $jour_ci = Carbon::now()->day;
 
     <!-- ------------------------------------tableau recaputulatif  jour et mois --------------------------------->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
+            <div class="float-left"><span class="badge badge-pill badge-info">3<sup>e </sup> Section</span></div><br>
+            <h4 class="titre_statistique"><span>Recap Journalier | Mensuel</span> </h4>
         <!-- tableau recaputulatif du jour -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
@@ -387,8 +421,9 @@ $jour_ci = Carbon::now()->day;
 
     <!-- ---------------------------------------------Chiffre affaire / mois --------------------------->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-
+        <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
+            <div class="float-left"><span class="badge badge-pill badge-info">4<sup>e </sup> Section</span></div><br>
+            <h4 class="titre_statistique"><span>Chiffre d'affaire Mensuel</span> </h4>
               <!--  Chiffre affaire de ce mois -->
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="card">
@@ -427,7 +462,9 @@ $jour_ci = Carbon::now()->day;
     
     <!-- ------------------------------------tableau recaputulatif  jour et mois --------------------------------->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
+            <div class="float-left"><span class="badge badge-pill badge-info">5<sup>e </sup> Section</span></div><br>
+            <h4 class="titre_statistique"><span>Garage</span> </h4>
         <!-- tableau chiffre d'affaire de ce mois -->
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="card">
@@ -525,11 +562,11 @@ $jour_ci = Carbon::now()->day;
         crossorigin="anonymous"></script>
     <script src="assets/libs/js/clock.js"></script>
    
-    <!-- morris js -->
-    <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
-    <script src="/assets/vendor/charts/morris-bundle/morrisjs.html" type="text/html"></script>
-    <script src="assets/libs/js/les_courbes.js"></script>
+     <!-- morris js -->
+     <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+     <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+     <script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
+    <script src="/assets/libs/js/les_courbes.js"></script>
 
    
 

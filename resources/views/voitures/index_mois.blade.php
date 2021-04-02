@@ -107,6 +107,11 @@
                                         @endcan
                                     </tr>
                                 @endforeach
+                                    <tr>
+                                        <td colspan="9">
+                                            <a href="{{route('voitures.index')}}" class="btn btn-outline-light float-right">Historique Globale</a>
+                                        </td>
+                                    </tr>
                             </table>
                        </div>
                     </div>
