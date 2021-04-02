@@ -34,6 +34,8 @@ class InterventionController extends Controller
                 }
                }] 
             ])->orderBy("id","asc")->paginate(15);
+            $user = Auth::id(); 
+        $interventionAssignees = Intervention::where('technicien','=',$user)->get();
         
         $diagnostics = Intervention::where('diagnostic_id','!=',null)->paginate(15);
         $devis = Intervention::where('devis_id','!=',null)->paginate(15);
