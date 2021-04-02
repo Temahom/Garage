@@ -54,66 +54,69 @@
                     </div>-->
                     <div class="card-body">
                         <div class="table-responsive">
-                    <table id="example4" class="table  table-striped table-bordered" style="width:100%">
-                    <thead class="" style="background-color: #4656E9;">
-                        <tr>
-                            <th style="color: white;">N°</th>
-                            <th style="color: white;">Matricule</th>
-                            <th style="color: white;">Marque</th>
-                            <th style="color: white;">Model</th>
-                            <th style="color: white;">Annee</th>
-                            <th style="color: white;">Carburant</th>
-                            <th style="color: white;">Propriètaire</th>
-                            <th style="color: white;">Enregistré par</th>
-                            @can('create', App\Models\Voiture::class)
-                            <th style="color: white;">Action</th>
-                            @endcan
-                        </tr>
-                    </thead>
-                @foreach ($voitures as $voiture)
-                <tr>
-            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->id}}</td>
-            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->matricule}}</td>
-            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->marque}}</td>
-            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->model}}</td>
-            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->annee}}</td>
-            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->carburant}}</td>
-            <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</td>
-            <td> <div> {{(Auth::user()->id==$voiture->user_id)? 'Vous' :$voiture->user()->first()->name}} <span class="badge badge-secondary capitalize">{{$voiture->user()->first()->role()->first()->role}}</span></div>            
-            @can('update', $voiture)
-            <td>
-            {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
-                    <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>
-                    <button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
-                        <i class="fas fa-trash"></i>
-                    </button> 
-                    <div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-body">
-									<h5>Voulez vous vraiment supprimer <strong>la {{ $voiture->marque }} de {{ $voiture->matricule }} de liste des voitures</strong>  ?</h5>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary hide_delete" data-dismiss="modal">Annuler</button>
-									<form action="{{route('voitures.destroy',$voiture->id)}}" method="POST">
-										@csrf
-										@method('DELETE')
-										<button type="submit" class="btn btn-danger">Supprimer</button>
-									</form>
-							</div>
-						</div>
-					</div>
-                
-            </td>
-            @endcan
-        </tr>
-            
-        @endforeach
-    </table>
-    </div>
-    </div>
-    </div>
-    </div>
+                            <table id="example4" class="table  table-striped table-bordered" style="width:100%">
+                                <thead class="" style="background-color: #4656E9;">
+                                    <tr>
+                                        <th style="color: white;">N°</th>
+                                        <th style="color: white;">Matricule</th>
+                                        <th style="color: white;">Marque</th>
+                                        <th style="color: white;">Model</th>
+                                        <th style="color: white;">Annee</th>
+                                        <th style="color: white;">Carburant</th>
+                                        <th style="color: white;">Propriètaire</th>
+                                        <th style="color: white;">Enregistré par</th>
+                                        @can('create', App\Models\Voiture::class)
+                                        <th style="color: white;">Action</th>
+                                        @endcan
+                                    </tr>
+                                </thead>
+                                @foreach ($voitures as $voiture)
+                                    <tr>
+                                        <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->id}}</td>
+                                        <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->matricule}}</td>
+                                        <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->marque}}</td>
+                                        <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->model}}</td>
+                                        <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->annee}}</td>
+                                        <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->carburant}}</td>
+                                        <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->client()->first()->prenom.' '.$voiture->client()->first()->nom}}</td>
+                                        <td> <div> {{(Auth::user()->id==$voiture->user_id)? 'Vous' :$voiture->user()->first()->name}} <span class="badge badge-secondary capitalize">{{$voiture->user()->first()->role()->first()->role}}</span></div>            
+                                        @can('update', $voiture)
+                                        <td>
+                                        {{-- <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">    --}}
+                                                <a class="btn btn-primary  p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>
+                                                <button type="button" class="btn btn-danger  p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $voiture->id }}">
+                                                    <i class="fas fa-trash"></i>
+                                                </button> 
+                                                <div class="modal fade" id="exampleModal{{ $voiture->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body">
+                                                                <h5>Voulez vous vraiment supprimer <strong>la {{ $voiture->marque }} de {{ $voiture->matricule }} de liste des voitures</strong>  ?</h5>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary hide_delete" data-dismiss="modal">Annuler</button>
+                                                                <form action="{{route('voitures.destroy',$voiture->id)}}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                                </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </td>
+                                        @endcan
+                                    </tr>
+                                @endforeach
+                                    <tr>
+                                        <td colspan="9">
+                                            <a href="{{route('voitures.index')}}" class="btn btn-outline-light float-right">Historique Globale</a>
+                                        </td>
+                                    </tr>
+                            </table>
+                       </div>
+                    </div>
+                </div>
+            </div>
     </div></div>
     <div class="row">
 		<div class="col-md-12 mt-3 d-flex justify-content-center">
