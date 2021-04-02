@@ -136,7 +136,9 @@ $jour_ci = Carbon::now()->day;
             color:#fff;
             border-radius:20px;
             padding:0 10px;
-            padding: 3px;
+            padding:5px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
          .box_section{
             border: 1px solid grey; 
@@ -145,7 +147,10 @@ $jour_ci = Carbon::now()->day;
              box-shadow: 0px 3px 0px grey;
          }
         .float-left span {
-            box-shadow: 0px 3px 0px #000;
+            box-shadow: 2px 2px 0px gray;
+            background: #fff;
+            color:gray;
+            
         }
     </style>
 
