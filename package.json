@@ -10,7 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "axios": "^0.21",
+        "axios": "^0.21.1",
         "babel-preset-stage-2": "^6.24.1",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
@@ -24,6 +24,8 @@
         "moderate": "^1.1.1",
         "moment": "^2.29.1",
         "tinymce": "^5.7.0",
-        "vue-full-calendar": "^2.8.1-0"
+        "vform": "^1.0.1",
+        "vue-full-calendar": "^2.8.1-0",
+        "vue-router": "^3.5.1"
     }
 }
