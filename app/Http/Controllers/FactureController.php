@@ -120,17 +120,20 @@ class FactureController extends Controller
         $les_devis=0;
         if (isset($facture->devi_id) &&  $facture->devi_id==0) {
             $diagnostic=Diagnostic::find($facture->diagnostic_id);
+            $client=$diagnostic->intervention()->first()->voiture->client->get();
             $prix_total=$diagnostic->coût;
-            $pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture'));    
+            return View('Pdf.facture',compact('prix_total','facture','client'));    
             return $pdf->stream('facture.pdf');
         }else{
             $diagnostic=Diagnostic::find($facture->diagnostic_id);
-            $cout=$diagnostic->coût;
+            $prix_total=$diagnostic->coût;
             $devi = Devi::find($facture->devi_id);
             $les_devis=$devi->produits()->get();
-
-            $pdf = PDF::loadView('Pdf.facture');    
-            return $pdf->stream('facture.pdf');
+            $client=$diagnostic->intervention()->first()->voiture->client->get();
+            //dd($client);
+            return View('Pdf.facture',compact('prix_total','facture','client','les_devis','devi'));
+            //$pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture'));    
+            //return $pdf->stream('facture.pdf');
                 
         }
        // dd($les_devis);

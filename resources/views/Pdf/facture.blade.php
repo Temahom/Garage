@@ -44,7 +44,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:15px;font-family:montserrat;color:#1F3864;font-size: 25px;">DATE</span></strong></p>
+                            style="font-size:15px;font-family:montserrat;color:#1F3864;font-size: 20px;">{{$facture->created_at}}</span></strong></p>
             </td>
         </tr>
         <tr>
@@ -89,7 +89,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><strong><span
-                            style="font-size:15px;font-family:montserrat;color:#1F3864;font-size: 25px;">NO DE FACTURE</span></strong>
+                            style="font-size:15px;font-family:montserrat;color:#1F3864;font-size: 25px;">N°:{{$facture->numero}}</span></strong>
                 </p>
             </td>
         </tr>
@@ -126,112 +126,41 @@
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><strong><span
                             style="font-size:15px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;font-size: 25px;">DESTINATAIRE</span></strong></p>
             </td>
-            <td style="width:29.35px;border:none;height:15.0px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td style="width:140.25px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><strong><span
-                            style="font-size:15px;color:#1F3864;background:white;margin-right: 300px;font-weight: bold;font-size: 25px;">ENVOYEZ &Agrave;</span></strong></p>
-            </td>
-            <td style="width:6.0px;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:15.0px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
+            
         </tr>
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-family:montserrat;font-size: 22px;">&lt;Nom&gt;</span></p>
+                        style="font-family:montserrat;font-size: 22px;">{{$client[0]->prenom}} {{$client[0]->nom}}</span></p>
             </td>
             <td style="width:29.35px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:15px;">&nbsp;</span></p>
             </td>
-            <td style="width:140.25px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-family:montserrat;font-size: 22px;">&lt;Nom&gt;</span></p>
-            </td>
-            <td style="width:6.0px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td style="width:100%;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
+            
         </tr>
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-family:montserrat;font-size: 22px;">&lt;Nom de la societe&gt;</span></p>
+                        style="font-family:montserrat;font-size: 22px;">{{$client[0]->entreprise}} </span></p>
             </td>
-            <td style="width:29.35px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td style="width:140.25px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-family:montserrat;font-size: 22px;">&lt;Nom de la societe&gt;</span></p>
-            </td>
-            <td style="width:6.0px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td style="width:100%;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
+            
+            
         </tr>
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:22px;font-family:montserrat;">&lt;Adresse postale&gt;</span></p>
+                        style="font-size:22px;font-family:montserrat;">{{$client[0]->telephone}} </span></p>
             </td>
-            <td style="width:29.35px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td style="width:140.25px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-family:montserrat;font-size: 22px;">&lt;Adresse postale&gt;</span></p>
-            </td>
-            <td style="width:6.0px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td style="width:100%;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
+            
         </tr>
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;font-family:montserrat;">&lt;<span
-                            style="background:white;font-size: 22px;">T&eacute;l&eacute;phone, Email</span>&gt;</span></p>
+                        style="font-size:15px;font-family:montserrat;"><span
+                            style="background:white;font-size: 22px;">{{$client[0]->email}} </span></p>
             </td>
-            <td style="width:29.35px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td style="width:140.25px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;font-family:montserrat;">&lt;<span
-                            style="background:white;font-size: 22px;">T&eacute;l&eacute;phone</span>&gt;</span></p>
-            </td>
-            <td style="width:6.0px;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td style="width:100%;border:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
+           
         </tr>
     </tbody>
 </table>
@@ -259,132 +188,43 @@
                             style="font-size:15px;font-family:montserrat;color:white;">TOTAL</span></strong></p>
             </td>
         </tr>
-        <tr style="height: 30px;">
-            <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;00000000000</span></p>
-            </td>
-            <td
-                style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">1000000000000</span></p>
-            </td>
-        </tr>
-        <tr style="height: 30px;">
-            <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">0.00</span></p>
-            </td>
-        </tr>
-        <tr style="height: 30px;">
-            <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">0.00</span></p>
-            </td>
-        </tr>
-        <tr style="height: 30px;">
-            <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">0.00</span></p>
-            </td>
-        </tr>
-        <tr style="height: 30px;">
-            <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">0.00</span></p>
-            </td>
-        </tr>
-        <tr style="height: 30px;">
-            <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">&nbsp;</span></p>
-            </td>
-            <td
-                style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;background:#F3F3F3;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;margin-right: 25px;margin-left: 25px;">0.002</span></p>
-            </td>
-        </tr>
+                         @php
+                            $prixHT = 0;
+                            $prixtotal = 0;
+                            
+                        @endphp
+
+        @if (isset($les_devis))
+            @foreach ($les_devis as $le_devi)
+            
+        
+                    <tr style="height: 30px;">
+                        <td colspan="2" style="width:240.0px;border:solid #BFBFBF 1px;border-top:none;">
+                            <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
+                                    style="font-size:15px;">{{ $le_devi->produit }}</span></p>
+                        </td>
+                        <td
+                            style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
+                            <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
+                                    style="font-size:15px;margin-right: 25px;margin-left: 25px;">{{$le_devi->pivot->quantite }}</span></p>
+                        </td>
+                        <td
+                            style="width:93.0px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
+                            <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
+                                    style="font-size:15px;margin-right: 25px;margin-left: 25px;">{{ number_format($le_devi->prix1, 0, ',', ' ') }} <sup> FCFA</sup></span></p>
+                        </td>
+                        @php
+                            $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
+                        
+                         @endphp
+                        <td
+                            style="width:100%;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
+                            <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><span
+                                    style="font-size:15px;margin-right: 25px;">{{ number_format($le_devi->pivot->quantite * $le_devi->prix1, 0, ',', ' ') }} <sup> FCFA</sup></span></p>
+                        </td>
+                    </tr>
+            @endforeach
+        @endif
         <tr style="height: 30px;">
             <td style="width:234.0px;border:none;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
@@ -405,8 +245,8 @@
                 </p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
+                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><span
+                        style="font-size:15px;font-family:montserrat;margin-right: 25px;">{{ number_format($prixHT, 0, ',', ' ') }} <sup> FCFA</sup></span></p>
             </td>
         </tr>
         <tr style="height: 30px;">
@@ -418,14 +258,19 @@
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;'><span
                         style="font-size:15px;">&nbsp;</span></p>
             </td>
-            <td style="width:93.0px;border:none;height:19.0px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
-                            style="font-size:15px;font-family:montserrat;color:#333F4F;margin-right: 12px;">REMISE</span></strong></p>
-            </td>
-            <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00</span></p>
-            </td>
+            @if (isset($devi))
+                
+           
+                <td style="width:93.0px;border:none;height:19.0px;">
+                    <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
+                                style="font-size:15px;font-family:montserrat;color:#333F4F;margin-right: 12px;">COUT DE REPARATION</span></strong></p>
+                </td>
+                <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
+                    <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><span
+                            style="font-size:15px;font-family:montserrat;margin-right: 25px;">{{ number_format($devi->cout, 0, ',', ' ') }} <sup> FCFA</sup></span></p>
+                </td>
+           
+            @endif
         </tr>
         <tr style="height: 30px;">
             <td style="width: 53.25px;border: none;height: 19px;vertical-align: bottom;">
@@ -434,12 +279,11 @@
             </td>
             <td style="width:93.0px;border:none;height:19.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
-                            style="font-size:15px;font-family:montserrat;color:#333F4F;margin-right: 12px;">TAUX
-                            D&rsquo;IMPOSITION</span></strong></p>
+                            style="font-size:15px;font-family:montserrat;color:#333F4F;">COUT DIAGNOSTIC</span></strong></p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00%</span></p>
+                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><span
+                        style="font-size:15px;font-family:montserrat;">{{ number_format($prix_total, 0, ',', ' ') }} <sup> FCFA</sup></span></p>
             </td>
         </tr>
         <tr style="height: 30px;">
@@ -452,8 +296,14 @@
                             style="font-size:15px;font-family:montserrat;color:#333F4F;margin-right: 12px;">TAXE TOTAL</span></strong></p>
             </td>
             <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;height:19.0px;">
-                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><span
-                        style="font-size:15px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">{{$prix_total}}</span></p>
+                @php
+                $cout=0;
+                    if(isset($devi)){
+                        $cout= $devi->cout;
+                    }
+                @endphp
+                <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:center;'><span
+                        style="font-size:15px;font-family:montserrat;margin-right: 25px;">{{ number_format($prix_total+$prixHT+$cout, 0, ',', ' ') }} <sup> FCFA</sup></span></p>
             </td>
         </tr>
         <tr style="height: 30px;">
@@ -481,7 +331,7 @@
             </td>
             <td style="width:100%;border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
                 <p style='line-height:normal;font-size:20px;font-family:fira sans;text-align:right;'><strong><span
-                            style="font-size:16px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">0.00F CFA;</span></strong></p>
+                            style="font-size:16px;font-family:montserrat;margin-right: 25px;margin-left: 25px;">{{ number_format($prix_total+$prixHT+$cout, 0, ',', ' ') }} <sup> FCFA</sup></span></strong></p>
             </td>
         </tr>
         <tr style="height: 30px;">
