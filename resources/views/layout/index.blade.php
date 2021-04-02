@@ -40,7 +40,11 @@
      h1, h2 {
          font-family: "Open Sans"!important;
          font-weight:bold;
-     }    
+     }  
+     h4{
+        font-family: "Open Sans"!important;
+        font-size:16px; 
+     }  
 
     @media screen and (max-width: 767px) {
   .row {

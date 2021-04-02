@@ -73,7 +73,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->entreprise }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->telephone }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer;">{{ $client->email }}</td>
-								<td onclick="showClient({{ $client->id }})" style="cursor: pointer;">{{ strftime('%B %Y', strtotime($client->created_at)) }}</td>
+								<td onclick="showClient({{ $client->id }})" style="cursor: pointer;text-transform: capitalize;">{{ strftime('%B %Y', strtotime($client->created_at)) }}</td>
 								@can('create', App\Models\Client::class)
 								<td>
 									<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('clients.edit',$client->id)}}"><i class="fas fa-edit"></i></a>

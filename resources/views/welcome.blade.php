@@ -127,22 +127,34 @@ $jour_ci = Carbon::now()->day;
         .titre_statistique{
             width: 100%; 
             text-align: center; 
-            border-bottom: 1px solid #000; 
+            /* border-bottom: 1px solid #000;  */
             line-height: 0.1em;
             margin: 10px 0 20px; 
         }
         .titre_statistique span { 
-            background:#fff; 
+            background-image: linear-gradient(to left, #000, grey);
+            color:#fff;
+            border-radius:20px;
             padding:0 10px;
+            padding: 3px;
         }
-
+         .box_section{
+            border: 1px solid grey; 
+            border-radius:10px;
+             margin-bottom:20px; 
+             box-shadow: 0px 3px 0px grey;
+         }
+        .float-left span {
+            box-shadow: 0px 3px 0px #000;
+        }
     </style>
 
 
     <!-- ---------------------------Horloge, nb client, nb voiture nb intervention -------------------------------------- -->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row" style="border: 1px solid grey; border-radius:10px; margin-bottom:20px; box-shadow: 3px 0px 3px grey;">
-            <h5 class="titre_statistique"><span>Statistiques du mois en cours</span> </h5>
+            <div class="float-left"><span class="badge badge-pill badge-info">1 <sup>ere </sup>Section</span></div><br>
+            <h4 class="titre_statistique"><span>Statistiques du mois en cours</span> </h4>
             <!-- Horloge  -->
             <div class="col-xl-3 col-md-6  col-lg-4 col-sm-12 " id="cercle">
                 <div class="card">
@@ -224,8 +236,10 @@ $jour_ci = Carbon::now()->day;
 
     <!-- -----------------------------------------les vente Facture ..... -------------------------------------------->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 row box_section" style="margin-top:20px">
+            <div class="float-left"><span class="badge badge-pill badge-info">2<sup>e </sup> Section</span></div><br>
+            <h4 class="titre_statistique"><span>Flux des Ventes</span> </h4>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 ">
                 <div class="card border-3 border-top border-top-primary">
                     <div class="card-body">
                         <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
@@ -313,7 +327,9 @@ $jour_ci = Carbon::now()->day;
 
     <!-- ------------------------------------tableau recaputulatif  jour et mois --------------------------------->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
+            <div class="float-left"><span class="badge badge-pill badge-info">3<sup>e </sup> Section</span></div><br>
+            <h4 class="titre_statistique"><span>Recap Journalier | Mensuel</span> </h4>
         <!-- tableau recaputulatif du jour -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
@@ -400,8 +416,9 @@ $jour_ci = Carbon::now()->day;
 
     <!-- ---------------------------------------------Chiffre affaire / mois --------------------------->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-
+        <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
+            <div class="float-left"><span class="badge badge-pill badge-info">4<sup>e </sup> Section</span></div><br>
+            <h4 class="titre_statistique"><span>Chiffre d'affaire Mensuel</span> </h4>
               <!--  Chiffre affaire de ce mois -->
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="card">
@@ -440,7 +457,9 @@ $jour_ci = Carbon::now()->day;
     
     <!-- ------------------------------------tableau recaputulatif  jour et mois --------------------------------->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
+            <div class="float-left"><span class="badge badge-pill badge-info">5<sup>e </sup> Section</span></div><br>
+            <h4 class="titre_statistique"><span>Garage</span> </h4>
         <!-- tableau chiffre d'affaire de ce mois -->
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="card">
