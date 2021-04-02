@@ -67,8 +67,8 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
                             <th style="color: white;">Carburant</th>
                             <th style="color: white;">Propriètaire</th>
                             <th style="color: white;">Enregistré par</th>
-                            @can('create', App\Models\Voiture::class)
                             <th style="color: white;">Periode Enregistrement</th>
+                            @can('create', App\Models\Voiture::class)
                             <th style="color: white;">Action</th>
                             @endcan
                         </tr>
