@@ -2,7 +2,9 @@
 
 @section('content')
 
-
+@php
+setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
+@endphp
 <div class="row">
   	<div class="col-xs-12 col-sm-12 col-md-12 row">  
 		<div class="col-lg-12 margin-tb">
@@ -55,6 +57,7 @@
 											<th style="color: white">Entreprise</th>
 											<th style="color: white">Téléphone</th>
 											<th style="color: white">Email</th>
+											<th style="color: white">Periode Enregistrement</th>
 											@can('create', App\Models\Client::class)
 											<th style="color: white">Action</th>
 											@endcan
@@ -70,6 +73,7 @@
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->entreprise }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $client->telephone }}</td>
 								<td onclick="showClient({{ $client->id }})" style="cursor: pointer;">{{ $client->email }}</td>
+								<td onclick="showClient({{ $client->id }})" style="cursor: pointer;">{{ strftime('%B %Y', strtotime($client->created_at)) }}</td>
 								@can('create', App\Models\Client::class)
 								<td>
 									<a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('clients.edit',$client->id)}}"><i class="fas fa-edit"></i></a>
@@ -141,6 +145,7 @@
 	</script>
 
 <script>
+/*
     const compare = (ids, asc) => (row1, row2) => {
         const tdValue = (row, ids) => row.children[ids].textContent;
         const tri = (v1, v2) => v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
@@ -154,7 +159,7 @@
 			let classe = Array.from(trxb).sort(compare(Array.from(thx).indexOf(th), this.asc = !this.asc));
 			classe.forEach(tr => tbody.appendChild(tr));
 		}));
-
+*/
 </script>
 
 
