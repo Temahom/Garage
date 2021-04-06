@@ -230,10 +230,10 @@
                     </strong>
                 </p>
             </td>
-            <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;width:400px;">
-                <p style="line-height:normal;font-size:15px;font-family:montserrat;width:400px;">
+            <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;width:300px;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;width:300px;">
                     <strong>
-                        <span style="font-family:montserrat;color:white;width:400px;">TOTAL <br> (F CFA)</span>
+                        <span style="font-family:montserrat;color:white;width:300px;">TOTAL <br> (F CFA)</span>
                     </strong>
                 </p>
             </td>
