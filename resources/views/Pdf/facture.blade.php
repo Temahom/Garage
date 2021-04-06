@@ -213,7 +213,7 @@
     <tbody>
         <tr style="height: 50px;text-align:center;">
             <td colspan="2" style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width: 600px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;width: 450px;">
                     <strong>
                         <span style="font-family:montserrat;color:white;">DESCRIPTION</span>
                     </strong>
@@ -234,7 +234,7 @@
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;witdh:100px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <strong>
                         <span style="font-family:montserrat;color:white;">TOTAL (F CFA)</span>
                     </strong>
@@ -256,12 +256,12 @@
                                 <span>{{ $le_devi->produit }}</span>
                             </p>
                         </td>
-                        <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;width:150px;">
+                        <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;width:100px;">
                             <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                                 <span>{{$le_devi->pivot->quantite }}</span>
                             </p>
                         </td>
-                        <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;width:150px;">
+                        <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;width:100px;">
                             <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                                 <span>{{ number_format($le_devi->prix1, 0, ',', ' ') }}</span>
                             </p>
@@ -284,7 +284,7 @@
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width:6.0px;border:none;">
+            <td style="border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -387,7 +387,7 @@
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td colspan="2" style="width:240.0px;border:none;height:33.0px;">
+            <td colspan="2" style="border:none;height:33.0px;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -404,7 +404,7 @@
                     </strong>
                 </p>
             </td>
-            <td style="width:250px;border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
+            <td style="width:300px;border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
                     <strong>
                         <span style="font-size:16px;font-family:montserrat;">{{ number_format($prix_total+$prixHT+$cout, 0, ',', ' ') }}</span>
