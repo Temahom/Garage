@@ -268,7 +268,7 @@
                         
                          @endphp
                         <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
-                            <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
+                            <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                                 <span>{{ number_format($le_devi->pivot->quantite * $le_devi->prix1, 0, ',', ' ') }}</span>
                             </p>
                         </td>
@@ -299,7 +299,7 @@
                 </p>
             </td>
             <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                     <span style="font-family:montserrat;">{{ number_format($prixHT, 0, ',', ' ') }}</span>
                 </p>
             </td>
@@ -325,7 +325,7 @@
                     </p>
                 </td>
                 <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
-                    <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
+                    <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                         <span style="font-family:montserrat;">{{ number_format($devi->cout, 0, ',', ' ') }}</span>
                     </p>
                 </td>
@@ -346,7 +346,7 @@
                 </p>
             </td>
             <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                     <span style="font-family:montserrat;">{{ number_format($prix_total, 0, ',', ' ') }}</span>
                 </p>
             </td>
@@ -371,15 +371,8 @@
                         $cout= $devi->cout;
                     }
                 @endphp
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                     <span style="font-family:montserrat;">{{ number_format($prix_total+$prixHT+$cout, 0, ',', ' ') }}</span>
-                </p>
-            </td>
-        </tr>
-        <tr style="height: 30px;text-align:center;">
-            <td style="border: none;height: 19px;vertical-align: bottom;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
-                    <span>&nbsp;</span>
                 </p>
             </td>
         </tr>
@@ -402,7 +395,7 @@
                 </p>
             </td>
             <td style="width:300px;border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                     <strong>
                         <span style="font-size:16px;font-family:montserrat;">{{ number_format($prix_total+$prixHT+$cout, 0, ',', ' ') }}</span>
                     </strong>
