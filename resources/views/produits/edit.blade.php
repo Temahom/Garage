@@ -66,7 +66,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     <select name="prix1" id="leprix" class="form-control @error('prix1') is-invalid @enderror" onchange="change();">     
                         <option value="{{ $produit->prix1 }}" {{ old('prix1') == ($produit->prix1) ? 'selected' : '' }}>{{ $produit->prix1 }}</option>s
                     </select>
-                    <input name="prix1" type="number" value="{{ $produit->prix1 }}" class="custom-select form-control" id="inpuTxt3" style="display:none;" autocomplete="off" placeholder="Mettre le prix du produit"/>
+                    <input name="prix1" type="number" min="0" value="{{ $produit->prix1 }}" class="custom-select form-control" id="inpuTxt3" style="display:none;" autocomplete="off" placeholder="Mettre le prix du produit"/>
                     <div class="invalid-feedback">
                         @if($errors->has('prix1'))
                         {{ $errors->first('prix1') }}

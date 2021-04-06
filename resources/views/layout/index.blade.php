@@ -40,7 +40,11 @@
      h1, h2 {
          font-family: "Open Sans"!important;
          font-weight:bold;
-     }    
+     }  
+     h4{
+        font-family: "Open Sans"!important;
+        font-size:16px; 
+     }  
 
     @media screen and (max-width: 767px) {
   .row {
@@ -297,6 +301,12 @@
                                     </ul>    
                                 </div>
                             </li>
+                            
+                            
+                            <li class="nav-item "   style="padding-top: 5px">
+                                <a class="nav-link active" href="/gestion_stock" style="background-color:#393555; color: white;"  aria-expanded="false" ><i class="icon-circle"></i>Gestion Stock<span class="badge badge-success"></span></a>
+                            </li>
+            
                         </ul>
                     </div>
                 </nav>

@@ -1,0 +1,75 @@
+@extends('layout.index')
+
+
+@section('content')
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css">
+       
+
+
+<div class="row">
+	
+	<div class="col-md-4">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				
+				<a href="product.php" style="text-decoration:none;color:black;">
+					Total Product
+					<span class="badge pull pull-right">poijhg</span>	
+				</a>
+				
+			</div> <!--/panel-hdeaing-->
+		</div> <!--/panel-->
+	</div> <!--/col-md-4-->
+
+		<div class="col-md-4">
+			<div class="panel panel-info">
+			<div class="panel-heading">
+				<a href="orders.php?o=manord" style="text-decoration:none;color:black;">
+					Total Orders
+					<span class="badge pull pull-right"></span>
+				</a>
+					
+			</div> <!--/panel-hdeaing-->
+		</div> <!--/panel-->
+		</div> <!--/col-md-4-->
+
+	<div class="col-md-4">
+		<div class="panel panel-danger">
+			<div class="panel-heading">
+				<a href="product.php" style="text-decoration:none;color:black;">
+					Low Stock
+					<span class="badge pull pull-right"></span>	
+				</a>
+				
+			</div> <!--/panel-hdeaing-->
+		</div> <!--/panel-->
+	</div> <!--/col-md-4-->
+
+	<div class="col-md-4">
+		<div class="card">
+		 
+		    
+		  <div class="cardContainer">
+		    <p> <i class="glyphicon glyphicon-usd"></i> Total Revenue</p>
+		  </div>
+		</div> 
+
+	</div>
+
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading"> <i class="glyphicon glyphicon-calendar"></i> Calendar</div>
+			<div class="panel-body">
+				<div id="calendar"></div>
+			</div>	
+		</div>
+		
+	</div>
+
+	
+</div> <!--/row-->
+
+
+
+@endsection 

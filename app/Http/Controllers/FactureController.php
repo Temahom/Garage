@@ -122,8 +122,9 @@ class FactureController extends Controller
             $diagnostic=Diagnostic::find($facture->diagnostic_id);
             $client=$diagnostic->intervention()->first()->voiture->client->get();
             $prix_total=$diagnostic->coût;
-            return View('Pdf.facture',compact('prix_total','facture','client'));    
-            return $pdf->stream('facture.pdf');
+            return View('Pdf.facture',compact('prix_total','facture','client'));
+            // $pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture','client'));    
+            // return $pdf->stream('facture.pdf');
         }else{
             $diagnostic=Diagnostic::find($facture->diagnostic_id);
             $prix_total=$diagnostic->coût;
@@ -133,7 +134,7 @@ class FactureController extends Controller
             //dd($client);
             return View('Pdf.facture',compact('prix_total','facture','client','les_devis','devi'));
             //$pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture'));    
-            //return $pdf->stream('facture.pdf');
+            return $pdf->stream('facture.pdf');
                 
         }
        // dd($les_devis);
