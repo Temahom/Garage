@@ -210,7 +210,7 @@
     <tbody>
         <tr style="height: 50px;text-align:center;">
             <td colspan="2" style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:15px;font-family:montserrat;width: 500px;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;width: 400px;">
                     <strong>
                         <span style="font-family:montserrat;color:white;">DESCRIPTION</span>
                     </strong>
