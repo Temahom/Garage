@@ -280,8 +280,8 @@
         @endif
         <tr style="height: 30px;text-align:center;">
             <td style="width:234.0px;border:none;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
-                    <span>&nbsp;</span>
+                <p style="border:none;text-align: start;font-weight:bold;text-decoration: underline;">
+                    <span style="font-size:18px;background:white;">Remarques, notes et instructions de paiement:</span>
                 </p>
             </td>
             <td style="border:none;">
@@ -308,9 +308,9 @@
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td colspan="2" rowspan="4" style="border:none;text-align: start;font-weight:bold;text-decoration: underline;">
+            <td colspan="2" rowspan="4" style="line-height:normal;font-size:20px;font-family:montserrat;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
-                    <span style="font-size:18px;background:white;">Remarques, notes et instructions de paiement:</span>
+                    <span>&nbsp;</span>
                 </p>
             </td>
             <td style="border: none;height: 19px;vertical-align: bottom;">
@@ -421,6 +421,3 @@
         </tr>
     </tbody>
 </table>
-<p style="line-height:115%;font-size:20px;font-family:montserrat;">
-    <span style="line-height:115%;font-family:montserrat;">&nbsp;</span>
-</p>
