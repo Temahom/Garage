@@ -401,7 +401,7 @@
                     </strong>
                 </p>
             </td>
-            <td style="width:300px;border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
+            <td style="border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
                 <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                     <strong>
                         <span style="font-size:16px;font-family:montserrat;">{{ number_format($prix_total+$prixHT+$cout, 0, ',', ' ') }}</span>
