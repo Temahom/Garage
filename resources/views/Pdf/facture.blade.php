@@ -230,7 +230,7 @@
                     </strong>
                 </p>
             </td>
-            <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;width:1000px;">
+            <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <strong>
                         <span style="font-family:montserrat;color:white;">TOTAL <br> (F CFA)</span>
@@ -267,7 +267,7 @@
                             $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
                         
                          @endphp
-                        <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
+                        <td style="width:500px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
                             <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                                 <span>{{ number_format($le_devi->pivot->quantite * $le_devi->prix1, 0, ',', ' ') }}</span>
                             </p>
