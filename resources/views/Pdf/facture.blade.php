@@ -226,14 +226,14 @@
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;width:200px;">
                     <strong>
-                        <span style="color:white;width:200px;">PRIX UNITAIRE <br> (F CFA)</span>
+                        <span style="color:white;width:200px;">PRIX UNITAIRE (F CFA)</span>
                     </strong>
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;width:300px;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;width:300px;">
                     <strong>
-                        <span style="font-family:montserrat;color:white;width:300px;">TOTAL <br> (F CFA)</span>
+                        <span style="font-family:montserrat;color:white;width:300px;">TOTAL (F CFA)</span>
                     </strong>
                 </p>
             </td>
@@ -278,7 +278,7 @@
         <tr style="height: 30px;text-align:center;">
             <td style="border:none;">
                 <p style="border:none;text-align: start;font-weight:bold;text-decoration: underline;">
-                    <span style="font-size:18px;background:white;">Remarques, notes et instructions de paiement:</span>
+                    <span style="font-size:18px;background:white;">&nbsp;</span>
                 </p>
             </td>
             <td style="border:none;">
