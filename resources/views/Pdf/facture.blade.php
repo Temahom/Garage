@@ -341,7 +341,7 @@
             <td style="border:none;">
                 <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:right;">
                     <strong>
-                        <span style="font-family:montserrat;color:#333F4F;">COUT DIAGNOSTIC</span>
+                        <span style="font-family:montserrat;color:#333F4F;margin-right: 12px;">COUT DIAGNOSTIC</span>
                     </strong>
                 </p>
             </td>
