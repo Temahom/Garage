@@ -276,7 +276,7 @@
             @endforeach
         @endif
         <tr style="height: 30px;text-align:center;">
-            <td style="width:234.0px;border:none;">
+            <td style="border:none;">
                 <p style="border:none;text-align: start;font-weight:bold;text-decoration: underline;">
                     <span style="font-size:18px;background:white;">Remarques, notes et instructions de paiement:</span>
                 </p>
