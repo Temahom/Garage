@@ -298,7 +298,7 @@
                     </strong>
                 </p>
             </td>
-            <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:30px;">
+            <td style="width:700px;border:none;border-bottom:solid #BFBFBF 1px;height:30px;">
                 <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                     <span style="font-family:montserrat;">{{ number_format($prixHT, 0, ',', ' ') }}</span>
                 </p>
