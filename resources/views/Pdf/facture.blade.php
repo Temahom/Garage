@@ -227,7 +227,7 @@
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:200px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:150px;">
                     <strong>
                         <span style="color:white;">PU (F CFA)</span>
                     </strong>
@@ -323,7 +323,7 @@
                 <td style="border:none;">
                     <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:right;">
                         <strong>
-                            <span style="font-family:montserrat;color:#333F4F;margin-right: 12px;">REPARATION</span>
+                            <span style="font-family:montserrat;color:#333F4F;margin-right: 12px;">COUT DE REPARATION</span>
                         </strong>
                     </p>
                 </td>
