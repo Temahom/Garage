@@ -224,7 +224,7 @@
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:200px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:150px;">
                     <strong>
                         <span style="color:white;">PRIX UNITAIRE <br> (F CFA)</span>
                     </strong>
