@@ -286,7 +286,7 @@
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -310,7 +310,7 @@
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -333,7 +333,7 @@
             @endif
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td style="border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -352,7 +352,7 @@
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td style="border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -377,31 +377,31 @@
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td style="border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td colspan="2" style="border:none;height:33.0px;">
+            <td colspan="2" style="border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="border: none;height: 33px;vertical-align: bottom;">
+            <td style="border: none;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="border:none;height:33.0px;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:right;">
+            <td style="border:none;height:30px;">
+                <p style="line-height:normal;font-family:montserrat;text-align:right;">
                     <strong>
                         <span style="font-size:16px;font-family:montserrat;color:#333F4F;margin-right: 12px;">SOLDE DU</span>
                     </strong>
                 </p>
             </td>
-            <td style="border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
+            <td style="border:none;border-bottom:solid black 1px;background:#eaead3;height:30px;">
                 <p style="line-height:normal;font-size:14px;font-family:montserrat;text-align:center;">
                     <strong>
                         <span style="font-family:montserrat;">{{ number_format($prix_total+$prixHT+$cout, 0, ',', ' ') }}</span>
