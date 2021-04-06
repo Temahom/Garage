@@ -210,28 +210,28 @@
     <tbody>
         <tr style="height: 50px;text-align:center;">
             <td colspan="2" style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width: 500px;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;width: 500px;">
                     <strong>
                         <span style="font-family:montserrat;color:white;">DESCRIPTION</span>
                     </strong>
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:150px;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;width:150px;">
                     <strong>
                         <span style="color:white;">QUANTIT&Eacute;</span>
                     </strong>
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:150px;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;width:200px;">
                     <strong>
                         <span style="color:white;">PRIX UNITAIRE <br> (F CFA)</span>
                     </strong>
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <strong>
                         <span style="font-family:montserrat;color:white;">TOTAL <br> (F CFA)</span>
                     </strong>
@@ -249,7 +249,7 @@
         
                     <tr style="height: 30px;text-align:center;">
                         <td colspan="2" style="border:solid #BFBFBF 1px;border-top:none;text-align: start;">
-                            <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                            <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                                 <span>{{ $le_devi->produit }}</span>
                             </p>
                         </td>
@@ -282,12 +282,12 @@
                 </p>
             </td>
             <td style="border:none;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
             <td style="border: none;vertical-align: bottom;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
@@ -305,13 +305,13 @@
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td colspan="2" rowspan="4" style="line-height:normal;font-size:20px;font-family:montserrat;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+            <td colspan="2" rowspan="4" style="line-height:normal;font-size:15px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
             <td style="border: none;vertical-align: bottom;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
@@ -334,7 +334,7 @@
         </tr>
         <tr style="height: 30px;text-align:center;">
             <td style="border: none;vertical-align: bottom;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
@@ -353,7 +353,7 @@
         </tr>
         <tr style="height: 30px;text-align:center;">
             <td style="border: none;vertical-align: bottom;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
@@ -378,19 +378,19 @@
         </tr>
         <tr style="height: 30px;text-align:center;">
             <td style="border: none;vertical-align: bottom;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
             <td colspan="2" style="border:none;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
             <td style="border: none;vertical-align: bottom;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
