@@ -212,21 +212,21 @@
             <td colspan="2" style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;width: 400px;">
                     <strong>
-                        <span style="font-family:montserrat;color:white;">DESCRIPTION</span>
+                        <span style="font-family:montserrat;color:white;width: 400px;">DESCRIPTION</span>
                     </strong>
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;width:150px;">
                     <strong>
-                        <span style="color:white;">QUANTIT&Eacute;</span>
+                        <span style="color:white;width:150px;">QUANTIT&Eacute;</span>
                     </strong>
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;width:200px;">
                     <strong>
-                        <span style="color:white;">PRIX UNITAIRE <br> (F CFA)</span>
+                        <span style="color:white;width:200px;">PRIX UNITAIRE <br> (F CFA)</span>
                     </strong>
                 </p>
             </td>
