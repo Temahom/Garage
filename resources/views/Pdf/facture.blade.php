@@ -277,7 +277,7 @@
         @endif
         <tr style="height: 30px;text-align:center;">
             <td style="border:none;">
-                <p style="border:none;text-align: start;font-weight:bold;text-decoration: underline;">
+                <p style="border:none;">
                     <span style="font-size:18px;background:white;">&nbsp;</span>
                 </p>
             </td>
