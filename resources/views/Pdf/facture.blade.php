@@ -267,7 +267,7 @@
                             $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
                         
                          @endphp
-                        <td style="width:500px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
+                        <td style="border:none;border-bottom:solid #BFBFBF 1px;height:30px;">
                             <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                                 <span>{{ number_format($le_devi->pivot->quantite * $le_devi->prix1, 0, ',', ' ') }}</span>
                             </p>
