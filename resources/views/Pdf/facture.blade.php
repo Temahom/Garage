@@ -298,7 +298,7 @@
                     </strong>
                 </p>
             </td>
-            <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
+            <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:30px;">
                 <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                     <span style="font-family:montserrat;">{{ number_format($prixHT, 0, ',', ' ') }}</span>
                 </p>
@@ -324,7 +324,7 @@
                         </strong>
                     </p>
                 </td>
-                <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
+                <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:30px;">
                     <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                         <span style="font-family:montserrat;">{{ number_format($devi->cout, 0, ',', ' ') }}</span>
                     </p>
@@ -345,7 +345,7 @@
                     </strong>
                 </p>
             </td>
-            <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:33.0px;">
+            <td style="width:300px;border:none;border-bottom:solid #BFBFBF 1px;height:30px;">
                 <p style="line-height:normal;font-size:15px;font-family:montserrat;text-align:center;">
                     <span style="font-family:montserrat;">{{ number_format($prix_total, 0, ',', ' ') }}</span>
                 </p>
