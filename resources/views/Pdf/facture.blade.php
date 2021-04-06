@@ -209,7 +209,7 @@
 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
     <span style="font-family:montserrat;">&nbsp;</span>
 </p>
-<table style="border-collapse:collapse;border:none;margin: 20px;">
+<table style="border-collapse:collapse;border:none;">
     <tbody>
         <tr style="height: 50px;text-align:center;">
             <td colspan="2" style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
