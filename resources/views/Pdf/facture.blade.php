@@ -213,7 +213,7 @@
     <tbody>
         <tr style="height: 50px;text-align:center;">
             <td colspan="2" style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width: 450px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;width: 350px;">
                     <strong>
                         <span style="font-family:montserrat;color:white;">DESCRIPTION</span>
                     </strong>
@@ -227,7 +227,7 @@
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:150px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:200px;">
                     <strong>
                         <span style="color:white;">PU (F CFA)</span>
                     </strong>
