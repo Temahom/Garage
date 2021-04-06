@@ -23,7 +23,7 @@
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width:100%;border:none;height:232px;">
+            <td style="border:none;height:232px;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
                     <span><img width="102" src="http://garage-saka.herokuapp.com/assets/images/logo.png" alt="image"></span>
                 </p>
@@ -45,12 +45,12 @@
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width:100%;border:none;">
+            <td style="border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
+            <td style="border:none;border-bottom:solid #BFBFBF 1px;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
                     <strong>
                         <span style="font-family:montserrat;color:#1F3864;font-size: 20px;">{{$facture->created_at}}</span>
@@ -74,12 +74,12 @@
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width:100%;border:none;">
+            <td style="border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width:100%;border:none;">
+            <td style="border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -101,12 +101,12 @@
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width:100%;border:none;">
+            <td style="border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
+            <td style="border:none;border-bottom:solid #BFBFBF 1px;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
                     <strong>
                         <span style="font-family:montserrat;color:#1F3864;font-size: 25px;">N°:{{$facture->numero}}</span>
@@ -213,28 +213,28 @@
     <tbody>
         <tr style="height: 50px;text-align:center;">
             <td colspan="2" style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width: 700px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;width: 600px;">
                     <strong>
                         <span style="font-family:montserrat;color:white;">DESCRIPTION</span>
                     </strong>
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:250px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:150px;">
                     <strong>
                         <span style="color:white;">QUANTIT&Eacute;</span>
                     </strong>
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:250px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;width:200px;">
                     <strong>
                         <span style="color:white;">PRIX UNITAIRE (F CFA)</span>
                     </strong>
                 </p>
             </td>
             <td style="border:none;border-bottom:solid #BFBFBF 1px;background:#838181;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;witdh:100px;">
                     <strong>
                         <span style="font-family:montserrat;color:white;">TOTAL (F CFA)</span>
                     </strong>
@@ -256,13 +256,13 @@
                                 <span>{{ $le_devi->produit }}</span>
                             </p>
                         </td>
-                        <td style="width:53.25px;border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                            <p style="line-height:normal;font-size:20px;font-family:montserrat;width:200px;">
+                        <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;width:150px;">
+                            <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                                 <span>{{$le_devi->pivot->quantite }}</span>
                             </p>
                         </td>
-                        <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                            <p style="line-height:normal;font-size:20px;font-family:montserrat;width:200px;">
+                        <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;width:150px;">
+                            <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                                 <span>{{ number_format($le_devi->prix1, 0, ',', ' ') }}</span>
                             </p>
                         </td>
@@ -270,8 +270,8 @@
                             $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
                         
                          @endphp
-                        <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;">
-                            <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;width:200px;">
+                        <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;width:150px;">
+                            <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
                                 <span>{{ number_format($le_devi->pivot->quantite * $le_devi->prix1, 0, ',', ' ') }}</span>
                             </p>
                         </td>
@@ -289,7 +289,7 @@
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width: 53.25px;border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;height: 19px;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -301,7 +301,7 @@
                     </strong>
                 </p>
             </td>
-            <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
+            <td style="border:none;border-bottom:solid #BFBFBF 1px;witdh:150px;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
                     <span style="font-family:montserrat;">{{ number_format($prixHT, 0, ',', ' ') }}</span>
                 </p>
@@ -313,7 +313,7 @@
                     <span style="font-size:18px;background:white;">Remarques, notes et instructions de paiement:</span>
                 </p>
             </td>
-            <td style="width: 53.25px;border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;height: 19px;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -327,7 +327,7 @@
                         </strong>
                     </p>
                 </td>
-                <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
+                <td style="border:none;border-bottom:solid #BFBFBF 1px;">
                     <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
                         <span style="font-family:montserrat;">{{ number_format($devi->cout, 0, ',', ' ') }}</span>
                     </p>
@@ -336,7 +336,7 @@
             @endif
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td style="width: 53.25px;border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;height: 19px;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -348,14 +348,14 @@
                     </strong>
                 </p>
             </td>
-            <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
+            <td style="border:none;border-bottom:solid #BFBFBF 1px;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
                     <span style="font-family:montserrat;">{{ number_format($prix_total, 0, ',', ' ') }}</span>
                 </p>
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td style="width: 53.25px;border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;height: 19px;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -367,7 +367,7 @@
                     </strong>
                 </p>
             </td>
-            <td style="width:100%;border:none;border-bottom:solid #BFBFBF 1px;">
+            <td style="border:none;border-bottom:solid #BFBFBF 1px;">
                 @php
                 $cout=0;
                     if(isset($devi)){
@@ -380,7 +380,7 @@
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
-            <td style="width: 53.25px;border: none;height: 19px;vertical-align: bottom;">
+            <td style="border: none;height: 19px;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -392,7 +392,7 @@
                     <span>&nbsp;</span>
                 </p>
             </td>
-            <td style="width: 53.25px;border: none;height: 33px;vertical-align: bottom;">
+            <td style="border: none;height: 33px;vertical-align: bottom;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
                 </p>
@@ -404,8 +404,8 @@
                     </strong>
                 </p>
             </td>
-            <td style="width:100%;border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
-                <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:right;">
+            <td style="width:250px;border:none;border-bottom:solid black 1px;background:#eaead3;height:33.0px;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;text-align:center;">
                     <strong>
                         <span style="font-size:16px;font-family:montserrat;">{{ number_format($prix_total+$prixHT+$cout, 0, ',', ' ') }}</span>
                     </strong>
