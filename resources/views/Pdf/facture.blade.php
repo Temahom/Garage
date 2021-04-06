@@ -377,6 +377,13 @@
             </td>
         </tr>
         <tr style="height: 30px;text-align:center;">
+            <td style="border: none;height: 19px;vertical-align: bottom;">
+                <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                    <span>&nbsp;</span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height: 30px;text-align:center;">
             <td colspan="2" style="border:none;height:33.0px;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
                     <span>&nbsp;</span>
