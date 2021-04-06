@@ -254,12 +254,12 @@
                             </p>
                         </td>
                         <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;width:100px;">
-                            <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                            <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                                 <span>{{$le_devi->pivot->quantite }}</span>
                             </p>
                         </td>
                         <td style="border-top:none;border-left:none;border-bottom:solid #BFBFBF 1px;border-right:solid #BFBFBF 1px;width:100px;">
-                            <p style="line-height:normal;font-size:20px;font-family:montserrat;">
+                            <p style="line-height:normal;font-size:15px;font-family:montserrat;">
                                 <span>{{ number_format($le_devi->prix1, 0, ',', ' ') }}</span>
                             </p>
                         </td>
