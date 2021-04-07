@@ -20,6 +20,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\FullCalendarController;
  use App\Http\Controllers\TestController;
 
+ use App\Http\Controllers\ApprovisionnementController;
 
 use Illuminate\Support\Facades\App;
 use App\Models\Voiture;
@@ -146,3 +147,4 @@ Route::get('/gestion_stock', function () {
     return view('gestion_stock');
 });
 
+Route::resource('/approvisionnements', ApprovisionnementController::class);
