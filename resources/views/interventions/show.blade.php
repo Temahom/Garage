@@ -1,14 +1,8 @@
 @extends('layout.index')
 
 @section('content')
-@if($message = Session::get('devis-send'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-	<strong>{{$message}}</strong>
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	  <span aria-hidden="true">&times;</span>
-	</button>
-  </div>
-@endif
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
+
 
 @include('voitures._partials.carinformation')
 
@@ -289,7 +283,25 @@
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
 <script src="/assets/libs/js/main-js.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
 
+{{-- Le notifiaction des devis  --}}
+@if(Session::has('devis-send'))
+<script>
+	toastr.success("{!! Session::get('devis-send') !!}")
+</script>
+@endif
 
+@if(Session::has('payer_facture'))
+<script>
+	toastr.success("{!! Session::get('payer_facture') !!}")
+</script>
+@endif
+
+@if(Session::has('creer_facture'))
+<script>
+	toastr.success("{!! Session::get('creer_facture') !!}")
+</script>
+@endif
 @endsection
 

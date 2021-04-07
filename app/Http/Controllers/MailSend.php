@@ -43,7 +43,7 @@ class MailSend extends Controller
                     ];
                     
                     \Mail::to($devi_client->email)->send(new SendMail($details));
-                    return redirect('/voitures/'.$intervention->voiture_id.'/interventions/'.$intervention->id)->with('devis-send','Envoi réussi');
+                    return redirect('/voitures/'.$intervention->voiture_id.'/interventions/'.$intervention->id)->with('devis-send','Le devis a été envoyer à '. $devi_client->email .'avec succés');
                     //return view('emails.thanks');
                 }
 
