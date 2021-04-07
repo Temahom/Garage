@@ -47,7 +47,7 @@ class ApprovisionnementController extends Controller
         Approvisionnement::create($request->all());
 
         return redirect()->route('approvisionnements.index')
-            ->with('success', 'approvisionnements created successfully.');
+            ->with('success', 'Un nouveau approvisionnement a été ajouté !!!');
     }
 
     /**
@@ -81,15 +81,15 @@ class ApprovisionnementController extends Controller
     public function update(Request $request, Approvisionnement $approvisionnement)
     {
         $request->validate([
-            'name' => 'required',
-            'introduction' => 'required',
-            'location' => 'required',
-            'cost' => 'required'
+            'fournisseur' => 'required',
+            'nomProduit' => 'required',
+            'qteTotale' => 'required',
+            'prixTotal' => 'required'
         ]);
         $approvisionnement->update($request->all());
 
         return redirect()->route('approvisionnements.index')
-            ->with('success', 'approvisionnements updated successfully');
+            ->with('success', 'Approvisionnemment modifié avec succès !!!');
     }
     /**
      * Remove the specified resource from storage.
@@ -102,6 +102,6 @@ class ApprovisionnementController extends Controller
         $approvisionnement->delete();
 
         return redirect()->route('approvisionnements.index')
-            ->with('success', 'approvisionnements deleted successfully');
+            ->with('success', 'Approvisionnement supprimé avec succès !!!');
     }
 }
