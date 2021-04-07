@@ -26,7 +26,7 @@
             
             <div class="form-group">
                 <strong>Prénoms:</strong>
-                <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" placeholder="Prenoms" autocomplete="off" value="{{ old('prenom') }}">
+                <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" placeholder="Prenoms du Fournisseur" autocomplete="off" value="{{ old('prenom') }}">
                 <div class="invalid-feedback">
                     @if($errors->has('prenom'))
                     {{ $errors->first('prenom') }}
@@ -36,7 +36,7 @@
 
             <div class="form-group">
                 <strong>Nom :</strong>
-                <input type="text" name="nom" class="form-control  @error('nom') is-invalid @enderror" placeholder="Nom" autocomplete="off" value="{{ old('nom') }}">
+                <input type="text" name="nom" class="form-control  @error('nom') is-invalid @enderror" placeholder="Nom du Fournisseur" autocomplete="off" value="{{ old('nom') }}">
                 <div class="invalid-feedback">
                     @if($errors->has('nom'))
                     {{ $errors->first('nom') }}
@@ -61,7 +61,7 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
                 <strong>Entreprise :</strong>
-                <input type="text" name="entreprise" class="form-control" placeholder="Entreprise" autocomplete="off"  value="{{ old('entreprise') }}">
+                <input type="text" name="entreprise" class="form-control" placeholder="Entreprise du Fournisseur" autocomplete="off"  value="{{ old('entreprise') }}">
             </div>
                 <div class="invalid-feedback">
                     @if($errors->has('entreprise'))
@@ -80,7 +80,7 @@
             </div>
             <div class="form-group">
                 <strong>Email :</strong>
-                <input type="email" name="email" class="form-control" placeholder="Email"  value="{{ old('email') }}">
+                <input type="email" name="email" class="form-control" placeholder="Email du Fournisseur"  value="{{ old('email') }}">
                 <div class="invalid-feedback">
                     @if($errors->has('email'))
                     {{ $errors->first('email') }}
