@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\DeviController;
 use App\Http\Controllers\DiagnosticController;
 use App\Http\Controllers\FactureController;
@@ -27,6 +28,7 @@ use App\Models\Diagnostic;
 use App\Models\Intervention;
 use App\Models\Devi;
 use App\Models\Produit;
+use app\Models\Fournisseur;
 
      
 /*
@@ -73,6 +75,7 @@ Route::middleware('auth')->group(function () {
     Route::get('facture/{id}/payer',[FactureController::class,'facture_diagnostic_payer']);
     Route::resource('produits',ProduitController::class);
     Route::resource('clients',ClientController::class);  
+    Route::resource('fournisseurs',FournisseurController::class);
     Route::get('clients-mois',[ClientController::class, 'index_mois'])->name('clients-mois');  
     Route::resource('clients.voitures', VoitureController::class);
     Route::resource('factures',FactureController::class);
@@ -145,4 +148,5 @@ Route::get('/google_map', function () {
 Route::get('/gestion_stock', function () {
     return view('gestion_stock');
 });
+
 
