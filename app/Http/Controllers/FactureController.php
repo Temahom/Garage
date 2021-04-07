@@ -102,7 +102,7 @@ class FactureController extends Controller
         $facture->numero=time();
         $facture->diagnostic_id=$id;
         $facture->save();
-        return redirect()->back()->with("creer_facture","Facture Générer avec succes");
+        return redirect()->back()->with("creer_facture","Facture générer avec succes");
 
 
     }
