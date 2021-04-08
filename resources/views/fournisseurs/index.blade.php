@@ -116,7 +116,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 	<script>
 		function showFournisseur(id)
 		{
-			window.location = 'fournisseurs/' + id ;
+			window.location = '/fournisseurs/' + id ;
 		}
 	</script>
 
