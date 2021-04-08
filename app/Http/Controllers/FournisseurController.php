@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Fournisseur;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class FournisseurController extends Controller
 {
@@ -102,7 +103,7 @@ class FournisseurController extends Controller
      */
     public function show(Fournisseur $fournisseur)
     {
-        $produits = $fournisseur->produits()->paginate();
+       // $produits = $fournisseur->produits()->paginate();
         return view('fournisseurs.show', compact('fournisseur'));
        // return view('fournisseurs.show',compact('fournisseur','produits'));
     }
@@ -127,9 +128,8 @@ class FournisseurController extends Controller
      */
     public function update(Request $request,Fournisseur $fournisseur)
     {   
-        
       //  $this->authorize('update', $fournisseur);
-        $request->validate([
+       $request->validate([
         'nom' => 'required',
         'prenom' => 'required',
         'genre' => 'required',
@@ -141,7 +141,7 @@ class FournisseurController extends Controller
         $fournisseur->update($request->all());
 
          return redirect()->route('fournisseurs.index')
-        ->with('success','Fournisseur Modifié !!');
+        ->with('success','Fournisseur Modifié !!');            
     }
 
 
