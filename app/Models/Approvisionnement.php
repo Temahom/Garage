@@ -13,10 +13,15 @@ class Approvisionnement extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'fournisseur',
         'nomProduit',
         'qteTotale',
         'prixTotal',
-        'cost'
+        'fournisseur_id',
     ];
+
+    public function fournisseur()
+    {
+        return $this->belongsTo(Fournisseur::class);
+    }
+
 }

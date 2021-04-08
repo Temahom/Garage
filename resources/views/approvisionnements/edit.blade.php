@@ -36,7 +36,7 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Fournisseur:</strong>
-                    <input type="text" name="fournisseur" value="{{ $approvisionnement->fournisseur }}" class="form-control" placeholder="fournisseur">
+                    <input type="text" name="fournisseur" value="{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}" class="form-control" placeholder="fournisseur" onFocus="this.blur()">
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">

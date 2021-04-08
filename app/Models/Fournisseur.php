@@ -10,6 +10,12 @@ class Fournisseur extends Model
     use HasFactory;
 
     protected $fillable = ['nom','prenom','genre','entreprise','telephone','email'];
+
+    public function approvisionnement()
+    {
+        return $this->hasMany(Approvisionnement::class);
+    }
+
   /*   public function produits()
     {
        return $this->hasMany('App\Models\Produit');
