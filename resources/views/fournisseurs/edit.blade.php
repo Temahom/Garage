@@ -11,13 +11,13 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Modifier Client</h2>
+                <h2>Modifier Le Fournisseur</h2>
             </div>
         </div>
     </div>
    
   
-    <form action="{{ route('clients.update',$client->id) }}" method="POST">
+    <form action="{{ route('fournisseurs.update',$fournisseur->id) }}" method="POST">
         @csrf
         @method('PUT')
    
@@ -26,8 +26,8 @@
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Prénoms:</strong>
-                    <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" value="{{ $client->prenom }}" placeholder="Prenoms" >
+                    <strong>Prénoms du Fournisseur:</strong>
+                    <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror" value="{{ $fournisseur->prenom }}" placeholder="Prenoms du Fournisseur" >
                     <div class="invalid-feedback">
                         @if($errors->has('prenom'))
                         {{ $errors->first('prenom') }}
@@ -36,8 +36,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <strong>Nom:</strong>
-                    <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ $client->nom }}" placeholder="Nom">
+                    <strong>Nom du Fournisseur:</strong>
+                    <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ $fournisseur->nom }}" placeholder="Nom du Fournisseur">
                     <div class="invalid-feedback">
                         @if($errors->has('nom'))
                         {{ $errors->first('nom') }}
@@ -48,14 +48,14 @@
                 <div class="form-group">
                     <strong>Genre:</strong>
                     <select class="form-control" name="genre" id="genre">
-                        @if($client->genre=="homme")
+                        @if($fournisseur->genre=="homme")
 
-                      <option style="text-transform: capitalize !important;" value="{{$client->genre}}" >
-                        {{$client->genre}}</option>
+                      <option style="text-transform: capitalize !important;" value="{{$fournisseur->genre}}" >
+                        {{$fournisseur->genre}}</option>
                         <option value="femme">Femme</option>
                         @else
-                        <option style="text-transform: capitalize !important;" value="{{$client->genre}}" >
-                        {{$client->genre}}</option>
+                        <option style="text-transform: capitalize !important;" value="{{$fournisseur->genre}}" >
+                        {{$fournisseur->genre}}</option>
                       <option value="homme">Homme</option>
                       @endif
                     </select>
@@ -64,13 +64,13 @@
 
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Entreprise:</strong>
-                    <input type="text" name="entreprise" value="{{ $client->entreprise }}" class="form-control" placeholder="Entreprise" >
+                    <strong>Entreprise du Fournisseur:</strong>
+                    <input type="text" name="entreprise" value="{{ $fournisseur->entreprise }}" class="form-control" placeholder="Entreprise du Fournisseur" >
                 </div>
 
                 <div class="form-group">
-                    <strong>Téléphone:</strong>
-                    <input type="text" name="telephone" value="{{ $client->telephone }}" class="form-control @error('telephone') is-invalid @enderror" placeholder="telephone" >
+                    <strong>Téléphone du Fournisseur:</strong>
+                    <input type="text" name="telephone" value="{{ $fournisseur->telephone }}" class="form-control @error('telephone') is-invalid @enderror" placeholder="telephone du Fournisseur" >
                     <div class="invalid-feedback">
                         @if($errors->has('telephone'))
                         {{ $errors->first('telephone') }}
@@ -78,8 +78,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <strong>Email:</strong>
-                    <input type="email" name="email" value="{{ $client->email }}" class="form-control  @error('email') is-invalid @enderror" placeholder="Email" >
+                    <strong>Email du Fournisseur:</strong>
+                    <input type="email" name="email" value="{{ $fournisseur->email }}" class="form-control  @error('email') is-invalid @enderror" placeholder="Email du Fournisseur" >
                     @if($errors->has('email'))
                     {{ $errors->first('email') }}
                     @endif
@@ -88,7 +88,7 @@
 
             
             <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
-                <a class="btn btn-secondary" href="{{ route('clients.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
+                <a class="btn btn-secondary" href="{{ route('fournisseurs.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
             <button type="submit" class="btn btn-success">Enregistrer</button>
             </div>
 

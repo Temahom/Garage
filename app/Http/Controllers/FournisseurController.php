@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 use App\Models\Fournisseur;
+<<<<<<< HEAD
 use App\Models\Approvisionnement;
 use Rule;
 
 
+=======
+use Carbon\Carbon;
+>>>>>>> 7c9cb6edaaec67b9fb9308cbc0e28932db10366f
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class FournisseurController extends Controller
 {
@@ -105,8 +110,14 @@ class FournisseurController extends Controller
      */
     public function show(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
+<<<<<<< HEAD
         $approvisionnements = $fournisseur->approvisionnements()->get();
         return view('fournisseurs.show',compact('fournisseur','approvisionnements'));
+=======
+       // $produits = $fournisseur->produits()->paginate();
+        return view('fournisseurs.show', compact('fournisseur'));
+       // return view('fournisseurs.show',compact('fournisseur','produits'));
+>>>>>>> 7c9cb6edaaec67b9fb9308cbc0e28932db10366f
     }
 
     /**
@@ -129,9 +140,8 @@ class FournisseurController extends Controller
      */
     public function update(Request $request,Fournisseur $fournisseur)
     {   
-        
       //  $this->authorize('update', $fournisseur);
-        $request->validate([
+       $request->validate([
         'nom' => 'required',
         'prenom' => 'required',
         'genre' => 'required',
@@ -143,7 +153,7 @@ class FournisseurController extends Controller
         $fournisseur->update($request->all());
 
          return redirect()->route('fournisseurs.index')
-        ->with('success','Fournisseur Modifié !!');
+        ->with('success','Fournisseur Modifié !!');            
     }
 
 
