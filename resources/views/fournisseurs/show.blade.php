@@ -54,7 +54,6 @@
     </div>
     
   
-<<<<<<< HEAD
                 
 
     <div class="row">
@@ -70,7 +69,7 @@
             <div class="col-xs-3 col-sm-3 col-md-3">     
         </div></div>
         <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 "><br>
+        <div class="col-xs-12 col-sm-12 col-md-12 ">
           
             <div class="card">
                 <div class="card-body">
@@ -82,7 +81,7 @@
                         <th style="color: white;">Quantité Totale</th>
                         <th style="color: white;">Prix Total</th>
                         <th style="color: white;">Date d'entrée</th>
-                        <th style="color: white;">Action</th>
+                        <th style="color: white; text-align: center">Action</th>
                     </tr>
                 </thead>
                 @foreach ($approvisionnements as $approvisionnement)
@@ -91,12 +90,45 @@
                     <td>{{ $approvisionnement->qteTotale}}</td>
                     <td>{{ $approvisionnement->prixTotal}}</td>
                     <td>{{ $approvisionnement->created_at}}</td>
-                    <td>
-                    <form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">   
-                            <a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('approvisionnements.edit',$approvisionnement->id) }}"><i class="fas fa-edit"></i></a>   
+                    <td style="color: white; text-align: center">
+                        <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST">
+
+                         <!--   <a href="{{ route('approvisionnements.show', $approvisionnement->id) }}" title="show">
+                                <i class="fas fa-eye text-success  fa-lg"></i>
+                            </a> -->
+
+                            <a href="{{ route('approvisionnements.edit', $approvisionnement->id) }}">
+                                <i class="fas fa-edit  fa-lg"></i>
+
+                            </a>
+
                             @csrf
-                            @method('DELETE')      
-                            <button type="submit" class="btn btn-danger p-0 pr-2 pl-2 hide_delete"><i class="fas fa-trash-alt"></i></button>
+                            @method('DELETE')
+
+                            <button type="button" class="btn btn-danger p-0 pr-2 pl-2 " data-toggle="modal" data-target="#exampleModal{{ $approvisionnement->id }}" onclick="OnOff();">
+                                <i class="fas fa-trash"></i>
+                            </button>
+
+                                    <div class="modal fade" id="exampleModal{{ $approvisionnement->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <h5>Voulez vous supprimer </h5>
+                                                    <h5>l'Approvisionnement de <strong>{{ $approvisionnement->nomProduit}}</strong></h5>
+                                                    <h5>Quantité Totale : <strong>{{ $approvisionnement->qteTotale}}</strong> | Prix Total : <strong>{{ $approvisionnement->prixTotal}} cfa</strong></h5>
+                                                    <h5> du fournisseur <strong>{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</strong>  ?</h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                    <form action="{{route('approvisionnements.destroy',$approvisionnement->id)}}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                    </form>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
                         </form>
                     </td>
                 </tr>
@@ -125,11 +157,4 @@
 			window.location = '/approvisionnements/' + id ;
 		}
 	</script>
-=======
-  
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
-
->>>>>>> 7c9cb6edaaec67b9fb9308cbc0e28932db10366f
 @endsection

@@ -2,14 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Fournisseur;
-<<<<<<< HEAD
 use App\Models\Approvisionnement;
-use Rule;
-
-
-=======
-use Carbon\Carbon;
->>>>>>> 7c9cb6edaaec67b9fb9308cbc0e28932db10366f
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -110,14 +103,8 @@ class FournisseurController extends Controller
      */
     public function show(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
-<<<<<<< HEAD
         $approvisionnements = $fournisseur->approvisionnements()->get();
         return view('fournisseurs.show',compact('fournisseur','approvisionnements'));
-=======
-       // $produits = $fournisseur->produits()->paginate();
-        return view('fournisseurs.show', compact('fournisseur'));
-       // return view('fournisseurs.show',compact('fournisseur','produits'));
->>>>>>> 7c9cb6edaaec67b9fb9308cbc0e28932db10366f
     }
 
     /**
