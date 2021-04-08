@@ -11,13 +11,9 @@ class Fournisseur extends Model
 
     protected $fillable = ['nom','prenom','genre','entreprise','telephone','email'];
 
-    public function approvisionnement()
+    public function approvisionnements()
     {
         return $this->hasMany(Approvisionnement::class);
     }
 
-  /*   public function produits()
-    {
-       return $this->hasMany('App\Models\Produit');
-    }         */
 }

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Fournisseur;
+use App\Models\Approvisionnement;
+use Rule;
+
 
 use Illuminate\Http\Request;
 
@@ -100,11 +103,10 @@ class FournisseurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Fournisseur $fournisseur)
+    public function show(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
-        $produits = $fournisseur->produits()->paginate();
-        return view('fournisseurs.show', compact('fournisseur'));
-       // return view('fournisseurs.show',compact('fournisseur','produits'));
+        $approvisionnements = $fournisseur->approvisionnements()->get();
+        return view('fournisseurs.show',compact('fournisseur','approvisionnements'));
     }
 
     /**

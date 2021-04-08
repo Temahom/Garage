@@ -63,7 +63,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 row">
             <div class="col-xs-9 col-sm-9 col-md-9">     
                 <div class="pull-right py-3">
-                    <a class="btn btn-secondary" href="{{route('clients.voitures.create',['client'=>$client->id])}}"><i class="fas fa-plus"></i> Nouvelle Voiture</a>
+                    <a class="btn btn-secondary" href="{{route('fournisseurs.approvisionnements.create',['fournisseur'=>$fournisseur->id])}}"><i class="fas fa-plus"></i> Nouveau Approvisionnement</a>
                 </div>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">     
@@ -72,35 +72,27 @@
         <div class="col-xs-12 col-sm-12 col-md-12 "><br>
           
             <div class="card">
-                <!--<div class="card-header">
-                    <h3 class="mb-0 text-center">La Liste de clients</h3>
-                    {{-- <p>This example shows FixedHeader being styled by the Bootstrap 4 CSS framework.</p> --}}
-                </div>-->
                 <div class="card-body">
                     <div class="table-responsive">
                     <table id="example4" class="table  table-striped table-bordered" style="width:100%">
                 <thead class="" style="background-color: #4656E9;">
                     <tr>
-                        <th style="color: white;">Matricule</th>
-                        <th style="color: white;">Marque</th>
-                        <th style="color: white;">Model</th>
-                        <th style="color: white;">Annee</th>
-                        <th style="color: white;">Carburant</th>
-                        <th style="color: white;">Puissance</th>
+                        <th style="color: white;">Nom du Produit</th>
+                        <th style="color: white;">Quantité Totale</th>
+                        <th style="color: white;">Prix Total</th>
+                        <th style="color: white;">Date d'entrée</th>
                         <th style="color: white;">Action</th>
                     </tr>
                 </thead>
-                @foreach ($voitures as $voiture)
+                @foreach ($approvisionnements as $approvisionnement)
                 <tr>
-                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer;"><i class="fas fa-car"></i> {{ $voiture->matricule}}</td>
-                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->marque}}</td>
-                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->model}}</td>
-                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->annee}}</td>
-                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->carburant}}</td>
-                    <td onclick="showVoiture({{ $voiture->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $voiture->puissance}}</td>
+                    <td>{{ $approvisionnement->nomProduit}}</td>
+                    <td>{{ $approvisionnement->qteTotale}}</td>
+                    <td>{{ $approvisionnement->prixTotal}}</td>
+                    <td>{{ $approvisionnement->created_at}}</td>
                     <td>
-                    <form action="{{ route('voitures.destroy',$voiture->id) }}" method="POST">   
-                            <a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('voitures.edit',$voiture->id) }}"><i class="fas fa-edit"></i></a>   
+                    <form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">   
+                            <a class="btn btn-primary p-0 pr-2 pl-2" href="{{ route('approvisionnements.edit',$approvisionnement->id) }}"><i class="fas fa-edit"></i></a>   
                             @csrf
                             @method('DELETE')      
                             <button type="submit" class="btn btn-danger p-0 pr-2 pl-2 hide_delete"><i class="fas fa-trash-alt"></i></button>
@@ -115,14 +107,10 @@
         </div>
          </div>
          </div>
-         <div class="row">
-            <div class="col-md-12 mt-3 d-flex justify-content-center">
-                {!! $voitures->render() !!}
-            </div>
-        </div>
+         
         <div class="row">
             <div class="col-md-12 ml-3 mt-3">
-                <a class="btn btn-secondary" href="{{ route('clients.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
+                <a class="btn btn-secondary" href="{{ route('fournisseurs.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
             </div>
          </div>
            
@@ -131,9 +119,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
 	<script>
-		function showVoiture(id)
+		function showApprovisionnement(id)
 		{
-			window.location = '/voitures/' + id ;
+			window.location = '/approvisionnements/' + id ;
 		}
 	</script>
 @endsection

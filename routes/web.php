@@ -151,3 +151,4 @@ Route::get('/gestion_stock', function () {
 });
 
 Route::resource('/approvisionnements', ApprovisionnementController::class);
+Route::resource('fournisseurs.approvisionnements',ApprovisionnementController::class);
