@@ -42,12 +42,12 @@
                     <tbody>
                         @foreach ($approvisionnements as $approvisionnement)
                             <tr>
-                                <td>{{ $approvisionnement->id }}</td>
-                                <td>{{ $approvisionnement->fournisseur }}</td>
-                                <td>{{ $approvisionnement->nomProduit }}</td>
-                                <td>{{ $approvisionnement->qteTotale }}</td>
-                                <td>{{ $approvisionnement->prixTotal }}</td>
-                                <td>{{ date_format($approvisionnement->created_at, 'jS M Y') }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->nomProduit }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->qteTotale }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->prixTotal }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ date_format($approvisionnement->created_at, 'jS M Y') }}</td>
                                 <td style="color: white; text-align: center">
                                     <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST">
 
@@ -74,7 +74,7 @@
                                                                 <h5>Voulez vous supprimer </h5>
                                                                 <h5>l'Approvisionnement de <strong>{{ $approvisionnement->nomProduit}}</strong></h5>
                                                                 <h5>Quantité Totale : <strong>{{ $approvisionnement->qteTotale}}</strong> | Prix Total : <strong>{{ $approvisionnement->prixTotal}} cfa</strong></h5>
-                                                                <h5> du fournisseur <strong>{{ $approvisionnement->fournisseur }} </strong>  ?</h5>
+                                                                <h5> du fournisseur <strong>{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</strong>  ?</h5>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

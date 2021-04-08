@@ -30,10 +30,23 @@
             @csrf
             <div class="row">    
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6">    
                         <div class="form-group">
-                            <strong>Fournisseur:</strong>
-                            <input type="text" name="fournisseur" class="form-control" placeholder="nom du fournisseur">
+                            <strong>Fournisseur</strong>
+                                <select name="fournisseur_id" class="custom-select form-control  @error('fournisseur_id') is-invalid @enderror" >
+                                    @if(!empty($fournisseur->id))
+                                        <option value="{{$fournisseur->id}}">{{$fournisseur->prenom.' '.$fournisseur->nom}}</option>
+                                    @else   
+                                        @foreach( $fournisseurs as $fournisseur ) 
+                                            <option value="{{$fournisseur->id}}" {{ old('fournisseur_id') == ($fournisseur->id) ? 'selected' : '' }} {{$approvisionnement->fournisseur_id == $fournisseur->id ? 'selected':'' }}>{{$fournisseur->prenom.' '.$fournisseur->nom}}</option>
+                                        @endforeach 
+                                    @endif
+                                </select>
+                                <div class="invalid-feedback">
+                                  @if($errors->has('fournisseur_id'))
+                                    Le champs Fournisseur est obligatoire.
+                                  @endif
+                                </div>
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">

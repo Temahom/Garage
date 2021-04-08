@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Approvisionnement;
+use App\Models\Fournisseur;
 use Illuminate\Http\Request;
 
 class ApprovisionnementController extends Controller
@@ -24,9 +25,11 @@ class ApprovisionnementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
-        return view('approvisionnements.create');
+       //$this->authorize('create', Approvisionnement::class);
+       $fournisseurs= Fournisseur::all();
+       return view('approvisionnements.create',compact('fournisseurs','fournisseur', 'approvisionnement'));
     }
 
     /**
@@ -38,10 +41,10 @@ class ApprovisionnementController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fournisseur' => 'required',
             'nomProduit' => 'required',
             'qteTotale' => 'required',
-            'prixTotal' => 'required'
+            'prixTotal' => 'required',
+            'fournisseur_id' => 'required'
         ]);
 
         Approvisionnement::create($request->all());
