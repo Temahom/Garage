@@ -168,7 +168,7 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
-                    <span style="font-family:montserrat;font-size: 22px;">{{$client[0]->prenom}} {{$client[0]->nom}}</span>
+                    <span style="font-family:montserrat;font-size: 22px;">{{$client->prenom}} {{$client->nom}}</span>
                 </p>
             </td>
             <td style="border:none;">
@@ -181,14 +181,14 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
-                    <span style="font-family:montserrat;font-size: 22px;">{{$client[0]->entreprise}} </span>
+                    <span style="font-family:montserrat;font-size: 22px;">{{$client->entreprise}} </span>
                 </p>
             </td>
         </tr>
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
-                    <span style="font-size:22px;font-family:montserrat;">{{$client[0]->telephone}} </span>
+                    <span style="font-size:22px;font-family:montserrat;">{{$client->telephone}} </span>
                 </p>
             </td>
             
@@ -196,7 +196,7 @@
         <tr>
             <td style="width:210.65px;border:none;">
                 <p style="line-height:normal;font-size:20px;font-family:montserrat;">
-                    <span style="background:white;font-size: 22px;">{{$client[0]->email}} </span>
+                    <span style="background:white;font-size: 22px;">{{$client->email}} </span>
                 </p>
             </td>
            

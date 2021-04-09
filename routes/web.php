@@ -72,8 +72,8 @@ Route::get('diag-pdf/{id}',function($id){
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('facture/{id}',[FactureController::class,'facture_diagnostic']);
-    Route::get('facture/{id}/payer',[FactureController::class,'facture_diagnostic_payer']);
+    Route::get('facture/{id}',[FactureController::class,'generer_facture']);
+    Route::get('facture/{id}/payer',[FactureController::class,'facture_payer']);
     Route::resource('produits',ProduitController::class);
     Route::resource('clients',ClientController::class);  
     Route::resource('fournisseurs',FournisseurController::class);
