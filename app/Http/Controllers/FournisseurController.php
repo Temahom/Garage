@@ -17,7 +17,7 @@ class FournisseurController extends Controller
     {
         //dd($request);
         
-        $fournisseurs = Fournisseur::latest()->paginate(5);
+        $fournisseurs = Fournisseur::latest()->paginate(20);
 
         return view('fournisseurs.index', compact('fournisseurs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -69,11 +69,8 @@ class FournisseurController extends Controller
                 'email' => 'unique:fournisseurs'
             ]);
     
-            Fournisseur::create($request->all());
+           // Fournisseur::create($request->all());
     
-            return redirect()->route('fournisseurs.index')
-                ->with('success', 'Fournisseur Enrégistré !!!');
-
           /*  $data = request()->validate([
             'nom' => 'required',
             'prenom' => 'required',
@@ -81,7 +78,7 @@ class FournisseurController extends Controller
             'entreprise' => 'max:200',
             'telephone' => 'required|unique:fournisseurs',
             'email' => 'unique:fournisseurs'
-            ]);
+            ]); */
             $fournisseur = new Fournisseur();
             $fournisseur->nom = $request->input('nom');
             $fournisseur->prenom = $request->input('prenom');
@@ -89,11 +86,11 @@ class FournisseurController extends Controller
             $fournisseur->entreprise = $request->input('entreprise'); 
             $fournisseur->telephone = $request->input('telephone');
             $fournisseur->email = $request->input('email');  
-          //  $fournisseur->user_id= $user_id;
+           // $fournisseur->user_id= $user_id;
             $fournisseur->save();
             return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
             ->with('success','Fournisseur Enrégistré');   
-          */  }
+              }
 
     /**
      * Display the specified resource.

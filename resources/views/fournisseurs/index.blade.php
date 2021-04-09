@@ -64,7 +64,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 								<td>
 									<a class="btn btn-succes p-0 pr-2 pl-2" href="{{ route('fournisseurs.edit',$fournisseur->id)}}"><i class="fas fa-edit"></i></a>
 									
-									<button type="button" class="btn btn-danger p-0 pr-2 pl-2 hide_delete" data-toggle="modal" data-target="#exampleModal{{ $fournisseur->id }}" onclick="OnOff();">
+									<button type="button" class="btn btn-danger p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $fournisseur->id }}" onclick="OnOff();">
 										<i class="fas fa-trash"></i>
 									</button>
 
