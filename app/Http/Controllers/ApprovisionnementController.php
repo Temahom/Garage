@@ -47,12 +47,17 @@ class ApprovisionnementController extends Controller
             'fournisseur_id' => 'required'
         ]);
 
-        Approvisionnement::create($request->all());
-
-        return redirect()->route('approvisionnements.index')
-            ->with('success', 'Un nouveau approvisionnement a été ajouté !!!');
+            $approvisionnement = new Approvisionnement;
+            $approvisionnement->nomProduit = $request->input('nomProduit');
+            $approvisionnement->qteTotale = $request->input('qteTotale');
+            $approvisionnement->prixTotal = $request->input('prixTotal');
+            $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
+            $approvisionnement->save();
+            $fournisseur = $approvisionnement->fournisseur()->first()->id;
+            return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
+            ->with('success','Approvisionnement Enrégistré');   
     }
-
+           
     /**
      * Display the specified resource.
      *
@@ -90,8 +95,8 @@ class ApprovisionnementController extends Controller
             'prixTotal' => 'required'
         ]);
         $approvisionnement->update($request->all());
-
-        return redirect()->route('approvisionnements.index')
+        $fournisseur = $approvisionnement->fournisseur()->first()->id;
+        return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
             ->with('success', 'Approvisionnemment modifié avec succès !!!');
     }
     /**
@@ -103,8 +108,8 @@ class ApprovisionnementController extends Controller
     public function destroy(Approvisionnement $approvisionnement)
     {
         $approvisionnement->delete();
-
-        return redirect()->route('approvisionnements.index')
+        $fournisseur = $approvisionnement->fournisseur()->first()->id;
+        return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
             ->with('success', 'Approvisionnement supprimé avec succès !!!');
     }
 }
