@@ -33,10 +33,10 @@ Route::get('chart',function ()
             $intervention=$facture->intervention->first();
            
             if ($intervention->devis_id) {
-                $chiffe_affaires+=$$intervention->devi->cout+$intervention->diagnostic->coût;
+                $chiffe_affaires+=$intervention->devi->cout+$intervention->diagnostic->coût;
                 $devi = Devi::find($intervention->devis_id);
                 $les_devis=$devi->produits()->get();
-                dd($le_devis);
+               // dd($le_devis);
                 foreach ($les_devis as $le_devi) {
                     $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
                 }
