@@ -149,11 +149,14 @@ class InterventionController extends Controller
             }
             $data['devi']['item_devis'] = $item_devis;
         }
-        $facture=Facture::where('diagnostic_id',$intervention->diagnostic_id)->first();
-            if ($facture) {
-                $data['facture']=$facture;
-            }
-        
+        if($intervention->facture_id) {
+            $facture=Facture::find($intervention->facture_id);
+                if ($facture) {
+                    $data['facture']=$facture;
+                }
+            
+
+        }
       //  dd($facture);
         return view('interventions.show', $data);
     }
