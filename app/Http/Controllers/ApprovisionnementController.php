@@ -108,6 +108,7 @@ class ApprovisionnementController extends Controller
     public function destroy(Approvisionnement $approvisionnement)
     {
         $approvisionnement->delete();
+        
         $fournisseur = $approvisionnement->fournisseur()->first()->id;
         return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
             ->with('success', 'Approvisionnement supprimé avec succès !!!');
