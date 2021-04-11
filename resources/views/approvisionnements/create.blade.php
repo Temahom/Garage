@@ -125,7 +125,7 @@
 
                                     
                                 
-                                    <!-- INSPECTION RECUPERER -->
+                                    <!-- AJOUT PRODUITS RECUPERER -->
                                     <div class="row" id="newdefaut">
                                         <div class="divSup col-xs-12 col-sm-12 col-md-12">
                                             <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
@@ -135,28 +135,28 @@
                                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                                     <div class="form-group">
                                                         <strong>Nom du produit:</strong>
-                                                        <input class="form-control" name="nomProduit" placeholder="nom du produit">
+                                                        <input class="form-control" name="plusdechamps[0][nomProduit]" placeholder="nom du produit">
                                                     </div>
                                                 </div> 
                                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                                     <div class="form-group">
                                                         <strong>Quantité Totale:</strong>
-                                                        <input type="number" name="qteTotale" class="form-control" placeholder="qteTotale">
+                                                        <input type="number" name="plusdechamps[0][qteTotale]" class="form-control" placeholder="qteTotale">
                                                     </div>
                                                 </div> 
                                                 <div class="col-xs-12 col-sm-12 col-md-2">
                                                     <div class="form-group">
                                                         <strong>Prix Total:</strong>
-                                                        <input type="number" name="prixTotal" class="form-control" placeholder="prixTotal">
+                                                        <input type="number" name="plusdechamps[0][prixTotal]" class="form-control" placeholder="prixTotal">
                                                     </div>
                                                 </div> 
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- FIN INSPECTION RECUPERER -->
+                                    <!-- FIN AJOUT PRODUITS RECUPERER -->
                                 @endforeach
                             @else
-                                <!-- INSPECTION -->
+                                <!-- AJOUT PRODUITS -->
                                 <div class="row p-3 mb-2" id="newdefaut">
                                     <div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">
                                         <button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>
@@ -167,25 +167,25 @@
                                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                                     <div class="form-group">
                                                         <strong>Nom du produit:</strong>
-                                                        <input class="form-control" name="nomProduit" placeholder="nom du produit">
+                                                        <input class="form-control" name="plusdechamps[0][nomProduit]" placeholder="nom du produit">
                                                     </div>
                                                 </div> 
                                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                                     <div class="form-group">
                                                         <strong>Quantité Totale:</strong>
-                                                        <input type="number" name="qteTotale" class="form-control" placeholder="qteTotale">
+                                                        <input type="number" name="plusdechamps[0][qteTotale]" class="form-control" placeholder="qteTotale">
                                                     </div>
                                                 </div> 
                                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                                     <div class="form-group">
                                                         <strong>Prix Total:</strong>
-                                                        <input type="number" name="prixTotal" class="form-control" placeholder="prixTotal">
+                                                        <input type="number" name="plusdechamps[0][prixTotal]" class="form-control" placeholder="prixTotal">
                                                     </div>
                                                 </div> 
                                             </div>
                                         </div> 
                                 </div>
-                                <!-- FIN INSPECTION -->
+                                <!-- FIN AJOUT PRODUITS -->
                             @endif
                         </div>
                     </div>
@@ -223,19 +223,19 @@
                                                 '<div class="col-xs-12 col-sm-12 col-md-4">'+
                                                     '<div class="form-group">'+
                                                         '<strong>Nom du produit:</strong>'+
-                                                        '<input class="form-control" name="nomProduit" placeholder="nom du produit">'+
+                                                        '<input class="form-control" name="plusdechamps['+i+'][nomProduit]" placeholder="nom du produit">'+
                                                         '</div>'+
                                                         '</div>'+ 
                                                         '<div class="col-xs-12 col-sm-12 col-md-4">'+
                                                             '<div class="form-group">'+
                                                                 '<strong>Quantité Totale:</strong>'+
-                                                                '<input type="number" name="qteTotale" class="form-control" placeholder="qteTotale">'+
+                                                                '<input type="number" name="plusdechamps['+i+'][qteTotale]" class="form-control" placeholder="qteTotale">'+
                                                                 '</div>'+
                                                                 '</div> '+
                                                                 '<div class="col-xs-12 col-sm-12 col-md-4">'+
                                                                     '<div class="form-group">'+
                                                                         '<strong>Prix Total:</strong>'+
-                                                                        '<input type="number" name="prixTotal" class="form-control" placeholder="prixTotal">'+
+                                                                        '<input type="number" name="plusdechamps['+i+'][prixTotal]" class="form-control" placeholder="prixTotal">'+
                                                                         '</div>'+
                                                                         '</div>'+ 
                                                                         '</div>'+
