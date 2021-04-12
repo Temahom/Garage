@@ -21,7 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('chart',function ()
 {
-require_once( __DIR__.'./fonction.php');
+    
+include('fonction.php');
 
 //$chiffe_affaires_imp+=$prixHT_imp;
 /**
