@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Approvisionnement;
 use App\Models\Fournisseur;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class ApprovisionnementController extends Controller
@@ -28,9 +29,24 @@ class ApprovisionnementController extends Controller
     public function create(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
        //$this->authorize('create', Approvisionnement::class);
-       $fournisseurs= Fournisseur::all();
-       return view('approvisionnements.create',compact('fournisseurs','fournisseur', 'approvisionnement'));
-    }
+       $approvisionnement = Approvisionnement::find();
+       if($fournisseur->approvisionnement()->first())
+       {
+           $i = 0;
+           $item_approvisionnements = [];
+           $approvisionnement_produits = $fournisseur->approvisionnement()->first()->approvisionnement_produits()->get();
+           foreach($approvisionnement_produits as $approvisionnement_produit)
+           {
+               $produit = Produit::find($approvisionnement_produits->produit_id);
+               $item_approvisionnements[$i]['approvisionnement_produit'] = $approvisionnement_produit;
+               $item_approvisionnements[$i]['produit'] = $produit;
+               $i++;
+           }
+           return view('approvisionnements.create', compact('fournisseur', 'approvisionnement', 'item_approvisionnements'));
+       }
+       return view('approvisionnements.create', compact('fournisseur'));
+    
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -40,19 +56,19 @@ class ApprovisionnementController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nomProduit' => 'required',
-            'qteTotale' => 'required',
-            'prixTotal' => 'required',
-            'fournisseur_id' => 'required'
-        ]);
 
             $approvisionnement = new Approvisionnement;
-            $approvisionnement->nomProduit = $request->input('nomProduit');
-            $approvisionnement->qteTotale = $request->input('qteTotale');
-            $approvisionnement->prixTotal = $request->input('prixTotal');
             $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
             $approvisionnement->save();
+
+            foreach ($request->plusdechamps as $key => $value) {
+                $approvisionnement = new Approvisionnement();
+                $approvisionnement->nomProduit =  $value['nomProduit'];
+                $approvisionnement->qteTotale =  $value['qteTotale'];
+                $approvisionnement->prixTotal =  $value['prixTotal'];
+                $approvisionnement->save();
+            }
+
             $fournisseur = $approvisionnement->fournisseur()->first()->id;
             return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
             ->with('success','Approvisionnement Enrégistré');   
@@ -88,13 +104,18 @@ class ApprovisionnementController extends Controller
      */
     public function update(Request $request, Approvisionnement $approvisionnement)
     {
-        $request->validate([
-            'fournisseur' => 'required',
-            'nomProduit' => 'required',
-            'qteTotale' => 'required',
-            'prixTotal' => 'required'
-        ]);
-        $approvisionnement->update($request->all());
+        $this->authorize('update', $approvisionnement);
+        $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
+        $approvisionnement->update();
+
+        foreach ($request->plusdechamps as $key => $value) {
+            $approvisionnement = new Approvisionnement();
+            $approvisionnement->nomProduit =  $value['nomProduit'];
+            $approvisionnement->qteTotale =  $value['qteTotale'];
+            $approvisionnement->prixTotal =  $value['prixTotal'];
+            $approvisionnement->save();
+        }
+
         $fournisseur = $approvisionnement->fournisseur()->first()->id;
         return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
             ->with('success', 'Approvisionnemment modifié avec succès !!!');
