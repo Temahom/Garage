@@ -388,7 +388,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 20px;font-family:'Montserrat',sans-serif;" align="left">
         
   <div style="color: #000000; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>{{$numero}}</strong></p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>{{$details['numero'] }}</strong></p>
   </div>
 
       </td>
@@ -445,7 +445,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 20px;font-family:'Montserrat',sans-serif;" align="left">
         
   <div style="color: #000000; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>{{$prix_facture}} <sup>FCFA</sup><br /></strong></p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>{{$details['prix_facture'] }} <sup>FCFA</sup><br /></strong></p>
   </div>
 
       </td>
