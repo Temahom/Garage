@@ -123,7 +123,7 @@ class FactureController extends Controller
         $prix_total=$diagnostic->coût;
 
         $client=Client::find($voiture->client_id);
-        dd($client);
+       // dd($client);
         $prix_total=$diagnostic->coût;
         if (! $intervention->devis_id) {
             //return View('Pdf.facture',compact('prix_total','facture','client'));

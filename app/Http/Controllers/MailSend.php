@@ -74,7 +74,8 @@ class MailSend extends Controller
                     $les_devis=0;
                     $diagnostic=Diagnostic::find($intervention->diagnostic_id);
                     $prix_total=$diagnostic->coût;
-                    $client=$intervention->voiture->client->first();
+                    $voiture=Voiture::find($intervention->voiture_id);
+                    $client=Client::find($voiture->client_id);
                     //dd($client);
                     $prix_total=$diagnostic->coût;
                     $prix_facture=0;
