@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use Carbon\Carbon;
 use App\Models\Devi;
 use App\Models\Facture;
+use App\Models\Voiture;
 use App\Models\Diagnostic;
 use App\Models\Intervention;
 use Illuminate\Http\Request;
-use PDF;
+
 class FactureController extends Controller
 {
     /**
@@ -116,9 +118,10 @@ class FactureController extends Controller
         $prix_total=0;
         $les_devis=0;
         $diagnostic=Diagnostic::find($intervention->diagnostic_id);
+        $voiture=Voiture::find($intervention->voiture_id);
         $prix_total=$diagnostic->coût;
-        $client=$intervention->voiture->client->first();
-        //dd($client);
+        $client=$voiture->client->get();
+        dd($client);
         $prix_total=$diagnostic->coût;
         if (! $intervention->devis_id) {
             //return View('Pdf.facture',compact('prix_total','facture','client'));
@@ -127,7 +130,7 @@ class FactureController extends Controller
         } else {
             $devi = Devi::find($intervention->devis_id);
             $les_devis=$devi->produits()->get();
-                $pdf=PDF::load('Pdf.facture',compact('prix_total','facture','client','les_devis','devi'));
+                $pdf=PDF::loadView('Pdf.facture',compact('prix_total','facture','client','les_devis','devi'));
                 //pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture'));    
                 return $pdf->stream('facture.pdf');
         }
