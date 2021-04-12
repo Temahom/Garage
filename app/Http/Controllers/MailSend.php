@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use \App\Mail\SendMail;
 use PDF;
+use App\Models\Devi;
+use \App\Mail\SendMail;
+use App\Models\Facture;
+use App\Models\Produit;
 use App\Models\Voiture;
 use App\Models\Diagnostic;
 use App\Models\Intervention;
-use App\Models\Devi;
-use App\Models\Produit;
+use Illuminate\Http\Request;
+
 class MailSend extends Controller
 {
     public function mailsend()
@@ -60,4 +62,54 @@ class MailSend extends Controller
                     \Mail::to($data->email)->send(new SendMail($details));
                    
                 }   
+                
+                /**
+                 * Pour da la factur au client
+                 */
+                public function facture_pdf_send($id)
+                {
+                    $facture=Facture::find($id);
+                    $intervention=$facture->intervention->first();
+                    $prix_total=0;
+                    $les_devis=0;
+                    $diagnostic=Diagnostic::find($intervention->diagnostic_id);
+                    $prix_total=$diagnostic->coût;
+                    $client=$intervention->voiture->client->first();
+                    //dd($client);
+                    $prix_total=$diagnostic->coût;
+                    $prix_facture=0;
+                    $prixHT=0;
+                    if (! $intervention->devis_id) {
+                        //return View('Pdf.facture',compact('prix_total','facture','client'));
+                        $pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture','client'));       
+                        
+                    } else {
+                        $devi = Devi::find($intervention->devis_id);
+                        $les_devis=$devi->produits()->get();
+                            $pdf=PDF::load('Pdf.facture',compact('prix_total','facture','client','les_devis','devi'));
+    
+                    }
+                    
+                       if ($les_devis) {
+                        foreach ($les_devis as $le_devis) {
+                            $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
+                        }
+                        $prix_facture+=$prixHT;
+                       }
+                       $prix_facture+=$diagnostic->coût;
+                    $details = [
+                        'title' => 'facture GARAGE SAKA',
+                        "body" => $client,
+                        'numero'=>$facture->numero,
+                        'prix_facture'=>$prix_facture,
+                        "file"=>$pdf->output()
+                        
+                    ];
+                    
+                    \Mail::to($client->email)->send(new SendMail($details));
+                    return redirect('/voitures/'.$intervention->voiture_id.'/interventions/'.$intervention->id)->with('facture-send','La facture a été envoyer à '. $devi_client->email .' avec succés');
+                
+                    
+                    
+                }
 }
