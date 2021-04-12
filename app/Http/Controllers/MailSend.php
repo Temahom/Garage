@@ -86,7 +86,7 @@ class MailSend extends Controller
                     } else {
                         $devi = Devi::find($intervention->devis_id);
                         $les_devis=$devi->produits()->get();
-                            $pdf=PDF::load('Pdf.facture',compact('prix_total','facture','client','les_devis','devi'));
+                            $pdf=PDF::loadView('Pdf.facture',compact('prix_total','facture','client','les_devis','devi'));
     
                     }
                     
