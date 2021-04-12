@@ -107,7 +107,7 @@ class MailSend extends Controller
                     ];
                     
                     \Mail::to($client->email)->send(new SendMail($details));
-                    return redirect('/voitures/'.$intervention->voiture_id.'/interventions/'.$intervention->id)->with('facture-send','La facture a été envoyer à '. $devi_client->email .' avec succés');
+                    return redirect('/voitures/'.$intervention->voiture_id.'/interventions/'.$intervention->id)->with('facture-send','La facture a été envoyer à '. $client->email .' avec succés');
                 
                     
                     

@@ -305,5 +305,10 @@
 	toastr.success("{!! Session::get('creer_facture') !!}")
 </script>
 @endif
+@if(Session::has('facture-send'))
+<script>
+	toastr.success("{!! Session::get('facture-send') !!}")
+</script>
+@endif
 @endsection
 

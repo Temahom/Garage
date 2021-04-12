@@ -445,7 +445,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 20px;font-family:'Montserrat',sans-serif;" align="left">
         
   <div style="color: #000000; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>{{$details['prix_facture'] }} <sup>FCFA</sup><br /></strong></p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>{{ number_format($details['prix_facture'], 0, ",", " " ) }} <sup> FCFA</sup><br /></strong></p>
   </div>
 
       </td>
@@ -656,7 +656,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Montserrat',sans-serif;" align="left">
         
   <div style="color: #7e8c8d; line-height: 150%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 150%;"><span style="font-size: 12px; line-height: 18px;">&nbsp;Copyright Saka&nbsp; &copy; 2021<br /></span></p>
+    <p style="font-size: 14px; line-height: 150%;"><span style="font-size: 12px; line-height: 18px;">&nbsp;Copyright Saka&nbsp; &copy; {{Date('Y')}}<br /></span></p>
   </div>
 
       </td>
