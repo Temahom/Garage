@@ -57,3 +57,6 @@ function chiffre($mois)
 
     return ["CA"=>$chiffe_affaires ,"CAI"=>$chiffe_affaires_imp];
 }
+
+
+?>
