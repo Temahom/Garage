@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Models\Devi;
+use App\Models\Client;
 use \App\Mail\SendMail;
 use App\Models\Facture;
 use App\Models\Produit;
