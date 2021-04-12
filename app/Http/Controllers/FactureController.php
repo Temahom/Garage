@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use PDF;
 use Carbon\Carbon;
 use App\Models\Devi;
+use App\Models\Client;
 use App\Models\Facture;
 use App\Models\Voiture;
 use App\Models\Diagnostic;
@@ -120,7 +121,8 @@ class FactureController extends Controller
         $diagnostic=Diagnostic::find($intervention->diagnostic_id);
         $voiture=Voiture::find($intervention->voiture_id);
         $prix_total=$diagnostic->coût;
-        $client=$voiture->client->get();
+
+        $client=Client::find($voiture->client_id);
         dd($client);
         $prix_total=$diagnostic->coût;
         if (! $intervention->devis_id) {
