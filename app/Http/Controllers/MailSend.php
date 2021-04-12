@@ -91,7 +91,7 @@ class MailSend extends Controller
                     }
                     
                        if ($les_devis) {
-                        foreach ($les_devis as $le_devis) {
+                        foreach ($les_devis as $le_devi) {
                             $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
                         }
                         $prix_facture+=$prixHT;
