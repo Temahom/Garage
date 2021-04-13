@@ -16,7 +16,7 @@ class Produit extends Model
         return $this->belongsToMany(Devi::class,'commandes','devi_id', 'produit_id')->withPivot('qteProduit');
     }
 
-    /*public function commandes()
+    public function commandes()
     {
         return $this->hasMany(Commande::class);
     }
@@ -24,5 +24,5 @@ class Produit extends Model
     public function produitsByCategorie()
     {
         return Produit::select('produit','id', 'categorie')->where('categorie','=',$this->categorie)->orderBy('produit','asc')->distinct()->get();
-    }*/
+    }
 }

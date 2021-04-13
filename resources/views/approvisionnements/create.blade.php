@@ -16,17 +16,6 @@
     </div>
 </div>
 <br>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
      <form action="{{ route('approvisionnements.store') }}" method="POST" >
             @csrf
           <!--     <div class="row">    
@@ -214,34 +203,34 @@
     var divDefaut;
 
     function getDiv(i) {
-        divDefaut =   '<div class="row p-3 mb-2" id="newdefaut">'+
-                                    '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
-                                        '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>'+
-                                        '</div>'+
+        divDefaut =     '<div class="row p-3 mb-2" id="newdefaut">'+
+                            '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
+                                '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right"><i class="fas fa-times"></i></button>'+
+                            '</div>'+
 
-                                        '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
-                                            '<div class="row">'+
-                                                '<div class="col-xs-12 col-sm-12 col-md-4">'+
-                                                    '<div class="form-group">'+
-                                                        '<strong>Nom du produit:</strong>'+
-                                                        '<input class="form-control" name="plusdechamps['+i+'][nomProduit]" placeholder="nom du produit">'+
-                                                        '</div>'+
-                                                        '</div>'+ 
-                                                        '<div class="col-xs-12 col-sm-12 col-md-4">'+
-                                                            '<div class="form-group">'+
-                                                                '<strong>Quantité Totale:</strong>'+
-                                                                '<input type="number" name="plusdechamps['+i+'][qteTotale]" class="form-control" placeholder="qteTotale">'+
-                                                                '</div>'+
-                                                                '</div> '+
-                                                                '<div class="col-xs-12 col-sm-12 col-md-4">'+
-                                                                    '<div class="form-group">'+
-                                                                        '<strong>Prix Total:</strong>'+
-                                                                        '<input type="number" name="plusdechamps['+i+'][prixTotal]" class="form-control" placeholder="prixTotal">'+
-                                                                        '</div>'+
-                                                                        '</div>'+ 
-                                                                        '</div>'+
-                                                                        '</div> '+
-                                                                        '</div>';
+                            '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
+                                '<div class="row">'+
+                                    '<div class="col-xs-12 col-sm-12 col-md-4">'+
+                                        '<div class="form-group">'+
+                                            '<strong>Nom du produit:</strong>'+
+                                            '<input class="form-control" name="plusdechamps['+i+'][nomProduit]" placeholder="nom du produit">'+
+                                        '</div>'+
+                                    '</div>'+ 
+                                    '<div class="col-xs-12 col-sm-12 col-md-4">'+
+                                        '<div class="form-group">'+
+                                            '<strong>Quantité Totale:</strong>'+
+                                            '<input type="number" name="plusdechamps['+i+'][qteTotale]" class="form-control" placeholder="qteTotale">'+
+                                        '</div>'+
+                                    '</div> '+
+                                    '<div class="col-xs-12 col-sm-12 col-md-4">'+
+                                        '<div class="form-group">'+
+                                            '<strong>Prix Total:</strong>'+
+                                            '<input type="number" name="plusdechamps['+i+'][prixTotal]" class="form-control" placeholder="prixTotal">'+
+                                        '</div>'+
+                                    '</div>'+ 
+                                '</div>'+
+                            '</div> '+
+                        '</div>';
         return divDefaut;
     }
 
