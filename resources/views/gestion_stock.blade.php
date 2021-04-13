@@ -1,4 +1,5 @@
 
+ @include('animate_gestion_stock')
 @extends('layout.index')
 
 @section('content')
@@ -86,9 +87,8 @@ body, html {
   
 </style>
 
-
 <div class="container-fluid" id="main">
-    <div class="row row-offcanvas row-offcanvas-left">
+    <div class="row row-offcanvas row-offcanvas-left"> 
         <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
             <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
                 <li class="nav-item"><a class="nav-link" href="#">Stock Produit</a></li>
@@ -108,12 +108,13 @@ body, html {
                 <li class="nav-item"><a class="nav-link" href="#">Factures</a></li>
             </ul>
         </div>
-        <!--/col-->
+        <!--/col--> 
+        
 
         <div class="col main pt-5 mt-3">
             <h1 class="display-4 d-none d-sm-block">
             GESTION DE STOCK
-            </h1>
+            </h1>   
             <p class="lead d-none d-sm-block">Garage Saka</p>
 
        <!--     <div class="row mb-3">

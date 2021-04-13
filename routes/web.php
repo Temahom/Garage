@@ -150,6 +150,10 @@ Route::get('/google_map', function () {
 Route::get('/gestion_stock', function () {
     return view('gestion_stock');
 });
+Route::get('/animate_gestion_stock', function () {
+    return view('animate_gestion_stock');
+});
+
 
 Route::resource('/approvisionnements', ApprovisionnementController::class);
 Route::resource('fournisseurs.approvisionnements',ApprovisionnementController::class);

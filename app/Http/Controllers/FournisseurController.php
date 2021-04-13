@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Fournisseur;
 use App\Models\Approvisionnement;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -60,26 +61,28 @@ class FournisseurController extends Controller
      */
     public function store(Request $request)
         {   //ingcapital.sn()
-            $request->validate([
+         $request->validate([
                 'nom' => 'required',
                 'prenom' => 'required',
                 'genre' => 'required',
                 'entreprise' => 'max:200',
                 'telephone' => 'required|unique:fournisseurs',
                 'email' => 'unique:fournisseurs'
-            ]);
+            ]);   
     
-           // Fournisseur::create($request->all());
+             Fournisseur::create($request->all());
+             return redirect()->route('fournisseurs.index')
+             ->with('success','Fournisseur Enrégistré');
     
-          /*  $data = request()->validate([
+       /*     $data = request()->validate([
             'nom' => 'required',
             'prenom' => 'required',
             'genre' => 'required',
             'entreprise' => 'max:200',
             'telephone' => 'required|unique:fournisseurs',
             'email' => 'unique:fournisseurs'
-            ]); */
-            $fournisseur = new Fournisseur();
+            ]); 
+           $fournisseur = new Fournisseur();
             $fournisseur->nom = $request->input('nom');
             $fournisseur->prenom = $request->input('prenom');
             $fournisseur->genre = $request->input('genre');
@@ -89,8 +92,8 @@ class FournisseurController extends Controller
            // $fournisseur->user_id= $user_id;
             $fournisseur->save();
             return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
-            ->with('success','Fournisseur Enrégistré');   
-              }
+            ->with('success','Fournisseur Enrégistré');     */
+           }
 
     /**
      * Display the specified resource.
