@@ -15,10 +15,9 @@ class ApprovisionnementController extends Controller
      */
     public function index()
     {
-        $approvisionnements = Approvisionnement::latest()->paginate(5);
+        $approvisionnements = Approvisionnement::all();
 
-        return view('approvisionnements.index', compact('approvisionnements'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('approvisionnements.index', compact('approvisionnements'));
     }
 
     /**
@@ -29,22 +28,8 @@ class ApprovisionnementController extends Controller
     public function create(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
        //$this->authorize('create', Approvisionnement::class);
-       $approvisionnement = Approvisionnement::find();
-       if($fournisseur->approvisionnement()->first())
-       {
-           $i = 0;
-           $item_approvisionnements = [];
-           $approvisionnement_produits = $fournisseur->approvisionnement()->first()->approvisionnement_produits()->get();
-           foreach($approvisionnement_produits as $approvisionnement_produit)
-           {
-               $produit = Produit::find($approvisionnement_produits->produit_id);
-               $item_approvisionnements[$i]['approvisionnement_produit'] = $approvisionnement_produit;
-               $item_approvisionnements[$i]['produit'] = $produit;
-               $i++;
-           }
-           return view('approvisionnements.create', compact('fournisseur', 'approvisionnement', 'item_approvisionnements'));
-       }
-       return view('approvisionnements.create', compact('fournisseur'));
+       $fournisseurs= Fournisseur::all();
+       return view('approvisionnements.create',compact('fournisseurs','fournisseur', 'approvisionnement'));
     
      }
 
@@ -57,12 +42,10 @@ class ApprovisionnementController extends Controller
     public function store(Request $request)
     {
 
-            $approvisionnement = new Approvisionnement;
-            $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
-            $approvisionnement->save();
 
             foreach ($request->plusdechamps as $key => $value) {
                 $approvisionnement = new Approvisionnement();
+                $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
                 $approvisionnement->nomProduit =  $value['nomProduit'];
                 $approvisionnement->qteTotale =  $value['qteTotale'];
                 $approvisionnement->prixTotal =  $value['prixTotal'];
