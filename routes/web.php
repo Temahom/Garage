@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\DeviController;
 use App\Http\Controllers\DiagnosticController;
 use App\Http\Controllers\FactureController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\FullCalendarController;
  use App\Http\Controllers\TestController;
 
+ use App\Http\Controllers\ApprovisionnementController;
 
 use Illuminate\Support\Facades\App;
 use App\Models\Voiture;
@@ -27,6 +29,7 @@ use App\Models\Diagnostic;
 use App\Models\Intervention;
 use App\Models\Devi;
 use App\Models\Produit;
+use app\Models\Fournisseur;
 
      
 /*
@@ -69,10 +72,12 @@ Route::get('diag-pdf/{id}',function($id){
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('facture/{id}',[FactureController::class,'facture_diagnostic']);
-    Route::get('facture/{id}/payer',[FactureController::class,'facture_diagnostic_payer']);
+    Route::get('facture/{id}',[FactureController::class,'generer_facture']);
+    Route::get('facture/{id}/payer',[FactureController::class,'facture_payer']);
+    Route::get('send-facture/{id}',[MailSend::class,'facture_pdf_send']);
     Route::resource('produits',ProduitController::class);
     Route::resource('clients',ClientController::class);  
+    Route::resource('fournisseurs',FournisseurController::class);
     Route::get('clients-mois',[ClientController::class, 'index_mois'])->name('clients-mois');  
     Route::resource('clients.voitures', VoitureController::class);
     Route::resource('factures',FactureController::class);
@@ -146,3 +151,5 @@ Route::get('/gestion_stock', function () {
     return view('gestion_stock');
 });
 
+Route::resource('/approvisionnements', ApprovisionnementController::class);
+Route::resource('fournisseurs.approvisionnements',ApprovisionnementController::class);

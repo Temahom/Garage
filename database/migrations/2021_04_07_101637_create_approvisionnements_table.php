@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFacturesTable extends Migration
+class CreateApprovisionnementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateFacturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('factures', function (Blueprint $table) {
+        Schema::create('approvisionnements', function (Blueprint $table) {
             $table->id();
-            $table->string('numero');
-            $table->integer('etat');
+            $table->longText('nomProduit')->nullable();
+            $table->Integer('qteTotale')->nullable();
+            $table->Integer('prixTotal')->nullable();
+            $table->unsignedBigInteger('fournisseur_id');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateFacturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('factures');
+        Schema::dropIfExists('approvisionnements');
     }
 }

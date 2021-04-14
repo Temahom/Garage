@@ -12,12 +12,5 @@ class Facture extends Model
     {
         return $this->hasMany(Intervention::class);
     }
-    public function diagnostic()
-    {
-        return $this->belongsTo(Diagnostic::class);
-    }
-    public function devi()
-    {
-        return $this->belongsTo(Devi::class);
-    }
+  
 }

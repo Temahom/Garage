@@ -5,10 +5,13 @@ var lab = [];
 var prix_ca = [];
 var prix_cai = [];
 var int1 = new Intl.NumberFormat();
-
+// fetch('/api/chart/')
+// .then(res=>res.json())
+// .then(data=>console.log(data))
 $.ajax({
-    url: "/api/chart/",
+    url: "/api/chart",
     method: "GET",
+    dataType: "json",
     success: function (data) {
         moris = data[0].chiffre;
         $("#paye").html(int1.format(moris.data.CA) + " <sup>F CFA</sup>");

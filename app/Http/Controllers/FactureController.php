@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use Carbon\Carbon;
 use App\Models\Devi;
+use App\Models\Client;
 use App\Models\Facture;
+use App\Models\Voiture;
 use App\Models\Diagnostic;
 use App\Models\Intervention;
 use Illuminate\Http\Request;
-use PDF;
+
 class FactureController extends Controller
 {
     /**
@@ -86,58 +89,56 @@ class FactureController extends Controller
     {
         //
     }
-    public function facture_diagnostic($id)
+    public function generer_facture($id)
     {
     
-        $diagnostic=Diagnostic::find($id);
-        $intervention=$diagnostic->intervention()->first();
+        $intervention=Intervention::find($id);
+        
+        //$intervention=$diagnostic->intervention()->first();
         $facture= new Facture();
-        if($intervention->devis_id){
-            $facture->devi_id=$intervention->devis_id;
-        }else{
-        $facture->devi_id=0;
-
-        }
         $facture->etat=1;
         $facture->numero=time();
-        $facture->diagnostic_id=$id;
         $facture->save();
-        return redirect()->back();
+        $intervention->facture_id=$facture->id;
+        $intervention->save();
+        return redirect()->back()->with("creer_facture","Facture générer avec succes");
 
 
     }
-     public function facture_diagnostic_payer($id)
+     public function facture_payer($id)
     {
         $facture=Facture::find($id);
         $facture->etat=2;
         $facture->save();
-        return redirect()->back();
+        return redirect()->back()->with("payer_facture","Facture payé avec succes");
     }
     public function facture_pdf($id)
     {
         $facture=Facture::find($id);
+        $intervention=$facture->intervention->first();
         $prix_total=0;
         $les_devis=0;
-        if (isset($facture->devi_id) &&  $facture->devi_id==0) {
-            $diagnostic=Diagnostic::find($facture->diagnostic_id);
-            $client=$diagnostic->intervention()->first()->voiture->client->get();
-            $prix_total=$diagnostic->coût;
+        $diagnostic=Diagnostic::find($intervention->diagnostic_id);
+        $voiture=Voiture::find($intervention->voiture_id);
+        $prix_total=$diagnostic->coût;
+
+        $client=Client::find($voiture->client_id);
+       // dd($client);
+        $prix_total=$diagnostic->coût;
+        if (! $intervention->devis_id) {
             //return View('Pdf.facture',compact('prix_total','facture','client'));
-            $pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture','client'));    
-            return $pdf->stream('facture.pdf');
-        }else{
-            $diagnostic=Diagnostic::find($facture->diagnostic_id);
-            $prix_total=$diagnostic->coût;
-            $devi = Devi::find($facture->devi_id);
+             $pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture','client'));    
+             return $pdf->stream('facture.pdf');
+        } else {
+            $devi = Devi::find($intervention->devis_id);
             $les_devis=$devi->produits()->get();
-            $client=$diagnostic->intervention()->first()->voiture->client->get();
-            //dd($client);
-            $pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture','client','les_devis','devi'));
-            //$pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture'));    
-            return $pdf->stream('facture.pdf');
-                
+                $pdf=PDF::loadView('Pdf.facture',compact('prix_total','facture','client','les_devis','devi'));
+                //pdf = PDF::loadView('Pdf.facture',compact('prix_total','facture'));    
+                return $pdf->stream('facture.pdf');
         }
-       // dd($les_devis);
+        
+           
+         
         
         
     }

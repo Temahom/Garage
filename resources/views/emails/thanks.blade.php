@@ -7,7 +7,7 @@
 <body>
 	<div class="container">
 		<div class="alert alert-success" role="alert">
-		 	Thanks, we will contact you soon
+			Merci, nous vous contacterons bientôt
 		</div>
 	 </div>
 </body>

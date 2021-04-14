@@ -16,64 +16,73 @@ use App\Http\Controllers\CommandesApiController;
 
 
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-}); 
+});
 Route::get('chart',function ()
 {
+
+
     function chiffre($mois)
-{
-    $fatures=Facture::with('devi','diagnostic')->whereMonth('created_at', $mois)->where("etat", 2)->get();
+    {
+        $factures=Facture::with('intervention')->whereMonth('created_at', $mois)->where("etat", 2)->get();
     
         //Pour le chiffre d'affaire des factures  payer
         $prixHT=0;
         $chiffe_affaires=0;
-        foreach ($fatures as $fature) {
-            if ($fature->devi) {
-                $chiffe_affaires+=$fature->devi->cout+$fature->diagnostic->coût;
-                $devi = Devi::find($fature->devi->id);
+        // dd($factures->intervention);
+        foreach ($factures as $facture) {
+            $intervention=$facture->intervention->first();
+    
+            if ($intervention->devis_id) {
+                $chiffe_affaires+=$intervention->devi->cout+$intervention->diagnostic->coût;
+                $devi = Devi::find($intervention->devis_id);
                 $les_devis=$devi->produits()->get();
-            
+                // dd($le_devis);
                 foreach ($les_devis as $le_devi) {
                     $prixHT += $le_devi->pivot->quantite * $le_devi->prix1;
                 }
-                
+    
             }else{
-                $chiffe_affaires+=$fature->diagnostic->coût;//98 500 000
+                $chiffe_affaires+=$intervention->diagnostic->coût;//98 500 000
             }
-            
-        
-        
+    
+    
+    
         }
         $chiffe_affaires+=$prixHT;
-
-
-    //  Calcule du chiffre d'affaire des impayée
-    $fatures_impayer=Facture::with('devi','diagnostic')->whereMonth('created_at', $mois)->where("etat",1)->get();
+    
+    
+        //  Calcule du chiffre d'affaire des impayée
+        $factures_impayer=Facture::with('intervention')->whereMonth('created_at', $mois)->where("etat",1)->get();
         $prixHT_imp=0;
         $chiffe_affaires_imp=0;
-        foreach ($fatures_impayer as $fature) {
-            if ($fature->devi) {
-                $chiffe_affaires_imp+=$fature->devi->cout+$fature->diagnostic->coût;
-                $devi = Devi::find($fature->devi->id);
+        foreach ($factures_impayer as $facture) {
+            $intervention=$facture->intervention->first();
+            if ($intervention->devis_id) {
+                $chiffe_affaires_imp+=$intervention->devi->cout+$intervention->diagnostic->coût;
+                $devi = Devi::find($intervention->devis_id);
                 $les_devis=$devi->produits()->get();
-            
+    
                 foreach ($les_devis as $le_devi) {
                     $prixHT_imp += $le_devi->pivot->quantite * $le_devi->prix1;
                 }
-                
+    
             }else{
-                $chiffe_affaires_imp+=$fature->diagnostic->coût;//98 500 000
+                $chiffe_affaires_imp+=$intervention->diagnostic->coût;//98 500 000
             }
-            
-        
-        
+    
+    
+    
         }
         $chiffe_affaires_imp+=$prixHT_imp;
+    
+        return ["CA"=>$chiffe_affaires ,"CAI"=>$chiffe_affaires_imp];
+    }
+    
 
-return ["CA"=>$chiffe_affaires ,"CAI"=>$chiffe_affaires_imp];
-}
-   
+
 //$chiffe_affaires_imp+=$prixHT_imp;
 /**
  * Poru tous les 6 mois
@@ -83,18 +92,18 @@ $months = [];
 //dd(Carbon::now()->month(02)->format('F'));
 Carbon::setLocale('fr');
 $mois=Carbon::now()->month;
-for($i = 0; $i <$mois; $i++){
-   $array = [];
-   $array["chiffre"] =["mois"=>Carbon::now()->create()->month(Carbon::now()->month- $i)->format('F'),"data"=>chiffre(Carbon::now()->month- $i)] ;
-   array_push($months, $array);
-}
+        for($i = 0; $i <$mois; $i++){
+        $array = [];
+        $array["chiffre"] =["mois"=>Carbon::now()->create()->month(Carbon::now()->month- $i)->format('F'),"data"=>chiffre(Carbon::now()->month- $i)] ;
+        array_push($months, $array);
+        }
 return $months;
 
-   //return ["CA"=>$chiffe_affaires ,"CAI"=>$chiffe_affaires_imp];
+   
 });
 Route::resource('commandes', CommandesApiController::class);
 Route::get('listes/{marques}',function($marques){
-    return Liste::select('lemodel')->where('marques','=',$marques)->orderBy('lemodel')->distinct()->get();  
+    return Liste::select('lemodel')->where('marques','=',$marques)->orderBy('lemodel')->distinct()->get();
 });
 
 Route::get('listes/model/{lemodel}',function($lemodel){
@@ -110,32 +119,32 @@ Route::get('listes/carburant/{lecarburant}',function($lecarburant){
 });
 
 Route::get('listescate/{categorie}',function($categorie){
-    return listeproduit::select('souscategorie','produit')->where('categorie','=',$categorie)->get();  
-});  
+    return listeproduit::select('souscategorie','produit')->where('categorie','=',$categorie)->get();
+});
 Route::get('listesp/{categorie}',function($categorie){
-    return listeproduit::select('produit')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();  
-});  
+    return listeproduit::select('produit')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();
+});
 
 Route::get('listespu/{produit}',function($produit){
-    return listeproduit::select('prix1')->where('produit','=',$produit)->get();  
-});  
+    return listeproduit::select('prix1')->where('produit','=',$produit)->get();
+});
 
 Route::get('erreurByCode/{code}',function($code){
-    return Listedefaut::select('*')->where('code','=',$code)->get();  
-});  
+    return Listedefaut::select('*')->where('code','=',$code)->get();
+});
 
 
 Route::get('produit/{categorie}',function($categorie){
-    return Produit::select('produit','id', 'categorie')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();  
-});  
+    return Produit::select('produit','id', 'categorie')->where('categorie','=',$categorie)->orderBy('produit','asc')->distinct()->get();
+});
 
 Route::get('commandes/{produit_id}',function($produit){
-    return Produit::select('*')->where('produit','=',$produit)->orderBy('produit','asc')->distinct()->get();  
-});  
+    return Produit::select('*')->where('produit','=',$produit)->orderBy('produit','asc')->distinct()->get();
+});
 
 Route::get('produits/{catProduit}',function($produit){
-    return Produit::select('*')->where('categorie','=',$produit)->orderBy('produit','asc')->distinct()->get();  
-}); 
+    return Produit::select('*')->where('categorie','=',$produit)->orderBy('produit','asc')->distinct()->get();
+});
 
 Route::get('eror',function(){
     return Listedefaut::all();

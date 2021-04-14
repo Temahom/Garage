@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
+    <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/libs/css/style.css">
@@ -31,7 +32,7 @@
     <title>Garage</title>
 </head>
 <style>
-    @font-face {
+    /* @font-face {
             font-family: "Open Sans";
             src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
                     url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
@@ -44,7 +45,7 @@
      h4{
         font-family: "Open Sans"!important;
         font-size:16px; 
-     }  
+     }   */
 
     @media screen and (max-width: 767px) {
   .row {
@@ -304,7 +305,7 @@
                             
                             
                             <li class="nav-item "   style="padding-top: 5px">
-                                <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="icon-circle"></i>Gestion Stock<span class="badge badge-success"></span></a>
+                                <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
                             </li>
             
                         </ul>
