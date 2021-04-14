@@ -36,5 +36,4 @@ class Intervention extends Model
     {
         return $this->belongsTo(Summary::class);
     }
-   
 }

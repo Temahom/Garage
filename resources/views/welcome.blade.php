@@ -55,6 +55,8 @@ $voitures = \App\Models\Voiture::whereYear('created_at', Carbon::now()->year)
     ->count();
 ///Tab Recapitulatif Journaliere
 $jour_ci = Carbon::now()->day;
+//VOITURE EN GARAGE
+$interventionVoitureEnGarages = \App\Models\Dashboard::interventionVoitureEnGarages();
 
 @endphp
 @section('content')
@@ -510,34 +512,15 @@ $jour_ci = Carbon::now()->day;
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>DK1010AA</td>
-                                        <td>BMW</td>
-                                        <td>Alpha</td>
-                                        <td>Moussa thiam</td>
-                                        <td>réparé</td>
-                                    </tr>
-                                    <tr>
-                                        <td>DK1010AA</td>
-                                        <td>BMW</td>
-                                        <td>Alpha</td>
-                                        <td>Moussa thiam</td>
-                                        <td>réparé</td>
-                                    </tr>
-                                    <tr>
-                                        <td>DK1010AA</td>
-                                        <td>BMW</td>
-                                        <td>Alpha</td>
-                                        <td>Moussa thiam</td>
-                                        <td>réparé</td>
-                                    </tr>
-                                    <tr>
-                                        <td>DK1010AA</td>
-                                        <td>BMW</td>
-                                        <td>Alpha</td>
-                                        <td>Moussa thiam</td>
-                                        <td>réparé</td>
-                                    </tr>
+                                    @foreach ($interventionVoitureEnGarages as $interventionVoitureEnGarage)
+                                        <tr>
+                                            <td>{{ $interventionVoitureEnGarage->voiture->matricule }}</td>
+                                            <td>{{ $interventionVoitureEnGarage->voiture->marque }}</td>
+                                            <td>{{ $interventionVoitureEnGarage->voiture->model }}</td>
+                                            <td>{{ $interventionVoitureEnGarage->voiture->client->prenom }} {{ $interventionVoitureEnGarage->voiture->client->nom }}</td>
+                                            <td>réparé</td>
+                                        </tr>
+                                    @endforeach
                                     <tr>
                                         <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
                                     </tr>
