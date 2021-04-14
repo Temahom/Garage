@@ -167,15 +167,15 @@
 
                             '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
                                 '<div class="row">'+
-                                    '<div class="col-xs-12 col-sm-12 col-md-4">'+
+                                    '<div class="divNomProduit col-xs-12 col-sm-12 col-md-4">'+
                                         '<strong>Nom du produit:</strong>'+
                                         '<input type="text" name="plusdechamps['+i+'][nomProduit]" class="form-control" placeholder="Nom du produit">'+
                                     '</div>'+ 
-                                    '<div class="col-xs-12 col-sm-12 col-md-4">'+
+                                    '<div class="divQteTotal col-xs-12 col-sm-12 col-md-4">'+
                                         '<strong>Quantité Totale:</strong>'+
                                         '<input type="number" name="plusdechamps['+i+'][qteTotale]" class="form-control" placeholder="Quantité Totale">'+
                                     '</div> '+
-                                    '<div class="col-xs-12 col-sm-12 col-md-4">'+
+                                    '<div class="divPrixTotal col-xs-12 col-sm-12 col-md-4">'+
                                         '<strong>Prix Total:</strong>'+
                                         '<input type="number" name="plusdechamps['+i+'][prixTotal]" class="form-control" placeholder="Prix Total">'+
                                     '</div>'+ 
