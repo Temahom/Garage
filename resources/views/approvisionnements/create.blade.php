@@ -87,15 +87,15 @@
                                             <div class="row">
                                                 <div class="divNomProduit col-xs-12 col-sm-12 col-md-2">
                                                     <strong>Nom du produit:</strong>
-                                                    <input value="{{ $defaut->nomProduit }}" type="text" name="plusdechamps[{{ $i }}][nomProduit]" class="form-control nomProduit" placeholder="nom du produit">
+                                                    <input value="{{ $approvisionnement->nomProduit }}" type="text" name="plusdechamps[{{ $i }}][nomProduit]" class="form-control nomProduit" placeholder="nom du produit">
                                                 </div>
                                                 <div class="divQteTotal col-xs-12 col-sm-12 col-md-2">
                                                     <strong>Quantité Totale:</strong>
-                                                    <input value="{{ $defaut->qteTotale }}" type="number" name="plusdechamps[{{ $i }}][qteTotale]" class="form-control qteTotale" placeholder="Qantité Totale">
+                                                    <input value="{{ $approvisionnement->qteTotale }}" type="number" name="plusdechamps[{{ $i }}][qteTotale]" class="form-control qteTotale" placeholder="Qantité Totale">
                                                 </div>
                                                 <div class="divPrixTotal col-xs-12 col-sm-12 col-md-2">
                                                     <strong>Prix Total:</strong>
-                                                    <input value="{{ $defaut->prixTotal }}" type="number" name="plusdechamps[{{ $i }}][prixTotal]" class="form-control prixTotal" placeholder="Prix Total">
+                                                    <input value="{{ $approvisionnement->prixTotal }}" type="number" name="plusdechamps[{{ $i }}][prixTotal]" class="form-control prixTotal" placeholder="Prix Total">
                                                 </div>
                                             </div>
                                         </div>
@@ -143,7 +143,7 @@
             <div class="row">
                 <div class="col-md-12 pl-0 py-4">
                     <a class="btn btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
-                    <input class="btn btn-success" type="submit" value="Enregistrer" style="color: white; margin-left: 6px;" onclick="envoyerFormapprov()">
+                    <a class="btn btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormapprov()">Enregistrer</a>
                 </div>
             </div>
                         
@@ -151,15 +151,15 @@
  
 
 <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> --}}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
 <script  type="text/javascript">
     var i = 1000;
     var nbItemApprov = 1;
-    var divAprov;
+    var divApprov;
 
     function getDiv(i) {
-        divAprov =     '<div class="row p-3 mb-2" id="newproduct">'+
+        divApprov =     '<div class="row p-3 mb-2" id="newproduct">'+
                             '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
                                 '<span class="numero"></span>'+
                                 '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>'+
@@ -182,35 +182,14 @@
                                 '</div>'+
                             '</div> '+
                         '</div>';
-        return divAprov;
+        return divApprov;
     }
 
-    /*DEBUT gestion des doublons*/
-        const doublon=()=>{
-                    const selects = document.querySelectorAll('.custom-select');
-                    selects.forEach((elem) => {
-                        elem.addEventListener('change', (event) => {
-                            let values = Array.from(selects).map(select => select.value);
-                            for (let select of selects) {
-                            select.querySelectorAll('option').forEach((option) => {
-                                let value = option.value;
-                                if (value &&  value !== select.value && values.includes(value)) {
-                                    option.disabled = true;
-                                } else {
-                                    option.disabled = false;
-                                }
-                            });
-                        }
-                    });
-                });
-            }
-            doublon();
-        /*FIN gestion des doublons*/
+    
 
     $("#add-btn").click(function(){
         div = getDiv(i);
         $("#dynamicAddRemove").append(div);
-        doublon();
         numeroter();
         i++;
     });
@@ -229,16 +208,18 @@
         nbItemApprov = num;
     }
 
-    $(document).on('change', 'select', function(){  
-        var parent = $(this).parents('#newdefaut');
-        code = $(this).val();
+    $(document).on('change', function(){  
+        var parent = $(this).parents('#newproduct');
         $.ajax({
             
             success: function(data) {
                 parent.children('div').children('div').children('.divNomProduit').children('input').removeClass('is-invalid');
-
+                parent.children('div').children('div').children('.divQteTotal').children('input').removeClass('is-invalid');
+                parent.children('div').children('div').children('.divPrixTotal').children('input').removeClass('is-invalid');
                 
                 parent.children('div').children('div').children('.divNomProduit').children('input').val(data[0].divNomProduit);
+                parent.children('div').children('div').children('.divQteTotal').children('input').val(data[0].divQteTotal);
+                parent.children('div').children('div').children('.divPrixTotal').children('input').val(data[0].divPrixTotal);
             }
         });
     });
@@ -255,12 +236,30 @@
         }
         $('#dynamicAddRemove > div').each( function(){
             $(this).children('div').children('div').children('.divNomProduit').children('input').removeClass('is-invalid');
+            $(this).children('div').children('div').children('.divQteTotal').children('input').removeClass('is-invalid');
+            $(this).children('div').children('div').children('.divPrixTotal').children('input').removeClass('is-invalid');
             
             NomProduit = $(this).children('div').children('div').children('.divNomProduit').children('input').val().trim();
 
             if(NomProduit == '')
             {
                 $(this).children('div').children('div').children('.divNomProduit').children('input').addClass('is-invalid');
+                ok = 0;
+            }
+
+            QteTotal = $(this).children('div').children('div').children('.divQteTotal').children('input').val().trim();
+
+            if(QteTotal == '')
+            {
+                $(this).children('div').children('div').children('.divQteTotal').children('input').addClass('is-invalid');
+                ok = 0;
+            }
+
+            PrixTotal = $(this).children('div').children('div').children('.divPrixTotal').children('input').val().trim();
+
+            if(PrixTotal == '')
+            {
+                $(this).children('div').children('div').children('.divPrixTotal').children('input').addClass('is-invalid');
                 ok = 0;
             }
         });

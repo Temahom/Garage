@@ -85,12 +85,18 @@ class ApprovisionnementController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Approvisionnement $approvisionnement)
+    public function update(Request $request, Approvisionnement $approvisionnement, Fournisseur $fournisseur)
     {
         $this->authorize('update', $approvisionnement);
         $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
         $approvisionnement->update();
 
+        $approvisionnements = $fournisseur->approvisionnement()->first()->approvisionnements()->get();
+        foreach($approvisionnements as $approvisionnement)
+        {
+            $approvisionnement->delete();
+        }
+        
         foreach ($request->plusdechamps as $key => $value) {
             $approvisionnement = new Approvisionnement();
             $approvisionnement->nomProduit =  $value['nomProduit'];
