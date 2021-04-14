@@ -99,8 +99,6 @@ class CommandeController extends Controller
     public function destroy(Commande $commande)
     {
         $commande->delete();
-
-        return redirect()->route('commandes.index')
-            ->with('success', 'Produit supprimé avec succès');
+        
     }
 }

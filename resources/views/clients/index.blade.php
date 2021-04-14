@@ -82,23 +82,23 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 										<i class="fas fa-trash"></i>
 									</button>
 
-											<div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-												<div class="modal-dialog" role="document">
-													<div class="modal-content">
-														<div class="modal-body">
-															<h5>Voulez vous supprimer: <strong>{{ $client->nom }} {{ $client->prenom }}</strong>  ?</h5>
-														</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-															<form action="{{route('clients.destroy',$client->id)}}" method="POST">
-																@csrf
-																@method('DELETE')
-																<button type="submit" class="btn btn-danger">Supprimer</button>
-															</form>
-													</div>
-													</div>
+									<div class="modal fade" id="exampleModal{{ $client->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-body">
+													<h5>Voulez vous supprimer: <strong>{{ $client->nom }} {{ $client->prenom }}</strong>  ?</h5>
 												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+													<form action="{{route('clients.destroy',$client->id)}}" method="POST">
+														@csrf
+														@method('DELETE')
+														<button type="submit" class="btn btn-danger">Supprimer</button>
+													</form>
 											</div>
+											</div>
+										</div>
+									</div>
 
 								</td>
 								@endcan
