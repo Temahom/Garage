@@ -69,8 +69,8 @@
                 </div>
 
                 <div class="form-group">
-                    <strong>Téléphone du Fournisseur:</strong>
-                    <input type="text" name="telephone" value="{{ $fournisseur->telephone }}" class="form-control @error('telephone') is-invalid @enderror" placeholder="telephone du Fournisseur" >
+                    <strong>Téléphone du Fournisseur:</strong> 
+                    <input type="text" name="telephone" value="{{ $fournisseur->telephone }}" pattern="7[8,7,6,5,0][0-9]{3}[0-9]{2}[0-9]{2}" autocomplete="off" class="form-control @error('telephone') is-invalid @enderror" placeholder="telephone du Fournisseur" >
                     <div class="invalid-feedback">
                         @if($errors->has('telephone'))
                         {{ $errors->first('telephone') }}
