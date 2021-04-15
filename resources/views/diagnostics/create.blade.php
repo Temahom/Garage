@@ -207,7 +207,7 @@
             '</div>'+
         '</div>'+
         '<div class="divDescription form-group col-xs-12 col-sm-12 col-md-12">'+
-            '<textarea class="form-control"name="plusdechamps['+i+'][description]" placeholder="Description"></textarea>'+
+            '<textarea class="form-control" name="plusdechamps['+i+'][description]" placeholder="Description"></textarea>'+
         '</div>'+
         '<div class="form-group col-xs-12 col-sm-12 col-md-12">'+
             '<label style="margin-top: 6px; margin-left: 6px" class="custom-control custom-radio custom-control-inline">'+
