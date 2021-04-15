@@ -1,5 +1,5 @@
 @php
     use App\Models\Dashboard;
-    $interventionVoitureEnGarages = Dashboard::interventionVoitureEnGarages();
+    $result = Dashboard::tabRecupLastSevenDays();
 @endphp
-{{ dd($interventionVoitureEnGarages) }}
+{{ dd($result) }}

@@ -57,6 +57,8 @@ $voitures = \App\Models\Voiture::whereYear('created_at', Carbon::now()->year)
 $jour_ci = Carbon::now()->day;
 //VOITURE EN GARAGE
 $interventionVoitureEnGarages = \App\Models\Dashboard::interventionVoitureEnGarages();
+//TABLEAU RECAPTULATIF DES 7 DERNIERS JOURS
+$tabRecupLastSevenDays = \App\Models\Dashboard::tabRecupLastSevenDays();
 
 @endphp
 @section('content')
@@ -354,24 +356,14 @@ $interventionVoitureEnGarages = \App\Models\Dashboard::interventionVoitureEnGara
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Lundi 29 Mars 2021</td>
-                                    <td>17</td>
-                                    <td>450000</td>
-                                    <td>230000</td>
-                                </tr>
-                                <tr>
-                                    <td>Lundi 29 Mars 2021</td>
-                                    <td>17</td>
-                                    <td>450000</td>
-                                    <td>230000</td>
-                                </tr>
-                                <tr>
-                                    <td>Lundi 29 Mars 2021</td>
-                                    <td>17</td>
-                                    <td>450000</td>
-                                    <td>230000</td>
-                                </tr>
+                                @foreach ($tabRecupLastSevenDays as $tabRecupLastSevenDay)
+                                    <tr>
+                                        <td>{{ $tabRecupLastSevenDay['date'] }}</td>
+                                        <td>{{ $tabRecupLastSevenDay['nbIntervention'] }}</td>
+                                        <td>{{ $tabRecupLastSevenDay['facturePaye'] }}</td>
+                                        <td>{{ $tabRecupLastSevenDay['chiffreAffaire'] }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
