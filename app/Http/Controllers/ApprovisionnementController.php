@@ -76,6 +76,8 @@ class ApprovisionnementController extends Controller
      */
     public function edit(Approvisionnement $approvisionnement)
     {
+        $approvisionnements = Approvisionnement::all();
+
         return view('approvisionnements.edit', compact('approvisionnement'));
     }
     /**

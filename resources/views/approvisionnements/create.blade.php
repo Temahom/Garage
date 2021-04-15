@@ -34,10 +34,10 @@
                                 <select name="fournisseur_id" class="custom-select form-control" >
                                     @if(!empty($fournisseur->id))
                                         <option value="{{$fournisseur->id}}">{{$fournisseur->prenom.' '.$fournisseur->nom}}</option>
-                                    @else   
+                                    @else
                                         @foreach( $fournisseurs as $fournisseur ) 
                                             <option value="{{$fournisseur->id}}" {{ old('fournisseur_id') == ($fournisseur->id) ? 'selected' : '' }} {{$approvisionnement->fournisseur_id == $fournisseur->id ? 'selected':'' }}>{{$fournisseur->prenom.' '.$fournisseur->nom}}</option>
-                                        @endforeach 
+                                        @endforeach
                                     @endif
                                 </select>
                             </div>
@@ -159,29 +159,29 @@
     var divApprov;
 
     function getDiv(i) {
-        divApprov =     '<div class="row p-3 mb-2" id="newproduct">'+
-                            '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
-                                '<span class="numero"></span>'+
-                                '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>'+
-                            '</div>'+
+        divApprov = '<div class="row p-3 mb-2" id="newproduct">'+
+                        '<div class="divSup col-xs-12 col-sm-12 col-md-12 p-0">'+
+                            '<span class="numero"></span>'+
+                            '<button type="button" class="btn btn-sm m-0" id="remove-button" style="float: right">X</button>'+
+                        '</div>'+
 
-                            '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
-                                '<div class="row">'+
-                                    '<div class="divNomProduit col-xs-12 col-sm-12 col-md-4">'+
-                                        '<strong>Nom du produit:</strong>'+
-                                        '<input type="text" name="plusdechamps['+i+'][nomProduit]" class="form-control" placeholder="Nom du produit">'+
-                                    '</div>'+ 
-                                    '<div class="divQteTotal col-xs-12 col-sm-12 col-md-4">'+
-                                        '<strong>Quantité Totale:</strong>'+
-                                        '<input type="number" name="plusdechamps['+i+'][qteTotale]" class="form-control" placeholder="Quantité Totale">'+
-                                    '</div> '+
-                                    '<div class="divPrixTotal col-xs-12 col-sm-12 col-md-4">'+
-                                        '<strong>Prix Total:</strong>'+
-                                        '<input type="number" name="plusdechamps['+i+'][prixTotal]" class="form-control" placeholder="Prix Total">'+
-                                    '</div>'+ 
-                                '</div>'+
-                            '</div> '+
-                        '</div>';
+                        '<div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">'+
+                            '<div class="row">'+
+                                '<div class="divNomProduit col-xs-12 col-sm-12 col-md-4">'+
+                                    '<strong>Nom du produit:</strong>'+
+                                    '<input type="text" name="plusdechamps['+i+'][nomProduit]" class="form-control" placeholder="Nom du produit">'+
+                                '</div>'+ 
+                                '<div class="divQteTotal col-xs-12 col-sm-12 col-md-4">'+
+                                    '<strong>Quantité Totale:</strong>'+
+                                    '<input type="number" name="plusdechamps['+i+'][qteTotale]" class="form-control" placeholder="Quantité Totale">'+
+                                '</div> '+
+                                '<div class="divPrixTotal col-xs-12 col-sm-12 col-md-4">'+
+                                    '<strong>Prix Total:</strong>'+
+                                    '<input type="number" name="plusdechamps['+i+'][prixTotal]" class="form-control" placeholder="Prix Total">'+
+                                '</div>'+ 
+                            '</div>'+
+                        '</div> '+
+                    '</div>';
         return divApprov;
     }
 
