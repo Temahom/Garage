@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Approvisionnement;
 use App\Models\Fournisseur;
-use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class ApprovisionnementController extends Controller
@@ -89,18 +88,11 @@ class ApprovisionnementController extends Controller
      */
     public function update(Request $request, Approvisionnement $approvisionnement, Fournisseur $fournisseur)
     {
-        $this->authorize('update', $approvisionnement);
-        $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
-        $approvisionnement->update();
-
-        $approvisionnements = $fournisseur->approvisionnement()->first()->approvisionnements()->get();
-        foreach($approvisionnements as $approvisionnement)
-        {
-            $approvisionnement->delete();
-        }
+        $this->authorize('update', $approvisionnement);        
         
         foreach ($request->plusdechamps as $key => $value) {
             $approvisionnement = new Approvisionnement();
+            $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
             $approvisionnement->nomProduit =  $value['nomProduit'];
             $approvisionnement->qteTotale =  $value['qteTotale'];
             $approvisionnement->prixTotal =  $value['prixTotal'];
