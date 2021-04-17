@@ -1,6 +1,23 @@
 
  @include('animate_gestion_stock')
 @extends('layout.index')
+@php
+$date = new DateTime('now', new DateTimeZone('UTC'));
+use Carbon\Carbon;
+$produit_total = \App\Models\Produit::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+
+//$produit_commander = Produit:: as 'prod' and Commande:: as 'com' where('prod->id','=','com->id')->whereYear('created_at', Carbon::now()->year)
+ //                                                                              ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
+        			
+$produit_en_stock = \App\Models\Produit::select('qte')
+    ->where('qte', '>', 0)
+    ->count();		
+
+/*$mois_ci = Carbon::now()->format('F');
+$jour_ci = Carbon::now()->day;  */ 			
+@endphp
 
 @section('content')
  
@@ -66,10 +83,10 @@ body, html {
   
   .card-body .rotate {
 	  z-index: 8;
-	  float: right;
+	  float: right;                       
 	  height: 100%;
-  }
-  
+  }                                  
+
   .card-body .rotate i {
 	  color: rgba(20, 20, 20, 0.15);
 	  position: absolute;
@@ -86,6 +103,8 @@ body, html {
   }
   
 </style>
+
+
 
 <div class="container-fluid" id="main">
     <div class="row row-offcanvas row-offcanvas-left"> 
@@ -171,8 +190,10 @@ body, html {
                             <div class="rotate">
                                 <i class="fa fa-cubes fa-5x"></i>
                             </div>
-                            <h6 class="text-uppercase">Total Produits</h6>
-                            <h1 class="display-4">134</h1>
+                          <a href="{{ route('produits.index') }}">
+                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Produits</h6>
+                            <h1 class="display-4" style="color:rgb(255, 255, 255);">{{$produit_total}}</h1>
+                         </a> 
                         </div>
                     </div>
                 </div>
@@ -182,8 +203,10 @@ body, html {
                             <div class="rotate">
                                 <i class="fa fa-plus fa-5x"></i>
                             </div>
-                            <h6 class="text-uppercase">Total Produits Commandés/Vendus</h6>
-                            <h1 class="display-4">87</h1>
+                           <a href="{{ route('produits.index') }}">
+                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Produits Commandés/Vendus</h6>
+                            <h1 class="display-4" style="color:rgb(255, 255, 255);">0</h1>
+                          </a> 
                         </div>
                     </div>
                 </div>
@@ -193,45 +216,50 @@ body, html {
                             <div class="rotate">
                                 <i class="fa fa-minus fa-5x"></i>
                             </div>
-                            <h6 class="text-uppercase">Total Produits Restants</h6>
-                            <h1 class="display-4">125</h1>
+                           <a href="{{ route('produits.index') }}">
+                             <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Produits Restants</h6>
+                             <h1 class="display-4" style="color:rgb(255, 255, 255);">{{$produit_en_stock}}</h1>
+                          </a> 
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 py-2">
+              <div class="col-xl-3 col-sm-6 py-2">
                     <div class="card text-white bg-warning h-100">
                         <div class="card-body">
                             <div class="rotate">
                                 <i class="fa fa-share fa-5x"></i>
                             </div>
-                            <h6 class="text-uppercase">Total Revenue</h6>
-                            <h1 class="display-4">36</h1>
+                            <a href="{{ route('produits.index') }}">
+                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Revenue</h6>
+                            <h1 class="display-4" style="color:rgb(255, 255, 255);">?</h1>
+                        </a> 
                         </div>
                     </div>
                 </div>
             </div>
            
             <!--/row-->
-
-            <hr>
+            <hr>        
             <div class="row placeholders mb-3">
                 <div class="col-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/dddddd/fff?text=1" class="mx-auto img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+                    <img class="mx-auto img-fluid rounded-circle" src="https://previews.123rf.com/images/macrovector/macrovector1412/macrovector141200021/34231705-service-de-pneu-m%C3%A9canicien-automobile-de-r%C3%A9paration-automobile-ic%C3%B4nes-ensemble-isol%C3%A9-plat-illustration-vector.jpg" alt="imageproduit">
                     <h4>Produit</h4>
                     <span class="text-muted">  </span>
                 </div>
                 <div class="col-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/e4e4e4/fff?text=2" class="mx-auto img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+                    <img  class="mx-auto img-fluid rounded-circle" src="https://images-eu.ssl-images-amazon.com/images/I/617sJm3o4TL.png"
+                            alt="jenseign">
                     <h4>Diagnostic</h4>
                     <span class="text-muted">  </span>
                 </div>
                 <div class="col-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/d6d6d6/fff?text=3" class="mx-auto img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+                    <img class="mx-auto img-fluid rounded-circle" src="https://cdn.www.zervant.com/wp-content/uploads/2016/01/modele-gratuit-devis_feature-image.png" alt="Generic placeholder thumbnail">
                     <h4>Devis</h4>
                     <span class="text-muted">  </span>
                 </div>
                 <div class="col-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/e0e0e0/fff?text=4" class="center-block img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+                    <img class="center-block img-fluid rounded-circle" src="https://previews.123rf.com/images/macrovector/macrovector1505/macrovector150500030/40283822-m%C3%A9canicien-automobile-r%C3%A9paration-voiture-de-service-et-de-travaux-d-entretien-icons-set-isol%C3%A9-illustrat.jpg" 
+                                 alt="Generic placeholder thumbnail">
                     <h4>Intervention</h4>
                     <span class="text-muted">  </span>
                 </div>
@@ -240,7 +268,7 @@ body, html {
             <a id="features"></a>
             <hr>
             <p class="lead mt-5">
-                Liste Produits dans Devis.
+                Les Produits Commandés aujourd'hui!!
             </p>
             <div class="row my-4">
                 <div class="col-lg-3 col-md-4">
@@ -248,15 +276,15 @@ body, html {
                         <img class="card-img-top img-fluid" src="//placehold.it/740x180/bbb/fff?text=..." alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Produits</h4>
-                            <p class="card-text">Les produits ajoutées / Liste des produits  !!!!</p>
-                            <a href="#" class="btn btn-primary">Button</a>
+                            <p class="card-text">Les produits ajoutés / Liste des produits  !!!!</p>
+                            <a href="{{route('produits.index')}}" class="btn btn-primary">Afficher</a>
                         </div>
                     </div>
                     <div class="card card-inverse bg-inverse mt-3">
-                        <div class="card-body">
-                            <h3 class="card-title">Produits</h3>
+                        <div class="card-body">     
+                            <h3 class="card-title">Produits Approvisionnés</h3>
                             <p class="card-text">Les produits vendus / Liste des produits  !!!! </p>
-                            <a href="#" class="btn btn-outline-secondary">Outline</a>
+                     <center>  <a href="{{route('approvisionnements.index')}}" class="btn btn-outline-secondary">Voir</a> </center> 
                         </div>
                     </div>
                 </div>
@@ -266,86 +294,49 @@ body, html {
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
-                                    <th>#</th>
-                                    <th>Produit</th>
-                                    <th>Quantité</th>
-                                    <th>Prix unitaire (F CFA)</th>
-                                    <th>Montant (F CFA)</th>
+                                    <th style="cursor: pointer;">N°</th>
+                                    <th style="cursor: pointer;">Catégorie</th>
+                                    <th style="cursor: pointer;">Nom Produit</th>
+                                    <th style="cursor: pointer;">Prix Unitaire</th>
+                                    <th style="cursor: pointer;">En Stock</th>
                                 </tr>
                             </thead>
                             <tbody>
+                               
                                 <tr>
-                                    <td>1,001</td>
-                                    <td>Moussa</td>
-                                    <td>web designers</td>
-                                    <td>cards</td>
-                                    <td>grid</td>
-                                </tr>
-                                <tr>
-                                    <td>1,002</td>
-                                    <td>Medoune</td>
-                                    <td>web designers</td>
-                                    <td>theme</td>
-                                    <td>responsive</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>abdou Aziz</td>
-                                    <td>developer</td>
-                                    <td>download</td>
-                                    <td>template</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>Hilde</td>
-                                    <td>developer</td>
-                                    <td>coding</td>
-                                    <td>card panel</td>
-                                </tr>
-                                <tr>
-                                    <td>1,004</td>
-                                    <td>Mohamet</td>
-                                    <td>web designers 4</td>
-                                    <td>mobile-first</td>
-                                    <td>design</td>
-                                </tr>
-                                <tr>
-                                    <td>1,005</td>
-                                    <td>Moustapha</td>
-                                    <td>developer</td>
-                                    <td>jumbtron</td>
-                                    <td>header</td>
-                                </tr>
-                                <tr>
-                                    <td>1,006</td>
-                                    <td>Yacine</td>
-                                    <td>developer</td>
-                                    <td>submenu</td>
-                                    <td>flexbox</td>
-                                </tr>
-                                <tr>
-                                    <td>1,007</td>
-                                    <td>Fatou</td>
-                                    <td>developer</td>
-                                    <td>themes</td>
-                                    <td>grid</td>
-                                </tr>
-                                <tr>
-                                    <td>1,008</td>
-                                    <td>Dieynaba</td>
-                                    <td>developer 4</td>
-                                    <td>flexbox</td>
-                                    <td>design</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                                    <td><div id="ladate"></td>
+                                    <td style="cursor: pointer; text-transform: capitalize;">Mediapex</td>
+                                    <td style="cursor: pointer; text-transform: capitalize;">Medoune</td>
+                                    <td style="cursor: pointer;">12000<sup>F CFA</sup> </td>
+                                    <td style="cursor: pointer;">?</td>   
+                                    </tbody>
+                                    </tr>
+                                  </table>
+                        </div>
+                     </div>
+                  </div>
             <!--/row-->
+
+     <!--------------------------------------------------->
             
 
 <!-- Modal  <a href="https://www.codeply.com/go/KrUO8QpyXP"  -->
+
+
+<script>
+    
+
+    var date = new Date();
+        var options = {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "2-digit"
+        };
+        var ladate = document.getElementById("ladate");
+
+        ladate.innerText = date.toLocaleDateString("fr-FR", options);
+</script>
 
 
 <script>
