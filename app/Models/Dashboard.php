@@ -20,7 +20,7 @@ class Dashboard extends Model
     public static function est()
     {
         $resul = self::sommeFacture(3);
-        dd($resul);
+        //dd($resul);
     }
 
     //CALCULE LA SOMME TOTALE DE LA FACTURE

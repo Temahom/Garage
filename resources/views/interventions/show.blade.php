@@ -286,28 +286,31 @@
 <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
 <script src="/assets/libs/js/main-js.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
 {{-- Le notifiaction des devis  --}}
 @if(Session::has('devis-send'))
 <script>
 	toastr.success("{!! Session::get('devis-send') !!}")
+	swal("Envoie Devis !", "{!! Session::get('devis-send') !!}", "success");
 </script>
 @endif
 
 @if(Session::has('payer_facture'))
 <script>
 	toastr.success("{!! Session::get('payer_facture') !!}")
+	swal("Paiement Fatcure!", "{!! Session::get('payer_facture') !!}", "success");
 </script>
 @endif
 
 @if(Session::has('creer_facture'))
 <script>
-	toastr.success("{!! Session::get('creer_facture') !!}")
+	swal("Création Fatcure!", "{!! Session::get('creer_facture') !!}", "success");
 </script>
 @endif
 @if(Session::has('facture-send'))
 <script>
 	toastr.success("{!! Session::get('facture-send') !!}")
+	swal("Envoie Fatcure!", "{!! Session::get('facture-send') !!}", "success");
 </script>
 @endif
 @endsection

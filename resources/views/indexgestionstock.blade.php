@@ -1,12 +1,11 @@
 @extends('layout.index')
-
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css"
         integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="/assets/libs/css/clock.css">
 
-    
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -134,15 +133,15 @@
                 </div>
             </div>
         <!-- FIN nb client -->
-       
 
-        
+
+
 <div class="row">
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-               <h3>{{ App\Models\Voiture::count() }}</h3>  
+               <h3>{{ App\Models\Voiture::count() }}</h3>
 
                 <p>Users</p>
             </div>
@@ -157,14 +156,14 @@
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
-                     <h3>{{ App\Models\Voiture::count() }}<sup style="font-size: 20px"></sup></h3> 
-        
+                     <h3>{{ App\Models\Voiture::count() }}<sup style="font-size: 20px"></sup></h3>
+
                         <p>Category</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-list"></i>
                     </div>
-                     <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> 
+                     <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -172,13 +171,13 @@
                 <!-- small box -->
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                       <h3>{{ App\Models\Produit::count() }}</h3>   
+                       <h3>{{ App\Models\Produit::count() }}</h3>
                         <p>Product</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-cubes"></i>
                     </div>
-                    <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>  
+                    <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -186,33 +185,33 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                       <h3>{{ App\Models\Client::count() }}</h3>   
-        
+                       <h3>{{ App\Models\Client::count() }}</h3>
+
                         <p>Customer</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-users"></i>
                     </div>
-                         <a href="{{ route('clients.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>  
+                         <a href="{{ route('clients.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
         </div>
-        
+
 
         <div class="row">
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-navy">
                     <div class="inner">
-                         <h3>{{ App\Models\Voiture::count() }}</h3>    
-        
+                         <h3>{{ App\Models\Voiture::count() }}</h3>
+
                         <p>Sales</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                       <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>  
+                       <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -220,14 +219,14 @@
                 <!-- small box -->
                 <div class="small-box bg-teal">
                     <div class="inner">
-                          <h3>{{ App\Models\Voiture::count() }}<sup style="font-size: 20px"></sup></h3>  
-        
+                          <h3>{{ App\Models\Voiture::count() }}<sup style="font-size: 20px"></sup></h3>
+
                         <p>Supplier</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                       <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>  
+                       <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -235,14 +234,14 @@
                 <!-- small box -->
                 <div class="small-box bg-maroon">
                     <div class="inner">
-                       <h3>{{ App\Models\Produit::count() }}</h3> 
-        
+                       <h3>{{ App\Models\Produit::count() }}</h3>
+
                         <p>Product In</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-plus"></i>
                     </div>
-                        <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>  
+                        <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -251,21 +250,21 @@
                 <!-- small box -->
                 <div class="small-box bg-gray">
                     <div class="inner">
-                         <h3>{{ App\Models\Voiture::count() }}</h3>   
-        
+                         <h3>{{ App\Models\Voiture::count() }}</h3>
+
                         <p>Product Out</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-minus"></i>
                     </div>
-                        <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>  
+                        <a href="{{ route('produits.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
             <!-- ./col -->
             <div id="container" class=" col-xs-6"></div>
         </div>
-    
+
 
 
 
@@ -279,18 +278,18 @@
         integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
     <script src="assets/libs/js/clock.js"></script>
-   
+
     <!-- morris js -->
     <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
     <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
     <script src="/assets/vendor/charts/morris-bundle/morrisjs.html" type="text/html"></script>
     <script src="assets/libs/js/les_courbes.js"></script>
 
-   
+
 
 
     <script>
-       
+
         // FIN Chiffre affaire par mois
 
 
@@ -359,7 +358,7 @@
 
         });
 
-       
+
     </script>
      <script>
         function show(page) {
