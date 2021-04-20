@@ -35,7 +35,7 @@
                             <th style="color: white">Nom du Produit</th>
                             <th style="color: white">Quantité Totale</th>
                             <th style="color: white">Prix Total</th>
-                            <th style="color: white">Date d'entée</th>
+                            <th style="color: white">Misa à jour</th>
                             <th style="color: white; text-align: center">Action</th>
                         </tr>
                     </thead>
@@ -98,8 +98,6 @@
     </div>
 </div>
 
-
-{!! $approvisionnements->links() !!}
 
 <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>

@@ -25,4 +25,9 @@ class Produit extends Model
     {
         return Produit::select('produit','id', 'categorie')->where('categorie','=',$this->categorie)->orderBy('produit','asc')->distinct()->get();
     }
+
+    public function approvisionnements()
+    {
+        return $this->hasMany(Approvisionnement::class);
+    }
 }

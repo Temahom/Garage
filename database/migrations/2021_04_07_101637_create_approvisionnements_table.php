@@ -15,10 +15,10 @@ class CreateApprovisionnementsTable extends Migration
     {
         Schema::create('approvisionnements', function (Blueprint $table) {
             $table->id();
-            $table->longText('nomProduit');
-            $table->string('qteTotale');
-            $table->string('prixTotal');
+            $table->string('qteAppro');
+            $table->string('prixAchat');
             $table->unsignedBigInteger('fournisseur_id');
+            $table->unsignedBigInteger('produit_id');
             $table->timestamps();
         });
     }

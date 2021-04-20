@@ -34,13 +34,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Categorie :</strong>
-                    <select name="categorie" id="categorie" class="custom-select form-control  @error('categorie') is-invalid @enderror" onchange="change();">
-						
-							@foreach ($listes as $liste)
-								<option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
-							@endforeach
-					</select>
-                    <input name="categorie" type="text" class="custom-select form-control" id="inpuTxt1" style="display:none;" value="{{ $produit->categorie }}"/>
+                    <input name="categorie" type="text" class="custom-select form-control" id="categorie"  onFocus="this.blur()" value="{{ $produit->categorie }}"/>
                     <div class="invalid-feedback">
                         @if($errors->has('categorie'))
                         {{ $errors->first('categorie') }}
@@ -49,10 +43,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 </div>
                 <div class="form-group">
                     <strong>Nom du produit :</strong>
-                    <select name="produit" id="leproduit" class="custom-select form-control  @error('produit') is-invalid @enderror" onchange="change();">
-                        <option value="{{ $produit->produit }}" {{ old('produit') == ($produit->produit) ? 'selected' : '' }}>{{ $produit->produit }}</option>
-                    </select>
-                    <input name="produit" type="text" value="{{ $produit->produit }}" class="custom-select form-control" id="inpuTxt2" style="display:none;" placeholder="Mettre le nom du produit"/>
+                    <input name="produit" type="text" value="{{ $produit->produit }}" class="custom-select form-control" id="leproduit"  onFocus="this.blur()" placeholder="Mettre le nom du produit"/>
                     <div class="invalid-feedback">
                         @if($errors->has('produit'))
                         {{ $errors->first('produit') }}
@@ -61,12 +52,9 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     </div>		
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
+                <div class="form-group" >
                     <strong>Prix Unitaire :</strong>
-                    <select name="prix1" id="leprix" class="form-control @error('prix1') is-invalid @enderror" onchange="change();">     
-                        <option value="{{ $produit->prix1 }}" {{ old('prix1') == ($produit->prix1) ? 'selected' : '' }}>{{ $produit->prix1 }}</option>s
-                    </select>
-                    <input name="prix1" type="number" min="0" value="{{ $produit->prix1 }}" class="custom-select form-control" id="inpuTxt3" style="display:none;" autocomplete="off" placeholder="Mettre le prix du produit"/>
+                    <input style="border-color: red !important" name="prix1" type="number" min="0" value="{{ $produit->prix1 }}" class="custom-select form-control" id="leprix" autocomplete="off" placeholder="Mettre le prix du produit" value="{{ old('prix1')}}"/>
                     <div class="invalid-feedback">
                         @if($errors->has('prix1'))
                         {{ $errors->first('prix1') }}
@@ -75,7 +63,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                </div>
                <div class="form-group">
                 <strong>Quantité:</strong>
-                <input type="number" min="0" name="qte" value="{{ $produit->qte }}" class="form-control @error('qte') is-invalid @enderror" placeholder="Entrer la quantite" value="{{ old('qte') }}">
+                <input type="number" min="0" name="qte" value="{{ $produit->qte }}" class="form-control @error('qte') is-invalid @enderror"  onFocus="this.blur()" placeholder="Entrer la quantite" value="{{ old('qte') }}">
                 <div class="invalid-feedback">
                     @if($errors->has('qte'))
                     {{ $errors->first('qte') }}

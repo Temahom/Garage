@@ -61,7 +61,7 @@ class FournisseurController extends Controller
      */
     public function store(Request $request)
         {   //ingcapital.sn()
-         $request->validate([
+        /* $request->validate([
                 'nom' => 'required',
                 'prenom' => 'required',
                 'genre' => 'required',
@@ -72,9 +72,9 @@ class FournisseurController extends Controller
     
              Fournisseur::create($request->all());
              return redirect()->route('fournisseurs.index')
-             ->with('success','Fournisseur Enrégistré');
+             ->with('success','Fournisseur Enrégistré');*/
     
-       /*     $data = request()->validate([
+            $data = request()->validate([
             'nom' => 'required',
             'prenom' => 'required',
             'genre' => 'required',
@@ -92,7 +92,7 @@ class FournisseurController extends Controller
            // $fournisseur->user_id= $user_id;
             $fournisseur->save();
             return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
-            ->with('success','Fournisseur Enrégistré');     */
+            ->with('success','Fournisseur Enrégistré');   
            }
 
     /**
@@ -115,7 +115,7 @@ class FournisseurController extends Controller
      */
     public function edit(Fournisseur $fournisseur)
     {
-        return view('fournisseurs.edit',compact('fournisseur'));
+        return view('fournisseurs.edit',compact('fournisseurs', 'fournisseur'));
     }
 
     /**

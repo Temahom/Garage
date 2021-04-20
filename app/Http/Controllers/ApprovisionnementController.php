@@ -25,11 +25,12 @@ class ApprovisionnementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
+    public function create(Fournisseur $fournisseur, Approvisionnement $approvisionnement, Produit $produit)
     {
        //$this->authorize('create', Approvisionnement::class);
        $fournisseurs= Fournisseur::all();
-       return view('approvisionnements.create',compact('fournisseurs','fournisseur', 'approvisionnement'));
+       $produits= Produit::all();
+       return view('approvisionnements.create',compact('fournisseurs','fournisseur', 'approvisionnement', 'produits', 'produit'));
     
      }
 
@@ -45,10 +46,11 @@ class ApprovisionnementController extends Controller
 
             foreach ($request->plusdechamps as $key => $value) {
                 $approvisionnement = new Approvisionnement();
-                $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
-                $approvisionnement->nomProduit =  $value['nomProduit'];
-                $approvisionnement->qteTotale =  $value['qteTotale'];
-                $approvisionnement->prixTotal =  $value['prixTotal'];
+                $approvisionnement->fournisseur_id = $request->input('fournisseur_id');    
+                           
+                $approvisionnement->produit_id =  $value['produit_id'];
+                $approvisionnement->qteAppro =  $value['qteAppro'];
+                $approvisionnement->prixAchat =  $value['prixAchat'];
                 $approvisionnement->save();
             }
 
@@ -74,11 +76,12 @@ class ApprovisionnementController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Approvisionnement $approvisionnement)
+    public function edit(Approvisionnement $approvisionnement, Produit $produit)
     {
+        $produits= Produit::all();
         $approvisionnements = Approvisionnement::all();
 
-        return view('approvisionnements.edit', compact('approvisionnement'));
+        return view('approvisionnements.edit', compact('approvisionnement', 'produits'));
     }
     /**
      * Update the specified resource in storage.
@@ -89,23 +92,14 @@ class ApprovisionnementController extends Controller
      */
     public function update(Request $request, Approvisionnement $approvisionnement, Fournisseur $fournisseur)
     {
-        $this->authorize('update', $approvisionnement);
-        $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
-        $approvisionnement->update();
+        $request->validate([
+            'fournisseur_id' => 'required',
+            'produit_id' => 'required',
+            'qteAppro' => 'required',
+            'prixAchat' => 'required',
+            ]);
+        $approvisionnement->update($request->all());
 
-        $approvisionnements = $fournisseur->approvisionnement()->first()->approvisionnements()->get();
-        foreach($approvisionnements as $approvisionnement)
-        {
-            $approvisionnement->delete();
-        }
-        
-        foreach ($request->plusdechamps as $key => $value) {
-            $approvisionnement = new Approvisionnement();
-            $approvisionnement->nomProduit =  $value['nomProduit'];
-            $approvisionnement->qteTotale =  $value['qteTotale'];
-            $approvisionnement->prixTotal =  $value['prixTotal'];
-            $approvisionnement->save();
-        }
 
         $fournisseur = $approvisionnement->fournisseur()->first()->id;
         return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
