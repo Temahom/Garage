@@ -28,11 +28,9 @@ class ClientController extends Controller
                 }
                }] 
             ])
-                ->orderBy("id","asc")
-                ->paginate(15);
+                ->orderBy("id","asc");
   
-        return view('clients.index', compact('clients'))
-            ->with('i', (request()->input('page', 1) - 1) * 15); 
+        return view('clients.index', compact('clients'));
              
     }
 

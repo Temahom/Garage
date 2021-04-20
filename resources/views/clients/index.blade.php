@@ -126,11 +126,6 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 		</div>
 	</div>
 </div>
-	<div class="row">
-		<div class="col-md-12 mt-3 d-flex justify-content-center">
-			{!! $clients->links() !!}
-		</div>
-	</div>
 	
 	
 

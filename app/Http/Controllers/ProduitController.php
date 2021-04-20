@@ -40,10 +40,9 @@ class ProduitController extends Controller
                }] 
             ])
                 ->orderBy("id","asc")
-                ->paginate(15);
+                ->get();
   
-        return view('produits.index', compact('produits'))
-            ->with('i', (request()->input('page', 1) - 1) * 15); 
+        return view('produits.index', compact('produits'));
              
         }      
 
@@ -88,7 +87,7 @@ class ProduitController extends Controller
                 'categorie' => 'required',
                 'produit' => 'required',
                 'prix1' => 'required',
-            'qte' => 'required'
+                'qte' => 'required'
             ]);
     
             $prod=new Produit();
