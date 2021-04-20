@@ -1,5 +1,5 @@
 
-        
+
 
 
 <div class="load">
@@ -10,7 +10,7 @@
       body{background:#ECF0F1}
 
 .load{
-  border: 1px solid #ECF0F1;
+  border: 1px solid #ecf0f1;
   padding: 5px;
   position:absolute;
   top:50%;
@@ -20,7 +20,7 @@
   /*change these sizes to fit into your project*/
   width:50px;
   height:50px;
-  
+
 }
 .load hr{
   border:0;

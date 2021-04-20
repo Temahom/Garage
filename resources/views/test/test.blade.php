@@ -1,5 +1,5 @@
 @php
     use App\Models\Dashboard;
-    $interventionVoitureEnGarages = Dashboard::interventionVoitureEnGarages();
+    $result = Dashboard::tabThisMonth();
 @endphp
-{{ dd($interventionVoitureEnGarages) }}
+{{ dd($result) }}

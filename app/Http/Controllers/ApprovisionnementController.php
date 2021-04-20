@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Approvisionnement;
 use App\Models\Fournisseur;
-use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class ApprovisionnementController extends Controller
@@ -92,6 +91,7 @@ class ApprovisionnementController extends Controller
      */
     public function update(Request $request, Approvisionnement $approvisionnement, Fournisseur $fournisseur)
     {
+<<<<<<< HEAD
         $request->validate([
             'fournisseur_id' => 'required',
             'produit_id' => 'required',
@@ -100,6 +100,18 @@ class ApprovisionnementController extends Controller
             ]);
         $approvisionnement->update($request->all());
 
+=======
+        $this->authorize('update', $approvisionnement);        
+        
+        foreach ($request->plusdechamps as $key => $value) {
+            $approvisionnement = new Approvisionnement();
+            $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
+            $approvisionnement->nomProduit =  $value['nomProduit'];
+            $approvisionnement->qteTotale =  $value['qteTotale'];
+            $approvisionnement->prixTotal =  $value['prixTotal'];
+            $approvisionnement->save();
+        }
+>>>>>>> b72189c79e2077ef414088fa0db03400fa7a8169
 
         $fournisseur = $approvisionnement->fournisseur()->first()->id;
         return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])

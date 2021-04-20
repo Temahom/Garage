@@ -57,7 +57,12 @@ $voitures = \App\Models\Voiture::whereYear('created_at', Carbon::now()->year)
 $jour_ci = Carbon::now()->day;
 //VOITURE EN GARAGE
 $interventionVoitureEnGarages = \App\Models\Dashboard::interventionVoitureEnGarages();
-
+//TABLEAU RECAPTULATIF DES JOURS
+$tabRecupDays = \App\Models\Dashboard::tabRecupDays();
+//TABLEAU RECAPTULATIF MOIS
+$tabRecupMonths = \App\Models\Dashboard::tabRecupMonths();
+//TABLEAU RECAPTULATIF CE MOIS
+$tabThisMonth = \App\Models\Dashboard::tabThisMonth();
 @endphp
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css"
@@ -354,24 +359,14 @@ $interventionVoitureEnGarages = \App\Models\Dashboard::interventionVoitureEnGara
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Lundi 29 Mars 2021</td>
-                                    <td>17</td>
-                                    <td>450000</td>
-                                    <td>230000</td>
-                                </tr>
-                                <tr>
-                                    <td>Lundi 29 Mars 2021</td>
-                                    <td>17</td>
-                                    <td>450000</td>
-                                    <td>230000</td>
-                                </tr>
-                                <tr>
-                                    <td>Lundi 29 Mars 2021</td>
-                                    <td>17</td>
-                                    <td>450000</td>
-                                    <td>230000</td>
-                                </tr>
+                                @foreach ($tabRecupDays as $tabRecupDay)
+                                    <tr>
+                                        <td>{{ $tabRecupDay['date'] }}</td>
+                                        <td>{{ $tabRecupDay['nbIntervention'] }}</td>
+                                        <td>{{ $tabRecupDay['facturePaye'] }}</td>
+                                        <td>{{ $tabRecupDay['chiffreAffaire'] }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -394,24 +389,14 @@ $interventionVoitureEnGarages = \App\Models\Dashboard::interventionVoitureEnGara
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($tabRecupMonths as $tabRecupMonth)
                                 <tr>
-                                    <td>Mars 2021</td>
-                                    <td>17</td>
-                                    <td>450000</td>
-                                    <td>230000</td>
+                                    <td>{{ $tabRecupMonth['date'] }}</td>
+                                    <td>{{ $tabRecupMonth['nbIntervention'] }}</td>
+                                    <td>{{ $tabRecupMonth['facturePaye'] }}</td>
+                                    <td>{{ $tabRecupMonth['chiffreAffaire'] }}</td>
                                 </tr>
-                                <tr>
-                                    <td>Mars 2021</td>
-                                    <td>17</td>
-                                    <td>450000</td>
-                                    <td>230000</td>
-                                </tr>
-                                <tr>
-                                    <td>Mars 2021</td>
-                                    <td>17</td>
-                                    <td>450000</td>
-                                    <td>230000</td>
-                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -478,15 +463,15 @@ $interventionVoitureEnGarages = \App\Models\Dashboard::interventionVoitureEnGara
                             <tbody>
                                 <tr>
                                     <th  scope="col">CA</th>
-                                    <td>17 000 000</td>
+                                    <td>{{ $tabThisMonth['facturePaye'] }}</td>
                                 </tr>
                                 <tr>
                                     <th  scope="col">Impayé</th>
-                                    <td>1 200 000</td>
+                                    <td>{{ $tabThisMonth['chiffreAffaire'] }}</td>
                                 </tr>
                                 <tr>
                                     <th>TOTAL</th>
-                                    <th>18 200 000</th>
+                                    <th>{{ $tabThisMonth['total'] }}</th>
                                 </tr>
                             </tbody>
                         </table>
