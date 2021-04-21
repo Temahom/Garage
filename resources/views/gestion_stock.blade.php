@@ -2,21 +2,45 @@
  @include('animate_gestion_stock')
 @extends('layout.index')
 @php
+setlocale(LC_TIME, 'fr_FR', 'French');
 $date = new DateTime('now', new DateTimeZone('UTC'));
+
 use Carbon\Carbon;
+use App\Models\Devi;
+use App\Models\Devi_produit;
+use App\Models\Produit;
+use App\Models\Dashboard_stock;
+
+$devi_produits = Devi_produit::all();
+ $produits = Produit::all();
 $produit_total = \App\Models\Produit::whereYear('created_at', Carbon::now()->year)
     ->whereMonth('created_at', Carbon::now()->month)
     ->count();
 
-//$produit_commander = Produit:: as 'prod' and Commande:: as 'com' where('prod->id','=','com->id')->whereYear('created_at', Carbon::now()->year)
- //                                                                              ->whereMonth('created_at', Carbon::now()->month)->paginate(10);
-        			
 $produit_en_stock = \App\Models\Produit::select('qte')
     ->where('qte', '>', 0)
     ->count();		
 
 /*$mois_ci = Carbon::now()->format('F');
-$jour_ci = Carbon::now()->day;  */ 			
+$jour_ci = Carbon::now()->day;  */ 		
+////////////////////////////////////*********************////////////////////////////////////////////////////
+
+ //Calcul DU NOMBRE DE PRODUITS QUI SONT DANS LE DEVIS(produit commandés pour linstant)
+  function listeProduitDansDevi()
+    {
+        $listeProduitDevi = 0;
+       $devi_produits = Devi_produit::all();
+        foreach ($devi_produits as  $devi_produit) {
+            if($devi_produit->produit_id )
+            {
+                $listeProduitDevi = $listeProduitDevi + 1;
+                
+            }
+        }
+        return $listeProduitDevi;
+    }
+//////////AFFICHAGE DU TABLEAU DES PRODUITS QUI SONT DANS DEVIS
+
 @endphp
 
 @section('content')
@@ -205,7 +229,7 @@ body, html {
                             </div>
                            <a href="{{ route('produits.index') }}">
                             <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Produits Commandés/Vendus</h6>
-                            <h1 class="display-4" style="color:rgb(255, 255, 255);">0</h1>
+                            <h1 class="display-4" style="color:rgb(255, 255, 255);"> {{listeProduitDansDevi()}}</h1>
                           </a> 
                         </div>
                     </div>
@@ -268,7 +292,7 @@ body, html {
             <a id="features"></a>
             <hr>
             <p class="lead mt-5">
-                Les Produits Commandés aujourd'hui!!
+                Les Produits Commandés dans Devis!!
             </p>
             <div class="row my-4">
                 <div class="col-lg-3 col-md-4">
@@ -288,30 +312,64 @@ body, html {
                         </div>
                     </div>
                 </div>
-                  
+                                   
+                
                 <div class="col-lg-9 col-md-8">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
-                                    <th style="cursor: pointer;">N°</th>
-                                    <th style="cursor: pointer;">Catégorie</th>
+                                    <th style="cursor: pointer;">Date Enregistrée</th>
+                                    <th style="cursor: pointer;">N°Devis</th>
+                                    <th style="cursor: pointer;">Categorie</th>
                                     <th style="cursor: pointer;">Nom Produit</th>
                                     <th style="cursor: pointer;">Prix Unitaire</th>
-                                    <th style="cursor: pointer;">En Stock</th>
+                                    <th style="cursor: pointer;">Quantité Commandee</th>
+                                    <th style="cursor: pointer;">Disponibilité</th>
                                 </tr>
                             </thead>
                             <tbody>
-                               
+                             @foreach ($devi_produits as  $devi_produit)
                                 <tr>
-                                    <td><div id="ladate"></td>
-                                    <td style="cursor: pointer; text-transform: capitalize;">Mediapex</td>
-                                    <td style="cursor: pointer; text-transform: capitalize;">Medoune</td>
-                                    <td style="cursor: pointer;">12000<sup>F CFA</sup> </td>
-                                    <td style="cursor: pointer;">?</td>   
-                                    </tbody>
+                                    <td>{{$devi_produit->created_at}}</td>     <!--  <div id="ladate"> -->
+                                    <td style="cursor: pointer; text-transform: capitalize;">{{$devi_produit->devi_id}}</td>
+                                    <td style="cursor: pointer; text-transform: capitalize;">
+                                                            @if($devi_produit->produit_id)
+                                                            @foreach ($produits as $produit)
+                                                                {{$produit->categorie}}
+                                                            @endforeach
+                                                        @endif
+                                    </td>
+                                    <td style="cursor: pointer; text-transform: capitalize;">
+                                                    @if($devi_produit->produit_id)
+                                                       @foreach ($produits as $produit)
+                                                          {{$produit->produit}}
+                                                       @endforeach
+                                                  @endif
+                                    </td>
+                                    <td style="cursor: pointer; text-transform: capitalize;">
+                                                        @if($devi_produit->produit_id)
+                                                           @foreach ($produits as $produit)
+                                                            {{$produit->prix1}}
+                                                          @endforeach
+                                                        @endif
+                                    </td>
+                                    <td style="cursor: pointer;">{{$devi_produit->quantite}}<sup>F CFA</sup> </td>
+                                    <td style="cursor: pointer;"> 
+                                            @if($devi_produit->produit_id)
+                                                @foreach ($produits as $produit)
+                                                        @if ($produit->qte<=10)
+                                                          <span class="badge-dot badge-danger mr-1"></span>En Rupture</td>
+                                                        @else
+                                                          <span class="badge-dot badge-succes mr-1"></span>En Stock</td>
+                                                        @endif
+                                                @endforeach
+                                           @endif
+                                    </td>   
+                              @endforeach
+                             </tbody>
                                     </tr>
-                                  </table>
+                            </table>
                         </div>
                      </div>
                   </div>

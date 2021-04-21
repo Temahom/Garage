@@ -61,14 +61,14 @@ $.ajax({
                 labels: lab,
                 datasets: [
                     {
-                        label: "Chiffre d'afaire",
+                        label: "Chiffre d'affaire",
                         data: prix_ca,
                         backgroundColor: "rgba(89, 105, 255,.8)",
                         borderColor: "rgba(89, 105, 255,1)",
                         borderWidth: 2,
                     },
                     {
-                        label: "Detes ",
+                        label: "Dettes ",
                         data: prix_cai,
                         backgroundColor: "rgba(255, 64, 123,.8)",
                         borderColor: "rgba(255, 64, 123,1)",

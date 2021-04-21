@@ -91,7 +91,8 @@
         background:white;
         position:fixed;
         bottom:0;
-        width:100%
+        width:100%;
+        text-align: center;
     }
     .capitalize{
       text-transform: capitalize;
@@ -328,7 +329,7 @@
                             <div style="width: 100%; margin-left: 30px;" > 
                                 @yield('content')
                             </div> 
-                            <div class="footer" style="text-align: center;">
+                            <div class="footer">
                                 <div class="container-fluid" style="text-align: center;margin-left:15%;">
                                     <div class="row">
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">

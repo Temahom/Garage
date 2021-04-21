@@ -41,12 +41,14 @@
 				<li class="nav-item">
 					<a class="nav-link active" id="tab-outline-one" data-toggle="tab" href="#outline-one" role="tab" aria-controls="home" aria-selected="true">Diagnostic</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Devis</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Résumé Intervention</a>
-				</li>
+				@if (isset($diagnostic->coût))
+					<li class="nav-item">
+						<a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Devis</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Résumé Intervention</a>
+					</li>
+				@endif
 			</ul>
 			<div class="tab-content" id="myTabContent2">
 
@@ -138,91 +140,94 @@
 				<!-- ============================================================== -->
 				<!-- DEVIS  -->
 				<!-- ============================================================== -->
-				<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
+				@if (isset($diagnostic->coût))
+					<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
 
-					@if ( $intervention->devis_id )
+						@if ( $intervention->devis_id )
 
+							<div class="row mt-4">
+								<div class="col-md-12">
+									<p><b>Date d'expiration : </b>{{$devi->date_expiration}}</p>
+								</div>
+							</div>
+							
+							<div class="row my-4">
+								<div class="col-md-12">
+
+									<table class="table table-bordered">
+										<thead style="background-color: #4656E9;">
+											<tr>
+												<th scope="col" style="color: #ffffff">Produit</th>
+												<th scope="col" style="color: #ffffff">Quantité</th>
+												<th scope="col" style="color: #ffffff">Prix unitaire (F CFA)</th>
+												<th scope="col" style="color: #ffffff; width: 200px">Montant (F CFA)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php  $total = 0 ?>
+											@foreach ($devi['item_devis'] as $item)
+												<tr>
+													<td>{{ $item['produit']->produit }}</td>
+													<td>{{ $item['devi_produit']->quantite }}</td>
+													<td>{{ number_format($item['produit']->prix1, 0, ",", " " ) }}</td>
+													<td><?php echo number_format($item['produit']->prix1 * $item['devi_produit']->quantite, 0, ",", " ") ?></td>
+												</tr>
+												<?php $total += $item['produit']->prix1 * $item['devi_produit']->quantite ?>
+											@endforeach
+										</tbody>
+									</table>
+
+									<table class="table table-bordered mt-5">
+										<tbody>
+											<tr>
+												<th scope="col" colspan="4">Total produit(s) commandé(s)</th>
+												<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
+											</tr>
+											<tr>
+												<th scope="col" colspan="4">Coût du Diagnostic</th>
+												<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }}</th>
+											</tr>
+											<tr>
+												<th scope="col" colspan="4">Cout de réparation</th>
+												<th scope="col" style="width: 200px">{{ number_format($devi->cout, 0, ",", " " ) }}</th>
+											</tr>
+										</tbody>
+									</table>
+
+									<table class="table table-bordered mt-4">
+										<tbody>
+											<tr>
+												<th scope="col" colspan="4">Net à payer</th>
+												<th scope="col" style="width: 200px"><?php echo number_format($total + $devi->cout + $diagnostic->coût, 0, ",", " ") ?></th>
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+						@else
+							<div class="row">
+								<div class="col-md-12">
+									<p>Vide...</p>
+								</div>
+							</div>
+						@endif
+						
+						
+						@can('create', App\Models\Devi::class)
 						<div class="row mt-4">
 							<div class="col-md-12">
-								<p><b>Date d'expiration : </b>{{$devi->date_expiration}}</p>
+								@if ( $intervention->devis_id )
+									<a class="btn btn-warning" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
+									<a href="/Pdf/{{$intervention->id}}" target="_blank" class="btn btn-primary"><i class="icon-printer"></i> Imprimer</a>
+									<a href="/send-devis/{{$intervention->id}}" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"> Envoyer au client</i></a>	
+								@else
+									<a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
+								@endif
 							</div>
 						</div>
-						
-						<div class="row my-4">
-							<div class="col-md-12">
-
-								<table class="table table-bordered">
-									<thead style="background-color: #4656E9;">
-										<tr>
-											<th scope="col" style="color: #ffffff">Produit</th>
-											<th scope="col" style="color: #ffffff">Quantité</th>
-											<th scope="col" style="color: #ffffff">Prix unitaire (F CFA)</th>
-											<th scope="col" style="color: #ffffff; width: 200px">Montant (F CFA)</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php  $total = 0 ?>
-										@foreach ($devi['item_devis'] as $item)
-											<tr>
-												<td>{{ $item['produit']->produit }}</td>
-												<td>{{ $item['devi_produit']->quantite }}</td>
-												<td>{{ number_format($item['produit']->prix1, 0, ",", " " ) }}</td>
-												<td><?php echo number_format($item['produit']->prix1 * $item['devi_produit']->quantite, 0, ",", " ") ?></td>
-											</tr>
-											<?php $total += $item['produit']->prix1 * $item['devi_produit']->quantite ?>
-										@endforeach
-									</tbody>
-								</table>
-
-								<table class="table table-bordered mt-5">
-									<tbody>
-										<tr>
-											<th scope="col" colspan="4">Total produit(s) commandé(s)</th>
-											<th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
-										</tr>
-										<tr>
-											<th scope="col" colspan="4">Coût du Diagnostic</th>
-											<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }}</th>
-										</tr>
-										<tr>
-											<th scope="col" colspan="4">Cout de réparation</th>
-											<th scope="col" style="width: 200px">{{ number_format($devi->cout, 0, ",", " " ) }}</th>
-										</tr>
-									</tbody>
-								</table>
-
-								<table class="table table-bordered mt-4">
-									<tbody>
-										<tr>
-											<th scope="col" colspan="4">Net à payer</th>
-											<th scope="col" style="width: 200px"><?php echo number_format($total + $devi->cout + $diagnostic->coût, 0, ",", " ") ?></th>
-										</tr>
-									</tbody>
-								</table>
-
-							</div>
-						</div>
-					@else
-						<div class="row">
-							<div class="col-md-12">
-								<p>Vide...</p>
-							</div>
-						</div>
+						@endcan
 					@endif
-                     
-					@can('create', App\Models\Devi::class)
-					<div class="row mt-4">
-						<div class="col-md-12">
-							@if ( $intervention->devis_id )
-								<a class="btn btn-warning" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
-								<a href="/Pdf/{{$intervention->id}}" target="_blank" class="btn btn-primary"><i class="icon-printer"></i> Imprimer</a>
-								<a href="/send-devis/{{$intervention->id}}" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"> Envoyer au client</i></a>	
-							@else
-								<a class="btn btn-primary" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter</a>
-							@endif
-						</div>
-					</div>
-					@endcan
 
 				</div>
 				<!-- ============================================================== -->
