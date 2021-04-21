@@ -32,14 +32,14 @@ class VoitureController extends Controller
                     $query->orWhere('puissance', 'LIKE' , '%' . $term . '%')->get();
                 }
                }] 
-            ]) ->orderBy("id","asc")->paginate(15);
+            ]) ->orderBy("id","asc")->get();
 
         $user = Auth::id(); 
 
         // recuperation des interventions realisé par le un mecanicien
         $interventionAssignees = Intervention::where('technicien','=',$user)->get();
       
-        return view('voitures.index', compact('voitures','interventionAssignees'))->with('i', (request()->input('page', 1) - 1) * 15); 
+        return view('voitures.index', compact('voitures','interventionAssignees')); 
              
     }
 

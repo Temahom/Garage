@@ -28,7 +28,7 @@ class ClientController extends Controller
                 }
                }] 
             ])
-                ->orderBy("id","asc");
+                ->orderBy("id","asc")->get();
   
         return view('clients.index', compact('clients'));
              
