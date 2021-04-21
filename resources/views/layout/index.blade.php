@@ -93,7 +93,6 @@
         bottom:0;
         width:100%;
         text-align: center;
-        margin-left: -30px;
     }
     .capitalize{
       text-transform: capitalize;
