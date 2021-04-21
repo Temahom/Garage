@@ -87,7 +87,7 @@
                 </thead>
                 @foreach ($approvisionnements as $approvisionnement)
                 <tr>
-                    <td>{{ $approvisionnement->produit_id }}</td>
+                    <td>{{ App\Models\Produit::find($approvisionnement->produit_id)->produit}}</td>
                     <td>{{ $approvisionnement->qteAppro}}</td>
                     <td>{{ $approvisionnement->prixAchat}}</td>
                     <td>{{ $approvisionnement->prixAchat * $approvisionnement->qteAppro}} <sup>FCFA</sup></td> 

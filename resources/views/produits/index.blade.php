@@ -48,19 +48,32 @@ setlocale(LC_TIME, "fr_FR", "French");
                                 </thead>
                                    <tbody>
                                     @foreach ($produits as $produit)
+
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
                                         <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-                                        <td style="cursor: pointer;">{{ $produit->qte }}</td>   
-                                    <!--    <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td>-->
+                                        <td style="cursor: pointer;">
+                                            <?php
+                                            $quantiteStock = 0;
+                                                foreach ($produit->approvisionnements as $product)
+                                                   {
+                                                    $quantiteStock +=$product->pivot->quantite;
+                                                   }
+                                                   echo $quantiteStock+$produit->qte; 
+                                            ?>
+                                            {{-- @foreach ($produit->approvisionnements as $product)
+                                                {{$product->pivot->quantite + $produit->qte }}
+                                            @endforeach --}}
+                                        </td>   
+                                        {{-- <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> --}}
                                         <td>
             
-                                    <!--       <a href="{{ route('produits.show', $produit->id) }}" title="show">      -->             
-                                                <!--<button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
+                                         {{-- <a href="{{ route('produits.show', $produit->id) }}" title="show">              --}}
+                                               {{-- <button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
                                                     <i class="fas fa-eye text-success  fa-lg"></i>    
-                                                </button>-->
+                                                </button> --}}
                                                 <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">

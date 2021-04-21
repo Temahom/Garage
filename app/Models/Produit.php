@@ -28,6 +28,6 @@ class Produit extends Model
 
     public function approvisionnements()
     {
-        return $this->hasMany(Approvisionnement::class);
+        return $this->belongsToMany(Approvisionnement::class)->withPivot('quantite');
     }
 }

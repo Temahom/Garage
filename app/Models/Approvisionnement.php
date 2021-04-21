@@ -23,10 +23,9 @@ class Approvisionnement extends Model
     {
         return $this->belongsTo(Fournisseur::class);
     }
-
     public function produits()
     {
-        return $this->hasMany(Produit::class);
+        return $this->belongsToMany(Produit::class)->withPivot('quantite');
     }
 
 }

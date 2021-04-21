@@ -51,7 +51,9 @@ class ApprovisionnementController extends Controller
                 $approvisionnement->produit_id =  $value['produit_id'];
                 $approvisionnement->qteAppro =  $value['qteAppro'];
                 $approvisionnement->prixAchat =  $value['prixAchat'];
+                // dd(intval($value['produit_id']));
                 $approvisionnement->save();
+                $approvisionnement->produits()->sync([$approvisionnement->produit_id=>['quantite'=>$value['qteAppro']]]);
             }
 
             $fournisseur = $approvisionnement->fournisseur()->first()->id;
