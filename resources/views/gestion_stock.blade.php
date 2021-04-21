@@ -4,6 +4,9 @@
 @php
 $date = new DateTime('now', new DateTimeZone('UTC'));
 use Carbon\Carbon;
+use App\Models\Devi_produit;
+use App\Models\Dashboard_stock;
+
 $produit_total = \App\Models\Produit::whereYear('created_at', Carbon::now()->year)
     ->whereMonth('created_at', Carbon::now()->month)
     ->count();
@@ -16,7 +19,11 @@ $produit_en_stock = \App\Models\Produit::select('qte')
     ->count();		
 
 /*$mois_ci = Carbon::now()->format('F');
-$jour_ci = Carbon::now()->day;  */ 			
+$jour_ci = Carbon::now()->day;  */ 		
+
+//////////Recuperation des Produits dans devis
+//$listeProduitDevi = \App\Models\Dashboard_stock::listeProduiDansDevi();
+
 @endphp
 
 @section('content')

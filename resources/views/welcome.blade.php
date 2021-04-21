@@ -4,6 +4,7 @@
 @php
 setlocale(LC_TIME, 'fr_FR', 'French');
 $date = new DateTime('now', new DateTimeZone('UTC'));
+use App\Models\Dashboard_stock;
 use Carbon\Carbon;
 $clients = \App\Models\Client::whereYear('created_at', Carbon::now()->year)
     ->whereMonth('created_at', Carbon::now()->month)
