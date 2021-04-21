@@ -30,6 +30,7 @@ use App\Models\Intervention;
 use App\Models\Devi;
 use App\Models\Produit;
 use app\Models\Fournisseur;
+use app\Models\Dashboard_stock;
 
      
 /*
@@ -76,6 +77,7 @@ Route::middleware('auth')->group(function () {
     Route::get('facture/{id}/payer',[FactureController::class,'facture_payer']);
     Route::get('send-facture/{id}',[MailSend::class,'facture_pdf_send']);
     Route::resource('produits',ProduitController::class);
+    Route::resource('commandes',CommandeController::class);
     Route::resource('clients',ClientController::class);  
     Route::resource('fournisseurs',FournisseurController::class);
     Route::get('clients-mois',[ClientController::class, 'index_mois'])->name('clients-mois');  
@@ -107,7 +109,10 @@ Route::middleware('auth')->group(function () {
         return view('admin.home');
     });
            //routes
-         
+
+   Route::get('/gestion_stock', function () {
+            return view('gestion_stock');
+        });     
     
    /* Route::get('/', function () {
         return view('google_map');
@@ -147,9 +152,7 @@ Route::get('/google_map', function () {
     return view('google_map');
 });
 
-Route::get('/gestion_stock', function () {
-    return view('gestion_stock');
-});
+
 Route::get('/photo_etape', function () {
     return view('photo_etape');
 });
