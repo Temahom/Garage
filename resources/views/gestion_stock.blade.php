@@ -294,7 +294,7 @@ body, html {
             <p class="lead mt-5">
                 Les Produits Commandés dans Devis!!
             </p>
-            <div class="row my-4">
+         <!--   <div class="row my-4">
                 <div class="col-lg-3 col-md-4">
                     <div class="card">
                         <img class="card-img-top img-fluid" src="//placehold.it/740x180/bbb/fff?text=..." alt="Card image cap">
@@ -311,10 +311,10 @@ body, html {
                      <center>  <a href="{{route('approvisionnements.index')}}" class="btn btn-outline-secondary">Voir</a> </center> 
                         </div>
                     </div>
-                </div>
+                </div>              -->
                                    
                 
-                <div class="col-lg-9 col-md-8">
+                <div class="col-lg-12 col-md-8">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead class="thead-inverse">
