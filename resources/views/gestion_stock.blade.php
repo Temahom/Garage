@@ -353,7 +353,7 @@ body, html {
                                                                {{$produit->prix1}}
                                                             @endif
                                                           @endforeach
-                                    <sup>F CFA</sup></td>
+                                    </td>
                                     <td style="cursor: pointer;">{{$devi_produit->quantite}} </td>
                                     <td style="cursor: pointer;"> 
                                                           @foreach ($produits as $produit)
