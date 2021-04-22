@@ -47,7 +47,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                                     </tr>
                                 </thead>
                                    <tbody>
-                                    @foreach ($produits as $produit)
+                                    @foreach ($produits as $i=>$produit)
 
                                     <tr>
                                         <td>{{ ++$i }}</td>
