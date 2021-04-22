@@ -353,9 +353,8 @@ body, html {
                                                                {{$produit->prix1}}
                                                             @endif
                                                           @endforeach
-                                                       
-                                    </td>
-                                    <td style="cursor: pointer;">{{$devi_produit->quantite}}<sup>F CFA</sup> </td>
+                                    <sup>F CFA</sup></td>
+                                    <td style="cursor: pointer;">{{$devi_produit->quantite}} </td>
                                     <td style="cursor: pointer;"> 
                                                           @foreach ($produits as $produit)
                                                              @if($devi_produit->produit_id==$produit->id)
