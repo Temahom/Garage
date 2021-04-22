@@ -40,6 +40,12 @@ class DatabaseSeeder extends Seeder
             "role_id"=>(4),
             "password"=>bcrypt(12345678)
         ]);
+        \App\Models\User::create([
+            "name"=>"Yoro",
+            "email"=>"yoro@apex.com",
+            "role_id"=>(5),
+            "password"=>bcrypt(12345678)
+        ]);
             
         \App\Models\Role::create([
             'id'=>(1),
@@ -56,6 +62,10 @@ class DatabaseSeeder extends Seeder
         \App\Models\Role::create([
             'id'=>(4),
             'role'=>'SuperAdmin'
+        ]);
+        \App\Models\Role::create([
+            'id'=>(5),
+            'role'=>'Magasinier'
         ]);
         /**
          * Seeder pour les voitures
