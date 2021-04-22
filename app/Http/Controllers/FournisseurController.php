@@ -103,7 +103,8 @@ class FournisseurController extends Controller
      */
     public function show(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
-        $approvisionnements = $fournisseur->approvisionnements()->get();
+        $approvisionnements = Approvisionnement::where('fournisseur_id','=',$fournisseur->id)->distinct()->get();
+       // dd($approvisionnements);
         return view('fournisseurs.show',compact('fournisseur','approvisionnements'));
     }
 

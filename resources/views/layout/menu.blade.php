@@ -91,8 +91,7 @@
         background:white;
         position:fixed;
         bottom:0;
-        width:100%;
-        text-align: center;
+        width:100%
     }
     .capitalize{
       text-transform: capitalize;
@@ -220,7 +219,7 @@
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
+        <div class="nav-left-sidebar sidebar-dark" style="background-color: #268956 !important">
             <br>
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -229,86 +228,60 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 25px">
-                               Menu
+                        <ul class="navbar-nav flex-column" >
+                            <li class="nav-divider" style="font-size: 20px">
+                               Magasin
                             </li><br>
 
-                            <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success">6</span></a>
-                                <div id="submenu-client" class="collapse submenu">
-                                    <ul class="nav flex-column">
+                            <li class="nav-item " >
+                                <a class="nav-link active" style="background-color: #2E5441 !important" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Fournisseurs<span class="badge badge-success">6</span></a>
+                                <div id="submenu-client" class="collapse submenu" style="background-color: #2E5441 !important">
+                                    <ul class="nav flex-column" style="background-color: #2E5441 !important">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/clients">Liste Clients</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs">Liste Fournisseurs</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/clients/create">Ajouter Client</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs/create">Ajouter Fournisseur</a>
                                         </li>
                                     </ul>    
                                 </div>
                             </li>
 
                             <li class="nav-item " style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fa fa-fw fa-car"></i>Voitures<span class="badge badge-success">6</span></a>
-                                <div id="submenu-voiture" class="collapse submenu">
+                                <a class="nav-link active" style="background-color: #2E5441 !important" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-voiture" aria-controls="submenu-voiture"><i class="fas fa-plus"></i>Approvisionnements<span class="badge badge-success">6</span></a>
+                                <div id="submenu-voiture" style="background-color: #2E5441 !important" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/voitures">Liste voitures</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements">Liste Approvisionnements</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajouter Approvisionnement</a>
                                         </li>
                                     </ul>    
                                 </div>
                             </li>
+
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-acteur" aria-controls="submenu-acteur"><i class="icon-people"></i>Acteurs<span class="badge badge-success">6</span></a>
-                                <div id="submenu-acteur" class="collapse submenu">
+                                <a class="nav-link active" style="background-color: #2E5441 !important" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
+                                <div id="submenu-produit" style="background-color: #2E5441 !important" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/actors">Liste Acteurs</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits">Liste Produits</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/actors/create">Ajouter Acteur</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Ajouter Produit</a>
                                         </li>
-                                    </ul>    
-                                </div>
-                            </li>
-                            <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-rv" aria-controls="submenu-rv"><i class="fas fa-calendar"></i>Agenda<span class="badge badge-success">6</span></a>
-                                <div id="submenu-rv" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/fullcalendar">Liste RV</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" target="_blank" href="https://calendar.google.com/calendar/u/0?cid=cmI1dmlocnM1OWwwYjZkY3E0dnQ2MzFwOG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Ajouter rv</a>
-                                        </li>
-                                    </ul>    
-                                </div>
-                            </li>
-                        <!--   <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-produit" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Produits<span class="badge badge-success">6</span></a>
-                                <div id="submenu-produit" class="collapse submenu">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/produits">Liste Produits</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/produits/create">Ajouter Produit</a>
-                                        </li>
-                                      <li class="nav-item">
+                                     <!--   <li class="nav-item">
                                             <a class="nav-link" href="/produits.creer">Creer un nouveau Produit</a>
+                                        </li>-->
                                     </ul>    
                                 </div>
-                                        </li>
-                            </li>-->
-                            
-                            
-                            <li class="nav-item "   style="padding-top: 5px">
-                                <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
                             </li>
-                            @endcan
+                            
+                            <li class="nav-item" style="padding-top: 5px">
+                                <a class="nav-link active" style="border-radius:10px;background-color: #2E5441 !important" href="/" aria-expanded="false" ><i class="fa fa-fw fa-car"></i>GARAGE<span class="badge badge-success"></span></a>
+                            </li>
+            
                         </ul>
                     </div>
                 </nav>
@@ -329,7 +302,7 @@
                             <div style="width: 100%; margin-left: 30px;" > 
                                 @yield('content')
                             </div> 
-                            <div class="footer">
+                            <div class="footer" style="text-align: center;">
                                 <div class="container-fluid" style="text-align: center;margin-left:15%;">
                                     <div class="row">
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">

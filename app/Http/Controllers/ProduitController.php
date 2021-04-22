@@ -117,7 +117,7 @@ class ProduitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $idcl
      * @return \Illuminate\Http\Response
      */
    

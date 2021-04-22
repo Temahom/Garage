@@ -1,6 +1,6 @@
 
  @include('animate_gestion_stock')
-@extends('layout.index')
+@extends('layout.menu')
 @php
 setlocale(LC_TIME, 'fr_FR', 'French');
 $date = new DateTime('now', new DateTimeZone('UTC'));
@@ -41,6 +41,67 @@ $jour_ci = Carbon::now()->day;  */
     }
 //////////AFFICHAGE DU TABLEAU DES PRODUITS QUI SONT DANS DEVIS
 
+
+setlocale(LC_TIME, 'fr_FR', 'French');
+$date = new DateTime('now', new DateTimeZone('UTC'));
+$clients = \App\Models\Client::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+$chiffres = \App\Models\Devi::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->sum('cout');
+$produit_en_stock = \App\Models\Produit::select('qte')
+    ->where('qte', '>', 0)
+    ->count();
+$produit_total = \App\Models\Produit::sum('qte');
+$prix_total_des_produits = \App\Models\Produit::sum('prix1');
+$client30 = \App\Models\Client::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month - 1)
+    ->count();
+$chiffre30 = \App\Models\Devi::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month - 1)
+    ->sum('cout');
+
+$client60 = \App\Models\Client::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month - 2)
+    ->count();
+$chiffre60 = \App\Models\Devi::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month - 2)
+    ->sum('cout');
+$total = $chiffres + $chiffre30 + $chiffre60;
+//*************Ventes et Factures
+$facturesMois = \App\Models\Facture::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+//facture aujourd"hui
+$facturesJour = \App\Models\Facture::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->whereDay('created_at', Carbon::now()->day)
+    ->count();
+///Tab Recapitulatif Mensuel de diagnostic,Devis et Interventions
+$diagnostics = \App\Models\Diagnostic::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+$devis = \App\Models\Devi::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+$interventions = \App\Models\Intervention::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+$mois_ci = Carbon::now()->format('F');
+$voitures = \App\Models\Voiture::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+///Tab Recapitulatif Journaliere
+$jour_ci = Carbon::now()->day;
+//VOITURE EN GARAGE
+$interventionVoitureEnGarages = \App\Models\Dashboard::interventionVoitureEnGarages();
+//TABLEAU RECAPTULATIF DES JOURS
+$tabRecupDays = \App\Models\Dashboard::tabRecupDays();
+//TABLEAU RECAPTULATIF MOIS
+$tabRecupMonths = \App\Models\Dashboard::tabRecupMonths();
+//TABLEAU RECAPTULATIF CE MOIS
+$tabThisMonth = \App\Models\Dashboard::tabThisMonth();
 @endphp
 
 @section('content')
@@ -132,34 +193,11 @@ body, html {
 
 <div class="container-fluid" id="main">
     <div class="row row-offcanvas row-offcanvas-left"> 
-        <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
-            <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
-                <li class="nav-item"><a class="nav-link" href="#">Stock Produit</a></li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Produits▾</a>
-                    <ul class="list-unstyled flex-column pl-3 collapse" id="submenu1" aria-expanded="false">
-                       <li class="nav-item"><a class="nav-link" href="">Ajouter Produit</a></li>
-                       <li class="nav-item"><a class="nav-link" href="">Lister Produit</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#">Clients</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Voitures</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Commandes</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Diagnostics</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Devis</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Interventions</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Factures</a></li>
-            </ul>
-        </div>
+        
         <!--/col--> 
         
 
         <div class="col main pt-5 mt-3">
-            <h1 class="display-4 d-none d-sm-block">
-            GESTION DE STOCK
-            </h1>   
-            <p class="lead d-none d-sm-block">Garage Saka</p>
-
        <!--     <div class="row mb-3">
                 <div class="col-xl-3 col-sm-6 py-2">
                     <div class="card bg-success text-white h-100">
@@ -261,6 +299,49 @@ body, html {
                     </div>
                 </div>
             </div>
+
+<style>
+    .ss{
+        align
+    }
+</style>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 row box_section" style="align-items: center !important">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 ">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">{{ $produit_en_stock }}</h1>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">{{ $produit_en_stock }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Revenue</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">{{ number_format($prix_total_des_produits, 0, ',', ' ') }}<sup>F CFA</sup>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
            
             <!--/row-->
             <hr>        
@@ -291,8 +372,8 @@ body, html {
 
             <a id="features"></a>
             <hr>
-            <p class="lead mt-5">
-                Les Produits Commandés dans Devis!!
+            <p class="lead mt-5">      
+                 <h5><center>LES PRODUITS UTILISES DANS LES DEVIS !!!</center></h5>
             </p>
          <!--   <div class="row my-4">
                 <div class="col-lg-3 col-md-4">
@@ -316,16 +397,16 @@ body, html {
                 
                 <div class="col-lg-12 col-md-8">
                     <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="thead-inverse">
+                        <table class="table table-striped table-bordered">
+                            <thead class="thead-inverse" class="" style="background-color:  #068c94; #4656E9;">
                                 <tr>
-                                    <th style="cursor: pointer;">Date Enregistrée</th>
-                                    <th style="cursor: pointer;">N°Devis</th>
-                                    <th style="cursor: pointer;">Categorie</th>
-                                    <th style="cursor: pointer;">Nom Produit</th>
-                                    <th style="cursor: pointer;">Prix Unitaire</th>
-                                    <th style="cursor: pointer;">Quantité Commandee</th>
-                                    <th style="cursor: pointer;">Disponibilité</th>
+                                    <th style="color: white;" style="cursor: pointer;">Date/Heure  Enregistrée</th>
+                                    <th style="color: white;" style="cursor: pointer;">N°Devis</th>
+                                    <th style="color: white;" style="cursor: pointer;">Categorie</th>
+                                    <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
+                                    <th style="color: white;" style="cursor: pointer;">Prix Unitaire</th>
+                                    <th style="color: white;" style="cursor: pointer;">Quantité Commandee</th>
+                                    <th style="color: white;" style="cursor: pointer;">Disponibilité</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -334,37 +415,37 @@ body, html {
                                     <td>{{$devi_produit->created_at}}</td>     <!--  <div id="ladate"> -->
                                     <td style="cursor: pointer; text-transform: capitalize;">{{$devi_produit->devi_id}}</td>
                                     <td style="cursor: pointer; text-transform: capitalize;">
-                                                            @if($devi_produit->produit_id)
+                                                                @foreach ($produits as $produit)
+                                                                    @if($devi_produit->produit_id==$produit->id)
+                                                                       {{$produit->categorie}}
+                                                                    @endif
+                                                                @endforeach
+                                    </td>
+                                    <td style="cursor: pointer; text-transform: capitalize;">
                                                             @foreach ($produits as $produit)
-                                                                {{$produit->categorie}}
+                                                                @if($devi_produit->produit_id==$produit->id)
+                                                                      {{$produit->produit}}
+                                                                 @endif
                                                             @endforeach
-                                                        @endif
-                                    </td>
                                     <td style="cursor: pointer; text-transform: capitalize;">
-                                                    @if($devi_produit->produit_id)
-                                                       @foreach ($produits as $produit)
-                                                          {{$produit->produit}}
-                                                       @endforeach
-                                                  @endif
-                                    </td>
-                                    <td style="cursor: pointer; text-transform: capitalize;">
-                                                        @if($devi_produit->produit_id)
+                                                       
                                                            @foreach ($produits as $produit)
-                                                            {{$produit->prix1}}
+                                                             @if($devi_produit->produit_id==$produit->id)
+                                                               {{$produit->prix1}}
+                                                            @endif
                                                           @endforeach
-                                                        @endif
                                     </td>
-                                    <td style="cursor: pointer;">{{$devi_produit->quantite}}<sup>F CFA</sup> </td>
+                                    <td style="cursor: pointer;">{{$devi_produit->quantite}} </td>
                                     <td style="cursor: pointer;"> 
-                                            @if($devi_produit->produit_id)
-                                                @foreach ($produits as $produit)
-                                                        @if ($produit->qte<=10)
-                                                          <span class="badge-dot badge-danger mr-1"></span>En Rupture</td>
-                                                        @else
-                                                          <span class="badge-dot badge-succes mr-1"></span>En Stock</td>
-                                                        @endif
-                                                @endforeach
-                                           @endif
+                                                          @foreach ($produits as $produit)
+                                                             @if($devi_produit->produit_id==$produit->id)
+                                                                @if ($produit->qte<=10)
+                                                                  <span class="badge-dot badge-danger mr-1"></span>En Rupture</td>
+                                                                  @else
+                                                                  <span class="badge-dot badge-success mr-1"></span>En Stock</td>
+                                                              @endif
+                                                             @endif
+                                                          @endforeach
                                     </td>   
                               @endforeach
                              </tbody>
@@ -375,6 +456,7 @@ body, html {
                   </div>
             <!--/row-->
 
+          
      <!--------------------------------------------------->
             
 
