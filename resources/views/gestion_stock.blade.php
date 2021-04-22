@@ -316,16 +316,16 @@ body, html {
                 
                 <div class="col-lg-12 col-md-8">
                     <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="thead-inverse">
+                        <table class="table table-striped table-bordered">
+                            <thead class="thead-inverse" class="" style="background-color: #4656E9;">
                                 <tr>
-                                    <th style="cursor: pointer;">Date Enregistrée</th>
-                                    <th style="cursor: pointer;">N°Devis</th>
-                                    <th style="cursor: pointer;">Categorie</th>
-                                    <th style="cursor: pointer;">Nom Produit</th>
-                                    <th style="cursor: pointer;">Prix Unitaire</th>
-                                    <th style="cursor: pointer;">Quantité Commandee</th>
-                                    <th style="cursor: pointer;">Disponibilité</th>
+                                    <th style="color: white;" style="cursor: pointer;">Date Enregistrée</th>
+                                    <th style="color: white;" style="cursor: pointer;">N°Devis</th>
+                                    <th style="color: white;" style="cursor: pointer;">Categorie</th>
+                                    <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
+                                    <th style="color: white;" style="cursor: pointer;">Prix Unitaire</th>
+                                    <th style="color: white;" style="cursor: pointer;">Quantité Commandee</th>
+                                    <th style="color: white;" style="cursor: pointer;">Disponibilité</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -375,6 +375,7 @@ body, html {
                   </div>
             <!--/row-->
 
+          
      <!--------------------------------------------------->
             
 
