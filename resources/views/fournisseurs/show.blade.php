@@ -77,21 +77,19 @@
                     <table id="example4" class="table  table-striped table-bordered" style="width:100%">
                 <thead class="" style="background-color: #4656E9;">
                     <tr>
-                        <th style="color: white;">Nom du Produit</th>
-                        <th style="color: white;">Quantité Reçue</th>
-                        <th style="color: white;">Prix Unitaire</th>
-                        <th style="color: white;">Prix d'Achat<i class="fa fa-area-chart" aria-hidden="true"></i></th>
-                        <th style="color: white;">Date d'entrée</th>
+                        <th style="color: white;">Numero appro</th>
+                        <th style="color: white;">date</th>
+                        <th style="color: white;">nombre de produits</th>
+                      <!--  <th style="color: white;">Prix d'Achat<i class="fa fa-area-chart" aria-hidden="true"></i></th>
+                        <th style="color: white;">Date d'entrée</th>-->
                         <th style="color: white; text-align: center">Action</th>
                     </tr>
                 </thead>
-                @foreach ($approvisionnements as $approvisionnement)
+                @foreach ($approvisionnements as $i=>$approvisionnement)
                 <tr>
-                    <td>{{ App\Models\Produit::find($approvisionnement->produit_id)->produit}}</td>
-                    <td>{{ $approvisionnement->qteAppro}}</td>
-                    <td>{{ $approvisionnement->prixAchat}}</td>
-                    <td>{{ $approvisionnement->prixAchat * $approvisionnement->qteAppro}} <sup>FCFA</sup></td> 
+                    <td>{{ ++$i }} </td>
                     <td>{{ $approvisionnement->created_at}}</td>
+                    <td> {{count($approvisionnement->produits )}}</td> 
                     <td style="color: white; text-align: center">
                         <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST">
 

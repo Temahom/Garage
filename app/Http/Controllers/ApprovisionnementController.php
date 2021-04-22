@@ -43,9 +43,10 @@ class ApprovisionnementController extends Controller
     public function store(Request $request)
     {
 
+            $approvisionnement = new Approvisionnement();
 
             foreach ($request->plusdechamps as $key => $value) {
-                $approvisionnement = new Approvisionnement();
+               
                 $approvisionnement->fournisseur_id = $request->input('fournisseur_id');    
                            
                 $approvisionnement->produit_id =  $value['produit_id'];

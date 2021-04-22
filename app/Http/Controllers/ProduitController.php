@@ -138,8 +138,6 @@ class ProduitController extends Controller
     {
         // $this->authorize('update', $produit);
         $request->validate([
-            'categorie' => 'required',
-            'produit' => 'required',
             'prix1' => 'required',
            'qte' => 'required'
         ]);

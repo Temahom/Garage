@@ -44,9 +44,9 @@
                             <tr>
                                 <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
                                 <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->nomProduit }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->qteTotale }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->prixTotal }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ App\Models\Produit::find($approvisionnement->produit_id)->produit }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->qteAppro }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->prixAchat*$approvisionnement->qteAppro }} <sup>FCFA</sup> </td>
                                 <td style="cursor: pointer; text-transform: capitalize;">{{ date_format($approvisionnement->created_at, 'jS M Y') }}</td>
                                 <td style="color: white; text-align: center">
                                     <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST">
@@ -99,10 +99,6 @@
 </div>
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b72189c79e2077ef414088fa0db03400fa7a8169
 <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 

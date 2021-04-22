@@ -15,7 +15,7 @@ setlocale(LC_TIME, "fr_FR", "French");
           <div class="col-xs-12 col-sm-12 col-md-12 row">
               <div class="col-xs-9 col-sm-9 col-md-9">     
                   <div class="form-group">
-                      <a class="btn btn-secondary" href="{{route('produits.create')}}"><i class=" icon-briefcase"> </i>  Ajouter Un Produit</a>
+                      <a class="btn btn-secondary" href="{{route('produits.create')}}"><i class="fas fa-plus"></i>  Créer Un Produit</a>
                   </div>
               </div>
           </div>
@@ -43,13 +43,12 @@ setlocale(LC_TIME, "fr_FR", "French");
                                         <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
                                         <th style="color: white;" style="cursor: pointer;">Prix Unitaire</th>
                                         <th style="color: white;" style="cursor: pointer;">En Stock</th>
-                                        <th style="color: white; cursor: pointer; text-align: center !important">Action</th>
                                     </tr>
                                 </thead>
                                    <tbody>
                                     @foreach ($produits as $i=>$produit)
 
-                                    <tr>
+                                    <tr id="verif">
                                         <td>{{ ++$i }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
@@ -68,14 +67,14 @@ setlocale(LC_TIME, "fr_FR", "French");
                                             @endforeach --}}
                                         </td>   
                                         {{-- <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> --}}
-                                        <td style="text-align:center !important">    
+                                      <!--  <td style="text-align:center !important">    
                                             <a href="{{ route('produits.edit', $produit->id) }}">
                                                 <i class="fas fa-edit  fa-lg"></i>
                                             </a>
                                             <a data-toggle="modal" id="smallButton{{$produit->id}}" data-target="#smallModal{{$produit->id}}" data-attr="{{ route('produits.destroy', $produit->id) }}" title="Supprimer Produit">
                                                 <i class="fas fa-trash text-danger  fa-lg"></i>
                                             </a>
-                                                <!-- small modal -->
+                                                <!-- small modal 
                                                 <div class="modal fade" id="smallModal{{$produit->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-sm" role="document">
                                                         <div class="modal-content">
@@ -105,7 +104,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                                                     </div>
                                                 </div>
             
-                                        </td>
+                                        </td>-->
                                         </tr>
                                     @endforeach
                                   </tbody>
@@ -148,6 +147,14 @@ setlocale(LC_TIME, "fr_FR", "French");
           classe.forEach(tr => tbody.appendChild(tr));
       }));
 
+</script>
+
+<script>
+    function verif() {
+            if ($produit = 0) {
+                document.getElementById('verif').style.display = 'none';
+            }  
+            };
 </script>
 
 
