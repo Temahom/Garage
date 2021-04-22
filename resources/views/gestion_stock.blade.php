@@ -334,37 +334,38 @@ body, html {
                                     <td>{{$devi_produit->created_at}}</td>     <!--  <div id="ladate"> -->
                                     <td style="cursor: pointer; text-transform: capitalize;">{{$devi_produit->devi_id}}</td>
                                     <td style="cursor: pointer; text-transform: capitalize;">
-                                                            @if($devi_produit->produit_id)
+                                                                @foreach ($produits as $produit)
+                                                                    @if($devi_produit->produit_id==$produit->id)
+                                                                       {{$produit->categorie}}
+                                                                    @endif
+                                                                @endforeach
+                                    </td>
+                                    <td style="cursor: pointer; text-transform: capitalize;">
                                                             @foreach ($produits as $produit)
-                                                                {{$produit->categorie}}
+                                                                @if($devi_produit->produit_id==$produit->id)
+                                                                      {{$produit->produit}}
+                                                                 @endif
                                                             @endforeach
-                                                        @endif
-                                    </td>
                                     <td style="cursor: pointer; text-transform: capitalize;">
-                                                    @if($devi_produit->produit_id)
-                                                       @foreach ($produits as $produit)
-                                                          {{$produit->produit}}
-                                                       @endforeach
-                                                  @endif
-                                    </td>
-                                    <td style="cursor: pointer; text-transform: capitalize;">
-                                                        @if($devi_produit->produit_id)
+                                                       
                                                            @foreach ($produits as $produit)
-                                                            {{$produit->prix1}}
+                                                             @if($devi_produit->produit_id==$produit->id)
+                                                               {{$produit->prix1}}
+                                                            @endif
                                                           @endforeach
-                                                        @endif
+                                                       
                                     </td>
                                     <td style="cursor: pointer;">{{$devi_produit->quantite}}<sup>F CFA</sup> </td>
                                     <td style="cursor: pointer;"> 
-                                            @if($devi_produit->produit_id)
-                                                @foreach ($produits as $produit)
-                                                        @if ($produit->qte<=10)
-                                                          <span class="badge-dot badge-danger mr-1"></span>En Rupture</td>
-                                                        @else
-                                                          <span class="badge-dot badge-succes mr-1"></span>En Stock</td>
-                                                        @endif
-                                                @endforeach
-                                           @endif
+                                                          @foreach ($produits as $produit)
+                                                             @if($devi_produit->produit_id==$produit->id)
+                                                                @if ($produit->qte<=10)
+                                                                  <span class="badge-dot badge-danger mr-1"></span>En Rupture</td>
+                                                                  @else
+                                                                  <span class="badge-dot badge-success mr-1"></span>En Stock</td>
+                                                              @endif
+                                                             @endif
+                                                          @endforeach
                                     </td>   
                               @endforeach
                              </tbody>
