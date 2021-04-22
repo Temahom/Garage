@@ -1,5 +1,5 @@
 @include('animate_gestion_stock')
-@extends('layout.index')
+@extends('layout.menu')
 @php
 setlocale(LC_TIME, "fr_FR", "French");
 @endphp
