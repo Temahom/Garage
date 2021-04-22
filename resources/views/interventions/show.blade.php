@@ -47,6 +47,9 @@
 				<li class="nav-item">
 					<a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Résumé Intervention</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link  btn-info" href="/passer_commande/{{$intervention->id}}" aria-selected="false">Passer la commande</a>
+				</li>
 			</ul>
 			<div class="tab-content" id="myTabContent2">
 
@@ -298,7 +301,7 @@
 @if(Session::has('payer_facture'))
 <script>
 	toastr.success("{!! Session::get('payer_facture') !!}")
-	swal("Paiement Fatcure!", "{!! Session::get('payer_facture') !!}", "success");
+	swal("Paiement Réussit!", "{!! Session::get('payer_facture') !!}", "success");
 </script>
 @endif
 

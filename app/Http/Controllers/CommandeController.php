@@ -1,8 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Commande;
 use App\Models\Produit;
+use App\Models\Commande;
+use App\Models\Intervention;
 use Illuminate\Http\Request;
 
 class CommandeController extends Controller
@@ -100,5 +101,10 @@ class CommandeController extends Controller
     {
         $commande->delete();
         
+    }
+    public function passer_commande($id)
+    {
+        $intervention=Intervention::find($id);
+        dd($intervention);
     }
 }
