@@ -291,8 +291,8 @@ body, html {
 
             <a id="features"></a>
             <hr>
-            <p class="lead mt-5">
-                Les Produits Commandés dans Devis!!
+            <p class="lead mt-5">      
+                 <h5><center>LES PRODUITS UTILISES DANS LES DEVIS !!!</center></h5>
             </p>
          <!--   <div class="row my-4">
                 <div class="col-lg-3 col-md-4">
@@ -317,9 +317,9 @@ body, html {
                 <div class="col-lg-12 col-md-8">
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
-                            <thead class="thead-inverse" class="" style="background-color: #4656E9;">
+                            <thead class="thead-inverse" class="" style="background-color:  #068c94; #4656E9;">
                                 <tr>
-                                    <th style="color: white;" style="cursor: pointer;">Date Enregistrée</th>
+                                    <th style="color: white;" style="cursor: pointer;">Date/Heure  Enregistrée</th>
                                     <th style="color: white;" style="cursor: pointer;">N°Devis</th>
                                     <th style="color: white;" style="cursor: pointer;">Categorie</th>
                                     <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
