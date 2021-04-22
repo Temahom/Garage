@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layout.menu')
 
 @php
 	use App\Models\Produit;
