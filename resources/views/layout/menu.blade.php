@@ -269,7 +269,7 @@
                                             <a class="nav-link" style="background-color: #2E5441 !important" href="/produits">Liste Produits</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Ajouter Produit</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Créer Produit</a>
                                         </li>
                                      <!--   <li class="nav-item">
                                             <a class="nav-link" href="/produits.creer">Creer un nouveau Produit</a>
