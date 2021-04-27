@@ -40,27 +40,31 @@ class ApprovisionnementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
-
-            $approvisionnement = new Approvisionnement();
-
-            foreach ($request->plusdechamps as $key => $value) {
-               
-                $approvisionnement->fournisseur_id = $request->input('fournisseur_id');    
-                           
-                $approvisionnement->produit_id =  $value['produit_id'];
-                $approvisionnement->qteAppro =  $value['qteAppro'];
-                $approvisionnement->prixAchat =  $value['prixAchat'];
-                // dd(intval($value['produit_id']));
-                $approvisionnement->save();
-                $approvisionnement->produits()->sync([$approvisionnement->produit_id=>['quantite'=>$value['qteAppro']]]);
+            if(!isset($fournisseur->id))
+            {
+                $approvisionnement->fournisseur_id = $request->input('fournisseur_id'); 
+                $approvisionnement->date_approvisionnement =  $request->input('date_approvisionnement');
+                $approvisionnement->save();   
             }
+            else{
 
+                $approvisionnement = Approvisionnement::where('fournisseur_id','=',$request->input('fournisseur_id'))->orderBy('id','DESC')->first();
+               
+                foreach ($request->plusdechamps as $key => $value) {
+                    $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro']]]);
+                }
+            }
             $fournisseur = $approvisionnement->fournisseur()->first()->id;
-            return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
-            ->with('success','Approvisionnement Enrégistré');   
+                return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
+                ->with('success','Approvisionnement Enrégistré');
+                
+                
+          
+             
     }
+   
            
     /**
      * Display the specified resource.

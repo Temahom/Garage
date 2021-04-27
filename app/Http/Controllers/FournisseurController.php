@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Fournisseur;
 use App\Models\Approvisionnement;
+use App\Models\Produit;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -103,9 +104,10 @@ class FournisseurController extends Controller
      */
     public function show(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
-        $approvisionnements = Approvisionnement::where('fournisseur_id','=',$fournisseur->id)->distinct()->get();
+        $approvisionnements = Approvisionnement::where('fournisseur_id','=',$fournisseur->id)->get();
+        $produits= Produit::all();
        // dd($approvisionnements);
-        return view('fournisseurs.show',compact('fournisseur','approvisionnements'));
+        return view('fournisseurs.show',compact('fournisseur','approvisionnements', 'produits'));
     }
 
     /**

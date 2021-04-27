@@ -1,9 +1,9 @@
 @extends('layout.menu')
 
-@php
+{{-- @php
 	use App\Models\Produit;
     $listes=Produit::select('produit')->orderBy('produit','asc')->distinct()->get();							
-@endphp  
+@endphp   --}}
 
 @section('content')
 
@@ -17,7 +17,7 @@
     </div>
 </div>
 <br>
-    <form id="Formapprov" action="{{ route('approvisionnements.store') }}" method="POST">
+    <form action="{{ route('approvisionnements.store') }}" method="POST">
         @csrf
             
             <div class="row">
@@ -37,7 +37,13 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
+                            <div class="form-group">
+                                <strong>Date Approvisionnement</strong>
+                                <input type="date" name="date_approvisionnement" class="form-control">
+                            </div>
+                        </div>
+                    {{-- </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
                             <strong>Produit(s):</strong>
@@ -102,7 +108,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 p-4" style="border: 1px solid #D2D2E4; box-shadow: 0px 0px 3px #999; background-color: #fefefe;">
                             <button type="button" name="add" id="add-btn" class="btn btn-light" style="border-radius:15px">Ajouter un nouveau produit</button>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
@@ -110,7 +116,7 @@
             <div class="row">
                 <div class="col-md-12 pl-0 py-4">
                     <a class="btn btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
-                    <a class="btn btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormapprov()">Enregistrer</a>
+                    <button type="submit" class="btn btn-success">Enregistrer</button>
                 </div>
             </div>
                         
@@ -120,7 +126,7 @@
 <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> --}}
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
-<script  type="text/javascript">
+{{-- <script  type="text/javascript">
     var i = 1000;
     var nbItemApprov = 1;
     var divApprov;
@@ -243,7 +249,7 @@
     /*FIN control formulaire*/
     
 
-</script>
+</script> --}}
 
 
 @endsection
