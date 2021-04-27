@@ -33,7 +33,9 @@ class ProduitController extends Controller
     }
        */
        public function index(Request $request, Approvisionnement $approvisionnement)  //Request $request
-      {         
+      {    
+          
+        $approvisionnement = Approvisionnement::all();
          $produits = Produit::where([
             [function ($query) use ($request){
                 if (($term = $request->term)) {
