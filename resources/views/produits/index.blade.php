@@ -5,6 +5,15 @@ setlocale(LC_TIME, "fr_FR", "French");
 @endphp
 @section('content')
 
+<script language="javascript">
+    var x =  document.getElementById("#verif");
+
+        if(quantiteStock == 0) {
+            x.style.visibility="hidden";
+        }
+    }
+</script>
+
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
@@ -47,8 +56,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                                 </thead>
                                    <tbody>
                                     @foreach ($produits as $i=>$produit)
-
-                                    <tr id="verif">
+                                    <tr>
                                         <td>{{ ++$i }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
@@ -151,7 +159,7 @@ setlocale(LC_TIME, "fr_FR", "French");
 
 <script>
     function verif() {
-            if ($produit = 0) {
+            if ($quantiteStock = 0) {
                 document.getElementById('verif').style.display = 'none';
             }  
             };

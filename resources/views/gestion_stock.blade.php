@@ -10,16 +10,22 @@ use App\Models\Devi;
 use App\Models\Devi_produit;
 use App\Models\Produit;
 use App\Models\Dashboard_stock;
+use App\Models\Approvisionnement;
+use App\Models\Fournisseur;
 
 $devi_produits = Devi_produit::all();
- $produits = Produit::all();
+$produits = Produit::all();
 $produit_total = \App\Models\Produit::whereYear('created_at', Carbon::now()->year)
     ->whereMonth('created_at', Carbon::now()->month)
     ->count();
 
 $produit_en_stock = \App\Models\Produit::select('qte')
     ->where('qte', '>', 0)
-    ->count();		
+    ->count();	
+    
+$produit_en_appro = \App\Models\Approvisionnement::sum('qteAppro');
+$prix_en_appro = \App\Models\Produit::sum('prix1');
+
 
 /*$mois_ci = Carbon::now()->format('F');
 $jour_ci = Carbon::now()->day;  */ 		
@@ -198,53 +204,6 @@ body, html {
         
 
         <div class="col main pt-5 mt-3">
-       <!--     <div class="row mb-3">
-                <div class="col-xl-3 col-sm-6 py-2">
-                    <div class="card bg-success text-white h-100">
-                        <div class="card-body bg-success">
-                            <div class="rotate">
-                                <i class="fa fa-user fa-4x"></i>
-                            </div>
-                            <h6 class="text-uppercase">Client</h6>
-                            <h1 class="display-4">134</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 py-2">
-                    <div class="card text-white bg-danger h-100">
-                        <div class="card-body bg-danger">
-                            <div class="rotate">
-                                <i class="fa fa-list fa-4x"></i>
-                            </div>
-                            <h6 class="text-uppercase">Posts</h6>
-                            <h1 class="display-4">87</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 py-2">
-                    <div class="card text-white bg-info h-100">
-                        <div class="card-body bg-info">
-                            <div class="rotate">
-                                <i class="fa fa-twitter fa-4x"></i>
-                            </div>
-                            <h6 class="text-uppercase">Tweets</h6>
-                            <h1 class="display-4">125</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 py-2">
-                    <div class="card text-white bg-warning h-100">
-                        <div class="card-body">
-                            <div class="rotate">
-                                <i class="fa fa-share fa-4x"></i>
-                            </div>
-                            <h6 class="text-uppercase">Shares</h6>
-                            <h1 class="display-4">36</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>   -->
-
 			<div class="row mb-3">
                 <div class="col-xl-3 col-sm-6 py-2">
                     <div class="card bg-success text-white h-100">
@@ -254,7 +213,7 @@ body, html {
                             </div>
                           <a href="{{ route('produits.index') }}">
                             <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Produits</h6>
-                            <h1 class="display-4" style="color:rgb(255, 255, 255);">{{$produit_total}}</h1>
+                            <h1 class="display-4" style="color:rgb(255, 255, 255);">{{$produit_total + $produit_en_appro}}</h1>
                          </a> 
                         </div>
                     </div>
@@ -266,7 +225,7 @@ body, html {
                                 <i class="fa fa-plus fa-5x"></i>
                             </div>
                            <a href="{{ route('produits.index') }}">
-                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Produits Commandés/Vendus</h6>
+                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Revenues</h6>
                             <h1 class="display-4" style="color:rgb(255, 255, 255);"> {{listeProduitDansDevi()}}</h1>
                           </a> 
                         </div>
@@ -300,13 +259,8 @@ body, html {
                 </div>
             </div>
 
-<style>
-    .ss{
-        align
-    }
-</style>
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 row box_section" style="align-items: center !important">
+                <div class="col-xs-12 col-sm-12 col-md-12 row box_section" style="">
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 ">
                         <div class="card border-3 border-top border-top-primary">
                             <div class="card-body">

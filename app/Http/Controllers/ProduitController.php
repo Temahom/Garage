@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produit;
+
+use App\Models\Approvisionnement;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
@@ -30,8 +32,10 @@ class ProduitController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 15);  
     }
        */
-       public function index(Request $request)  //Request $request
-      {         
+       public function index(Request $request, Approvisionnement $approvisionnement)  //Request $request
+      {    
+          
+        $approvisionnement = Approvisionnement::all();
          $produits = Produit::where([
             [function ($query) use ($request){
                 if (($term = $request->term)) {
@@ -42,7 +46,7 @@ class ProduitController extends Controller
                 ->orderBy("id","asc")
                 ->get();
   
-        return view('produits.index', compact('produits'));
+        return view('produits.index', compact('produits','approvisionnement'));
              
         }      
 
