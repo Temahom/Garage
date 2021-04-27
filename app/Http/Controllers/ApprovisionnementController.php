@@ -53,7 +53,7 @@ class ApprovisionnementController extends Controller
                 $approvisionnement = Approvisionnement::where('fournisseur_id','=',$request->input('fournisseur_id'))->orderBy('id','DESC')->first();
                
                 foreach ($request->plusdechamps as $key => $value) {
-                    $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro']]]);
+                    $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
                 }
             }
             $fournisseur = $approvisionnement->fournisseur()->first()->id;
@@ -72,7 +72,7 @@ class ApprovisionnementController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Approvisionnement $approvisionnement)
+    public function show( Approvisionnement $approvisionnement)
     {
         return view('approvisionnements.show', compact('approvisionnement'));
     }

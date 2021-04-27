@@ -23,8 +23,8 @@ $produit_en_stock = \App\Models\Produit::select('qte')
     ->where('qte', '>', 0)
     ->count();	
     
-$produit_en_appro = \App\Models\Approvisionnement::sum('qteAppro');
-$prix_en_appro = \App\Models\Produit::sum('prix1');
+// $produit_en_appro = \App\Models\Approvisionnement::sum('qteAppro');
+// $prix_en_appro = \App\Models\Produit::sum('prix1');
 
 
 /*$mois_ci = Carbon::now()->format('F');
@@ -213,7 +213,7 @@ body, html {
                             </div>
                           <a href="{{ route('produits.index') }}">
                             <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Produits</h6>
-                            <h1 class="display-4" style="color:rgb(255, 255, 255);">{{$produit_total + $produit_en_appro}}</h1>
+                            <h1 class="display-4" style="color:rgb(255, 255, 255);">250.000 Fcfa</h1>
                          </a> 
                         </div>
                     </div>
