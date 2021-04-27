@@ -56,7 +56,6 @@ setlocale(LC_TIME, "fr_FR", "French");
                                 </thead>
                                    <tbody>
                                     @foreach ($produits as $i=>$produit)
-
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>

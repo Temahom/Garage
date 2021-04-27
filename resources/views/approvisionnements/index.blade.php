@@ -35,7 +35,7 @@
                             <th style="color: white">Nom du Produit</th>
                             <th style="color: white">Quantité Totale</th>
                             <th style="color: white">Prix Total</th>
-                            <th style="color: white">Misa à jour</th>
+                            <th style="color: white">Mise à jour</th>
                             <th style="color: white; text-align: center">Action</th>
                         </tr>
                     </thead>
