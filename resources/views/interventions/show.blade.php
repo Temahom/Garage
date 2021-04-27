@@ -200,12 +200,12 @@
 
 									<table class="table table-bordered mt-4">
 										<tbody>
-											<tr>
-												<th scope="col" colspan="4">Net à payer</th>
+											<tr style="background-color: #4656E9;">
+												<th scope="col" colspan="4" style="color: #ffffff;">Net à payer</th>
 												@if (isset($diagnostic->coût))
-													<th scope="col" style="width: 200px"><?php echo number_format($total + $devi->cout + $diagnostic->coût, 0, ",", " ") ?></th>
+													<th scope="col" style="width: 200px; color: #ffffff;"><?php echo number_format($total + $devi->cout + $diagnostic->coût, 0, ",", " ") ?></th>
 												@else
-													<th scope="col" style="width: 200px"><?php echo number_format($total + $devi->cout, 0, ",", " ") ?></th>
+													<th scope="col" style="width: 200px; color: #ffffff;"><?php echo number_format($total + $devi->cout, 0, ",", " ") ?></th>
 												@endif
 											</tr>
 										</tbody>
