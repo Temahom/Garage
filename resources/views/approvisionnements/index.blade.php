@@ -30,25 +30,23 @@
                 <table id="example4" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr style="background-color: #4656E9;">
-                            <th style="color: white">Id</th>
+                            <th style="color: white">N°</th>
                             <th style="color: white">Fournisseur</th>
-                            <th style="color: white">Nom du Produit</th>
-                            <th style="color: white">Quantité Totale</th>
-                            <th style="color: white">Prix Total</th>
-                            <th style="color: white">Mise à jour</th>
+                            <th style="color: white">Nombre d'articles </th>
+                            <th style="color: white">Prix d'achat Total </th>
+                            <th style="color: white">Date d'enregistrement</th>
                             <th style="color: white; text-align: center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($approvisionnements as $approvisionnement)
+                        @foreach ($approvisionnement->produits as $produit)
                             <tr>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ App\Models\Produit::find($approvisionnement->produit_id)->produit }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->qteAppro }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->prixAchat*$approvisionnement->qteAppro }} <sup>FCFA</sup> </td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ date_format($approvisionnement->created_at, 'jS M Y') }}</td>
-                                <td style="color: white; text-align: center">
+                                <td  onclick="showApprovisionnement({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
+                                <td  onclick="showApprovisionnement({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
+                                <td  onclick="showApprovisionnement({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{count($approvisionnement->produits)}}</td>                    
+                                <td  onclick="showApprovisionnement({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{$produit->pivot->prix_achat * $produit->pivot->quantite}}</td>                    
+                                <td  onclick="showApprovisionnement({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->date_approvisionnement }}</td>                    
+                                <td  onclick="showApprovisionnement({{ $approvisionnement->id }})" style="color: white; text-align: center">
                                     <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST">
 
                                      <!--   <a href="{{ route('approvisionnements.show', $approvisionnement->id) }}" title="show">
@@ -98,8 +96,14 @@
     </div>
 </div>
 
+<script>
+    function showApprovisionnement(id)
+    {
+        window.location = '/approvisionnements/' + id ;
+    }
+</script>
 
-<script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
 @endsection
