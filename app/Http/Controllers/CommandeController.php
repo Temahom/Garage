@@ -107,4 +107,9 @@ class CommandeController extends Controller
         $intervention=Intervention::find($id);
         dd($intervention);
     }
+    public function valider_commande($id)
+    {
+        $intervention=Intervention::find($id);
+        dd($intervention);
+    }
 }
