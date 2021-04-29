@@ -52,8 +52,13 @@ class ApprovisionnementController extends Controller
         foreach ($request->plusdechamps as $key => $value) {
             $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
         }
-        return redirect()->route('fournisseurs.approvisionnements.show', ['fournisseur' => $fournisseur, 'approvisionnement'=>$approvisionnement])
-        ->with('success','Approvisionnement Enrégistré');   
+        if(!isset($fournisseur->id)){
+            return redirect()->route('approvisionnements.show', ['approvisionnement'=>$approvisionnement])
+            ->with('success','Approvisionnement Enrégistré');  
+        }
+        else
+            return redirect()->route('fournisseurs.approvisionnements.show', ['fournisseur' => $fournisseur, 'approvisionnement'=>$approvisionnement])
+            ->with('success','Approvisionnement Enrégistré');   
     }
    
            

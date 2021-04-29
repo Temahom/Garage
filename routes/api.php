@@ -165,4 +165,7 @@ Route::get('vehicule/{id}',function($id){
     return Voiture::find($id);
 });
 
+Route::get('products',function(){
+    return Produit::all();
+});
 
