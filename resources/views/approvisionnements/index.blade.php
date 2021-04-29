@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($approvisionnement->produits as $produit)
+                        @foreach ($approvisionnements as $approvisionnement)
                             <tr>
                                 <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
                                 <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
