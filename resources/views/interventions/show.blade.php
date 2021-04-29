@@ -41,7 +41,6 @@
 				<li class="nav-item">
 					<a class="nav-link active" id="tab-outline-one" data-toggle="tab" href="#outline-one" role="tab" aria-controls="home" aria-selected="true">Diagnostic</a>
 				</li>
-
 				<li class="nav-item">
 					<a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Devis</a>
 				</li>
@@ -51,7 +50,6 @@
 				<li class="nav-item">
 					<a class="nav-link  btn-info" href="/passer_commande/{{$intervention->id}}" aria-selected="false">Passer la commande</a>
 				</li>
-
 			</ul>
 			<div class="tab-content" id="myTabContent2">
 
@@ -326,6 +324,12 @@
 @if(Session::has('facture-send'))
 <script>
 	toastr.success("{!! Session::get('facture-send') !!}")
+	swal("Envoie Fatcure!", "{!! Session::get('facture-send') !!}", "success");
+</script>
+@endif
+@if(Session::has('commande_reusie'))
+<script>
+	toastr.success("{!! Session::get('commande_reusie') !!}")
 	swal("Envoie Fatcure!", "{!! Session::get('facture-send') !!}", "success");
 </script>
 @endif
