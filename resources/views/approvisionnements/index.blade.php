@@ -30,16 +30,22 @@
                 <table id="example4" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr style="background-color: #4656E9;">
-                            <th style="color: white">Id</th>
+                            <th style="color: white">N°</th>
                             <th style="color: white">Fournisseur</th>
+<<<<<<< HEAD
                             <th style="color: white">Date Approvisionnement</th>
                             <th style="color: white">Nombre D'articles</th>
                             <th style="color: white">Coût Facture</th>
+=======
+                            <th style="color: white">Nombre d'articles </th>
+                            <th style="color: white">Prix d'achat Total </th>
+                            <th style="color: white">Date d'enregistrement</th>
+>>>>>>> fd648ab21d52556eed09423cd2bd980e62fafc60
                             <th style="color: white; text-align: center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($approvisionnements as $approvisionnement)
+                        @foreach ($approvisionnement->produits as $produit)
                             <tr>
                                 <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
                                 <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
@@ -103,8 +109,14 @@
     </div>
 </div>
 
+<script>
+    function showApprovisionnement(id)
+    {
+        window.location = '/approvisionnements/' + id ;
+    }
+</script>
 
-<script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
 @endsection
