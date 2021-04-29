@@ -39,12 +39,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($approvisionnement->produits as $produit)
+                        @foreach ($approvisionnements as $approvisionnement)
                             <tr>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->date_approvisionnement }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ count($approvisionnement->produits) }}</td>
+                                <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
+                                <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
+                                <td onclick="showAppro({{ $approvisionnement->id }})"style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->date_approvisionnement }}</td>
+                                <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ count($approvisionnement->produits) }}</td>
                                 @php
                                     $prix_tt= 0;
                                     foreach ($approvisionnement->produits as $produit) {
@@ -104,7 +104,7 @@
 </div>
 
 <script>
-    function showApprovisionnement(id)
+    function showAppro(id)
     {
         window.location = '/approvisionnements/' + id ;
     }
