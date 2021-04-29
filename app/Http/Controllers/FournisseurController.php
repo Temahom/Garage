@@ -60,21 +60,8 @@ class FournisseurController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-        {   //ingcapital.sn()
-        /* $request->validate([
-                'nom' => 'required',
-                'prenom' => 'required',
-                'genre' => 'required',
-                'entreprise' => 'max:200',
-                'telephone' => 'required|unique:fournisseurs',
-                'email' => 'unique:fournisseurs'
-            ]);   
-    
-             Fournisseur::create($request->all());
-             return redirect()->route('fournisseurs.index')
-             ->with('success','Fournisseur Enrégistré');*/
-    
+    public function store(Request $request, Fournisseur $fournisseur)
+        {
             $data = request()->validate([
             'nom' => 'required',
             'prenom' => 'required',
@@ -82,8 +69,7 @@ class FournisseurController extends Controller
             'entreprise' => 'max:200',
             'telephone' => 'required|unique:fournisseurs',
             'email' => 'unique:fournisseurs'
-            ]); 
-           $fournisseur = new Fournisseur();
+            ]);
             $fournisseur->nom = $request->input('nom');
             $fournisseur->prenom = $request->input('prenom');
             $fournisseur->genre = $request->input('genre');
@@ -92,8 +78,7 @@ class FournisseurController extends Controller
             $fournisseur->email = $request->input('email');  
            // $fournisseur->user_id= $user_id;
             $fournisseur->save();
-            return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
-            ->with('success','Fournisseur Enrégistré');   
+            return redirect()->route('fournisseurs.approvisionnements.create', ['fournisseur' => $fournisseur]); 
            }
 
     /**

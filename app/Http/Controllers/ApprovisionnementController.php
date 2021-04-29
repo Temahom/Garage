@@ -41,28 +41,19 @@ class ApprovisionnementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Fournisseur $fournisseur, Approvisionnement $approvisionnement)
-    {
-            if(!isset($fournisseur->id))
-            {
-                $approvisionnement->fournisseur_id = $request->input('fournisseur_id'); 
-                $approvisionnement->date_approvisionnement =  $request->input('date_approvisionnement');
-                $approvisionnement->save();   
-            }
-            else{
-
-                $approvisionnement = Approvisionnement::where('fournisseur_id','=',$request->input('fournisseur_id'))->orderBy('id','DESC')->first();
-               
-                foreach ($request->plusdechamps as $key => $value) {
-                    $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
-                }
-            }
-            $fournisseur = $approvisionnement->fournisseur()->first()->id;
-                return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
-                ->with('success','Approvisionnement Enrégistré');
-                
-                
-          
-             
+    { 
+        request()->validate([
+            'fournisseur_id' => 'required',
+            'date_approvisionnement' => 'required',
+        ]);
+        $approvisionnement->fournisseur_id = $request->input('fournisseur_id'); 
+        $approvisionnement->date_approvisionnement =  $request->input('date_approvisionnement');
+        $approvisionnement->save();
+        foreach ($request->plusdechamps as $key => $value) {
+            $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
+        }
+        return redirect()->route('fournisseurs.approvisionnements.show', ['fournisseur' => $fournisseur, 'approvisionnement'=>$approvisionnement])
+        ->with('success','Approvisionnement Enrégistré');   
     }
    
            
@@ -72,9 +63,9 @@ class ApprovisionnementController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show( Approvisionnement $approvisionnement)
+    public function show( Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
-        return view('approvisionnements.show', compact('approvisionnement'));
+        return view('approvisionnements.show', compact('approvisionnement', 'fournisseur'));
     }
 
     /**

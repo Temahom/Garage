@@ -32,10 +32,9 @@
                         <tr style="background-color: #4656E9;">
                             <th style="color: white">Id</th>
                             <th style="color: white">Fournisseur</th>
-                            <th style="color: white">Nom du Produit</th>
-                            <th style="color: white">Quantité Totale</th>
-                            <th style="color: white">Prix Total</th>
-                            <th style="color: white">Mise à jour</th>
+                            <th style="color: white">Date Approvisionnement</th>
+                            <th style="color: white">Nombre D'articles</th>
+                            <th style="color: white">Coût Facture</th>
                             <th style="color: white; text-align: center">Action</th>
                         </tr>
                     </thead>
@@ -44,10 +43,16 @@
                             <tr>
                                 <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
                                 <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ App\Models\Produit::find($approvisionnement->produit_id)->produit }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->qteAppro }}</td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->prixAchat*$approvisionnement->qteAppro }} <sup>FCFA</sup> </td>
-                                <td style="cursor: pointer; text-transform: capitalize;">{{ date_format($approvisionnement->created_at, 'jS M Y') }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->date_approvisionnement }}</td>
+                                <td style="cursor: pointer; text-transform: capitalize;">{{ count($approvisionnement->produits) }}</td>
+                                @php
+                                    $prix_tt= 0;
+                                    foreach ($approvisionnement->produits as $produit) {
+                                        $prix_tt += $produit->pivot->prix_achat*$produit->pivot->quantite;
+                                    }
+                                    $prix_tt;
+                                @endphp
+                                <td style="cursor: pointer; text-transform: capitalize;">{{$prix_tt}} <sup>FCFA</sup> </td>
                                 <td style="color: white; text-align: center">
                                     <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST">
 
