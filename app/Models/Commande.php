@@ -9,11 +9,11 @@ class Commande extends Model
 {
     use HasFactory;
 
-    protected $table = 'commandes';
-    public $timestamps = true;
+   // protected $table = 'commandes';
+   // public $timestamps = true;
 
    
-    protected $fillable =['qteProduit ','date_expiaration','etat'];    
+    protected $fillable =['produit','etat'];    
    /* protected $fillable = [
         'produit_id',
         'devi_id',
@@ -24,5 +24,14 @@ class Commande extends Model
     {
         return $this->belongsToMany(Produit::class,'commandes');
     }
+     
+    public function commande_produits()
+    {
+        return $this->HasMany(Commande_produit::class);
+    }
+   /* public function produits()
+    {
+        return $this->belongsToMany(Produit::class,'commande_produits')->withPivot('quantite');
+    }*/
 }
 
