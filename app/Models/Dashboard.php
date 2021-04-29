@@ -29,13 +29,17 @@ class Dashboard extends Model
         $sommeFacture = 0;
         $intervention = Intervention::find($intervention_id);
         $devi = Devi::find($intervention->devis_id);
-        $devi_produits = $devi->devi_produits()->get();
-        foreach($devi_produits as $devi_produit)
+        if($devi)
         {
-            $produit = Produit::find($devi_produit->produit_id);
-            $sommeFacture += $devi_produit->quantite * $produit->prix1;
+            $devi_produits = $devi->devi_produits()->get();
+            foreach($devi_produits as $devi_produit)
+            {
+                $produit = Produit::find($devi_produit->produit_id);
+                $sommeFacture += $devi_produit->quantite * $produit->prix1;
+            }
+            $sommeFacture += $devi->cout;
         }
-        $sommeFacture += $devi->cout;
+        
         $diagnostic = Diagnostic::find($intervention->diagnostic_id);
         $sommeFacture += $diagnostic->coût;
         return $sommeFacture;

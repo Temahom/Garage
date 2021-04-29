@@ -41,6 +41,17 @@
 				<li class="nav-item">
 					<a class="nav-link active" id="tab-outline-one" data-toggle="tab" href="#outline-one" role="tab" aria-controls="home" aria-selected="true">Diagnostic</a>
 				</li>
+<<<<<<< HEAD
+				<li class="nav-item">
+					<a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Devis</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Résumé Intervention</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link  btn-info" href="/passer_commande/{{$intervention->id}}" aria-selected="false">Passer la commande</a>
+				</li>
+=======
 				
 					<li class="nav-item">
 						<a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Devis</a>
@@ -49,6 +60,7 @@
 						<a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Résumé Intervention</a>
 					</li>
 				
+>>>>>>> 41a30bec04a84f263fd2549f181b0b9b09f9cb2a
 			</ul>
 			<div class="tab-content" id="myTabContent2">
 
@@ -311,7 +323,7 @@
 @if(Session::has('payer_facture'))
 <script>
 	toastr.success("{!! Session::get('payer_facture') !!}")
-	swal("Paiement Fatcure!", "{!! Session::get('payer_facture') !!}", "success");
+	swal("Paiement Réussit!", "{!! Session::get('payer_facture') !!}", "success");
 </script>
 @endif
 
