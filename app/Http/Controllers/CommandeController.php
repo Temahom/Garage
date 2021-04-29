@@ -104,8 +104,15 @@ class CommandeController extends Controller
     }
     public function passer_commande($id)
     {
+      
         $intervention=Intervention::find($id);
-        dd($intervention);
+        $commande=new Commande();
+        $commande->passer_par=auth()->user()->id;
+        $commande->devi_id=$intervention->devis_id;
+        $commande->etat=1;
+        $commande->save();
+        return redirect()->back()->with('commande_reusie','Votre commande a été passer avec succés');
+       // dd($intervention->devis_id);
     }
     public function valider_commande($id)
     {

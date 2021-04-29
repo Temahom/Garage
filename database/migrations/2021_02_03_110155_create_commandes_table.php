@@ -17,6 +17,7 @@ class CreateCommandesTable extends Migration
             $table->id();
             $table->foreignId('valide_par')->nullable(); 
             $table->foreignId('passer_par')->nullable(); 
+            $table->foreignId('devi_id')->nullable(); 
             $table->integer('etat');
             $table->timestamps();
         });
