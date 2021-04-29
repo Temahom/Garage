@@ -146,7 +146,7 @@ class CommandeController extends Controller
         $commande->devi_id=$intervention->devis_id;
         $commande->etat=1;
         $commande->save();
-        return redirect()->back()->with('commande_reusie','Votre commande a été passer avec succés');
+        return redirect()->back()->with('commande_reusie','Votre commande a été passée avec succès');
        // dd($intervention->devis_id);
     }
     public function valider_commande($id)

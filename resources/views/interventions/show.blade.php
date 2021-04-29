@@ -331,7 +331,7 @@
 @if(Session::has('commande_reusie'))
 <script>
 	toastr.success("{!! Session::get('commande_reusie') !!}")
-	swal("Envoie Fatcure!", "{!! Session::get('facture-send') !!}", "success");
+	swal("Commande passée avec succès!", "{!! Session::get('facture-send') !!}", "success");
 </script>
 @endif
 @endsection
