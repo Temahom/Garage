@@ -142,12 +142,17 @@ class CommandeController extends Controller
       
         $intervention=Intervention::find($id);
         $commande=new Commande();
-        $commande->passer_par=auth()->user()->id;
-        $commande->devi_id=$intervention->devis_id;
-        $commande->etat=1;
-        $commande->save();
-        return redirect()->back()->with('commande_reusie','Votre commande a été passer avec succés');
-       // dd($intervention->devis_id);
+        if ($intervention->devis_id) {
+            $commande->passer_par=auth()->user()->id;
+            $commande->devi_id=$intervention->devis_id;
+            $commande->etat=1;
+            $commande->save();
+            return redirect()->back()->with('commande_reusie','Votre commande a été passer avec succés');
+         
+        }else{
+            return redirect()->back()->with('commande_error','Vous ne pouvez pas passer une commande vide');
+
+        }
     }
     public function valider_commande($id)
     {
