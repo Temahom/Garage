@@ -32,15 +32,9 @@
                         <tr style="background-color: #4656E9;">
                             <th style="color: white">N°</th>
                             <th style="color: white">Fournisseur</th>
-<<<<<<< HEAD
                             <th style="color: white">Date Approvisionnement</th>
                             <th style="color: white">Nombre D'articles</th>
                             <th style="color: white">Coût Facture</th>
-=======
-                            <th style="color: white">Nombre d'articles </th>
-                            <th style="color: white">Prix d'achat Total </th>
-                            <th style="color: white">Date d'enregistrement</th>
->>>>>>> fd648ab21d52556eed09423cd2bd980e62fafc60
                             <th style="color: white; text-align: center">Action</th>
                         </tr>
                     </thead>
