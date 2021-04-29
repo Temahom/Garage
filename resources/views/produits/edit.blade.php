@@ -30,51 +30,48 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         @method('PUT')
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xs-12 col-sm-12 col-md-12">  
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <strong>Categorie :</strong>
-                    <input name="categorie" type="text" class="custom-select form-control" id="categorie"  onFocus="this.blur()" value="{{ $produit->categorie }}"/>
-                    <div class="invalid-feedback">
-                        @if($errors->has('categorie'))
-                        {{ $errors->first('categorie') }}
-                        @endif
-                    </div>		
-                </div>
-                <div class="form-group">
-                    <strong>Nom du produit :</strong>
-                    <input name="produit" type="text" value="{{ $produit->produit }}" class="custom-select form-control" id="leproduit"  onFocus="this.blur()" placeholder="Mettre le nom du produit"/>
-                    <div class="invalid-feedback">
-                        @if($errors->has('produit'))
-                        {{ $errors->first('produit') }}
-                        @endif
-                    </div>
-                    </div>		
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group" >
-                    <strong>Prix Unitaire :</strong>
-                    <input style="border-color: red !important" name="prix1" type="number" min="0" value="{{ $produit->prix1 }}" class="custom-select form-control" id="leprix" autocomplete="off" placeholder="Mettre le prix du produit" value="{{ old('prix1')}}"/>
-                    <div class="invalid-feedback">
-                        @if($errors->has('prix1'))
-                        {{ $errors->first('prix1') }}
-                        @endif
-                    </div>
-               </div>
-               <div class="form-group">
-                <strong>Quantité:</strong>
-                <input type="number" min="0" name="qte" value="{{ $produit->qte }}" class="form-control @error('qte') is-invalid @enderror"  onFocus="this.blur()" placeholder="Entrer la quantite" value="{{ old('qte') }}">
-                <div class="invalid-feedback">
-                    @if($errors->has('qte'))
-                    {{ $errors->first('qte') }}
-                    @endif
+                    Catégorie : <h3>{{ $produit->categorie }}</h3>
+                    Libellé :<h3>{{ $produit->produit }}</h3>	
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" >
+                        <strong>Prix Unitaire :</strong>
+                        <input style="border-color: red !important" name="prix1" type="number" min="0" value="{{ $produit->prix1 }}" class="custom-select form-control" id="leprix" autocomplete="off" placeholder="Mettre le prix du produit" value="{{ old('prix1')}}"/>
+                        <div class="invalid-feedback">
+                            @if($errors->has('prix1'))
+                            {{ $errors->first('prix1') }}
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <strong>Quantité:</strong>
+                        <input type="number" min="0" name="qte" value="<?php
+                        $quantiteStock = 0;
+                            foreach ($produit->approvisionnements as $product)
+                            {
+                                $quantiteStock +=$product->pivot->quantite;
+                            }
+                            echo $quantiteStock+$produit->qte; 
+                        ?>" class="form-control @error('qte') is-invalid @enderror" style="border-color: red !important" placeholder="Entrer la quantite" >
+                        <div class="invalid-feedback">
+                            @if($errors->has('qte'))
+                            {{ $errors->first('qte') }}
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <br><button type="submit" class="btn btn-primary">Commander</button>
+            <div class="col-xs-3 col-sm-3 col-md-3 text-center">
+                <br><button type="submit" class="btn btn-danger">Enregistrer</button>
             </div>
         </div>
 

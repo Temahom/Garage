@@ -1,5 +1,5 @@
 
- @include('animate_gestion_stock')
+@include('animate_gestion_stock')
 @extends('layout.menu')
 @php
 setlocale(LC_TIME, 'fr_FR', 'French');
@@ -10,16 +10,22 @@ use App\Models\Devi;
 use App\Models\Devi_produit;
 use App\Models\Produit;
 use App\Models\Dashboard_stock;
+use App\Models\Approvisionnement;
+use App\Models\Fournisseur;
 
 $devi_produits = Devi_produit::all();
- $produits = Produit::all();
+$produits = Produit::all();
 $produit_total = \App\Models\Produit::whereYear('created_at', Carbon::now()->year)
     ->whereMonth('created_at', Carbon::now()->month)
     ->count();
 
 $produit_en_stock = \App\Models\Produit::select('qte')
     ->where('qte', '>', 0)
-    ->count();		
+    ->count();	
+    
+// $produit_en_appro = \App\Models\Approvisionnement::sum('qteAppro');
+// $prix_en_appro = \App\Models\Produit::sum('prix1');
+
 
 /*$mois_ci = Carbon::now()->format('F');
 $jour_ci = Carbon::now()->day;  */ 		
@@ -41,6 +47,67 @@ $jour_ci = Carbon::now()->day;  */
     }
 //////////AFFICHAGE DU TABLEAU DES PRODUITS QUI SONT DANS DEVIS
 
+
+setlocale(LC_TIME, 'fr_FR', 'French');
+$date = new DateTime('now', new DateTimeZone('UTC'));
+$clients = \App\Models\Client::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+$chiffres = \App\Models\Devi::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->sum('cout');
+$produit_en_stock = \App\Models\Produit::select('qte')
+    ->where('qte', '>', 0)
+    ->count();
+$produit_total = \App\Models\Produit::sum('qte');
+$prix_total_des_produits = \App\Models\Produit::sum('prix1');
+$client30 = \App\Models\Client::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month - 1)
+    ->count();
+$chiffre30 = \App\Models\Devi::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month - 1)
+    ->sum('cout');
+
+$client60 = \App\Models\Client::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month - 2)
+    ->count();
+$chiffre60 = \App\Models\Devi::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month - 2)
+    ->sum('cout');
+$total = $chiffres + $chiffre30 + $chiffre60;
+//*************Ventes et Factures
+$facturesMois = \App\Models\Facture::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+//facture aujourd"hui
+$facturesJour = \App\Models\Facture::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->whereDay('created_at', Carbon::now()->day)
+    ->count();
+///Tab Recapitulatif Mensuel de diagnostic,Devis et Interventions
+$diagnostics = \App\Models\Diagnostic::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+$devis = \App\Models\Devi::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+$interventions = \App\Models\Intervention::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+$mois_ci = Carbon::now()->format('F');
+$voitures = \App\Models\Voiture::whereYear('created_at', Carbon::now()->year)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->count();
+///Tab Recapitulatif Journaliere
+$jour_ci = Carbon::now()->day;
+//VOITURE EN GARAGE
+$interventionVoitureEnGarages = \App\Models\Dashboard::interventionVoitureEnGarages();
+//TABLEAU RECAPTULATIF DES JOURS
+$tabRecupDays = \App\Models\Dashboard::tabRecupDays();
+//TABLEAU RECAPTULATIF MOIS
+$tabRecupMonths = \App\Models\Dashboard::tabRecupMonths();
+//TABLEAU RECAPTULATIF CE MOIS
+$tabThisMonth = \App\Models\Dashboard::tabThisMonth();
 @endphp
 
 @section('content')
@@ -132,81 +199,11 @@ body, html {
 
 <div class="container-fluid" id="main">
     <div class="row row-offcanvas row-offcanvas-left"> 
-        <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
-            <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
-                <li class="nav-item"><a class="nav-link" href="#">Stock Produit</a></li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Produits▾</a>
-                    <ul class="list-unstyled flex-column pl-3 collapse" id="submenu1" aria-expanded="false">
-                       <li class="nav-item"><a class="nav-link" href="">Ajouter Produit</a></li>
-                       <li class="nav-item"><a class="nav-link" href="">Lister Produit</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#">Clients</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Voitures</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Commandes</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Diagnostics</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Devis</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Interventions</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Factures</a></li>
-            </ul>
-        </div>
+        
         <!--/col--> 
         
 
         <div class="col main pt-5 mt-3">
-            <h1 class="display-4 d-none d-sm-block">
-            GESTION DE STOCK
-            </h1>   
-            <p class="lead d-none d-sm-block">Garage Saka</p>
-
-       <!--     <div class="row mb-3">
-                <div class="col-xl-3 col-sm-6 py-2">
-                    <div class="card bg-success text-white h-100">
-                        <div class="card-body bg-success">
-                            <div class="rotate">
-                                <i class="fa fa-user fa-4x"></i>
-                            </div>
-                            <h6 class="text-uppercase">Client</h6>
-                            <h1 class="display-4">134</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 py-2">
-                    <div class="card text-white bg-danger h-100">
-                        <div class="card-body bg-danger">
-                            <div class="rotate">
-                                <i class="fa fa-list fa-4x"></i>
-                            </div>
-                            <h6 class="text-uppercase">Posts</h6>
-                            <h1 class="display-4">87</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 py-2">
-                    <div class="card text-white bg-info h-100">
-                        <div class="card-body bg-info">
-                            <div class="rotate">
-                                <i class="fa fa-twitter fa-4x"></i>
-                            </div>
-                            <h6 class="text-uppercase">Tweets</h6>
-                            <h1 class="display-4">125</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 py-2">
-                    <div class="card text-white bg-warning h-100">
-                        <div class="card-body">
-                            <div class="rotate">
-                                <i class="fa fa-share fa-4x"></i>
-                            </div>
-                            <h6 class="text-uppercase">Shares</h6>
-                            <h1 class="display-4">36</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>   -->
-
 			<div class="row mb-3">
                 <div class="col-xl-3 col-sm-6 py-2">
                     <div class="card bg-success text-white h-100">
@@ -216,7 +213,7 @@ body, html {
                             </div>
                           <a href="{{ route('produits.index') }}">
                             <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Produits</h6>
-                            <h1 class="display-4" style="color:rgb(255, 255, 255);">{{$produit_total}}</h1>
+                            <h1 class="display-4" style="color:rgb(255, 255, 255);">250.000 Fcfa</h1>
                          </a> 
                         </div>
                     </div>
@@ -228,7 +225,7 @@ body, html {
                                 <i class="fa fa-plus fa-5x"></i>
                             </div>
                            <a href="{{ route('produits.index') }}">
-                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Produits Commandés/Vendus</h6>
+                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Revenues</h6>
                             <h1 class="display-4" style="color:rgb(255, 255, 255);"> {{listeProduitDansDevi()}}</h1>
                           </a> 
                         </div>
@@ -257,6 +254,44 @@ body, html {
                             <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Total Revenue</h6>
                             <h1 class="display-4" style="color:rgb(255, 255, 255);">?</h1>
                         </a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 row box_section" style="">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 ">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Les Ventes d'Aujourd'hui</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">{{ $produit_en_stock }}</h1>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Les Ventes de ce Mois-ci</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">{{ $produit_en_stock }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="card border-3 border-top border-top-primary">
+                            <div class="card-body">
+                                <h5 class="text-muted">Revenue</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">{{ number_format($prix_total_des_produits, 0, ',', ' ') }}<sup>F CFA</sup>
+                                    </h1>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

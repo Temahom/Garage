@@ -46,7 +46,7 @@
             
             <div class="form-group">
                     <strong>Sexe :</strong>
-                    <select class="form-control" name="genre" id="genre" autocomplete="off">
+                    <select class="form-control @error('genre') is-invalid @enderror" name="genre" id="genre" autocomplete="off">
                       <option value="" disabled selected hidden>Choisissez le sexe...</option>
                       <option value="homme" {{ old('genre') == 'homme' ? 'selected' : '' }}>Homme</option>
                       <option value="femme" {{ old('genre') == 'femme' ? 'selected' : '' }}>Femme</option>
@@ -61,7 +61,7 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
                 <strong>Entreprise :</strong>
-                <input type="text" name="entreprise" class="form-control" placeholder="Entreprise du Fournisseur" autocomplete="off"  value="{{ old('entreprise') }}">
+                <input type="text" name="entreprise" class="form-control @error('entreprise') is-invalid @enderror" placeholder="Entreprise du Fournisseur" autocomplete="off"  value="{{ old('entreprise') }}">
             </div>
                 <div class="invalid-feedback">
                     @if($errors->has('entreprise'))
@@ -80,7 +80,7 @@
             </div>
             <div class="form-group">
                 <strong>Email :</strong>
-                <input type="email" name="email" class="form-control" placeholder="Email du Fournisseur"  value="{{ old('email') }}">
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email du Fournisseur"  value="{{ old('email') }}">
                 <div class="invalid-feedback">
                     @if($errors->has('email'))
                     {{ $errors->first('email') }}

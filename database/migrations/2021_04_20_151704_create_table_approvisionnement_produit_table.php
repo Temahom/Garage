@@ -16,6 +16,7 @@ class CreateTableApprovisionnementProduitTable extends Migration
         Schema::create('approvisionnement_produit', function (Blueprint $table) {
             $table->id();
             $table->integer('quantite');
+            $table->integer('prix_achat');
             $table->unsignedBigInteger('approvisionnement_id');
             $table->unsignedBigInteger('produit_id');
             $table->timestamps();

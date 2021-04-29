@@ -143,7 +143,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/gestion_stock">
                     <img style="height: 50px;width: auto;" class="logo-img" src="/assets/images/logo.png" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -269,7 +269,7 @@
                                             <a class="nav-link" style="background-color: #2E5441 !important" href="/produits">Liste Produits</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Ajouter Produit</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Créer Produit</a>
                                         </li>
                                      <!--   <li class="nav-item">
                                             <a class="nav-link" href="/produits.creer">Creer un nouveau Produit</a>

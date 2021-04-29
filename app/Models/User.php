@@ -55,4 +55,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Client::class);
     }
+    public function passer_commande(){
+        return $this->hasMany(Commande::class,'passer_par');
+    }
+    public function valider_commande(){
+        return $this->hasMany(Commande::class,'valide_par');
+    }
 }

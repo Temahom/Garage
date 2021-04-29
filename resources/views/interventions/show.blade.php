@@ -41,14 +41,17 @@
 				<li class="nav-item">
 					<a class="nav-link active" id="tab-outline-one" data-toggle="tab" href="#outline-one" role="tab" aria-controls="home" aria-selected="true">Diagnostic</a>
 				</li>
-				@if (isset($diagnostic->coût))
-					<li class="nav-item">
-						<a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Devis</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Résumé Intervention</a>
-					</li>
-				@endif
+
+				<li class="nav-item">
+					<a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Devis</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Résumé Intervention</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link  btn-info" href="/passer_commande/{{$intervention->id}}" aria-selected="false">Passer la commande</a>
+				</li>
+
 			</ul>
 			<div class="tab-content" id="myTabContent2">
 
@@ -140,7 +143,7 @@
 				<!-- ============================================================== -->
 				<!-- DEVIS  -->
 				<!-- ============================================================== -->
-				@if (isset($diagnostic->coût))
+				
 					<div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
 
 						@if ( $intervention->devis_id )
@@ -185,7 +188,11 @@
 											</tr>
 											<tr>
 												<th scope="col" colspan="4">Coût du Diagnostic</th>
-												<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }}</th>
+												@if (isset($diagnostic->coût))
+													<th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }}</th>
+												@else
+													<th scope="col" style="width: 200px">0</th>
+												@endif
 											</tr>
 											<tr>
 												<th scope="col" colspan="4">Cout de réparation</th>
@@ -196,9 +203,13 @@
 
 									<table class="table table-bordered mt-4">
 										<tbody>
-											<tr>
-												<th scope="col" colspan="4">Net à payer</th>
-												<th scope="col" style="width: 200px"><?php echo number_format($total + $devi->cout + $diagnostic->coût, 0, ",", " ") ?></th>
+											<tr style="background-color: #4656E9;">
+												<th scope="col" colspan="4" style="color: #ffffff;">Net à payer</th>
+												@if (isset($diagnostic->coût))
+													<th scope="col" style="width: 200px; color: #ffffff;"><?php echo number_format($total + $devi->cout + $diagnostic->coût, 0, ",", " ") ?></th>
+												@else
+													<th scope="col" style="width: 200px; color: #ffffff;"><?php echo number_format($total + $devi->cout, 0, ",", " ") ?></th>
+												@endif
 											</tr>
 										</tbody>
 									</table>
@@ -227,7 +238,7 @@
 							</div>
 						</div>
 						@endcan
-					@endif
+					
 
 				</div>
 				<!-- ============================================================== -->
@@ -303,7 +314,7 @@
 @if(Session::has('payer_facture'))
 <script>
 	toastr.success("{!! Session::get('payer_facture') !!}")
-	swal("Paiement Fatcure!", "{!! Session::get('payer_facture') !!}", "success");
+	swal("Paiement Réussit!", "{!! Session::get('payer_facture') !!}", "success");
 </script>
 @endif
 
