@@ -12,19 +12,9 @@ class Commande extends Model
    // protected $table = 'commandes';
    // public $timestamps = true;
 
-<<<<<<< HEAD
-   
-    protected $fillable =['produit','etat'];    
-   /* protected $fillable = [
-        'produit_id',
-        'devi_id',
-        'qteProduit',
-    ];  */
-=======
    public function devis(){
        return $this->belongsTo(Devi::class);
    }
->>>>>>> cc0895effdf2df2593f8eb2812c23c60663072cd
     
     public function produits()
     {
