@@ -225,7 +225,7 @@ body, html {
                                 <i class="fa fa-plus fa-5x"></i>
                             </div>
                            <a href="{{ route('produits.index') }}">
-                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Revenues</h6>
+                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Produits Vendus/Dans Devis</h6>
                             <h1 class="display-4" style="color:rgb(255, 255, 255);"> {{listeProduitDansDevi()}}</h1>
                           </a> 
                         </div>
