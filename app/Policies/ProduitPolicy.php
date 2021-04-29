@@ -41,7 +41,7 @@ class ProduitPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [4,5]);
     }
 
     /**
@@ -53,7 +53,7 @@ class ProduitPolicy
      */
     public function update(User $user, Produit $produit)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [4,5]);
     }
 
     /**
@@ -65,7 +65,7 @@ class ProduitPolicy
      */
     public function delete(User $user, Produit $produit)
     {
-        return in_array($user->role_id, [1,2]);
+        return in_array($user->role_id, [4,5]);
     }
 
     /**

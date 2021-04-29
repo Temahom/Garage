@@ -1,8 +1,11 @@
-@extends('layout.index')
-@section('content')
 
-
-
+    @extends('layout.menu') 
+    @php
+        use App\Models\Produit;
+        $listes=Produit::select('produit')->orderBy('produit','asc')->distinct()->get();							
+    @endphp 
+    
+    @section('content')
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">  
             <div class="col-md-4 py-1"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
@@ -52,110 +55,61 @@
             </div>
         </div>
     </div>
-    
-  
-                
-
+    <br>
     <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 row">  
-
-    <div class="col-lg-12 margin-tb">
-        <div class="col-xs-12 col-sm-12 col-md-12 row">
-            <div class="col-xs-9 col-sm-9 col-md-9">     
-                <div class="pull-right py-3">
-                    <a class="btn btn-secondary" href="{{route('fournisseurs.approvisionnements.create',['fournisseur'=>$fournisseur->id])}}"><i class="fas fa-plus"></i> Nouveau Approvisionnement</a>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>Approvisionnement</h2>
+                </div>
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{{ route('fournisseurs.approvisionnements.create',['fournisseur'=>$fournisseur]) }}" title="Create a project"> <i class="fas fa-plus-circle"> Ajouter</i>
+                        </a>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3">     
-        </div></div>
-        <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 ">
-          
-            <div class="card">
-                <div class="card-body">
-                    <div class="table-responsive">
-                    <table id="example4" class="table  table-striped table-bordered" style="width:100%">
-                <thead class="" style="background-color: #4656E9;">
-                    <tr>
-                        <th style="color: white;">Nom du Produit</th>
-                        <th style="color: white;">Quantité Totale</th>
-                        <th style="color: white;">Prix Total</th>
-                        <th style="color: white;">Date d'entrée</th>
-                        <th style="color: white; text-align: center">Action</th>
-                    </tr>
-                </thead>
-                @foreach ($approvisionnements as $approvisionnement)
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead style="background-color: #4656E9;">
                 <tr>
-                    <td>{{ $approvisionnement->nomProduit}}</td>
-                    <td>{{ $approvisionnement->qteTotale}}</td>
-                    <td>{{ $approvisionnement->prixTotal}}</td>
-                    <td>{{ $approvisionnement->created_at}}</td>
-                    <td style="color: white; text-align: center">
-                        <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST">
-
-                         <!--   <a href="{{ route('approvisionnements.show', $approvisionnement->id) }}" title="show">
-                                <i class="fas fa-eye text-success  fa-lg"></i>
-                            </a> -->
-
-                            {{-- <a href="{{route('fournisseurs.approvisionnements.create',['fournisseur'=>$fournisseur->id])}}"> --}}
-                            <a href="{{route('approvisionnements.edit', $approvisionnement->id)}}">
-                                <i class="fas fa-edit  fa-lg"></i>
-
-                            </a>
-
-                            @csrf
-                            @method('DELETE')
-
-                            <button type="button" class="btn btn-danger p-0 pr-2 pl-2 " data-toggle="modal" data-target="#exampleModal{{ $approvisionnement->id }}" onclick="OnOff();">
-                                <i class="fas fa-trash"></i>
-                            </button>
-
-                                    <div class="modal fade" id="exampleModal{{ $approvisionnement->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <h5>Voulez vous supprimer </h5>
-                                                    <h5>l'Approvisionnement de <strong>{{ $approvisionnement->nomProduit}}</strong></h5>
-                                                    <h5>Quantité Totale : <strong>{{ $approvisionnement->qteTotale}}</strong> | Prix Total : <strong>{{ $approvisionnement->prixTotal}} cfa</strong></h5>
-                                                    <h5> du fournisseur <strong>{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</strong>  ?</h5>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                    <form action="{{route('approvisionnements.destroy',$approvisionnement->id)}}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                                                    </form>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                        </form>
-                    </td>
+                    <th scope="col" style="color: #ffffff; text-align:center;" >Numero </th>
+                    <th scope="col" style="color: #ffffff;text-align:center;" >Date approvisionnement</th>
+                    <th scope="col" style="color: #ffffff;text-align:center;" >Nombre d'articles</th>
+                    <th scope="col" style="color: #ffffff;text-align:center;" >Montant Facture</th>
                 </tr>
+                </thead>
+                <tbody>
+                    @foreach ($approvisionnements as $key=>$appro)
+                        <tr>
+                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{++$key}}</td>
+                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{$appro->date_approvisionnement}}</td>
+                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{count($appro->produits)}}</td>
+                            @php
+                             $prix_tt= 0;
+                              foreach ($appro->produits as $produit) {
+                                  $prix_tt += $produit->pivot->prix_achat*$produit->pivot->quantite;
+                              }
+                              $prix_tt;
+                            @endphp
+                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{$prix_tt}} fcfa</td>
+                        </tr>
+                        
+                    @endforeach
                     
-                @endforeach
+                </tbody>
             </table>
-            </div>
         </div>
-        </div>
-         </div>
-         </div>
-         
-        <div class="row">
-            <div class="col-md-12 ml-3 mt-3">
-                <a class="btn btn-secondary" href="{{ route('fournisseurs.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
-            </div>
-         </div>
-           
-    </div></div></div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
-	<script>
-		function showApprovisionnement(id)
+    </div>
+    <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
+    <script>
+		function showAppro(id)
 		{
 			window.location = '/approvisionnements/' + id ;
 		}
 	</script>
-@endsection
+   
+    @endsection

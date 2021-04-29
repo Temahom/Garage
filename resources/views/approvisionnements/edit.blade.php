@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layout.menu')
   
 @section('content')
 
@@ -10,7 +10,7 @@
                 <h2>Modifier l'Approvisionnement</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
+                <a class="btn btn-primary" href="" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
             </div>
         </div>
     </div>
@@ -26,26 +26,28 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Fournisseur:</strong>
-                    <input type="text" name="fournisseur" value="{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}" class="form-control" placeholder="fournisseur" onFocus="this.blur()">
+                    <input type="text" name="fournisseur_id" value="{{ $approvisionnement->fournisseur_id }}" class="form-control" placeholder="fournisseur" onFocus="this.blur()">
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                    <strong>Nom du Produit:</strong>
-                    <input type="text" name="nomProduit" value="{{ $approvisionnement->nomProduit }}" class="form-control" placeholder="nomProduit">
-                </div>
+                <strong>Nom Produit</strong>
+                <select name="produit_id" class="custom-select form-control" >
+                        @foreach( $produits as $produit ) 
+                            <option value="{{$produit->id}}" {{ $produit->produit_id ? 'selected' : '' }}>{{ $approvisionnement->produit_id }} (produit_id)</option>
+                        @endforeach 
+                </select>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
                         <strong>Quantité Totale</strong>
-                        <input type="number" name="qteTotale" class="form-control" placeholder="{{ $approvisionnement->qteTotale }}" value="{{ $approvisionnement->qteTotale }}">
+                        <input type="number" name="qteAppro" class="form-control" value="{{ $approvisionnement->qteAppro }}">
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
                         <strong>Prix Total</strong>
-                        <input type="number" name="prixTotal" class="form-control" placeholder="{{ $approvisionnement->prixTotal }}" value="{{ $approvisionnement->prixTotal }}">
+                        <input type="number" name="prixAchat" class="form-control" value="{{ $approvisionnement->prixAchat }}">
                     </div>
                 </div>
             </div>

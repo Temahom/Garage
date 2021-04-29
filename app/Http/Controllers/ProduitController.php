@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produit;
+
+use App\Models\Approvisionnement;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
@@ -30,8 +32,10 @@ class ProduitController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 15);  
     }
        */
-       public function index(Request $request)  //Request $request
-      {         
+       public function index(Request $request, Approvisionnement $approvisionnement)  //Request $request
+      {    
+          
+        $approvisionnement = Approvisionnement::all();
          $produits = Produit::where([
             [function ($query) use ($request){
                 if (($term = $request->term)) {
@@ -40,10 +44,9 @@ class ProduitController extends Controller
                }] 
             ])
                 ->orderBy("id","asc")
-                ->paginate(15);
+                ->get();
   
-        return view('produits.index', compact('produits'))
-            ->with('i', (request()->input('page', 1) - 1) * 15); 
+        return view('produits.index', compact('produits','approvisionnement'));
              
         }      
 
@@ -54,7 +57,7 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        // $this->authorize('create', Produit::class);
+        $this->authorize('create', Produit::class);
         return view('produits.create');
     }
      
@@ -88,7 +91,7 @@ class ProduitController extends Controller
                 'categorie' => 'required',
                 'produit' => 'required',
                 'prix1' => 'required',
-            'qte' => 'required'
+                'qte' => 'required'
             ]);
     
             $prod=new Produit();
@@ -118,7 +121,7 @@ class ProduitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $idcl
      * @return \Illuminate\Http\Response
      */
    
@@ -137,7 +140,7 @@ class ProduitController extends Controller
      */
     public function update(Request $request,Produit $produit)
     {
-        // $this->authorize('update', $produit);
+        $this->authorize('update', $produit);
         $request->validate([
             'categorie' => 'required',
             'produit' => 'required',

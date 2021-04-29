@@ -16,5 +16,9 @@ class Commande extends Model
        return $this->belongsTo(Devi::class);
    }
     
+    public function produits()
+    {
+        return $this->belongsToMany(Produit::class,'commandes');
+    }
 }
 

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Approvisionnement;
 use App\Models\Fournisseur;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class ApprovisionnementController extends Controller
@@ -24,11 +25,12 @@ class ApprovisionnementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Fournisseur $fournisseur, Approvisionnement $approvisionnement)
+    public function create(Fournisseur $fournisseur, Approvisionnement $approvisionnement, Produit $produit)
     {
        //$this->authorize('create', Approvisionnement::class);
        $fournisseurs= Fournisseur::all();
-       return view('approvisionnements.create',compact('fournisseurs','fournisseur', 'approvisionnement'));
+       $produits= Produit::all();
+       return view('approvisionnements.create',compact('fournisseurs','fournisseur', 'approvisionnement', 'produits', 'produit'));
     
      }
 
@@ -38,23 +40,22 @@ class ApprovisionnementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-
-
-            foreach ($request->plusdechamps as $key => $value) {
-                $approvisionnement = new Approvisionnement();
-                $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
-                $approvisionnement->nomProduit =  $value['nomProduit'];
-                $approvisionnement->qteTotale =  $value['qteTotale'];
-                $approvisionnement->prixTotal =  $value['prixTotal'];
-                $approvisionnement->save();
-            }
-
-            $fournisseur = $approvisionnement->fournisseur()->first()->id;
-            return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
-            ->with('success','Approvisionnement Enrégistré');   
+    public function store(Request $request, Fournisseur $fournisseur, Approvisionnement $approvisionnement)
+    { 
+        request()->validate([
+            'fournisseur_id' => 'required',
+            'date_approvisionnement' => 'required',
+        ]);
+        $approvisionnement->fournisseur_id = $request->input('fournisseur_id'); 
+        $approvisionnement->date_approvisionnement =  $request->input('date_approvisionnement');
+        $approvisionnement->save();
+        foreach ($request->plusdechamps as $key => $value) {
+            $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
+        }
+        return redirect()->route('fournisseurs.approvisionnements.show', ['fournisseur' => $fournisseur, 'approvisionnement'=>$approvisionnement])
+        ->with('success','Approvisionnement Enrégistré');   
     }
+   
            
     /**
      * Display the specified resource.
@@ -62,9 +63,9 @@ class ApprovisionnementController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Approvisionnement $approvisionnement)
+    public function show( Fournisseur $fournisseur, Approvisionnement $approvisionnement)
     {
-        return view('approvisionnements.show', compact('approvisionnement'));
+        return view('approvisionnements.show', compact('approvisionnement', 'fournisseur'));
     }
 
     /**
@@ -73,11 +74,12 @@ class ApprovisionnementController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Approvisionnement $approvisionnement)
+    public function edit(Approvisionnement $approvisionnement, Produit $produit)
     {
+        $produits= Produit::all();
         $approvisionnements = Approvisionnement::all();
 
-        return view('approvisionnements.edit', compact('approvisionnement'));
+        return view('approvisionnements.edit', compact('approvisionnement', 'produits'));
     }
     /**
      * Update the specified resource in storage.
@@ -88,16 +90,14 @@ class ApprovisionnementController extends Controller
      */
     public function update(Request $request, Approvisionnement $approvisionnement, Fournisseur $fournisseur)
     {
-        $this->authorize('update', $approvisionnement);        
-        
-        foreach ($request->plusdechamps as $key => $value) {
-            $approvisionnement = new Approvisionnement();
-            $approvisionnement->fournisseur_id = $request->input('fournisseur_id');
-            $approvisionnement->nomProduit =  $value['nomProduit'];
-            $approvisionnement->qteTotale =  $value['qteTotale'];
-            $approvisionnement->prixTotal =  $value['prixTotal'];
-            $approvisionnement->save();
-        }
+        $request->validate([
+            'fournisseur_id' => 'required',
+            'produit_id' => 'required',
+            'qteAppro' => 'required',
+            'prixAchat' => 'required',
+            ]);
+        $approvisionnement->update($request->all());
+
 
         $fournisseur = $approvisionnement->fournisseur()->first()->id;
         return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])

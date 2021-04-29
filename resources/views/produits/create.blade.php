@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layout.menu')
 @php
 	use App\Models\listeproduit;
 $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct()->get();
@@ -33,14 +33,14 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <div class="col-xs-6 col-sm-6 col-md-6">      
                     <div class="form-group">
                         <strong>Categorie :</strong>
-                        <select name="categorie" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror" onchange="change();">
+                       <!--<select name="categorie" id="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror" onchange="change();">
                             <option value="">catégorie</option>
                                 @foreach ($listes as $liste)
                                         <option value="{{$liste->categorie}}" {{ old('categorie') == ($liste->categorie) ? 'selected' : '' }}>{{$liste->categorie}}</option>
                           
                                 @endforeach
-                        </select>
-                        <input name="categorie1" type="text" class="custom-select form-control" id="inpuTxt1" style="display:none;" value="" autocomplete="off" placeholder="Entrer une nouvelle catégorie"/>
+                        </select>-->
+                        <input name="categorie" type="text" class="custom-select form-control @error('categorie') is-invalid @enderror" id="categorie" autocomplete="off" placeholder="Entrer une nouvelle catégorie"/>
                         <div class="invalid-feedback">
                             @if($errors->has('categorie'))
                             {{ $errors->first('categorie') }}
@@ -49,10 +49,10 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     </div>
                     <div class="form-group">
                         <strong>Nom du produit :</strong>                                    
-                            <select name="produit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror" onchange="change();">
+                          <!--  <select name="produit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror" onchange="change();">
                                 <option value="">produit</option>
-                            </select>
-                            <input type="text" name="produit1" class="custom-select form-control" id="inpuTxt2" style="display:none;" placeholder="Mettre le nom du produit" autocomplete="off"/>  
+                            </select>-->
+                            <input type="text" name="produit" class="custom-select form-control @error('produit') is-invalid @enderror" id="leproduit" placeholder="Mettre le nom du produit" autocomplete="off"/>  
                             <div class="invalid-feedback">
                                 @if($errors->has('produit'))
                                 {{ $errors->first('produit') }}
@@ -63,10 +63,10 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 <div class="col-xs-6 col-sm-6 col-md-6">      
                     <div class="form-group">
                         <strong>Le Prix Unitaire :</strong>
-                        <input name="prix" type="number" class="custom-select form-control" min="0" id="inpuTxt3" style="display:none;" autocomplete="off" placeholder="Mettre le prix du produit"/>
-                        <select  name="prix1" id="leprix" class="custom-select form-control @error('prix1') is-invalid @enderror" onchange="change();">
+                        <input name="prix1" type="number" class="custom-select form-control @error('prix1') is-invalid @enderror" min="0" id="leprix" autocomplete="off" placeholder="Mettre le prix du produit"/>
+                        <!---<select  name="prix1" id="leprix" class="custom-select form-control @error('prix1') is-invalid @enderror" onchange="change();">
                             <option value="">prix unitaire</option>
-                        </select>
+                        </select>-->
                         <div class="invalid-feedback">
                             @if($errors->has('prix1'))
                             {{ $errors->first('prix1') }}
@@ -85,7 +85,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-success">Commander</button>
+                <button type="submit" class="btn btn-success">Ajouter</button>
             </div>
         </div>
 
@@ -94,7 +94,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
         
-    <script>
+  <!--  <script>
         $(document).ready(function() {
             $('select[name=categorie]').change(function () {
                 var produit='<option value="">Nos Produits Disponibles</option>'
@@ -176,6 +176,6 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                 
             }
         }
-</script>
+</script>-->
 
 @endsection

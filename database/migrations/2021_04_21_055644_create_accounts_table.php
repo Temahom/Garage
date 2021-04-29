@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateApprovisionnementsTable extends Migration
+class CreateAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateApprovisionnementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('approvisionnements', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('fournisseur_id');
-            $table->date('date_approvisionnement');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreateApprovisionnementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('approvisionnements');
+        Schema::dropIfExists('accounts');
     }
 }

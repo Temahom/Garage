@@ -13,15 +13,19 @@ class Approvisionnement extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'nomProduit',
-        'qteTotale',
-        'prixTotal',
+        'produit_id',
+        'qteAppro',
+        'prixAchat',
         'fournisseur_id',
     ];
 
     public function fournisseur()
     {
         return $this->belongsTo(Fournisseur::class);
+    }
+    public function produits()
+    {
+        return $this->belongsToMany(Produit::class)->withPivot('quantite','prix_achat');
     }
 
 }

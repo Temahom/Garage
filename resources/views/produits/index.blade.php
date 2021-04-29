@@ -1,9 +1,18 @@
 @include('animate_gestion_stock')
-@extends('layout.index')
+@extends('layout.menu')
 @php
 setlocale(LC_TIME, "fr_FR", "French");
 @endphp
 @section('content')
+
+<script language="javascript">
+    var x =  document.getElementById("#verif");
+
+        if(quantiteStock == 0) {
+            x.style.visibility="hidden";
+        }
+    }
+</script>
 
 
 <div class="row">
@@ -15,7 +24,7 @@ setlocale(LC_TIME, "fr_FR", "French");
           <div class="col-xs-12 col-sm-12 col-md-12 row">
               <div class="col-xs-9 col-sm-9 col-md-9">     
                   <div class="form-group">
-                      <a class="btn btn-secondary" href="{{route('produits.create')}}"><i class=" icon-briefcase"> </i>  Ajouter Un Produit</a>
+                      <a class="btn btn-secondary" href="{{route('produits.create')}}"><i class="fas fa-plus"></i>  Créer Un Produit</a>
                   </div>
               </div>
           </div>
@@ -43,83 +52,68 @@ setlocale(LC_TIME, "fr_FR", "French");
                                         <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
                                         <th style="color: white;" style="cursor: pointer;">Prix Unitaire</th>
                                         <th style="color: white;" style="cursor: pointer;">En Stock</th>
-                                        <th style="color: white;" style="cursor: pointer;">Action</th>
                                     </tr>
                                 </thead>
                                    <tbody>
-                                    @foreach ($produits as $produit)
+                                    @foreach ($produits as $i=>$produit)
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
                                         <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-                                        <td style="cursor: pointer;">{{ $produit->qte }}</td>   
-                                    <!--    <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td>-->
-                                        <td>
-            
-                                    <!--       <a href="{{ route('produits.show', $produit->id) }}" title="show">      -->             
-                                                <!--<button type="button" class="btn btn-succes p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
-                                                    <i class="fas fa-eye text-success  fa-lg"></i>    
-                                                </button>-->
-                                                <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
+                                        <td style="cursor: pointer;">
+                                            <?php
+                                            $quantiteStock = 0;
+                                                foreach ($produit->approvisionnements as $product)
+                                                   {
+                                                    $quantiteStock +=$product->pivot->quantite;
+                                                   }
+                                                   echo $quantiteStock+$produit->qte; 
+                                            ?>
+                                            {{-- @foreach ($produit->approvisionnements as $product)
+                                                {{$product->pivot->quantite + $produit->qte }}
+                                            @endforeach --}}
+                                        </td>   
+                                        {{-- <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> --}}
+                                      <!--  <td style="text-align:center !important">    
+                                            <a href="{{ route('produits.edit', $produit->id) }}">
+                                                <i class="fas fa-edit  fa-lg"></i>
+                                            </a>
+                                            <a data-toggle="modal" id="smallButton{{$produit->id}}" data-target="#smallModal{{$produit->id}}" data-attr="{{ route('produits.destroy', $produit->id) }}" title="Supprimer Produit">
+                                                <i class="fas fa-trash text-danger  fa-lg"></i>
+                                            </a>
+                                                <!-- small modal 
+                                                <div class="modal fade" id="smallModal{{$produit->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-sm" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
-                                                            <div class="modal-body ">
-                                                                <div style="font-size: 20px; ">Produit : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #2EC551">{{ $produit->produit}} </a></div>
-                                                                <div style="font-size: 14px; ">Catégorie  : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #750439">{{ $produit->categorie}} </a></div>
-                                                                <div style="font-size: 14px;" >Prix Unitaire  : <a href="" class="badge badge-success"> {{ $produit->prix1}} <sup>F CFA</sup> </a> </div>
-                                                                <div style="font-size: 14px;">Quantité Produit  : <a href="" style="color: #17028a">{{ $produit->qte}} </a> </div>                    
+                                                            <div class="modal-body" id="smallBody">
+                                                                <div>
+                                                                    <form action="/produits/{{$produit->id}}" method="POST">
+                                                                    <form action="{{ route('produits.destroy', $produit->id) }}" method="POST">
+                                                                    <div class="modal-body">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <h5 class="text-center">Etes-vous sûr que vous voulez supprimer le Produit :{{ $produit->produit }} ? </h5>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"  title="reset" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                                        <button type="submit"  title="delete" class="btn btn-danger">Oui,Supprimer</button>
+                                                                    </div>
+                                                                    </form>
+                                                                
+                                                                </div>
                                                             </div>
-                                                            <div class="modal-footer">
-                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>
             
-                                            <a href="{{ route('produits.edit', $produit->id) }}">
-                                                <i class="fas fa-edit  fa-lg"></i>
-            
-                                            </a>
-                                            <a data-toggle="modal" id="smallButton{{$produit->id}}" data-target="#smallModal{{$produit->id}}" data-attr="{{ route('produits.destroy', $produit->id) }}" title="Supprimer Produit">
-                                                <i class="fas fa-trash text-danger  fa-lg"></i>
-                                            </a>
-                            <!-- small modal -->
-                                    <div class="modal fade" id="smallModal{{$produit->id}}" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-sm" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body" id="smallBody">
-                                            <div>
-                                                <form action="/produits/{{$produit->id}}" method="POST">
-                                                <form action="{{ route('produits.destroy', $produit->id) }}" method="POST">
-                                                <div class="modal-body">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <h5 class="text-center">Etes-vous sûr que vous voulez supprimer le Produit :{{ $produit->produit }} ? </h5>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button"  title="reset" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                    <button type="submit"  title="delete" class="btn btn-danger">Oui,Supprimer</button>
-                                                </div>
-                                                </form>
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-            
-                                </td>
-                                    </tr>
+                                        </td>-->
+                                        </tr>
                                     @endforeach
                                   </tbody>
                                  
@@ -133,12 +127,7 @@ setlocale(LC_TIME, "fr_FR", "French");
       </div>
   </div>
 </div>
-  <div class="row">
-      <div class="col-md-12 mt-3 d-flex justify-content-center">
-          {!! $produits->links() !!}
-      </div>
-  </div>
-  
+ 
   
 
 
@@ -166,6 +155,14 @@ setlocale(LC_TIME, "fr_FR", "French");
           classe.forEach(tr => tbody.appendChild(tr));
       }));
 
+</script>
+
+<script>
+    function verif() {
+            if ($quantiteStock = 0) {
+                document.getElementById('verif').style.display = 'none';
+            }  
+            };
 </script>
 
 

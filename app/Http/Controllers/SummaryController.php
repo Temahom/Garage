@@ -44,7 +44,9 @@ class SummaryController extends Controller
       $summary = new Summary();
       $summary->resume = $request->input('description');
       $summary->save();
+
       $intervention->summary_id = $summary->id;
+      $intervention->statut = 4;
       $intervention->update();
       return redirect(route('voitures.interventions.show',['voiture'=>$voiture->id, 'intervention'=>$intervention->id]));
     }
