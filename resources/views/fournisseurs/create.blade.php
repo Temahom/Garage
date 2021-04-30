@@ -15,7 +15,6 @@
         margin-right: 5px;
     }
 </style>
-@section('content')
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -102,9 +101,11 @@
                 </div>
             </div>
         
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-4 pull-right">
-                <a class="btn btn-secondary" href="{{ route('fournisseurs.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
-                <button type="submit" class="btn btn-success">Enregistrer</button>
+            <div class="row">
+                <div class="col-md-12 pl-0 py-4 ml-4">
+                    <a class="btn btn-rounded btn-secondary" href="{{ route('fournisseurs.index') }}"><i class="fas fa-backward "></i> Retour</a>
+                    <button class="btn btn-rounded btn-success" type="submit" style="color: white; margin-left: 6px; ">Enregistrer</button>
+                </div>
             </div>
         </div>
     </div>

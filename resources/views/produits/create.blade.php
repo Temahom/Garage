@@ -20,7 +20,6 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         margin-right: 5px;
     }
 </style>
-@section('content')
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -33,16 +32,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         </div>
     </div>
 </div>
-<br>
-
-
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('produits.index') }}" title="Go back"><span style="font-size:15px;">&#129060;</span> Retour</a>
-            </div>
-        </div>
-    </div><br><br>
+<br><br>
 
     
     <form action="{{ route('produits.store') }}" method="POST">
@@ -103,8 +93,11 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     </div><br>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-success">Ajouter</button>
+            <div class="row">
+                <div class="col-md-12 pl-0 py-4 ml-4">
+                    <a class="btn btn-rounded btn-secondary" href="{{ route('produits.index') }}" title="Go back"><i class="fas fa-backward "></i> Retour</a>
+                    <button style="color: white; margin-left: 6px; " type="submit" class="btn btn-rounded btn-success">Ajouter</button>
+                </div>
             </div>
         </div>
 
