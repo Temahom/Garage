@@ -133,7 +133,7 @@ class InterventionController extends Controller
             $summary = Summary::find($intervention->summary_id);
             $data['summary'] = $summary;
         }
-        if($intervention->devis_id)
+        if($intervention->devis_id && isset($intervention->devis_id))
         {
            // $commande=Commande::where('devi_id',$intervention->devis_id)->get();
             $i = 0;
