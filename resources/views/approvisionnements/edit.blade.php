@@ -14,55 +14,6 @@
         margin-right: 5px;
     }
 </style>
-{{-- <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>
-                   <span class="titre"> <i class="far fa-edit label"></i>Modification Approvisionnement</span> 
-                </h2>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 25px;">
-        <form action="{{ route('approvisionnements.update', $approvisionnement->id) }}" method="POST">
-            @csrf
-            @method('PUT')
-        
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="col-xs-8 col-sm-8 col-md-8">
-                        <strong>Nom Produit</strong>
-                        <select name="produit_id" class="custom-select form-control" >
-                                @foreach( $produits as $product ) 
-                                    <option value="{{$product->id}}" {{ $product->produit_id ? 'selected' : '' }}>{{$product->produit }} </option>
-                                @endforeach 
-                        </select>
-                    </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 row">
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <strong>Quantité</strong>
-                                <input type="number" name="qteAppro" class="form-control" value="{{$approvisionnement->produits[1]->pivot->quantite}}">
-                            </div>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <strong>Prix</strong>
-                                <input type="number" name="prixAchat" class="form-control" value="{{$approvisionnement->produits[1]->pivot->prix_achat}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 text-center">
-                        <a class="btn btn-rounded btn-light" href="" title="Go back"> Retour</a>
-                        <button type="submit" class="btn btn-rounded btn-warning">Modifier</button>
-                    </div>
-                </div>
-            </div>
-        
-        </form>
-    </div>
-</div> --}}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="col-lg-12 margin-tb">
