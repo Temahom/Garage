@@ -9,7 +9,7 @@
             color:#fff;
             border-radius:20px;
             padding:0 10px;
-            padding:15px;
+            padding:10px;
     }
     .label{
         margin-right: 5px;

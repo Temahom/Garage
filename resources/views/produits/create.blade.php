@@ -14,7 +14,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             color:#fff;
             border-radius:20px;
             padding:0 10px;
-            padding:15px;
+            padding:10px;
     }
     .label{
         margin-right: 5px;
@@ -26,7 +26,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>
-                    <span class="titre"><i class="fas fa-tag label"></i>Ajout Produit</span>
+                    <span class="titre"><i class="fas fa-tag label"></i>Créer Produit</span>
                 </h2>
             </div>
         </div>
@@ -96,7 +96,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             <div class="row">
                 <div class="col-md-12 pl-0 py-4 ml-4">
                     <a class="btn btn-rounded btn-secondary" href="{{ route('produits.index') }}" title="Go back"><i class="fas fa-backward "></i> Retour</a>
-                    <button style="color: white; margin-left: 6px; " type="submit" class="btn btn-rounded btn-success">Ajouter</button>
+                    <button style="color: white; margin-left: 6px; " type="submit" class="btn btn-rounded btn-success">Créer produit</button>
                 </div>
             </div>
         </div>
