@@ -307,6 +307,7 @@
                 });
         }
         catdoublon();
+        
     /*SUPPRESSION DOUBLONS SELECT*/
 /*CONTROL DEVIS*/
     function envoyerFormProd()
