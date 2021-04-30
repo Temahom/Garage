@@ -79,12 +79,13 @@ class ApprovisionnementController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Approvisionnement $approvisionnement, Produit $produit)
+    public function edit(Produit $produit, Approvisionnement $approvisionnement )
     {
+        //dd($produit->id-1);
+        dd($approvisionnement->produits[$produit->id-1]);
         $produits= Produit::all();
         $approvisionnements = Approvisionnement::all();
-
-        return view('approvisionnements.edit', compact('approvisionnement', 'produits'));
+        return view('approvisionnements.edit', compact('approvisionnement', 'produits', 'produit'));
     }
     /**
      * Update the specified resource in storage.
@@ -93,7 +94,7 @@ class ApprovisionnementController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Approvisionnement $approvisionnement, Fournisseur $fournisseur)
+    public function update(Request $request, Produit $produit, Approvisionnement $approvisionnement)
     {
         $request->validate([
             'fournisseur_id' => 'required',
@@ -105,7 +106,7 @@ class ApprovisionnementController extends Controller
 
 
         $fournisseur = $approvisionnement->fournisseur()->first()->id;
-        return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])
+        return redirect()->route('approvisionnements.show', ['approvisionnement' => $produit])
             ->with('success', 'Approvisionnemment modifié avec succès !!!');
     }
     /**

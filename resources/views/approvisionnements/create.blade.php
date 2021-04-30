@@ -4,14 +4,27 @@
 	use App\Models\Produit;
     $listes=Produit::select('produit')->orderBy('produit','asc')->distinct()->get();							
 @endphp   --}}
-
+<style>
+    .titre{
+            background-image: linear-gradient(to left, #268956, #332F30);
+            color:#fff;
+            border-radius:20px;
+            padding:0 10px;
+            padding:15px;
+    }
+    .label{
+        margin-right: 5px;
+    }
+</style>
 @section('content')
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Ajouter un approvisionnement</h2>
+                <h2>
+                    <span class="titre"><i class="fas fa-tag label"></i>Ajout Approvisionnement</span>
+                </h2>
             </div>
         </div>
     </div>
@@ -121,8 +134,8 @@
 
                 <div class="row">
                     <div class="col-md-12 pl-0 py-4">
-                        <a class="btn btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
-                        <a class="btn btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormappro()">Enregistrer</a>
+                        <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
+                        <a class="btn btn-rounded btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormappro()">Enregistrer</a>
                     </div>
                 </div>
                             
