@@ -1,8 +1,9 @@
 @include('animate_gestion_stock')
 @extends('layout.menu')
 @php
+setlocale(LC_TIME, "fr_FR", "French");
     use App\Models\User;
-    setlocale(LC_TIME, "fr_FR", "French");
+    
 @endphp
 @section('content')
 <style>
