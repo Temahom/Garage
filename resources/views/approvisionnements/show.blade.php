@@ -71,6 +71,7 @@
                 <th scope="col" style="color: #ffffff;text-align:center; width: 20%" >Quantite</th>
                 <th scope="col" style="color: #ffffff;text-align:center; width: 20%" >PU Achat</th>
                 <th scope="col" style="color: #ffffff;text-align:center; width: 20%" >Prix Total</th>
+                <th scope="col" style="color: #ffffff;text-align:center; width: 20%" >Action</th>
             </tr>
             </thead>
             <tbody>
@@ -81,7 +82,38 @@
                         <td style="text-align: center">{{$produit->pivot->quantite}}</td>
                         <td style="text-align: center">{{$produit->pivot->prix_achat}}</td>
                         <td style="text-align: center;">{{$produit->pivot->prix_achat * $produit->pivot->quantite}}</td>
-                        
+                        <td style="justify-content:center;" >
+                            <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST" class="btn-group ml-auto">
+                                <a class="btn btn-sm btn-outline-light" href="{{ route('produits.approvisionnements.edit', ['produit'=>$produit->id, 'approvisionnement'=>$approvisionnement->id]) }}">
+                                    Modifier
+                                </a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="button" class="btn btn-sm btn-outline-light " data-toggle="modal" data-target="#exampleModal{{ $approvisionnement->id }}" onclick="OnOff();">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                                        <div class="modal fade" id="exampleModal{{ $approvisionnement->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <h5>Voulez vous supprimer </h5>
+                                                        <h5>l'Approvisionnement de <strong>{{ $approvisionnement->nomProduit}}</strong></h5>
+                                                        <h5>Quantité Totale : <strong>{{ $approvisionnement->qteTotale}}</strong> | Prix Total : <strong>{{ $approvisionnement->prixTotal}} cfa</strong></h5>
+                                                        <h5> du fournisseur <strong>{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</strong>  ?</h5>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                        <form action="{{route('approvisionnements.destroy',$approvisionnement->id)}}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                        </form>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </form>
+                        </td>
                     </tr>
                     
                 @endforeach
@@ -94,7 +126,7 @@
                           }
                           $prix_tt;
                       @endphp    
-                          <td style="text-align: center; background-color: rgba(148, 136, 136, 0.431)"><b>{{$prix_tt}} <sup>FCFA</sup></b></td>
+                          <td colspan="2" style="text-align: center; background-color: rgba(148, 136, 136, 0.431)"><b>{{$prix_tt}} <sup>FCFA</sup></b></td>
                        
                     </tr>
                    <!-- <tr>

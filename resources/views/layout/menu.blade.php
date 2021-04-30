@@ -278,6 +278,20 @@
                                 </div>
                             </li>
                             
+                            <li class="nav-item "  style="padding-top: 5px">
+                                <a class="nav-link active" style="background-color: #2E5441 !important" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-commandes" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Commandes <span style="font-size: 19px; background-color: black !important;" ><sup> 6</sup> </span></a>
+                                <div id="submenu-commandes" style="background-color: #2E5441 !important" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/commandes">Liste Commandes </a>
+                                        </li>
+                                     <!--   <li class="nav-item">
+                                            <a class="nav-link" href="/produits.creer">Creer un nouveau Produit</a>
+                                        </li>-->
+                                    </ul>    
+                                </div>
+                            </li>
+                            
                             <li class="nav-item" style="padding-top: 5px">
                                 <a class="nav-link active" style="border-radius:10px;background-color: #2E5441 !important" href="/" aria-expanded="false" ><i class="fa fa-fw fa-car"></i>GARAGE<span class="badge badge-success"></span></a>
                             </li>
