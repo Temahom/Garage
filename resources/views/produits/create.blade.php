@@ -9,16 +9,35 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
 @section('content')
 
 <style>
-	.row{
-		overflow: hidden;
-	}
+    .titre{
+            background-image: linear-gradient(to left, #268956, #332F30);
+            color:#fff;
+            border-radius:20px;
+            padding:0 10px;
+            padding:15px;
+    }
+    .label{
+        margin-right: 5px;
+    }
 </style>
+@section('content')
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>
+                    <span class="titre"><i class="fas fa-tag label"></i>Ajout Produit</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Ajouter Un Nouveau Produit</h2>
-            </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('produits.index') }}" title="Go back"><span style="font-size:15px;">&#129060;</span> Retour</a>
             </div>
