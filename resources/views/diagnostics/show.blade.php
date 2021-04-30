@@ -73,18 +73,18 @@
                   </thead>
                   <tbody>
                       @foreach ($diagnostic->defauts()->get() as $defaut)
-                    <tr>
-                      <td scope="row" style="text-align: center">{{$defaut->code}}</td>
-                      <td style="text-align: center">{{$defaut->localisation}}</td>
-                      <td style="text-align: center">{{$defaut->description}}</td>
-                      @if($defaut->etat==1)
-                      <td style="text-align: center" title='Bon Etat'><i class="fas fa-thumbs-up " style="color:green"></i></td>
-                      @elseif($defaut->etat==2)
-                      <td style="text-align: center" title="A Reparer"><i class="fas fa-minus-circle"></i></td>
-                      @else
-                      <td style="text-align: center" title='defectueux'><i class="fas fa-ban" style="color:red"></i></td>
-                      @endif
-                    </tr>
+                        <tr>
+                          <td scope="row" style="text-align: center">{{$defaut->code}}</td>
+                          <td style="text-align: center">{{$defaut->localisation}}</td>
+                          <td style="text-align: center">{{$defaut->description}}</td>
+                          @if($defaut->etat==1)
+                            <td style="text-align: center" title='Bon Etat'><i class="fas fa-thumbs-up " style="color:green"></i></td>
+                          @elseif($defaut->etat==2)
+                            <td style="text-align: center" title="A Reparer"><i class="fas fa-minus-circle"></i></td>
+                          @else
+                            <td style="text-align: center" title='defectueux'><i class="fas fa-ban" style="color:red"></i></td>
+                          @endif
+                        </tr>
                     @endforeach
                   </tbody>
                 </table>

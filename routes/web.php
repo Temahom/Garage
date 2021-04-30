@@ -86,6 +86,11 @@ Route::middleware('auth')->group(function () {
     /**
      * Termine de passer la commande
      */
+    /**VAlider la commnde et decrementter */
+    Route::get('valider_commande/{id}',[CommandeController::class,'valider_commande'])->name('commandes.valider');
+    /**
+     * Terminer de valider la commande
+     */
     Route::resource('produits',ProduitController::class);
     Route::resource('commandes',CommandeController::class);
     Route::resource('clients',ClientController::class);  
@@ -100,7 +105,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures.interventions.summaries',SummaryController::class);
     Route::resource('voitures.interventions.devis',DeviController::class);
 /*     Route::resource('commandes', CommandeController::class);
-*/  Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
+*/ 
+    Route::get('commandes',[CommandeController::class,'index']);
+    Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
     Route::resource('actors', ActorController::class);
     Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
     Route::resource('diagnostics', DiagnosticController::class);

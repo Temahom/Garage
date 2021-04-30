@@ -28,6 +28,6 @@ class Devi extends Model
     }
     public function commande()
     {
-        return $this->hasMany(Commande::class);
+        return $this->hasOne(Commande::class);
     }
 }
