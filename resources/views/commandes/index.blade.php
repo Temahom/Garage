@@ -33,7 +33,7 @@
                             <td>{{ User::find($commande->passer_par)->name }}</td>
                             <td>{!! $commande->etat==1? "<span>Commande passer</span>":"<span>Commande valider</span>" !!}</td>
                             <td>
-                                <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}">Valider la commande</a>
+                                <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}" title="Valider la commande">Valider</a>
                             </td>
                         </tr>
                     @endforeach

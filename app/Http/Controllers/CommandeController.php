@@ -27,46 +27,28 @@ class CommandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Commande $commandes)
+    /* public function create(Commande $commandes)
     {
         $produits=Produit::all();
         return view('commandes.create', compact('commandes', 'produits'));
-    }
-
-    /**
+    }        */
+    public function create(Produit  $produit , Commande $commande)
+    {
+     
+    } 
+     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        foreach ($request->plusdechamps as $key => $value) {
-            $commande = new Commande();
-            $commande->produit_id = $request->input('produit_id');
-            $commande->categorie =  $value['catProduit'];
-            $commande->produit =  $value['produit_id'];
-            $commande->qteProduit =  $value['qteProduit'];
-            $commande->cout =  $value['cout'];
-            $commande->date_expiration = $request->input('date_expiration');
-            $commande->etat= 1;
-            $commande->save();
-        }
+    public function store(Request $request, Produit $produit)
+    { 
 
-        $produit= $commande->produit()->first()->id;
-        return redirect()->route('produits.show', ['produit' => $produit])
-        ->with('Commande Enrégistrée avec succes');   
-
-    /*    $request->validate([
-            'id_produit' => 'required',
-            'qteProduit' => 'required',
-        ]);
-
-        Commande::create($request->all());
-
-        return redirect()->route('commandes.create')
-            ->with('success', 'Produit ajouté avec succès');  */
+     
     }
+
+    
 
     /**
      * Display the specified resource.
@@ -76,7 +58,7 @@ class CommandeController extends Controller
      */
     public function show(Commande $commande)
     {
-        return view('commandes.show', compact('commande'));
+     
     }
 
     /**
@@ -96,37 +78,9 @@ class CommandeController extends Controller
      * @param  \App\Models\Commande  $commandes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Commande $commande, Produit $produit)
+    public function update(Request $request, Commande $commande)
     {
-      //  $this->authorize('update', $commande);        
-        
-        foreach ($request->plusdechamps as $key => $value) {
-            $commande = new Approvisionnement();
-            $commande->fournisseur_id = $request->input('produit_id');
-            $commande->categorie =  $value['catProduit'];
-            $commande->produit =  $value['produit_id'];
-            $commande->qteProduit =  $value['qteProduit'];
-            $commande->cout =  $value['cout'];
-            $commande->date_expiration = $request->input('date_expiration');
-            $commande->save();
-        }
-
-        $produit = $commande->produit()->first()->id;
-        return redirect()->route('produits.show', ['produit' => $produit])
-            ->with('success', 'commande modifié avec succès !!!');
-    }
-   /* public function update(Request $request, Commande $commande)
-    {
-        $request->validate([
-            'catProduit' => 'required',
-            'nomProduit' => 'required',
-            'qteProduit' => 'required',
-        ]);
-        $commande->update($request->all());
-
-        return redirect()->route('commandes.index')
-            ->with('success', 'Produit modifié avec succès');
-    } */
+     }
     /**
      * Remove the specified resource from storage.
      *
