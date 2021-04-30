@@ -34,7 +34,7 @@
                         @foreach ($commandes as $commande)
                         <tr>
                             <td>{{ $commande->id }}</td>
-                            <td>{{ User::find($commande->passer_par)->name }}</td>
+                            <td>{{ User::find($commande->passer_par)->name }} {{ User::find($commande->passer_par)->prenom }}</td>
                             <td>{!! $commande->etat==1? "<span>Commande en cours</span>":"<span>Commande validée</span>" !!}</td>
                             <td style="text-align: center">
                                 <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}" title="Valider la commande">Valider</a>
