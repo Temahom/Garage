@@ -24,7 +24,7 @@ setlocale(LC_TIME, "fr_FR", "French");
           <div class="col-xs-12 col-sm-12 col-md-12 row">
               <div class="col-xs-9 col-sm-9 col-md-9">     
                   <div class="form-group">
-                      <a class="btn btn-secondary" href="{{route('produits.create')}}"><i class="fas fa-plus"></i>  Créer Un Produit</a>
+                      <a class="btn btn-danger" href="{{route('produits.create')}}"><i class="fas fa-plus"></i>  Créer Un Produit</a>
                   </div>
               </div>
           </div>
@@ -45,13 +45,13 @@ setlocale(LC_TIME, "fr_FR", "French");
                           <div class="table-responsive">
                               <table id="example4" class="table table-striped table-bordered">
                                 
-                                <thead  class="" style="background-color: #4656E9;">
+                                <thead  class="" style="background-color: #006680;">
                                     <tr>
-                                        <th style="color: white;" style="cursor: pointer;">N°</th>
+                                        <th style="color: white; width: 3%" style="cursor: pointer;">N°</th>
                                         <th style="color: white;" style="cursor: pointer;">Catégorie</th>
                                         <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
                                         <th style="color: white;" style="cursor: pointer;">Prix Unitaire</th>
-                                        <th style="color: white;" style="cursor: pointer;">En Stock</th>
+                                        <th style="color: white; text-align: center;" style="cursor: pointer; ">En Stock</th>
                                     </tr>
                                 </thead>
                                    <tbody>
@@ -61,7 +61,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
                                         <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-                                        <td style="cursor: pointer;">
+                                        <td style="cursor: pointer; text-align: center">
                                             <?php
                                             $quantiteStock = 0;
                                                 foreach ($produit->approvisionnements as $product)

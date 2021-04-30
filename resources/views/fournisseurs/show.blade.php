@@ -60,46 +60,53 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Approvisionnement</h2>
+                    <h2><i>Liste des Approvisionnements</i></h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-success" href="{{ route('fournisseurs.approvisionnements.create',['fournisseur'=>$fournisseur]) }}" title="Create a project"> <i class="fas fa-plus-circle"> Ajouter</i>
+                    <a class="btn btn-danger" href="{{ route('fournisseurs.approvisionnements.create',['fournisseur'=>$fournisseur]) }}" title="Create a project"> <i class="fas fa-plus-circle"> Ajouter</i>
                         </a>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <table class="table table-bordered">
-                <thead style="background-color: #4656E9;">
-                <tr>
-                    <th scope="col" style="color: #ffffff; text-align:center;" >Numero </th>
-                    <th scope="col" style="color: #ffffff;text-align:center;" >Date approvisionnement</th>
-                    <th scope="col" style="color: #ffffff;text-align:center;" >Nombre d'articles</th>
-                    <th scope="col" style="color: #ffffff;text-align:center;" >Montant Facture</th>
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach ($approvisionnements as $key=>$appro)
-                        <tr>
-                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{++$key}}</td>
-                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{$appro->date_approvisionnement}}</td>
-                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{count($appro->produits)}}</td>
-                            @php
-                             $prix_tt= 0;
-                              foreach ($appro->produits as $produit) {
-                                  $prix_tt += $produit->pivot->prix_achat*$produit->pivot->quantite;
-                              }
-                              $prix_tt;
-                            @endphp
-                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{$prix_tt}} fcfa</td>
-                        </tr>
-                        
-                    @endforeach
-                    
-                </tbody>
-            </table>
+    </div><br>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">  
+            <div class="col-xs-12 col-sm-12 col-md-12 ">  
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example4" class="table table-striped table-bordered" style="width:100%">
+                                <tr style="background-color: #006680;">
+                                    <th scope="col" style="color: #ffffff; text-align:center; width: 5%" >Numero </th>
+                                    <th scope="col" style="color: #ffffff;text-align:center;" >Date approvisionnement</th>
+                                    <th scope="col" style="color: #ffffff;text-align:center;" >Nombre d'articles</th>
+                                    <th scope="col" style="color: #ffffff;text-align:center;" >Montant Facture</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($approvisionnements as $key=>$appro)
+                                        <tr>
+                                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{++$key}}</td>
+                                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{date("d-m-Y", strtotime($appro->date_approvisionnement))}}</td>
+                                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{count($appro->produits)}}</td>
+                                            @php
+                                            $prix_tt= 0;
+                                            foreach ($appro->produits as $produit) {
+                                                $prix_tt += $produit->pivot->prix_achat*$produit->pivot->quantite;
+                                            }
+                                            $prix_tt;
+                                            @endphp
+                                            <td style="text-align: center;cursor: pointer;" onclick="showAppro({{ $appro->id }})">{{$prix_tt}} fcfa</td>
+                                        </tr>
+                                        
+                                    @endforeach
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>

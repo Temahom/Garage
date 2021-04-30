@@ -5,9 +5,6 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
         <div class="col-lg-12 margin-tb">
-            <div class="pull-right">
-                <a class="btn btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left "></i> Retour</a>
-            </div><br>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">  
                     <div class="col-md-3"  style="box-shadow: 0px 0px 2px rgb(145, 135, 135); background-color: #fafafa;">
@@ -67,9 +64,9 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
         <table class="table table-bordered">
-            <thead style="background-color: #4656E9;">
+            <thead style="background-color: #006680;">
             <tr>
-                <th scope="col" style="color: #ffffff; text-align:center; width: 5%" >Numero </th>
+                <th scope="col" style="color: #ffffff; text-align:center; width: 3%" >Num</th>
                 <th scope="col" style="color: #ffffff;text-align:center;" >Produit</th>
                 <th scope="col" style="color: #ffffff;text-align:center; width: 20%" >Quantite</th>
                 <th scope="col" style="color: #ffffff;text-align:center; width: 20%" >PU Achat</th>
@@ -111,7 +108,11 @@
             </tbody>
         </table>
     </div>
-</div>
+</div><br>
+
+<div class="pull-right">
+    <a class="btn btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left "></i> Retour</a>
+</div><br>
 
 <script>
     function showAppro(id)
