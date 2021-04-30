@@ -26,7 +26,7 @@ class Devi extends Model
     {
         return $this->hasMany(Facture::class);
     }
-    public function commandes()
+    public function commande()
     {
         return $this->hasOne(Commande::class);
     }
