@@ -223,7 +223,7 @@
 \App\Models\Produit::create(["categorie"=>"Pièces thermiques et Climatisation","produit"=>"Moteur électrique, pulseur d'air habitacle","prix1"=>1478,"qte"=>0]);
 \App\Models\Produit::create(["categorie"=>"Pièces thermiques et Climatisation","produit"=>"Compresseur, climatisation","prix1"=>1478,"qte"=>0]);
 \App\Models\Produit::create(["categorie"=>"Pièces thermiques et Climatisation","produit"=>"Condensateur, climatisation","prix1"=>1478,"qte"=>0]);
-\App\Models\Produit::create(["categorie"=>"Pièces thermiques et Climatisation","produit"=>"Bouteille d"shydratante","prix1"=>1478,"qte"=>0]);
+\App\Models\Produit::create(["categorie"=>"Pièces thermiques et Climatisation","produit"=>"Bouteille deshydratante","prix1"=>1478,"qte"=>0]);
 \App\Models\Produit::create(["categorie"=>"Pièces thermiques et Climatisation","produit"=>"Actionneur de climatisation","prix1"=>1478,"qte"=>0]);
 \App\Models\Produit::create(["categorie"=>"Pièces thermiques et Climatisation","produit"=>"Sonde de température, liquide de refroidissement","prix1"=>1478,"qte"=>0]);
 \App\Models\Produit::create(["categorie"=>"Pièces thermiques et Climatisation","produit"=>"Capteur, niveau d'eau de refroidissement","prix1"=>1478,"qte"=>0]);

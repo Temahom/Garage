@@ -9,8 +9,8 @@ class Commande extends Model
 {
     use HasFactory;
 
-    protected $table = 'commandes';
-    public $timestamps = true;
+   // protected $table = 'commandes';
+   // public $timestamps = true;
 
    public function devis(){
        return $this->belongsTo(Devi::class);
@@ -20,5 +20,14 @@ class Commande extends Model
     {
         return $this->belongsToMany(Produit::class,'commandes');
     }
+     
+    public function commande_produits()
+    {
+        return $this->HasMany(Commande_produit::class);
+    }
+   /* public function produits()
+    {
+        return $this->belongsToMany(Produit::class,'commande_produits')->withPivot('quantite');
+    }*/
 }
 

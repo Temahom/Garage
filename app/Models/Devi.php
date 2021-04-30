@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Commande;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Devi extends Model
 {
@@ -24,5 +25,9 @@ class Devi extends Model
     public function facture()
     {
         return $this->hasMany(Facture::class);
+    }
+    public function commande()
+    {
+        return $this->hasMany(Commande::class);
     }
 }
