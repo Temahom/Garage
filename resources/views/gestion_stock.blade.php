@@ -366,7 +366,7 @@ body, html {
                             <tbody>
                                      
                              @foreach ($devi_produits as  $devi_produit)
-                                      @if($devi_produit->produit_id!=$produit->id)
+                                      @if($devi_produit->produit_id==$produit->id)
                                 <tr>
                                     <td>{{$devi_produit->created_at}}</td>     <!--  <div id="ladate"> -->
                                     <td style="cursor: pointer; text-transform: capitalize;">{{$devi_produit->devi_id}}</td>
