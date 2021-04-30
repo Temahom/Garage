@@ -16,7 +16,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 				
                 <div class="col-xs-9 col-sm-9 col-md-9">     
                     <div class="form-group">
-						<a class="btn btn-secondary" href="{{route('fournisseurs.create')}}"><i class="fas fa-user-plus"></i> Nouveau Fournisseur</a>
+						<a class="btn btn-danger" href="{{route('fournisseurs.create')}}"><i class="fas fa-user-plus"></i> Nouveau Fournisseur</a>
 					</div>
 				</div>
 				
@@ -46,7 +46,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 											<th style="color: white">Téléphone</th>
 											<th style="color: white">Email</th>
 											
-											<th style="color: white">Action</th>
+											<th style="color: white; text-align: center">Action</th>
 											
 										</tr>
 									</thead>
@@ -61,7 +61,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 								<td onclick="showFournisseur({{ $fournisseur->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $fournisseur->telephone }}</td>
 								<td onclick="showFournisseur({{ $fournisseur->id }})" style="cursor: pointer;">{{ $fournisseur->email }}</td>
 							
-								<td>
+								<td style="text-align: center">
 									<a class="btn btn-succes p-0 pr-2 pl-2" href="{{ route('fournisseurs.edit',$fournisseur->id)}}"><i class="fas fa-edit"></i></a>
 									
 									<button type="button" class="btn btn-danger p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $fournisseur->id }}" onclick="OnOff();">
