@@ -16,7 +16,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 				
                 <div class="col-xs-9 col-sm-9 col-md-9">     
                     <div class="form-group">
-						<a class="btn btn-danger" href="{{route('fournisseurs.create')}}"><i class="fas fa-user-plus"></i> Nouveau Fournisseur</a>
+						<a class="btn btn-warning" href="{{route('fournisseurs.create')}}"><i class="fas fa-user-plus"></i> Nouveau Fournisseur</a>
 					</div>
 				</div>
 				

@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Commande </h2>
+                <h2><i>Liste des Commandes</i> </h2>
             </div>
         </div>
     </div><br>
@@ -24,10 +24,10 @@
                     
                     <thead  class="" style="background-color: #4656E9;">
                         <tr>
-                            <th style="color: white;" style="cursor: pointer;">N°</th>
+                            <th style="color: white; width: 3%" style="cursor: pointer;">N°</th>
                             <th style="color: white;" style="cursor: pointer;">Passer par</th>
                             <th style="color: white;" style="cursor: pointer;">Etat</th>
-                            <th style="color: white;" style="cursor: pointer;">Action</th>
+                            <th style="color: white; text-align: center" style="cursor: pointer;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,8 +35,8 @@
                         <tr>
                             <td>{{ $commande->id }}</td>
                             <td>{{ User::find($commande->passer_par)->name }}</td>
-                            <td>{!! $commande->etat==1? "<span>Commande passer</span>":"<span>Commande valider</span>" !!}</td>
-                            <td>
+                            <td>{!! $commande->etat==1? "<span>Commande en cours</span>":"<span>Commande validée</span>" !!}</td>
+                            <td style="text-align: center">
                                 <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}" title="Valider la commande">Valider</a>
                             </td>
                         </tr>
