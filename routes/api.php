@@ -101,7 +101,7 @@ return $months;
 
    
 });
-Route::resource('commandes', CommandesApiController::class);
+
 Route::get('listes/{marques}',function($marques){
     return Liste::select('lemodel')->where('marques','=',$marques)->orderBy('lemodel')->distinct()->get();
 });

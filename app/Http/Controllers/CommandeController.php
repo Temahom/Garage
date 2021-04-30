@@ -16,7 +16,7 @@ class CommandeController extends Controller
      */
     public function index()
     {
-        $commandes= Commande::where('etat',1)->get();
+        $commandes= Commande::latest()->get();
         //dd($commandes);
         //dd($commandes->produits;
         return view('commandes.index', compact('commandes'));
@@ -58,7 +58,10 @@ class CommandeController extends Controller
      */
     public function show(Commande $commande)
     {
-     
+        $devi=Devi::find($commande->devi_id);
+        $produits=$devi->produits()->get();
+        return view('commandes.show', compact('commande','produits'));
+        //dd($produits);
     }
 
     /**
