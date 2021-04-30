@@ -15,9 +15,9 @@ class CreateCommandesTable extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('valide_par')->nullable;
-            $table->foreignId('passer_par')->nullable;
-            $table->foreignId('devi_id')->nullable;
+            $table->foreignId('valide_par')->nullable();
+            $table->foreignId('passer_par')->nullable();
+            $table->foreignId('devi_id')->nullable();
             $table->string('etat');
             $table->timestamps();
         });
