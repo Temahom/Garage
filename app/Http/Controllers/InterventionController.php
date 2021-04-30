@@ -139,7 +139,7 @@ class InterventionController extends Controller
             $i = 0;
             $item_devis = [];
             $devi = Devi::find($intervention->devis_id);
-            $commande=$devi->commande->first();
+            $commande=$devi->commandes->first();
 
             $data['commande'] = $commande;
             $data['devi'] = $devi;
