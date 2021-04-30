@@ -47,12 +47,7 @@
 				<li class="nav-item">
 					<a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Résumé Intervention</a>
 				</li>
-				@if (!isset($commande))
-					<li class="nav-item">
-						<a class="nav-link  btn-info" href="/passer_commande/{{$intervention->id}}" aria-selected="false">Passer la commande</a>
-					</li>
-
-				@endif
+				
 				
 			</ul>
 			<div class="tab-content" id="myTabContent2">
@@ -232,7 +227,9 @@
 							<div class="col-md-12">
 								@if ( $intervention->devis_id )
 									<a class="btn btn-warning" href="{{ route('voitures.interventions.devis.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
-									<a href="/passer_commande/{{$intervention->id}}" class="btn btn-danger"><i class="fa" aria-hidden="true"> Passer la commande</i></a>	
+									@if (!isset($commande))
+										<a href="/passer_commande/{{$intervention->id}}" class="btn btn-danger"><i class="fa fa-shopping-cart" aria-hidden="true"> Passer la commande</i></a>	
+									@endif
 									<a href="/Pdf/{{$intervention->id}}" target="_blank" class="btn btn-primary"><i class="icon-printer"></i> Imprimer</a>
 									<a href="/send-devis/{{$intervention->id}}" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"> Envoyer au client</i></a>	
 									@else

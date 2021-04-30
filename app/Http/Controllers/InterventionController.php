@@ -133,15 +133,15 @@ class InterventionController extends Controller
             $summary = Summary::find($intervention->summary_id);
             $data['summary'] = $summary;
         }
-        if($intervention->devis_id)
+        if($intervention->devis_id && isset($intervention->devis_id))
         {
            // $commande=Commande::where('devi_id',$intervention->devis_id)->get();
             $i = 0;
             $item_devis = [];
             $devi = Devi::find($intervention->devis_id);
-            $commande=$devi->commande->first();
-
-            $data['commande'] = $commande;
+            $commande=Commande::where('devi_id',$devi->id)->get();
+           // dd($commande[0]);
+            $data['commande'] = $commande[0];
             $data['devi'] = $devi;
             $devi_produits = $intervention->devi()->first()->devi_produits()->get();
             foreach($devi_produits as $devi_produit)

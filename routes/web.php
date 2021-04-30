@@ -86,6 +86,11 @@ Route::middleware('auth')->group(function () {
     /**
      * Termine de passer la commande
      */
+    /**VAlider la commnde et decrementter */
+    Route::get('valider_commande/{id}',[CommandeController::class,'valider_commande'])->name('commandes.valider');
+    /**
+     * Terminer de valider la commande
+     */
     Route::resource('produits',ProduitController::class);
     Route::resource('commandes',CommandeController::class);
     Route::resource('clients',ClientController::class);  
@@ -100,7 +105,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('voitures.interventions.summaries',SummaryController::class);
     Route::resource('voitures.interventions.devis',DeviController::class);
 /*     Route::resource('commandes', CommandeController::class);
-*/  Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
+*/ 
+    Route::get('commandes',[CommandeController::class,'index']);
+    Route::resource('voitures.interventions.devis.commandes', CommandeController::class);
     Route::resource('actors', ActorController::class);
     Route::resource('voitures.interventions.diagnostics',DiagnosticController::class);
     Route::resource('diagnostics', DiagnosticController::class);
@@ -123,24 +130,7 @@ Route::middleware('auth')->group(function () {
    Route::get('/gestion_stock', function () {
             return view('gestion_stock');
         });     
-    
-   /* Route::get('/', function () {
-        return view('google_map');
-    }); */
- 
-        
-     //fullcalender
-    //Route::get('/calendars.index', [CalendarController::class, 'index']);
    
-    /* Route::get('events', [EventController::class, 'index']);
-    
-    Route::get('/events', [EventController::class, 'index']); */
-    // Route::get('/admin.index',[CalendarController::class, 'index']);
-    /*Route::resource('fullcalendar',CalendarController::class);
-    Route::get('/produits.creer', [CalendarController::class, 'index']); */
-   // Route::post('fullcalendar/create','CalendarController@create');
-  /*  Route::post('fullcalendar/update','FullCalendarController@update');
-    Route::post('fullcalendar/delete','FullCalendarController@destroy'); */
 
 });
 
@@ -172,3 +162,4 @@ Route::get('/color_voiture', function () {
 
 Route::resource('/approvisionnements', ApprovisionnementController::class);
 Route::resource('fournisseurs.approvisionnements',ApprovisionnementController::class);
+Route::resource('produits.approvisionnements',ApprovisionnementController::class);
