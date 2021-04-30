@@ -49,7 +49,7 @@
                             <th style="color: white">Date Approvisionnement</th>
                             <th style="color: white">Nombre D'articles</th>
                             <th style="color: white">Coût Facture</th>
-                            {{-- <th style="color: white; text-align: center">Action</th> --}}
+                            <th style="color: white; text-align: center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,15 +67,15 @@
                                     $prix_tt;
                                 @endphp
                                 <td style="cursor: pointer; text-transform: capitalize;">{{$prix_tt}} <sup>FCFA</sup> </td>
-                                {{-- <td style="color: white; text-align: center">
-                                    <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST">
-                                        <a href="{{ route('approvisionnements.edit', $approvisionnement->id) }}">
-                                            <i class="fas fa-edit  fa-lg"></i>
+                                <td style="justify-content:center;" >
+                                    <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST" class="btn-group ml-auto">
+                                        <a class="btn btn-sm btn-outline-light" href="{{ route('approvisionnements.edit', ['approvisionnement'=>$approvisionnement->id]) }}">
+                                            Modifier
                                         </a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn btn-danger p-0 pr-2 pl-2 " data-toggle="modal" data-target="#exampleModal{{ $approvisionnement->id }}" onclick="OnOff();">
-                                            <i class="fas fa-trash"></i>
+                                        <button type="button" class="btn btn-sm btn-outline-light " data-toggle="modal" data-target="#exampleModal{{ $approvisionnement->id }}" onclick="OnOff();">
+                                            <i class="far fa-trash-alt"></i>
                                         </button>
                                                 <div class="modal fade" id="exampleModal{{ $approvisionnement->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
@@ -98,7 +98,7 @@
                                                     </div>
                                                 </div>
                                     </form>
-                                </td> --}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>   
