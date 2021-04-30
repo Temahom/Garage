@@ -1,7 +1,9 @@
 @include('animate_gestion_stock')
 @extends('layout.menu')
 @php
+setlocale(LC_TIME, "fr_FR", "French");
     use App\Models\User;
+    
 @endphp
 @section('content')
 <style>
@@ -27,6 +29,7 @@
                             <th style="color: white; width: 3%" style="cursor: pointer;">N°</th>
                             <th style="color: white;" style="cursor: pointer;">Passer par</th>
                             <th style="color: white;" style="cursor: pointer;">Etat</th>
+                            <th style="color: white;" style="cursor: pointer;">Date</th>
                             <th style="color: white; text-align: center" style="cursor: pointer;">Action</th>
                         </tr>
                     </thead>
@@ -36,6 +39,7 @@
                             <td>{{ $commande->id }}</td>
                             <td>{{ User::find($commande->passer_par)->name }}</td>
                             <td>{!! $commande->etat==1? "<span class='badge badge-warning'>Passer</span>":"<span class='badge badge-success' >Valideé</span>" !!}</td>
+                            <td>{{strftime("%A %d %B %Y", strtotime($commande->created_at))}}</td>
                             <td>
                                 @if ($commande->etat==1)
                                 <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}" title="Valider la commande">Valider</a>
