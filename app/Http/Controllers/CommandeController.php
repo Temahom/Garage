@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Devi;
 use App\Models\Produit;
 use App\Models\Commande;
 use App\Models\Intervention;
@@ -15,8 +16,8 @@ class CommandeController extends Controller
      */
     public function index()
     {
-        
-        $commandes= Commande::all();
+        $commandes= Commande::where('etat',1)->get();
+        //dd($commandes);
         //dd($commandes->produits;
         return view('commandes.index', compact('commandes'));
     }
@@ -156,7 +157,25 @@ class CommandeController extends Controller
     }
     public function valider_commande($id)
     {
-        $intervention=Intervention::find($id);
-        dd($intervention);
+        $commande=Commande::find($id);
+        $devi=Devi::find($commande->devi_id);
+        $produits=$devi->produits()->get();
+        /**
+         * Decrementer sr les produits de 
+         */
+        foreach ($produits as $produit) {
+            if ($produit->qte < $produit->pivot->quantite) {
+                return redirect()->back()->with('valide_error','Vous ne pouvez pas valider la commande car un ou plusieurs produits sont en rupture de stock');
+            }else{
+                $produit->qte=$produit->qte-$produit->pivot->quantite;
+                 $produit->save();
+
+            }
+            
+        }
+        $commande->valide_par=auth()->user()->id;
+        $commande->etat=2;
+        $commande->save();
+        return redirect()->back()->with('valider','Votre commande a été valider avecc succées');
     }
 }

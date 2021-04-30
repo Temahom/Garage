@@ -1,53 +1,60 @@
-@extends('layout.index')
-
+@include('animate_gestion_stock')
+@extends('layout.menu')
+@php
+    use App\Models\User;
+@endphp
 @section('content')
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Commande </h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('commandes.create') }}" title="Create a project"> <i class="fas fa-plus-circle"> Ajouter un produit</i>
-                    </a>
-            </div>
         </div>
     </div><br>
-
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example4" class="table table-striped table-bordered">
+                    
+                    <thead  class="" style="background-color: #4656E9;">
+                        <tr>
+                            <th style="color: white;" style="cursor: pointer;">N°</th>
+                            <th style="color: white;" style="cursor: pointer;">Passer par</th>
+                            <th style="color: white;" style="cursor: pointer;">Etat</th>
+                            <th style="color: white;" style="cursor: pointer;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($commandes as $commande)
+                        <tr>
+                            <td>{{ $commande->id }}</td>
+                            <td>{{ User::find($commande->passer_par)->name }}</td>
+                            <td>{!! $commande->etat==1? "<span>Commande passer</span>":"<span>Commande valider</span>" !!}</td>
+                            <td>
+                                <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}">Valider la commande</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                                        
+                </table>
+            </div>
         </div>
-    @endif
-
-    <table class="table table-bordered table-responsive-lg">
-        <tr>
-            <th>No</th>
-            <th>Catégorie du Produit</th>
-            <th>Nom du Produit</th>
-            <th>Quantité de Produit</th>
-            <th width="280px" text-align="center">Action</th>
-        </tr>
-        @foreach ($commandes as $commande)
-            <tr>
-                <td>{{ $commande->id }}</td>
-                <td>{{ $commande->catProduit }}</td>
-                <td>{{ $commande->produit}}</td>
-                <td>{{ $commande->qteProduit }}</td>
-                <td>
-                    <form action="{{ route('commandes.destroy', $commande->id) }}" method="POST">
-                        <a href="{{ route('commandes.edit', $commande->id) }}">
-                            <i class="fas fa-edit  fa-lg"></i>Modifier
-                        </a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" title="" style="border: none; background-color:transparent;">
-                            <i class="fas fa-trash fa-lg text-danger"></i>Supprimer
-                        </button>                    
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-    </table>
+    </div>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@if(Session::has('valide_error'))
+<script>
+	swal("Attention!", "{!! Session::get('valide_error') !!}", "warning");
+</script>
+@endif     
+@if(Session::has('valider'))
+<script>
+	swal("Valider", "{!! Session::get('valider') !!}", "success");
+</script>
+@endif     
 
 
 @endsection
