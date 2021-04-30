@@ -123,24 +123,7 @@ Route::middleware('auth')->group(function () {
    Route::get('/gestion_stock', function () {
             return view('gestion_stock');
         });     
-    
-   /* Route::get('/', function () {
-        return view('google_map');
-    }); */
- 
-        
-     //fullcalender
-    //Route::get('/calendars.index', [CalendarController::class, 'index']);
    
-    /* Route::get('events', [EventController::class, 'index']);
-    
-    Route::get('/events', [EventController::class, 'index']); */
-    // Route::get('/admin.index',[CalendarController::class, 'index']);
-    /*Route::resource('fullcalendar',CalendarController::class);
-    Route::get('/produits.creer', [CalendarController::class, 'index']); */
-   // Route::post('fullcalendar/create','CalendarController@create');
-  /*  Route::post('fullcalendar/update','FullCalendarController@update');
-    Route::post('fullcalendar/delete','FullCalendarController@destroy'); */
 
 });
 
@@ -172,3 +155,4 @@ Route::get('/color_voiture', function () {
 
 Route::resource('/approvisionnements', ApprovisionnementController::class);
 Route::resource('fournisseurs.approvisionnements',ApprovisionnementController::class);
+Route::resource('produits.approvisionnements',ApprovisionnementController::class);

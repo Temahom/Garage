@@ -225,7 +225,7 @@ body, html {
                                 <i class="fa fa-plus fa-5x"></i>
                             </div>
                            <a href="{{ route('produits.index') }}">
-                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Revenues</h6>
+                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Produits Vendus/Dans Devis</h6>
                             <h1 class="display-4" style="color:rgb(255, 255, 255);"> {{listeProduitDansDevi()}}</h1>
                           </a> 
                         </div>
@@ -360,7 +360,7 @@ body, html {
                                     <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
                                     <th style="color: white;" style="cursor: pointer;">Prix Unitaire</th>
                                     <th style="color: white;" style="cursor: pointer;">Quantité Commandee</th>
-                                    <th style="color: white;" style="cursor: pointer;">Disponibilité</th>
+                                    <th style="color: white;" style="cursor: pointer;">Disponibilité  du Produit</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -373,7 +373,7 @@ body, html {
                                                                     @if($devi_produit->produit_id==$produit->id)
                                                                        {{$produit->categorie}}
                                                                     @endif
-                                                                @endforeach
+                                                                @endforeach                  
                                     </td>
                                     <td style="cursor: pointer; text-transform: capitalize;">
                                                             @foreach ($produits as $produit)
@@ -382,7 +382,6 @@ body, html {
                                                                  @endif
                                                             @endforeach
                                     <td style="cursor: pointer; text-transform: capitalize;">
-                                                       
                                                            @foreach ($produits as $produit)
                                                              @if($devi_produit->produit_id==$produit->id)
                                                                {{$produit->prix1}}
@@ -407,9 +406,46 @@ body, html {
                             </table>
                         </div>
                      </div>
+                      <!--------------------boutton pour voir les les produits dont leur quantites ont diminué href="{{route('produits.create')}}-->
+           
+                            <div class="col-xs-4 col-sm-9 col-md-7">  
+                                <div class="form-group">
+                                    @foreach ($produits as $produit)
+                                    @if($devi_produit->produit_id==$produit->id)
+                                      @if ($produit->qte<=10)
+                                <button type="button" class="btn btn-secondary"  data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
+                                    <i class="fas fa-eye text-success fa-lg"> </i> Voir Quantite restant </a>
+                                </button>
+                                <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body ">
+                                                <div style="font-size: 20px; ">Produit : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #2EC551">{{ $produit->produit}} </a></div>
+                                                <div style="font-size: 14px; ">Catégorie  : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #750439">{{ $produit->categorie}} </a></div>
+                                                <div style="font-size: 14px;" >Prix Unitaire  : <a href="" class="badge badge-success"> {{ $produit->prix1}} <sup>F CFA</sup> </a> </div>
+                                                <div style="font-size: 14px;">Quantité Produit  : <a href="" style="color: #17028a">{{ $produit->qte}} </a> </div>                    
+                                            </div>
+                                            <div class="modal-footer">
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif  
+                               @endif
+                            @endforeach
+                            </div>
+                         </div>
+                        <!--------------------finnn boutton -->
+           
                   </div>
             <!--/row-->
-
+            <!--------------------boutton pour voir les les produits dont leur quantites ont diminué href="{{route('produits.create')}}-->
+           
           
      <!--------------------------------------------------->
             
