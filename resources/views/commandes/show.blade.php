@@ -1,5 +1,5 @@
-@extends('layout.index')
-
+@include('animate_gestion_stock')
+@extends('layout.menu')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -17,21 +17,21 @@
                     <thead style="background-color: #4656E9;">
                         <tr>
                             <th scope="col" style="color: #ffffff">Produit</th>
-                            <th scope="col" style="color: #ffffff">Quantité</th>
+                            <th scope="col" style="color: #ffffff">Quantité Commander</th>
                             <th scope="col" style="color: #ffffff">Prix unitaire (F CFA)</th>
                             <th scope="col" style="color: #ffffff; width: 200px">Montant (F CFA)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php  $total = 0 ?>
-                        @foreach ($devi['item_commandes'] as $item)
+                        @foreach ($produits as $produit)
                             <tr>
-                                <td>{{ $item['produit']->produit }}</td>
-                                <td>{{ $item['commande_produit']->quantite }}</td>
-                                <td>{{ number_format($item['produit']->prix1, 0, ",", " " ) }}</td>
-                                <td><?php echo number_format($item['produit']->prix1 * $item['commande_produit']->quantite, 0, ",", " ") ?></td>
+                                <td>{{ $produit->produit }}</td>
+                                <td>{{ $produit->pivot->quantite }}</td>
+                                <td>{{ number_format($produit->prix1, 0, ",", " " ) }}</td>
+                                <td><?php echo number_format($produit->pivot->quantite * $produit->prix1, 0, ",", " ") ?></td>
                             </tr>
-                            <?php $total += $item['produit']->prix1 * $item['commande_produit']->quantite ?>
+                            <?php $total += $produit->pivot->quantite * $produit->prix1 ?>
                         @endforeach
                     </tbody>
                 </table>
@@ -42,29 +42,11 @@
                             <th scope="col" colspan="4">Total produit(s) commandé(s)</th>
                             <th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
                         </tr>
-                        <tr>
-                            <th scope="col" colspan="4">Coût du Diagnostic</th>
-                      <!--      <th scope="col" style="width: 200px">{{ number_format($diagnostic->coût, 0, ",", " " ) }}</th>   -->
-                        </tr>
-                        <tr>
-                            <th scope="col" colspan="4">Cout de réparation</th>
-                                   <!--   <th scope="col" style="width: 200px">{{ number_format($devi->cout, 0, ",", " " ) }}</th>  -->
-                        </tr>
-                    </tbody>
-                </table>
-
-                <table class="table table-bordered mt-4">
-                    <tbody>
-                        <tr>
-                            <th scope="col" colspan="4">Net à payer</th>
-                                 <!--     <th scope="col" style="width: 200px"><?php //echo number_format($total + $devi->cout + $diagnostic->coût, 0, ",", " ") ?></th>  -->
-                        </tr>
                     </tbody>
                 </table>
 
             </div>
         </div>
     
-    @can('create', App\Models\Commande::class)
     </div>
 @endsection

@@ -35,9 +35,12 @@
                         <tr>
                             <td>{{ $commande->id }}</td>
                             <td>{{ User::find($commande->passer_par)->name }}</td>
-                            <td>{!! $commande->etat==1? "<span>Commande passer</span>":"<span>Commande valider</span>" !!}</td>
+                            <td>{!! $commande->etat==1? "<span class='badge badge-warning'>Passer</span>":"<span class='badge badge-success' >Valideé</span>" !!}</td>
                             <td>
+                                @if ($commande->etat==1)
                                 <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}" title="Valider la commande">Valider</a>
+                                @endif
+                                <a class="btn btn-success" href="{{ route('commandes.show', $commande->id) }}" title="Voir la commande">Voir</a>
                             </td>
                         </tr>
                     @endforeach
