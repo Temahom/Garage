@@ -307,66 +307,67 @@
                 });
         }
         catdoublon();
-        
+
     /*SUPPRESSION DOUBLONS SELECT*/
-/*CONTROL DEVIS*/
-    function envoyerFormProd()
-    {
-    
-        var ok = 1;
-        cout = $('#cout').val().trim();
-        $('#cout').removeClass( "is-invalid" );
-        if(cout == '')
-        {
-            $('#cout').addClass( "is-invalid" );
-            ok = 0;
-        }
 
-        expiration = $('#expiration').val().trim();
-        $('#expiration').removeClass( "is-invalid" );
-        if(expiration == '')
+    /*CONTROL DEVIS*/
+        function envoyerFormProd()
         {
-            $('#expiration').addClass( "is-invalid" );
-            ok = 0;
-        }
         
-        
-        $('#dynamicAddRemove > div').each( function(){
-            $(this).children('.divCategorie').children('.catProduit').children('select').removeClass('is-invalid');
-            $(this).children('.divProduit').children('.select-produit').children('select').removeClass('is-invalid');
-            $(this).children('.divQuantite').children('div').children('input').removeClass('is-invalid');
-           
+            var ok = 1;
+            cout = $('#cout').val().trim();
+            $('#cout').removeClass( "is-invalid" );
+            if(cout == '')
+            {
+                $('#cout').addClass( "is-invalid" );
+                ok = 0;
+            }
 
-            categorie = $(this).children('.divCategorie').children('.catProduit').children('select').val().trim();
-            produit = $(this).children('.divProduit').children('.select-produit').children('select').val().trim();
-            quantite = $(this).children('.divQuantite').children('div').children('input').val().trim();
+            expiration = $('#expiration').val().trim();
+            $('#expiration').removeClass( "is-invalid" );
+            if(expiration == '')
+            {
+                $('#expiration').addClass( "is-invalid" );
+                ok = 0;
+            }
+            
+            
+            $('#dynamicAddRemove > div').each( function(){
+                $(this).children('.divCategorie').children('.catProduit').children('select').removeClass('is-invalid');
+                $(this).children('.divProduit').children('.select-produit').children('select').removeClass('is-invalid');
+                $(this).children('.divQuantite').children('div').children('input').removeClass('is-invalid');
             
 
-            if(categorie == '')
-            {
-                $(this).children('.divCategorie').children('.catProduit').children('select').addClass('is-invalid');
-                ok = 0;
+                categorie = $(this).children('.divCategorie').children('.catProduit').children('select').val().trim();
+                produit = $(this).children('.divProduit').children('.select-produit').children('select').val().trim();
+                quantite = $(this).children('.divQuantite').children('div').children('input').val().trim();
+                
+
+                if(categorie == '')
+                {
+                    $(this).children('.divCategorie').children('.catProduit').children('select').addClass('is-invalid');
+                    ok = 0;
+                }
+                if(produit == '')
+                {
+                    $(this).children('.divProduit').children('.select-produit').children('select').addClass('is-invalid');
+                    ok = 0;
+                }
+                if(quantite == '')
+                {
+                    $(this).children('.divQuantite').children('div').children('input').addClass('is-invalid');
+                    ok = 0;
+                }
+            });
+            if(ok){
+                $('#formProd').submit();
             }
-            if(produit == '')
-            {
-                $(this).children('.divProduit').children('.select-produit').children('select').addClass('is-invalid');
-                ok = 0;
+            else{
+                alert('Il y\'a un champ vide');
             }
-            if(quantite == '')
-            {
-                $(this).children('.divQuantite').children('div').children('input').addClass('is-invalid');
-                ok = 0;
-            }
-        });
-        if(ok){
-            $('#formProd').submit();
+            
+            
         }
-        else{
-            alert('Il y\'a un champ vide');
-        }
-        
-        
-    }
     /* FIN CONTROL DEVIS*/
 
   

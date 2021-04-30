@@ -200,7 +200,7 @@
 
 									<table class="table table-bordered mt-4">
 										<tbody>
-											<tr style="background-color: #4656E9;">
+											<tr style="background-color: #909194;">
 												<th scope="col" colspan="4" style="color: #ffffff;">Net à payer</th>
 												@if (isset($diagnostic->coût))
 													<th scope="col" style="width: 200px; color: #ffffff;"><?php echo number_format($total + $devi->cout + $diagnostic->coût, 0, ",", " ") ?></th>
