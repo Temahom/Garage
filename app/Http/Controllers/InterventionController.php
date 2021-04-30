@@ -139,9 +139,9 @@ class InterventionController extends Controller
             $i = 0;
             $item_devis = [];
             $devi = Devi::find($intervention->devis_id);
-            $commande=$devi->commandes->first();
-            dd($commande);
-            $data['commande'] = $commande;
+            $commande=Commande::where('devi_id',$devi->id)->get();
+           // dd($commande[0]);
+            $data['commande'] = $commande[0];
             $data['devi'] = $devi;
             $devi_produits = $intervention->devi()->first()->devi_produits()->get();
             foreach($devi_produits as $devi_produit)
