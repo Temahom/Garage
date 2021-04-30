@@ -144,23 +144,25 @@
                                         </div>
                                         <div class="form-group col-xs-12 col-sm-12 col-md-12 pt-4">
                                             <div class="row">
-                                                <div class="divProduit col-xs-12 col-sm-12 col-md-4">
-                                                    <strong>Nom Produit</strong>
-                                                        <select name="plusdechamps[0][produit_id]" class="custom-select form-control" >
-                                                            <option value="">Nom Produit</option>
-                                                                @foreach( $produits as $produit ) 
-                                                                    <option value="{{$produit->id}}">{{ $produit->produit }}</option>
-                                                                @endforeach 
-                                                        </select>
-                                                </div> 
-                                                <div class="divQteAppro col-xs-12 col-sm-12 col-md-4">
-                                                    <strong>Quantité Approvisionnée:</strong>
-                                                    <input type="number" value="{{$product->pivot->quantite}}" name="plusdechamps[0][qteAppro]" class="form-control" placeholder="Quantité Approvisionnée">
-                                                </div> 
-                                                <div class="divPuAchat col-xs-12 col-sm-12 col-md-4">
-                                                    <strong>PU achat:</strong>
-                                                    <input type="number" value="{{$product->pivot->prix_achat}}" name="plusdechamps[0][prixAchat]" class="form-control" placeholder="Prix Unitaire (achat)">
-                                                </div>    
+                                                @foreach ($approvisionnement->produits as $product)
+                                                    <div class="divProduit col-xs-12 col-sm-12 col-md-4">
+                                                        <strong>Nom Produit</strong>
+                                                            <select name="plusdechamps[0][produit_id]" class="custom-select form-control" >
+                                                                <option value="">Nom Produit</option>
+                                                                    @foreach( $produits as $produit ) 
+                                                                        <option value="{{$produit->id}}">{{ $produit->produit }}</option>
+                                                                    @endforeach 
+                                                            </select>
+                                                    </div> 
+                                                    <div class="divQteAppro col-xs-12 col-sm-12 col-md-4">
+                                                        <strong>Quantité Approvisionnée:</strong>
+                                                        <input type="number" value="{{$product->pivot->quantite}}" name="plusdechamps[0][qteAppro]" class="form-control" placeholder="Quantité Approvisionnée">
+                                                    </div> 
+                                                    <div class="divPuAchat col-xs-12 col-sm-12 col-md-4">
+                                                        <strong>PU achat:</strong>
+                                                        <input type="number" value="{{$product->pivot->prix_achat}}" name="plusdechamps[0][prixAchat]" class="form-control" placeholder="Prix Unitaire (achat)">
+                                                    </div> 
+                                                @endforeach    
                                             </div>
                                         </div> 
                                     </div>
