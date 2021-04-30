@@ -81,11 +81,10 @@ class ApprovisionnementController extends Controller
      */
     public function edit(Produit $produit, Approvisionnement $approvisionnement )
     {
-        //dd($produit->id-1);
-        dd($approvisionnement->produits[$produit->id-1]);
+        $fournisseurs = Fournisseur::all();
         $produits= Produit::all();
         $approvisionnements = Approvisionnement::all();
-        return view('approvisionnements.edit', compact('approvisionnement', 'produits', 'produit'));
+        return view('approvisionnements.edit', compact('approvisionnement', 'produits', 'produit', 'fournisseurs'));
     }
     /**
      * Update the specified resource in storage.
