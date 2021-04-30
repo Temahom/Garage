@@ -120,12 +120,12 @@ class CommandeController extends Controller
         foreach ($produits as $produit) {
             if ($produit->qte < $produit->pivot->quantite) {
                 return redirect()->back()->with('valide_error','Vous ne pouvez pas valider la commande car un ou plusieurs produits sont en rupture de stock');
-            }else{
-                $produit->qte=$produit->qte-$produit->pivot->quantite;
-                 $produit->save();
-
             }
             
+        }
+        foreach ($produits as $produit) {
+            $produit->qte=$produit->qte-$produit->pivot->quantite;
+            $produit->save();
         }
         $commande->valide_par=auth()->user()->id;
         $commande->etat=2;
