@@ -1,9 +1,4 @@
 @extends('layout.menu')
-
-{{-- @php
-	use App\Models\Produit;
-    $listes=Produit::select('produit')->orderBy('produit','asc')->distinct()->get();							
-@endphp   --}}
 <style>
     .titre{
             background-image: linear-gradient(to left, #268956, #332F30);

@@ -63,7 +63,7 @@
                     <h2><i>Liste des Approvisionnements</i></h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-danger" href="{{ route('fournisseurs.approvisionnements.create',['fournisseur'=>$fournisseur]) }}" title="Create a project"> <i class="fas fa-plus-circle"> Ajouter</i>
+                    <a class="btn btn-warning" href="{{ route('fournisseurs.approvisionnements.create',['fournisseur'=>$fournisseur]) }}" title="Create a project"> <i class="fas fa-plus-circle"> Ajouter</i>
                         </a>
                 </div>
             </div>

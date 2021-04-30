@@ -82,7 +82,7 @@
                         <td style="text-align: center">{{$produit->pivot->quantite}}</td>
                         <td style="text-align: center">{{$produit->pivot->prix_achat}}</td>
                         <td style="text-align: center;">{{$produit->pivot->prix_achat * $produit->pivot->quantite}}</td>
-                        <td style="justify-content:center;" >
+                        <td style="text-align: center; justify-content:center;" >
                             <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST" class="btn-group ml-auto">
                                 <a class="btn btn-sm btn-outline-light" href="{{ route('produits.approvisionnements.edit', ['produit'=>$produit->id, 'approvisionnement'=>$approvisionnement->id]) }}">
                                     Modifier
