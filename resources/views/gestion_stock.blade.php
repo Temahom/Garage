@@ -364,7 +364,9 @@ body, html {
                                 </tr>
                             </thead>
                             <tbody>
+                                     
                              @foreach ($devi_produits as  $devi_produit)
+                                      @if($devi_produit->produit_id!=$produit->id)
                                 <tr>
                                     <td>{{$devi_produit->created_at}}</td>     <!--  <div id="ladate"> -->
                                     <td style="cursor: pointer; text-transform: capitalize;">{{$devi_produit->devi_id}}</td>
@@ -400,6 +402,7 @@ body, html {
                                                              @endif
                                                           @endforeach
                                     </td>   
+                                @endif 
                               @endforeach
                              </tbody>
                                     </tr>
@@ -408,38 +411,6 @@ body, html {
                      </div>
                       <!--------------------boutton pour voir les les produits dont leur quantites ont diminué href="{{route('produits.create')}}-->
            
-                            <div class="col-xs-4 col-sm-9 col-md-7">  
-                                <div class="form-group">
-                                    @foreach ($produits as $produit)
-                                    @if($devi_produit->produit_id==$produit->id)
-                                      @if ($produit->qte<=10)
-                                <button type="button" class="btn btn-secondary"  data-toggle="modal" data-target="#exampleModal{{ $produit->id }}">
-                                    <i class="fas fa-eye text-success fa-lg"> </i> Voir Quantite restant </a>
-                                </button>
-                                <div class="modal fade" id="exampleModal{{ $produit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body ">
-                                                <div style="font-size: 20px; ">Produit : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #2EC551">{{ $produit->produit}} </a></div>
-                                                <div style="font-size: 14px; ">Catégorie  : <a href="{{route('produits.index',['produit'=>$produit->id])}}" style="color: #750439">{{ $produit->categorie}} </a></div>
-                                                <div style="font-size: 14px;" >Prix Unitaire  : <a href="" class="badge badge-success"> {{ $produit->prix1}} <sup>F CFA</sup> </a> </div>
-                                                <div style="font-size: 14px;">Quantité Produit  : <a href="" style="color: #17028a">{{ $produit->qte}} </a> </div>                    
-                                            </div>
-                                            <div class="modal-footer">
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif  
-                               @endif
-                            @endforeach
-                            </div>
-                         </div>
                         <!--------------------finnn boutton -->
            
                   </div>
