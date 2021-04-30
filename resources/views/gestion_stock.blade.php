@@ -364,9 +364,11 @@ body, html {
                                 </tr>
                             </thead>
                             <tbody>
-                                     
+                               
+                                
                              @foreach ($devi_produits as  $devi_produit)
-                                      @if($devi_produit->produit_id==$produit->id)
+                                @foreach ($produits as $produit)
+                                   @if($devi_produit->produit_id==$produit->id)
                                 <tr>
                                     <td>{{$devi_produit->created_at}}</td>     <!--  <div id="ladate"> -->
                                     <td style="cursor: pointer; text-transform: capitalize;">{{$devi_produit->devi_id}}</td>
@@ -402,7 +404,8 @@ body, html {
                                                              @endif
                                                           @endforeach
                                     </td>   
-                                @endif 
+                                   @endif 
+                                @endforeach
                               @endforeach
                              </tbody>
                                     </tr>
