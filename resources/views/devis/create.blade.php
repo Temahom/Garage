@@ -295,6 +295,19 @@
         });
     }
 
+    /*SUPPRESSION DOUBLONS SELECT*/
+        const catdoublon=() => {
+                var opt = {};
+                $("#categorie > option").each(function () {
+                    if(opt[$(this).text()]) {
+                        $(this).remove();
+                    } else {
+                        opt[$(this).text()] = $(this).val();
+                    }
+                });
+        }
+        catdoublon();
+    /*SUPPRESSION DOUBLONS SELECT*/
 /*CONTROL DEVIS*/
     function envoyerFormProd()
     {
