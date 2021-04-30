@@ -2,16 +2,25 @@
   
 @section('content')
 
-
+<style>
+    .titre{
+            background-image: linear-gradient(to left, #268956, #332F30);
+            color:#fff;
+            border-radius:20px;
+            padding:0 10px;
+            padding:15px;
+    }
+    .label{
+        margin-right: 5px;
+    }
+</style>
 <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Approvisionnement</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('approvisionnements.create') }}" title="Create a project"> <i class="fas fa-plus-circle"> Ajouter</i>
-                    </a>
+                <h2>
+                    <span class="titre"><i class="fas fa-list-ul label"></i>Liste approvisionnements</span>
+                </h2>
             </div>
         </div>
     </div>
@@ -24,6 +33,11 @@
 @endif
 
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="pull-right" style="margin-bottom:5px">
+        <a class="btn btn-rounded btn-success" href="{{ route('approvisionnements.create') }}" title="Create a project" style="margin-top: 5px"> 
+            <i class="fas fa-plus-circle"> Ajouter</i>
+        </a>
+    </div>
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
@@ -35,7 +49,7 @@
                             <th style="color: white">Date Approvisionnement</th>
                             <th style="color: white">Nombre D'articles</th>
                             <th style="color: white">Coût Facture</th>
-                            <th style="color: white; text-align: center">Action</th>
+                            {{-- <th style="color: white; text-align: center">Action</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -53,25 +67,16 @@
                                     $prix_tt;
                                 @endphp
                                 <td style="cursor: pointer; text-transform: capitalize;">{{$prix_tt}} <sup>FCFA</sup> </td>
-                                <td style="color: white; text-align: center">
+                                {{-- <td style="color: white; text-align: center">
                                     <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST">
-
-                                     <!--   <a href="{{ route('approvisionnements.show', $approvisionnement->id) }}" title="show">
-                                            <i class="fas fa-eye text-success  fa-lg"></i>
-                                        </a> -->
-
                                         <a href="{{ route('approvisionnements.edit', $approvisionnement->id) }}">
                                             <i class="fas fa-edit  fa-lg"></i>
-
                                         </a>
-
                                         @csrf
                                         @method('DELETE')
-
                                         <button type="button" class="btn btn-danger p-0 pr-2 pl-2 " data-toggle="modal" data-target="#exampleModal{{ $approvisionnement->id }}" onclick="OnOff();">
                                             <i class="fas fa-trash"></i>
                                         </button>
-    
                                                 <div class="modal fade" id="exampleModal{{ $approvisionnement->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -93,7 +98,7 @@
                                                     </div>
                                                 </div>
                                     </form>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>   
