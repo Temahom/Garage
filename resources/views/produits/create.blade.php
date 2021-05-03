@@ -95,7 +95,7 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
             </div>
             <div class="row">
                 <div class="col-md-12 pl-0 py-4 ml-4">
-                    <a class="btn btn-rounded btn-secondary" href="{{ route('produits.index') }}" title="Go back"><i class="fas fa-backward "></i> Retour</a>
+                    <a class="btn btn-rounded btn-secondary" href="{{ route('produits.index') }}" title="Go back"><i class="fas fa-angle-left"></i> Retour</a>
                     <button style="color: white; margin-left: 6px; " type="submit" class="btn btn-rounded btn-success">Créer produit</button>
                 </div>
             </div>
