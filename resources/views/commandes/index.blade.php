@@ -3,6 +3,7 @@
 @php
 setlocale(LC_TIME, "fr_FR", "French");
     use App\Models\User;
+    use App\Models\Client;
     
 @endphp
 @section('content')
@@ -32,42 +33,46 @@ setlocale(LC_TIME, "fr_FR", "French");
         </div>
     </div>
 </div>
-<br>
-    <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table id="example4" class="table table-striped table-bordered">
-                    
-                    <thead  class="" style="background-color: #006680;">
-                        <tr>
-                            <th style="color: white; width: 3%" style="cursor: pointer;">N°</th>
-                            <th style="color: white;" style="cursor: pointer;">Passer par</th>
-                            <th style="color: white;" style="cursor: pointer;">Etat</th>
-                            <th style="color: white;" style="cursor: pointer;">Date</th>
-                            <th style="color: white; text-align: center" style="cursor: pointer;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($commandes as $commande)
-                        <tr>
-                            <td>{{ $commande->id }}</td>
-                            <td>{{ User::find($commande->passer_par)->name }} {{ User::find($commande->passer_par)->prenom }}</td>
-                            <td>{!! $commande->etat==1? "<span>Commande en cours</span>":"<span>Commande validée</span>" !!}</td>
-                            <td style="text-align: center">
-                                <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}" title="Valider la commande">Valider</a>
-                           
-                                <a class="btn btn-success" href="{{ route('commandes.show', $commande->id) }}" title="Voir la commande">Voir</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                                        
-                </table>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xs-12 col-sm-12 col-md-12 "><br>    
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example4" class="table table-striped table-bordered" style="width:100%">
+                            <thead  class="" style="background-color: #006680;">
+                                <tr>
+                                    <th style="color: white; text-align:center; width: 3%" style="cursor: pointer;">N°</th>
+                                    <th style="color: white; text-align:center; " style="cursor: pointer;">Passer par</th>
+                                    <th style="color: white; text-align:center; " style="cursor: pointer;">Etat</th>
+                                    <th style="color: white; text-align:center; " style="cursor: pointer;">Date</th>
+                                    <th style="color: white; text-align: center;" style="cursor: pointer;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($commandes as $commande)
+                                <tr>
+                                    <td style="cursor: pointer; text-align: center">{{ $commande->id }}</td>
+                                    <td style="cursor: pointer; text-align: center">{{ User::find($commande->passer_par)->name }}</td>
+                                    <td style="cursor: pointer; text-align: center">{!! $commande->etat==1? "<span>Commande en cours</span>":"<span>Commande validée</span>" !!}</td>
+                                    <td style="cursor: pointer; text-align: center">{{ $commande->created_at}}</td>
+                                    <td style="text-align: center">
+                                        <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}" title="Valider la commande">Valider</a>
+                                
+                                        <a class="btn btn-success" href="{{ route('commandes.show', $commande->id) }}" title="Voir la commande">Voir</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>                                        
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @if(Session::has('valide_error'))
 <script>
