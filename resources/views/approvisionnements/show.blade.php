@@ -63,7 +63,11 @@
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
-        <table class="table table-bordered">
+    <div class="col-xs-12 col-sm-12 col-md-12">  
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example4" class="table table-striped table-bordered" style="width:100%">
             <thead style="background-color: #006680;">
             <tr>
                 <th scope="col" style="color: #ffffff; text-align:center; width: 3%" >Num</th>
@@ -139,11 +143,11 @@
                     </tr>-->
             </tbody>
         </table>
-    </div>
+    </div></div>
 </div><br>
 
 <div class="pull-right">
-    <a class="btn btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left "></i> Retour</a>
+    <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left "></i> Retour</a>
 </div><br>
 
 <script>

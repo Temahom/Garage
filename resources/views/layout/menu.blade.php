@@ -202,6 +202,7 @@
                                    
                                     <span class="status"></span><span class="ml-2">{{Auth::user()->role->role}}</span>
                                 </div>
+                                <a class="dropdown-item" href="{{route('password.request')}}"><i class="fas fa-cog mr-2"></i>Modifier le mot de passe</a>
                                 <form action="{{route ('logout')}}" method="post">
                                     @csrf
                                 <button class="dropdown-item" type="submit"><i class="fas fa-power-off mr-2"></i>Deconnexion</button>
@@ -279,7 +280,7 @@
                             </li>
                             
                             <li class="nav-item "  style="padding-top: 5px">
-                                <a class="nav-link active" style="background-color: #2E5441 !important" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-commandes" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Commandes <span style="font-size: 19px; background-color: black !important;" ><sup> 6</sup> </span></a>
+                                <a class="nav-link active" style="background-color: #2E5441 !important" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-commandes" aria-controls="submenu-produit"><i class="icon-briefcase"></i>Commandes</a>
                                 <div id="submenu-commandes" style="background-color: #2E5441 !important" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">

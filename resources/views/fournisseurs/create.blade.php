@@ -21,7 +21,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>
-                    <span class="titre"><i class="fas fa-tag label"></i>Ajout Fournisseur</span>
+                    <span class="titre"><i class="fas fa-tag label"></i>Ajout d'un Fournisseur</span>
                 </h2>
             </div>
         </div>
@@ -103,7 +103,7 @@
         
             <div class="row">
                 <div class="col-md-12 pl-0 py-4 ml-4">
-                    <a class="btn btn-rounded btn-secondary" href="{{ route('fournisseurs.index') }}"><i class="fas fa-backward "></i> Retour</a>
+                    <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left "></i> Retour</a>
                     <button class="btn btn-rounded btn-success" type="submit" style="color: white; margin-left: 6px; ">Enregistrer</button>
                 </div>
             </div>
