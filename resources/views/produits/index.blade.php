@@ -61,19 +61,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
                                         <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-                                        <td style="cursor: pointer; text-align: center">
-                                            <?php
-                                            $quantiteStock = 0;
-                                                foreach ($produit->approvisionnements as $product)
-                                                   {
-                                                    $quantiteStock +=$product->pivot->quantite;
-                                                   }
-                                                   echo $quantiteStock+$produit->qte; 
-                                            ?>
-                                            {{-- @foreach ($produit->approvisionnements as $product)
-                                                {{$product->pivot->quantite + $produit->qte }}
-                                            @endforeach --}}
-                                        </td>   
+                                        <td style="cursor: pointer; text-align: center">{{$produit->qte}}</td>   
                                         {{-- <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> --}}
                                       <!--  <td style="text-align:center !important">    
                                             <a href="{{ route('produits.edit', $produit->id) }}">
