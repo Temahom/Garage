@@ -36,7 +36,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 				@can('create', App\Models\Client::class)
                 <div class="col-xs-9 col-sm-9 col-md-9">     
                     <div class="form-group">
-						<a class="btn btn-secondary" href="{{route('clients.create')}}"><i class="fas fa-user-plus"></i> Nouveau Client</a>
+						<a class="btn btn-secondary" href="{{route('clients.create')}}">Ajouter <i class="fas fa-user-plus"></i></a>
 					</div>
 				</div>
 				@endcan
