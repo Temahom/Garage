@@ -105,7 +105,7 @@ class CommandeController extends Controller
             $commande->devi_id=$intervention->devis_id;
             $commande->etat=1;
             $commande->save();
-            return redirect()->back()->with('commande_reusie','Votre commande a été passer avec succés');
+            return redirect()->back()->with('commande_reusie','Votre commande a été passée avec succès');
          
         }else{
             return redirect()->back()->with('commande_error','Vous ne pouvez pas passer une commande vide');
@@ -133,6 +133,6 @@ class CommandeController extends Controller
         $commande->valide_par=auth()->user()->id;
         $commande->etat=2;
         $commande->save();
-        return redirect()->back()->with('valider','Votre commande a été valider avecc succées');
+        return redirect()->back()->with('valider','Votre commande a été validée avec succès');
     }
 }

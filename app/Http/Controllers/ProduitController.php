@@ -36,15 +36,7 @@ class ProduitController extends Controller
       {    
           
         $approvisionnement = Approvisionnement::all();
-         $produits = Produit::where([
-            [function ($query) use ($request){
-                if (($term = $request->term)) {
-                    $query->orWhere('produit', 'LIKE' , '%' . $term . '%')->get();
-                }
-               }] 
-            ])
-                ->orderBy("id","asc")
-                ->get();
+         $produits = Produit::where('qte','>',0)->get();
   
         return view('produits.index', compact('produits','approvisionnement'));
              
