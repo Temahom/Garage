@@ -13,6 +13,35 @@ setlocale(LC_TIME, "fr_FR", "French");
         }
     }
 </script>
+<style>
+    .titre{
+            background-image: linear-gradient(to left, #268956, #332F30);
+            color:#fff;
+            border-radius:20px;
+            padding:0 10px;
+            padding:10px;
+    }
+    .label{
+        margin-right: 5px;
+    }
+</style>
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>
+                    <span class="titre"><i class="fas fa-list-ul label"></i>Liste produit</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+@if($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{$message}}</p>
+    </div>
+@endif
 
 
 <div class="row">
@@ -98,23 +127,23 @@ setlocale(LC_TIME, "fr_FR", "French");
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    </form>
+                                                
                                                 </div>
-            
-                                        </td>-->
-                                        </tr>
-                                    @endforeach
-                                  </tbody>
-                                 
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>  
-          </div>
-          
-      </div>
-  </div>
-</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </td>-->
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 
  
   
 

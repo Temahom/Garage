@@ -40,7 +40,7 @@
                     <tbody>
                         <tr>
                             <th scope="col" colspan="4">Total produit(s) commandé(s)</th>
-                            <th scope="col">{{ number_format($total, 0, ",", " ") }}</th>
+                            <th scope="col">{{ number_format($total, 0, ",", " ") }} <sup>F CFA</sup></th>
                         </tr>
                     </tbody>
                 </table>
