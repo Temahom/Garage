@@ -43,7 +43,7 @@
             <div class="table-responsive">
                 <table id="example4" class="table table-striped table-bordered" style="width:100%">
                     <thead>
-                        <tr style="background-color: #4656E9;">
+                        <tr style="background-color: #006680;">
                             <th style="color: white">N°</th>
                             <th style="color: white">Fournisseur</th>
                             <th style="color: white">Date Approvisionnement</th>
