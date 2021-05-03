@@ -14,7 +14,7 @@
 			
 			<div class="pull-right">
 				<a class="btn btn-secondary" href="{{route('voitures.interventions.create',['voiture' => $voiture->id])}}">
-					<i class="fas fa-plus"></i> Nouvelle intervention
+					<i class="fas fa-plus"></i> Ajouter une intervention
 				</a>
 			</div>
 		</div>

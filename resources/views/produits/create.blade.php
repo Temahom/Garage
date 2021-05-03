@@ -9,21 +9,30 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
 @section('content')
 
 <style>
-	.row{
-		overflow: hidden;
-	}
+    .titre{
+            background-image: linear-gradient(to left, #268956, #332F30);
+            color:#fff;
+            border-radius:20px;
+            padding:0 10px;
+            padding:10px;
+    }
+    .label{
+        margin-right: 5px;
+    }
 </style>
 
-    <div class="row">
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Ajouter Un Nouveau Produit</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('produits.index') }}" title="Go back"><span style="font-size:15px;">&#129060;</span> Retour</a>
+                <h2>
+                    <span class="titre"><i class="fas fa-tag label"></i>Créer Produit</span>
+                </h2>
             </div>
         </div>
-    </div><br><br>
+    </div>
+</div>
+<br><br>
 
     
     <form action="{{ route('produits.store') }}" method="POST">
@@ -84,8 +93,11 @@ $listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct(
                     </div><br>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-success">Ajouter</button>
+            <div class="row">
+                <div class="col-md-12 pl-0 py-4 ml-4">
+                    <a class="btn btn-rounded btn-secondary" href="{{ route('produits.index') }}" title="Go back"><i class="fas fa-angle-left"></i> Retour</a>
+                    <button style="color: white; margin-left: 6px; " type="submit" class="btn btn-rounded btn-success">Créer produit</button>
+                </div>
             </div>
         </div>
 

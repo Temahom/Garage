@@ -5,21 +5,41 @@ use Carbon\Carbon;
 @section('content')
 
 <style>
-	.row{
+	/* .row{
 		overflow: hidden !important;
-	}
+	} */
+    .titre{
+            background-image: linear-gradient(to left, #161344, #332F30);
+            color:#fff;
+            border-radius:20px;
+            padding:0 10px;
+            padding:10px;
+    }
+    .label{
+        margin-right: 5px;
+    }
 </style>
-
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>
+                    <span class="titre"><i class="fas fa-list-ul label"></i>Liste des Acteurs</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
 <link rel="stylesheet" href="/assets/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Liste Acteurs</h2>
-            </div>
             @can('create', App\Models\User::class)
-                <div class="pull-right py-3">
-                    <a class="btn btn-success" href="{{ route('actors.create') }}">Ajouter Acteur</a>
+                <div class="col-xs-9 col-sm-9 col-md-9">     
+                    <div class="form-group">
+                        <a class="btn btn-secondary" href="{{ route('actors.create') }}">Ajouter <i class="icon-people"></i></a>
+                    </div>
                 </div>
             @endcan
         </div>

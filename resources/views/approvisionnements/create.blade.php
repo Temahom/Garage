@@ -5,7 +5,7 @@
             color:#fff;
             border-radius:20px;
             padding:0 10px;
-            padding:15px;
+            padding:10px;
     }
     .label{
         margin-right: 5px;
@@ -34,8 +34,9 @@
     @endif
         
                 
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-11" >
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 row" >
+                    <div class="col-xs-12 col-sm-12 col-md-12" >
                         <div class="row p-3" style="border: 1px solid #D2D2E4; box-shadow: 0px 0px 3px #999; background-color: #fefefe;">    
                             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
                                 <div class="form-group">
@@ -126,10 +127,11 @@
 
                     </div>
                 </div>
+            </div>
 
                 <div class="row">
                     <div class="col-md-12 pl-0 py-4">
-                        <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
+                        <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left"></i> Retour</a>
                         <a class="btn btn-rounded btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormappro()">Enregistrer</a>
                     </div>
                 </div>

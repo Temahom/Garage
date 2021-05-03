@@ -17,6 +17,7 @@ class UserMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check() && Auth::user()->role_id == 2){
+            
             return $next($request);
         }else{
             return redirect()->route('login')->with('RAf','L\'accés ne vous est pas autorisé !');

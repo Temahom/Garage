@@ -13,18 +13,46 @@ setlocale(LC_TIME, "fr_FR", "French");
         }
     }
 </script>
+<style>
+    .titre{
+            background-image: linear-gradient(to left, #268956, #332F30);
+            color:#fff;
+            border-radius:20px;
+            padding:0 10px;
+            padding:10px;
+    }
+    .label{
+        margin-right: 5px;
+    }
+</style>
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>
+                    <span class="titre"><i class="fas fa-list-ul label"></i>Liste des produits</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+@if($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{$message}}</p>
+    </div>
+@endif
 
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
       <div class="col-lg-12 margin-tb">
-          <div class="pull-left">
-              <br><h2>Listes des Produits </h2><br>
-          </div>
           <div class="col-xs-12 col-sm-12 col-md-12 row">
               <div class="col-xs-9 col-sm-9 col-md-9">     
                   <div class="form-group">
-                      <a class="btn btn-warning" href="{{route('produits.create')}}"><i class="fas fa-plus"></i>  Créer Un Produit</a>
+                    <a class="btn btn-rounded btn-dark" href="{{ route('produits.create') }}" title="Create a project" style="margin-top: 5px"> 
+                        <i class="fas fa-plus-circle"> Créer Un Produit</i>
+                    </a>
                   </div>
               </div>
           </div>
@@ -61,19 +89,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
                                         <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
-                                        <td style="cursor: pointer; text-align: center">
-                                            <?php
-                                            $quantiteStock = 0;
-                                                foreach ($produit->approvisionnements as $product)
-                                                   {
-                                                    $quantiteStock +=$product->pivot->quantite;
-                                                   }
-                                                   echo $quantiteStock+$produit->qte; 
-                                            ?>
-                                            {{-- @foreach ($produit->approvisionnements as $product)
-                                                {{$product->pivot->quantite + $produit->qte }}
-                                            @endforeach --}}
-                                        </td>   
+                                        <td style="cursor: pointer; text-align: center">{{$produit->qte}}</td>   
                                         {{-- <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> --}}
                                       <!--  <td style="text-align:center !important">    
                                             <a href="{{ route('produits.edit', $produit->id) }}">
@@ -110,23 +126,23 @@ setlocale(LC_TIME, "fr_FR", "French");
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    </form>
+                                                
                                                 </div>
-            
-                                        </td>-->
-                                        </tr>
-                                    @endforeach
-                                  </tbody>
-                                 
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>  
-          </div>
-          
-      </div>
-  </div>
-</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </td>-->
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 
  
   
 
