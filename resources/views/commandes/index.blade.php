@@ -44,7 +44,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                             <thead  class="" style="background-color: #006680;">
                                 <tr>
                                     <th style="color: white; text-align:center; width: 3%" style="cursor: pointer;">N°</th>
-                                    <th style="color: white; text-align:center; " style="cursor: pointer;">Passer par</th>
+                                    <th style="color: white; text-align:center; " style="cursor: pointer;">Expéditeur</th>
                                     <th style="color: white; text-align:center; " style="cursor: pointer;">Etat</th>
                                     <th style="color: white; text-align:center; " style="cursor: pointer;">Date</th>
                                     <th style="color: white; text-align: center;" style="cursor: pointer;">Action</th>
@@ -55,11 +55,12 @@ setlocale(LC_TIME, "fr_FR", "French");
                                 <tr>
                                     <td style="cursor: pointer; text-align: center">{{ $commande->id }}</td>
                                     <td style="cursor: pointer; text-align: center">{{ User::find($commande->passer_par)->name }}</td>
-                                    <td style="cursor: pointer; text-align: center">{!! $commande->etat==1? "<span>Commande en cours</span>":"<span>Commande validée</span>" !!}</td>
+                                    <td style="cursor: pointer; text-align: center">{!! $commande->etat==1? "<span class='badge badge-info' >Commande en cours</span>":"<span class='badge badge-success'  >Commande validée</span>" !!}</td>
                                     <td style="cursor: pointer; text-align: center">{{ $commande->created_at}}</td>
                                     <td style="text-align: center">
+                                        @if($commande->etat==1)
                                         <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}" title="Valider la commande">Valider</a>
-                                
+                                        @endif
                                         <a class="btn btn-success" href="{{ route('commandes.show', $commande->id) }}" title="Voir la commande">Voir</a>
                                     </td>
                                 </tr>

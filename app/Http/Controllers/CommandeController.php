@@ -133,6 +133,6 @@ class CommandeController extends Controller
         $commande->valide_par=auth()->user()->id;
         $commande->etat=2;
         $commande->save();
-        return redirect()->back()->with('valider','Votre commande a été valider avecc succées');
+        return redirect()->back()->with('valider','Votre commande a été validée avec succès');
     }
 }
