@@ -203,8 +203,10 @@
                                    
                                     <span class="status"></span><span class="ml-2">{{Auth::user()->role->role}}</span>
                                 </div>
+                                <a class="dropdown-item" href="{{route('password.request')}}"><i class="fas fa-cog mr-2"></i>Modifier le mot de passe</a>
                                 <form action="{{route ('logout')}}" method="post">
                                     @csrf
+                                
                                 <button class="dropdown-item" type="submit"><i class="fas fa-power-off mr-2"></i>Deconnexion</button>
                             </form>
                             </div>
