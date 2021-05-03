@@ -37,19 +37,11 @@ setlocale(LC_TIME, "fr_FR", "French");
                         @foreach ($commandes as $commande)
                         <tr>
                             <td>{{ $commande->id }}</td>
-<<<<<<< HEAD
                             <td>{{ User::find($commande->passer_par)->name }} {{ User::find($commande->passer_par)->prenom }}</td>
                             <td>{!! $commande->etat==1? "<span>Commande en cours</span>":"<span>Commande validée</span>" !!}</td>
                             <td style="text-align: center">
-=======
-                            <td>{{ User::find($commande->passer_par)->name }}</td>
-                            <td>{!! $commande->etat==1? "<span class='badge badge-warning'>Passer</span>":"<span class='badge badge-success' >Valideé</span>" !!}</td>
-                            <td>{{strftime("%A %d %B %Y", strtotime($commande->created_at))}}</td>
-                            <td>
-                                @if ($commande->etat==1)
->>>>>>> 1e2325f37115d1f22286fd38775969184daf2f42
                                 <a class="btn btn-info" href="{{ route('commandes.valider', $commande->id) }}" title="Valider la commande">Valider</a>
-                                @endif
+                           
                                 <a class="btn btn-success" href="{{ route('commandes.show', $commande->id) }}" title="Voir la commande">Voir</a>
                             </td>
                         </tr>
