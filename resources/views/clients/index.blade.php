@@ -5,13 +5,33 @@
 @php
 setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 @endphp
+<style>
+	.titre{
+			background-image: linear-gradient(to left, #161344, #332F30);
+			color:#fff;
+			border-radius:20px;
+			padding:0 10px;
+			padding:10px;
+	}
+	.label{
+		margin-right: 5px;
+	}
+</style>
+<div class="row">
+	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+		<div class="col-lg-12 margin-tb">
+			<div class="pull-left">
+				<h2>
+					<span class="titre"><i class="fas fa-list-ul label"></i>Listes des Clients</span>
+				</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
 <div class="row">
   	<div class="col-xs-12 col-sm-12 col-md-12 row">  
 		<div class="col-lg-12 margin-tb">
-			<div class="pull-left">
-				<br><h2>Listes des Clients</h2><br>
-			</div>
-			
 			<div class="col-xs-12 col-sm-12 col-md-12 row">
 				@can('create', App\Models\Client::class)
                 <div class="col-xs-9 col-sm-9 col-md-9">     
