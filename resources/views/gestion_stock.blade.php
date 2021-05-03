@@ -298,7 +298,7 @@ body, html {
             </div>
            
             <!--/row-->
-            <hr>        
+            <hr>     <!--  
             <div class="row placeholders mb-3">
                 <div class="col-6 col-sm-3 placeholder text-center">
                     <img class="mx-auto img-fluid rounded-circle" src="https://previews.123rf.com/images/macrovector/macrovector1412/macrovector141200021/34231705-service-de-pneu-m%C3%A9canicien-automobile-de-r%C3%A9paration-automobile-ic%C3%B4nes-ensemble-isol%C3%A9-plat-illustration-vector.jpg" alt="imageproduit">
@@ -322,7 +322,8 @@ body, html {
                     <h4>Intervention</h4>
                     <span class="text-muted">  </span>
                 </div>
-            </div>
+            </div>  
+          fin first  --> 
               <!--second photos---->
               <div class="row placeholders mb-3">
                 <div class="col-6 col-sm-3 placeholder text-center">
