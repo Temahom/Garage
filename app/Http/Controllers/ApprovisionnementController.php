@@ -5,6 +5,7 @@ use App\Models\Approvisionnement;
 use App\Models\Fournisseur;
 use App\Models\Produit;
 use Illuminate\Http\Request;
+use DB;
 
 class ApprovisionnementController extends Controller
 {
@@ -49,10 +50,25 @@ class ApprovisionnementController extends Controller
         $approvisionnement->fournisseur_id = $request->input('fournisseur_id'); 
         $approvisionnement->date_approvisionnement =  $request->input('date_approvisionnement');
         $approvisionnement->save();
+        // $quantiteStock = 0;
+        //     foreach ($approvisionnement->produits as $product)
+        //     {
+        //         $quantiteStock +=$product->pivot->quantite;
+        //     }
         foreach ($request->plusdechamps as $key => $value) {
             $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
+            // dd($approvisionnement->produits);
+            $quantiteStock = 0;
+            foreach ($approvisionnement->produits as $product)
+            {
+                $quantiteStock += $product->pivot->quantite;
+            }
+             $quantiteStock += $product->qte;
+            //  dd($quantiteStock);
+            DB::table('produits')->where('id',$product->id)->update(['qte'=>$quantiteStock]);
         }
         if(!isset($fournisseur->id)){
+            
             return redirect()->route('approvisionnements.show', ['approvisionnement'=>$approvisionnement])
             ->with('success','Approvisionnement Enrégistré');  
         }
