@@ -22,7 +22,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>
-                    <span class="titre"><i class="fas fa-tag label"></i>Ajout Acteur</span>
+                    <span class="titre"><i class="fas icon-people label"></i>Ajout Acteur</span>
                 </h2>
             </div>
         </div>
