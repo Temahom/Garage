@@ -94,6 +94,7 @@ Route::middleware('auth')->group(function () {
      */
     /**VAlider la commnde et decrementter */
     Route::get('valider_commande/{id}',[CommandeController::class,'valider_commande'])->name('commandes.valider');
+    Route::get('commades_list',[CommandeController::class,'commades_list'])->name('commandes.lister');
     /**
      * Terminer de valider la commande
      */

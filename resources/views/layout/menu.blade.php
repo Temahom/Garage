@@ -241,9 +241,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs">Liste des Fournisseurs</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs/create">Ajouter Fournisseur</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs/create">Ajouter Fournisseur</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -255,9 +257,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important; font-size: 13px" href="/approvisionnements">Liste des Approvisionnements</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajouter Approvisionnement</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajouter Approvisionnement</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -269,9 +273,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important" href="/produits">Liste des Produits</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Créer Produit</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Créer Produit</a>
+                                            </li>
+                                        @endcan
                                      <!--   <li class="nav-item">
                                             <a class="nav-link" href="/produits.creer">Creer un nouveau Produit</a>
                                         </li>-->

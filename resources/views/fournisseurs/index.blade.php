@@ -35,11 +35,13 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 	</div>
 @endif
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-    <div class="pull-right" style="margin-bottom:5px">
-		<a class="btn btn-rounded btn-dark" href="{{route('fournisseurs.create')}}" title="Create a project" style="margin-top: 5px"> 
-            <i class="fas fa-plus-circle"> Ajouter</i>
-        </a>
-	</div>
+	@can('create', App\Models\Client::class)
+		<div class="pull-right" style="margin-bottom:5px">
+			<a class="btn btn-rounded btn-dark" href="{{route('fournisseurs.create')}}" title="Create a project" style="margin-top: 5px"> 
+				<i class="fas fa-plus-circle"> Ajouter</i>
+			</a>
+		</div>
+	@endcan
 
 
  <div class="row">
@@ -57,9 +59,9 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 									<th style="color: white">Entreprise</th>
 									<th style="color: white">Téléphone</th>
 									<th style="color: white">Email</th>
-									
-									<th style="color: white; text-align: center">Action</th>
-									
+									@can('create', App\Models\Client::class)
+										<th style="color: white; text-align: center">Action</th>
+									@endcan
 								</tr>
 							</thead>
 							<tbody>
@@ -72,33 +74,33 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 										<td onclick="showFournisseur({{ $fournisseur->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $fournisseur->entreprise }}</td>
 										<td onclick="showFournisseur({{ $fournisseur->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $fournisseur->telephone }}</td>
 										<td onclick="showFournisseur({{ $fournisseur->id }})" style="cursor: pointer;">{{ $fournisseur->email }}</td>
-									
-										<td style="text-align: center">
-											<a class="btn btn-succes p-0 pr-2 pl-2" href="{{ route('fournisseurs.edit',$fournisseur->id)}}"><i class="fas fa-edit"></i></a>
-											
-											<button type="button" class="btn btn-danger p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $fournisseur->id }}" onclick="OnOff();">
-												<i class="fas fa-trash"></i>
-											</button>
+										@can('create', App\Models\Client::class)
+											<td style="text-align: center">
+												<a class="btn btn-succes p-0 pr-2 pl-2" href="{{ route('fournisseurs.edit',$fournisseur->id)}}"><i class="fas fa-edit"></i></a>
+												
+												<button type="button" class="btn btn-danger p-0 pr-2 pl-2" data-toggle="modal" data-target="#exampleModal{{ $fournisseur->id }}" onclick="OnOff();">
+													<i class="fas fa-trash"></i>
+												</button>
 
-													<div class="modal fade" id="exampleModal{{ $fournisseur->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-														<div class="modal-dialog" role="document">
-															<div class="modal-content">
-																<div class="modal-body">
-																	<h5>Voulez vous supprimer: <strong>{{ $fournisseur->nom }} {{ $fournisseur->prenom }}</strong>  ?</h5>
-																</div>
-																<div class="modal-footer">
-																	<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-																	<form action="{{route('fournisseurs.destroy',$fournisseur->id)}}" method="POST">
-																		@csrf
-																		@method('DELETE')
-																		<button type="submit" class="btn btn-danger">Supprimer</button>
-																	</form>
+														<div class="modal fade" id="exampleModal{{ $fournisseur->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															<div class="modal-dialog" role="document">
+																<div class="modal-content">
+																	<div class="modal-body">
+																		<h5>Voulez vous supprimer: <strong>{{ $fournisseur->nom }} {{ $fournisseur->prenom }}</strong>  ?</h5>
+																	</div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+																		<form action="{{route('fournisseurs.destroy',$fournisseur->id)}}" method="POST">
+																			@csrf
+																			@method('DELETE')
+																			<button type="submit" class="btn btn-danger">Supprimer</button>
+																		</form>
+																	</div>
 																</div>
 															</div>
 														</div>
-													</div>
-										</td>
-									
+											</td>
+										@endcan
 									</tr>
 								@endforeach
 							</tbody>
