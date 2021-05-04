@@ -8,7 +8,7 @@
             color:#fff;
             border-radius:20px;
             padding:0 10px;
-            padding:15px;
+            padding:10px;
     }
     .label{
         margin-right: 5px;
@@ -129,7 +129,7 @@
 
         <div class="row">
             <div class="col-md-12 pl-0 py-4">
-                <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
+                <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left"></i> Retour</a>
                 <a class="btn btn-rounded btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormappro()">Enregistrer</a>
             </div>
         </div>
