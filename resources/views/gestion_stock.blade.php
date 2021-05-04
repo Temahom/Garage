@@ -248,9 +248,9 @@ body, html {
                             </div>
                            <a href="{{ route('produits.index') }}">
                              <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Revenue Totale</h6>
-                            <h3 class="display-4" style="color:rgb(255, 255, 255); font-size:20px;">
+                            <h2 class="display-4" style="color:rgb(255, 255, 255); font-size:20px;">
                                 {{number_format($prixR,0, ",", " " )}} <sup>F CFA</sup>
-                            </h3>
+                            </h2>
                           </a> 
                         </div>
                     </div>
@@ -273,7 +273,7 @@ body, html {
                                     <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-3">
                                         <h2 class="font-weight-normal mb-3">
         
-                                                        <span id="passer">0 <sup>F CFA</sup></span>
+                                                        <span id="passer">0 <sup>F</sup></span>
                                                     </h2>
                                         <div class="text-muted mb-0 mt-3 legend-item"> <span class="fa-xs text-secondary mr-1 legend-title"><i class="fa fa-fw fa-square-full"></i></span><span class="legend-text">La Semaine passée</span></div>
                                     </div>
