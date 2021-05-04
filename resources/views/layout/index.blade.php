@@ -243,9 +243,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients">Liste des Clients</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/clients/create">Ajouter Client</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/clients/create">Ajouter Client</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -257,9 +259,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures">Liste des voitures</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -270,9 +274,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/actors">Liste des Acteurs</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/actors/create">Ajouter Acteur</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/actors/create">Ajouter Acteur</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -283,9 +289,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/fullcalendar">Liste des Rendez-vous</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" target="_blank" href="https://calendar.google.com/calendar/u/0?cid=cmI1dmlocnM1OWwwYjZkY3E0dnQ2MzFwOG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Ajouter rv</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" target="_blank" href="https://calendar.google.com/calendar/u/0?cid=cmI1dmlocnM1OWwwYjZkY3E0dnQ2MzFwOG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Ajouter rv</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -306,11 +314,11 @@
                                         </li>
                             </li>-->
                             
-                            
-                            <li class="nav-item "   style="padding-top: 5px">
-                                <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
-                            </li>
-                            
+                            @can('create', App\Models\Diagnostic::class)
+                                <li class="nav-item "   style="padding-top: 5px">
+                                    <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
+                                </li>
+                            @endcan
                         </ul>
                     </div>
                 </nav>
