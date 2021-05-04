@@ -147,34 +147,11 @@ class ApprovisionnementController extends Controller
          */
         foreach ($request->plusdechamps as $key => $value)
         {
-            // foreach( $table_keys_product as $id)
-            // {
-            //     //dd(!in_array($id, $table_keys_pivot ));
-            //     foreach($table_keys_pivot as $cle)
-            //     {
-            //         if(in_array($id, $table_keys_pivot ))
-            //         {
-            //             $approvisionnement->produits()->detach($id);
-            //             // DB::table('approvisionnement_produit')->where('produit_id',$id)->update(['quantite'=>$value['qteAppro'],
-            //                                                             // 'prix_achat'=>$value['prixAchat']]);
-            //             // dd('maj');
-            //         }
-            //         // elseif(!in_array($id, $table_keys_pivot ) && in_array($cle, $table_keys_product))
-            //         // {  
-            //         //     $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
-            //         //     // dd('creer');
-            //         // }
-            //         // else
-            //         // {
-            //             // $approvisionnement->produits()->detach($id);
-            //         //     // dd('detacher');
-            //         // }
-            //     }    
-            // // DB::table('produits')->where('id',$id)->update(['qte'=> $value['produit_id'] + Produit::find($id)->qte]);   
-            // }
             $approvisionnement->produits()->detach($value['produit_id']);
 
-            $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);    
+            $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);   
+            DB::table('produits')->where('id',$value['produit_id'])->update(['qte'=> $value['qteAppro'] + Produit::find($value['produit_id'])->qte]);   
+            
         }    
         /**
          * fin
