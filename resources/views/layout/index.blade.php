@@ -47,7 +47,10 @@
         font-size:16px; 
      }   */
 
- 
+    @media screen and (max-width: 767px) {
+  .row {
+          overflow-x: auto !important;
+  }
 
   .nav-divider{
       display: none;
@@ -230,7 +233,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-divider" style="font-size: 25px">
-                               Garage
+                               Menu
                             </li><br>
 
                             <li class="nav-item ">
@@ -311,12 +314,11 @@
                                         </li>
                             </li>-->
                             
-                            @if (Auth::user()->role_id==4 || Auth::user()->role_id==1)
+                            @can('create', App\Models\Diagnostic::class)
                                 <li class="nav-item "   style="padding-top: 5px">
                                     <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
                                 </li>
-                            @endif
-                            
+                            @endcan
                         </ul>
                     </div>
                 </nav>
