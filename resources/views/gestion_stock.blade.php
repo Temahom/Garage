@@ -415,7 +415,34 @@ body, html {
                       <!--------------------boutton pour voir les les produits dont leur quantites ont diminué href="{{route('produits.create')}}-->
            
                         <!--------------------finnn boutton -->
-           
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-12 col-md-8 col-sm-12 col-12 mt-5">
+                                <div class="card">
+                                    <h5 class="card-header">Revenue</h5>
+                                    <div class="card-body"><div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                                        <canvas id="revenue" width="1003" height="376" style="display: block; width: 1003px; height: 376px;" class="chartjs-render-monitor"></canvas>
+                                    </div>
+                                    <div class="card-body border-top">
+                                        <div class="row">
+                                           
+                                            <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-3">
+                                                <h2 class="font-weight-normal mb-3"><span id="present">0 <sup>F CFA</sup></span>                                                    </h2>
+                                                <div class="mb-0 mt-3 legend-item">
+                                                 <span class="fa-xs text-primary mr-1 legend-title "><i class="fa fa-fw fa-square-full"></i></span>
+                                                    <span class="legend-text">Cette Semaine</span></div>
+                                            </div>
+                                            <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-3">
+                                                <h2 class="font-weight-normal mb-3">
+                
+                                                                <span id="passer">0 <sup>F CFA</sup></span>
+                                                            </h2>
+                                                <div class="text-muted mb-0 mt-3 legend-item"> <span class="fa-xs text-secondary mr-1 legend-title"><i class="fa fa-fw fa-square-full"></i></span><span class="legend-text">La Semaine passé</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
                   </div>
             <!--/row-->
             <!--------------------boutton pour voir les les produits dont leur quantites ont diminué href="{{route('produits.create')}}-->
@@ -425,8 +452,9 @@ body, html {
             
 
 <!-- Modal  <a href="https://www.codeply.com/go/KrUO8QpyXP"  -->
-
-
+    <script src="/assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
+    <script src="/assets/vendor/charts/charts-bundle/chartjs.js"></script>
+    <script src="/assets/libs/js/dashboard-sales.js"></script>
 <script>
     
 

@@ -12,7 +12,7 @@ class Commande extends Model
    // protected $table = 'commandes';
    // public $timestamps = true;
 
-   public function devis(){
+   public function devi(){
        return $this->belongsTo(Devi::class);
    }
     
@@ -21,10 +21,6 @@ class Commande extends Model
         return $this->belongsToMany(Produit::class,'commandes');
     }
      
-    public function commande_produits()
-    {
-        return $this->HasMany(Commande_produit::class);
-    }
    /* public function produits()
     {
         return $this->belongsToMany(Produit::class,'commande_produits')->withPivot('quantite');

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Devi;
 use App\Models\Produit;
 use App\Models\Commande;
@@ -130,9 +131,64 @@ class CommandeController extends Controller
             $produit->qte=$produit->qte-$produit->pivot->quantite;
             $produit->save();
         }
-        $commande->valide_par=auth()->user()->id;
+        $commande->valide_par=auth()->user()->id; 
         $commande->etat=2;
         $commande->save();
         return redirect()->back()->with('valider','Votre commande a été valider avecc succées');
+    }
+    public function commades_list(){
+        /**
+         * Total des montant des commandes de cette seamaine
+         */
+            $commandes;
+        for ($i = 0; $i <Carbon::now()->dayOfWeek; $i++) {
+            $commandes=Commande::with('devi')->whereDay('created_at',Carbon::now()->subDays($i))->get();
+            $prixht=0;
+            foreach ($commandes as $commande) {
+               
+                if ($commande->devi_id) {
+                    $prixht+= $commande->devi->cout;
+                    $devi=Devi::find($commande->devi_id);
+                    $produits=$devi->produits()->get();
+                    foreach ($produits as $produit) {
+                        $prixht+=$produit->prix1*$produit->pivot->quantite;
+                        
+                    }
+                }
+                
+
+            }
+            $day[] =['jour'=> Carbon::now()->subDays($i)->format('D'),'montant'=>$prixht];
+        }
+        /**
+         * Fin pour cette Semaine 
+         */
+        //($commandes);
+        for ($i = 7; $i >= 1; $i--) {
+            $commandes_sempasse;
+            for ($i = 7; $i >= 1; $i--) {
+                $commandes_sempasse=Commande::with('devi')->whereDay('created_at',now()->previous('Monday')->subDays($i))->get();
+                $prixht_passer=0;
+                foreach ($commandes_sempasse as $commande) {
+                   
+                    if ($commande->devi_id) {
+                        $prixht+= $commande->devi->cout;
+                        $devi=Devi::find($commande->devi_id);
+                        $produits=$devi->produits()->get();
+                        foreach ($produits as $produit) {
+                            $prixht_passer+=$produit->prix1*$produit->pivot->quantite;
+                            
+                        }
+                    }
+                    
+    
+                }
+                $daypasser[] =['jour'=> now()->previous('Monday')->subDays($i)->format('D'),'montant'=>$prixht_passer];
+
+            }
+        }
+       // dd();
+        return ['semaine_passer'=>$daypasser,'cette_semmaine' =>$day];
+       
     }
 }
