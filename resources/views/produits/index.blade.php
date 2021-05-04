@@ -47,6 +47,7 @@ setlocale(LC_TIME, "fr_FR", "French");
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
       <div class="col-lg-12 margin-tb">
+        @can('create', App\Models\Client::class)
           <div class="col-xs-12 col-sm-12 col-md-12 row">
               <div class="col-xs-9 col-sm-9 col-md-9">     
                   <div class="form-group">
@@ -56,6 +57,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                   </div>
               </div>
           </div>
+        @endcan
 
           @if($message = Session::get('success'))
               <div class="alert alert-success">
