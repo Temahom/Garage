@@ -1,7 +1,7 @@
 @extends('layout.menu')
 @php
-	use App\Models\listeproduit;
-$listes=listeproduit::select('categorie')->orderBy('categorie','asc')->distinct()->get();
+	use App\Models\Produit;
+$listes=Produit::select('categorie')->orderBy('categorie','asc')->distinct()->get();
 							
 @endphp
 
