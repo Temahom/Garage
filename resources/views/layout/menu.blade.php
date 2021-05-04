@@ -239,7 +239,7 @@
                                 <div id="submenu-client" class="collapse submenu" style="background-color: #2E5441 !important">
                                     <ul class="nav flex-column" style="background-color: #2E5441 !important">
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs">Liste Fournisseurs</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs">Liste des Fournisseurs</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs/create">Ajouter Fournisseur</a>
@@ -253,7 +253,7 @@
                                 <div id="submenu-voiture" style="background-color: #2E5441 !important" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements">Liste Approvisionnements</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important; font-size: 13px" href="/approvisionnements">Liste des Approvisionnements</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajouter Approvisionnement</a>
@@ -267,7 +267,7 @@
                                 <div id="submenu-produit" style="background-color: #2E5441 !important" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits">Liste Produits</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits">Liste des Produits</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Créer Produit</a>
@@ -284,7 +284,7 @@
                                 <div id="submenu-commandes" style="background-color: #2E5441 !important" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/commandes">Liste Commandes </a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/commandes">Liste des Commandes </a>
                                         </li>
                                      <!--   <li class="nav-item">
                                             <a class="nav-link" href="/produits.creer">Creer un nouveau Produit</a>

@@ -34,7 +34,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
                 <div class="col-xs-9 col-sm-9 col-md-9">     
                      <div class="form-group">
                          @can('create', App\Models\Voiture::class)
-                         <a class="btn btn-secondary" href="{{ route('voitures.create') }}"><i class="fas fa-plus"></i> Ajouter Voiture</a>
+                         <a class="btn btn-secondary" href="{{ route('voitures.create') }}">Ajouter <i class="fas fa-car"></i></a>
                         @endcan
                      </div>
                  </div>   

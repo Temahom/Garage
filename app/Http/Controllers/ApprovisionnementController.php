@@ -50,22 +50,19 @@ class ApprovisionnementController extends Controller
         $approvisionnement->fournisseur_id = $request->input('fournisseur_id'); 
         $approvisionnement->date_approvisionnement =  $request->input('date_approvisionnement');
         $approvisionnement->save();
-        // $quantiteStock = 0;
-        //     foreach ($approvisionnement->produits as $product)
-        //     {
-        //         $quantiteStock +=$product->pivot->quantite;
-        //     }
+        // dd($request->plusdechamps);
         foreach ($request->plusdechamps as $key => $value) {
+            // dd(Produit::find($value['produit_id'])->approvisionnements);
             $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
-            // dd($approvisionnement->produits);
+            $produit = Produit::find($value['produit_id']);
             $quantiteStock = 0;
-            foreach ($approvisionnement->produits as $product)
+            foreach ($produit->approvisionnements as $appro)
             {
-                $quantiteStock += $product->pivot->quantite;
+                $quantiteStock += $appro->pivot->quantite;
+                $quantiteStock += $produit->qte;
+                DB::table('produits')->where('id',$produit->id)->update(['qte'=>$quantiteStock]);
             }
-             $quantiteStock += $product->qte;
-            //  dd($quantiteStock);
-            DB::table('produits')->where('id',$product->id)->update(['qte'=>$quantiteStock]);
+             
         }
         if(!isset($fournisseur->id)){
             

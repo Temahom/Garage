@@ -241,7 +241,7 @@
                                 <div id="submenu-client" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/clients">Liste Clients</a>
+                                            <a class="nav-link" href="/clients">Liste des Clients</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients/create">Ajouter Client</a>
@@ -255,7 +255,7 @@
                                 <div id="submenu-voiture" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/voitures">Liste voitures</a>
+                                            <a class="nav-link" href="/voitures">Liste des voitures</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
@@ -268,7 +268,7 @@
                                 <div id="submenu-acteur" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/actors">Liste Acteurs</a>
+                                            <a class="nav-link" href="/actors">Liste des Acteurs</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="/actors/create">Ajouter Acteur</a>
@@ -281,7 +281,7 @@
                                 <div id="submenu-rv" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/fullcalendar">Liste RV</a>
+                                            <a class="nav-link" href="/fullcalendar">Liste des Rendez-vous</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" target="_blank" href="https://calendar.google.com/calendar/u/0?cid=cmI1dmlocnM1OWwwYjZkY3E0dnQ2MzFwOG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Ajouter rv</a>
