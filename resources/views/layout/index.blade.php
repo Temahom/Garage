@@ -315,10 +315,9 @@
                             </li>-->
                             
                             @if (Auth::user()->role_id==4 || Auth::user()->role_id==1)
-                            <li class="nav-item "   style="padding-top: 5px">
-                                <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
-                            </li>
-                                
+                                <li class="nav-item "   style="padding-top: 5px">
+                                    <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
+                                </li>
                             @endif
                             
                         </ul>
