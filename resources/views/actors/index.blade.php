@@ -36,8 +36,10 @@ use Carbon\Carbon;
     <div class="row">
         <div class="col-lg-12 margin-tb">
             @can('create', App\Models\User::class)
-                <div class="pull-right py-3">
-                    <a class="btn btn-success" href="{{ route('actors.create') }}">Ajouter Acteur</a>
+                <div class="col-xs-9 col-sm-9 col-md-9">     
+                    <div class="form-group">
+                        <a class="btn btn-secondary" href="{{ route('actors.create') }}">Ajouter <i class="icon-people"></i></a>
+                    </div>
                 </div>
             @endcan
         </div>

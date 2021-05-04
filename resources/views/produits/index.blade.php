@@ -30,7 +30,7 @@ setlocale(LC_TIME, "fr_FR", "French");
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>
-                    <span class="titre"><i class="fas fa-list-ul label"></i>Liste produit</span>
+                    <span class="titre"><i class="fas fa-list-ul label"></i>Liste des produits</span>
                 </h2>
             </div>
         </div>
@@ -47,13 +47,12 @@ setlocale(LC_TIME, "fr_FR", "French");
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
       <div class="col-lg-12 margin-tb">
-          <div class="pull-left">
-              <br><h2>Listes des Produits </h2><br>
-          </div>
           <div class="col-xs-12 col-sm-12 col-md-12 row">
               <div class="col-xs-9 col-sm-9 col-md-9">     
                   <div class="form-group">
-                      <a class="btn btn-warning" href="{{route('produits.create')}}"><i class="fas fa-plus"></i>  Créer Un Produit</a>
+                    <a class="btn btn-rounded btn-dark" href="{{ route('produits.create') }}" title="Create a project" style="margin-top: 5px"> 
+                        <i class="fas fa-plus-circle"> Créer Un Produit</i>
+                    </a>
                   </div>
               </div>
           </div>

@@ -101,7 +101,7 @@ class FactureController extends Controller
         $facture->save();
         $intervention->facture_id=$facture->id;
         $intervention->save();
-        return redirect()->back()->with("creer_facture","Facture générer avec succes");
+        return redirect()->back()->with("creer_facture","Facture générée avec succès");
 
 
     }
@@ -110,7 +110,7 @@ class FactureController extends Controller
         $facture=Facture::find($id);
         $facture->etat=2;
         $facture->save();
-        return redirect()->back()->with("payer_facture","Facture payé avec succes");
+        return redirect()->back()->with("payer_facture","Facture payée avec succès");
     }
     public function facture_pdf($id)
     {

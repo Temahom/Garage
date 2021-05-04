@@ -298,7 +298,7 @@ body, html {
             </div>
            
             <!--/row-->
-            <hr>        
+            <hr>     <!--  
             <div class="row placeholders mb-3">
                 <div class="col-6 col-sm-3 placeholder text-center">
                     <img class="mx-auto img-fluid rounded-circle" src="https://previews.123rf.com/images/macrovector/macrovector1412/macrovector141200021/34231705-service-de-pneu-m%C3%A9canicien-automobile-de-r%C3%A9paration-automobile-ic%C3%B4nes-ensemble-isol%C3%A9-plat-illustration-vector.jpg" alt="imageproduit">
@@ -322,8 +322,42 @@ body, html {
                     <h4>Intervention</h4>
                     <span class="text-muted">  </span>
                 </div>
+            </div>  
+          fin first  --> 
+              <!--second photos---->
+              <div class="row placeholders mb-3">
+                <div class="col-6 col-sm-3 placeholder text-center">
+                 <a href="{{ route('approvisionnements.index') }}">
+                       <img class="mx-auto img-fluid rounded-circle" src="https://image.freepik.com/vecteurs-libre/jeu-icones-pieces-voiture-illustration-isometrique-25-icones-vectorielles-pieces-voiture-pour-web_96318-178.jpg" alt="imageproduit">
+                    <h4>APPROVISIONNEMENTS</h4>
+                    <span class="text-muted">  </span>
+                 </a> 
+                </div>                    
+                <div class="col-6 col-sm-3 placeholder text-center">
+                  <a  href="{{ route('produits.index') }}">   
+                   <img  class="mx-auto img-fluid rounded-circle" src="https://png.pngtree.com/element_origin_min_pic/17/03/14/37fe0e439a1a12bfbb5772587a2644fa.jpg"
+                            alt="jenseign">
+                    <h4>PRODUITS</h4>
+                    <span class="text-muted">  </span>
+                  </a> 
+                </div>
+                <div class="col-6 col-sm-3 placeholder text-center">
+                  <a  href="{{ route('commandes.index') }}"> 
+                    <img class="mx-auto img-fluid rounded-circle" src="https://i.pinimg.com/originals/6d/94/fd/6d94fd27f3ab759cb4dea187a4c038b2.png">
+                    <h4>COMMANDES</h4>
+                    <span class="text-muted"> </span>
+                  </a> 
+                </div>
+                <div class="col-6 col-sm-3 placeholder text-center">
+                  <a  href="{{ route('factures.index') }}"> 
+                    <img class="center-block img-fluid rounded-circle" src="https://cdn.www.zervant.com/wp-content/uploads/2015/01/modele-gratuit-de-facture-a-telecharger-sous-format-excel.png" 
+                                 alt="Generic placeholder thumbnail">
+                    <h4>FACTURES</h4>
+                    <span class="text-muted">  </span>
+                  </a> 
+                </div>
             </div>
-
+            <!--fiinn  second photos---->
             <a id="features"></a>
             <hr>
             <p class="lead mt-5">      
@@ -413,7 +447,7 @@ body, html {
                         </div>
                      </div>
                       <!--------------------boutton pour voir les les produits dont leur quantites ont diminué href="{{route('produits.create')}}-->
-           
+                                                        
                         <!--------------------finnn boutton -->
            
                   </div>
