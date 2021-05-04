@@ -470,7 +470,7 @@ body, html {
                 
                                                                 <span id="passer">0 <sup>F CFA</sup></span>
                                                             </h2>
-                                                <div class="text-muted mb-0 mt-3 legend-item"> <span class="fa-xs text-secondary mr-1 legend-title"><i class="fa fa-fw fa-square-full"></i></span><span class="legend-text">La Semaine passé</span></div>
+                                                <div class="text-muted mb-0 mt-3 legend-item"> <span class="fa-xs text-secondary mr-1 legend-title"><i class="fa fa-fw fa-square-full"></i></span><span class="legend-text">La Semaine passée</span></div>
                                             </div>
                                         </div>
                                     </div>
