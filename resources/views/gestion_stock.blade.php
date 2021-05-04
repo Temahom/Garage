@@ -298,9 +298,9 @@ body, html {
                                                     <th style="color: white;" style="cursor: pointer;">N°</th>
                                                     <th style="color: white;" style="cursor: pointer;">Categorie</th>
                                                     <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
-                                                    <th style="color: white; text-align: center" style="cursor: pointer;">Prix Unitaire</th>
+                                                    <th style="color: white; text-align: center" style="cursor: pointer;">Prix Unitaire <br> (F CFA)</th>
                                                     <th style="color: white; text-align: center" style="cursor: pointer;">Quantité</th>
-                                                    <th style="color: white; text-align: center" style="cursor: pointer;">PV Total</th>
+                                                    <th style="color: white; text-align: center" style="cursor: pointer;">Prix de vente Total <br> (F CFA)</th>
                                                     <th style="color: white; text-align: center" style="cursor: pointer;">Etat</th>
                                                     <th style="color: white; text-align: center" style="cursor: pointer;">Stock</th>
                                                 </tr>
@@ -331,7 +331,7 @@ body, html {
                                                     <td style="cursor: pointer; text-transform: capitalize; text-align: center">
                                                                         @foreach ($produits as $produit)
                                                                             @if($devi_produit->produit_id==$produit->id)
-                                                                            {{$produit->prix1}} <sup> FCFA</sup>
+                                                                            {{$produit->prix1}}
                                                                             @endif
                                                                         @endforeach
                                                     </td>
@@ -339,7 +339,7 @@ body, html {
                                                     <td style="cursor: pointer; text-transform: capitalize; text-align: centertext-align: center">
                                                         @foreach ($produits as $produit)
                                                             @if($devi_produit->produit_id==$produit->id)
-                                                            {{$produit->prix1 * $devi_produit->quantite}} <sup> FCFA</sup>
+                                                            {{$produit->prix1 * $devi_produit->quantite}}
                                                             @endif
                                                         @endforeach
                                                     </td>
