@@ -98,7 +98,7 @@
                                                 <select name="plusdechamps[{{ $i }}][produit_id]" class="custom-select form-control" >
                                                     <option value="">Nom Produit</option>
                                                         @foreach( $produits as $produit ) 
-                                                            <option value="{{ $produit->produit }}"  {{ $produit->code == $product->code ? 'selected' : '' }}>{{ $produit->produit }}</option>
+                                                            <option value="{{ $produit->id }}"  {{ $produit->id == $product->id ? 'selected' : '' }}>{{ $produit->produit }}</option>
                                                         @endforeach 
                                                 </select>
                                         </div> 
