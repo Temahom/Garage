@@ -147,7 +147,7 @@ class CommandeController extends Controller
             foreach ($commandes as $commande) {
                
                 if ($commande->devi_id) {
-                    $prixht+= $commande->devi->cout;
+                    //$prixht+= $commande->devi->cout;
                     $devi=Devi::find($commande->devi_id);
                     $produits=$devi->produits()->get();
                     foreach ($produits as $produit) {
@@ -172,7 +172,7 @@ class CommandeController extends Controller
                 foreach ($commandes_sempasse as $commande) {
                    
                     if ($commande->devi_id) {
-                        $prixht+= $commande->devi->cout;
+                        //$prixht+= $commande->devi->cout;
                         $devi=Devi::find($commande->devi_id);
                         $produits=$devi->produits()->get();
                         foreach ($produits as $produit) {
