@@ -47,10 +47,7 @@
         font-size:16px; 
      }   */
 
-    @media screen and (max-width: 767px) {
-  .row {
-          overflow-x: auto !important;
-  }
+ 
 
   .nav-divider{
       display: none;
