@@ -212,8 +212,26 @@ body, html {
             $prixR+=$produit->prix1*$produit->pivot->quantite;
         }
     }  
-                           
- @endphp
+                                 
+    $devis=Devi::all();
+    $commandes=\App\Models\Commande::all();
+
+    $total=0;
+
+    foreach ($devis as $devi) {
+        $commandes=$devi->commande()->get();
+        $devips=$devi->devi_produits()->get();
+        foreach ($devips as $devip){
+            foreach ($commandes as $commande){
+                if($devip->devi_id == $commande->devi_id){
+                    if($commande->etat==2){
+                        $total+=$devip->quantite;
+                    }
+                }
+            }
+        }  
+    }                           
+@endphp
 
 
         <div class="row">
@@ -225,32 +243,32 @@ body, html {
                                 <i class="fa fa-plus fa-7x"></i>
                             </div>
                            <a href="{{ route('produits.index') }}">
-                            <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Produits Disponibles</h6>
-                            <h1 class="display-4" style="color:rgb(255, 255, 255);"> {{$produit_total}}</h1>
+                            <h5 class="text-uppercase" style="color:rgb(255, 255, 255);">Produits Disponibles</h5>
+                            <h3 class="display-4" style="font-size: 30px; color:rgb(255, 255, 255);"> {{$produit_total}}</h3>
                           </a> 
                         </div>
                     </div>
                     <div class="card text-white bg-info">
-                        <div class="card-body" style="background-image: linear-gradient( to top,#808389, #6D7678);">
+                        <div class="card-body" style="height: 100%; background-image: linear-gradient( to top,#808389, #6D7678);">
                             <div class="rotate">
                                 <i class="fa fa-minus fa-7x"></i>
                             </div>
                            <a href="{{ route('produits.index') }}">
-                             <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Produits Vendus</h6>
-                             <h1 class="display-4" style="color:rgb(255, 255, 255);">{{$produits_vendus}}</h1>
+                             <h5 class="text-uppercase" style="color:rgb(255, 255, 255);">Vendus / Commandés</h5>
+                             <h3 class="display-4" style="font-size: 30px; color:rgb(255, 255, 255);">{{$total}} / {{$produits_vendus}}</h3>
                           </a> 
                         </div>
                     </div>
                     <div class="card text-white bg-info">
-                        <div class="card-body" style="background-image: linear-gradient( to top,#C94E15, #893914);">
+                        <div class="card-body" style="height: 150%; background-image: linear-gradient( to top,#C94E15, #893914);">
                             <div class="rotate">
                                 <i class="fa fa-minus fa-7x"></i>
                             </div>
                            <a href="{{ route('produits.index') }}">
-                             <h6 class="text-uppercase" style="color:rgb(255, 255, 255);">Revenue Totale</h6>
-                            <h2 class="display-4" style="color:rgb(255, 255, 255); font-size:20px;">
-                                {{number_format($prixR,0, ",", " " )}} <sup>F CFA</sup>
-                            </h2>
+                             <h5 class="text-uppercase" style="color:rgb(255, 255, 255);">Revenue Totale</h5>
+                            <h3 class="display-4" style="color:rgb(255, 255, 255); font-size:30px;">
+                                {{number_format($prixR,0, ",", " " )}} <sup>FCFA</sup>
+                            </h3>
                           </a> 
                         </div>
                     </div>
@@ -265,16 +283,13 @@ body, html {
                                 <div class="row">
                                 
                                     <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-3">
-                                        <h2 class="font-weight-normal mb-3"><span id="present">0 <sup>F CFA</sup></span>                                                    </h2>
+                                        <h4 class="font-weight-normal mb-3"><span id="present">0 <sup>F</sup></span></h4>
                                         <div class="mb-0 mt-3 legend-item">
                                         <span class="fa-xs text-primary mr-1 legend-title "><i class="fa fa-fw fa-square-full"></i></span>
                                             <span class="legend-text">Cette Semaine</span></div>
                                     </div>
                                     <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 p-3">
-                                        <h2 class="font-weight-normal mb-3">
-        
-                                                        <span id="passer">0 <sup>F</sup></span>
-                                                    </h2>
+                                        <h4 class="font-weight-normal mb-3"><span id="passer">0 <sup>F</sup></span></h4>
                                         <div class="text-muted mb-0 mt-3 legend-item"> <span class="fa-xs text-secondary mr-1 legend-title"><i class="fa fa-fw fa-square-full"></i></span><span class="legend-text">La Semaine passée</span></div>
                                     </div>
                                 </div>
@@ -298,10 +313,9 @@ body, html {
                                                     <th style="color: white;" style="cursor: pointer;">N°</th>
                                                     <th style="color: white;" style="cursor: pointer;">Categorie</th>
                                                     <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
-                                                    <th style="color: white; text-align: center" style="cursor: pointer;">Prix Unitaire <br> (F CFA)</th>
+                                                    <th style="color: white; text-align: center" style="cursor: pointer;">P U en FCFA</th>
                                                     <th style="color: white; text-align: center" style="cursor: pointer;">Quantité</th>
-                                                    <th style="color: white; text-align: center" style="cursor: pointer;">Prix de vente Total <br> (F CFA)</th>
-                                                    <th style="color: white; text-align: center" style="cursor: pointer;">Etat</th>
+                                                    <th style="color: white; text-align: center" style="cursor: pointer;">Total en FCFA</th>
                                                     <th style="color: white; text-align: center" style="cursor: pointer;">Stock</th>
                                                 </tr>
                                             </thead>
@@ -310,61 +324,67 @@ body, html {
                                                 $i=1;
                                             @endphp
                                                 
-                                            @foreach ($devi_produits as  $devi_produit)
-                                                @foreach ($produits as $produit)
+                                    @foreach ($devi_produits as  $devi_produit)
+                                        @foreach ($produits as $produit)
+                                            @foreach ($commandes as $commande)
                                                 @if($devi_produit->produit_id==$produit->id)
-                                                <tr>
-                                                    <td>{{$i++}}</td>
-                                                    <td style="cursor: pointer; text-transform: capitalize;">
+                                                    <tr>
+                                                        <td>{{$i++}}</td>
+                                                        <td style="cursor: pointer; text-transform: capitalize;">
+                                                                                    @foreach ($produits as $produit)
+                                                                                        @if($devi_produit->produit_id==$produit->id)
+                                                                                        {{$produit->categorie}}
+                                                                                        @endif
+                                                                                    @endforeach                  
+                                                        </td>
+                                                        <td style="cursor: pointer; text-transform: capitalize;">
                                                                                 @foreach ($produits as $produit)
                                                                                     @if($devi_produit->produit_id==$produit->id)
-                                                                                    {{$produit->categorie}}
+                                                                                        {{$produit->produit}}
                                                                                     @endif
-                                                                                @endforeach                  
-                                                    </td>
-                                                    <td style="cursor: pointer; text-transform: capitalize;">
+                                                                                @endforeach
+                                                        <td style="cursor: pointer; text-transform: capitalize; text-align: center">
                                                                             @foreach ($produits as $produit)
                                                                                 @if($devi_produit->produit_id==$produit->id)
-                                                                                    {{$produit->produit}}
+                                                                                {{$produit->prix1}}
                                                                                 @endif
                                                                             @endforeach
-                                                    <td style="cursor: pointer; text-transform: capitalize; text-align: center">
-                                                                        @foreach ($produits as $produit)
-                                                                            @if($devi_produit->produit_id==$produit->id)
-                                                                            {{$produit->prix1}}
-                                                                            @endif
-                                                                        @endforeach
-                                                    </td>
-                                                    <td style="cursor: pointer; text-align: center">{{$devi_produit->quantite}} </td>
-                                                    <td style="cursor: pointer; text-transform: capitalize; text-align: centertext-align: center">
-                                                        @foreach ($produits as $produit)
-                                                            @if($devi_produit->produit_id==$produit->id)
-                                                            {{$produit->prix1 * $devi_produit->quantite}}
-                                                            @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td style="cursor: pointer; text-transform: capitalize; text-align: center">
-                                                        @foreach ($commandes as $commande)
-                                                            @if($devi_produit->devi_id==$commande->devi_id)
-                                                            {!! $commande->etat==1? "<span class='badge badge-info' >Commande en cours</span>":"<span class='badge badge-success'  >Commande validée</span>" !!}</td>
-                                                            @endif
-                                                        @endforeach
-                                                    </td>
-                                                   
-                                                    <td style="cursor: pointer; text-align: center"> 
-                                                                        @foreach ($produits as $produit)
-                                                                            @if($devi_produit->produit_id==$produit->id)
-                                                                                @if ($produit->qte==0)
-                                                                                <span class="badge-dot badge-danger mr-1"></span>En Rupture</td>
-                                                                                @else
-                                                                                <span class="badge-dot badge-success mr-1"></span>En Stock</td>
-                                                                            @endif
-                                                                            @endif
-                                                                        @endforeach
-                                                    </td>   
+                                                        </td>
+                                                        <td style="cursor: pointer; text-align: center">{{$devi_produit->quantite}} </td>
+                                                        <td style="cursor: pointer; text-transform: capitalize; text-align: center">
+                                                            @foreach ($produits as $produit)
+                                                                @if($devi_produit->produit_id==$produit->id)
+                                                                {{$produit->prix1 * $devi_produit->quantite}}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <!--<td style="cursor: pointer; text-transform: capitalize; text-align: center">
+                                                            @foreach ($commandes as $commande)
+                                                                @if($devi_produit->devi_id==$commande->devi_id)
+                                                                {!! $commande->etat==1? "<span class='badge badge-info' >Commande en cours</span>":"<span class='badge badge-success'  >Commande validée</span>" !!}</td>
+                                                                @endif
+                                                            @endforeach
+                                                        </td>-->
+                                                    
+                                                        <td style="cursor: pointer; text-align: center"> 
+                                                                            @foreach ($produits as $produit)
+                                                                                @if($devi_produit->produit_id==$produit->id)
+                                                                                    @if($commande->etat==1)
+                                                                                        @if ($produit->qte>=$devi_produit->quantite)
+                                                                                        <span class="badge-dot badge-success mr-1"></span>Disponible</td>
+                                                                                        @else
+                                                                                        <span class="badge-dot badge-danger mr-1"></span>Indisponible</td>
+                                                                                        @endif
+                                                                                    @else
+                                                                                        <span></span>Satisfaite</td>
+                                                                                    @endif
+                                                                                @endif
+                                                                            @endforeach
+                                                        </td>   
                                                 @endif 
-                                                @endforeach
                                             @endforeach
+                                        @endforeach
+                                    @endforeach
                                             </tbody>
                                         </table>
                                     </div>
