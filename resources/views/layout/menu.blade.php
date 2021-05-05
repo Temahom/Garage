@@ -46,11 +46,15 @@
         font-family: "Open Sans"!important;
         font-size:16px; 
      }   */
+     @media screen and (max-width: 767px) {
+        .row {
+                overflow-x: auto !important;
+        }
 
-    @media screen and (max-width: 767px) {
-  .row {
-          overflow-x: auto !important;
-  }
+        .nav-left-sidebar {
+            height: auto !important;
+        }
+    }
 
   .nav-divider{
       display: none;
@@ -80,8 +84,6 @@
         animation: .9s infinite beatHeart;
         transform-origin: center;
     }
-
-  }  
 
     .dashboard-main-wrapper{
         background-color: white;

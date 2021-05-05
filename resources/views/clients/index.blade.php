@@ -12,6 +12,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 			border-radius:20px;
 			padding:0 10px;
 			padding:10px;
+			
 	}
 	.label{
 		margin-right: 5px;
