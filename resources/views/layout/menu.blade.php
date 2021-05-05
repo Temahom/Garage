@@ -298,10 +298,11 @@
                                     </ul>    
                                 </div>
                             </li>
-                            
-                            <li class="nav-item" style="padding-top: 5px">
-                                <a class="nav-link active" style="border-radius:10px;background-color: #2E5441 !important" href="/" aria-expanded="false" ><i class="fa fa-fw fa-car"></i>GARAGE<span class="badge badge-success"></span></a>
-                            </li>
+                            @if(Auth::user()->role_id==1 || Auth::user()->role_id==4)
+                                <li class="nav-item" style="padding-top: 5px">
+                                    <a class="nav-link active" style="border-radius:10px;background-color: #2E5441 !important" href="/" aria-expanded="false" ><i class="fa fa-fw fa-car"></i>GARAGE<span class="badge badge-success"></span></a>
+                                </li>
+                            @endif
             
                         </ul>
                     </div>

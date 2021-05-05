@@ -316,12 +316,11 @@
                                 </div>
                                         </li>
                             </li>-->
-                            
-                            @can('create', App\Models\Diagnostic::class)
+                            @if(Auth::user()->role_id==1 || Auth::user()->role_id==4)
                                 <li class="nav-item "   style="padding-top: 5px">
                                     <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
                                 </li>
-                            @endcan
+                            @endif
                         </ul>
                     </div>
                 </nav>
