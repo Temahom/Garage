@@ -251,33 +251,11 @@
         '</div>';
         return divDevis;
     }
-
-        /*DEBUT gestion des doublons*/
-        const doublon=()=>{
-                    const selects = document.querySelectorAll('.custom-select');
-                    selects.forEach((elem) => {
-                        elem.addEventListener('change', (event) => {
-                            let values = Array.from(selects).map(select => select.value);
-                            for (let select of selects) {
-                            select.querySelectorAll('option').forEach((option) => {
-                                let value = option.value;
-                                if (value &&  value !== select.value && values.includes(value)) {
-                                    option.disabled = true;
-                                } else {
-                                    option.disabled = false;
-                                }
-                            });
-                        }
-                    });
-                });
-            }
-            doublon();
-        /*FIN gestion des doublons*/
+        
 
     $("#add-btn").click(function(){
         div = getDiv(i);
         $("#dynamicAddRemove").append(div);
-        doublon();
         numeroter();
         i++;
     });
@@ -294,21 +272,6 @@
             num++;
         });
     }
-
-    /*SUPPRESSION DOUBLONS SELECT*/
-        const catdoublon=() => {
-                var opt = {};
-                $("#categorie > option").each(function () {
-                    if(opt[$(this).text()]) {
-                        $(this).remove();
-                    } else {
-                        opt[$(this).text()] = $(this).val();
-                    }
-                });
-        }
-        catdoublon();
-
-    /*SUPPRESSION DOUBLONS SELECT*/
 
     /*CONTROL DEVIS*/
         function envoyerFormProd()
