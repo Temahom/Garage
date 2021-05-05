@@ -40,8 +40,8 @@ class Dashboard extends Model
             $sommeFacture += $devi->cout;
         }
         
-        // $diagnostic = Diagnostic::find($intervention->diagnostic_id);
-        // $sommeFacture += $diagnostic->coût;
+        $diagnostic = Diagnostic::find($intervention->diagnostic_id);
+        $sommeFacture += $diagnostic->coût;
         return $sommeFacture;
     }
 
