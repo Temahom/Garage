@@ -267,7 +267,7 @@ body, html {
                            <a href="{{ route('produits.index') }}">
                              <h5 class="text-uppercase" style="color:rgb(255, 255, 255);">Revenue Totale</h5>
                             <h3 class="display-4" style="color:rgb(255, 255, 255); font-size:30px;">
-                                {{number_format($prixR,0, ",", " " )}} <sup>F</sup>
+                                {{number_format($prixR,0, ",", " " )}} <sup>FCFA</sup>
                             </h3>
                           </a> 
                         </div>
