@@ -118,6 +118,7 @@
 						</div>
 					@endcan
 					
+					
 
 				</div>
 				<!-- ============================================================== -->
@@ -277,7 +278,7 @@
 		{{-- Les boutton de la facture --}}
 		<div class="row">
 			<div class="col-md-12 mt-2">
-				@if ( $intervention->diagnostic_id || $intervention->devis_id )
+				@if ( $intervention->diagnostic_id )
 						@if (isset($intervention->facture_id) && $intervention->facture_id)
 						<a class="btn btn-primary" href="/facture/diagnostic/{{$facture->id}}" title="Imprimer Facture">Imprimer la facture</a>
 						<a class="btn btn-primary" href="/send-facture/{{$facture->id}}" title="Envoyer la facture">Envoyer la facture au client</a>
