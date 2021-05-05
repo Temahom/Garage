@@ -376,7 +376,7 @@ body, html {
                                                                                         <span class="badge-dot badge-danger mr-1"></span>Indisponible</td>
                                                                                         @endif
                                                                                     @else
-                                                                                        <span class="badge-dot badge-info mr-1"></span>Satisfaite</td>
+                                                                                        <span></span>Satisfaite</td>
                                                                                     @endif
                                                                                 @endif
                                                                             @endforeach
