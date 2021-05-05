@@ -48,9 +48,14 @@
      }   */
 
     @media screen and (max-width: 767px) {
-  .row {
-          overflow-x: auto !important;
-  }
+        .row {
+                overflow-x: auto !important;
+        }
+
+        .nav-left-sidebar {
+            height: auto !important;
+        }
+    }
 
   .nav-divider{
       display: none;
@@ -80,8 +85,6 @@
         animation: .9s infinite beatHeart;
         transform-origin: center;
     }
-
-  }  
 
     .dashboard-main-wrapper{
         background-color: white;
@@ -127,8 +130,8 @@
             }
         100% {
             transform: translate3d(-100%,0,0);  /* position finale à gauche */
-  }
-}
+            }
+    }
     
 </style>
 
