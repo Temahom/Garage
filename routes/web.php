@@ -134,6 +134,9 @@ Route::middleware('auth')->group(function () {
 
    Route::get('/gestion_stock', function () {
             return view('gestion_stock');
+        });
+  Route::get('/barcode', function () {
+            return view('barcode');
         });     
    
 
