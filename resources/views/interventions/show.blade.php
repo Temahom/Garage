@@ -107,16 +107,17 @@
 						</div>
 					@endif
                     @can('create', App\Models\Diagnostic::class)
-					<div class="row mt-4">
-						<div class="col-md-12">
-							@if ( $intervention->diagnostic_id )
-								<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
-							@else
-								<a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter diagnostic</a>
-							@endif
+						<div class="row mt-4">
+							<div class="col-md-12">
+								@if ( $intervention->diagnostic_id )
+									<a class="btn btn-warning" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Modifier">Modifier</a>
+								@else
+									<a class="btn btn-primary" href="{{ route('voitures.interventions.diagnostics.create',['voiture' => $voiture->id, 'intervention' => $intervention->id]) }}" title="Ajouter">Ajouter diagnostic</a>
+								@endif
+							</div>
 						</div>
-					</div>
 					@endcan
+					
 					
 
 				</div>

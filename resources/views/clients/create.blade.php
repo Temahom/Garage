@@ -24,7 +24,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>
-                    <span class="titre"><i class="fas fa-tag label"></i>Ajout Client</span>
+                    <span class="titre"><i class="fas icon-user label"></i>Ajout Client</span>
                 </h2>
             </div>
         </div>

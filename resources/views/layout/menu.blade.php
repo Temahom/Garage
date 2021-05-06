@@ -46,15 +46,21 @@
         font-family: "Open Sans"!important;
         font-size:16px; 
      }   */
+     @media screen and (max-width: 767px) {
+        .row {
+                overflow-x: auto !important;
+        }
 
-    @media screen and (max-width: 767px) {
-  .row {
-          overflow-x: auto !important;
-  }
+        .nav-left-sidebar {
+            height: auto !important;
+        }
 
-  .nav-divider{
-      display: none;
-  }
+        .nav-divider{
+            display: none;
+        }
+    }
+
+ 
 
   .navbar-toggler-icon {
             display: inline-block;
@@ -80,8 +86,6 @@
         animation: .9s infinite beatHeart;
         transform-origin: center;
     }
-
-  }  
 
     .dashboard-main-wrapper{
         background-color: white;
@@ -241,9 +245,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs">Liste des Fournisseurs</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs/create">Ajouter Fournisseur</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs/create">Ajouter Fournisseur</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -255,9 +261,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important; font-size: 13px" href="/approvisionnements">Liste des Approvisionnements</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajouter Approvisionnement</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajouter Approvisionnement</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -269,9 +277,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important" href="/produits">Liste des Produits</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Créer Produit</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Créer Produit</a>
+                                            </li>
+                                        @endcan
                                      <!--   <li class="nav-item">
                                             <a class="nav-link" href="/produits.creer">Creer un nouveau Produit</a>
                                         </li>-->
@@ -292,10 +302,11 @@
                                     </ul>    
                                 </div>
                             </li>
-                            
-                            <li class="nav-item" style="padding-top: 5px">
-                                <a class="nav-link active" style="border-radius:10px;background-color: #2E5441 !important" href="/" aria-expanded="false" ><i class="fa fa-fw fa-car"></i>GARAGE<span class="badge badge-success"></span></a>
-                            </li>
+                            @if(Auth::user()->role_id==1 || Auth::user()->role_id==4)
+                                <li class="nav-item" style="padding-top: 5px">
+                                    <a class="nav-link active" style="border-radius:10px;background-color: #2E5441 !important" href="/" aria-expanded="false" ><i class="fa fa-fw fa-car"></i>GARAGE<span class="badge badge-success"></span></a>
+                                </li>
+                            @endif
             
                         </ul>
                     </div>

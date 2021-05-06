@@ -50,9 +50,8 @@ class ApprovisionnementController extends Controller
         $approvisionnement->fournisseur_id = $request->input('fournisseur_id'); 
         $approvisionnement->date_approvisionnement =  $request->input('date_approvisionnement');
         $approvisionnement->save();
-        // dd($request->plusdechamps);
+
         foreach ($request->plusdechamps as $key => $value) {
-            // dd(Produit::find($value['produit_id'])->approvisionnements);
             $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
             $produit = Produit::find($value['produit_id']);
             $quantiteStock = 0;
@@ -108,18 +107,80 @@ class ApprovisionnementController extends Controller
      */
     public function update(Request $request, Produit $produit, Approvisionnement $approvisionnement)
     {
-        $request->validate([
-            'fournisseur_id' => 'required',
-            'produit_id' => 'required',
-            'qteAppro' => 'required',
-            'prixAchat' => 'required',
-            ]);
-        $approvisionnement->update($request->all());
+        $table_keys_product = [];
+        $table_keys_pivot = [];
 
+        /**
+         * Recuperation des cles de table pivot
+         * de l'approvisionnement courant
+         */
+       foreach($approvisionnement->produits as $product)
+        {
+            $table_keys_pivot[] = $product->id;
+        }
+        
+        $table_keys_pivot = $table_keys_pivot;
+        // dd($table_keys_pivot);
+        /**
+         * fin
+         */
 
+         /**
+         * Recuperation des cles du formulaire
+         * de l'approvisionnement courant a modifier
+         */
+        foreach ($request->plusdechamps as $key => $value)
+        {
+            // dd($value['produit_id']);
+            $table_keys_product[] = $value['produit_id'];
+        }
+        $table_keys_product = $table_keys_product ;
+        // dd($table_keys_product);
+        /**
+         * fin
+         */
+
+        /**
+         * MaJ ou creation de produit
+         * suivant l'existence de la id
+         * du produit dans la table pivot
+         */
+        foreach ($request->plusdechamps as $key => $value)
+        {
+            // foreach( $table_keys_product as $id)
+            // {
+            //     //dd(!in_array($id, $table_keys_pivot ));
+            //     foreach($table_keys_pivot as $cle)
+            //     {
+            //         if(in_array($id, $table_keys_pivot ))
+            //         {
+            //             $approvisionnement->produits()->detach($id);
+            //             // DB::table('approvisionnement_produit')->where('produit_id',$id)->update(['quantite'=>$value['qteAppro'],
+            //                                                             // 'prix_achat'=>$value['prixAchat']]);
+            //             // dd('maj');
+            //         }
+            //         // elseif(!in_array($id, $table_keys_pivot ) && in_array($cle, $table_keys_product))
+            //         // {  
+            //         //     $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);
+            //         //     // dd('creer');
+            //         // }
+            //         // else
+            //         // {
+            //             // $approvisionnement->produits()->detach($id);
+            //         //     // dd('detacher');
+            //         // }
+            //     }    
+            // // DB::table('produits')->where('id',$id)->update(['qte'=> $value['produit_id'] + Produit::find($id)->qte]);   
+            // }
+            $approvisionnement->produits()->detach($value['produit_id']);
+
+            $approvisionnement->produits()->attach([$value['produit_id']=>['quantite'=>$value['qteAppro'],'prix_achat'=>$value['prixAchat'] ]]);    
+        }    
+        /**
+         * fin
+         */
         $fournisseur = $approvisionnement->fournisseur()->first()->id;
-        return redirect()->route('approvisionnements.show', ['approvisionnement' => $produit])
-            ->with('success', 'Approvisionnemment modifié avec succès !!!');
+        return redirect()->route('approvisionnements.show', ['approvisionnement' => $approvisionnement]);
     }
     /**
      * Remove the specified resource from storage.
@@ -130,6 +191,7 @@ class ApprovisionnementController extends Controller
     public function destroy(Approvisionnement $approvisionnement)
     {
         $approvisionnement->delete();
+        $approvisionnement->produits()->detach($approvisionnement->id);
         
         $fournisseur = $approvisionnement->fournisseur()->first()->id;
         return redirect()->route('fournisseurs.show', ['fournisseur' => $fournisseur])

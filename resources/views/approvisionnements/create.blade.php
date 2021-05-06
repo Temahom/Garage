@@ -55,7 +55,7 @@
                             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
                                 <div class="form-group">
                                     <strong>Date Approvisionnement</strong>
-                                    <input type="date" name="date_approvisionnement" class="form-control">
+                                    <input id="date" type="date" name="date_approvisionnement" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -179,10 +179,32 @@
     }
 
     
+    /*DEBUT gestion des doublons*/
+    const doublon=()=>{
+                    const selects = document.querySelectorAll('.custom-select');
+                    selects.forEach((elem) => {
+                        elem.addEventListener('change', (event) => {
+                            let values = Array.from(selects).map(select => select.value);
+                            for (let select of selects) {
+                            select.querySelectorAll('option').forEach((option) => {
+                                let value = option.value;
+                                if (value &&  value !== select.value && values.includes(value)) {
+                                    option.disabled = true;
+                                } else {
+                                    option.disabled = false;
+                                }
+                            });
+                        }
+                    });
+                });
+            }
+            doublon();
+        /*FIN gestion des doublons*/
 
     $("#add-btn").click(function(){
         div = getDiv(i);
         $("#dynamicAddRemove").append(div);
+        doublon();
         numeroter();
         i++;
     });
@@ -220,7 +242,14 @@
     {
        
         var ok = 1;
-        
+        date = $('#date').val().trim();
+            $('#date').removeClass( "is-invalid" );
+            if(date == '')
+            {
+                $('#date').addClass( "is-invalid" );
+                ok = 0;
+            }
+
         if(nbItemApprov == 0)
         {
             alert('Ajouter au moins un produit');

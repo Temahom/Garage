@@ -94,6 +94,7 @@ Route::middleware('auth')->group(function () {
      */
     /**VAlider la commnde et decrementter */
     Route::get('valider_commande/{id}',[CommandeController::class,'valider_commande'])->name('commandes.valider');
+    Route::get('commades_list',[CommandeController::class,'commades_list'])->name('commandes.lister');
     /**
      * Terminer de valider la commande
      */
@@ -133,6 +134,10 @@ Route::middleware('auth')->group(function () {
            //routes
 
    Route::get('/gestion_stock', function () {
+
+    if(Auth::user()->role_id==2 || Auth::user()->role_id==3){
+        return redirect('/');
+    }
             return view('gestion_stock');
         });
   Route::get('/barcode', function () {

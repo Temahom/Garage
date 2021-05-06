@@ -8,7 +8,7 @@
             color:#fff;
             border-radius:20px;
             padding:0 10px;
-            padding:15px;
+            padding:10px;
     }
     .label{
         margin-right: 5px;
@@ -98,7 +98,7 @@
                                                 <select name="plusdechamps[{{ $i }}][produit_id]" class="custom-select form-control" >
                                                     <option value="">Nom Produit</option>
                                                         @foreach( $produits as $produit ) 
-                                                            <option value="{{ $produit->produit }}"  {{ $produit->code == $product->code ? 'selected' : '' }}>{{ $produit->produit }}</option>
+                                                            <option value="{{ $produit->id }}"  {{ $produit->id == $product->id ? 'selected' : '' }}>{{ $produit->produit }}</option>
                                                         @endforeach 
                                                 </select>
                                         </div> 
@@ -129,7 +129,7 @@
 
         <div class="row">
             <div class="col-md-12 pl-0 py-4">
-                <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-backward "></i> Retour</a>
+                <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left"></i> Retour</a>
                 <a class="btn btn-rounded btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormappro()">Enregistrer</a>
             </div>
         </div>

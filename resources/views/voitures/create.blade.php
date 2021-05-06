@@ -29,7 +29,7 @@ $listes=Liste::select('marques')->orderBy('marques','asc')->distinct()->get();
       <div class="col-lg-12 margin-tb">
           <div class="pull-left">
               <h2>
-                  <span class="titre"><i class="fas fa-tag label"></i>Ajout Voiture</span>
+                  <span class="titre"><i class="fas fa-fw fa-car label"></i> Ajout Voiture</span>
               </h2>
           </div>
       </div>

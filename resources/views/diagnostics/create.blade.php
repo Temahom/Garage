@@ -111,7 +111,7 @@
                                                 <input type="radio" name="plusdechamps[{{ $i }}][etat]" value="2" class="custom-control-input" {{ $defaut->etat == 2 ? 'checked' : '' }}><span class="custom-control-label">Pas urgent</span>
                                             </label>
                                             <label class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" name="plusdechamps[{{ $i }}][etat]" value="3" class="custom-control-input" {{ $defaut->etat == 3 ? 'checked' : '' }}><span class="custom-control-label">Peut urgent</span>
+                                                <input type="radio" name="plusdechamps[{{ $i }}][etat]" value="3" class="custom-control-input" {{ $defaut->etat == 3 ? 'checked' : '' }}><span class="custom-control-label">Peu urgent</span>
                                             </label>
                                         </div> 
                                     </div>
@@ -151,7 +151,7 @@
                                             <input type="radio" name="plusdechamps[0][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>
                                         </label>
                                         <label class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" name="plusdechamps[0][etat]" value="3" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>
+                                            <input type="radio" name="plusdechamps[0][etat]" value="3" class="custom-control-input" ><span class="custom-control-label">Peu urgent</span>
                                         </label>
                                     </div> 
                                 </div>
@@ -217,7 +217,7 @@
                 '<input type="radio" name="plusdechamps['+i+'][etat]" value="2" class="custom-control-input" ><span class="custom-control-label">Pas urgent</span>'+
             '</label>'+
             '<label class="custom-control custom-radio custom-control-inline">'+
-                '<input type="radio" name="plusdechamps['+i+'][etat]" value="3" class="custom-control-input" ><span class="custom-control-label">Peut urgent</span>'+
+                '<input type="radio" name="plusdechamps['+i+'][etat]" value="3" class="custom-control-input" ><span class="custom-control-label">Peu urgent</span>'+
             '</label>'+
         '</div>'+
         '</div>';

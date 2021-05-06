@@ -48,13 +48,20 @@
      }   */
 
     @media screen and (max-width: 767px) {
-  .row {
-          overflow-x: auto !important;
-  }
+        .row {
+                overflow-x: auto !important;
+        }
 
-  .nav-divider{
-      display: none;
-  }
+        .nav-left-sidebar {
+            height: auto !important;
+        }
+
+        .nav-divider{
+            display: none;
+        }
+    }
+
+ 
 
   .navbar-toggler-icon {
             display: inline-block;
@@ -80,8 +87,6 @@
         animation: .9s infinite beatHeart;
         transform-origin: center;
     }
-
-  }  
 
     .dashboard-main-wrapper{
         background-color: white;
@@ -127,8 +132,8 @@
             }
         100% {
             transform: translate3d(-100%,0,0);  /* position finale à gauche */
-  }
-}
+            }
+    }
     
 </style>
 
@@ -231,10 +236,11 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 25px">
-                               Menu
+                        <ul class="navbar-nav flex-column" >
+                            <li class="nav-divider" style="font-size: 20px">
+                               Garage
                             </li><br>
+
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success">6</span></a>
@@ -243,9 +249,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/clients">Liste des Clients</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/clients/create">Ajouter Client</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/clients/create">Ajouter Client</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -257,9 +265,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/voitures">Liste des voitures</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/voitures/create">Ajouter voiture</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -270,9 +280,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/actors">Liste des Acteurs</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/actors/create">Ajouter Acteur</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/actors/create">Ajouter Acteur</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -283,9 +295,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/fullcalendar">Liste des Rendez-vous</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" target="_blank" href="https://calendar.google.com/calendar/u/0?cid=cmI1dmlocnM1OWwwYjZkY3E0dnQ2MzFwOG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Ajouter rv</a>
-                                        </li>
+                                        @can('create', App\Models\Client::class)
+                                            <li class="nav-item">
+                                                <a class="nav-link" target="_blank" href="https://calendar.google.com/calendar/u/0?cid=cmI1dmlocnM1OWwwYjZkY3E0dnQ2MzFwOG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Ajouter rv</a>
+                                            </li>
+                                        @endcan
                                     </ul>    
                                 </div>
                             </li>
@@ -305,12 +319,11 @@
                                 </div>
                                         </li>
                             </li>-->
-                            
-                            
-                            <li class="nav-item "   style="padding-top: 5px">
-                                <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
-                            </li>
-                            
+                            @if(Auth::user()->role_id==1 || Auth::user()->role_id==4)
+                                <li class="nav-item "   style="padding-top: 5px">
+                                    <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </nav>
