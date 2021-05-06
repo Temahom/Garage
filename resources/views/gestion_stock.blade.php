@@ -262,7 +262,7 @@ body, html {
                     <div class="card text-white bg-info">
                         <div class="card-body" style="height: 150%; background-image: linear-gradient( to top,#C94E15, #893914);">
                             <div class="rotate">
-                                <i class="fa fa-minus fa-7x"></i>
+                                <i class="fa fa-cubes fa-7x"></i>
                             </div>
                            <a href="{{ route('produits.index') }}">
                              <h5 class="text-uppercase" style="color:rgb(255, 255, 255);">Revenue Totale</h5>
