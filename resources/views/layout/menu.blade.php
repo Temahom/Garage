@@ -54,11 +54,13 @@
         .nav-left-sidebar {
             height: auto !important;
         }
+
+        .nav-divider{
+            display: none;
+        }
     }
 
-  .nav-divider{
-      display: none;
-  }
+ 
 
   .navbar-toggler-icon {
             display: inline-block;

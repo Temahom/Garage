@@ -55,11 +55,13 @@
         .nav-left-sidebar {
             height: auto !important;
         }
+
+        .nav-divider{
+            display: none;
+        }
     }
 
-  .nav-divider{
-      display: none;
-  }
+ 
 
   .navbar-toggler-icon {
             display: inline-block;
@@ -234,10 +236,11 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 25px">
-                               Menu
+                        <ul class="navbar-nav flex-column" >
+                            <li class="nav-divider" style="font-size: 20px">
+                               Garage
                             </li><br>
+
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success">6</span></a>
