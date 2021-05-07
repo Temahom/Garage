@@ -72,9 +72,9 @@ setlocale(LC_TIME, "fr_FR", "French");
                                     <tr>
                                         <th style="color: white; width: 3%" style="cursor: pointer;">N°</th>
                                         <th style="color: white;" style="cursor: pointer;">Catégorie</th>
-                                        <th style="color: white;" style="cursor: pointer;">Nom Produit</th>
-                                        <th style="color: white;" style="cursor: pointer;">Prix Unitaire</th>
-                                        <th style="color: white;" style="cursor: pointer;">Quantite Alerte</th>
+                                        <th style="color: white;" style="cursor: pointer;">Nom du Produit</th>
+                                        <th style="color: white;" style="cursor: pointer;">Prix Unitaire (F CFA)</th>
+                                        <th style="color: white;" style="cursor: pointer;">Stock d'Alerte</th>
                                         <th style="color: white; text-align: center;" style="cursor: pointer; ">En Stock</th>
                                     </tr>
                                 </thead>
@@ -84,7 +84,7 @@ setlocale(LC_TIME, "fr_FR", "French");
                                         <td>{{ ++$i }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
                                         <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
-                                        <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} <sup>F CFA</sup> </td>
+                                        <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} </td>
                                         <td style="cursor: pointer; text-align: center">{{$produit->quantite_alert}}</td>   
                                         <td style="cursor: pointer; text-align: center">{{$produit->qte}}</td>   
                                         {{-- <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> --}}
