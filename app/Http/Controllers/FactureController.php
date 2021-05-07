@@ -11,6 +11,7 @@ use App\Models\Voiture;
 use App\Models\Diagnostic;
 use App\Models\Intervention;
 use Illuminate\Http\Request;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class FactureController extends Controller
 {
@@ -97,7 +98,7 @@ class FactureController extends Controller
         //$intervention=$diagnostic->intervention()->first();
         $facture= new Facture();
         $facture->etat=1;
-        $facture->numero=time();
+        $facture->numero=IdGenerator::generate(['table' => 'factures', 'field'=>'numero','length' => 8, 'prefix' =>'FAC-']);
         $facture->save();
         $intervention->facture_id=$facture->id;
         $intervention->save();
