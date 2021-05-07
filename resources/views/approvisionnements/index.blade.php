@@ -33,7 +33,7 @@
 @endif
     @can('create', App\Models\Client::class)
         <div class="pull-right" style="margin-bottom:5px">
-            <a class="btn btn-rounded btn-dark" href="{{ route('approvisionnements.create') }}" title="Create a project" style="margin-top: 5px"> 
+            <a class="btn btn-rounded btn-dark" href="{{ route('approvisionnements.create') }}" title="Ajouter approvisionnement" style="margin-top: 5px"> 
                 <i class="fas fa-plus-circle"> Ajouter</i>
             </a>
         </div>

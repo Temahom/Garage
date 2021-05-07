@@ -51,7 +51,7 @@ setlocale(LC_TIME, "fr_FR", "French");
           <div class="col-xs-12 col-sm-12 col-md-12 row">
               <div class="col-xs-9 col-sm-9 col-md-9">     
                   <div class="form-group">
-                    <a class="btn btn-rounded btn-dark" href="{{ route('produits.create') }}" title="Create a project" style="margin-top: 5px"> 
+                    <a class="btn btn-rounded btn-dark" href="{{ route('produits.create') }}" title="Créer produit" style="margin-top: 5px"> 
                         <i class="fas fa-plus-circle"> Créer Un Produit</i>
                     </a>
                   </div>

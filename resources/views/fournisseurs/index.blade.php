@@ -37,7 +37,7 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 	@can('create', App\Models\Client::class)
 		<div class="pull-right" style="margin-bottom:5px">
-			<a class="btn btn-rounded btn-dark" href="{{route('fournisseurs.create')}}" title="Create a project" style="margin-top: 5px"> 
+			<a class="btn btn-rounded btn-dark" href="{{route('fournisseurs.create')}}" title="Ajouter fournisseur" style="margin-top: 5px"> 
 				<i class="fas fa-plus-circle"> Ajouter</i>
 			</a>
 		</div>
