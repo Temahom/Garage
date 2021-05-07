@@ -171,6 +171,8 @@ Route::get('/color_voiture', function () {
 });
 
 Route::resource('/approvisionnements', ApprovisionnementController::class);
-Route::get('alert-list', [ApprovisionnementController::class, 'alert_list']);
+Route::get('demande-approvisionnement', [ApprovisionnementController::class, 'alert_list']);
+Route::Post('store-demande-appro', [ApprovisionnementController::class, 'storeBis'])->name('store-demande-appro');
+Route::get('demande-appro-liste', [ApprovisionnementController::class, 'indexBis'])->name('demande-appro');
 Route::resource('fournisseurs.approvisionnements',ApprovisionnementController::class);
 Route::resource('produits.approvisionnements',ApprovisionnementController::class);

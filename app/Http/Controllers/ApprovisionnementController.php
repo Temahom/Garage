@@ -17,13 +17,19 @@ class ApprovisionnementController extends Controller
     public function index()
     {
         $approvisionnements = Approvisionnement::all();
-
         return view('approvisionnements.index', compact('approvisionnements'));
+    }
+
+    public function indexBis()
+    {
+        $produits = Produit::where('etat','==',1)->get();
+        return view('approvisionnements.indexBis', compact('produits'));
     }
 
     public function alert_list()
     {
-        $produits = Produit::where('qte','<=','quantite_alert')->get();
+        $produits = Produit::where('qte','<=','quantite_alert')->
+                             where('etat','==',0)->get();
         return view('approvisionnements.alert', compact('produits'));
     } 
 
@@ -79,7 +85,22 @@ class ApprovisionnementController extends Controller
             return redirect()->route('fournisseurs.approvisionnements.show', ['fournisseur' => $fournisseur, 'approvisionnement'=>$approvisionnement])
             ->with('success','Approvisionnement Enrégistré');   
     }
-   
+     /**
+      * Methode permettant d'envoyer
+      *une requete d'approvisionnement
+      *en mettant à jour l'etat de la table produit à 1
+      *qui signifie que le produit doit etre commander
+      */
+
+    public function storeBis(Request $request)
+    {
+        $tabDemandeAppro = $request['produit'];
+        foreach($tabDemandeAppro as $produit_id)
+        {
+            DB::table('produits')->where('id',$produit_id)->update(['etat'=>1]);
+        }
+        redirect()->route('demande-appro');
+    }
            
     /**
      * Display the specified resource.
