@@ -236,7 +236,7 @@ body, html {
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 row">  
-                <div class="col-xl-3 col-sm-6 py-2">
+                <div class="col-xl-3 col-sm-6">
                     <div class="card text-white" style="background-image: linear-gradient( to top,#CBDD22, #839603);">
                         <div class="card-body">
                             <div class="rotate">
@@ -273,7 +273,7 @@ body, html {
                         </div>
                     </div>
                 </div>
-                    <div class="col-xl-9 col-sm-6 py-2">
+                    <div class="col-xl-9 col-sm-6">
                         <div class="card">
                             <h5 class="card-header">Revenue</h5>
                             <div class="card-body"><div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
@@ -332,7 +332,8 @@ body, html {
                                                         <td>{{$i++}}</td>
                                                         <td style="cursor: pointer; text-transform: capitalize;">
                                                                                     @foreach ($produits as $produit)
-                                                                                        @if($devi_produit->produit_id==$produit->id)
+                                                                                
+                                                                                    @if($devi_produit->produit_id==$produit->id)
                                                                                         {{$produit->categorie}}
                                                                                         @endif
                                                                                     @endforeach                  
@@ -376,11 +377,16 @@ body, html {
                                                                                         <span class="badge-dot badge-danger mr-1"></span>Indisponible</td>
                                                                                         @endif
                                                                                     @else
-                                                                                        <span></span>Satisfaite</td>
+                                                                                        @if ($produit->qte>0)
+                                                                                        <span class="badge-dot badge-success mr-1"></span>Disponible</td>
+                                                                                        @else
+                                                                                        <span class="badge-dot badge-danger mr-1"></span>Indisponible</td>
+                                                                                        @endif
                                                                                     @endif
                                                                                 @endif
                                                                             @endforeach
                                                         </td>   
+
                                                 @endif 
                                             @endforeach
                                         @endforeach
