@@ -21,6 +21,13 @@ class ApprovisionnementController extends Controller
         return view('approvisionnements.index', compact('approvisionnements'));
     }
 
+    public function alert_list()
+    {
+        $produits = Produit::where('qte','<=','quantite_alert')->get();
+        return view('approvisionnements.alert', compact('produits'));
+    } 
+
+
     /**
      * Show the form for creating a new resource.
      *

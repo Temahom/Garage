@@ -57,10 +57,7 @@ $listes=Produit::select('categorie')->orderBy('categorie','asc')->distinct()->ge
                         </div>	 
                     </div>
                     <div class="form-group">
-                        <strong>Nom du produit :</strong>                                    
-                          <!--  <select name="produit" id="leproduit" class="custom-select form-control @error('produit') is-invalid @enderror" onchange="change();">
-                                <option value="">produit</option>
-                            </select>-->
+                        <strong>Nom du produit </strong> 
                             <input type="text" name="produit" class="custom-select form-control @error('produit') is-invalid @enderror" id="leproduit" placeholder="Mettre le nom du produit" autocomplete="off"/>  
                             <div class="invalid-feedback">
                                 @if($errors->has('produit'))
@@ -71,11 +68,9 @@ $listes=Produit::select('categorie')->orderBy('categorie','asc')->distinct()->ge
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">      
                     <div class="form-group">
-                        <strong>Le Prix Unitaire :</strong>
+                        <strong>Le Prix Unitaire </strong>
                         <input name="prix1" type="number" class="custom-select form-control @error('prix1') is-invalid @enderror" min="0" id="leprix" autocomplete="off" placeholder="Mettre le prix du produit"/>
-                        <!---<select  name="prix1" id="leprix" class="custom-select form-control @error('prix1') is-invalid @enderror" onchange="change();">
-                            <option value="">prix unitaire</option>
-                        </select>-->
+                        
                         <div class="invalid-feedback">
                             @if($errors->has('prix1'))
                             {{ $errors->first('prix1') }}
@@ -83,14 +78,25 @@ $listes=Produit::select('categorie')->orderBy('categorie','asc')->distinct()->ge
                         </div>	
                     </div>	
                     <div class="form-group">
-                        <strong> Quantité :</strong>
+                        <strong> Quantité </strong>
                             <input jsaction="input:trigger.Wtqxqe" type="number"  min="0" name="qte" class="custom-select form-control @error('qte') is-invalid @enderror"  placeholder="Entrer la Quantite" value="{{ old('qte') }}">
                             <div class="invalid-feedback">
                                 @if($errors->has('qte'))
                                 {{ $errors->first('qte') }}
                                 @endif
                             </div>
-                    </div><br>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">      
+                    <div class="form-group">
+                        <strong>Quantite Alerte</strong>
+                        <input name="quantite_alert" type="number" class="custom-select form-control @error('quantite_alert') is-invalid @enderror" min="0" placeholder="Definir une quantite alerte"/>
+                        <div class="invalid-feedback">
+                            @if($errors->has('quantite_alert'))
+                            {{ $errors->first('quantite_alert') }}
+                            @endif
+                        </div>	
+                    </div>
                 </div>
             </div>
             <div class="row">

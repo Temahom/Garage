@@ -40,8 +40,8 @@ class ProduitController extends Controller
   
         return view('produits.index', compact('produits','approvisionnement'));
              
-        }      
-
+        }     
+        
     /**
      * Show the form for creating a new resource.
      *
@@ -73,10 +73,11 @@ class ProduitController extends Controller
     {
         if(isset($request->produit1)&& isset($request->prix)){
             $prod=new Produit();
-            $prod->categorie=$request->categorie1;
-            $prod->prix1=$request->prix;
-            $prod->produit=$request->produit1;
-            $prod->qte=$request->qte;
+            $prod->categorie = $request->categorie1;
+            $prod->prix1 = $request->prix;
+            $prod->produit = $request->produit1;
+            $prod->qte = $request->qte;
+            $prod->quantite_alert = $request->quantite_alert;
             $prod->save();
         }else{
             $request->validate([
@@ -87,10 +88,11 @@ class ProduitController extends Controller
             ]);
     
             $prod=new Produit();
-            $prod->categorie=$request->categorie;
-            $prod->prix1=$request->prix1;
-            $prod->produit=$request->produit;
-            $prod->qte=$request->qte;
+            $prod->categorie = $request->categorie;
+            $prod->prix1 = $request->prix1;
+            $prod->produit = $request->produit;
+            $prod->qte = $request->qte;
+            $prod->quantite_alert = $request->quantite_alert;
             $prod->save();
         }
         
