@@ -258,7 +258,7 @@ $tabThisMonth = \App\Models\Dashboard::tabThisMonth();
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
             <div class="float-left"><span class="badge badge-pill badge-info">2<sup>e </sup> Section</span></div><br>
-            <h4 class="titre_statistique"><span>Recap Journalier | Mensuel</span> </h4>
+            <h4 class="titre_statistique"><span>Récapitulatifs Journalier et Mensuel</span> </h4>
         <!-- tableau recaputulatif du jour -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
