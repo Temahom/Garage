@@ -29,6 +29,7 @@
     <!-- <link rel="stylesheet" href="select2.css"> 
     <link rel="stylesheet" href="select2-bootstrap.css"> -->
     {{-- ------------------------end-------------------------- --}}
+     @yield('css')
     <title>Garage</title>
 </head>
 <style>
@@ -403,6 +404,7 @@
      <script src="/assets/vendor/charts/c3charts/c3.min.js"></script>
      <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
      <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+     @yield('javascript')
 </body>
  
 </html>
