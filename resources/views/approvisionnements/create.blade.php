@@ -55,7 +55,7 @@
                             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
                                 <div class="form-group">
                                     <strong>Date Approvisionnement</strong>
-                                    <input type="date" name="date_approvisionnement" class="form-control">
+                                    <input id="date" type="date" name="date_approvisionnement" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -242,7 +242,14 @@
     {
        
         var ok = 1;
-        
+        date = $('#date').val().trim();
+            $('#date').removeClass( "is-invalid" );
+            if(date == '')
+            {
+                $('#date').addClass( "is-invalid" );
+                ok = 0;
+            }
+
         if(nbItemApprov == 0)
         {
             alert('Ajouter au moins un produit');

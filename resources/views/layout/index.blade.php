@@ -48,13 +48,20 @@
      }   */
 
     @media screen and (max-width: 767px) {
-  .row {
-          overflow-x: auto !important;
-  }
+        .row {
+                overflow-x: auto !important;
+        }
 
-  .nav-divider{
-      display: none;
-  }
+        .nav-left-sidebar {
+            height: auto !important;
+        }
+
+        .nav-divider{
+            display: none;
+        }
+    }
+
+ 
 
   .navbar-toggler-icon {
             display: inline-block;
@@ -80,8 +87,6 @@
         animation: .9s infinite beatHeart;
         transform-origin: center;
     }
-
-  }  
 
     .dashboard-main-wrapper{
         background-color: white;
@@ -127,8 +132,8 @@
             }
         100% {
             transform: translate3d(-100%,0,0);  /* position finale à gauche */
-  }
-}
+            }
+    }
     
 </style>
 
@@ -231,10 +236,11 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-divider" style="font-size: 25px">
-                               Menu
+                        <ul class="navbar-nav flex-column" >
+                            <li class="nav-divider" style="font-size: 20px">
+                               Garage
                             </li><br>
+
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-client" aria-controls="submenu-client"><i class="icon-user"></i>Clients<span class="badge badge-success">6</span></a>
@@ -313,12 +319,11 @@
                                 </div>
                                         </li>
                             </li>-->
-                            
-                            @can('create', App\Models\Diagnostic::class)
+                            @if(Auth::user()->role_id==1 || Auth::user()->role_id==4)
                                 <li class="nav-item "   style="padding-top: 5px">
                                     <a class="nav-link active" href="/gestion_stock" aria-expanded="false" ><i class="fa fa-university" aria-hidden="true"></i>Gestion Stock<span class="badge badge-success"></span></a>
                                 </li>
-                            @endcan
+                            @endif
                         </ul>
                     </div>
                 </nav>

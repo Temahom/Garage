@@ -134,6 +134,10 @@ Route::middleware('auth')->group(function () {
            //routes
 
    Route::get('/gestion_stock', function () {
+
+    if(Auth::user()->role_id==2 || Auth::user()->role_id==3){
+        return redirect('/');
+    }
             return view('gestion_stock');
         });     
    

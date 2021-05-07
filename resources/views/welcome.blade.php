@@ -257,8 +257,8 @@ $tabThisMonth = \App\Models\Dashboard::tabThisMonth();
     <!-- ------------------------------------tableau recaputulatif  jour et mois --------------------------------->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
-            <div class="float-left"><span class="badge badge-pill badge-info">3<sup>e </sup> Section</span></div><br>
-            <h4 class="titre_statistique"><span>Recap Journalier | Mensuel</span> </h4>
+            <div class="float-left"><span class="badge badge-pill badge-info">2<sup>e </sup> Section</span></div><br>
+            <h4 class="titre_statistique"><span>Récapitulatifs Journalier et Mensuel</span> </h4>
         <!-- tableau recaputulatif du jour -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
@@ -326,7 +326,7 @@ $tabThisMonth = \App\Models\Dashboard::tabThisMonth();
     <!-- ---------------------------------------------Chiffre affaire / mois --------------------------->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
-            <div class="float-left"><span class="badge badge-pill badge-info">4<sup>e </sup> Section</span></div><br>
+            <div class="float-left"><span class="badge badge-pill badge-info">3<sup>e </sup> Section</span></div><br>
             <h4 class="titre_statistique"><span>Chiffre d'affaire Mensuel</span> </h4>
               <!--  Chiffre affaire de ce mois -->
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
@@ -367,7 +367,7 @@ $tabThisMonth = \App\Models\Dashboard::tabThisMonth();
     <!-- ------------------------------------tableau recaputulatif  jour et mois --------------------------------->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 row box_section">
-            <div class="float-left"><span class="badge badge-pill badge-info">5<sup>e </sup> Section</span></div><br>
+            <div class="float-left"><span class="badge badge-pill badge-info">4<sup>e </sup> Section</span></div><br>
             <h4 class="titre_statistique"><span>Garage</span> </h4>
         <!-- tableau chiffre d'affaire de ce mois -->
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
