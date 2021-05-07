@@ -171,5 +171,6 @@ Route::get('/color_voiture', function () {
 });
 
 Route::resource('/approvisionnements', ApprovisionnementController::class);
+Route::get('alert-list', [ApprovisionnementController::class, 'alert_list']);
 Route::resource('fournisseurs.approvisionnements',ApprovisionnementController::class);
 Route::resource('produits.approvisionnements',ApprovisionnementController::class);
