@@ -58,6 +58,7 @@
                                         <th style="color: white">Stock</th>
                                         <th style="color: white">Stock Alerte</th>
                                         <th style="color: white">Prix Min Dernier Appro</th>
+                                        <th style="color: white">Fournisseur</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -69,20 +70,37 @@
                                             <td  style="cursor: pointer; text-transform: capitalize;">{{ $produit->qte }}</td>
                                             <td  style="cursor: pointer; text-transform: capitalize;">{{ $produit->quantite_alert}}</td>
                                             @php
+                                               /**
+                                                * Recuperation du prix minimal d'un prix
+                                                *sur l'ensemble des commandes
+                                                *principe:on recupere les prix dans un array
+                                                *pour ensuite selectionnner le min
+                                                */
                                                 $produitFournisseurRecommande = $produit->approvisionnements;
                                                 $tabPrix = [];
                                                 foreach($produitFournisseurRecommande as $appro)
                                                 {
                                                     $tabPrix[] = $appro->pivot->prix_achat;
                                                 }
-                                                if(count($tabPrix) >= 2)
+                                                if(count($tabPrix) >= 1)
                                                 {
                                                     $prixMinimal = min($tabPrix);
+                                                    /**
+                                                     * Le fournisseur qui correspondant 
+                                                     * au prix minimal de la premiere founction
+                                                    */
+                                                    foreach ($produitFournisseurRecommande as $key => $appro) {
+                                                        $fournisseur = '';
+                                                        if($appro->pivot->prix_achat == $prixMinimal){
+                                                            $fournisseur = App\Models\Approvisionnement::find($appro->pivot->approvisionnement_id)->fournisseur()->first()->prenom;
+                                                        }
+                                                    }
                                                 }
                                                 else $prixMinimal= null;
                                                 
                                             @endphp
                                             <td  style="cursor: pointer; text-transform: capitalize;">{{$prixMinimal}}</td>
+                                            <td  style="cursor: pointer; text-transform: capitalize;">{{$fournisseur}}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>   

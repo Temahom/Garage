@@ -22,7 +22,7 @@ class ApprovisionnementController extends Controller
 
     public function indexBis()
     {
-        $produits = Produit::where('etat','==',1)->get();
+        $produits = Produit::where('etat','=',1)->get();
         return view('approvisionnements.indexBis', compact('produits'));
     }
 
