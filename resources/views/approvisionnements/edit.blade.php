@@ -15,23 +15,28 @@
     }
 </style>
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>
-                    <span class="titre"><i class="far fa-edit label"></i>Modification Approvisionnement</span>
-                </h2>
+    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+        <div class="col-xs-12 col-sm-12 col-md-12 "><br>
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-left">
+                    <h2>
+                        <span class="titre"><i class="far fa-edit label"></i>Modification Approvisionnement</span>
+                    </h2>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <br>
+
+
 <form id="Formapprov" action="{{ route('approvisionnements.update',[$approvisionnement->id]) }}" method="POST">
     @csrf
     @method('PUT')
-    
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-11" >
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">  
+            <div class="col-xs-x col-sm-12 col-md-12 "><br>
                 <div class="row p-3" style="border: 1px solid #D2D2E4; box-shadow: 0px 0px 3px #999; background-color: #fefefe;">    
                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
                         <div class="form-group">
@@ -126,6 +131,7 @@
 
             </div>
         </div>
+    </div>
 
         <div class="row">
             <div class="col-md-12 pl-0 py-4">

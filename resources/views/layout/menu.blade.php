@@ -244,11 +244,11 @@
                                 <div id="submenu-client" class="collapse submenu" style="background-color: #2E5441 !important">
                                     <ul class="nav flex-column" style="background-color: #2E5441 !important">
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs">Liste des Fournisseurs</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs">Lister</a>
                                         </li>
                                         @can('create', App\Models\Client::class)
                                             <li class="nav-item">
-                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs/create">Ajouter Fournisseur</a>
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/fournisseurs/create">Ajouter</a>
                                             </li>
                                         @endcan
                                     </ul>    
@@ -260,11 +260,15 @@
                                 <div id="submenu-voiture" style="background-color: #2E5441 !important" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important; font-size: 13px" href="/approvisionnements">Liste des Approvisionnements</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important; font-size: 13px" href="/approvisionnements">Liste Approvisionnements</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important; font-size: 13px" href="/demande-appro-liste">Liste Demandes</a>
                                         </li>
                                         @can('create', App\Models\Client::class)
                                             <li class="nav-item">
-                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajouter Approvisionnement</a>
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajouter Appro</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/demande-approvisionnement">Demande Appro</a>
                                             </li>
                                         @endcan
                                     </ul>    
@@ -276,11 +280,11 @@
                                 <div id="submenu-produit" style="background-color: #2E5441 !important" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits">Liste des Produits</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/produits">Lister</a>
                                         </li>
                                         @can('create', App\Models\Client::class)
                                             <li class="nav-item">
-                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Créer Produit</a>
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/produits/create">Créer</a>
                                             </li>
                                         @endcan
                                      <!--   <li class="nav-item">
@@ -295,7 +299,7 @@
                                 <div id="submenu-commandes" style="background-color: #2E5441 !important" class="collapse submenu">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/commandes">Liste des Commandes </a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important" href="/commandes">Lister</a>
                                         </li>
                                      <!--   <li class="nav-item">
                                             <a class="nav-link" href="/produits.creer">Creer un nouveau Produit</a>

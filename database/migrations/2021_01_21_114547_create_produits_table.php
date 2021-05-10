@@ -20,6 +20,7 @@ class CreateProduitsTable extends Migration
             $table->Integer('prix1');
             $table->Integer('qte');
             $table->Integer('quantite_alert')->nullable();
+            $table->integer('etat')->default(0);
             $table->timestamps();
         });
     }
