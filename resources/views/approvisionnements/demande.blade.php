@@ -36,7 +36,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <h5 class="card-header">Approvisionnement</h5>
-                        <form action="{{route('store-demande-appro')}}" method="POST">
+                        <form action="/store-demande-appro" method="POST">
                             @csrf
                             <div class="card-body">
                                 <select id='keep-order' multiple='multiple' name="produit[]">
