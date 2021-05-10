@@ -29,7 +29,7 @@ class ApprovisionnementController extends Controller
     public function demande()
     {
         $produits = Produit::where('qte','<=','quantite_alert')->
-                             where('etat','==',0)->get();
+                             where('etat','=',0)->get();
         return view('approvisionnements.demande', compact('produits'));
     } 
 
