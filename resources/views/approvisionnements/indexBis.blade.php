@@ -22,7 +22,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>
-                    <span class="titre"><i class="fas fa-list-ul label"></i>Liste Demandes Approvisionnements</span>
+                    <span class="titre"><i class="fas fa-list-ul label"></i>Demandes d'Approvisionnements</span>
                 </h2>
             </div>
         </div>
