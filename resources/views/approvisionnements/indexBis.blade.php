@@ -82,6 +82,7 @@
                                                 {
                                                     $tabPrix[] = $appro->pivot->prix_achat;
                                                 }
+                                                $fournisseur = '';
                                                 if(count($tabPrix) >= 1)
                                                 {
                                                     $prixMinimal = min($tabPrix);
@@ -90,14 +91,16 @@
                                                      * au prix minimal de la premiere founction
                                                     */
                                                     foreach ($produitFournisseurRecommande as $key => $appro) {
-                                                        $fournisseur = '';
                                                         if($appro->pivot->prix_achat == $prixMinimal){
                                                             $fournisseur = App\Models\Approvisionnement::find($appro->pivot->approvisionnement_id)->fournisseur()->first()->prenom;
                                                         }
                                                     }
                                                 }
-                                                else $prixMinimal= null;
-                                                
+                                                else
+                                                {
+                                                    $prixMinimal= null;
+                                                    $fournisseur='';
+                                                }
                                             @endphp
                                             <td  style="cursor: pointer; text-transform: capitalize;">{{$prixMinimal}}</td>
                                             <td  style="cursor: pointer; text-transform: capitalize;">{{$fournisseur}}</td>

@@ -26,11 +26,11 @@ class ApprovisionnementController extends Controller
         return view('approvisionnements.indexBis', compact('produits'));
     }
 
-    public function alert_list()
+    public function demande()
     {
         $produits = Produit::where('qte','<=','quantite_alert')->
                              where('etat','==',0)->get();
-        return view('approvisionnements.alert', compact('produits'));
+        return view('approvisionnements.demande', compact('produits'));
     } 
 
 
@@ -99,7 +99,7 @@ class ApprovisionnementController extends Controller
         {
             DB::table('produits')->where('id',$produit_id)->update(['etat'=>1]);
         }
-        redirect()->route('demande-appro');
+        return redirect('/demande-appro-liste');
     }
            
     /**
