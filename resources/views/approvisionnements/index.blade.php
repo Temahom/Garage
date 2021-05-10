@@ -54,7 +54,7 @@
                                         <th style="color: white;">Date d'Approvisionnement</th>
                                         <th style="color: white;">Date et Heures d'Enregistrement</th>
                                         <th style="color: white;">Nombre d'Article(s)</th>
-                                        <th style="color: white;">Montant Facturé (F CFA</th>
+                                        <th style="color: white;">Montant Facturé(F CFA)</th>
                                         @can('create', App\Models\Client::class)
                                             <th style="color: white; text-align: center">Action</th>
                                         @endcan
