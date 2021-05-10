@@ -261,14 +261,14 @@
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" style="background-color: #2E5441 !important; font-size: 13px" href="/approvisionnements">Liste Approvisionnements</a>
-                                            <a class="nav-link" style="background-color: #2E5441 !important; font-size: 13px" href="/demande-appro-liste">Liste Demande</a>
+                                            <a class="nav-link" style="background-color: #2E5441 !important; font-size: 13px" href="/demande-appro-liste">Liste Demandes</a>
                                         </li>
                                         @can('create', App\Models\Client::class)
                                             <li class="nav-item">
-                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajout</a>
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/approvisionnements/create">Ajouter Appro</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/demande-approvisionnement">Demande</a>
+                                                <a class="nav-link" style="background-color: #2E5441 !important" href="/demande-approvisionnement">Demande Appro</a>
                                             </li>
                                         @endcan
                                     </ul>    

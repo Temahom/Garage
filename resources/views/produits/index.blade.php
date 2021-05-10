@@ -81,12 +81,12 @@ setlocale(LC_TIME, "fr_FR", "French");
                                    <tbody>
                                     @foreach ($produits as $i=>$produit)
                                     <tr>
-                                        <td>{{ ++$i }}</td>
-                                        <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
-                                        <td style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
-                                        <td style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} </td>
-                                        <td style="cursor: pointer; text-align: center">{{$produit->quantite_alert}}</td>   
-                                        <td style="cursor: pointer; text-align: center">{{$produit->qte}}</td>   
+                                        <td onclick="editProduit({{ $produit->id }})">{{ ++$i }}</td>
+                                        <td onclick="editProduit({{ $produit->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie }}</td>
+                                        <td onclick="editProduit({{ $produit->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
+                                        <td onclick="editProduit({{ $produit->id }})" style="cursor: pointer;">{{number_format($produit->prix1 ,0, ",", " " )}} </td>
+                                        <td onclick="editProduit({{ $produit->id }})" style="cursor: pointer; text-align: center">{{$produit->quantite_alert}}</td>   
+                                        <td onclick="editProduit({{ $produit->id }})" style="cursor: pointer; text-align: center">{{$produit->qte}}</td>   
                                         {{-- <td style="text-transform:capitalize;"> {{strftime("%A %d %B %Y", strtotime($produit->created_at))}}</td> --}}
                                       <!--  <td style="text-align:center !important">    
                                             <a href="{{ route('produits.edit', $produit->id) }}">
@@ -147,9 +147,9 @@ setlocale(LC_TIME, "fr_FR", "French");
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
     <script>
-        function showProduit(id)
+        function editProduit(id)
         {
-            window.location = 'produits/' + id ;
+            window.location = 'produits/' + id + '/edit';
         }
     </script>
 

@@ -51,10 +51,10 @@
                                     <tr style="background-color: #006680;">
                                         <th style="color: white;">N°</th>
                                         <th style="color: white;">Fournisseur</th>
-                                        <th style="color: white;">Date d'Approvisionnement</th>
-                                        <th style="color: white;">Date et Heures d'Enregistrement</th>
-                                        <th style="color: white;">Nombre d'Article(s)</th>
-                                        <th style="color: white;">Montant Facturé (F CFA</th>
+                                        <th style="color: white; text-align: center;">Date d'Approvisionnement</th>
+                                        <!--<th style="color: white;">Date et Heures d'Enregistrement</th>-->
+                                        <th style="color: white; text-align: center;">Nombre d'Article(s)</th>
+                                        <th style="color: white; text-align: center;">Montant Facturé (F CFA</th>
                                         @can('create', App\Models\Client::class)
                                             <th style="color: white; text-align: center">Action</th>
                                         @endcan
@@ -65,9 +65,9 @@
                                         <tr>
                                             <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->id }}</td>
                                             <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->fournisseur()->first()->prenom }} {{ $approvisionnement->fournisseur()->first()->nom }}</td>
-                                            <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->date_approvisionnement }}</td>
-                                            <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->created_at}}</td>
-                                            <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ count($approvisionnement->produits) }}</td>
+                                            <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize; text-align: center;">{{date("d-m-Y", strtotime($approvisionnement->date_approvisionnement))}}</td>
+                                            <!--<td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize;">{{ $approvisionnement->created_at}}</td>-->
+                                            <td onclick="showAppro({{ $approvisionnement->id }})" style="cursor: pointer; text-transform: capitalize; text-align: center;">{{ count($approvisionnement->produits) }}</td>
                                             @php
                                                 $prix_tt= 0;
                                                 foreach ($approvisionnement->produits as $produit) {
@@ -75,9 +75,9 @@
                                                 }
                                                 $prix_tt;
                                             @endphp
-                                            <td style="cursor: pointer; text-transform: capitalize;">{{$prix_tt}}</td>
+                                            <td style="cursor: pointer; text-transform: capitalize; text-align: center;">{{$prix_tt}}</td>
                                             @can('create', App\Models\Client::class)
-                                                <td style="justify-content:center;" >
+                                                <td style="justify-content:center; text-align: center;" >
                                                     <form action="{{ route('approvisionnements.destroy', $approvisionnement->id) }}" method="POST" class="btn-group ml-auto">
                                                         <a class="btn btn-sm btn-outline-light" href="{{ route('approvisionnements.edit', ['approvisionnement'=>$approvisionnement->id]) }}">
                                                             Modifier

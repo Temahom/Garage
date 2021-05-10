@@ -35,8 +35,9 @@ $listes=Produit::select('categorie')->orderBy('categorie','asc')->distinct()->ge
 <br><br>
 
     
-    <form action="{{ route('produits.store') }}" method="POST">
-        @csrf
+    <form action="{{ route('produits.update',['produit'=>$produit]) }}" method="POST">
+        @csrf 
+        @method('PATCH')
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 row">  
                 <div class="col-xs-6 col-sm-6 col-md-6">      
@@ -102,7 +103,7 @@ $listes=Produit::select('categorie')->orderBy('categorie','asc')->distinct()->ge
             <div class="row">
                 <div class="col-md-12 pl-0 py-4 ml-4">
                     <a class="btn btn-rounded btn-secondary" href="{{ route('produits.index') }}" title="Go back"><i class="fas fa-angle-left"></i> Retour</a>
-                    <button style="color: white; margin-left: 6px; " type="submit" class="btn btn-rounded btn-success">Créer produit</button>
+                    <button style="color: white; margin-left: 6px; " type="submit" class="btn btn-rounded btn-success">Enregistrer</button>
                 </div>
             </div>
         </div>

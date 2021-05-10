@@ -26,7 +26,7 @@ $listes=Produit::select('categorie')->orderBy('categorie','asc')->distinct()->ge
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>
-                    <span class="titre"><i class="fas fa-tag label"></i>Créer Produit</span>
+                    <span class="titre"><i class="fas fa-tag label"></i>Créer un Produit</span>
                 </h2>
             </div>
         </div>
@@ -102,7 +102,7 @@ $listes=Produit::select('categorie')->orderBy('categorie','asc')->distinct()->ge
             <div class="row">
                 <div class="col-md-12 pl-0 py-4 ml-4">
                     <a class="btn btn-rounded btn-secondary" href="{{ route('produits.index') }}" title="Go back"><i class="fas fa-angle-left"></i> Retour</a>
-                    <button style="color: white; margin-left: 6px; " type="submit" class="btn btn-rounded btn-success">Créer produit</button>
+                    <button style="color: white; margin-left: 6px; " type="submit" class="btn btn-rounded btn-success">Enregistrer</button>
                 </div>
             </div>
         </div>

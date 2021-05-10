@@ -22,7 +22,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>
-                    <span class="titre"><i class="fas fa-list-ul label"></i>Liste Demandes Approvisionnements</span>
+                    <span class="titre"><i class="fas fa-list-ul label"></i>Demandes d'Approvisionnements</span>
                 </h2>
             </div>
         </div>
@@ -36,7 +36,7 @@
 @endif
     @can('create', App\Models\Client::class)
         <div class="pull-right" style="margin-bottom:5px">
-            <a class="btn btn-rounded btn-dark" href="{{ route('approvisionnements.create') }}" title="Create a project" style="margin-top: 5px"> 
+            <a class="btn btn-rounded btn-dark" href="/demande-approvisionnement" title="Create a project" style="margin-top: 5px"> 
                 <i class="fas fa-plus-circle"> Ajouter</i>
             </a>
         </div>
