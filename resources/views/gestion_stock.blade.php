@@ -407,8 +407,8 @@ body, html {
                     <div class="col-xs-12 col-sm-12 col-md-12 "><br>   
                        @foreach ($devi_produits as  $devi_produit)
                          @foreach ($commandes as $commande)
-                           @if($devi_produit->devi_id==$commande->devi_id)
-                            @if($commande->etat==2)
+                           @if($devi_produit->devi_id==$commande->devi_id && $commande->etat==2) 
+                           
                         <div class="card">
                             <i><center>LES PRODUITS VENDUS AUJOURD'HUI</center></i>
                             <div class="card-body">
@@ -502,7 +502,6 @@ body, html {
                                 </div>
                             </div>
                         </div>
-                         @endif 
                          @endif
                        @endforeach
                       @endforeach
