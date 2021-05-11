@@ -29,32 +29,9 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 		</div>
 	</div>
 </div>
-<br>
 <div class="row">
   	<div class="col-xs-12 col-sm-12 col-md-12 row">  
-		<div class="col-lg-12 margin-tb">
-			<div class="col-xs-12 col-sm-12 col-md-12 row">
-				@can('create', App\Models\Client::class)
-                <div class="col-xs-9 col-sm-9 col-md-9">     
-                    <div class="form-group">
-						<a class="btn btn-secondary" href="{{route('clients.create')}}">Ajouter <i class="fas fa-user-plus"></i></a>
-					</div>
-				</div>
-				@endcan
-			<!--	<div class="col-xs-3 col-sm-3 col-md-3">     
-					<div class="form-group">
-						<form action="{{ route('clients.index') }}" method="GET" role="search">
-							<div class="d-flex">
-								<input type="text" class="form-control mr-2" name="term" placeholder="Rechercher ici " id="term" autocomplete="off">
-								<button class="btn btn-info t" type="submit" title="recherche un client">
-									<span class="fas fa-search"></span>
-								</button>
-							</div>
-						</form><br>
-					</div>
-				</div> -->
-			</div>
-
+		<div class="col-lg-12 margin-tb">				
 			@if($message = Session::get('success'))
 				<div class="alert alert-success">
 					<p>{{$message}}</p>
@@ -69,6 +46,14 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 						</div>-->
 						<div class="card-body">
 							<div class="table-responsive">
+								@can('create', App\Models\Client::class)
+									<div class="col-xs-9 col-sm-9 col-md-9">     
+										<div class="form-group">
+											<a class="btn btn-secondary" href="{{route('clients.create')}}">Ajouter <i class="fas fa-user-plus"></i></a>
+										</div>
+									</div>
+								@endcan
+								<br>
 								<table id="example4" class="table table-striped table-bordered" style="width:100%">
 									<thead>
 										<tr style="background-color: #4656E9;">

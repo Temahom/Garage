@@ -36,19 +36,8 @@ setlocale(LC_TIME, "fr_FR", "French");
         </div>
     </div>
 </div>
-<br>
 
-@can('create', App\Models\Client::class)
-    <div class="col-xs-12 col-sm-12 col-md-12 row">
-        <div class="col-xs-9 col-sm-9 col-md-9">     
-            <div class="form-group">
-                <a class="btn btn-rounded btn-dark" href="{{ route('produits.create') }}" title="Créer produit" style="margin-top: 5px"> 
-                    <i class="fas fa-plus-circle"> Créer Un Produit</i>
-                </a>
-            </div>
-        </div>
-    </div>
-@endcan
+
 
 @if($message = Session::get('success'))
     <div class="alert alert-success">
@@ -65,6 +54,18 @@ setlocale(LC_TIME, "fr_FR", "French");
                 </div>-->
                 <div class="card-body">
                     <div class="table-responsive">
+                        @can('create', App\Models\Client::class)
+                            <div class="col-xs-12 col-sm-12 col-md-12 row">
+                                <div class="col-xs-9 col-sm-9 col-md-9">     
+                                    <div class="form-group">
+                                        <a class="btn btn-rounded btn-dark" href="{{ route('produits.create') }}" title="Créer produit" style="margin-top: 5px"> 
+                                            <i class="fas fa-plus-circle"> Créer Un Produit</i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endcan
+                        <br>
                         <table id="example4" class="table table-striped table-bordered">
                         
                             <thead  class="" style="background-color: #006680;">
