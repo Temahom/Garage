@@ -34,17 +34,16 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 		<p>{{$message}}</p>
 	</div>
 @endif
-<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-	@can('create', App\Models\Client::class)
-		<div class="pull-right" style="margin-bottom:5px">
-			<a class="btn btn-rounded btn-dark" href="{{route('fournisseurs.create')}}" title="Ajouter fournisseur" style="margin-top: 5px"> 
-				<i class="fas fa-plus-circle"> Ajouter</i>
-			</a>
-		</div>
-	@endcan
+@can('create', App\Models\Client::class)
+	<div class="pull-right" style="margin-bottom:5px">
+		<a class="btn btn-rounded btn-dark" href="{{route('fournisseurs.create')}}" title="Ajouter fournisseur" style="margin-top: 5px"> 
+			<i class="fas fa-plus-circle"> Ajouter</i>
+		</a>
+	</div>
+@endcan
 
 
- <div class="row">
+<div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 row">  
         <div class="col-xs-12 col-sm-12 col-md-12 "><br>
 			<div class="card">
@@ -82,23 +81,23 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 													<i class="fas fa-trash"></i>
 												</button>
 
-														<div class="modal fade" id="exampleModal{{ $fournisseur->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-															<div class="modal-dialog" role="document">
-																<div class="modal-content">
-																	<div class="modal-body">
-																		<h5>Voulez vous supprimer: <strong>{{ $fournisseur->nom }} {{ $fournisseur->prenom }}</strong>  ?</h5>
-																	</div>
-																	<div class="modal-footer">
-																		<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-																		<form action="{{route('fournisseurs.destroy',$fournisseur->id)}}" method="POST">
-																			@csrf
-																			@method('DELETE')
-																			<button type="submit" class="btn btn-danger">Supprimer</button>
-																		</form>
-																	</div>
-																</div>
+												<div class="modal fade" id="exampleModal{{ $fournisseur->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-body">
+																<h5>Voulez vous supprimer: <strong>{{ $fournisseur->nom }} {{ $fournisseur->prenom }}</strong>  ?</h5>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+																<form action="{{route('fournisseurs.destroy',$fournisseur->id)}}" method="POST">
+																	@csrf
+																	@method('DELETE')
+																	<button type="submit" class="btn btn-danger">Supprimer</button>
+																</form>
 															</div>
 														</div>
+													</div>
+												</div>
 											</td>
 										@endcan
 									</tr>

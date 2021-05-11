@@ -100,12 +100,12 @@
                                         <div class="divProduit col-xs-12 col-sm-12 col-md-4">
                                             <strong>Nom Produit</strong>
                                             
-                                                <select name="plusdechamps[{{ $i }}][produit_id]" class="custom-select form-control" >
-                                                    <option value="">Nom Produit</option>
-                                                        @foreach( $produits as $produit ) 
-                                                            <option value="{{ $produit->id }}"  {{ $produit->id == $product->id ? 'selected' : '' }}>{{ $produit->produit }}</option>
-                                                        @endforeach 
-                                                </select>
+                                            <select name="plusdechamps[{{ $i }}][produit_id]" class="custom-select form-control" >
+                                                <option value="">Nom Produit</option>
+                                                    @foreach( $produits as $produit ) 
+                                                        <option value="{{ $produit->id }}"  {{ $produit->id == $product->id ? 'selected' : '' }}>{{ $produit->produit }}</option>
+                                                    @endforeach 
+                                            </select>
                                         </div> 
                                         <div class="divQteAppro col-xs-12 col-sm-12 col-md-4">
                                             <strong>Quantité Approvisionnée:</strong>
@@ -133,12 +133,12 @@
         </div>
     </div>
 
-        <div class="row">
-            <div class="col-md-12 pl-0 py-4">
-                <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left"></i> Retour</a>
-                <a class="btn btn-rounded btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormappro()">Enregistrer</a>
-            </div>
+    <div class="row">
+        <div class="col-md-12 pl-0 py-4">
+            <a class="btn btn-rounded btn-secondary" href="{{ route('approvisionnements.index') }}" title="Go back"> <i class="fas fa-angle-left"></i> Retour</a>
+            <a class="btn btn-rounded btn-success" style="color: white; margin-left: 6px; " onclick="envoyerFormappro()">Enregistrer</a>
         </div>
+    </div>
             
 </form>
 

@@ -262,7 +262,7 @@ $tabThisMonth = \App\Models\Dashboard::tabThisMonth();
         <!-- tableau recaputulatif du jour -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">Tableau récaptulatif du Jour</h5>
+                    <h5 class="card-header">Tableau récapitulatif du Jour</h5>
                     <div class="card-body">
                         <table class="table">
                             <thead>
@@ -292,7 +292,7 @@ $tabThisMonth = \App\Models\Dashboard::tabThisMonth();
         <!-- tableau recaputulatif du mois -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">Tableau récaptulatif du Mois</h5>
+                    <h5 class="card-header">Tableau récapitulatif du Mois</h5>
                     <div class="card-body">
                         <table class="table">
                             <thead>

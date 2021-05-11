@@ -8,22 +8,21 @@
 	}
 </style>
 
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Modifier Le Fournisseur</h2>
-            </div>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <h2>Modifier Le Fournisseur</h2>
         </div>
     </div>
+</div>
    
   
-    <form action="{{ route('fournisseurs.update',$fournisseur->id) }}" method="POST">
-        @csrf
-        @method('PUT')
+<form action="{{ route('fournisseurs.update',$fournisseur->id) }}" method="POST">
+    @csrf
+    @method('PUT')
    
-       
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 row">  
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 row">  
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Prénoms du Fournisseur:</strong>
@@ -49,15 +48,14 @@
                     <strong>Genre:</strong>
                     <select class="form-control" name="genre" id="genre">
                         @if($fournisseur->genre=="homme")
-
-                      <option style="text-transform: capitalize !important;" value="{{$fournisseur->genre}}" >
-                        {{$fournisseur->genre}}</option>
-                        <option value="femme">Femme</option>
+                            <option style="text-transform: capitalize !important;" value="{{$fournisseur->genre}}" >
+                                {{$fournisseur->genre}}</option>
+                            <option value="femme">Femme</option>
                         @else
-                        <option style="text-transform: capitalize !important;" value="{{$fournisseur->genre}}" >
-                        {{$fournisseur->genre}}</option>
-                      <option value="homme">Homme</option>
-                      @endif
+                            <option style="text-transform: capitalize !important;" value="{{$fournisseur->genre}}" >
+                                {{$fournisseur->genre}}</option>
+                            <option value="homme">Homme</option>
+                        @endif
                     </select>
                 </div>
             </div>
@@ -89,12 +87,12 @@
             
             <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
                 <a class="btn btn-secondary" href="{{ route('fournisseurs.index') }}"><i class="fas fa-angle-left"></i> Retour</a>
-            <button type="submit" class="btn btn-success">Enregistrer</button>
+                <button type="submit" class="btn btn-success">Enregistrer</button>
             </div>
 
         </div>
-</div>
-    </form>
+    </div>
+</form>
 
     <script src="/assets/vendor/jquery/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>

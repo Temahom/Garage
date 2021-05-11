@@ -24,30 +24,30 @@
                         <div style="font-size: 14px;"><i class="fas fa-phone"></i> {{ $fournisseur->telephone}}</div>
                         <div style="font-size: 14px;"><i class="fas fa-envelope"></i> {{ $fournisseur->email}}</div>
                         @can('update', $fournisseur)
-                        <div class="text-right" style="font-size: 12px;">
-                            <a class="text-primary mr-1" href="{{ route('fournisseurs.edit',$fournisseur->id)}}">Modifier</a> 
-                            <button type="button" class="text-danger hide_delete" id="hide_fournisseurs" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $fournisseur->id }}">
-                                Supprimer
-                            </button>
-        
-                                    <div class="modal fade" id="exampleModal{{ $fournisseur->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <h5>Voulez vous supprimer: <strong>{{ $fournisseur->nom }} {{ $fournisseur->prenom }}</strong>  ?</h5>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                    <form action="{{route('fournisseurs.destroy',$fournisseur->id)}}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                                                    </form>
+                            <div class="text-right" style="font-size: 12px;">
+                                <a class="text-primary mr-1" href="{{ route('fournisseurs.edit',$fournisseur->id)}}">Modifier</a> 
+                                <button type="button" class="text-danger hide_delete" id="hide_fournisseurs" style="border: none; cursor: pointer" data-toggle="modal" data-target="#exampleModal{{ $fournisseur->id }}">
+                                    Supprimer
+                                </button>
+            
+                                <div class="modal fade" id="exampleModal{{ $fournisseur->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <h5>Voulez vous supprimer: <strong>{{ $fournisseur->nom }} {{ $fournisseur->prenom }}</strong>  ?</h5>
                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                <form action="{{route('fournisseurs.destroy',$fournisseur->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                        </div>
+                                </div>
+                            </div>
                         @endcan
                     </div>
 
@@ -76,12 +76,13 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="example4" class="table table-striped table-bordered" style="width:100%">
-                                <tr style="background-color: #006680;">
-                                    <th scope="col" style="color: #ffffff; text-align:center; width: 5%" >Numero </th>
-                                    <th scope="col" style="color: #ffffff;text-align:center;" >Date approvisionnement</th>
-                                    <th scope="col" style="color: #ffffff;text-align:center;" >Nombre d'articles</th>
-                                    <th scope="col" style="color: #ffffff;text-align:center;" >Montant Facture</th>
-                                </tr>
+                                <thead>
+                                    <tr style="background-color: #006680;">
+                                        <th scope="col" style="color: #ffffff; text-align:center; width: 5%" >N°</th>
+                                        <th scope="col" style="color: #ffffff;text-align:center;" >Date approvisionnement</th>
+                                        <th scope="col" style="color: #ffffff;text-align:center;" >Nombre d'article(s)</th>
+                                        <th scope="col" style="color: #ffffff;text-align:center;" >Montant Facturé</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($approvisionnements as $key=>$appro)

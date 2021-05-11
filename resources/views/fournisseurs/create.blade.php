@@ -57,29 +57,29 @@
                 </div>
                 
                 <div class="form-group">
-                        <strong>Sexe :</strong>
-                        <select class="form-control @error('genre') is-invalid @enderror" name="genre" id="genre" autocomplete="off">
+                    <strong>Sexe :</strong>
+                    <select class="form-control @error('genre') is-invalid @enderror" name="genre" id="genre" autocomplete="off">
                         <option value="" disabled selected hidden>Choisissez le sexe...</option>
                         <option value="homme" {{ old('genre') == 'homme' ? 'selected' : '' }}>Homme</option>
                         <option value="femme" {{ old('genre') == 'femme' ? 'selected' : '' }}>Femme</option>
-                        </select>
+                    </select>
                 </div>
-                    <div class="invalid-feedback">
-                        @if($errors->has('genre'))
-                        {{ $errors->first('genre') }}
-                        @endif
-                    </div>
+                <div class="invalid-feedback">
+                    @if($errors->has('genre'))
+                    {{ $errors->first('genre') }}
+                    @endif
+                </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Entreprise :</strong>
                     <input type="text" name="entreprise" class="form-control @error('entreprise') is-invalid @enderror" placeholder="Entreprise du Fournisseur" autocomplete="off"  value="{{ old('entreprise') }}">
                 </div>
-                    <div class="invalid-feedback">
-                        @if($errors->has('entreprise'))
-                        {{ $errors->first('entreprise') }}
-                        @endif
-                    </div>
+                <div class="invalid-feedback">
+                    @if($errors->has('entreprise'))
+                    {{ $errors->first('entreprise') }}
+                    @endif
+                </div>
                 
                 <div class="form-group">
                     <strong>Téléphone :</strong>
