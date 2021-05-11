@@ -28,19 +28,12 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
         </div>
     </div>
 </div>
-<br>
 @if($message = Session::get('success'))
 	<div class="alert alert-success">
 		<p>{{$message}}</p>
 	</div>
 @endif
-@can('create', App\Models\Client::class)
-	<div class="pull-right" style="margin-bottom:5px">
-		<a class="btn btn-rounded btn-dark" href="{{route('fournisseurs.create')}}" title="Ajouter fournisseur" style="margin-top: 5px"> 
-			<i class="fas fa-plus-circle"> Ajouter</i>
-		</a>
-	</div>
-@endcan
+
 
 
 <div class="row">
@@ -49,11 +42,19 @@ setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1');
 			<div class="card">
 				<div class="card-body">
 					<div class="table-responsive">
+						@can('create', App\Models\Client::class)
+							<div class="pull-right" style="margin-bottom:5px">
+								<a class="btn btn-rounded btn-dark" href="{{route('fournisseurs.create')}}" title="Ajouter fournisseur" style="margin-top: 5px"> 
+									<i class="fas fa-plus-circle"> Ajouter</i>
+								</a>
+							</div>
+						@endcan
+						<br>
 						<table id="example4" class="table table-striped table-bordered" style="width:100%">
 							<thead>
 								<tr style="background-color: #006680;">
-									<th style="color: white">Prénoms</th>
-									<th style="color: white">NOM</th>
+									<th style="color: white">Prénom</th>
+									<th style="color: white">Nom</th>
 									<th style="color: white">Genre</th>
 									<th style="color: white">Entreprise</th>
 									<th style="color: white">Téléphone</th>
