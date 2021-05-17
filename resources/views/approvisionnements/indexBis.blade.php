@@ -55,10 +55,10 @@
                                     <th style="color: white">N°</th>
                                     <th style="color: white">Categorie</th>
                                     <th style="color: white">Nom Produit</th>
-                                    <th style="color: white">Stock</th>
-                                    <th style="color: white">Stock Alerte</th>
-                                    <th style="color: white">Prix Min Dernier Appro</th>
-                                    <th style="color: white">Fournisseur</th>
+                                    <th style="color: white; text-align:center">Stock</th>
+                                    <th style="color: white; text-align:center">Stock Alerte</th>
+                                    <th style="color: white; text-align:center">Prix Min Dernier Appro</th>
+                                    <th style="color: white; text-align:center">Fournisseur</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,8 +67,8 @@
                                         <td  style="cursor: pointer; text-transform: capitalize;">{{ ++$key}}</td>
                                         <td  style="cursor: pointer; text-transform: capitalize;">{{ $produit->categorie}}</td>
                                         <td  style="cursor: pointer; text-transform: capitalize;">{{ $produit->produit }}</td>
-                                        <td  style="cursor: pointer; text-transform: capitalize;">{{ $produit->qte }}</td>
-                                        <td  style="cursor: pointer; text-transform: capitalize;">{{ $produit->quantite_alert}}</td>
+                                        <td  style="cursor: pointer; text-transform: capitalize; text-align:center">{{ $produit->qte }}</td>
+                                        <td  style="cursor: pointer; text-transform: capitalize; text-align:center">{{ $produit->quantite_alert}}</td>
                                         @php
                                             /**
                                             * Recuperation du prix minimal d'un prix
@@ -102,8 +102,8 @@
                                                 $fournisseur='';
                                             }
                                         @endphp
-                                        <td  style="cursor: pointer; text-transform: capitalize;">{{$prixMinimal}}</td>
-                                        <td  style="cursor: pointer; text-transform: capitalize;">{{$fournisseur}}</td>
+                                        <td  style="cursor: pointer; text-transform: capitalize; text-align:center">{{$prixMinimal}}</td>
+                                        <td  style="cursor: pointer; text-transform: capitalize; text-align:center">{{$fournisseur}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>   
